@@ -43,6 +43,7 @@ WebSocketsClient wsClient;                       // WebSocket client object
 bool wsConnected = false;                        // Flag for WebSocket connection status
 int16_t *latest_samples = nullptr;               // Buffer for status samples (size from Settings)
 size_t latest_sample_index = 0;                  // Index for status buffer
+size_t latest_sample_capacity = 0;               // Total number of samples allocated for status diagnostics
 static uint8_t i2s_buffer[I2S_READ_BUFFER_SIZE]; // Buffer for raw I2S data
 unsigned long lastReconnectAttempt = 0;          // Timer for WS reconnect attempts
 uint32_t packet_sequence = 0;                    // Sequence number for audio packets
@@ -149,8 +150,9 @@ void setup()
         LOG_ERROR("FATAL: Failed to allocate latest_samples buffer! (%u bytes)", Settings.settings.status_sample_count * sizeof(int16_t));
         ESP.restart();
     }
-    memset(latest_samples, 0, Settings.settings.status_sample_count * sizeof(int16_t));
-    LOG_INFO("Allocated status sample buffer (%u samples). Free Heap: %u", Settings.settings.status_sample_count, ESP.getFreeHeap());
+    latest_sample_capacity = Settings.settings.status_sample_count;
+    memset(latest_samples, 0, latest_sample_capacity * sizeof(int16_t));
+    LOG_INFO("Allocated status sample buffer (%u samples). Free Heap: %u", latest_sample_capacity, ESP.getFreeHeap());
 
     pixels.begin();
     pixels.setBrightness(Settings.settings.led_brightness); // Use setting
@@ -234,7 +236,12 @@ void loop()
         num_samples = MAX_SAMPLES_PER_READ;
     }
 
-    size_t samples_to_process_for_status = min((size_t)Settings.settings.status_sample_count, num_samples);
+    const size_t status_capacity = latest_sample_capacity;
+    size_t samples_to_process_for_status = 0;
+    if (latest_samples != nullptr && status_capacity > 0)
+    {
+        samples_to_process_for_status = min(status_capacity, num_samples);
+    }
     double sum_sq = 0.0;           // For RMS calculation
     int16_t peak_val = 0;          // For peak calculation
     int16_t current_sample_16 = 0; // Temp variable for current sample
@@ -246,9 +253,10 @@ void loop()
         current_sample_16 = (int16_t)(sample_32 >> 8);            // Get final 16-bit value
 
         // Store in status buffer (only up to its limit)
-        if (i < samples_to_process_for_status)
+        if (samples_to_process_for_status > 0 && i < samples_to_process_for_status)
         {
-            latest_samples[(latest_sample_index + i) % Settings.settings.status_sample_count] = current_sample_16;
+            const size_t slot = (latest_sample_index + i) % status_capacity;
+            latest_samples[slot] = current_sample_16;
         }
 
         // Update Peak (absolute value)
@@ -261,7 +269,10 @@ void loop()
         // Accumulate sum of squares for RMS (use float to avoid overflow)
         sum_sq += (double)current_sample_16 * (double)current_sample_16;
     }
-    latest_sample_index = (latest_sample_index + samples_to_process_for_status) % Settings.settings.status_sample_count; // Update index after loop
+    if (samples_to_process_for_status > 0)
+    {
+        latest_sample_index = (latest_sample_index + samples_to_process_for_status) % status_capacity; // Update index after loop
+    }
 
     // --- Update Global Runtime State Variables ---
     current_peak = peak_val;
@@ -373,6 +384,13 @@ void attemptWebSocketConnect()
     if (wsConnected)
     {
         LOG_WARN("WebSocket already connected, not attempting.");
+        return;
+    }
+    if (Settings.settings.ws_server.isEmpty())
+    {
+        LOG_WARN("WebSocket server not provisioned; skipping connection attempt.");
+        systemState = STATE_WIFI_CONNECTED;
+        updateLed();
         return;
     }
 
@@ -517,6 +535,11 @@ bool connectToWiFi()
     WiFi.disconnect(true);
     delay(100);
     WiFi.mode(WIFI_STA);
+    if (Settings.settings.wifi_ssid.isEmpty())
+    {
+        LOG_WARN("WiFi SSID not provisioned; skipping connection attempt.");
+        return false;
+    }
     LOG_INFO("Starting WiFi connection to SSID: %s", Settings.settings.wifi_ssid.c_str());
     WiFi.begin(Settings.settings.wifi_ssid.c_str(), Settings.settings.wifi_pass.c_str());
 

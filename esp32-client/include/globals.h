@@ -10,4 +10,8 @@ extern float current_rms;      // Calculated Root Mean Square of recent audio sa
 extern int16_t current_peak;   // Peak absolute value of recent audio samples
 extern bool transmitting;      // Are we actively transmitting audio data? (Set based on triggers/logic)
 
+extern int16_t *latest_samples;      // Pointer to rolling diagnostics buffer used by the status API
+extern size_t latest_sample_index;   // Write index inside the diagnostics buffer
+extern size_t latest_sample_capacity; // Number of samples allocated for diagnostics
+
 #endif // GLOBALS_H

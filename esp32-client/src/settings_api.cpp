@@ -7,14 +7,13 @@
 #include "settings_web.h"
 #include "settings_manager.h"
 
-#define SAMPLE_SIZE 128
-
 extern AsyncWebServer server;
 extern float current_rms;
 extern int16_t current_peak;
 extern bool transmitting;
-extern int16_t latest_samples[SAMPLE_SIZE];
+extern int16_t *latest_samples;
 extern size_t latest_sample_index;
+extern size_t latest_sample_capacity;
 unsigned long boot_time = 0;
 
 const char* methodToString(AsyncWebServerRequest *request) {
@@ -62,12 +61,21 @@ void setupWebEndpoints() {
                                 Settings.settings.simulated_power_variation * sin(millis() * 0.0005);
         json += "\"power_mW\":" + String(simulated_power, 1) + ",";
 
-        json += "\"samples\":[";
-        for (size_t i = 0; i < SAMPLE_SIZE; ++i) {
-            json += String(latest_samples[(latest_sample_index + i) % SAMPLE_SIZE]);
-            if (i < SAMPLE_SIZE - 1) json += ",";
+        json += "\"samples\":";
+        json += "[";
+        if (latest_samples == nullptr || latest_sample_capacity == 0) {
+            json += "]";
+        } else {
+            for (size_t i = 0; i < latest_sample_capacity; ++i) {
+                size_t slot = (latest_sample_index + i) % latest_sample_capacity;
+                json += String(latest_samples[slot]);
+                if (i < latest_sample_capacity - 1) {
+                    json += ",";
+                }
+            }
+            json += "]";
         }
-        json += "]}";
+        json += "}";
 
         request->send(200, "application/json", json);
     });
