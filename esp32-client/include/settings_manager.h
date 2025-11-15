@@ -12,9 +12,9 @@ struct AudioSettings {
     float simulated_power_variation = 100.0f;
     uint32_t sample_rate = 48000;
     uint32_t buffer_len = 1024;
-    String wifi_ssid = "Casa de Bub";
-    String wifi_pass = "vanillasea344";
-    String ws_server = "ws://192.168.1.239";
+    String wifi_ssid = "";
+    String wifi_pass = "";
+    String ws_server = "";
     String ws_port = "8080";
     float gain = 10.0f;
     uint8_t output_bits = 16;

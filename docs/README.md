@@ -17,6 +17,7 @@ System design and architecture documentation.
 - Data flow and processing pipeline
 - Deployment architecture
 - Scalability considerations
+- [Product Requirements Document](./architecture/product-requirements.md)
 
 ### 🔧 [hardware/](./hardware/)
 Hardware specifications and design documents.
