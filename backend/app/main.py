@@ -19,10 +19,24 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     print(f"📝 Environment: {settings.ENVIRONMENT}")
     print(f"🔧 Debug mode: {settings.DEBUG}")
 
+    # Initialize database tables
+    try:
+        from app.db.init_db import init_db
+        from app.db.base import engine
+        await init_db(engine)
+        print("✅ Database initialized")
+    except Exception as e:
+        print(f"⚠️  Database initialization error: {e}")
+
     yield
 
     # Shutdown
     print("👋 ChirpNeighbors Backend shutting down...")
+    try:
+        from app.db.base import engine
+        await engine.dispose()
+    except Exception:
+        pass
 
 
 app = FastAPI(
