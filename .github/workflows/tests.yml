@@ -1,0 +1,243 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  backend-tests:
+    name: Backend API Tests
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: chirpneighbors_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Run linting
+        run: |
+          cd backend
+          ruff check app/
+          ruff format --check app/
+
+      - name: Run type checking
+        run: |
+          cd backend
+          mypy app/ --ignore-missing-imports
+
+      - name: Run tests with coverage
+        env:
+          TEST_DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5432/chirpneighbors_test
+          REDIS_URL: redis://localhost:6379/0
+          ENVIRONMENT: testing
+        run: |
+          cd backend
+          pytest -v --cov=app --cov-report=xml --cov-report=term-missing
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./backend/coverage.xml
+          flags: backend
+          name: backend-coverage
+
+  integration-tests:
+    name: Integration Tests
+    runs-on: ubuntu-latest
+    needs: backend-tests
+
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: chirpneighbors_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd backend
+          pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-dev.txt
+          # Install mock ESP32 client dependencies
+          pip install httpx numpy
+
+      - name: Run integration tests
+        env:
+          TEST_DATABASE_URL: postgresql+asyncpg://postgres:postgres@localhost:5432/chirpneighbors_test
+          ENVIRONMENT: testing
+        run: |
+          cd backend
+          pytest -v -m integration app/tests/test_integration_esp32.py
+
+  firmware-tests:
+    name: ESP32 Firmware Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Cache PlatformIO
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.platformio
+            ~/.cache/pip
+          key: ${{ runner.os }}-platformio-${{ hashFiles('**/platformio.ini') }}
+
+      - name: Install PlatformIO
+        run: |
+          pip install --upgrade platformio
+
+      - name: Build firmware
+        run: |
+          cd firmware
+          pio run -e esp32-s3
+
+      - name: Run firmware tests (native)
+        run: |
+          cd firmware
+          pio test -e native
+
+      - name: Check firmware size
+        run: |
+          cd firmware
+          pio run -e esp32-s3 -t size
+
+  code-quality:
+    name: Code Quality Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install ruff mypy
+
+      - name: Run Ruff (linting)
+        run: |
+          cd backend
+          ruff check app/ --output-format=github
+
+      - name: Run Ruff (formatting)
+        run: |
+          cd backend
+          ruff format --check app/
+
+      - name: Security check with Bandit
+        run: |
+          pip install bandit
+          cd backend
+          bandit -r app/ -ll
+
+  docker-build:
+    name: Docker Build Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build backend Docker image
+        run: |
+          cd backend
+          docker build -t chirpneighbors-backend:test .
+
+      - name: Test Docker image
+        run: |
+          docker run --rm chirpneighbors-backend:test python --version
+
+  test-summary:
+    name: Test Summary
+    runs-on: ubuntu-latest
+    needs: [backend-tests, integration-tests, firmware-tests, code-quality, docker-build]
+    if: always()
+
+    steps:
+      - name: Check test results
+        run: |
+          echo "All tests completed!"
+          echo "Backend tests: ${{ needs.backend-tests.result }}"
+          echo "Integration tests: ${{ needs.integration-tests.result }}"
+          echo "Firmware tests: ${{ needs.firmware-tests.result }}"
+          echo "Code quality: ${{ needs.code-quality.result }}"
+          echo "Docker build: ${{ needs.docker-build.result }}"
+
+      - name: Fail if any tests failed
+        if: |
+          needs.backend-tests.result == 'failure' ||
+          needs.integration-tests.result == 'failure' ||
+          needs.firmware-tests.result == 'failure' ||
+          needs.code-quality.result == 'failure' ||
+          needs.docker-build.result == 'failure'
+        run: exit 1
