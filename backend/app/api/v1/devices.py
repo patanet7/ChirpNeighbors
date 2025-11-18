@@ -1,6 +1,5 @@
 """Device management endpoints."""
 
-from datetime import datetime
 from typing import Any
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -9,7 +8,11 @@ from pydantic import BaseModel, Field
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.api.responses import created_response, success_response, updated_response
+from app.core.constants import StatusCodes
+from app.core.time_utils import get_current_utc_naive, to_iso_string
 from app.db import Device, get_db
+from app.db.utils import get_device_by_id
 
 router = APIRouter()
 
@@ -56,21 +59,19 @@ async def register_device(
         existing_device.firmware_version = registration.firmware_version
         existing_device.model = registration.model
         existing_device.capabilities = registration.capabilities
-        existing_device.last_seen = datetime.utcnow()
+        existing_device.last_seen = get_current_utc_naive()
         existing_device.is_active = True
-        existing_device.updated_at = datetime.utcnow()
+        existing_device.updated_at = get_current_utc_naive()
 
         await db.commit()
         await db.refresh(existing_device)
 
-        return JSONResponse(
-            status_code=200,
-            content={
-                "status": "updated",
-                "message": "Device updated successfully",
+        return updated_response(
+            data={
                 "device_id": existing_device.device_id,
                 "id": existing_device.id,
             },
+            message="Device updated successfully"
         )
     else:
         # Create new device
@@ -80,21 +81,19 @@ async def register_device(
             model=registration.model,
             capabilities=registration.capabilities,
             is_active=True,
-            last_seen=datetime.utcnow(),
+            last_seen=get_current_utc_naive(),
         )
 
         db.add(new_device)
         await db.commit()
         await db.refresh(new_device)
 
-        return JSONResponse(
-            status_code=201,
-            content={
-                "status": "created",
-                "message": "Device registered successfully",
+        return created_response(
+            data={
                 "device_id": new_device.device_id,
                 "id": new_device.id,
             },
+            message="Device registered successfully"
         )
 
 
@@ -112,34 +111,24 @@ async def device_heartbeat(
     - **battery_voltage**: Battery voltage (if available)
     - **rssi**: WiFi signal strength in dBm
     """
-    # Find device
-    result = await db.execute(
-        select(Device).where(Device.device_id == device_id)
-    )
-    device = result.scalar_one_or_none()
-
-    if not device:
-        raise HTTPException(
-            status_code=404,
-            detail=f"Device {device_id} not found. Please register first.",
-        )
+    # Find device using centralized utility
+    device = await get_device_by_id(db, device_id)
 
     # Update device status
-    device.last_seen = datetime.utcnow()
+    device.last_seen = get_current_utc_naive()
     device.battery_voltage = heartbeat.battery_voltage
     device.rssi = heartbeat.rssi
     device.is_active = True
-    device.updated_at = datetime.utcnow()
+    device.updated_at = get_current_utc_naive()
 
     await db.commit()
 
-    return JSONResponse(
-        content={
-            "status": "ok",
-            "message": "Heartbeat received",
+    return success_response(
+        data={
             "device_id": device.device_id,
-            "last_seen": device.last_seen.isoformat(),
-        }
+            "last_seen": to_iso_string(device.last_seen),
+        },
+        message="Heartbeat received"
     )
 
 
@@ -153,29 +142,21 @@ async def get_device(
 
     - **device_id**: Device identifier
     """
-    result = await db.execute(
-        select(Device).where(Device.device_id == device_id)
-    )
-    device = result.scalar_one_or_none()
+    # Find device using centralized utility
+    device = await get_device_by_id(db, device_id)
 
-    if not device:
-        raise HTTPException(
-            status_code=404,
-            detail=f"Device {device_id} not found",
-        )
-
-    return JSONResponse(
-        content={
+    return success_response(
+        data={
             "device_id": device.device_id,
             "model": device.model,
             "firmware_version": device.firmware_version,
             "capabilities": device.capabilities,
             "is_active": device.is_active,
-            "last_seen": device.last_seen.isoformat(),
+            "last_seen": to_iso_string(device.last_seen),
             "battery_voltage": device.battery_voltage,
             "rssi": device.rssi,
-            "created_at": device.created_at.isoformat(),
-            "updated_at": device.updated_at.isoformat(),
+            "created_at": to_iso_string(device.created_at),
+            "updated_at": to_iso_string(device.updated_at),
         }
     )
 
@@ -197,16 +178,16 @@ async def list_devices(
     )
     devices = result.scalars().all()
 
-    return JSONResponse(
-        content={
+    return success_response(
+        data={
             "devices": [
                 {
                     "device_id": device.device_id,
                     "model": device.model,
                     "firmware_version": device.firmware_version,
                     "is_active": device.is_active,
-                    "last_seen": device.last_seen.isoformat(),
-                    "created_at": device.created_at.isoformat(),
+                    "last_seen": to_iso_string(device.last_seen),
+                    "created_at": to_iso_string(device.created_at),
                 }
                 for device in devices
             ],

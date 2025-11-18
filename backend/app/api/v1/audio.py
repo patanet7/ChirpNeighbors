@@ -3,7 +3,6 @@
 import os
 import random
 import uuid
-from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -12,51 +11,45 @@ from fastapi.responses import JSONResponse
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.api.responses import created_response, success_response
 from app.core.config import settings
+from app.core.constants import MOCK_BIRD_SPECIES, ErrorMessages, ProcessingStatus, StatusCodes
+from app.core.time_utils import get_current_utc_naive, to_iso_string
 from app.db import AudioRecording, BirdIdentification, Device, get_db
+from app.db.utils import get_device_by_id
 
 router = APIRouter()
 
 
-# Mock bird species for testing
-MOCK_BIRD_SPECIES = [
-    {"code": "amecro", "common_name": "American Crow", "scientific_name": "Corvus brachyrhynchos"},
-    {"code": "amerob", "common_name": "American Robin", "scientific_name": "Turdus migratorius"},
-    {"code": "norcad", "common_name": "Northern Cardinal", "scientific_name": "Cardinalis cardinalis"},
-    {"code": "baleag", "common_name": "Bald Eagle", "scientific_name": "Haliaeetus leucocephalus"},
-    {"code": "blujay", "common_name": "Blue Jay", "scientific_name": "Cyanocitta cristata"},
-    {"code": "rebwoo", "common_name": "Red-bellied Woodpecker", "scientific_name": "Melanerpes carolinus"},
-    {"code": "norcar", "common_name": "Northern Cardinal", "scientific_name": "Cardinalis cardinalis"},
-    {"code": "mouque", "common_name": "Mourning Dove", "scientific_name": "Zenaida macroura"},
-]
-
-
-async def save_audio_file(file: UploadFile, file_id: str) -> tuple[str, int]:
+async def save_audio_content(content: bytes, file_id: str, file_extension: str) -> str:
     """
-    Save uploaded audio file to local storage.
+    Save audio file content to local storage.
+
+    Args:
+        content: Audio file bytes
+        file_id: Unique file identifier
+        file_extension: File extension (e.g., 'wav')
 
     Returns:
-        tuple: (file_path, file_size)
+        str: Full path to saved file
     """
     # Create storage directory if it doesn't exist
     storage_dir = Path(settings.STORAGE_PATH)
     storage_dir.mkdir(parents=True, exist_ok=True)
 
     # Create subdirectory based on date
-    date_dir = storage_dir / datetime.now().strftime("%Y/%m/%d")
+    from app.core.time_utils import get_current_utc_naive
+    date_dir = storage_dir / get_current_utc_naive().strftime("%Y/%m/%d")
     date_dir.mkdir(parents=True, exist_ok=True)
 
     # Generate file path
-    file_extension = file.filename.split(".")[-1].lower()
     file_path = date_dir / f"{file_id}.{file_extension}"
 
     # Save file
     with open(file_path, "wb") as f:
-        content = await file.read()
         f.write(content)
-        file_size = len(content)
 
-    return str(file_path), file_size
+    return str(file_path)
 
 
 def generate_mock_identification() -> dict[str, Any]:
@@ -92,35 +85,48 @@ async def upload_audio(
     """
     # Validate filename
     if not file.filename:
-        raise HTTPException(status_code=400, detail="No filename provided")
+        raise HTTPException(
+            status_code=StatusCodes.BAD_REQUEST,
+            detail=ErrorMessages.NO_FILENAME
+        )
 
     # Validate file extension
     file_extension = file.filename.split(".")[-1].lower()
     if file_extension not in settings.SUPPORTED_AUDIO_FORMATS:
         raise HTTPException(
-            status_code=400,
-            detail=f"Unsupported file format. Supported: {settings.SUPPORTED_AUDIO_FORMATS}",
+            status_code=StatusCodes.BAD_REQUEST,
+            detail=ErrorMessages.INVALID_FILE_FORMAT.format(
+                formats=settings.SUPPORTED_AUDIO_FORMATS
+            ),
         )
 
-    # Find device in database
-    result = await db.execute(
-        select(Device).where(Device.device_id == device_id)
-    )
-    device = result.scalar_one_or_none()
-
-    if not device:
-        raise HTTPException(
-            status_code=404,
-            detail=f"Device {device_id} not found. Please register device first.",
-        )
+    # Find device in database using centralized utility
+    device = await get_device_by_id(db, device_id)
 
     # Generate unique file ID
     file_id = str(uuid.uuid4())
 
-    # Save audio file to storage
-    file_path, file_size = await save_audio_file(file, file_id)
+    # Validate file size before reading (prevent memory exhaustion)
+    max_size_bytes = settings.MAX_AUDIO_FILE_SIZE_MB * 1024 * 1024
+
+    # Read file content with size check
+    content = await file.read()
+    file_size = len(content)
+
+    if file_size > max_size_bytes:
+        raise HTTPException(
+            status_code=StatusCodes.BAD_REQUEST,
+            detail=ErrorMessages.FILE_TOO_LARGE.format(
+                size=file_size / (1024 * 1024),
+                max_size=settings.MAX_AUDIO_FILE_SIZE_MB
+            ),
+        )
+
+    # Save file content to storage
+    file_path = await save_audio_content(content, file_id, file_extension)
 
     # Parse timestamp
+    from datetime import datetime
     recorded_at = None
     if timestamp:
         try:
@@ -136,9 +142,9 @@ async def upload_audio(
         file_path=file_path,
         file_size=file_size,
         mime_type=file.content_type or "audio/wav",
-        processing_status="pending",
+        processing_status=ProcessingStatus.PENDING,
         recorded_at=recorded_at,
-        uploaded_at=datetime.utcnow(),
+        uploaded_at=get_current_utc_naive(),
     )
 
     db.add(audio_recording)
@@ -164,21 +170,18 @@ async def upload_audio(
     db.add(identification)
 
     # Update audio recording status
-    audio_recording.processing_status = "completed"
-    audio_recording.processed_at = datetime.utcnow()
+    audio_recording.processing_status = ProcessingStatus.COMPLETED
+    audio_recording.processed_at = get_current_utc_naive()
 
     await db.commit()
     await db.refresh(identification)
 
     # Update device last_seen
-    device.last_seen = datetime.utcnow()
+    device.last_seen = get_current_utc_naive()
     await db.commit()
 
-    return JSONResponse(
-        status_code=201,
-        content={
-            "status": "success",
-            "message": "Audio file uploaded and processed successfully",
+    return created_response(
+        data={
             "file_id": file_id,
             "filename": file.filename,
             "size_bytes": file_size,
@@ -192,6 +195,7 @@ async def upload_audio(
                 }
             ],
         },
+        message="Audio file uploaded and processed successfully"
     )
 
 
@@ -212,8 +216,8 @@ async def get_recording(
 
     if not recording:
         raise HTTPException(
-            status_code=404,
-            detail=f"Recording {file_id} not found",
+            status_code=StatusCodes.NOT_FOUND,
+            detail=ErrorMessages.RECORDING_NOT_FOUND.format(file_id=file_id),
         )
 
     # Get identifications
@@ -224,17 +228,17 @@ async def get_recording(
     )
     identifications = id_result.scalars().all()
 
-    return JSONResponse(
-        content={
+    return success_response(
+        data={
             "file_id": recording.file_id,
             "filename": recording.filename,
             "file_size": recording.file_size,
             "duration": recording.duration,
             "sample_rate": recording.sample_rate,
             "processing_status": recording.processing_status,
-            "recorded_at": recording.recorded_at.isoformat() if recording.recorded_at else None,
-            "uploaded_at": recording.uploaded_at.isoformat(),
-            "processed_at": recording.processed_at.isoformat() if recording.processed_at else None,
+            "recorded_at": to_iso_string(recording.recorded_at),
+            "uploaded_at": to_iso_string(recording.uploaded_at),
+            "processed_at": to_iso_string(recording.processed_at),
             "identifications": [
                 {
                     "common_name": id.common_name,
@@ -267,26 +271,23 @@ async def list_recordings(
     query = select(AudioRecording).offset(skip).limit(limit).order_by(AudioRecording.uploaded_at.desc())
 
     if device_id:
-        # Find device
-        device_result = await db.execute(
-            select(Device).where(Device.device_id == device_id)
-        )
-        device = device_result.scalar_one_or_none()
+        # Find device using centralized utility (don't raise 404 if not found)
+        device = await get_device_by_id(db, device_id, raise_404=False)
         if device:
             query = query.where(AudioRecording.device_id == device.id)
 
     result = await db.execute(query)
     recordings = result.scalars().all()
 
-    return JSONResponse(
-        content={
+    return success_response(
+        data={
             "recordings": [
                 {
                     "file_id": rec.file_id,
                     "filename": rec.filename,
                     "file_size": rec.file_size,
                     "processing_status": rec.processing_status,
-                    "uploaded_at": rec.uploaded_at.isoformat(),
+                    "uploaded_at": to_iso_string(rec.uploaded_at),
                 }
                 for rec in recordings
             ],

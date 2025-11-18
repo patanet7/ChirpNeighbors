@@ -2,11 +2,13 @@
 
 import random
 import uuid
-from datetime import datetime, timedelta
+from datetime import timedelta
 from typing import Any
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
+from app.core.constants import MOCK_BIRD_SPECIES
+from app.core.time_utils import get_current_utc_naive
 from app.db import AudioRecording, BirdIdentification, Device
 
 
@@ -44,7 +46,7 @@ class DeviceFactory:
             is_active=is_active,
             battery_voltage=battery_voltage or round(random.uniform(3.6, 4.2), 2),
             rssi=rssi or random.randint(-70, -40),
-            last_seen=datetime.utcnow(),
+            last_seen=get_current_utc_naive(),
             **kwargs
         )
 
@@ -95,7 +97,7 @@ class AudioRecordingFactory:
             file_id = str(uuid.uuid4())
 
         if filename is None:
-            filename = f"chirp_{int(datetime.utcnow().timestamp())}.wav"
+            filename = f"chirp_{int(get_current_utc_naive().timestamp())}.wav"
 
         if file_size is None:
             file_size = random.randint(100000, 5000000)
@@ -108,8 +110,8 @@ class AudioRecordingFactory:
             file_size=file_size,
             mime_type="audio/wav",
             processing_status=processing_status,
-            recorded_at=datetime.utcnow() - timedelta(minutes=random.randint(1, 60)),
-            uploaded_at=datetime.utcnow(),
+            recorded_at=get_current_utc_naive() - timedelta(minutes=random.randint(1, 60)),
+            uploaded_at=get_current_utc_naive(),
             **kwargs
         )
 
@@ -122,14 +124,6 @@ class AudioRecordingFactory:
 
 class BirdIdentificationFactory:
     """Factory for creating test BirdIdentification objects."""
-
-    MOCK_SPECIES = [
-        {"code": "amecro", "common": "American Crow", "scientific": "Corvus brachyrhynchos"},
-        {"code": "amerob", "common": "American Robin", "scientific": "Turdus migratorius"},
-        {"code": "norcad", "common": "Northern Cardinal", "scientific": "Cardinalis cardinalis"},
-        {"code": "baleag", "common": "Bald Eagle", "scientific": "Haliaeetus leucocephalus"},
-        {"code": "blujay", "common": "Blue Jay", "scientific": "Cyanocitta cristata"},
-    ]
 
     @staticmethod
     async def create(
@@ -146,12 +140,12 @@ class BirdIdentificationFactory:
         if audio_recording is None:
             audio_recording = await AudioRecordingFactory.create(db)
 
-        # Use random species if not provided
+        # Use random species if not provided (from centralized constants)
         if species_code is None or common_name is None:
-            species = random.choice(BirdIdentificationFactory.MOCK_SPECIES)
+            species = random.choice(MOCK_BIRD_SPECIES)
             species_code = species_code or species["code"]
-            common_name = common_name or species["common"]
-            scientific_name = scientific_name or species["scientific"]
+            common_name = common_name or species["common_name"]
+            scientific_name = scientific_name or species["scientific_name"]
 
         if confidence is None:
             confidence = round(random.uniform(0.65, 0.98), 4)
