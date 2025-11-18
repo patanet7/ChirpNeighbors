@@ -1,0 +1,50 @@
+# Dockerfile for Bird Image Generation Inference API
+# Optimized for production serving
+
+FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    python3.11 \
+    python3-pip \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set Python 3.11 as default
+RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1
+
+# Upgrade pip
+RUN python -m pip install --upgrade pip
+
+# Copy requirements
+COPY requirements-inference.txt /app/
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements-inference.txt
+
+# Copy application
+COPY inference/ /app/inference/
+COPY config/ /app/config/
+COPY models/ /app/models/
+
+# Create cache directory
+RUN mkdir -p /app/cache
+
+# Set environment variables
+ENV PYTHONPATH=/app
+ENV CUDA_VISIBLE_DEVICES=0
+ENV PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
+
+# Expose API port
+EXPOSE 8001
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=60s --retries=3 \
+    CMD python -c "import requests; requests.get('http://localhost:8001/health')"
+
+# Run API server
+CMD ["uvicorn", "inference.api.main:app", "--host", "0.0.0.0", "--port", "8001", "--workers", "4"]
