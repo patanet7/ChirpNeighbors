@@ -7,9 +7,8 @@ from typing import Any
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.constants import MOCK_BIRD_SPECIES
 from app.core.time_utils import get_current_utc_naive
-from app.db import AudioRecording, BirdIdentification, Device
+from app.db import BirdSpecies, AudioRecording, BirdIdentification, Device
 
 
 class DeviceFactory:
@@ -75,6 +74,59 @@ class DeviceFactory:
         )
 
 
+class BirdSpeciesFactory:
+    """Factory for creating test BirdSpecies objects."""
+
+    @staticmethod
+    async def create(
+        db: AsyncSession,
+        species_code: str | None = None,
+        common_name: str | None = None,
+        scientific_name: str | None = None,
+        family: str | None = None,
+        order: str | None = None,
+        is_active: bool = True,
+        **kwargs
+    ) -> BirdSpecies:
+        """Create a test bird species."""
+        if species_code is None:
+            species_code = f"test{random.randint(1000, 9999)}"
+
+        if common_name is None:
+            common_name = f"Test Bird {random.randint(1000, 9999)}"
+
+        if scientific_name is None:
+            scientific_name = f"Testus birdus {random.randint(1000, 9999)}"
+
+        if family is None:
+            family = "Testidae"
+
+        if order is None:
+            order = "Testiformes"
+
+        species = BirdSpecies(
+            species_code=species_code,
+            common_name=common_name,
+            scientific_name=scientific_name,
+            family=family,
+            order=order,
+            conservation_status="LC",
+            regions=["North America"],
+            typical_frequency_range="2000-6000 Hz",
+            call_duration_range="0.5-2.0 seconds",
+            metadata={"habitat": "Test habitat", "diet": "Test diet"},
+            is_active=is_active,
+            created_at=get_current_utc_naive(),
+            **kwargs
+        )
+
+        db.add(species)
+        await db.commit()
+        await db.refresh(species)
+
+        return species
+
+
 class AudioRecordingFactory:
     """Factory for creating test AudioRecording objects."""
 
@@ -129,9 +181,7 @@ class BirdIdentificationFactory:
     async def create(
         db: AsyncSession,
         audio_recording: AudioRecording | None = None,
-        species_code: str | None = None,
-        common_name: str | None = None,
-        scientific_name: str | None = None,
+        species: BirdSpecies | None = None,
         confidence: float | None = None,
         **kwargs
     ) -> BirdIdentification:
@@ -140,26 +190,22 @@ class BirdIdentificationFactory:
         if audio_recording is None:
             audio_recording = await AudioRecordingFactory.create(db)
 
-        # Use random species if not provided (from centralized constants)
-        if species_code is None or common_name is None:
-            species = random.choice(MOCK_BIRD_SPECIES)
-            species_code = species_code or species["code"]
-            common_name = common_name or species["common_name"]
-            scientific_name = scientific_name or species["scientific_name"]
+        # Create species if not provided
+        if species is None:
+            species = await BirdSpeciesFactory.create(db)
 
         if confidence is None:
             confidence = round(random.uniform(0.65, 0.98), 4)
 
         identification = BirdIdentification(
             audio_recording_id=audio_recording.id,
-            species_code=species_code,
-            common_name=common_name,
-            scientific_name=scientific_name,
+            species_id=species.id,
             confidence=confidence,
             start_time=0.0,
             end_time=random.uniform(2.0, 5.0),
             model_name="MockModel",
             model_version="1.0.0",
+            detection_metadata={"method": "test_factory"},
             **kwargs
         )
 

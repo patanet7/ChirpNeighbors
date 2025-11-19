@@ -1,56 +1,5 @@
 """Centralized constants for ChirpNeighbors backend."""
 
-from typing import TypedDict
-
-
-class BirdSpecies(TypedDict):
-    """Type definition for bird species data."""
-
-    code: str
-    common_name: str
-    scientific_name: str
-
-
-# Mock bird species data for testing/development
-# TODO: Replace with actual database when species table is implemented
-MOCK_BIRD_SPECIES: list[BirdSpecies] = [
-    {
-        "code": "amecro",
-        "common_name": "American Crow",
-        "scientific_name": "Corvus brachyrhynchos",
-    },
-    {
-        "code": "amerob",
-        "common_name": "American Robin",
-        "scientific_name": "Turdus migratorius",
-    },
-    {
-        "code": "norcad",
-        "common_name": "Northern Cardinal",
-        "scientific_name": "Cardinalis cardinalis",
-    },
-    {
-        "code": "baleag",
-        "common_name": "Bald Eagle",
-        "scientific_name": "Haliaeetus leucocephalus",
-    },
-    {
-        "code": "blujay",
-        "common_name": "Blue Jay",
-        "scientific_name": "Cyanocitta cristata",
-    },
-    {
-        "code": "rebwoo",
-        "common_name": "Red-bellied Woodpecker",
-        "scientific_name": "Melanerpes carolinus",
-    },
-    {
-        "code": "mouque",
-        "common_name": "Mourning Dove",
-        "scientific_name": "Zenaida macroura",
-    },
-]
-
 
 # Processing status constants
 class ProcessingStatus:

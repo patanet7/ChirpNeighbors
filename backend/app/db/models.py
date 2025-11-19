@@ -9,6 +9,53 @@ from sqlalchemy.orm import relationship
 from app.db.base import Base
 
 
+class BirdSpecies(Base):
+    """Bird species reference data - extensible catalog."""
+
+    __tablename__ = "bird_species"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    # Species identifiers
+    species_code = Column(String(16), unique=True, index=True, nullable=False)  # e.g., "amecro"
+    common_name = Column(String(128), unique=True, index=True, nullable=False)
+    scientific_name = Column(String(128), index=True, nullable=False)
+
+    # Taxonomic classification (extensible)
+    family = Column(String(64), nullable=True)  # e.g., "Corvidae"
+    order = Column(String(64), nullable=True)  # e.g., "Passeriformes"
+
+    # Additional metadata (extensible JSON)
+    metadata = Column(JSON, nullable=True)  # {"habitat": "...", "migration": "...", etc.}
+
+    # Conservation status
+    conservation_status = Column(String(32), nullable=True)  # e.g., "LC" (Least Concern)
+
+    # Regional information
+    regions = Column(JSON, nullable=True)  # ["North America", "Europe", ...]
+
+    # Audio characteristics (for identification)
+    typical_frequency_range = Column(String(32), nullable=True)  # e.g., "2000-6000 Hz"
+    call_duration_range = Column(String(32), nullable=True)  # e.g., "0.5-2.0 seconds"
+
+    # Reference links (extensible)
+    reference_urls = Column(JSON, nullable=True)  # {"wikipedia": "...", "allaboutbirds": "..."}
+    image_url = Column(String(512), nullable=True)  # Default bird image
+
+    # Status
+    is_active = Column(Boolean, default=True, nullable=False)
+
+    # Timestamps
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
+
+    # Relationships
+    identifications = relationship("BirdIdentification", back_populates="species")
+
+    def __repr__(self) -> str:
+        return f"<BirdSpecies(code='{self.species_code}', common='{self.common_name}')>"
+
+
 class Device(Base):
     """ESP32 device model."""
 
@@ -93,7 +140,7 @@ class AudioRecording(Base):
 
 
 class BirdIdentification(Base):
-    """Bird identification result model."""
+    """Bird identification result model - links recordings to species."""
 
     __tablename__ = "bird_identifications"
 
@@ -103,10 +150,9 @@ class BirdIdentification(Base):
     audio_recording_id = Column(Integer, ForeignKey("audio_recordings.id"), nullable=False)
     audio_recording = relationship("AudioRecording", back_populates="identifications")
 
-    # Bird species information
-    species_code = Column(String(16), nullable=True)  # e.g., "amecro" for American Crow
-    common_name = Column(String(128), nullable=False)
-    scientific_name = Column(String(128), nullable=True)
+    # Bird species reference (normalized - references BirdSpecies table)
+    species_id = Column(Integer, ForeignKey("bird_species.id"), nullable=False, index=True)
+    species = relationship("BirdSpecies", back_populates="identifications")
 
     # Detection details
     confidence = Column(Float, nullable=False)  # 0.0 to 1.0
@@ -117,6 +163,9 @@ class BirdIdentification(Base):
     model_name = Column(String(64), nullable=True)  # e.g., "BirdNET", "MockModel"
     model_version = Column(String(32), nullable=True)
 
+    # Additional detection metadata (extensible)
+    detection_metadata = Column(JSON, nullable=True)  # {"snr": 12.5, "frequency_peak": 4500, ...}
+
     # Generated media (from AI models)
     generated_image_path = Column(String(512), nullable=True)
     generated_gif_path = Column(String(512), nullable=True)
@@ -125,4 +174,4 @@ class BirdIdentification(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     def __repr__(self) -> str:
-        return f"<BirdIdentification(common_name='{self.common_name}', confidence={self.confidence})>"
+        return f"<BirdIdentification(species_id={self.species_id}, confidence={self.confidence})>"

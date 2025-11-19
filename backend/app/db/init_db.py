@@ -4,8 +4,10 @@ import asyncio
 
 from sqlalchemy.ext.asyncio import AsyncEngine
 
+from app.db import AsyncSessionLocal
 from app.db.base import Base, engine
-from app.db.models import Device, AudioRecording, BirdIdentification
+from app.db.models import BirdSpecies, Device, AudioRecording, BirdIdentification
+from app.db.seed_species import seed_bird_species
 
 
 async def init_db(eng: AsyncEngine) -> None:
@@ -18,6 +20,14 @@ async def init_db(eng: AsyncEngine) -> None:
         await conn.run_sync(Base.metadata.create_all)
 
     print("✅ Database tables created successfully!")
+
+    # Seed initial bird species data
+    async with AsyncSessionLocal() as session:
+        species_count = await seed_bird_species(session)
+        if species_count > 0:
+            print(f"✅ Seeded {species_count} bird species")
+        else:
+            print("ℹ️  Bird species already seeded")
 
 
 async def main() -> None:

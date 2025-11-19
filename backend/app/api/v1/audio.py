@@ -13,9 +13,9 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.responses import created_response, success_response
 from app.core.config import settings
-from app.core.constants import MOCK_BIRD_SPECIES, ErrorMessages, ProcessingStatus, StatusCodes
+from app.core.constants import ErrorMessages, ProcessingStatus, StatusCodes
 from app.core.time_utils import get_current_utc_naive, to_iso_string
-from app.db import AudioRecording, BirdIdentification, Device, get_db
+from app.db import AudioRecording, BirdIdentification, BirdSpecies, Device, get_db
 from app.db.utils import get_device_by_id
 
 router = APIRouter()
@@ -52,21 +52,24 @@ async def save_audio_content(content: bytes, file_id: str, file_extension: str) 
     return str(file_path)
 
 
-def generate_mock_identification() -> dict[str, Any]:
-    """Generate mock bird identification for testing."""
-    species = random.choice(MOCK_BIRD_SPECIES)
-    confidence = random.uniform(0.65, 0.98)
+async def generate_mock_identification(db: AsyncSession) -> BirdSpecies | None:
+    """
+    Generate mock bird identification by selecting random species from database.
 
-    return {
-        "species_code": species["code"],
-        "common_name": species["common_name"],
-        "scientific_name": species["scientific_name"],
-        "confidence": round(confidence, 4),
-        "start_time": 0.0,
-        "end_time": random.uniform(2.0, 5.0),
-        "model_name": "MockModel",
-        "model_version": "1.0.0",
-    }
+    Returns:
+        Random active BirdSpecies from database, or None if no species available
+    """
+    # Get all active species from database
+    result = await db.execute(
+        select(BirdSpecies).where(BirdSpecies.is_active == True)
+    )
+    active_species = result.scalars().all()
+
+    if not active_species:
+        return None
+
+    # Select random species
+    return random.choice(active_species)
 
 
 @router.post("/upload", response_model=dict[str, Any])
@@ -151,33 +154,55 @@ async def upload_audio(
     await db.commit()
     await db.refresh(audio_recording)
 
-    # Generate mock bird identification
-    mock_id = generate_mock_identification()
+    # Generate mock bird identification from database
+    mock_species = await generate_mock_identification(db)
 
-    # Save identification to database
-    identification = BirdIdentification(
-        audio_recording_id=audio_recording.id,
-        species_code=mock_id["species_code"],
-        common_name=mock_id["common_name"],
-        scientific_name=mock_id["scientific_name"],
-        confidence=mock_id["confidence"],
-        start_time=mock_id["start_time"],
-        end_time=mock_id["end_time"],
-        model_name=mock_id["model_name"],
-        model_version=mock_id["model_version"],
-    )
+    # Create identification if species available
+    identifications_data = []
 
-    db.add(identification)
+    if mock_species:
+        # Generate realistic detection parameters
+        confidence = round(random.uniform(0.65, 0.98), 4)
+        start_time = 0.0
+        end_time = round(random.uniform(2.0, 5.0), 2)
+
+        # Save identification to database (now using species_id reference)
+        identification = BirdIdentification(
+            audio_recording_id=audio_recording.id,
+            species_id=mock_species.id,  # Reference to BirdSpecies table
+            confidence=confidence,
+            start_time=start_time,
+            end_time=end_time,
+            model_name="MockModel",
+            model_version="1.0.0",
+            detection_metadata={
+                "method": "random_selection",
+                "database_species_count": 1,
+            }
+        )
+
+        db.add(identification)
+        await db.commit()
+        await db.refresh(identification)
+
+        # Build response data with species information
+        identifications_data.append({
+            "species_code": mock_species.species_code,
+            "common_name": mock_species.common_name,
+            "scientific_name": mock_species.scientific_name,
+            "family": mock_species.family,
+            "confidence": identification.confidence,
+            "start_time": identification.start_time,
+            "end_time": identification.end_time,
+        })
 
     # Update audio recording status
     audio_recording.processing_status = ProcessingStatus.COMPLETED
     audio_recording.processed_at = get_current_utc_naive()
 
-    await db.commit()
-    await db.refresh(identification)
-
     # Update device last_seen
     device.last_seen = get_current_utc_naive()
+
     await db.commit()
 
     return created_response(
@@ -185,17 +210,10 @@ async def upload_audio(
             "file_id": file_id,
             "filename": file.filename,
             "size_bytes": file_size,
-            "identifications": [
-                {
-                    "common_name": identification.common_name,
-                    "scientific_name": identification.scientific_name,
-                    "confidence": identification.confidence,
-                    "start_time": identification.start_time,
-                    "end_time": identification.end_time,
-                }
-            ],
+            "identifications": identifications_data,
         },
-        message="Audio file uploaded and processed successfully"
+        message="Audio file uploaded and processed successfully" if identifications_data
+                else "Audio file uploaded (no species in database for mock identification)"
     )
 
 
