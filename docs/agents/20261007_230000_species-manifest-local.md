@@ -28,7 +28,7 @@ behavior slice; E play/nesting; F reviewed art intake; G future provider adapter
 Each has concrete acceptance criteria. No publication, credentials, paid services
 or provider integrations are authorized here.
 
-**Agent Status**: In progress. Verification and exact local commits follow.
+**Agent Status**: Completed locally. Verification and exact local commits follow.
 
 ## Manifest slice completed
 
@@ -50,3 +50,36 @@ No replacement art, providers, location collection, credential changes or public
 Night sleep/wake remains the next separate UI commit. The full 14-item delivery
 queue is documented in the UI repository, including the separately active ESP32
 work, which this task does not touch.
+
+
+## Separate night routine slice completed
+
+UI local commit: `169c1a4f9b52b9d57a7d4015503b190e13c8130c` —
+`feat: add deterministic night rest and dawn wake routines`.
+
+Night phase reserves available perches and safe ground using existing arbitration;
+sleepers hold position, dawn interrupts sleep-bound flights without teleporting,
+and object edits/new residents repair and acquire claims. Quiet mode stays frozen.
+Missing sleep art uses a labeled existing first idle pose, with no new artwork.
+
+Final UI verification: **123 unit tests in 12 files**, **129 browser checks**
+(10 sleep + 16 manifests + 66 core + 37 layered), typecheck/lint/build and the
+cross-repository schema comparison all pass. All four browser reports have zero
+runtime errors and external requests. The unchanged Python identification adapter
+also passes its 15 contract tests in the temporary virtual environment.
+
+Supporting UI documents: `docs/engine-task-checklist.md`,
+`docs/species-asset-manifests.md`, `docs/manifest-checkpoint.md`,
+`docs/night-routines.md`. Evidence: `/tmp/chirp-sleep`, `/tmp/chirp-manifests`,
+`/tmp/chirp-foundation`, `/tmp/chirp-layered`.
+
+The main repository has only this log changed by this task. The separate reported
+ESP32 delivery `c693ed02ca29b4cb538c94ff7c434ae8a11adad9` is noted in the checklist;
+it was not modified or merged here. Another task owns the job worker; this second
+slice makes no worker-orchestration edits. Integrate the two tested UI commits in
+order when authorized by the parent task; publication remains out of scope here.
+
+Remaining work is explicit in the 14-item checklist. Species-correct/approved art,
+atlas/media delivery, photo/generation adapters, provider-backed imports/weather,
+production identity and hosting are not implemented. No environment blocker
+remains for local work. No push, PR, merge, deployment or publication retry occurred.
