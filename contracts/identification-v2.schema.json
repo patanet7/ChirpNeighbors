@@ -1,0 +1,163 @@
+{
+  "$ref": "#/definitions/IdentificationEventV2",
+  "definitions": {
+    "IdentificationEventV2": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 2
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "prototype",
+              "constructor"
+            ]
+          }
+        },
+        "species": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/IdentificationEventV2/properties/id"
+            },
+            "commonName": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "scientificName": {
+              "type": "string",
+              "minLength": 3,
+              "maxLength": 160
+            },
+            "description": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "referencePhoto": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/IdentificationEventV2/properties/species/properties/referencePhoto/additionalProperties"
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/definitions/IdentificationEventV2/properties/species/properties/referencePhoto/additionalProperties"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "id",
+            "commonName",
+            "scientificName"
+          ],
+          "additionalProperties": false
+        },
+        "observedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "Z$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "fixture",
+                "manual",
+                "model",
+                "external"
+              ]
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "sourceEventId": {
+              "$ref": "#/definitions/IdentificationEventV2/properties/id"
+            },
+            "provider": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "modelVersion": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          "required": [
+            "kind",
+            "label",
+            "sourceEventId"
+          ],
+          "additionalProperties": false
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "recordingId": {
+          "$ref": "#/definitions/IdentificationEventV2/properties/id"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/IdentificationEventV2/properties/species/properties/referencePhoto/additionalProperties"
+          }
+        },
+        "ingestedAt": {
+          "$ref": "#/definitions/IdentificationEventV2/properties/observedAt/anyOf/0"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "species",
+        "observedAt",
+        "source"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/identification-v2.schema.json",
+  "description": "Source-neutral import boundary. ingestedAt is server owned and replaced on intake. metadata and recording references are private. No live inference or location collection is implied."
+}
