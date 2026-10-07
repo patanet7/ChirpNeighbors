@@ -1,0 +1,25 @@
+name: Headless audio intake
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+    defaults:
+      run:
+        working-directory: backend-inference
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: |
+            backend-inference/requirements-intake.txt
+            backend-inference/requirements-contract.txt
+      - run: python -m pip install -r requirements-intake.txt -r requirements-contract.txt
+      - run: python -B -W error -m unittest discover -s tests -v
