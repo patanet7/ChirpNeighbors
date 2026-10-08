@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "baseline": {
+    "ui": "ecccb0e56f50753d93044f74beaf7b2187edd2e2",
+    "main": "715c03dc5ae2ec93c7d786d3a3a18608988705e8"
+  },
+  "rules": [
+    "Local implementation and same-workspace integration only.",
+    "No publication, credential grants, external transfers, real user data or costs.",
+    "Existing owner storage and prior checkpoints must survive."
+  ],
+  "workstreams": [
+    {
+      "id": "contracts",
+      "owner": "contracts_platform",
+      "status": "partial_local",
+      "dependencies": [],
+      "acceptance": [
+        "One documented source of truth per wire boundary; generated counterpart types and schema drift fail the gate.",
+        "Versioned strict discriminated commands/events/errors preserve unknown time, bounded numbers and UUID semantics across Python/TypeScript golden roundtrips.",
+        "Pydantic v2 public models and strict Python typing; assess and enable stricter TS options without blanket casts/ignores.",
+        "Reproducible aggregate lint/format/type/unit/integration/browser gate."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "storage",
+      "owner": "media_frontend",
+      "status": "partial_local",
+      "dependencies": [
+        "contracts"
+      ],
+      "acceptance": [
+        "Owner-scoped transactional SQLite persistence survives restart and preserves prior data/migrations.",
+        "Recording idempotency, conflicts, bounded pagination/upload, tombstones and cleanup are explicit and tested.",
+        "Restore cannot resurrect media; derived-output deletion and full recovery boundaries remain honest."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "auth",
+      "owner": "auth_sessions",
+      "status": "partial_local",
+      "dependencies": [
+        "contracts"
+      ],
+      "acceptance": [
+        "Real email-link and Google OIDC provider boundaries use a mature maintained protocol library.",
+        "Persisted sessions, callback state/PKCE/replay/expiry/logout and explicit linking are tested with labeled mocks only.",
+        "Missing credentials/transport fail closed; frontend explains interrupted and expired flows without claiming provider success."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "frontend",
+      "owner": "media_frontend",
+      "status": "partial_local",
+      "dependencies": [
+        "contracts",
+        "storage",
+        "auth"
+      ],
+      "acceptance": [
+        "Typed query/form errors and loading/empty/retry/conflict states cover private recording upload/playback/delete.",
+        "Accessible mobile/keyboard/reduced-motion journeys retain Finds, residents, collection, settings and fixture disclosures.",
+        "Login/logout/session expiry and owner changes never reveal stale private state."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "ml",
+      "owner": "audio_pipeline",
+      "status": "partial_local",
+      "dependencies": [
+        "contracts",
+        "storage"
+      ],
+      "acceptance": [
+        "Executable modular audio validation, preprocessing, chunking, fixture inference, taxonomy/threshold normalization and provenance.",
+        "Raw candidates stay distinct from confirmed observations; model/license/version/idempotency/cancellation boundaries are enforced.",
+        "Synthetic eval fixtures produce recorded metrics; absent real model/credentials/license approval is explicit."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "image",
+      "owner": "image_pipeline",
+      "status": "partial_local",
+      "dependencies": [
+        "contracts"
+      ],
+      "acceptance": [
+        "Executable licensing/provenance intake, pinned provider boundary, pixel/palette/transparency/frame normalization and manifest packaging.",
+        "Technical fixture pixels exercise strict validators; human review precedes immutable application catalog publication and explicit renderer pins.",
+        "No static concept misrepresented as a sheet; no invented reviewed art or generation provider success."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "operations",
+      "owner": "reliability_ops",
+      "status": "partial_local",
+      "dependencies": [
+        "contracts",
+        "storage",
+        "auth"
+      ],
+      "acceptance": [
+        "Safe structured logs, trace IDs, health/readiness and graceful process lifecycle are tested without private payloads.",
+        "Owner isolation, safe public projection, backup/restore and failure recovery gates are reproducible.",
+        "Local runbook/container composition and US configuration template are usable; no deployment or worker-loop duplication."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "worker_transfer",
+      "owner": "external_transfer",
+      "status": "unintegrated",
+      "dependencies": [],
+      "acceptance": [
+        "Previously completed worker c08624d3 is not present or reimplemented to circumvent transfer approval.",
+        "Integrate and reverify only after authorized same-artifact transfer; current manually advanced runner remains explicit."
+      ],
+      "evidence": []
+    },
+    {
+      "id": "esp32_transfer",
+      "owner": "external_transfer",
+      "status": "unintegrated",
+      "dependencies": [],
+      "acceptance": [
+        "Previously completed ESP32 c693ed0 is not present or reimplemented to circumvent transfer approval.",
+        "Actual hardware/model execution remains unverified; transfer and integration are separate gates."
+      ],
+      "evidence": []
+    }
+  ],
+  "gates": [
+    {
+      "id": "ui-types",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "baseline": true
+    },
+    {
+      "id": "ui-lint",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "baseline": true
+    },
+    {
+      "id": "ui-unit",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "baseline": true
+    },
+    {
+      "id": "ui-build",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "baseline": true
+    },
+    {
+      "id": "contract-drift",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "contracts:check",
+        "--",
+        "--main-repo",
+        "../ChirpNeighbors"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "combined-browser",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "test:consolidation"
+      ],
+      "baseline": false
+    }
+  ]
+}
