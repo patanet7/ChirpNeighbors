@@ -1,0 +1,12 @@
+# Only the modular request API is packaged. No legacy server, recordings or model weights.
+FROM python:3.11.14-slim-bookworm
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+WORKDIR /app
+COPY requirements-audio.txt ./
+RUN python -m pip install --no-cache-dir --disable-pip-version-check -r requirements-audio.txt
+COPY app/audio_pipeline/ ./app/audio_pipeline/
+COPY app/models/identification.py app/models/session_verifier.py ./app/models/
+USER 65532:65532
+EXPOSE 8083
+STOPSIGNAL SIGTERM
+CMD ["uvicorn", "app.audio_pipeline.api:app", "--host", "127.0.0.1", "--port", "8083", "--no-access-log"]
