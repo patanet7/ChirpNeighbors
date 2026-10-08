@@ -42,7 +42,7 @@ UtcTime = Annotated[
     str,
     StringConstraints(
         pattern=(
-            r"^(?!0000)\d{4}-\d{2}-\d{2}T"
+            r"^(000[1-9]|00[1-9]\d|0[1-9]\d{2}|[1-9]\d{3})-\d{2}-\d{2}T"
             r"([01]\d|2[0-3]):[0-5]\d:[0-5]\d(\.\d{1,6})?Z$"
         ),
         max_length=32,
