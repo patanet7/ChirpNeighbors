@@ -6,6 +6,7 @@ import asyncio
 import importlib
 import os
 from pathlib import Path
+from typing import assert_never
 from uuid import uuid4
 
 from fastapi import FastAPI, Request
@@ -223,14 +224,17 @@ def create_app(
             raise
         status = 200
         if isinstance(event, AudioFailedEvent):
-            status = {
-                "recording_unavailable": 404,
-                "invalid_audio": 422,
-                "conflict": 409,
-                "cancelled": 409,
-                "provider_blocked": 503,
-                "provider_failure": 503,
-            }[event.error.code]
+            match event.error.code:
+                case "recording_unavailable":
+                    status = 404
+                case "invalid_audio":
+                    status = 422
+                case "conflict" | "cancelled":
+                    status = 409
+                case "provider_blocked" | "provider_failure":
+                    status = 503
+                case unknown:
+                    assert_never(unknown)
         return JSONResponse(
             event.model_dump(mode="json"),
             status_code=status,
