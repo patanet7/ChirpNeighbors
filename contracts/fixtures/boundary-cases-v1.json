@@ -1,0 +1,1377 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "schema": "identification-v2",
+      "name": "unknown observation time stays null",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": null,
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "known UTC time and zero confidence",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": "2026-10-08T12:00:00.123Z",
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        },
+        "confidence": 0
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "nested private evidence is preserved",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": null,
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        },
+        "metadata": {
+          "synthetic": [
+            null,
+            {
+              "empty": {},
+              "values": [
+                0,
+                false,
+                "x"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "reject schemaVersion 3",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 3,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": null,
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "reject observedAt \"2026-02-30T12:00:00Z\"",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": "2026-02-30T12:00:00Z",
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "reject observedAt \"2026-10-08T12:00:00+00:00\"",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": "2026-10-08T12:00:00+00:00",
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "reject confidence 1.01",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": null,
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        },
+        "confidence": 1.01
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "reject confidence null",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": null,
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        },
+        "confidence": null
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "reject ownerId \"synthetic-injected-owner\"",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": null,
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        },
+        "ownerId": "synthetic-injected-owner"
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "reject id \"__proto__\"",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "__proto__",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": null,
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "unknown time must be explicit",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "unknown source discriminant",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": null,
+        "source": {
+          "kind": "guessed",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "reject nested unknown fields",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula",
+          "ownerId": "synthetic"
+        },
+        "observedAt": null,
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "finding-command-v1",
+      "name": "manual unknown time",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "action": "manual-finding",
+        "finding": {
+          "schemaVersion": 1,
+          "id": "3f709b18-0fda-4a45-85ac-0bc67ad799b4",
+          "speciesId": "cn-species-erithacus-rubecula",
+          "observedAt": null,
+          "note": "Synthetic manual contract fixture"
+        }
+      }
+    },
+    {
+      "schema": "finding-command-v1",
+      "name": "finding UUID required",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "action": "manual-finding",
+        "finding": {
+          "schemaVersion": 1,
+          "id": "not-uuid",
+          "speciesId": "cn-species-erithacus-rubecula",
+          "observedAt": null,
+          "note": "Synthetic manual contract fixture"
+        }
+      }
+    },
+    {
+      "schema": "finding-command-v1",
+      "name": "finding no owner injection",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "action": "manual-finding",
+        "finding": {
+          "schemaVersion": 1,
+          "id": "3f709b18-0fda-4a45-85ac-0bc67ad799b4",
+          "speciesId": "cn-species-erithacus-rubecula",
+          "observedAt": null,
+          "note": "Synthetic manual contract fixture"
+        },
+        "ownerId": "synthetic"
+      }
+    },
+    {
+      "schema": "finding-command-v1",
+      "name": "action union rejects unknown command",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "action": "remove-evidence",
+        "finding": {
+          "schemaVersion": 1,
+          "id": "3f709b18-0fda-4a45-85ac-0bc67ad799b4",
+          "speciesId": "cn-species-erithacus-rubecula",
+          "observedAt": null,
+          "note": "Synthetic manual contract fixture"
+        }
+      }
+    },
+    {
+      "schema": "finding-command-v1",
+      "name": "empty correction rejected",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "action": "correct-events",
+        "corrections": []
+      }
+    },
+    {
+      "schema": "recording-metadata-v1",
+      "name": "synthetic PCM dimensions",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "mediaType": "audio/wav",
+        "byteLength": 16044,
+        "durationMs": 1000,
+        "sampleRate": 8000,
+        "channels": 1,
+        "frames": 8000,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "createdAt": "2026-10-08T00:00:00.000Z"
+      }
+    },
+    {
+      "schema": "recording-metadata-v1",
+      "name": "reject recording sampleRate",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "mediaType": "audio/wav",
+        "byteLength": 16044,
+        "durationMs": 1000,
+        "sampleRate": "8000",
+        "channels": 1,
+        "frames": 8000,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "createdAt": "2026-10-08T00:00:00.000Z"
+      }
+    },
+    {
+      "schema": "recording-metadata-v1",
+      "name": "reject recording frames",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "mediaType": "audio/wav",
+        "byteLength": 16044,
+        "durationMs": 1000,
+        "sampleRate": 8000,
+        "channels": 1,
+        "frames": 0,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "createdAt": "2026-10-08T00:00:00.000Z"
+      }
+    },
+    {
+      "schema": "recording-metadata-v1",
+      "name": "reject recording channels",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "mediaType": "audio/wav",
+        "byteLength": 16044,
+        "durationMs": 1000,
+        "sampleRate": 8000,
+        "channels": 3,
+        "frames": 8000,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "createdAt": "2026-10-08T00:00:00.000Z"
+      }
+    },
+    {
+      "schema": "recording-metadata-v1",
+      "name": "reject recording byteLength",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "mediaType": "audio/wav",
+        "byteLength": 6291457,
+        "durationMs": 1000,
+        "sampleRate": 8000,
+        "channels": 1,
+        "frames": 8000,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "createdAt": "2026-10-08T00:00:00.000Z"
+      }
+    },
+    {
+      "schema": "recording-metadata-v1",
+      "name": "reject recording durationMs",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "mediaType": "audio/wav",
+        "byteLength": 16044,
+        "durationMs": 30001,
+        "sampleRate": 8000,
+        "channels": 1,
+        "frames": 8000,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "createdAt": "2026-10-08T00:00:00.000Z"
+      }
+    },
+    {
+      "schema": "recording-metadata-v1",
+      "name": "reject recording latitude",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "mediaType": "audio/wav",
+        "byteLength": 16044,
+        "durationMs": 1000,
+        "sampleRate": 8000,
+        "channels": 1,
+        "frames": 8000,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "latitude": 1
+      }
+    },
+    {
+      "schema": "recording-metadata-v1",
+      "name": "reject recording id",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "AA151CDD-3CFB-41F9-B060-E98EAF4BEAD7",
+        "mediaType": "audio/wav",
+        "byteLength": 16044,
+        "durationMs": 1000,
+        "sampleRate": 8000,
+        "channels": 1,
+        "frames": 8000,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "createdAt": "2026-10-08T00:00:00.000Z"
+      }
+    },
+    {
+      "schema": "recording-metadata-v1",
+      "name": "dimension consistency is server semantic validation",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "mediaType": "audio/wav",
+        "byteLength": 16046,
+        "durationMs": 1000,
+        "sampleRate": 8000,
+        "channels": 1,
+        "frames": 8000,
+        "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "createdAt": "2026-10-08T00:00:00.000Z"
+      }
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "legacy v2 additive defaults remain valid",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-08T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          }
+        }
+      }
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "future backup refused",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 99,
+        "exportedAt": "2026-10-08T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          }
+        }
+      }
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "backup owner injection refused",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-08T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          }
+        },
+        "ownerId": "synthetic"
+      }
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "backup current empty corrections",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-08T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "corrections": []
+        }
+      }
+    },
+    {
+      "schema": "scene-manifest-v1",
+      "name": "technical scene",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "id": "contract-scene",
+        "version": 1,
+        "publicSceneId": "garden",
+        "label": "Technical schema probe",
+        "representation": "technical-fixture",
+        "provenance": {
+          "kind": "existing-authored-geometry",
+          "approvedRegionalArt": false
+        },
+        "world": {
+          "width": 960,
+          "height": 540
+        },
+        "assets": [
+          {
+            "id": "background",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "ground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "foreground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          }
+        ],
+        "layers": {
+          "background": {
+            "order": 0,
+            "assetId": "background"
+          },
+          "ground": {
+            "order": 1,
+            "assetId": "ground"
+          },
+          "foreground": {
+            "order": 3,
+            "assetId": "foreground"
+          }
+        },
+        "depth": {
+          "order": 2,
+          "sort": "ground-y",
+          "actorOffset": 0.25,
+          "weatherOrder": 4
+        },
+        "zones": {
+          "placement": [
+            {
+              "left": 40,
+              "right": 920,
+              "top": 340,
+              "bottom": 510
+            }
+          ],
+          "walkable": [
+            {
+              "left": 70,
+              "right": 890,
+              "top": 360,
+              "bottom": 532
+            }
+          ]
+        },
+        "navigation": {
+          "mode": "flight-corridors",
+          "groundSlots": [
+            {
+              "id": "ground:one",
+              "x": 100,
+              "y": 370
+            }
+          ],
+          "roaming": {
+            "left": 70,
+            "right": 890,
+            "top": 375,
+            "bottom": 507
+          },
+          "overflow": {
+            "left": 90,
+            "right": 870,
+            "y": 525
+          }
+        }
+      }
+    },
+    {
+      "schema": "scene-manifest-v1",
+      "name": "scene missing required layer",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "contract-scene",
+        "version": 1,
+        "publicSceneId": "garden",
+        "label": "Technical schema probe",
+        "representation": "technical-fixture",
+        "provenance": {
+          "kind": "existing-authored-geometry",
+          "approvedRegionalArt": false
+        },
+        "world": {
+          "width": 960,
+          "height": 540
+        },
+        "assets": [
+          {
+            "id": "background",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "ground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "foreground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          }
+        ],
+        "layers": {
+          "background": {
+            "order": 0,
+            "assetId": "background"
+          },
+          "foreground": {
+            "order": 3,
+            "assetId": "foreground"
+          }
+        },
+        "depth": {
+          "order": 2,
+          "sort": "ground-y",
+          "actorOffset": 0.25,
+          "weatherOrder": 4
+        },
+        "zones": {
+          "placement": [
+            {
+              "left": 40,
+              "right": 920,
+              "top": 340,
+              "bottom": 510
+            }
+          ],
+          "walkable": [
+            {
+              "left": 70,
+              "right": 890,
+              "top": 360,
+              "bottom": 532
+            }
+          ]
+        },
+        "navigation": {
+          "mode": "flight-corridors",
+          "groundSlots": [
+            {
+              "id": "ground:one",
+              "x": 100,
+              "y": 370
+            }
+          ],
+          "roaming": {
+            "left": 70,
+            "right": 890,
+            "top": 375,
+            "bottom": 507
+          },
+          "overflow": {
+            "left": 90,
+            "right": 870,
+            "y": 525
+          }
+        }
+      }
+    },
+    {
+      "schema": "scene-manifest-v1",
+      "name": "scene URL injection",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "contract-scene",
+        "version": 1,
+        "publicSceneId": "garden",
+        "label": "Technical schema probe",
+        "representation": "technical-fixture",
+        "provenance": {
+          "kind": "existing-authored-geometry",
+          "approvedRegionalArt": false
+        },
+        "world": {
+          "width": 960,
+          "height": 540
+        },
+        "assets": [
+          {
+            "id": "background",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ],
+            "url": "https://invalid.example/never-fetch"
+          },
+          {
+            "id": "ground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "foreground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          }
+        ],
+        "layers": {
+          "background": {
+            "order": 0,
+            "assetId": "background"
+          },
+          "ground": {
+            "order": 1,
+            "assetId": "ground"
+          },
+          "foreground": {
+            "order": 3,
+            "assetId": "foreground"
+          }
+        },
+        "depth": {
+          "order": 2,
+          "sort": "ground-y",
+          "actorOffset": 0.25,
+          "weatherOrder": 4
+        },
+        "zones": {
+          "placement": [
+            {
+              "left": 40,
+              "right": 920,
+              "top": 340,
+              "bottom": 510
+            }
+          ],
+          "walkable": [
+            {
+              "left": 70,
+              "right": 890,
+              "top": 360,
+              "bottom": 532
+            }
+          ]
+        },
+        "navigation": {
+          "mode": "flight-corridors",
+          "groundSlots": [
+            {
+              "id": "ground:one",
+              "x": 100,
+              "y": 370
+            }
+          ],
+          "roaming": {
+            "left": 70,
+            "right": 890,
+            "top": 375,
+            "bottom": 507
+          },
+          "overflow": {
+            "left": 90,
+            "right": 870,
+            "y": 525
+          }
+        }
+      }
+    },
+    {
+      "schema": "scene-manifest-v1",
+      "name": "scene future version",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "contract-scene",
+        "version": 1,
+        "publicSceneId": "garden",
+        "label": "Technical schema probe",
+        "representation": "technical-fixture",
+        "provenance": {
+          "kind": "existing-authored-geometry",
+          "approvedRegionalArt": false
+        },
+        "world": {
+          "width": 960,
+          "height": 540
+        },
+        "assets": [
+          {
+            "id": "background",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "ground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "foreground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          }
+        ],
+        "layers": {
+          "background": {
+            "order": 0,
+            "assetId": "background"
+          },
+          "ground": {
+            "order": 1,
+            "assetId": "ground"
+          },
+          "foreground": {
+            "order": 3,
+            "assetId": "foreground"
+          }
+        },
+        "depth": {
+          "order": 2,
+          "sort": "ground-y",
+          "actorOffset": 0.25,
+          "weatherOrder": 4
+        },
+        "zones": {
+          "placement": [
+            {
+              "left": 40,
+              "right": 920,
+              "top": 340,
+              "bottom": 510
+            }
+          ],
+          "walkable": [
+            {
+              "left": 70,
+              "right": 890,
+              "top": 360,
+              "bottom": 532
+            }
+          ]
+        },
+        "navigation": {
+          "mode": "flight-corridors",
+          "groundSlots": [
+            {
+              "id": "ground:one",
+              "x": 100,
+              "y": 370
+            }
+          ],
+          "roaming": {
+            "left": 70,
+            "right": 890,
+            "top": 375,
+            "bottom": 507
+          },
+          "overflow": {
+            "left": 90,
+            "right": 870,
+            "y": 525
+          }
+        }
+      }
+    },
+    {
+      "schema": "scene-manifest-v1",
+      "name": "scene unknown color",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "contract-scene",
+        "version": 1,
+        "publicSceneId": "garden",
+        "label": "Technical schema probe",
+        "representation": "technical-fixture",
+        "provenance": {
+          "kind": "existing-authored-geometry",
+          "approvedRegionalArt": false
+        },
+        "world": {
+          "width": 960,
+          "height": 540
+        },
+        "assets": [
+          {
+            "id": "background",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "unknown"
+              }
+            ]
+          },
+          {
+            "id": "ground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "foreground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          }
+        ],
+        "layers": {
+          "background": {
+            "order": 0,
+            "assetId": "background"
+          },
+          "ground": {
+            "order": 1,
+            "assetId": "ground"
+          },
+          "foreground": {
+            "order": 3,
+            "assetId": "foreground"
+          }
+        },
+        "depth": {
+          "order": 2,
+          "sort": "ground-y",
+          "actorOffset": 0.25,
+          "weatherOrder": 4
+        },
+        "zones": {
+          "placement": [
+            {
+              "left": 40,
+              "right": 920,
+              "top": 340,
+              "bottom": 510
+            }
+          ],
+          "walkable": [
+            {
+              "left": 70,
+              "right": 890,
+              "top": 360,
+              "bottom": 532
+            }
+          ]
+        },
+        "navigation": {
+          "mode": "flight-corridors",
+          "groundSlots": [
+            {
+              "id": "ground:one",
+              "x": 100,
+              "y": 370
+            }
+          ],
+          "roaming": {
+            "left": 70,
+            "right": 890,
+            "top": 375,
+            "bottom": 507
+          },
+          "overflow": {
+            "left": 90,
+            "right": 870,
+            "y": 525
+          }
+        }
+      }
+    },
+    {
+      "schema": "scene-manifest-v1",
+      "name": "scene geometry needs semantic admission",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "id": "contract-scene",
+        "version": 1,
+        "publicSceneId": "garden",
+        "label": "Technical schema probe",
+        "representation": "technical-fixture",
+        "provenance": {
+          "kind": "existing-authored-geometry",
+          "approvedRegionalArt": false
+        },
+        "world": {
+          "width": 960,
+          "height": 540
+        },
+        "assets": [
+          {
+            "id": "background",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 960,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "ground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          },
+          {
+            "id": "foreground",
+            "kind": "inline-palette-rectangles",
+            "rectangles": [
+              {
+                "x": 0,
+                "y": 0,
+                "width": 1,
+                "height": 1,
+                "color": "sky"
+              }
+            ]
+          }
+        ],
+        "layers": {
+          "background": {
+            "order": 0,
+            "assetId": "background"
+          },
+          "ground": {
+            "order": 1,
+            "assetId": "ground"
+          },
+          "foreground": {
+            "order": 3,
+            "assetId": "foreground"
+          }
+        },
+        "depth": {
+          "order": 2,
+          "sort": "ground-y",
+          "actorOffset": 0.25,
+          "weatherOrder": 4
+        },
+        "zones": {
+          "placement": [
+            {
+              "left": 40,
+              "right": 920,
+              "top": 340,
+              "bottom": 510
+            }
+          ],
+          "walkable": [
+            {
+              "left": 70,
+              "right": 890,
+              "top": 360,
+              "bottom": 532
+            }
+          ]
+        },
+        "navigation": {
+          "mode": "flight-corridors",
+          "groundSlots": [
+            {
+              "id": "ground:one",
+              "x": 100,
+              "y": 370
+            }
+          ],
+          "roaming": {
+            "left": 70,
+            "right": 890,
+            "top": 375,
+            "bottom": 507
+          },
+          "overflow": {
+            "left": 90,
+            "right": 870,
+            "y": 525
+          }
+        }
+      }
+    }
+  ]
+}
