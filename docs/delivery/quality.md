@@ -60,3 +60,11 @@ The new aggregate has 55 gates. Email delivery uses loopback TLS SMTP; Google
 uses signed local responses through the real callback path. Neither establishes
 external provider configuration. New restore tests supply the retained canonical
 delete ledger; offline backups are never claimed erased.
+
+The readiness runner now requires both worktrees to be clean before execution and
+checks their commit IDs and tracked/untracked changes after every gate. It refuses
+to continue if source or test revisions change. Incremental reports distinguish
+`finished`, `selectedGates`, `completeSuite` and `frozenWorktrees`; a partial run
+cannot claim a complete pass. Commit implementation/test changes before running,
+and write final documentation after verification. Prior lifecycle reports retain
+their original 54-pass run plus selector-only rerun history.
