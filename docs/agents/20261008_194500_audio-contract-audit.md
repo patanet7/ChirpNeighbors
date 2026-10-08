@@ -97,13 +97,33 @@ Implementation commits: companion `c640341`, `2adbfe2`, `a6244c0`; UI `de99c09`.
 - First complete UI run: 643/645 tests pass; two unchanged suites timed out at the
   existing five-second limit (`simulation` daytime routines and lifecycle-recovery
   CLI). Initial failure evidence is `/tmp/chirp-contracts-audio-vitest.log`.
-  Sequential rerun and browser acceptance await the shared runner's exclusive
-  window; failures have not been relabeled as passing or hidden by longer timeouts.
+  Both failed files then passed sequentially at unchanged timeouts: simulation
+  8/8 and lifecycle recovery 6/6. Initial failure evidence remains preserved.
+- Actual built-app/FastAPI/CPU ONNX/browser journey: **52/52** checks pass. Evidence
+  is `/tmp/chirp-audio-contracts/results.json`; a checked-in summary and all
+  assertions are in `docs/verification/audio-contract-audit-result.json`. This
+  includes transient same-command recovery, one-frame input, no automatic Finding,
+  stalled-confirmation retry, restart/digest invalidation, and deletion/owner fences.
+  Services released ports 8156/8157; generated private data was removed.
+- Existing Zod export and six generated TS/Ajv client drift checks pass.
 
 Remaining limitations: structural JSON Schema consumers must call the documented
 semantic validator; real-model quality/license review remains operator work;
-configuration readiness is not a live dependency probe. Python in-flight jobs and
+configuration readiness is not a live dependency probe. Native model initialization
+is in-process; artifact/window/deadline limits do not promise OS memory isolation.
+Python in-flight jobs and
 failure fingerprints are bounded process-local state, while completed output
 replay belongs to the app's durable repository. There is no autonomous worker loop,
 durable pending-job queue, model training, real recordings, device input, or
 unmaterialized worker-bundle substitute in this change.
+
+
+Reproduce the actual mechanics acceptance from the UI repository:
+
+```sh
+python3 scripts/audio-lifecycle-browser-checks.py \
+  --main-repo /workspace/workstreams/contracts-wave/audio/ChirpNeighbors \
+  --onnx-python /tmp/chirp-onnx-venv/bin/python \
+  --bff-port 8156 --audio-port 8157 \
+  --output /tmp/chirp-audio-contracts
+```
