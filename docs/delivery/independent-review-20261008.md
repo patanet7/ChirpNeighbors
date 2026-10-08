@@ -31,5 +31,9 @@ ceiling. These are queued followups, not claims of universal transport coverage.
 Real art/models/providers, account-wide deletion and the unavailable worker/device
 handoff remain outside the verified local capability.
 
-The final full frozen aggregate must cover the integrated fixes. Focused tests
-and the earlier passing report do not substitute for that result.
+The final full frozen aggregate covers both integrated fixes: 63/63 gates passed
+at UI `67280c334d02eaf319029a212d7b89d06bd3d5e2` / companion
+`187a7604387790edf7adb22b21ed895dd63bddbf`. See
+[the complete report](LOCAL-EVIDENCE.md).
+The arrangement source fix is integrated as `22f7be2082dc86ab9a56ef0a29eeb0649564ab86`;
+its browser assertion retains all 31 checks and now expects an uncertain 5xx outcome.

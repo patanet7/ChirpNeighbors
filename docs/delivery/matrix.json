@@ -182,7 +182,12 @@
         "Previously completed worker c08624d3 is not present or reimplemented to circumvent transfer approval.",
         "Integrate and reverify only after authorized same-artifact transfer; current manually advanced runner remains explicit."
       ],
-      "evidence": []
+      "evidence": [
+        "docs/delivery/approved-handoff-blocker-20261008.md"
+      ],
+      "remaining": [
+        "Same-code/destination transfer is approved, but supported preparation/helper download failed twice. No archive bytes were materialized; implementation remains unintegrated."
+      ]
     },
     {
       "id": "esp32_transfer",
@@ -193,7 +198,12 @@
         "Previously completed ESP32 c693ed0 is not present or reimplemented to circumvent transfer approval.",
         "Actual hardware/model execution remains unverified; transfer and integration are separate gates."
       ],
-      "evidence": []
+      "evidence": [
+        "docs/delivery/approved-handoff-blocker-20261008.md"
+      ],
+      "remaining": [
+        "Same-code/destination transfer is approved, but supported preparation/helper download failed twice. No archive bytes were materialized; implementation remains unintegrated."
+      ]
     }
   ],
   "gates": [
@@ -282,9 +292,15 @@
     "uiBase": "305cbeabfbd08767907bb71d7bb0cb69719ef8de",
     "mainBase": "c46735bac08c77fd4f8689fc032fddc8199b3851",
     "scope": "Actual runtime contract boundaries, differential and compatibility gates, versioned reviewed pose manifests and one complete frozen run",
-    "verification": "review_fixes_integrated_final_run_pending",
+    "verification": "passed",
     "selectedGates": 63,
     "independentReview": "docs/delivery/independent-review-20261008.md",
-    "queuedVisualTaskTree": "docs/delivery/visual-task-tree-20261008.md"
+    "queuedVisualTaskTree": "docs/delivery/visual-task-tree-20261008.md",
+    "testedRevisions": {
+      "main": "187a7604387790edf7adb22b21ed895dd63bddbf",
+      "ui": "67280c334d02eaf319029a212d7b89d06bd3d5e2"
+    },
+    "verificationReport": "docs/delivery/contracts-verified-20261008/report.json",
+    "verificationCounts": "docs/delivery/contracts-verified-20261008/counts.json"
   }
 }

@@ -93,3 +93,12 @@ Structural schema agreement is distinct from semantic admission. The bounded
 mutation corpus freezes reviewed divergences; it does not claim general Zod,
 JSON Schema and Pydantic equivalence. UTF-16 string length and escaped lone
 surrogate decoding differences are documented in the UI contract audit.
+
+
+The final reviewed contract/pose run is preserved in
+[contracts-verified-20261008/report.json](LOCAL-EVIDENCE.md),
+with exact revisions, counts, gate logs and result JSON. It passed all 63 gates
+after independent review and regression fixes. The routines test now uses
+WebGL-only SwiftShader to avoid a traced software-GPU compositor teardown stall;
+its original assertions/timeouts remain. See the UI
+`docs/routines-browser-diagnosis.md` for the measured comparison and limitations.

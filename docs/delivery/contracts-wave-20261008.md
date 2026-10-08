@@ -10,10 +10,10 @@ passed 17/17 in an isolated check. Neither result is an all-pass combined run.
 | Enumerate actual boundaries | Svelte routes/hooks, Python route declarations, stores, jobs, configuration | New/removed runtime routes fail an AST-backed inventory gate; one source authority per boundary; closed private/public SSR aggregates | Implemented locally |
 | Validate runtime admission/egress | Inventory; generated Python identity guard | Reject corrupt SQLite rows, unsafe IDs/counts/times, malformed auth settings, mismatched recording metadata/receipts and impossible audio windows; preserve private owner state on failures | Implemented locally |
 | Bound transport and recovery | Existing response/error schemas and lifecycle ledgers | Finite fetch/body reads, byte ceilings, strict UTF-8, cancellation and safe status parity; expired/revoked/restored shares remain unavailable | Implemented locally, including placement/finding reconciliation and share preview |
-| Generate and test counterpart contracts | Canonical Zod/Pydantic models | Regeneration must be clean; preserve literal schema-looking data; reject remote/unsupported references; exact goldens and deterministic mutations; reviewed structural digest changes fail automatically | Implemented and generated; final integrated gate pending |
-| Version pose manifests | Existing v2 manifests, catalog, technical fixture pixels | Keep v2 behavior; v3 unequal durations, pivots/contacts, exact pose graph and pinned references, bounded binary-alpha/grid/palette/loop metrics; malformed geometry rejects before allocation | Schema, producer and renderer integrated; 29 focused browser assertions passed |
-| Preserve private source lifecycle | Existing owner SQLite artifact/review model | Distinct immutable RGBA artifact; source/reference digest and approval rechecked at render; absent source fails to fixture fallback; approval never changes a resident pin | Implemented locally; 18 source lifecycle tests and the focused browser journey passed |
-| Run combined frozen verification | All source and generated changes committed; other heavy jobs stopped | Full retained browser/HTTP/unit/type/lint/build/generator suite completes on unchanged clean revisions; preserve failure reports and exact source IDs | Pending |
+| Generate and test counterpart contracts | Canonical Zod/Pydantic models | Regeneration must be clean; preserve literal schema-looking data; reject remote/unsupported references; exact goldens and deterministic mutations; reviewed structural digest changes fail automatically | Implemented/generated; final reviewed 63-gate run passed |
+| Version pose manifests | Existing v2 manifests, catalog, technical fixture pixels | Keep v2 behavior; v3 unequal durations, pivots/contacts, exact pose graph and pinned references, bounded binary-alpha/grid/palette/loop metrics; malformed geometry rejects before allocation | Schema, producer and renderer integrated; all 29 v3 browser checks passed in final aggregate |
+| Preserve private source lifecycle | Existing owner SQLite artifact/review model | Distinct immutable RGBA artifact; source/reference digest and approval rechecked at render; absent source fails to fixture fallback; approval never changes a resident pin | Implemented locally; 19 source/packaging tests and the final browser journey passed |
+| Run combined frozen verification | All source and generated changes committed; other heavy jobs stopped | Full retained browser/HTTP/unit/type/lint/build/generator suite completes on unchanged clean revisions; preserve failure reports and exact source IDs | Complete: final reviewed 63/63 pass |
 
 Art remains technical fixture content. Provider-independent contracts describe
 unsupported future capabilities explicitly; no image model, replacement art,
@@ -22,8 +22,8 @@ Contact metadata is review evidence and renderer diagnostics, not inverse
 kinematics. Public snapshots use the safe built-in catalog only.
 
 Focused evidence is retained in each boundary audit and in temporary check
-outputs. Final aggregate counts and exact commit IDs will be recorded after the
-complete run. Account-wide deletion, real photo decoding, licensed evaluation
+outputs. Final aggregate counts and exact commit IDs are preserved in
+[the reviewed evidence](LOCAL-EVIDENCE.md). Account-wide deletion, real photo decoding, licensed evaluation
 inputs, real import/weather adapters and deployment remain distinct gaps.
 
 The approved worker/device Library handoff failed its supported local download
@@ -93,4 +93,35 @@ owner boundaries, validation and one-POST behavior remain. The review dispositio
 and focused evidence are recorded in [the independent review](independent-review-20261008.md).
 The latest requested moving-bird/workbench/reference work is a
 [queued hierarchical task tree](visual-task-tree-20261008.md), not implemented
-features in this checkpoint. A final full frozen run must cover both review fixes.
+features in this checkpoint. Both review fixes are covered by the final frozen run below.
+
+
+The final reviewed fifth run completed **63/63 gates, all passed**, with clean
+frozen revisions UI `67280c334d02eaf319029a212d7b89d06bd3d5e2` and companion
+`187a7604387790edf7adb22b21ed895dd63bddbf`. It covers both independently
+reviewed fixes and adds nine UI regressions: **947 UI tests**, **157 Python tests**,
+**528 browser assertions**, **52 actual audio-lifecycle checks**, and **141 HTTP
+checks**. Types, typed lint, formatting, production build, generated drift,
+compatibility, reference guards and differential contracts all passed.
+
+Contract evidence includes 33 generator tests, 115 cross-language goldens,
+678 Python-authoritative property cases (including 98 base cases), and 2,966
+Zod/Ajv/Python mutations. The 77 explicit semantic divergences remain documented;
+structural agreement is not complete semantic equivalence. All 63 reviewed schema
+digests and 59 authority boundaries passed their gates.
+
+[Report](LOCAL-EVIDENCE.md),
+[counts](LOCAL-EVIDENCE.md),
+[exact commit ledger](LOCAL-EVIDENCE.md) and
+[hashed log/result index](LOCAL-EVIDENCE.md) are
+committed locally. All 63 gate logs and 20 result JSON files are retained beside
+the report. Screenshots remain at `/tmp/chirp-contracts-system-20261008-r5`.
+Earlier failed, interrupted and passing attempts remain unchanged. Final repository
+changes after these revisions only save evidence/documentation; no application
+code is changed after this run.
+
+The next visual tasks remain queued, not implemented by this checkpoint. The
+Library handoff retry is exhausted with a helper URL-transport failure; no ZIP
+bytes, worker or ESP32 integration exist. Real art, photo decoding/generation,
+model/provider configuration, account-wide deletion and hosted/container execution
+remain explicit gaps. No push, PR, merge or deployment was performed.
