@@ -30,3 +30,18 @@ The approved worker/device Library handoff failed its supported local download
 twice. No archive bytes were obtained, so its digest/contents/commit ancestry
 cannot be verified and neither implementation is integrated or recreated. See
 [the exact handoff blocker](approved-handoff-blocker-20261008.md).
+
+
+The first complete contract-wave run finished **62/63** gates with clean frozen
+revisions UI `8b88f605fae4de32a509b4983c1d4095ace70ebe` and companion
+`c377c0d2e498a13b8461eb372530bf5d8668da13`. All 938 UI tests, 157 Python tests,
+contract gates and other browser journeys passed, including the unchanged
+17-assertion routines journey. The arrangement browser mock supplied an untyped
+HTTP 500 object containing arbitrary error text and expected that text to appear.
+The closed client error guard correctly hid it and retained the saved yard.
+
+The followup changes only that browser expectation: require the safe rejection,
+assert the unreviewed text is absent, and retain the saved-position check. No
+application code changes for this failure. The complete original report is
+[retained here](contracts-attempt-1-20261008.json); a second full frozen run is
+required rather than presenting a selective rerun as an all-pass aggregate.
