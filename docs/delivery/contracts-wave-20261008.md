@@ -67,3 +67,19 @@ is intermittent. [The full third report](contracts-attempt-3-20261008.json) is
 preserved. Reload timing and outstanding requests are being investigated in an
 isolated checkout; no timeout widening or assertion removal is approved by this
 checkpoint. There is still no complete all-pass combined run.
+
+
+The fourth run completed **63/63 gates, all passed**, at UI
+`6dca7c1d607639612543f3c49c0911a0c2b273c8` and companion
+`22e105ae06eb7520f3b179da8d8f69ab3a581d09`; both worktrees remained frozen.
+The routines launcher now uses WebGL-only SwiftShader after a traced software
+GPU compositor stall; all original assertions/timeouts remain. See the UI
+`docs/routines-browser-diagnosis.md`. The [complete passing report](contracts-attempt-4-20261008.json)
+is retained independently of subsequent review.
+
+Independent review then identified a correctness gap the existing tests had
+accepted: reference validation during packaging omitted the prospective manifest
+root from visit/depth budgets. A boundary candidate could complete both reviews
+but fail loading/pinning because loading counted that root. This is being fixed
+with last-admitted/first-rejected regressions before the final reviewed checkpoint.
+The passing fourth report does not claim coverage of that later fix.
