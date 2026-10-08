@@ -22,3 +22,8 @@ select = ["E", "F", "I", "N", "W", "UP"]
 [tool.ruff.lint.per-file-ignores]
 # Wire names deliberately preserve established camelCase JSON keys.
 "app/models/generated/*.py" = ["N815"]
+"app/audio_pipeline/contracts.py" = ["N815"]
+"app/audio_pipeline/evaluation.py" = ["N815"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
