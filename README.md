@@ -8,7 +8,7 @@ The companion UI runs SvelteKit, Pixi and owner-scoped SQLite. It preserves the 
 
 This repository owns the modular [audio request service](docs/architecture/audio-pipeline.md), Pydantic wire contracts, generated counterparts, synthetic evaluation and optional operator-supplied local ONNX adapter. Existing prototype hardware/streaming code is separate. No trained bird model, species-accurate art, live provider or device integration is claimed.
 
-Start with the [concrete task checklist](docs/delivery/README.md), [verified checkpoint](docs/delivery/checkpoint-20261008.md) and [complete local verification command](docs/delivery/quality.md). The final run passed 50 gates, including 469 UI tests, 127 Python tests and 410 browser assertions.
+Start with the [concrete task checklist](docs/delivery/README.md), [verified checkpoint](docs/delivery/checkpoint-20261008.md) and [complete local verification command](docs/delivery/quality.md). The [lifecycle checkpoint](docs/delivery/lifecycle-checkpoint-20261008.md) covers all 55 gates across the complete run and one selector-fix rerun: 554 UI tests, 136 Python tests and 460 renderer/browser assertions, plus actual auth/recovery/audio journeys. The [task checklist](docs/delivery/lifecycle-wave.md) records dependencies and remaining gates.
 
 ## Check the integration boundary
 
@@ -25,4 +25,4 @@ This narrow command checks the original adapter only. The current CI and aggrega
 
 ## Next useful work
 
-Review real model/art inputs and production provider configuration, then integrate the separately completed worker/device artifacts only after authorized transfer. Durable derived-output deletion and historical backup retention remain explicit gaps. Docker image execution is unverified after a registry DNS failure; no publication or deployment occurred. See the checklist for dependencies and acceptance tests.
+Review real model/art inputs and production provider configuration, then integrate the separately completed worker/device artifacts only after authorized transfer. Durable managed derived-output deletion and retained-ledger recovery are implemented. Operators must retain the newest complete deletion ledger; offline backups and pre-identity checkpoints cannot be erased or automatically reconciled without that history. Docker image execution is unverified after a registry DNS failure; no publication or deployment occurred. See the checklist for dependencies and acceptance tests.

@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "scope": "Local synthetic-data lifecycle wave; no publication",
+  "all55GatesPassedAcrossRuns": true,
+  "applicationRevisions": {
+    "main": "633bcbeb34aa6ad77aad74cf653d58e186d81b23",
+    "ui": "70a04886cc03c05556cf8380b412b9b618d20829"
+  },
+  "finalTestRevision": "4365c20b9efb61fc185737a58002f8dd8efc40a1",
+  "runs": [
+    {
+      "report": "lifecycle-full-run-20261008.json",
+      "evidenceDirectory": "/tmp/chirp-lifecycle-system-20261008",
+      "completeSuite": true,
+      "passedGates": 54,
+      "failedGate": "browser-recordings-ui"
+    },
+    {
+      "report": "lifecycle-status-rerun-20261008.json",
+      "evidenceDirectory": "/tmp/chirp-lifecycle-status-rerun-20261008",
+      "completeSuite": false,
+      "passedGates": 1
+    }
+  ],
+  "correction": "The new saved-analysis loading status made an old unscoped status locator ambiguous. Only browser-test selector scoping and formatting changed; the recording UI rerun passed all26 assertions. Application sources remained unchanged.",
+  "counts": {
+    "uiUnitTests": 554,
+    "uiTestFiles": 42,
+    "pythonTests": 136,
+    "schemaGeneratorTests": 10,
+    "crossLanguageCases": 129,
+    "rendererBrowserAssertions": 460,
+    "rendererBrowserSuites": 16,
+    "actualOnnxBrowserHttpAssertions": 44,
+    "actualEmailGoogleLocalAssertions": 33,
+    "recoveryHttpAssertions": 14,
+    "actualCoreAudioHttpAssertions": 39,
+    "operationsHealthAssertions": 16,
+    "composeAssertions": 6
+  },
+  "limitations": [
+    "Technical arithmetic ONNX and synthetic media do not establish bird recognition accuracy.",
+    "Real approved species art and licensed model/evaluation data remain absent.",
+    "External email/Google production configuration and delivery are unverified.",
+    "Offline copies require independently retained newest deletion ledger; no forensic erasure or freshness proof.",
+    "Independent worker/device transfers remain blocked and unrecreated.",
+    "Previously recorded Docker registry DNS failure leaves image execution unverified."
+  ]
+}

@@ -63,10 +63,13 @@ Unexpected provider exceptions are sanitized at one documented `BLE001` exceptio
 boundary. Provider calls must implement their own bounded execution timeout; this
 synchronous service cannot forcibly interrupt an arbitrary native model call.
 
-This does **not** replace durable job idempotency, record retention or atomic derived
-output publication. HTTP permit checks are snapshots: a future durable writer must
-use the owning database's atomic generation fence at commit and participate in
-derived-output deletion. The separately reported worker `c08624d3` and ESP32 work
+The Python request cache remains process-local. The integrated Svelte BFF now
+admits completed results into owner SQLite using an atomic generation fence,
+immutable request/command digests and recording-derived deletion. An exact reviewed
+model SHA-256 enables durable same-request replay while inference is offline.
+Explicit human confirmation commits a separate Finding and receipt in that same
+database. These bounded operations do not implement an autonomous distributed job
+worker. HTTP permit checks alone remain snapshots for any future external writer. The separately reported worker `c08624d3` and ESP32 work
 `c693ed0` are unavailable here; no code or verification is claimed from them.
 
 ## Evidence and remaining gates
@@ -85,7 +88,7 @@ requests, result-cache mutation and the existing identification contract.
 
 Production remains gated on approved model artifacts and license, real authorized
 evaluation data, actual model-specific preprocessing and calibration,
-durable job/derived-output integration, and resource/performance
+autonomous job execution integration, and resource/performance
 evaluation. No bird recognition, real hardware, paid API or external model has been
 executed by this slice. Existing `sql_app.db` and legacy inference files are untouched.
 

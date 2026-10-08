@@ -41,7 +41,7 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
 
 - [x] Contract platform: authoritative Zod or Pydantic models, generated counterpart
   types/runtime guards, deterministic drift checks and strict optional/indexed
-  access. Accept when both corpora agree on all 107 valid/invalid cases and generated
+  access. Accept when both corpora agree on all 129 valid/invalid cases and generated
   output is unchanged. This is the prerequisite for every service/client boundary.
 - [x] Species assets: versioned manifests, clip/frame bounds, explicit still-idle
   fallbacks, content/version cache keys, provenance/license intake, deterministic
@@ -54,10 +54,10 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
   changing existing rows or allowing a foreign owner to read media.
 - [x] Identity: durable library-backed email-link/Google protocol boundaries,
   sessions, logout, replay/expiry and atomic private auth initialization. Accept
-  22 auth unit cases and 19 synthetic provider/browser checks; missing production
+  22 auth unit cases, 19 provider/browser checks and 33 actual app/local-SMTP/signed-Google-mock assertions; missing production
   configuration must fail closed. Depends on contract and storage boundaries.
 - [x] Frontend: checked server responses, lost-response reconciliation, private
-  upload/play/delete, typed analysis configuration and transient candidate UI.
+  upload/play/delete, typed analysis configuration, restored raw candidate UI and explicit confirmation.
   Accept mobile/keyboard, cancellation, retry, malformed result, session loss and
   unchanged findings/residents in the recording/analysis browser suites.
 - [x] Audio request service: authenticated fixed-origin BFF verification, private
@@ -76,11 +76,22 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
 
 ## Remaining dependencies and integration gaps
 
-- [ ] Complete durable worker/derived-output lifecycle and deletion/retention
-  reconciliation across historical media backups. The current request API keeps
-  results transient and idempotency process-local. Restoring an old full snapshot
-  cannot reconstruct later deletion decisions; the restored-auth invalidation
-  fix does not establish a full media-retention guarantee.
+- [x] Complete bounded durable recording/derived-output deletion, generation fences,
+  explicit cleanup, truthful owner lifecycle UI and retained-ledger reconciliation
+  into new restore copies. Accept failure/restart/late-result tests, 23 lifecycle
+  browser checks and 14 recovery HTTP assertions. See [lifecycle wave](lifecycle-wave.md).
+- [x] Persist reviewed request outcomes and atomically confirm owner-selected
+  candidates into independent human Findings. Accept actual Svelte/FastAPI/CPU ONNX
+  mechanics journey including offline restart replay, model-digest invalidation
+  and confirmation/deletion races. No bird accuracy claim follows.
+- [x] Provide owner source/license bundle intake and actual review-to-renderer pin
+  regression, including retry, owner isolation and immutable reviewed versions.
+- [ ] Retain the newest deletion ledger outside older checkpoints; supply it on
+  recovery. This local tool cannot erase offline copies or reconstruct missing
+  post-checkpoint decisions. Pre-identity checkpoints cannot prove lineage.
+- [ ] Integrate the separately blocked autonomous worker and account-wide deletion
+  orchestration. Existing explicit cleanup is local; distributed upload/storage
+  fencing and live worker execution remain outside this completed slice.
 
 - [ ] Obtain and review actual species art and animation references. Acceptance:
   human-approved species fidelity, licensing/provenance, complete sheet/clip
@@ -96,3 +107,5 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
   blocked artifacts in this task.
 - [ ] Resolve Docker build-network access and verify built images/composition.
   Publication, hosting and deployment remain outside this local task.
+
+The later lifecycle wave is recorded in [its checkpoint](lifecycle-checkpoint-20261008.md), [55-gate evidence](lifecycle-verification-20261008.json) and [commit ledger](lifecycle-commits-20261008.md). The earlier checkpoint remains intact.

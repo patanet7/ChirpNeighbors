@@ -27,7 +27,8 @@
         "backend-inference/pyproject.toml",
         "107 cross-language golden cases; generated-client and schema drift checks",
         "docs/delivery/verification-20261008.json",
-        "129 cross-language golden cases including lifecycle and confirmation structural mirrors"
+        "129 cross-language golden cases including lifecycle and confirmation structural mirrors",
+        "docs/delivery/lifecycle-verification-20261008.json"
       ]
     },
     {
@@ -49,7 +50,8 @@
         "docs/delivery/verification-20261008.json",
         "birdsong-yard-sprites/src/lib/server/recordings/lifecycle.test.ts",
         "birdsong-yard-sprites/scripts/recording-lifecycle-browser-checks.py",
-        "birdsong-yard-sprites/scripts/lifecycle-recovery-smoke.py"
+        "birdsong-yard-sprites/scripts/lifecycle-recovery-smoke.py",
+        "docs/delivery/lifecycle-verification-20261008.json"
       ],
       "remaining": [
         "Offline copies require the operator to retain and supply the latest complete deletion ledger; remote erasure and account-wide deletion orchestration are not implemented."
@@ -72,7 +74,8 @@
         "birdsong-yard-sprites/src/lib/server/auth/service.test.ts",
         "birdsong-yard-sprites/scripts/auth-browser-checks.py",
         "docs/delivery/verification-20261008.json",
-        "birdsong-yard-sprites/scripts/auth-integration.mjs"
+        "birdsong-yard-sprites/scripts/auth-integration.mjs",
+        "docs/delivery/lifecycle-verification-20261008.json"
       ]
     },
     {
@@ -93,7 +96,8 @@
         "birdsong-yard-sprites/docs/browser-service-contracts.md",
         "birdsong-yard-sprites/scripts/recordings-ui-browser-checks.py",
         "birdsong-yard-sprites/scripts/analysis-browser-checks.py",
-        "docs/delivery/verification-20261008.json"
+        "docs/delivery/verification-20261008.json",
+        "docs/delivery/lifecycle-verification-20261008.json"
       ]
     },
     {
@@ -116,7 +120,8 @@
         "docs/architecture/audio-pipeline.md",
         "docs/delivery/verification-20261008.json",
         "birdsong-yard-sprites/docs/audio-confirmation.md",
-        "birdsong-yard-sprites/scripts/audio-lifecycle-browser-checks.py"
+        "birdsong-yard-sprites/scripts/audio-lifecycle-browser-checks.py",
+        "docs/delivery/lifecycle-verification-20261008.json"
       ],
       "remaining": [
         "Approved compatible bird-model weights, biological calibration and evaluation remain external. BFF completed results and manual confirmation receipts are durable; Python in-flight computation remains process-local. Separately blocked autonomous worker artifact remains unintegrated."
@@ -139,7 +144,8 @@
         "birdsong-yard-sprites/src/lib/server/asset-pipeline/pipeline.test.ts",
         "birdsong-yard-sprites/scripts/asset-pipeline-browser-checks.py",
         "docs/delivery/verification-20261008.json",
-        "birdsong-yard-sprites/scripts/image-intake-browser-checks.py"
+        "birdsong-yard-sprites/scripts/image-intake-browser-checks.py",
+        "docs/delivery/lifecycle-verification-20261008.json"
       ]
     },
     {
@@ -160,7 +166,8 @@
         "birdsong-yard-sprites/docs/local-operations.md",
         "birdsong-yard-sprites/scripts/private_backup.py",
         "birdsong-yard-sprites/scripts/tests/test_private_backup.py",
-        "docs/delivery/verification-20261008.json"
+        "docs/delivery/verification-20261008.json",
+        "docs/delivery/lifecycle-verification-20261008.json"
       ],
       "remaining": [
         "Container image execution is unverified because Docker could not resolve its public package registry. Configuration and host execution pass; no deployment performed."
@@ -274,6 +281,8 @@
     "document": "docs/delivery/lifecycle-wave.md",
     "uiBase": "83837529722ce48e210ed224e74cfbaf2f72881b",
     "mainBase": "084b33dfac1160e1cc9b2db9336b0a16b9c4a831",
-    "scope": "Durable deletion and recovery, stored audio confirmation, actual boundary audits"
+    "scope": "Durable deletion and recovery, stored audio confirmation, actual boundary audits",
+    "verification": "docs/delivery/lifecycle-verification-20261008.json",
+    "allGatesCovered": 55
   }
 }
