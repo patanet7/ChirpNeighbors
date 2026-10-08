@@ -1948,6 +1948,428 @@
         "code": "database_path",
         "traceId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7"
       }
+    },
+    {
+      "schema": "share-create-command-v1",
+      "name": "explicit initial bounded snapshot sharing",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.create",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "expectedShareId": null,
+        "expiresInDays": 7
+      }
+    },
+    {
+      "schema": "share-create-command-v1",
+      "name": "explicit replacement compares current share",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.create",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "expectedShareId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "expiresInDays": 30
+      }
+    },
+    {
+      "schema": "share-create-command-v1",
+      "name": "sharing rejects injected ownerId",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.create",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "expectedShareId": null,
+        "expiresInDays": 7,
+        "ownerId": "other-owner"
+      }
+    },
+    {
+      "schema": "share-create-command-v1",
+      "name": "sharing rejects injected snapshot",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.create",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "expectedShareId": null,
+        "expiresInDays": 7,
+        "snapshot": {}
+      }
+    },
+    {
+      "schema": "share-create-command-v1",
+      "name": "sharing rejects injected token",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.create",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "expectedShareId": null,
+        "expiresInDays": 7,
+        "token": "chosen-secret"
+      }
+    },
+    {
+      "schema": "share-create-command-v1",
+      "name": "sharing rejects injected expiresInDays",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.create",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "expectedShareId": null,
+        "expiresInDays": 365
+      }
+    },
+    {
+      "schema": "share-created-v1",
+      "name": "first sharing response contains one-time link",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.created",
+        "share": {
+          "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+          "state": "active",
+          "createdAt": "2026-10-08T00:00:00.000Z",
+          "expiresAt": "2026-10-15T00:00:00.000Z"
+        },
+        "link": "/s/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "replayed": false
+      }
+    },
+    {
+      "schema": "share-created-v1",
+      "name": "idempotent replay deliberately has no token",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.created",
+        "share": {
+          "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+          "state": "active",
+          "createdAt": "2026-10-08T00:00:00.000Z",
+          "expiresAt": "2026-10-15T00:00:00.000Z"
+        },
+        "link": null,
+        "replayed": true
+      }
+    },
+    {
+      "schema": "share-created-v1",
+      "name": "sharing replay cannot disclose a token",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.created",
+        "share": {
+          "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+          "state": "active",
+          "createdAt": "2026-10-08T00:00:00.000Z",
+          "expiresAt": "2026-10-15T00:00:00.000Z"
+        },
+        "link": "/s/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "replayed": true
+      }
+    },
+    {
+      "schema": "share-created-v1",
+      "name": "sharing rejects external link target",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.created",
+        "share": {
+          "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+          "state": "active",
+          "createdAt": "2026-10-08T00:00:00.000Z",
+          "expiresAt": "2026-10-15T00:00:00.000Z"
+        },
+        "link": "https://example.invalid/private",
+        "replayed": false
+      }
+    },
+    {
+      "schema": "share-status-v1",
+      "name": "sharing absent before opt-in",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.status",
+        "share": null
+      }
+    },
+    {
+      "schema": "share-status-v1",
+      "name": "revoked sharing retains its compare-and-swap identity",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.status",
+        "share": {
+          "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+          "state": "revoked",
+          "createdAt": "2026-10-08T00:00:00.000Z",
+          "expiresAt": "2026-10-15T00:00:00.000Z"
+        }
+      }
+    },
+    {
+      "schema": "share-revoke-command-v1",
+      "name": "explicit sharing revocation",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.revoke",
+        "expectedShareId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7"
+      }
+    },
+    {
+      "schema": "share-revoke-command-v1",
+      "name": "sharing revoke requires current identity",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.revoke"
+      }
+    },
+    {
+      "schema": "public-share-v1",
+      "name": "public snapshot uses trusted fixture catalog projection",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.snapshot",
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "expiresAt": "2026-10-15T00:00:00.000Z",
+        "snapshot": {
+          "version": 1,
+          "viewOnly": true,
+          "scene": "garden",
+          "palette": "twilight",
+          "birds": [
+            {
+              "displayKey": "bird-1",
+              "commonName": "European Robin",
+              "scientificName": "Erithacus rubecula",
+              "catalogKey": "fixture-robin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "schema": "public-share-v1",
+      "name": "shared view forbids owner identity",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.snapshot",
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "expiresAt": "2026-10-15T00:00:00.000Z",
+        "snapshot": {
+          "version": 1,
+          "viewOnly": true,
+          "scene": "garden",
+          "palette": "twilight",
+          "birds": [
+            {
+              "displayKey": "bird-1",
+              "commonName": "European Robin",
+              "scientificName": "Erithacus rubecula",
+              "catalogKey": "fixture-robin"
+            }
+          ]
+        },
+        "ownerId": "private"
+      }
+    },
+    {
+      "schema": "public-share-v1",
+      "name": "shared view forbids private notes",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.snapshot",
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "expiresAt": "2026-10-15T00:00:00.000Z",
+        "snapshot": {
+          "version": 1,
+          "viewOnly": true,
+          "scene": "garden",
+          "palette": "twilight",
+          "birds": [
+            {
+              "displayKey": "bird-1",
+              "commonName": "European Robin",
+              "scientificName": "Erithacus rubecula",
+              "catalogKey": "fixture-robin",
+              "note": "private"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "schema": "public-share-v1",
+      "name": "trusted public labels require semantic validation",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.snapshot",
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "expiresAt": "2026-10-15T00:00:00.000Z",
+        "snapshot": {
+          "version": 1,
+          "viewOnly": true,
+          "scene": "garden",
+          "palette": "twilight",
+          "birds": [
+            {
+              "displayKey": "bird-1",
+              "commonName": "Private custom label",
+              "scientificName": "Erithacus rubecula",
+              "catalogKey": "fixture-robin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "schema": "public-share-v1",
+      "name": "unique public display keys require semantic validation",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.snapshot",
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "expiresAt": "2026-10-15T00:00:00.000Z",
+        "snapshot": {
+          "version": 1,
+          "viewOnly": true,
+          "scene": "garden",
+          "palette": "twilight",
+          "birds": [
+            {
+              "displayKey": "bird-1",
+              "commonName": "European Robin",
+              "scientificName": "Erithacus rubecula",
+              "catalogKey": "fixture-robin"
+            },
+            {
+              "displayKey": "bird-1",
+              "commonName": "European Robin",
+              "scientificName": "Erithacus rubecula",
+              "catalogKey": "fixture-robin"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "schema": "share-error-v1",
+      "name": "safe owner sharing failure",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "share.error",
+        "code": "request_retired",
+        "error": "This sharing request is no longer active."
+      }
+    },
+    {
+      "schema": "public-share-unavailable-v1",
+      "name": "opaque public capability denial",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "error": "Shared view is not available."
+      }
+    },
+    {
+      "schema": "public-share-unavailable-v1",
+      "name": "public capability denial forbids diagnostics",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "error": "Shared view is not available.",
+        "token": "private"
+      }
+    },
+    {
+      "schema": "request-budget-error-v1",
+      "name": "bounded request budget denial",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "request.budget-error",
+        "code": "RATE_LIMITED",
+        "error": "Too many requests. Wait briefly, then retry.",
+        "retryAfterSeconds": 1
+      }
+    },
+    {
+      "schema": "request-budget-error-v1",
+      "name": "budget retry delay bound",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "request.budget-error",
+        "code": "RATE_LIMITED",
+        "error": "Too many requests. Wait briefly, then retry.",
+        "retryAfterSeconds": 61
+      }
+    },
+    {
+      "schema": "request-budget-error-v1",
+      "name": "budget error text is closed",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "request.budget-error",
+        "code": "RATE_LIMITED",
+        "error": "Private database details",
+        "retryAfterSeconds": 1
+      }
+    },
+    {
+      "schema": "request-budget-error-v1",
+      "name": "bounded inflight concurrency denial",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "request.budget-error",
+        "code": "SERVER_BUSY",
+        "error": "The server is busy. Wait briefly, then retry.",
+        "retryAfterSeconds": 2
+      }
     }
   ]
 }

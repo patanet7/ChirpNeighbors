@@ -1,0 +1,67 @@
+{
+  "$ref": "#/definitions/ShareStatusV1",
+  "definitions": {
+    "ShareStatusV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "share.status"
+        },
+        "share": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "format": "uuid",
+                  "pattern": "^[0-9a-f-]+$"
+                },
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "revoked",
+                    "expired"
+                  ]
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time",
+                  "pattern": "Z$"
+                },
+                "expiresAt": {
+                  "$ref": "#/definitions/ShareStatusV1/properties/share/anyOf/0/properties/createdAt"
+                }
+              },
+              "required": [
+                "id",
+                "state",
+                "createdAt",
+                "expiresAt"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "share"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/share-status-v1.schema.json",
+  "description": "Generated structural sharing or request-budget boundary. Public snapshot catalog labels, unique display keys, bounded snapshot bytes, owner compare-and-swap, capability expiry/revocation, one-time token issuance and request budgets require authoritative application semantics. Browser commands cannot supply snapshot data, identities, locations or assets. Public snapshots contain only the trusted allowlist; the create response alone can contain a new bearer link."
+}

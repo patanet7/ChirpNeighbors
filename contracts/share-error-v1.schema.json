@@ -1,0 +1,43 @@
+{
+  "$ref": "#/definitions/ShareErrorV1",
+  "definitions": {
+    "ShareErrorV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "share.error"
+        },
+        "code": {
+          "type": "string",
+          "enum": [
+            "invalid_command",
+            "conflict",
+            "request_retired",
+            "snapshot_too_large",
+            "storage_unavailable"
+          ]
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "code",
+        "error"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/share-error-v1.schema.json",
+  "description": "Generated structural sharing or request-budget boundary. Public snapshot catalog labels, unique display keys, bounded snapshot bytes, owner compare-and-swap, capability expiry/revocation, one-time token issuance and request budgets require authoritative application semantics. Browser commands cannot supply snapshot data, identities, locations or assets. Public snapshots contain only the trusted allowlist; the create response alone can contain a new bearer link."
+}
