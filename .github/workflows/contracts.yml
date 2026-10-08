@@ -26,10 +26,10 @@ jobs:
       - run: python -m mypy
       - name: Lint and format active service and contracts
         run: |
-          python -m ruff check app/models app/audio_pipeline tests/test_audio_api.py tests/test_audio_pipeline.py tests/test_session_verifier_contract.py ../scripts/generate_python_contracts.py ../scripts/check_contract_corpus.py ../scripts/check_python_contract_roundtrips.py ../scripts/check_python_dependencies.py ../scripts/test_quality_dependencies.py ../scripts/verify_system.py ../scripts/delivery_matrix.py
-          python -m ruff format --check app/models app/audio_pipeline tests/test_audio_api.py tests/test_audio_pipeline.py tests/test_session_verifier_contract.py ../scripts/generate_python_contracts.py ../scripts/check_contract_corpus.py ../scripts/check_python_contract_roundtrips.py ../scripts/check_python_dependencies.py ../scripts/test_quality_dependencies.py ../scripts/verify_system.py ../scripts/delivery_matrix.py
+          python -m ruff check app/models app/audio_pipeline tests/test_audio_api.py tests/test_audio_pipeline.py tests/test_session_verifier_contract.py tests/test_schema_document.py ../scripts/generate_python_contracts.py ../scripts/check_contract_corpus.py ../scripts/check_python_contract_roundtrips.py ../scripts/check_python_dependencies.py ../scripts/test_quality_dependencies.py ../scripts/verify_system.py ../scripts/delivery_matrix.py
+          python -m ruff format --check app/models app/audio_pipeline tests/test_audio_api.py tests/test_audio_pipeline.py tests/test_session_verifier_contract.py tests/test_schema_document.py ../scripts/generate_python_contracts.py ../scripts/check_contract_corpus.py ../scripts/check_python_contract_roundtrips.py ../scripts/check_python_dependencies.py ../scripts/test_quality_dependencies.py ../scripts/verify_system.py ../scripts/delivery_matrix.py
       - run: python -m unittest discover -s tests -p 'test_*contract.py' -v
-      - run: python -m unittest tests.test_audio_pipeline tests.test_audio_api -v
+      - run: python -m unittest tests.test_audio_pipeline tests.test_audio_api tests.test_schema_document -v
       - run: python ../scripts/test_quality_dependencies.py
       - run: python -m app.audio_pipeline evaluate
   optional-model:

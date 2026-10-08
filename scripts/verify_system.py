@@ -114,7 +114,14 @@ def gates(
         Gate(
             "schema-generator-tests",
             ui,
-            ["node", "--test", "scripts/contract-tools/schema-tools.test.mjs"],
+            [
+                "node",
+                "--test",
+                *sorted(
+                    str(path.relative_to(ui))
+                    for path in (ui / "scripts/contract-tools").glob("*.test.mjs")
+                ),
+            ],
         ),
         Gate(
             "zod-python-roundtrips",
@@ -140,6 +147,51 @@ def gates(
                 python,
             ],
         ),
+        Gate(
+            "contract-inventory",
+            ui,
+            ["node", "scripts/check-contract-inventory.mjs", "--main-repo", str(ROOT)],
+        ),
+        Gate(
+            "contract-compatibility",
+            ui,
+            [
+                "node",
+                "scripts/check-contract-compatibility.mjs",
+                "--main-repo",
+                str(ROOT),
+            ],
+        ),
+        Gate(
+            "zod-python-properties",
+            ui,
+            [
+                "node",
+                "scripts/check-contract-properties.mjs",
+                "--main-repo",
+                str(ROOT),
+                "--python",
+                python,
+            ],
+        ),
+        Gate(
+            "pydantic-typescript-properties",
+            ui,
+            [
+                "node",
+                "scripts/check-python-contracts.mjs",
+                "--properties",
+                "--main-repo",
+                str(ROOT),
+                "--python",
+                python,
+            ],
+        ),
+        Gate(
+            "python-reference-tests",
+            backend,
+            [python, "-m", "unittest", "tests.test_schema_document", "-v"],
+        ),
         Gate("python-types", backend, [python, "-m", "mypy"]),
         Gate(
             "python-lint",
@@ -154,6 +206,7 @@ def gates(
                 "tests/test_audio_api.py",
                 "tests/test_audio_pipeline.py",
                 "tests/test_session_verifier_contract.py",
+                "tests/test_schema_document.py",
                 "../scripts/generate_python_contracts.py",
                 "../scripts/check_contract_corpus.py",
                 "../scripts/check_python_contract_roundtrips.py",
@@ -177,6 +230,7 @@ def gates(
                 "tests/test_audio_api.py",
                 "tests/test_audio_pipeline.py",
                 "tests/test_session_verifier_contract.py",
+                "tests/test_schema_document.py",
                 "../scripts/generate_python_contracts.py",
                 "../scripts/check_contract_corpus.py",
                 "../scripts/check_python_contract_roundtrips.py",
