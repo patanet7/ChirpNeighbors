@@ -38261,6 +38261,1107 @@
           "provider": "contract-fixtures"
         }
       }
+    },
+    {
+      "schema": "asset-packaging-input-v2",
+      "name": "decoded existing fixture with versioned conditioning",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 2,
+        "source": {
+          "schemaVersion": 1,
+          "speciesId": "cn-species-erithacus-rubecula",
+          "representation": "Structural 3x3 crop of existing fixture pixels; no replacement art or fidelity claim.",
+          "source": "deterministic_fixture",
+          "creator": "builtin-fixture",
+          "sourceVersion": "1",
+          "license": {
+            "id": "project-authored-development-fixture",
+            "status": "development-only",
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "evidenceId": null,
+            "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "speciesId": "cn-species-erithacus-rubecula",
+              "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337",
+              "role": "technical-fixture"
+            }
+          ],
+          "fidelityReview": null
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 3,
+            "height": 3
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 64,
+          "frames": [
+            {
+              "rgba": [
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255
+              ]
+            }
+          ]
+        },
+        "clips": {
+          "idle": {
+            "action": "idle",
+            "direction": "right-facing-mirrorable",
+            "loop": true,
+            "poses": [
+              {
+                "frame": 0,
+                "durationTicks": 2,
+                "pivot": {
+                  "x": 1,
+                  "y": 3
+                },
+                "contacts": [],
+                "poseId": "structural-crop",
+                "rotation": 0
+              }
+            ]
+          }
+        },
+        "conditioning": {
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "roles": [
+                "style",
+                "pose",
+                "species"
+              ],
+              "pin": {
+                "jobId": "structural-test-only",
+                "artifactId": "structural-test-only",
+                "version": 1,
+                "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337"
+              }
+            }
+          ],
+          "poseGraph": {
+            "nodes": [
+              {
+                "id": "structural-crop",
+                "frame": 0,
+                "action": "idle",
+                "referenceId": "reviewed-fixture-reference"
+              }
+            ],
+            "edges": [
+              {
+                "from": "structural-crop",
+                "to": "structural-crop"
+              }
+            ]
+          }
+        },
+        "strategy": {
+          "kind": "decoded-rgba",
+          "version": 1,
+          "alphaOrigin": "technical-fixture",
+          "output": "rgba8-binary"
+        }
+      }
+    },
+    {
+      "schema": "asset-packaging-input-v2",
+      "name": "intake2 rejects injected owner",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "source": {
+          "schemaVersion": 1,
+          "speciesId": "cn-species-erithacus-rubecula",
+          "representation": "Structural 3x3 crop of existing fixture pixels; no replacement art or fidelity claim.",
+          "source": "deterministic_fixture",
+          "creator": "builtin-fixture",
+          "sourceVersion": "1",
+          "license": {
+            "id": "project-authored-development-fixture",
+            "status": "development-only",
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "evidenceId": null,
+            "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "speciesId": "cn-species-erithacus-rubecula",
+              "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337",
+              "role": "technical-fixture"
+            }
+          ],
+          "fidelityReview": null
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 3,
+            "height": 3
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 64,
+          "frames": [
+            {
+              "rgba": [
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255
+              ]
+            }
+          ]
+        },
+        "clips": {
+          "idle": {
+            "action": "idle",
+            "direction": "right-facing-mirrorable",
+            "loop": true,
+            "poses": [
+              {
+                "frame": 0,
+                "durationTicks": 2,
+                "pivot": {
+                  "x": 1,
+                  "y": 3
+                },
+                "contacts": [],
+                "poseId": "structural-crop",
+                "rotation": 0
+              }
+            ]
+          }
+        },
+        "conditioning": {
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "roles": [
+                "style",
+                "pose",
+                "species"
+              ],
+              "pin": {
+                "jobId": "structural-test-only",
+                "artifactId": "structural-test-only",
+                "version": 1,
+                "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337"
+              }
+            }
+          ],
+          "poseGraph": {
+            "nodes": [
+              {
+                "id": "structural-crop",
+                "frame": 0,
+                "action": "idle",
+                "referenceId": "reviewed-fixture-reference"
+              }
+            ],
+            "edges": [
+              {
+                "from": "structural-crop",
+                "to": "structural-crop"
+              }
+            ]
+          }
+        },
+        "strategy": {
+          "kind": "decoded-rgba",
+          "version": 1,
+          "alphaOrigin": "technical-fixture",
+          "output": "rgba8-binary"
+        },
+        "ownerId": "private"
+      }
+    },
+    {
+      "schema": "asset-packaging-input-v2",
+      "name": "intake2 alpha origin agrees with fixture provenance",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "source": {
+          "schemaVersion": 1,
+          "speciesId": "cn-species-erithacus-rubecula",
+          "representation": "Structural 3x3 crop of existing fixture pixels; no replacement art or fidelity claim.",
+          "source": "deterministic_fixture",
+          "creator": "builtin-fixture",
+          "sourceVersion": "1",
+          "license": {
+            "id": "project-authored-development-fixture",
+            "status": "development-only",
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "evidenceId": null,
+            "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "speciesId": "cn-species-erithacus-rubecula",
+              "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337",
+              "role": "technical-fixture"
+            }
+          ],
+          "fidelityReview": null
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 3,
+            "height": 3
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 64,
+          "frames": [
+            {
+              "rgba": [
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255
+              ]
+            }
+          ]
+        },
+        "clips": {
+          "idle": {
+            "action": "idle",
+            "direction": "right-facing-mirrorable",
+            "loop": true,
+            "poses": [
+              {
+                "frame": 0,
+                "durationTicks": 2,
+                "pivot": {
+                  "x": 1,
+                  "y": 3
+                },
+                "contacts": [],
+                "poseId": "structural-crop",
+                "rotation": 0
+              }
+            ]
+          }
+        },
+        "conditioning": {
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "roles": [
+                "style",
+                "pose",
+                "species"
+              ],
+              "pin": {
+                "jobId": "structural-test-only",
+                "artifactId": "structural-test-only",
+                "version": 1,
+                "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337"
+              }
+            }
+          ],
+          "poseGraph": {
+            "nodes": [
+              {
+                "id": "structural-crop",
+                "frame": 0,
+                "action": "idle",
+                "referenceId": "reviewed-fixture-reference"
+              }
+            ],
+            "edges": [
+              {
+                "from": "structural-crop",
+                "to": "structural-crop"
+              }
+            ]
+          }
+        },
+        "strategy": {
+          "kind": "decoded-rgba",
+          "version": 1,
+          "alphaOrigin": "native",
+          "output": "rgba8-binary"
+        }
+      }
+    },
+    {
+      "schema": "asset-packaging-input-v2",
+      "name": "intake2 reference hashes bind conditioning",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "source": {
+          "schemaVersion": 1,
+          "speciesId": "cn-species-erithacus-rubecula",
+          "representation": "Structural 3x3 crop of existing fixture pixels; no replacement art or fidelity claim.",
+          "source": "deterministic_fixture",
+          "creator": "builtin-fixture",
+          "sourceVersion": "1",
+          "license": {
+            "id": "project-authored-development-fixture",
+            "status": "development-only",
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "evidenceId": null,
+            "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "speciesId": "cn-species-erithacus-rubecula",
+              "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337",
+              "role": "technical-fixture"
+            }
+          ],
+          "fidelityReview": null
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 3,
+            "height": 3
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 64,
+          "frames": [
+            {
+              "rgba": [
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255,
+                38,
+                61,
+                66,
+                255
+              ]
+            }
+          ]
+        },
+        "clips": {
+          "idle": {
+            "action": "idle",
+            "direction": "right-facing-mirrorable",
+            "loop": true,
+            "poses": [
+              {
+                "frame": 0,
+                "durationTicks": 2,
+                "pivot": {
+                  "x": 1,
+                  "y": 3
+                },
+                "contacts": [],
+                "poseId": "structural-crop",
+                "rotation": 0
+              }
+            ]
+          }
+        },
+        "conditioning": {
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "roles": [
+                "style",
+                "pose",
+                "species"
+              ],
+              "pin": {
+                "jobId": "structural-test-only",
+                "artifactId": "structural-test-only",
+                "version": 1,
+                "contentDigest": "0000000000000000000000000000000000000000000000000000000000000000"
+              }
+            }
+          ],
+          "poseGraph": {
+            "nodes": [
+              {
+                "id": "structural-crop",
+                "frame": 0,
+                "action": "idle",
+                "referenceId": "reviewed-fixture-reference"
+              }
+            ],
+            "edges": [
+              {
+                "from": "structural-crop",
+                "to": "structural-crop"
+              }
+            ]
+          }
+        },
+        "strategy": {
+          "kind": "decoded-rgba",
+          "version": 1,
+          "alphaOrigin": "technical-fixture",
+          "output": "rgba8-binary"
+        }
+      }
+    },
+    {
+      "schema": "rgba-source-artifact-v1",
+      "name": "retained canonical fixture bytes with measured descriptors",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "format": "private-rgba-source",
+        "lifecycle": "retained-until-owner-deletion",
+        "inputDigest": "8ef7a2a6cc82be1e7379293ca97f8f87df6ba8d160aca9530e1f18d0fc3a24e4",
+        "input": {
+          "schemaVersion": 2,
+          "source": {
+            "schemaVersion": 1,
+            "speciesId": "cn-species-erithacus-rubecula",
+            "representation": "Structural 3x3 crop of existing fixture pixels; no replacement art or fidelity claim.",
+            "source": "deterministic_fixture",
+            "creator": "builtin-fixture",
+            "sourceVersion": "1",
+            "license": {
+              "id": "project-authored-development-fixture",
+              "status": "development-only",
+              "derivativesAllowed": true,
+              "redistributionAllowed": true,
+              "evidenceId": null,
+              "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+            },
+            "references": [
+              {
+                "id": "reviewed-fixture-reference",
+                "speciesId": "cn-species-erithacus-rubecula",
+                "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337",
+                "role": "technical-fixture"
+              }
+            ],
+            "fidelityReview": null
+          },
+          "pixels": {
+            "schemaVersion": 2,
+            "format": "rgba8-frames",
+            "canvas": {
+              "width": 3,
+              "height": 3
+            },
+            "logicalPixelSize": 1,
+            "paletteLimit": 64,
+            "frames": [
+              {
+                "rgba": [
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255
+                ]
+              }
+            ]
+          },
+          "clips": {
+            "idle": {
+              "action": "idle",
+              "direction": "right-facing-mirrorable",
+              "loop": true,
+              "poses": [
+                {
+                  "frame": 0,
+                  "durationTicks": 2,
+                  "pivot": {
+                    "x": 1,
+                    "y": 3
+                  },
+                  "contacts": [],
+                  "poseId": "structural-crop",
+                  "rotation": 0
+                }
+              ]
+            }
+          },
+          "conditioning": {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "references": [
+              {
+                "id": "reviewed-fixture-reference",
+                "roles": [
+                  "style",
+                  "pose",
+                  "species"
+                ],
+                "pin": {
+                  "jobId": "structural-test-only",
+                  "artifactId": "structural-test-only",
+                  "version": 1,
+                  "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337"
+                }
+              }
+            ],
+            "poseGraph": {
+              "nodes": [
+                {
+                  "id": "structural-crop",
+                  "frame": 0,
+                  "action": "idle",
+                  "referenceId": "reviewed-fixture-reference"
+                }
+              ],
+              "edges": [
+                {
+                  "from": "structural-crop",
+                  "to": "structural-crop"
+                }
+              ]
+            }
+          },
+          "strategy": {
+            "kind": "decoded-rgba",
+            "version": 1,
+            "alphaOrigin": "technical-fixture",
+            "output": "rgba8-binary"
+          }
+        },
+        "blobs": [
+          {
+            "frame": 0,
+            "encoding": "rgba8",
+            "bytes": 36,
+            "sha256": "17e949520b06a27ce8a6d35f523e73c4db04bd1a2464a80d4fee9825dca1515a"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "rgba-source-artifact-v1",
+      "name": "source descriptors require exact byte count",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "format": "private-rgba-source",
+        "lifecycle": "retained-until-owner-deletion",
+        "inputDigest": "8ef7a2a6cc82be1e7379293ca97f8f87df6ba8d160aca9530e1f18d0fc3a24e4",
+        "input": {
+          "schemaVersion": 2,
+          "source": {
+            "schemaVersion": 1,
+            "speciesId": "cn-species-erithacus-rubecula",
+            "representation": "Structural 3x3 crop of existing fixture pixels; no replacement art or fidelity claim.",
+            "source": "deterministic_fixture",
+            "creator": "builtin-fixture",
+            "sourceVersion": "1",
+            "license": {
+              "id": "project-authored-development-fixture",
+              "status": "development-only",
+              "derivativesAllowed": true,
+              "redistributionAllowed": true,
+              "evidenceId": null,
+              "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+            },
+            "references": [
+              {
+                "id": "reviewed-fixture-reference",
+                "speciesId": "cn-species-erithacus-rubecula",
+                "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337",
+                "role": "technical-fixture"
+              }
+            ],
+            "fidelityReview": null
+          },
+          "pixels": {
+            "schemaVersion": 2,
+            "format": "rgba8-frames",
+            "canvas": {
+              "width": 3,
+              "height": 3
+            },
+            "logicalPixelSize": 1,
+            "paletteLimit": 64,
+            "frames": [
+              {
+                "rgba": [
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255
+                ]
+              }
+            ]
+          },
+          "clips": {
+            "idle": {
+              "action": "idle",
+              "direction": "right-facing-mirrorable",
+              "loop": true,
+              "poses": [
+                {
+                  "frame": 0,
+                  "durationTicks": 2,
+                  "pivot": {
+                    "x": 1,
+                    "y": 3
+                  },
+                  "contacts": [],
+                  "poseId": "structural-crop",
+                  "rotation": 0
+                }
+              ]
+            }
+          },
+          "conditioning": {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "references": [
+              {
+                "id": "reviewed-fixture-reference",
+                "roles": [
+                  "style",
+                  "pose",
+                  "species"
+                ],
+                "pin": {
+                  "jobId": "structural-test-only",
+                  "artifactId": "structural-test-only",
+                  "version": 1,
+                  "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337"
+                }
+              }
+            ],
+            "poseGraph": {
+              "nodes": [
+                {
+                  "id": "structural-crop",
+                  "frame": 0,
+                  "action": "idle",
+                  "referenceId": "reviewed-fixture-reference"
+                }
+              ],
+              "edges": [
+                {
+                  "from": "structural-crop",
+                  "to": "structural-crop"
+                }
+              ]
+            }
+          },
+          "strategy": {
+            "kind": "decoded-rgba",
+            "version": 1,
+            "alphaOrigin": "technical-fixture",
+            "output": "rgba8-binary"
+          }
+        },
+        "blobs": [
+          {
+            "frame": 0,
+            "encoding": "rgba8",
+            "bytes": 37,
+            "sha256": "17e949520b06a27ce8a6d35f523e73c4db04bd1a2464a80d4fee9825dca1515a"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "rgba-source-artifact-v1",
+      "name": "source artifact rejects private path",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "format": "private-rgba-source",
+        "lifecycle": "retained-until-owner-deletion",
+        "inputDigest": "8ef7a2a6cc82be1e7379293ca97f8f87df6ba8d160aca9530e1f18d0fc3a24e4",
+        "input": {
+          "schemaVersion": 2,
+          "source": {
+            "schemaVersion": 1,
+            "speciesId": "cn-species-erithacus-rubecula",
+            "representation": "Structural 3x3 crop of existing fixture pixels; no replacement art or fidelity claim.",
+            "source": "deterministic_fixture",
+            "creator": "builtin-fixture",
+            "sourceVersion": "1",
+            "license": {
+              "id": "project-authored-development-fixture",
+              "status": "development-only",
+              "derivativesAllowed": true,
+              "redistributionAllowed": true,
+              "evidenceId": null,
+              "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+            },
+            "references": [
+              {
+                "id": "reviewed-fixture-reference",
+                "speciesId": "cn-species-erithacus-rubecula",
+                "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337",
+                "role": "technical-fixture"
+              }
+            ],
+            "fidelityReview": null
+          },
+          "pixels": {
+            "schemaVersion": 2,
+            "format": "rgba8-frames",
+            "canvas": {
+              "width": 3,
+              "height": 3
+            },
+            "logicalPixelSize": 1,
+            "paletteLimit": 64,
+            "frames": [
+              {
+                "rgba": [
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255,
+                  38,
+                  61,
+                  66,
+                  255
+                ]
+              }
+            ]
+          },
+          "clips": {
+            "idle": {
+              "action": "idle",
+              "direction": "right-facing-mirrorable",
+              "loop": true,
+              "poses": [
+                {
+                  "frame": 0,
+                  "durationTicks": 2,
+                  "pivot": {
+                    "x": 1,
+                    "y": 3
+                  },
+                  "contacts": [],
+                  "poseId": "structural-crop",
+                  "rotation": 0
+                }
+              ]
+            }
+          },
+          "conditioning": {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "references": [
+              {
+                "id": "reviewed-fixture-reference",
+                "roles": [
+                  "style",
+                  "pose",
+                  "species"
+                ],
+                "pin": {
+                  "jobId": "structural-test-only",
+                  "artifactId": "structural-test-only",
+                  "version": 1,
+                  "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337"
+                }
+              }
+            ],
+            "poseGraph": {
+              "nodes": [
+                {
+                  "id": "structural-crop",
+                  "frame": 0,
+                  "action": "idle",
+                  "referenceId": "reviewed-fixture-reference"
+                }
+              ],
+              "edges": [
+                {
+                  "from": "structural-crop",
+                  "to": "structural-crop"
+                }
+              ]
+            }
+          },
+          "strategy": {
+            "kind": "decoded-rgba",
+            "version": 1,
+            "alphaOrigin": "technical-fixture",
+            "output": "rgba8-binary"
+          }
+        },
+        "blobs": [
+          {
+            "frame": 0,
+            "encoding": "rgba8",
+            "bytes": 36,
+            "sha256": "17e949520b06a27ce8a6d35f523e73c4db04bd1a2464a80d4fee9825dca1515a"
+          }
+        ],
+        "storagePath": "/private"
+      }
     }
   ]
 }

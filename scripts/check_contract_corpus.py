@@ -28,6 +28,8 @@ NAMES = frozenset(
         "command-error-v1",
         "species-manifest-v2",
         "species-manifest-v3",
+        "asset-packaging-input-v2",
+        "rgba-source-artifact-v1",
         "identification-v2",
         "finding-command-v1",
         "recording-metadata-v1",
