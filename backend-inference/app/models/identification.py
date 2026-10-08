@@ -9,41 +9,32 @@ from __future__ import annotations
 import json
 from collections.abc import Mapping
 from pathlib import Path
-from typing import Literal, NotRequired, TypeAlias, TypedDict, cast
+from typing import cast
 
 from jsonschema import Draft7Validator, FormatChecker
 
-JsonValue: TypeAlias = (
-    str | int | float | bool | None | list["JsonValue"] | dict[str, "JsonValue"]
+# These are generated from the Zod-owned schema, not a second wire authority.
+# Explicit aliases preserve imports used by existing adapters.
+from app.models.generated.identification_v2 import (
+    AdditionalProperties as JsonValue,
+)
+from app.models.generated.identification_v2 import (
+    IdentificationEventV2 as IdentificationEvent,
+)
+from app.models.generated.identification_v2 import Source as IdentificationSource
+from app.models.generated.identification_v2 import (
+    Species as Species,
 )
 
-
-class Species(TypedDict):
-    id: str
-    commonName: str
-    scientificName: str
-    description: NotRequired[str]
-    referencePhoto: NotRequired[dict[str, JsonValue]]
-
-
-class IdentificationSource(TypedDict):
-    kind: Literal["fixture", "manual", "model", "external"]
-    label: str
-    sourceEventId: str
-    provider: NotRequired[str]
-    modelVersion: NotRequired[str]
-
-
-class IdentificationEvent(TypedDict):
-    schemaVersion: Literal[2]
-    id: str
-    species: Species
-    observedAt: str | None
-    source: IdentificationSource
-    ingestedAt: NotRequired[str]
-    confidence: NotRequired[float]
-    recordingId: NotRequired[str]
-    metadata: NotRequired[dict[str, JsonValue]]
+__all__ = [
+    "IdentificationContractError",
+    "IdentificationEvent",
+    "IdentificationSource",
+    "JsonValue",
+    "Species",
+    "build_model_candidate",
+    "validate_identification",
+]
 
 
 class IdentificationContractError(ValueError):
@@ -98,6 +89,8 @@ def validate_identification(
     if next(validator.iter_errors(candidate), None) is not None:
         # Do not put source IDs, recording paths, timestamps or metadata in errors.
         raise IdentificationContractError("Identification violates the shared schema")
+    # One audited narrowing after complete JSON Schema validation. A TypedDict has
+    # no runtime constructor/validator; the generated type is not an admission rule.
     return cast(IdentificationEvent, candidate)
 
 

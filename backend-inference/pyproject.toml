@@ -1,0 +1,24 @@
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["app/models/identification.py", "app/models/generated"]
+namespace_packages = true
+explicit_package_bases = true
+warn_unused_configs = true
+plugins = ["pydantic.mypy"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# Wire names deliberately preserve established camelCase JSON keys.
+"app/models/generated/*.py" = ["N815"]
