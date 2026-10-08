@@ -12,12 +12,15 @@ from .contracts import (
     AudioHTTPError,
     AudioRecordingPermit,
 )
+from .model_contracts import AudioModelManifest
 
 
 def schema_documents() -> dict[str, str]:
     http_error = AudioHTTPError.model_json_schema(mode="serialization")
     permit = AudioRecordingPermit.model_json_schema(mode="serialization")
+    model_manifest = AudioModelManifest.model_json_schema(mode="validation")
     schemas = {
+        "audio-model-manifest-v1.validation.schema.json": model_manifest,
         "audio-http-error-v1.serialization.schema.json": http_error,
         "audio-recording-permit-v1.serialization.schema.json": permit,
         "audio-command-v1.validation.schema.json": AUDIO_COMMAND_ADAPTER.json_schema(

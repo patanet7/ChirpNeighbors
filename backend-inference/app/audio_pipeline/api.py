@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import asyncio
+import importlib
 import os
+from pathlib import Path
 from uuid import uuid4
 
 from fastapi import FastAPI, Request
@@ -24,7 +26,13 @@ from .gateway import (
     HTTPRecordingStorage,
     SessionVerifier,
 )
-from .providers import FIXTURE_TAXONOMY, InferenceProvider, UnconfiguredModelProvider
+from .providers import (
+    FIXTURE_TAXONOMY,
+    InferenceProvider,
+    ProviderConfigurationError,
+    Taxonomy,
+    UnconfiguredModelProvider,
+)
 from .service import (
     AudioService,
     Cancellation,
@@ -107,6 +115,7 @@ def create_app(
     gateway: BFFTransport | None = None,
     allow_development: bool = False,
     provider: InferenceProvider | None = None,
+    taxonomy: Taxonomy = FIXTURE_TAXONOMY,
 ) -> FastAPI:
     """Only tests inject fixtures; environment never enables a fake model."""
     app = FastAPI(
@@ -124,7 +133,7 @@ def create_app(
     service = AudioService(
         UnboundStorage(),
         provider if provider is not None else UnconfiguredModelProvider(),
-        FIXTURE_TAXONOMY,
+        taxonomy,
     )
 
     @app.exception_handler(RequestValidationError)
@@ -140,15 +149,20 @@ def create_app(
 
     @app.get("/readyz")
     async def ready() -> JSONResponse:
-        # There is intentionally no approved production model adapter yet.
+        configured = False
+        try:
+            configured = service.provider.provenance.licenseStatus == "approved"
+        except ProviderConfigurationError:
+            pass
+        ready_for_requests = configured and verifier is not None
         return JSONResponse(
             {
                 "version": 1,
-                "ready": False,
+                "ready": ready_for_requests,
                 "authentication": "configured" if verifier else "unconfigured",
-                "model": "unconfigured",
+                "model": "configured" if configured else "unconfigured",
             },
-            status_code=503,
+            status_code=200 if ready_for_requests else 503,
             headers={"cache-control": "no-store"},
         )
 
@@ -226,6 +240,30 @@ def from_environment() -> FastAPI:
     gateway = (
         BFFTransport(origin, allow_loopback_http=local_development) if origin else None
     )
+    manifest_path = os.environ.get("CHIRP_AUDIO_MODEL_MANIFEST")
+    if manifest_path:
+        # Optional numerical/native dependencies never enter the core import graph.
+        try:
+            module = importlib.import_module("app.audio_onnx.provider")
+        except ImportError:
+            raise RuntimeError(
+                "Install requirements-audio-onnx.txt for local ONNX"
+            ) from None
+        factory: object = getattr(module, "ONNXProvider", None)
+        if not callable(factory):
+            raise ProviderConfigurationError("Unsupported optional provider adapter")
+        provider: object = factory(Path(manifest_path))
+        taxonomy: object = getattr(provider, "taxonomy", None)
+        if not isinstance(provider, InferenceProvider) or not isinstance(
+            taxonomy, Taxonomy
+        ):
+            raise ProviderConfigurationError("Unsupported optional provider adapter")
+        return create_app(
+            gateway=gateway,
+            allow_development=local_development,
+            provider=provider,
+            taxonomy=taxonomy,
+        )
     return create_app(gateway=gateway, allow_development=local_development)
 
 

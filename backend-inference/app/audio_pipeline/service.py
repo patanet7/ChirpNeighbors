@@ -213,10 +213,7 @@ class AudioService:
     ) -> AudioEvent:
         try:
             cancellation.checkpoint()
-            recording = source.read(principal, command.recording)
-            pcm = parse_pcm16(recording.data)
-            if pcm.sha256 != command.recording.sha256:
-                raise RecordingAccessError
+            source.assert_current(principal, command.recording)
             provenance = self.provider.provenance
             if (
                 provenance.providerId != command.model.providerId
@@ -224,15 +221,21 @@ class AudioService:
                 or provenance.taxonomyVersion != command.model.taxonomyVersion
                 or provenance.taxonomyVersion != self.taxonomy.version
                 or (
-                    provenance.inputKind == "synthetic-fixture"
-                    and not recording.synthetic_fixture
-                )
-                or (
                     provenance.inputKind == "recording"
                     and provenance.licenseStatus != "approved"
                 )
             ):
                 raise ProviderConfigurationError
+            # Verify executable pins/license before transferring private bytes.
+            recording = source.read(principal, command.recording)
+            if (
+                provenance.inputKind == "synthetic-fixture"
+                and not recording.synthetic_fixture
+            ):
+                raise ProviderConfigurationError
+            pcm = parse_pcm16(recording.data)
+            if pcm.sha256 != command.recording.sha256:
+                raise RecordingAccessError
             samples = preprocess(pcm, cancellation.checkpoint)
             raw: list[RawCandidate] = []
             review: list[ReviewCandidate] = []

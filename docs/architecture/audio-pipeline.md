@@ -1,7 +1,7 @@
 # Local audio analysis boundary
 
 This package executes audio validation, preprocessing, chunking, pinned provider
-inference, taxonomy resolution and review-threshold normalization. Its executable
+inference, taxonomy resolution and review-threshold normalization. Its bundled
 provider is an explicitly synthetic energy fixture, **not a bird classifier**.
 It never creates a confirmed observation or runs an autonomous worker loop.
 
@@ -140,3 +140,55 @@ claim live Google, email delivery, a trained model, or hardware verification.
 
 Implementation follows the official [FastAPI request and validation model](https://fastapi.tiangolo.com/advanced/using-request-directly/)
 and [HTTPX transport testing](https://www.python-httpx.org/advanced/transports/).
+
+## Optional local ONNX adapter
+
+`app.audio_onnx` executes a compatible operator-supplied local ONNX model through
+the CPU runtime. It ships no trained weights and has only been executed here with
+generated arithmetic graphs over technical tones/silence. This is an operational
+model boundary, not verified bird recognition or a Cornell/BirdNET integration.
+
+The optional environment requires Python 3.12+:
+
+```sh
+python -m pip install -r requirements-audio-onnx.txt
+python -m unittest tests.optional.test_audio_onnx -v
+mypy --strict --explicit-package-bases app/audio_onnx tests/optional/test_audio_onnx.py
+```
+
+The core API environment does not import or require ONNX/NumPy. Its optional loader
+activates only when the operator configures `CHIRP_AUDIO_MODEL_MANIFEST` to a local
+manifest. The Pydantic `AudioModelManifest` validation schema is authoritative;
+`contracts/fixtures/audio/model-manifest.valid.json` is an explicitly technical
+example without legal approval or trained weights. No model path enters commands.
+
+A bundle uses a fixed adjacent `model.onnx` filename, an exact SHA-256, model and
+taxonomy versions, unique output labels, and explicit license status. Actual
+recording inference requires an approved license record with review ID and UTC
+review timestamp; technical-fixture licenses remain restricted to storage-marked
+synthetic input. The application cannot independently establish legal rights or
+model accuracy from supplied review metadata.
+
+The narrowly supported profile takes one float32 `[1,48000]` waveform input and
+one float32 `[1,N]` probability output with 1–20 declared taxa. It uses the pinned
+16 kHz preprocessor and zero-pads the final inference window; reported evidence
+boundaries still stop at actual audio. Every output is preserved as a raw candidate;
+scores must be finite and within [0,1]. A larger/global classifier, different sample
+rate, spectral frontend or uncalibrated logits needs its own explicit profile.
+
+Manifest/model files are bounded (64 KiB/32 MiB), regular and not symlinks. External
+tensors, custom ops, control flow, random operators, training graphs and subgraphs
+are rejected. CPU thread counts are limited to one, a 5-second native RunOptions
+deadline terminates inference, and telemetry is disabled before runtime import
+and through the native API. Operator-reviewed models remain trusted executable
+inputs; process isolation and resource benchmarking are still deployment work.
+
+ONNX Runtime currently lacks `py.typed`. Its import is contained in a checked
+structural facade; metadata, options, output type/shape/dtype and probabilities
+are validated. There are no blanket type ignores or casts. The optional tests
+execute actual CPU arithmetic, reject corrupt/digest-mismatched/unsupported bundles,
+refuse missing approval metadata, and exercise a native-termination timer boundary.
+No trained bird model or production-license review was fabricated for these tests.
+
+The implementation uses the official [ONNX Runtime inference API](https://onnxruntime.ai/docs/api/python/api_summary.html)
+and [ONNX graph construction/checker API](https://onnx.ai/onnx/intro/python.html).

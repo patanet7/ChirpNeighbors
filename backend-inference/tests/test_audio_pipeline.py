@@ -31,6 +31,7 @@ from app.audio_pipeline.fixtures import (
     synthetic_wav,
 )
 from app.audio_pipeline.identification import identification_candidates
+from app.audio_pipeline.model_contracts import AudioModelManifest
 from app.audio_pipeline.pcm import (
     Chunk,
     InvalidPCMError,
@@ -86,6 +87,12 @@ def complete(event: AudioEvent) -> AudioCompletedEvent:
 
 
 class AudioContractTests(unittest.TestCase):
+    def test_model_bundle_contract_golden_does_not_load_runtime(self) -> None:
+        payload = (FIXTURES / "model-manifest.valid.json").read_text()
+        model = AudioModelManifest.model_validate_json(payload)
+        self.assertEqual(json.loads(model.model_dump_json()), json.loads(payload))
+        self.assertEqual(model.license.status, "technical-fixture")
+
     def test_valid_command_and_event_roundtrip_golden(self) -> None:
         for filename, adapter in (
             ("analyze.valid.json", AUDIO_COMMAND_ADAPTER),

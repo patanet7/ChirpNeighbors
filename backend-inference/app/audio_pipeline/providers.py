@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import hashlib
 from dataclasses import dataclass
-from typing import Protocol
+from typing import Protocol, runtime_checkable
 
 from .contracts import ModelPin, ProviderProvenance
 from .pcm import Chunk
@@ -45,6 +45,7 @@ class Taxonomy:
         return next((taxon for taxon in self.taxa if taxon.label == label), None)
 
 
+@runtime_checkable
 class InferenceProvider(Protocol):
     @property
     def provenance(self) -> ProviderProvenance: ...

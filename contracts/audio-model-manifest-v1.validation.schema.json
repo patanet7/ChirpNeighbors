@@ -1,0 +1,187 @@
+{
+  "$defs": {
+    "ModelLicense": {
+      "additionalProperties": false,
+      "properties": {
+        "identifier": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Identifier",
+          "type": "string"
+        },
+        "reviewId": {
+          "anyOf": [
+            {
+              "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reviewid"
+        },
+        "reviewedAt": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "pattern": "^([1-9]\\d{3}|0[1-9]\\d{2}|00[1-9]\\d|000[1-9])-\\d{2}-\\d{2}T([01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(\\.\\d{1,6})?Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Reviewedat"
+        },
+        "status": {
+          "enum": [
+            "unreviewed",
+            "approved",
+            "technical-fixture"
+          ],
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "identifier",
+        "reviewId",
+        "reviewedAt"
+      ],
+      "title": "ModelLicense",
+      "type": "object"
+    },
+    "ModelTaxon": {
+      "additionalProperties": false,
+      "properties": {
+        "commonName": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Commonname",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Label",
+          "type": "string"
+        },
+        "scientificName": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Scientificname",
+          "type": "string"
+        },
+        "speciesId": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Speciesid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "speciesId",
+        "commonName",
+        "scientificName"
+      ],
+      "title": "ModelTaxon",
+      "type": "object"
+    }
+  },
+  "$id": "https://chirpneighbors.local/contracts/audio-model-manifest-v1.validation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "inputName": {
+      "maxLength": 96,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+      "title": "Inputname",
+      "type": "string"
+    },
+    "kind": {
+      "const": "audio.onnx-model",
+      "title": "Kind",
+      "type": "string"
+    },
+    "labels": {
+      "items": {
+        "$ref": "#/$defs/ModelTaxon"
+      },
+      "maxItems": 20,
+      "minItems": 1,
+      "title": "Labels",
+      "type": "array"
+    },
+    "license": {
+      "$ref": "#/$defs/ModelLicense"
+    },
+    "modelFilename": {
+      "const": "model.onnx",
+      "title": "Modelfilename",
+      "type": "string"
+    },
+    "modelSha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Modelsha256",
+      "type": "string"
+    },
+    "modelVersion": {
+      "maxLength": 96,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+      "title": "Modelversion",
+      "type": "string"
+    },
+    "outputName": {
+      "maxLength": 96,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+      "title": "Outputname",
+      "type": "string"
+    },
+    "profile": {
+      "const": "waveform16k-3s-probabilities-v1",
+      "title": "Profile",
+      "type": "string"
+    },
+    "providerId": {
+      "const": "onnx-local",
+      "title": "Providerid",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 1,
+      "title": "Schemaversion",
+      "type": "integer"
+    },
+    "taxonomyVersion": {
+      "maxLength": 96,
+      "minLength": 1,
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+      "title": "Taxonomyversion",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "kind",
+    "providerId",
+    "modelVersion",
+    "modelSha256",
+    "modelFilename",
+    "profile",
+    "inputName",
+    "outputName",
+    "taxonomyVersion",
+    "labels",
+    "license"
+  ],
+  "title": "AudioModelManifest",
+  "type": "object"
+}

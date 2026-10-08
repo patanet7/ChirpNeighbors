@@ -366,6 +366,11 @@ class AudioAPITests(unittest.IsolatedAsyncioTestCase):
             )
             self.assertEqual(response.status_code, 503)
             self.assertEqual(response.json()["error"]["code"], "provider_blocked")
+            self.assertFalse(
+                any(
+                    request.url.path.endswith("/audio") for request in self.bff.requests
+                )
+            )
 
     async def test_origin_missing_wrong_and_client_owner_header_never_authorize(
         self,
