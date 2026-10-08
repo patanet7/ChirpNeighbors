@@ -1,0 +1,538 @@
+{
+  "$defs": {
+    "AudioCompletedEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "audio.completed",
+          "title": "Kind",
+          "type": "string"
+        },
+        "observedAt": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observedat"
+        },
+        "provenance": {
+          "$ref": "#/$defs/ProviderProvenance"
+        },
+        "rawCandidates": {
+          "items": {
+            "$ref": "#/$defs/RawCandidate"
+          },
+          "maxItems": 200,
+          "title": "Rawcandidates",
+          "type": "array"
+        },
+        "recording": {
+          "$ref": "#/$defs/RecordingRef"
+        },
+        "requestId": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "title": "Requestid",
+          "type": "string"
+        },
+        "reviewCandidates": {
+          "items": {
+            "$ref": "#/$defs/ReviewCandidate"
+          },
+          "maxItems": 200,
+          "title": "Reviewcandidates",
+          "type": "array"
+        },
+        "reviewThreshold": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Reviewthreshold",
+          "type": "number"
+        },
+        "schemaVersion": {
+          "const": 1,
+          "title": "Schemaversion",
+          "type": "integer"
+        },
+        "summary": {
+          "$ref": "#/$defs/AudioSummary"
+        },
+        "traceId": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "title": "Traceid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "requestId",
+        "traceId",
+        "observedAt",
+        "recording",
+        "provenance",
+        "summary",
+        "reviewThreshold",
+        "rawCandidates",
+        "reviewCandidates"
+      ],
+      "title": "AudioCompletedEvent",
+      "type": "object"
+    },
+    "AudioFailedEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "discriminator": {
+            "mapping": {
+              "cancelled": "#/$defs/CancelledError",
+              "conflict": "#/$defs/ConflictError",
+              "invalid_audio": "#/$defs/InvalidAudioError",
+              "provider_blocked": "#/$defs/ProviderBlockedError",
+              "provider_failure": "#/$defs/ProviderFailureError",
+              "recording_unavailable": "#/$defs/RecordingUnavailableError"
+            },
+            "propertyName": "code"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/RecordingUnavailableError"
+            },
+            {
+              "$ref": "#/$defs/InvalidAudioError"
+            },
+            {
+              "$ref": "#/$defs/ConflictError"
+            },
+            {
+              "$ref": "#/$defs/CancelledError"
+            },
+            {
+              "$ref": "#/$defs/ProviderBlockedError"
+            },
+            {
+              "$ref": "#/$defs/ProviderFailureError"
+            }
+          ],
+          "title": "Error"
+        },
+        "kind": {
+          "const": "audio.failed",
+          "title": "Kind",
+          "type": "string"
+        },
+        "requestId": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "title": "Requestid",
+          "type": "string"
+        },
+        "schemaVersion": {
+          "const": 1,
+          "title": "Schemaversion",
+          "type": "integer"
+        },
+        "traceId": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "title": "Traceid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "requestId",
+        "traceId",
+        "error"
+      ],
+      "title": "AudioFailedEvent",
+      "type": "object"
+    },
+    "AudioSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "analyzedFrames": {
+          "ge": 1,
+          "le": 480000,
+          "title": "Analyzedframes",
+          "type": "integer"
+        },
+        "analyzedSampleRate": {
+          "const": 16000,
+          "title": "Analyzedsamplerate",
+          "type": "integer"
+        },
+        "chunks": {
+          "ge": 1,
+          "le": 10,
+          "title": "Chunks",
+          "type": "integer"
+        },
+        "sourceChannels": {
+          "enum": [
+            1,
+            2
+          ],
+          "title": "Sourcechannels",
+          "type": "integer"
+        },
+        "sourceFrames": {
+          "ge": 1,
+          "le": 1440000,
+          "title": "Sourceframes",
+          "type": "integer"
+        },
+        "sourceSampleRate": {
+          "ge": 8000,
+          "le": 48000,
+          "title": "Sourcesamplerate",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "sourceSampleRate",
+        "sourceChannels",
+        "sourceFrames",
+        "analyzedSampleRate",
+        "analyzedFrames",
+        "chunks"
+      ],
+      "title": "AudioSummary",
+      "type": "object"
+    },
+    "CancelledError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "const": "cancelled",
+          "title": "Code",
+          "type": "string"
+        },
+        "retryable": {
+          "const": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "retryable"
+      ],
+      "title": "CancelledError",
+      "type": "object"
+    },
+    "ConflictError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "const": "conflict",
+          "title": "Code",
+          "type": "string"
+        },
+        "retryable": {
+          "const": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "retryable"
+      ],
+      "title": "ConflictError",
+      "type": "object"
+    },
+    "InvalidAudioError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "const": "invalid_audio",
+          "title": "Code",
+          "type": "string"
+        },
+        "retryable": {
+          "const": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "retryable"
+      ],
+      "title": "InvalidAudioError",
+      "type": "object"
+    },
+    "ProviderBlockedError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "const": "provider_blocked",
+          "title": "Code",
+          "type": "string"
+        },
+        "retryable": {
+          "const": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "retryable"
+      ],
+      "title": "ProviderBlockedError",
+      "type": "object"
+    },
+    "ProviderFailureError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "const": "provider_failure",
+          "title": "Code",
+          "type": "string"
+        },
+        "retryable": {
+          "const": true,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "retryable"
+      ],
+      "title": "ProviderFailureError",
+      "type": "object"
+    },
+    "ProviderProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "inputKind": {
+          "enum": [
+            "synthetic-fixture",
+            "recording"
+          ],
+          "title": "Inputkind",
+          "type": "string"
+        },
+        "licenseIdentifier": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Licenseidentifier",
+          "type": "string"
+        },
+        "licenseStatus": {
+          "enum": [
+            "technical-fixture",
+            "approved"
+          ],
+          "title": "Licensestatus",
+          "type": "string"
+        },
+        "modelSha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Modelsha256",
+          "type": "string"
+        },
+        "modelVersion": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Modelversion",
+          "type": "string"
+        },
+        "preprocessingVersion": {
+          "const": "pcm16-mono-sinc16k-v1",
+          "title": "Preprocessingversion",
+          "type": "string"
+        },
+        "providerId": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Providerid",
+          "type": "string"
+        },
+        "taxonomyVersion": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Taxonomyversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "providerId",
+        "modelVersion",
+        "modelSha256",
+        "taxonomyVersion",
+        "inputKind",
+        "licenseStatus",
+        "licenseIdentifier",
+        "preprocessingVersion"
+      ],
+      "title": "ProviderProvenance",
+      "type": "object"
+    },
+    "RawCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "chunkIndex": {
+          "ge": 0,
+          "le": 9,
+          "title": "Chunkindex",
+          "type": "integer"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "endFrame": {
+          "ge": 1,
+          "le": 480000,
+          "title": "Endframe",
+          "type": "integer"
+        },
+        "providerLabel": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Providerlabel",
+          "type": "string"
+        },
+        "startFrame": {
+          "ge": 0,
+          "le": 479999,
+          "title": "Startframe",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "chunkIndex",
+        "startFrame",
+        "endFrame",
+        "providerLabel",
+        "confidence"
+      ],
+      "title": "RawCandidate",
+      "type": "object"
+    },
+    "RecordingRef": {
+      "additionalProperties": false,
+      "properties": {
+        "generation": {
+          "ge": 1,
+          "le": 9007199254740991,
+          "title": "Generation",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "generation",
+        "sha256"
+      ],
+      "title": "RecordingRef",
+      "type": "object"
+    },
+    "RecordingUnavailableError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "const": "recording_unavailable",
+          "title": "Code",
+          "type": "string"
+        },
+        "retryable": {
+          "const": false,
+          "title": "Retryable",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "code",
+        "retryable"
+      ],
+      "title": "RecordingUnavailableError",
+      "type": "object"
+    },
+    "ReviewCandidate": {
+      "additionalProperties": false,
+      "properties": {
+        "commonName": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Commonname",
+          "type": "string"
+        },
+        "disposition": {
+          "const": "requires-human-review",
+          "title": "Disposition",
+          "type": "string"
+        },
+        "rawCandidateIndex": {
+          "ge": 0,
+          "le": 199,
+          "title": "Rawcandidateindex",
+          "type": "integer"
+        },
+        "scientificName": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Scientificname",
+          "type": "string"
+        },
+        "speciesId": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Speciesid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rawCandidateIndex",
+        "speciesId",
+        "commonName",
+        "scientificName",
+        "disposition"
+      ],
+      "title": "ReviewCandidate",
+      "type": "object"
+    }
+  },
+  "$id": "https://chirpneighbors.local/contracts/audio-event-v1.serialization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "discriminator": {
+    "mapping": {
+      "audio.completed": "#/$defs/AudioCompletedEvent",
+      "audio.failed": "#/$defs/AudioFailedEvent"
+    },
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/AudioCompletedEvent"
+    },
+    {
+      "$ref": "#/$defs/AudioFailedEvent"
+    }
+  ]
+}

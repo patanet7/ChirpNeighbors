@@ -1,0 +1,255 @@
+[
+  {
+    "name": "unknown-field",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": null,
+      "ownerId": "foreign-owner",
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "wrong-version",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": null,
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 2,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "boolean-version",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": null,
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": true,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "unknown-kind",
+    "value": {
+      "kind": "audio.confirm",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": null,
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "missing-observed-time",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "invalid-calendar",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": "2026-02-30T00:00:00Z",
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "non-utc",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": "2026-10-08T00:00:00+00:00",
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "confidence-string",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": null,
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": "0.8",
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "unsafe-generation",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": null,
+      "recording": {
+        "generation": 9007199254740992,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "boolean-generation",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": null,
+      "recording": {
+        "generation": true,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "uppercase-uuid",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": null,
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7"
+      },
+      "requestId": "9C30F5E6-33B4-42DF-B8C7-52C1A19A0CA5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  },
+  {
+    "name": "url-instead-of-recording",
+    "value": {
+      "kind": "audio.analyze",
+      "model": {
+        "modelVersion": "energy-fixture-1",
+        "providerId": "synthetic-fixture",
+        "taxonomyVersion": "cn-demo-taxonomy-1"
+      },
+      "observedAt": null,
+      "recording": {
+        "generation": 1,
+        "id": "180b491d-ea12-418a-bbdd-77891fbd23bb",
+        "sha256": "7c1d53149d24cb54a92e2f22ccbefe62dc27ada4a41b33296ae641bd9f2eb8b7",
+        "url": "https://invalid.example/private.wav"
+      },
+      "requestId": "9c30f5e6-33b4-42df-b8c7-52c1a19a0ca5",
+      "reviewThreshold": 0.8,
+      "schemaVersion": 1,
+      "traceId": "2b30ec99-97ce-460a-933a-7e484ae46ab4"
+    }
+  }
+]

@@ -1,0 +1,140 @@
+{
+  "$defs": {
+    "AudioAnalyzeCommand": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "audio.analyze",
+          "title": "Kind",
+          "type": "string"
+        },
+        "model": {
+          "$ref": "#/$defs/ModelPin"
+        },
+        "observedAt": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?Z$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Observedat"
+        },
+        "recording": {
+          "$ref": "#/$defs/RecordingRef"
+        },
+        "requestId": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "title": "Requestid",
+          "type": "string"
+        },
+        "reviewThreshold": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Reviewthreshold",
+          "type": "number"
+        },
+        "schemaVersion": {
+          "const": 1,
+          "title": "Schemaversion",
+          "type": "integer"
+        },
+        "traceId": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "title": "Traceid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "requestId",
+        "traceId",
+        "recording",
+        "model",
+        "observedAt",
+        "reviewThreshold"
+      ],
+      "title": "AudioAnalyzeCommand",
+      "type": "object"
+    },
+    "ModelPin": {
+      "additionalProperties": false,
+      "properties": {
+        "modelVersion": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Modelversion",
+          "type": "string"
+        },
+        "providerId": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Providerid",
+          "type": "string"
+        },
+        "taxonomyVersion": {
+          "maxLength": 96,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "title": "Taxonomyversion",
+          "type": "string"
+        }
+      },
+      "required": [
+        "providerId",
+        "modelVersion",
+        "taxonomyVersion"
+      ],
+      "title": "ModelPin",
+      "type": "object"
+    },
+    "RecordingRef": {
+      "additionalProperties": false,
+      "properties": {
+        "generation": {
+          "ge": 1,
+          "le": 9007199254740991,
+          "title": "Generation",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "generation",
+        "sha256"
+      ],
+      "title": "RecordingRef",
+      "type": "object"
+    }
+  },
+  "$id": "https://chirpneighbors.local/contracts/audio-command-v1.validation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "discriminator": {
+    "mapping": {
+      "audio.analyze": "#/$defs/AudioAnalyzeCommand"
+    },
+    "propertyName": "kind"
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/AudioAnalyzeCommand"
+    }
+  ]
+}
