@@ -32,7 +32,7 @@ browser checks run: Vite hot reload can invalidate a running journey.
 
 The full gate covers TypeScript's strict optional/indexed access, type-aware ESLint,
 formatting, unit tests, production build, Zod/Pydantic schema exports, generated
-clients, 155 cross-language cases, strict Python typing, lint/format, audio API and
+clients, cross-language goldens and bounded mutation corpora, strict Python typing, lint/format, audio API and
 portable contracts, synthetic evaluation, recovery, operations HTTP checks, and
 all retained renderer/browser journeys. Generated validator JavaScript is excluded
 only from source-style ESLint; deterministic regeneration, runtime cases, generated
