@@ -26,7 +26,12 @@ def json_integer(value: object) -> object:
     return value
 
 
-JSONInteger = Annotated[int, BeforeValidator(json_integer)]
+def json_boolean(value: object) -> object:
+    if not isinstance(value, bool):
+        raise PydanticCustomError("json_boolean", "Expected a JSON boolean")
+    return value
+
+
 UUIDText = Annotated[
     str,
     Field(
@@ -44,7 +49,9 @@ UTCDate = Annotated[
         json_schema_extra={"format": "date-time"},
     ),
 ]
-SafePositive = Annotated[JSONInteger, Field(ge=1, le=9007199254740991)]
+SafePositive = Annotated[
+    int, Field(ge=1, le=9007199254740991), BeforeValidator(json_integer)
+]
 Confidence = Annotated[float, Field(ge=0, le=1, allow_inf_nan=False)]
 
 
@@ -94,24 +101,30 @@ class ProviderProvenance(WireModel):
 
 
 class AudioSummary(WireModel):
-    sourceSampleRate: Annotated[JSONInteger, Field(ge=8000, le=48000)]
+    sourceSampleRate: Annotated[
+        int, Field(ge=8000, le=48000), BeforeValidator(json_integer)
+    ]
     sourceChannels: Annotated[Literal[1, 2], BeforeValidator(json_integer)]
-    sourceFrames: Annotated[JSONInteger, Field(ge=1, le=1440000)]
+    sourceFrames: Annotated[int, Field(ge=1, le=1440000), BeforeValidator(json_integer)]
     analyzedSampleRate: Annotated[Literal[16000], BeforeValidator(json_integer)]
-    analyzedFrames: Annotated[JSONInteger, Field(ge=1, le=480000)]
-    chunks: Annotated[JSONInteger, Field(ge=1, le=10)]
+    analyzedFrames: Annotated[
+        int, Field(ge=1, le=480000), BeforeValidator(json_integer)
+    ]
+    chunks: Annotated[int, Field(ge=1, le=10), BeforeValidator(json_integer)]
 
 
 class RawCandidate(WireModel):
-    chunkIndex: Annotated[JSONInteger, Field(ge=0, le=9)]
-    startFrame: Annotated[JSONInteger, Field(ge=0, le=479999)]
-    endFrame: Annotated[JSONInteger, Field(ge=1, le=480000)]
+    chunkIndex: Annotated[int, Field(ge=0, le=9), BeforeValidator(json_integer)]
+    startFrame: Annotated[int, Field(ge=0, le=479999), BeforeValidator(json_integer)]
+    endFrame: Annotated[int, Field(ge=1, le=480000), BeforeValidator(json_integer)]
     providerLabel: Key
     confidence: Confidence
 
 
 class ReviewCandidate(WireModel):
-    rawCandidateIndex: Annotated[JSONInteger, Field(ge=0, le=199)]
+    rawCandidateIndex: Annotated[
+        int, Field(ge=0, le=199), BeforeValidator(json_integer)
+    ]
     speciesId: Key
     commonName: Annotated[str, Field(min_length=1, max_length=120)]
     scientificName: Annotated[str, Field(min_length=1, max_length=120)]
@@ -139,32 +152,32 @@ class AudioCompletedEvent(WireModel):
 
 class RecordingUnavailableError(WireModel):
     code: Literal["recording_unavailable"]
-    retryable: Literal[False]
+    retryable: Annotated[Literal[False], BeforeValidator(json_boolean)]
 
 
 class InvalidAudioError(WireModel):
     code: Literal["invalid_audio"]
-    retryable: Literal[False]
+    retryable: Annotated[Literal[False], BeforeValidator(json_boolean)]
 
 
 class ConflictError(WireModel):
     code: Literal["conflict"]
-    retryable: Literal[False]
+    retryable: Annotated[Literal[False], BeforeValidator(json_boolean)]
 
 
 class CancelledError(WireModel):
     code: Literal["cancelled"]
-    retryable: Literal[False]
+    retryable: Annotated[Literal[False], BeforeValidator(json_boolean)]
 
 
 class ProviderBlockedError(WireModel):
     code: Literal["provider_blocked"]
-    retryable: Literal[False]
+    retryable: Annotated[Literal[False], BeforeValidator(json_boolean)]
 
 
 class ProviderFailureError(WireModel):
     code: Literal["provider_failure"]
-    retryable: Literal[True]
+    retryable: Annotated[Literal[True], BeforeValidator(json_boolean)]
 
 
 AudioError = Annotated[
