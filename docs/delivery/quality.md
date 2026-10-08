@@ -81,8 +81,8 @@ handlers; they do not establish hosted or external-provider readiness.
 The deep-contract wave adds inventory, reviewed structural compatibility,
 Zod/Python mutation agreement, Pydantic/TypeScript mutation agreement and offline
 reference tests. The generator gate now discovers all contract-tool regression
-files. These five additions bring the retained runner to 62 gates before any
-new v3 image browser journey. Run heavy builds and browser journeys in an
+files. These five additions plus the v3 image browser journey bring the retained
+runner to 63 gates. Run heavy builds and browser journeys in an
 exclusive window: focused parallel work is useful, but competing browser/GPU
 jobs invalidated timing conclusions in earlier readiness attempts. A source
 edit, selective rerun, or passing a different checkout does not repair a failed
