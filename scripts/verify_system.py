@@ -244,6 +244,7 @@ def gates(
                 "scripts/private_backup.py",
                 "scripts/operations-smoke.py",
                 "scripts/lifecycle-recovery-smoke.py",
+                "scripts/abuse-smoke.py",
             ],
         ),
         Gate(
@@ -356,6 +357,7 @@ def gates(
     )
     result.extend(
         [
+            Gate("request-abuse-http", ui, [browser_python, "scripts/abuse-smoke.py"]),
             Gate(
                 "auth-provider-integration",
                 ui,
@@ -412,6 +414,7 @@ def gates(
             "CHIRP_RECORDING_LIFECYCLE_OUTPUT",
         ),
         ("image-intake", "image-intake-browser-checks.py", "CHIRP_IMAGE_INTAKE_OUTPUT"),
+        ("sharing", "share-browser-checks.py", "CHIRP_SHARE_OUTPUT"),
     ]
     for name, script, variable in browser_suites:
         command = [browser_python, f"scripts/{script}"]

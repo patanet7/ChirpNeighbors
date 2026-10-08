@@ -32,7 +32,7 @@ browser checks run: Vite hot reload can invalidate a running journey.
 
 The full gate covers TypeScript's strict optional/indexed access, type-aware ESLint,
 formatting, unit tests, production build, Zod/Pydantic schema exports, generated
-clients, 129 cross-language cases, strict Python typing, lint/format, audio API and
+clients, 155 cross-language cases, strict Python typing, lint/format, audio API and
 portable contracts, synthetic evaluation, recovery, operations HTTP checks, and
 all retained renderer/browser journeys. Generated validator JavaScript is excluded
 only from source-style ESLint; deterministic regeneration, runtime cases, generated
@@ -56,7 +56,7 @@ resolve the public package registry, although host installation/builds succeeded
 The lifecycle wave adds five gates to the retained 50: actual app/email/Google
 mock integration, lifecycle recovery HTTP, actual generated ONNX-to-confirmation
 journey, recording lifecycle browser failures/restarts, and owner image intake.
-The new aggregate has 55 gates. Email delivery uses loopback TLS SMTP; Google
+That aggregate has 55 gates. Email delivery uses loopback TLS SMTP; Google
 uses signed local responses through the real callback path. Neither establishes
 external provider configuration. New restore tests supply the retained canonical
 delete ledger; offline backups are never claimed erased.
@@ -68,3 +68,11 @@ to continue if source or test revisions change. Incremental reports distinguish
 cannot claim a complete pass. Commit implementation/test changes before running,
 and write final documentation after verification. Prior lifecycle reports retain
 their original 54-pass run plus selector-only rerun history.
+
+The readiness wave adds actual request-abuse HTTP and snapshot-sharing browser
+gates, bringing the combined suite to 57 gates. Sharing checks include anonymous
+production HTML with JavaScript disabled, referrer/token privacy, lost-response
+replacement, revocation and expiry. Request checks exercise real configured
+limits, stalled bodies, safe unexpected errors and public reads while the account
+database is unavailable. These gates use isolated synthetic data and real local
+handlers; they do not establish hosted or external-provider readiness.
