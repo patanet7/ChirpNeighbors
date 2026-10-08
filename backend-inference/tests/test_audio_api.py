@@ -551,6 +551,22 @@ class AudioAPITests(unittest.IsolatedAsyncioTestCase):
                 "invalid_request",
             )
 
+    async def test_operational_responses_use_closed_authority(self) -> None:
+        from app.audio_pipeline.contracts import AudioHealth, AudioReadiness
+
+        health = await self.client.get("/healthz")
+        self.assertEqual(health.status_code, 200)
+        self.assertEqual(
+            AudioHealth.model_validate_json(health.content).status, "alive"
+        )
+        readiness = await self.client.get("/readyz")
+        value = AudioReadiness.model_validate_json(readiness.content)
+        self.assertEqual(readiness.status_code, 200 if value.ready else 503)
+        document = (await self.client.get("/openapi.json")).json()
+        for path in ("/healthz", "/readyz"):
+            self.assertIn("content", document["paths"][path]["get"]["responses"]["200"])
+        self.assertIn("503", document["paths"]["/readyz"]["get"]["responses"])
+
     async def test_openapi_is_generated_from_pydantic_wire_models(self) -> None:
         document = (await self.client.get("/openapi.json")).json()
         self.assertIn("AudioAnalyzeCommand", document["components"]["schemas"])

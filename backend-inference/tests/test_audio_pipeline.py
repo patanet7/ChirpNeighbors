@@ -10,6 +10,7 @@ import threading
 import unittest
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from unittest.mock import patch
 
 from pydantic import ValidationError
 
@@ -20,6 +21,8 @@ from app.audio_pipeline.contracts import (
     AudioCompletedEvent,
     AudioEvent,
     AudioFailedEvent,
+    AudioHealth,
+    AudioReadiness,
     RecordingRef,
 )
 from app.audio_pipeline.evaluation import evaluate
@@ -87,6 +90,43 @@ def complete(event: AudioEvent) -> AudioCompletedEvent:
 
 
 class AudioContractTests(unittest.TestCase):
+    def test_completed_semantic_corpus(self) -> None:
+        for case in json.loads((FIXTURES / "completed.semantic.json").read_text()):
+            with self.subTest(name=case["name"]):
+                if case["authoritativeValid"]:
+                    AUDIO_EVENT_ADAPTER.validate_json(json.dumps(case["value"]))
+                else:
+                    with self.assertRaises(ValidationError):
+                        AUDIO_EVENT_ADAPTER.validate_json(json.dumps(case["value"]))
+
+    def test_operator_model_semantics(self) -> None:
+        base = json.loads((FIXTURES / "model-manifest.valid.json").read_text())
+        duplicated = {**base, "labels": base["labels"] * 2}
+        with self.assertRaises(ValidationError):
+            AudioModelManifest.model_validate(duplicated)
+        for absent in ("reviewId", "reviewedAt"):
+            license_value = {
+                **base["license"],
+                "status": "approved",
+                "reviewId": "00000000-0000-4000-8000-000000000001",
+                "reviewedAt": "2026-10-08T00:00:00Z",
+                absent: None,
+            }
+            with self.subTest(absent=absent), self.assertRaises(ValidationError):
+                AudioModelManifest.model_validate({**base, "license": license_value})
+
+    def test_operational_models_are_closed_and_consistent(self) -> None:
+        for invalid in (
+            {"version": True, "status": "alive"},
+            {"version": 1, "status": "alive", "private": "diagnostic"},
+        ):
+            with self.assertRaises(ValidationError):
+                AudioHealth.model_validate(invalid)
+        with self.assertRaises(ValidationError):
+            AudioReadiness(
+                version=1, ready=True, authentication="configured", model="unconfigured"
+            )
+
     def test_model_bundle_contract_golden_does_not_load_runtime(self) -> None:
         payload = (FIXTURES / "model-manifest.valid.json").read_text()
         model = AudioModelManifest.model_validate_json(payload)
@@ -381,6 +421,24 @@ class AudioServiceTests(unittest.TestCase):
                 error_code(service.analyze(FIXTURE_OWNER, self.command)),
                 "provider_blocked",
             )
+
+    def test_malformed_vendor_container_is_a_closed_failure(self) -> None:
+        invalid: tuple[object, ...] = (
+            None,
+            {},
+            [],
+            (None,),
+            ({"label": "secret", "confidence": 1},),
+        )
+        for value in invalid:
+            with (
+                self.subTest(value=value),
+                patch.object(self.provider, "infer", return_value=value),
+            ):
+                service = AudioService(self.storage, self.provider, FIXTURE_TAXONOMY)
+                event = service.analyze(FIXTURE_OWNER, self.command)
+                self.assertEqual(error_code(event), "provider_blocked")
+                self.assertNotIn("secret", event.model_dump_json())
 
     def test_retry_reuses_chunk_key_and_stops_after_three_attempts(self) -> None:
         for failures, expected in ((2, "audio.completed"), (3, "audio.failed")):

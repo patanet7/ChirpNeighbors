@@ -254,6 +254,66 @@
         "title": "AudioHTTPError",
         "type": "object"
       },
+      "AudioHealth": {
+        "additionalProperties": false,
+        "properties": {
+          "status": {
+            "const": "alive",
+            "title": "Status",
+            "type": "string"
+          },
+          "version": {
+            "const": 1,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "version",
+          "status"
+        ],
+        "title": "AudioHealth",
+        "type": "object"
+      },
+      "AudioReadiness": {
+        "additionalProperties": false,
+        "description": "Configuration readiness only; no inference or dependency health probe.",
+        "properties": {
+          "authentication": {
+            "enum": [
+              "configured",
+              "unconfigured"
+            ],
+            "title": "Authentication",
+            "type": "string"
+          },
+          "model": {
+            "enum": [
+              "configured",
+              "unconfigured"
+            ],
+            "title": "Model",
+            "type": "string"
+          },
+          "ready": {
+            "title": "Ready",
+            "type": "boolean"
+          },
+          "version": {
+            "const": 1,
+            "title": "Version",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "version",
+          "ready",
+          "authentication",
+          "model"
+        ],
+        "title": "AudioReadiness",
+        "type": "object"
+      },
       "AudioSummary": {
         "additionalProperties": false,
         "properties": {
@@ -668,18 +728,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "additionalProperties": {
-                    "anyOf": [
-                      {
-                        "type": "string"
-                      },
-                      {
-                        "type": "integer"
-                      }
-                    ]
-                  },
-                  "title": "Response Health Healthz Get",
-                  "type": "object"
+                  "$ref": "#/components/schemas/AudioHealth"
                 }
               }
             },
@@ -696,10 +745,22 @@
           "200": {
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/AudioReadiness"
+                }
               }
             },
             "description": "Successful Response"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioReadiness"
+                }
+              }
+            },
+            "description": "Service Unavailable"
           }
         },
         "summary": "Ready"

@@ -9,17 +9,24 @@ from pathlib import Path
 from .contracts import (
     AUDIO_COMMAND_ADAPTER,
     AUDIO_EVENT_ADAPTER,
+    AudioHealth,
     AudioHTTPError,
+    AudioReadiness,
     AudioRecordingPermit,
 )
 from .model_contracts import AudioModelManifest
 
 
 def schema_documents() -> dict[str, str]:
+    readiness = AudioReadiness.model_json_schema(mode="serialization")
     http_error = AudioHTTPError.model_json_schema(mode="serialization")
     permit = AudioRecordingPermit.model_json_schema(mode="serialization")
     model_manifest = AudioModelManifest.model_json_schema(mode="validation")
     schemas = {
+        "audio-health-v1.serialization.schema.json": AudioHealth.model_json_schema(
+            mode="serialization"
+        ),
+        "audio-readiness-v1.serialization.schema.json": readiness,
         "audio-model-manifest-v1.validation.schema.json": model_manifest,
         "audio-http-error-v1.serialization.schema.json": http_error,
         "audio-recording-permit-v1.serialization.schema.json": permit,

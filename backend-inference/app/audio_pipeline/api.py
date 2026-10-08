@@ -17,7 +17,9 @@ from .contracts import (
     AudioAnalyzeCommand,
     AudioEvent,
     AudioFailedEvent,
+    AudioHealth,
     AudioHTTPError,
+    AudioReadiness,
     RecordingRef,
 )
 from .gateway import (
@@ -143,11 +145,15 @@ def create_app(
         # Framework errors include rejected values; do not leak private evidence.
         return rejected("invalid_request", 422)
 
-    @app.get("/healthz")
-    async def health() -> dict[str, str | int]:
-        return {"version": 1, "status": "alive"}
+    @app.get("/healthz", response_model=AudioHealth)
+    async def health() -> AudioHealth:
+        return AudioHealth(version=1, status="alive")
 
-    @app.get("/readyz")
+    @app.get(
+        "/readyz",
+        response_model=AudioReadiness,
+        responses={503: {"model": AudioReadiness}},
+    )
     async def ready() -> JSONResponse:
         configured = False
         try:
@@ -156,12 +162,12 @@ def create_app(
             pass
         ready_for_requests = configured and verifier is not None
         return JSONResponse(
-            {
-                "version": 1,
-                "ready": ready_for_requests,
-                "authentication": "configured" if verifier else "unconfigured",
-                "model": "configured" if configured else "unconfigured",
-            },
+            AudioReadiness(
+                version=1,
+                ready=ready_for_requests,
+                authentication="configured" if verifier else "unconfigured",
+                model="configured" if configured else "unconfigured",
+            ).model_dump(mode="json"),
             status_code=200 if ready_for_requests else 503,
             headers={"cache-control": "no-store"},
         )

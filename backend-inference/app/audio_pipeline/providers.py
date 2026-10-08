@@ -60,7 +60,15 @@ def invoke_provider(
 ) -> tuple[Prediction, ...]:
     """Contain adapter errors; only explicit transient errors retry automatically."""
     try:
-        return provider.infer(chunk, idempotency_key=idempotency_key)
+        result: object = provider.infer(chunk, idempotency_key=idempotency_key)
+        # A Python protocol is not a runtime guarantee for a vendor adapter.
+        # Validate its container/items before the service dereferences them;
+        # canonical RawCandidate validation still owns label/score constraints.
+        if not isinstance(result, tuple) or not all(
+            isinstance(item, Prediction) for item in result
+        ):
+            raise ProviderConfigurationError("Invalid provider output shape")
+        return tuple(item for item in result if isinstance(item, Prediction))
     except (TransientProviderError, ProviderConfigurationError):
         raise
     except Exception:  # noqa: BLE001 - sanitize exceptions at the provider boundary.

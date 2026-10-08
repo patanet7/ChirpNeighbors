@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import math
 from datetime import datetime
-from typing import Annotated, Literal
+from typing import Annotated, Literal, Self
 
 from pydantic import (
     BaseModel,
@@ -13,6 +13,7 @@ from pydantic import (
     Field,
     TypeAdapter,
     field_validator,
+    model_validator,
 )
 from pydantic_core import PydanticCustomError
 
@@ -86,6 +87,28 @@ class AudioHTTPError(WireModel):
     traceId: UUIDText
 
 
+class AudioHealth(WireModel):
+    version: Annotated[Literal[1], BeforeValidator(json_integer)]
+    status: Literal["alive"]
+
+
+class AudioReadiness(WireModel):
+    """Configuration readiness only; no inference or dependency health probe."""
+
+    version: Annotated[Literal[1], BeforeValidator(json_integer)]
+    ready: bool
+    authentication: Literal["configured", "unconfigured"]
+    model: Literal["configured", "unconfigured"]
+
+    @model_validator(mode="after")
+    def consistent_readiness(self) -> Self:
+        if self.ready != (
+            self.authentication == "configured" and self.model == "configured"
+        ):
+            raise ValueError("Readiness must agree with configuration state")
+        return self
+
+
 class ModelPin(WireModel):
     providerId: Key
     modelVersion: Key
@@ -120,6 +143,13 @@ class ProviderProvenance(WireModel):
     licenseIdentifier: Annotated[str, Field(min_length=1, max_length=120)]
     preprocessingVersion: Literal["pcm16-mono-sinc16k-v1"]
 
+    @model_validator(mode="after")
+    def consistent_license(self) -> Self:
+        expected = "approved" if self.inputKind == "recording" else "technical-fixture"
+        if self.licenseStatus != expected:
+            raise ValueError("Input provenance and license must agree")
+        return self
+
 
 class AudioSummary(WireModel):
     sourceSampleRate: Annotated[
@@ -132,6 +162,21 @@ class AudioSummary(WireModel):
         int, Field(ge=1, le=480000), BeforeValidator(json_integer)
     ]
     chunks: Annotated[int, Field(ge=1, le=10), BeforeValidator(json_integer)]
+
+    @model_validator(mode="after")
+    def canonical_dimensions(self) -> Self:
+        frames = max(
+            1,
+            (self.sourceFrames * 16000 + self.sourceSampleRate // 2)
+            // self.sourceSampleRate,
+        )
+        if (
+            self.sourceFrames > self.sourceSampleRate * 30
+            or self.analyzedFrames != frames
+            or self.chunks != (frames + 47999) // 48000
+        ):
+            raise ValueError("Audio dimensions do not match canonical preprocessing")
+        return self
 
 
 class RawCandidate(WireModel):
@@ -169,6 +214,33 @@ class AudioCompletedEvent(WireModel):
     @classmethod
     def real_calendar_date(cls, value: str | None) -> str | None:
         return AudioAnalyzeCommand.real_calendar_date(value)
+
+    @model_validator(mode="after")
+    def consistent_candidates(self) -> Self:
+        counts: dict[int, int] = {}
+        for candidate in self.rawCandidates:
+            start = candidate.chunkIndex * 48000
+            counts[candidate.chunkIndex] = counts.get(candidate.chunkIndex, 0) + 1
+            if (
+                candidate.chunkIndex >= self.summary.chunks
+                or candidate.startFrame != start
+                or candidate.endFrame != min(start + 48000, self.summary.analyzedFrames)
+                or counts[candidate.chunkIndex] > 20
+            ):
+                raise ValueError("Candidate windows or count do not match their chunk")
+        reviewed: set[int] = set()
+        for review in self.reviewCandidates:
+            index = review.rawCandidateIndex
+            if (
+                index >= len(self.rawCandidates)
+                or index in reviewed
+                or self.rawCandidates[index].confidence < self.reviewThreshold
+            ):
+                raise ValueError(
+                    "Review candidates require distinct eligible raw evidence"
+                )
+            reviewed.add(index)
+        return self
 
 
 class RecordingUnavailableError(WireModel):
