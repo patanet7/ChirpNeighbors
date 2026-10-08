@@ -61,8 +61,8 @@ class RecordingStorage(Protocol):
 
     An HTTP adapter must use a fixed, trusted BFF endpoint with actual session
     verification. It must never accept an arbitrary client path or owner header.
-    No result is persisted by this service; durable derived-output commits need
-    an atomic storage generation check in the future worker integration.
+    No result is persisted by this service; the owning application's durable
+    derived-output repository must atomically fence admission by generation.
     """
 
     def read(self, principal: Principal, recording: RecordingRef) -> RecordingBytes: ...
@@ -153,12 +153,15 @@ class AudioService:
             ):
                 return _failed(command, ConflictError(code="conflict", retryable=False))
             # Preserve content binding, but let explicit retries recover from
-            # transient failures or a previous request's cancellation.
+            # transient failures or a previous request's cancellation. Access
+            # failures are deliberately opaque: a temporary gateway outage can
+            # look identical to a deleted/foreign recording. Re-run the access
+            # checks on an explicit retry, never infer renewed authorization.
             replay = cached
             if cached is not None and isinstance(cached.event, AudioFailedEvent):
-                if (
-                    cached.event.error.retryable
-                    or cached.event.error.code == "cancelled"
+                if cached.event.error.retryable or cached.event.error.code in (
+                    "cancelled",
+                    "recording_unavailable",
                 ):
                     replay = None
             if replay is None:
@@ -174,15 +177,20 @@ class AudioService:
                 token.checkpoint()
                 source.assert_current(principal, command.recording)
             except RecordingAccessError:
-                with self._lock:
-                    if self._cache.get(key) is replay:
-                        del self._cache[key]
-                return _failed(
+                failure = _failed(
                     command,
                     RecordingUnavailableError(
                         code="recording_unavailable", retryable=False
                     ),
                 )
+                with self._lock:
+                    if self._cache.get(key) is replay:
+                        # Discard cached evidence, retaining the immutable
+                        # request fingerprint so changed-content retries conflict.
+                        self._cache[key] = CachedResult(
+                            replay.fingerprint, failure.model_copy(deep=True)
+                        )
+                return failure
             except AnalysisCancelledError:
                 return _failed(
                     command, CancelledError(code="cancelled", retryable=False)

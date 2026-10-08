@@ -63,6 +63,15 @@ Unexpected provider exceptions are sanitized at one documented `BLE001` exceptio
 boundary. Provider calls must implement their own bounded execution timeout; this
 synchronous service cannot forcibly interrupt an arbitrary native model call.
 
+`recording_unavailable` deliberately does not distinguish missing/deleted/foreign
+evidence from a transient private gateway failure. It remains non-retryable for
+automatic execution, but an **explicit identical request** reruns current access,
+generation, digest and provider checks. Temporary 503/transport failures therefore
+cannot permanently poison that request ID. Failed revalidation discards cached
+evidence while retaining its request fingerprint, so changed-content retries still
+conflict. No permission is inferred from an earlier successful request, and no
+automatic access retry loop is added.
+
 The Python request cache remains process-local. The integrated Svelte BFF now
 admits completed results into owner SQLite using an atomic generation fence,
 immutable request/command digests and recording-derived deletion. An exact reviewed
@@ -132,8 +141,9 @@ HTTP preflight failures use versioned `audio.rejected` errors. Analysis failures
 to `contracts/audio-openapi-v1.json`. No hand-maintained OpenAPI model is introduced.
 Responses are private/no-store. Client disconnects request cooperative cancellation;
 native provider calls still need their own timeout. Explicit retries can recover from
-transient provider failure or a prior cancellation using the same unchanged request
-ID. Remote cache revalidation runs outside the service's global lock.
+transient provider failure, an unavailable recording gateway or a prior cancellation
+using the same unchanged request ID. Remote cache revalidation runs outside the
+service's global lock.
 
 Tests use HTTPX's ASGI and mock transports to execute the real API/verifier/media
 stack without network access. Their completed-inference response uses only a

@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import unittest
 from datetime import UTC, datetime
+from uuid import uuid4
 
 import httpx
 
@@ -48,6 +49,8 @@ class MockBFF:
         self.deleted = False
         self.synthetic = True
         self.generation = 1
+        self.failure: str | None = None
+        self.failure_path = "analysis-permit"
 
     def handle(self, request: httpx.Request) -> httpx.Response:
         self.requests.append(request)
@@ -71,6 +74,13 @@ class MockBFF:
             )
         if self.deleted or cookie != COOKIE:
             return httpx.Response(404, json={"error": "unavailable"})
+        if request.url.path.endswith("/" + self.failure_path):
+            if self.failure == "503":
+                return httpx.Response(503, json={"private": "gateway-diagnostic"})
+            if self.failure == "transport":
+                raise httpx.ReadTimeout("private-gateway-address", request=request)
+            if self.failure == "forbidden":
+                return httpx.Response(403, json={"private": "access-denied"})
         if (
             request.url.path
             == f"/api/recordings/{self.command.recording.id}/analysis-permit"
@@ -339,6 +349,118 @@ class AudioAPITests(unittest.IsolatedAsyncioTestCase):
         response = await self.post()
         self.assertEqual(response.status_code, 503)
         self.assertEqual(response.json()["error"]["code"], "provider_blocked")
+
+    async def test_same_request_recovers_after_permit_or_audio_gateway_outage(
+        self,
+    ) -> None:
+        for path in ("analysis-permit", "audio"):
+            for failure in ("503", "transport"):
+                with self.subTest(path=path, failure=failure):
+                    self.bff.command = fixture_command(
+                        self.bff.audio, request_id=str(uuid4())
+                    )
+                    self.bff.failure_path, self.bff.failure = path, failure
+                    original = self.bff.command
+                    failed = await self.post()
+                    self.assertEqual(failed.status_code, 404)
+                    self.assertEqual(
+                        failed.json()["error"],
+                        {"code": "recording_unavailable", "retryable": False},
+                    )
+                    self.assertNotIn("private", failed.text)
+                    self.bff.command = original.model_copy(
+                        update={"reviewThreshold": 0.7}
+                    )
+                    self.assertEqual((await self.post()).status_code, 409)
+                    self.bff.command = original
+                    self.bff.failure = None
+                    recovered = await self.post()
+                    self.assertEqual(recovered.status_code, 200, recovered.text)
+                    event = AUDIO_EVENT_ADAPTER.validate_json(recovered.content)
+                    self.assertEqual(event.requestId, original.requestId)
+                    self.assertEqual(event.traceId, original.traceId)
+                    self.assertEqual((await self.post()).json(), recovered.json())
+
+    async def test_cached_result_loses_evidence_but_not_request_binding_on_outage(
+        self,
+    ) -> None:
+        original = self.bff.command
+        complete = await self.post()
+        self.assertEqual(complete.status_code, 200)
+        self.bff.failure = "503"
+        self.assertEqual((await self.post()).status_code, 404)
+        self.bff.failure = None
+        self.bff.command = original.model_copy(update={"reviewThreshold": 0.7})
+        self.assertEqual((await self.post()).status_code, 409)
+        self.bff.command = original
+        recovered = await self.post()
+        self.assertEqual(recovered.status_code, 200)
+        self.assertEqual(recovered.json(), complete.json())
+
+    async def test_access_retry_never_restores_foreign_deleted_or_changed_generation(
+        self,
+    ) -> None:
+        self.bff.failure = "503"
+        self.assertEqual((await self.post()).status_code, 404)
+        self.bff.failure = None
+        for _ in range(2):
+            foreign = await self.post(cookie="session=foreign-test-session")
+            self.assertEqual(foreign.status_code, 404)
+            self.assertNotIn("rawCandidates", foreign.text)
+        for failure in ("forbidden", "503"):
+            self.bff.failure = failure
+            for _ in range(2):
+                unavailable = await self.post()
+                self.assertEqual(unavailable.status_code, 404)
+                self.assertNotIn("rawCandidates", unavailable.text)
+        self.bff.failure = None
+        self.bff.deleted = True
+        for _ in range(2):
+            self.assertEqual((await self.post()).status_code, 404)
+        self.bff.deleted = False
+        self.bff.generation += 1
+        for _ in range(2):
+            self.assertEqual((await self.post()).status_code, 404)
+        self.assertFalse(
+            any(request.url.path.endswith("/audio") for request in self.bff.requests)
+        )
+
+    async def test_fresh_api_after_gateway_recovery_rechecks_current_access(
+        self,
+    ) -> None:
+        self.bff.failure = "transport"
+        self.assertEqual((await self.post()).status_code, 404)
+        self.bff.failure = None
+        async with httpx.AsyncClient(
+            transport=httpx.ASGITransport(
+                app=create_app(
+                    gateway=self.bff.gateway(), provider=SyntheticFixtureProvider()
+                )
+            ),
+            base_url="https://audio.invalid",
+        ) as restarted:
+            response = await restarted.post(
+                "/v1/audio/analyze",
+                content=self.bff.command.model_dump_json(),
+                headers={
+                    "origin": ORIGIN,
+                    "content-type": "application/json",
+                    "cookie": COOKIE,
+                },
+            )
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.json()["requestId"], self.bff.command.requestId)
+            self.bff.deleted = True
+            response = await restarted.post(
+                "/v1/audio/analyze",
+                content=self.bff.command.model_dump_json(),
+                headers={
+                    "origin": ORIGIN,
+                    "content-type": "application/json",
+                    "cookie": COOKIE,
+                },
+            )
+            self.assertEqual(response.status_code, 404)
 
     async def test_unconfigured_model_and_service_readiness_fail_closed(self) -> None:
         async with httpx.AsyncClient(
