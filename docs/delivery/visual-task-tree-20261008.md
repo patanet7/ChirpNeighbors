@@ -118,3 +118,21 @@ and proposing bounded seams while the shape/evidence browser checkpoint finishes
 The simulation owner finishes the current shape gate before editing I2–I4. Root
 owns shared domain declarations, exports, compatibility baselines and integration.
 No task above is complete merely because a proposal or test fixture exists.
+
+## Privacy, companionship and shared catalog follow-up
+
+| ID | Task / dependency | Concrete acceptance |
+| --- | --- | --- |
+| S1 | Session-bound private requests; precedes interactive integration | An old Alice document cannot submit its intent or download Bob's backup after another tab switches accounts. Cookie/SQLite identity is authoritative; document binding is not a bearer credential. Reject missing/stale bindings before private handlers; use framework route identity for encoded paths. Revocation and changed successful session polls unmount private content and fence late reads/writes. Test two tabs, streamed reads, native auth flows and encoded paths. |
+| A1 | Explicit-consent first-party analytics; depends on S1 | Off by default; closed coarse schemas only, no owner/species/Findings/media/location/URLs/IP/token/freeform dimensions. Keep private consent and identity-free aggregates in separate databases, lazy runtime cannot block the yard. Revision-fence queued batches across revoke/regrant; purge bounded client buffers. Server independently enforces schema, consent, budgets and configurable retention. Internal reports require authentication and minimum bucket counts; those counts do not imply anonymity. Separate disabled security counters. No vendor or real-user activation. |
+| C1 | Fictional resident personality and companionship design | Keep biological knowledge, illustrative species simulation tuning, persistent fictional individual traits and observed evidence distinct. Specify a bounded versioned traits/progression model, earned companionship and accessible interactions before code. No missed-day punishment, starvation, guilt, loss of birds or paid affection. Daily credits and premium themes remain tentative design; no economy, ads or billing code. |
+| G1 | Typed generation usage and fingerprints | Record actual dispatch attempts/duration/hardware or provider class/cache reuse/normalization acceptance separately from human review. Unknown cost stays unknown; no invented currency amounts. Canonical recipe/model/settings/version fingerprints never contain private source data; private dedupe includes owner scope. Real execution and paid generation remain disabled. |
+| G2 | Lazy shared canonical species/style/version catalog requests; depends on G1 | This is the agreed baseline: build shared assets as species arrive, not the full catalog upfront. One durable canonical missing-asset request per identity; explicit placeholder while awaiting reviewed immutable release. Variants only as needed, pinned rights/provenance. Private input/output stays owner-scoped and cannot be promoted by relabelling metadata. Initially queue requests only; real adapters, dispatch budgets and shared rendering require separately implemented gates. |
+
+The first frozen visual aggregate at main `1a488d72776a19bc3750217844c9100de43d78d5`
+and UI `5ab2d97ef59f39738d2ae3c45ea7152dc50fa3c5` passed 60/65 gates.
+Retained evidence: `/tmp/chirp-visual-system-20261008-r1`. Failures were typed lint,
+formatting and three browser gates: two exposed the missing raw-frame inspection
+control; the core journey exposed an implicit live status on animation progress.
+UI `b225474` restores inspection and fixes those issues. The complete suite must be
+rerun on frozen commits; focused passes are not substituted for an aggregate.
