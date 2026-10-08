@@ -52,8 +52,9 @@ PR, deployment or publication actions are part of this work.
   modern stores while preserving the source copy.
 - [x] Integrate final static public UI and privacy browser regression (38 actual
   isolated checks, including production without JavaScript and token-referrer privacy).
-- [ ] Run all 57 gates once on clean frozen source/test revisions; retain the
-  original lifecycle failure and selector rerun as historical evidence.
+- [ ] Final combined frozen verification continues in the 63-gate contract wave.
+  The second readiness attempt completed 56/57 gates and remains preserved; its
+  unchanged routines journey passed separately. See [the current checklist](contracts-wave-20261008.md).
 
 ## Consequential remaining code work
 
