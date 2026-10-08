@@ -3,18 +3,17 @@
 Baseline: UI `3205490aac50347614355820445d584cad2de1e4`, companion
 `3cce90d4b586f8b7f40a944f89f43b32dfe3b557`. The prior lifecycle checkpoint has
 passing evidence for 55 gates across a complete 54-pass run and a selector-only
-26-assertion rerun. It is not a single all-pass frozen-head run. This wave will
-record a new combined run with exact source and test revisions after integration.
+26-assertion rerun. It is not a single all-pass frozen-head run. This wave records a separate combined run with exact source and test revisions after integration.
 
 | Area | Implemented, integrated and locally tested | Adapter-only or missing |
 | --- | --- | --- |
-| Frontend | Owner entry, yard, Findings/corrections, collection/residents, scene/palette/private region/motion settings, bounded recording UI and explicit candidate confirmation | Existing sharing is authenticated projection preview only; no extra onboarding wizard is justified |
+| Frontend | Owner entry, yard, Findings/corrections, collection/residents, scene/palette/private region/motion settings, bounded recording UI and explicit candidate confirmation | Snapshot controls/static public page in final integration; no extra onboarding wizard is justified |
 | Backend/contracts | Svelte owner commands, strict Zod/Pydantic wire validation, fixed-origin authenticated FastAPI audio, immutable job artifacts/reviews | Autonomous worker and ESP32 artifacts remain unavailable and must not be recreated |
 | Storage | Owner SQLite, original evidence, exact artwork pins, bounded media, recording generations, durable deletion/outbox, retained-ledger restore and session invalidation | Account-wide deletion orchestration; distributed executor fencing; offline-copy erasure |
-| Auth | Email-link and Google flows, persisted sessions, sign-out/replay/expiry/linking, actual local TLS SMTP and signed provider mocks | Production SMTP/Google configuration and external delivery/consent; audit found disabled effective library rate limits despite configuration |
+| Auth | Email-link and Google flows, persisted sessions, sign-out/replay/expiry/linking, actual local TLS SMTP and signed provider mocks | Production SMTP/Google configuration and external delivery/consent; effective persisted native limits and safe transport failures now implemented locally |
 | ML | PCM validation/resampling/chunking, taxonomy/threshold/provenance, optional CPU ONNX, BFF durable outcomes and atomic manual Finding confirmation | Approved bird weights, representative licensed evaluation data and biological calibration; arithmetic test graph proves mechanics only |
 | Image | Owner source/license bundle intake, technical normalization/packaging, immutable review and resident pin, Pixi/SVG registry/fallback | Approved species-correct art, source photo decoding/storage, real generation provider; no new art required or authorized |
-| Runtime operations | Private logs/trace IDs, host health/shutdown, SQLite/WAL backup, deletion reconciliation, strict reproducible checks | Container image execution and hosting; no publication or external-provider access |
+| Runtime operations | Private logs/trace IDs, host health/shutdown, SQLite/WAL backup, deletion reconciliation, typed process request budgets, bounded bodies, generic unexpected errors, strict frozen-revision checks | Container image execution and hosting; no publication or external-provider access |
 
 ## Bounded work and ownership
 
@@ -38,3 +37,40 @@ record a new combined run with exact source and test revisions after integration
 
 No real owner media, external transfers, paid services, credential grants, push,
 PR, deployment or publication actions are part of this work.
+
+## Current integration checklist
+
+- [x] Sharing schema/backend and portable mirrors: immutable sanitized snapshots,
+  hashed capabilities, one-active-link CAS, expiry/revocation and strict restores.
+- [x] Effective persisted auth limits; actual SMTP/provider-mock journey includes
+  rate denial and safe transport failure without trusting forwarded IP headers.
+- [x] Owner/global request budgets, finite body reads, safe validation/unknown
+  errors and public reads independent of the private auth database.
+- [x] Confirmation deadline and exact retry; transient Python gateway failures
+  recover with the unchanged request without weakening owner/generation fences.
+- [x] Restore orchestration invalidates copied public links in both legacy and
+  modern stores while preserving the source copy.
+- [ ] Integrate final static public UI and privacy browser regression.
+- [ ] Run all 57 gates once on clean frozen source/test revisions; retain the
+  original lifecycle failure and selector rerun as historical evidence.
+
+## Consequential remaining code work
+
+These are not completed merely by obtaining credentials or test inputs:
+
+- Account-wide deletion orchestration and distributed storage/executor fencing.
+  Accept complete account lineage deletion, races/restarts, independently retained
+  decisions and backup reconciliation without cross-owner damage.
+- A generic offline real-corpus evaluation runner and calibrated species metrics.
+  Current evaluation covers four synthetic energy cases; optional ONNX checks use
+  an arithmetic graph. Real evaluation also depends on reviewed weights/taxonomy
+  and authorized, representative held-out audio.
+- Source-photo decoding/storage and an actual sprite-generation adapter. Current
+  intake accepts bounded declared reference/license bundles and technical pixels.
+  Fidelity acceptance depends on approved species references and reviewed outputs.
+- Verified real-source import/weather adapters remain separate from the existing
+  manual/synthetic paths; representative authorized formats or a selected provider
+  and explicit coarse-location consent are prerequisites.
+
+No remaining external input is silently treated as permission to connect a
+provider, transfer blocked artifacts or publish this work.
