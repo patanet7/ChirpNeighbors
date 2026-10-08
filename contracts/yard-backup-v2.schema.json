@@ -498,6 +498,45 @@
                     "courtyard"
                   ]
                 },
+                "scenePin": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                        },
+                        "version": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 1000000
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "version"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null
+                },
+                "regionPreference": {
+                  "type": "string",
+                  "enum": [
+                    "unspecified",
+                    "europe",
+                    "north-america",
+                    "south-america",
+                    "africa",
+                    "asia",
+                    "oceania"
+                  ],
+                  "default": "unspecified"
+                },
                 "reducedMotion": {
                   "type": "boolean"
                 },

@@ -79,6 +79,30 @@ Artwork IDs and per-species versions are immutable. A bird without art receives 
 
 Simulation is independent of persistence and rendering. Scene slots provide navigation and feed/bath/perch affordances with occupancy arbitration. Idle, movement, perching, singing, feeding, bathing, phase-driven sleep/wake, and bounded decorative play/nest-building run locally with explicit slot capabilities and reservations. These decorative behaviors are not recorded as real observed behavior.
 
+## Versioned scene selection and private region preference
+
+`preferences.scenePin` stores an exact catalog `{ id, version }` or legacy `null`;
+`regionPreference` is an optional private continent-scale enum defaulting to
+`unspecified`. Legacy garden/courtyard resolves fixed version 1, never latest.
+Selecting scenes reanchors objects atomically from manifest placement zones without
+changing residents, art pins, collection, evidence/corrections or visitor expiry.
+Expected placement snapshots now optionally include the pin to reject stale gestures
+across manifest changes. Region does not select artwork, request location or call weather.
+
+`scene-manifest-v1.schema.json` defines the retained 960×540 technical-fixture format:
+bounded inline palette assets, required background/ground/foreground layers, shared
+object/resident ground depth, walkable/placement zones and explicit navigation points.
+The renderer and simulation consume the selected validated geometry. Pixi/SVG ordering
+agrees; approved regional artwork is not present. Invalid/missing catalog entries show
+a labeled existing fixture while retaining the saved pin. Explicit owner replacement
+is required; malformed or incompatible restore data rejects atomically.
+
+Backup-v2 preference extensions default for old data and round-trip new selections;
+v1 migration is unchanged. Shared projection exposes only the allowlisted resolved
+`garden`/`courtyard` identifier, never region, pin or private manifest. Portable schema
+checks are supplemented by application reference/geometry validation. See UI
+`docs/scene-manifests.md` and `docs/scene-manifests-checkpoint.md` for behavior and evidence.
+
 ## Jobs and generation
 
 Pipeline definitions and hierarchical stage paths have pinned versions. Owner-scoped idempotency keys, durable leases, bounded retries/backoff and cancellation fences protect local execution. Artifact payloads/provenance and review records are immutable; publishing another result creates another version. The workbench advances one stage on request, not through a continuously running hosted worker. See [pipeline contracts and limitations](../src/lib/server/pipeline/README.md).
