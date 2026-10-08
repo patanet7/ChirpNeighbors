@@ -45,7 +45,7 @@ Key = Annotated[
 UTCDate = Annotated[
     str,
     Field(
-        pattern=r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{1,6})?Z$",
+        pattern=r"^([1-9]\d{3}|0[1-9]\d{2}|00[1-9]\d|000[1-9])-\d{2}-\d{2}T([01]\d|2[0-3]):[0-5]\d:[0-5]\d(\.\d{1,6})?Z$",
         json_schema_extra={"format": "date-time"},
     ),
 ]
