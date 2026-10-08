@@ -12,6 +12,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend-inference"
 from app.audio_pipeline.contracts import (  # noqa: E402
     AUDIO_COMMAND_ADAPTER,
     AUDIO_EVENT_ADAPTER,
+    AudioHTTPError,
     AudioRecordingPermit,
 )
 from app.models.session_verifier import SESSION_VERIFIER_ADAPTER  # noqa: E402
@@ -28,6 +29,9 @@ def roundtrip(contract: str, value: object) -> bytes:
     if contract == "session-verifier-v1.serialization":
         session = SESSION_VERIFIER_ADAPTER.validate_json(source)
         return SESSION_VERIFIER_ADAPTER.dump_json(session)
+    if contract == "audio-http-error-v1.serialization":
+        error = AudioHTTPError.model_validate_json(source)
+        return error.model_dump_json().encode("utf-8")
     if contract == "audio-recording-permit-v1.serialization":
         permit = AudioRecordingPermit.model_validate_json(source)
         return permit.model_dump_json().encode("utf-8")
