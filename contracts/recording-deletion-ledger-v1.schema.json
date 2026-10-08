@@ -1,0 +1,104 @@
+{
+  "$ref": "#/definitions/RecordingDeletionLedgerV1",
+  "definitions": {
+    "RecordingDeletionLedgerV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "recording-deletion-ledger"
+        },
+        "databaseId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f-]+$"
+        },
+        "highWatermark": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000
+        },
+        "exportedAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sequence": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 9007199254740991
+              },
+              "intentId": {
+                "$ref": "#/definitions/RecordingDeletionLedgerV1/properties/databaseId"
+              },
+              "ownerId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160,
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                "not": {
+                  "enum": [
+                    "__proto__",
+                    "prototype",
+                    "constructor"
+                  ]
+                }
+              },
+              "recordingId": {
+                "$ref": "#/definitions/RecordingDeletionLedgerV1/properties/databaseId"
+              },
+              "generation": {
+                "type": "integer",
+                "minimum": 2,
+                "maximum": 9007199254740991
+              },
+              "requestedAt": {
+                "$ref": "#/definitions/RecordingDeletionLedgerV1/properties/exportedAt"
+              },
+              "reason": {
+                "type": "string",
+                "enum": [
+                  "user",
+                  "upload-failed",
+                  "upload-expired"
+                ]
+              }
+            },
+            "required": [
+              "sequence",
+              "intentId",
+              "ownerId",
+              "recordingId",
+              "generation",
+              "requestedAt",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 100000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "databaseId",
+        "highWatermark",
+        "exportedAt",
+        "entries"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/recording-deletion-ledger-v1.schema.json",
+  "description": "Owner-private structural contract generated from Zod. Lifecycle identity/count consistency, cumulative contiguous ledger sequence and uniqueness, matching database lineage/prefix/high-watermark, live recording generation, candidate selection and atomic confirmation receipts require authoritative application validation. No bearer authorization, location, raw media, provider credential or public projection."
+}

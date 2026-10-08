@@ -1,0 +1,61 @@
+{
+  "$ref": "#/definitions/ConfirmationCommandV1",
+  "definitions": {
+    "ConfirmationCommandV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "audio.confirm"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f-]+$"
+        },
+        "reviewCandidateIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 199
+        },
+        "confirmed": {
+          "type": "boolean",
+          "const": true
+        },
+        "observedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "Z$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "note": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "requestId",
+        "reviewCandidateIndex",
+        "confirmed",
+        "observedAt",
+        "note"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/confirmation-command-v1.schema.json",
+  "description": "Owner-private structural contract generated from Zod. Lifecycle identity/count consistency, cumulative contiguous ledger sequence and uniqueness, matching database lineage/prefix/high-watermark, live recording generation, candidate selection and atomic confirmation receipts require authoritative application validation. No bearer authorization, location, raw media, provider credential or public projection."
+}

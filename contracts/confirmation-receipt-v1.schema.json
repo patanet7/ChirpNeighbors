@@ -1,0 +1,73 @@
+{
+  "$ref": "#/definitions/ConfirmationReceiptV1",
+  "definitions": {
+    "ConfirmationReceiptV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "audio.confirmed"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f-]+$"
+        },
+        "reviewCandidateIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 199
+        },
+        "eventId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "prototype",
+              "constructor"
+            ]
+          }
+        },
+        "speciesId": {
+          "$ref": "#/definitions/ConfirmationReceiptV1/properties/eventId"
+        },
+        "observedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time",
+              "pattern": "Z$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inserted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "requestId",
+        "reviewCandidateIndex",
+        "eventId",
+        "speciesId",
+        "observedAt",
+        "inserted"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/confirmation-receipt-v1.schema.json",
+  "description": "Owner-private structural contract generated from Zod. Lifecycle identity/count consistency, cumulative contiguous ledger sequence and uniqueness, matching database lineage/prefix/high-watermark, live recording generation, candidate selection and atomic confirmation receipts require authoritative application validation. No bearer authorization, location, raw media, provider credential or public projection."
+}

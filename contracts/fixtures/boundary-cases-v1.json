@@ -1372,6 +1372,582 @@
           }
         }
       }
+    },
+    {
+      "schema": "recording-lifecycle-v1",
+      "name": "retained recording lifecycle",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle",
+        "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "generation": 1,
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "derivedCount": 0,
+        "state": "retained",
+        "recording": {
+          "schemaVersion": 1,
+          "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+          "mediaType": "audio/wav",
+          "byteLength": 16044,
+          "durationMs": 1000,
+          "sampleRate": 8000,
+          "channels": 1,
+          "frames": 8000,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "createdAt": "2026-10-08T00:00:00.000Z"
+        },
+        "deletion": null
+      }
+    },
+    {
+      "schema": "recording-lifecycle-v1",
+      "name": "deletion pending after storage failure",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle",
+        "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "generation": 2,
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "derivedCount": 0,
+        "state": "deleting",
+        "recording": null,
+        "deletion": {
+          "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+          "sequence": 1,
+          "requestedAt": "2026-10-08T00:00:00.000Z",
+          "completedAt": null,
+          "attempts": 1,
+          "nextAttemptAt": "2026-10-08T00:00:00.000Z",
+          "lastError": "storage_unavailable"
+        }
+      }
+    },
+    {
+      "schema": "recording-lifecycle-v1",
+      "name": "managed cleanup completed lifecycle",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle",
+        "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "generation": 2,
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "derivedCount": 0,
+        "state": "deleted",
+        "recording": null,
+        "deletion": {
+          "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+          "sequence": 1,
+          "requestedAt": "2026-10-08T00:00:00.000Z",
+          "completedAt": "2026-10-08T00:00:00.000Z",
+          "attempts": 1,
+          "nextAttemptAt": null,
+          "lastError": null
+        }
+      }
+    },
+    {
+      "schema": "recording-lifecycle-v1",
+      "name": "deleted requires completion time",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle",
+        "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "generation": 2,
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "derivedCount": 0,
+        "state": "deleted",
+        "recording": null,
+        "deletion": {
+          "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+          "sequence": 1,
+          "requestedAt": "2026-10-08T00:00:00.000Z",
+          "completedAt": null,
+          "attempts": 1,
+          "nextAttemptAt": null,
+          "lastError": null
+        }
+      }
+    },
+    {
+      "schema": "recording-lifecycle-v1",
+      "name": "lifecycle rejects owner injection",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle",
+        "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "generation": 1,
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "derivedCount": 0,
+        "state": "retained",
+        "recording": {
+          "schemaVersion": 1,
+          "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+          "mediaType": "audio/wav",
+          "byteLength": 16044,
+          "durationMs": 1000,
+          "sampleRate": 8000,
+          "channels": 1,
+          "frames": 8000,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "createdAt": "2026-10-08T00:00:00.000Z"
+        },
+        "deletion": null,
+        "ownerId": "foreign"
+      }
+    },
+    {
+      "schema": "recording-lifecycle-v1",
+      "name": "lifecycle metadata identity semantic check",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle",
+        "recordingId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+        "generation": 1,
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "derivedCount": 0,
+        "state": "retained",
+        "recording": {
+          "schemaVersion": 1,
+          "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+          "mediaType": "audio/wav",
+          "byteLength": 16044,
+          "durationMs": 1000,
+          "sampleRate": 8000,
+          "channels": 1,
+          "frames": 8000,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "createdAt": "2026-10-08T00:00:00.000Z"
+        },
+        "deletion": null
+      }
+    },
+    {
+      "schema": "recording-lifecycle-v1",
+      "name": "lifecycle generation semantic check",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle",
+        "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "generation": 1,
+        "createdAt": "2026-10-08T00:00:00.000Z",
+        "derivedCount": 0,
+        "state": "deleting",
+        "recording": null,
+        "deletion": {
+          "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+          "sequence": 1,
+          "requestedAt": "2026-10-08T00:00:00.000Z",
+          "completedAt": null,
+          "attempts": 1,
+          "nextAttemptAt": "2026-10-08T00:00:00.000Z",
+          "lastError": "storage_unavailable"
+        }
+      }
+    },
+    {
+      "schema": "recording-lifecycle-page-v1",
+      "name": "bounded owner lifecycle page",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle-page",
+        "entries": [
+          {
+            "schemaVersion": 1,
+            "kind": "recording.lifecycle",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 1,
+            "createdAt": "2026-10-08T00:00:00.000Z",
+            "derivedCount": 0,
+            "state": "retained",
+            "recording": {
+              "schemaVersion": 1,
+              "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+              "mediaType": "audio/wav",
+              "byteLength": 16044,
+              "durationMs": 1000,
+              "sampleRate": 8000,
+              "channels": 1,
+              "frames": 8000,
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            },
+            "deletion": null
+          },
+          {
+            "schemaVersion": 1,
+            "kind": "recording.lifecycle",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 2,
+            "createdAt": "2026-10-08T00:00:00.000Z",
+            "derivedCount": 0,
+            "state": "deleting",
+            "recording": null,
+            "deletion": {
+              "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+              "sequence": 1,
+              "requestedAt": "2026-10-08T00:00:00.000Z",
+              "completedAt": null,
+              "attempts": 1,
+              "nextAttemptAt": "2026-10-08T00:00:00.000Z",
+              "lastError": "storage_unavailable"
+            }
+          }
+        ],
+        "nextCursor": null,
+        "counts": {
+          "retained": 1,
+          "deleting": 1,
+          "deleted": 0
+        }
+      }
+    },
+    {
+      "schema": "recording-lifecycle-page-v1",
+      "name": "page counts semantic check",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle-page",
+        "entries": [
+          {
+            "schemaVersion": 1,
+            "kind": "recording.lifecycle",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 1,
+            "createdAt": "2026-10-08T00:00:00.000Z",
+            "derivedCount": 0,
+            "state": "retained",
+            "recording": {
+              "schemaVersion": 1,
+              "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+              "mediaType": "audio/wav",
+              "byteLength": 16044,
+              "durationMs": 1000,
+              "sampleRate": 8000,
+              "channels": 1,
+              "frames": 8000,
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            },
+            "deletion": null
+          },
+          {
+            "schemaVersion": 1,
+            "kind": "recording.lifecycle",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 2,
+            "createdAt": "2026-10-08T00:00:00.000Z",
+            "derivedCount": 0,
+            "state": "deleting",
+            "recording": null,
+            "deletion": {
+              "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+              "sequence": 1,
+              "requestedAt": "2026-10-08T00:00:00.000Z",
+              "completedAt": null,
+              "attempts": 1,
+              "nextAttemptAt": "2026-10-08T00:00:00.000Z",
+              "lastError": "storage_unavailable"
+            }
+          }
+        ],
+        "nextCursor": null,
+        "counts": {
+          "retained": 0,
+          "deleting": 1,
+          "deleted": 0
+        }
+      }
+    },
+    {
+      "schema": "recording-lifecycle-page-v1",
+      "name": "page rejects unknown cursor format",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording.lifecycle-page",
+        "entries": [
+          {
+            "schemaVersion": 1,
+            "kind": "recording.lifecycle",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 1,
+            "createdAt": "2026-10-08T00:00:00.000Z",
+            "derivedCount": 0,
+            "state": "retained",
+            "recording": {
+              "schemaVersion": 1,
+              "id": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+              "mediaType": "audio/wav",
+              "byteLength": 16044,
+              "durationMs": 1000,
+              "sampleRate": 8000,
+              "channels": 1,
+              "frames": 8000,
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "createdAt": "2026-10-08T00:00:00.000Z"
+            },
+            "deletion": null
+          },
+          {
+            "schemaVersion": 1,
+            "kind": "recording.lifecycle",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 2,
+            "createdAt": "2026-10-08T00:00:00.000Z",
+            "derivedCount": 0,
+            "state": "deleting",
+            "recording": null,
+            "deletion": {
+              "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+              "sequence": 1,
+              "requestedAt": "2026-10-08T00:00:00.000Z",
+              "completedAt": null,
+              "attempts": 1,
+              "nextAttemptAt": "2026-10-08T00:00:00.000Z",
+              "lastError": "storage_unavailable"
+            }
+          }
+        ],
+        "nextCursor": "not-uuid",
+        "counts": {
+          "retained": 1,
+          "deleting": 1,
+          "deleted": 0
+        }
+      }
+    },
+    {
+      "schema": "recording-deletion-ledger-v1",
+      "name": "complete cumulative deletion ledger",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording-deletion-ledger",
+        "databaseId": "d895ff69-233a-4648-8a76-cdeacfd087c3",
+        "highWatermark": 1,
+        "exportedAt": "2026-10-08T00:00:00.000Z",
+        "entries": [
+          {
+            "sequence": 1,
+            "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+            "ownerId": "synthetic-owner",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 2,
+            "requestedAt": "2026-10-08T00:00:00.000Z",
+            "reason": "user"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "recording-deletion-ledger-v1",
+      "name": "ledger truncation semantic check",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording-deletion-ledger",
+        "databaseId": "d895ff69-233a-4648-8a76-cdeacfd087c3",
+        "highWatermark": 1,
+        "exportedAt": "2026-10-08T00:00:00.000Z",
+        "entries": []
+      }
+    },
+    {
+      "schema": "recording-deletion-ledger-v1",
+      "name": "ledger sequence semantic check",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording-deletion-ledger",
+        "databaseId": "d895ff69-233a-4648-8a76-cdeacfd087c3",
+        "highWatermark": 1,
+        "exportedAt": "2026-10-08T00:00:00.000Z",
+        "entries": [
+          {
+            "sequence": 2,
+            "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+            "ownerId": "synthetic-owner",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 2,
+            "requestedAt": "2026-10-08T00:00:00.000Z",
+            "reason": "user"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "recording-deletion-ledger-v1",
+      "name": "ledger rejects unsafe sequence integer",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording-deletion-ledger",
+        "databaseId": "d895ff69-233a-4648-8a76-cdeacfd087c3",
+        "highWatermark": 1,
+        "exportedAt": "2026-10-08T00:00:00.000Z",
+        "entries": [
+          {
+            "sequence": 9007199254740992,
+            "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+            "ownerId": "synthetic-owner",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 2,
+            "requestedAt": "2026-10-08T00:00:00.000Z",
+            "reason": "user"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "recording-deletion-ledger-v1",
+      "name": "ledger forbids private location",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "recording-deletion-ledger",
+        "databaseId": "d895ff69-233a-4648-8a76-cdeacfd087c3",
+        "highWatermark": 1,
+        "exportedAt": "2026-10-08T00:00:00.000Z",
+        "entries": [
+          {
+            "sequence": 1,
+            "intentId": "fd843161-b9b9-4870-97c4-a3010975a61b",
+            "ownerId": "synthetic-owner",
+            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "generation": 2,
+            "requestedAt": "2026-10-08T00:00:00.000Z",
+            "reason": "user",
+            "location": "hidden"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "confirmation-command-v1",
+      "name": "explicit confirmation preserves unknown time",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "audio.confirm",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "reviewCandidateIndex": 0,
+        "confirmed": true,
+        "observedAt": null,
+        "note": "Synthetic explicit confirmation"
+      }
+    },
+    {
+      "schema": "confirmation-command-v1",
+      "name": "confirmation rejects unconfirmed selection",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "audio.confirm",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "reviewCandidateIndex": 0,
+        "confirmed": false,
+        "observedAt": null,
+        "note": "Synthetic explicit confirmation"
+      }
+    },
+    {
+      "schema": "confirmation-command-v1",
+      "name": "confirmation rejects injected model payload",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "audio.confirm",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "reviewCandidateIndex": 0,
+        "confirmed": true,
+        "observedAt": null,
+        "note": "Synthetic explicit confirmation",
+        "payload": {
+          "candidate": "forged"
+        }
+      }
+    },
+    {
+      "schema": "confirmation-command-v1",
+      "name": "confirmation candidate bounds",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "audio.confirm",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "reviewCandidateIndex": 200,
+        "confirmed": true,
+        "observedAt": null,
+        "note": "Synthetic explicit confirmation"
+      }
+    },
+    {
+      "schema": "confirmation-receipt-v1",
+      "name": "minimal independent confirmation receipt",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "audio.confirmed",
+        "requestId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+        "reviewCandidateIndex": 0,
+        "eventId": "audio-confirmed:aa151cdd-3cfb-41f9-b060-e98eaf4bead7:0",
+        "speciesId": "fixture",
+        "observedAt": null,
+        "inserted": true
+      }
+    },
+    {
+      "schema": "confirmation-error-v1",
+      "name": "safe confirmation error",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "audio.confirmation-error",
+        "code": "not_available",
+        "traceId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7"
+      }
+    },
+    {
+      "schema": "confirmation-error-v1",
+      "name": "confirmation rejects unknown error variant",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "audio.confirmation-error",
+        "code": "database_path",
+        "traceId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7"
+      }
     }
   ]
 }
