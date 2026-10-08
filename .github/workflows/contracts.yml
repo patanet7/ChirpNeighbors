@@ -1,4 +1,4 @@
-name: Portable yard contracts
+name: Typed contracts and local audio service
 on:
   pull_request:
   push:
@@ -15,6 +15,39 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: backend-inference/requirements-contract.txt
-      - run: python -m pip install -r requirements-contract.txt
+          cache-dependency-path: backend-inference/requirements-quality.lock
+      - run: python -m pip install -r requirements-quality.lock
+      - run: python -m pip check
+      - run: python ../scripts/check_python_dependencies.py
+      - run: python ../scripts/generate_python_contracts.py --check
+      - run: python -m app.audio_pipeline.export_contracts --check
+      - run: python -m app.audio_pipeline.export_openapi --check
+      - run: python -m app.models.session_verifier --check
+      - run: python -m mypy
+      - name: Lint and format active service and contracts
+        run: |
+          python -m ruff check app/models app/audio_pipeline tests/test_audio_api.py tests/test_audio_pipeline.py tests/test_session_verifier_contract.py ../scripts/generate_python_contracts.py ../scripts/check_contract_corpus.py ../scripts/check_python_contract_roundtrips.py ../scripts/check_python_dependencies.py ../scripts/test_quality_dependencies.py ../scripts/verify_system.py ../scripts/delivery_matrix.py
+          python -m ruff format --check app/models app/audio_pipeline tests/test_audio_api.py tests/test_audio_pipeline.py tests/test_session_verifier_contract.py ../scripts/generate_python_contracts.py ../scripts/check_contract_corpus.py ../scripts/check_python_contract_roundtrips.py ../scripts/check_python_dependencies.py ../scripts/test_quality_dependencies.py ../scripts/verify_system.py ../scripts/delivery_matrix.py
       - run: python -m unittest discover -s tests -p 'test_*contract.py' -v
+      - run: python -m unittest tests.test_audio_pipeline tests.test_audio_api -v
+      - run: python ../scripts/test_quality_dependencies.py
+      - run: python -m app.audio_pipeline evaluate
+  optional-model:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend-inference
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: backend-inference/requirements-onnx-quality.lock
+      - run: python -m pip install -r requirements-onnx-quality.lock
+      - run: python -m pip check
+      - run: python ../scripts/check_python_dependencies.py --declarations requirements-audio-onnx.txt --lock requirements-onnx-quality.lock
+      - run: python -m mypy app/audio_onnx tests/optional/test_audio_onnx.py
+      - run: python -m ruff check app/audio_onnx tests/optional/test_audio_onnx.py
+      - run: python -m ruff format --check app/audio_onnx tests/optional/test_audio_onnx.py
+      - run: python -m unittest discover -s tests/optional -v

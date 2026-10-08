@@ -1,0 +1,54 @@
+# Reproducible local system gate
+
+Both repositories must be adjacent, or pass `--ui-repo`. Node 24, Python 3.12,
+Chromium and the pinned dependency locks are required. The checks create only
+synthetic accounts, recordings and technical pixels in temporary directories.
+They do not use real provider credentials, user media, model downloads or hosting.
+
+```sh
+python3 -m venv /tmp/chirp-system-venv
+/tmp/chirp-system-venv/bin/python -m pip install -r backend-inference/requirements-quality.lock
+python3 -m venv /tmp/chirp-onnx-venv
+/tmp/chirp-onnx-venv/bin/python -m pip install -r backend-inference/requirements-onnx-quality.lock
+cd ../birdsong-yard-sprites
+npm ci
+python3 -m pip install playwright==1.62.0
+python3 -m playwright install chromium
+cd ../ChirpNeighbors
+CHIRP_CHROMIUM=/path/to/chromium /tmp/chirp-system-venv/bin/python scripts/verify_system.py \
+  --ui-repo ../birdsong-yard-sprites \
+  --python /tmp/chirp-system-venv/bin/python \
+  --browser-python python3 \
+  --onnx-python /tmp/chirp-onnx-venv/bin/python \
+  --output-dir /tmp/chirp-system-verification
+```
+
+Use an unused output directory for each run. `--list` prints the exact gate
+commands; repeated `--only GATE` runs diagnostic subsets, explicitly marked as
+incomplete in the report. The runner records repository commits, commands, exit
+codes, elapsed time and separate logs. It refuses to run browser checks after a
+failed build. Do not edit application sources or regenerate Svelte files while
+browser checks run: Vite hot reload can invalidate a running journey.
+
+The full gate covers TypeScript's strict optional/indexed access, type-aware ESLint,
+formatting, unit tests, production build, Zod/Pydantic schema exports, generated
+clients, 107 cross-language cases, strict Python typing, lint/format, audio API and
+portable contracts, synthetic evaluation, recovery, operations HTTP checks, and
+all retained renderer/browser journeys. Generated validator JavaScript is excluded
+only from source-style ESLint; deterministic regeneration, runtime cases, generated
+declarations and formatting still check it. Existing prototype inference/hardware
+code is not claimed as part of the checked request service.
+
+The UI CI workflow independently runs its full quality and browser checks. The
+companion CI checks its pinned Python service and contracts. The aggregate command
+also verifies that the two repositories agree; independent single-repository CI
+does not establish that cross-repository fact. These workflow changes are local
+and have not been run by GitHub Actions or published.
+
+The optional ONNX adapter has a separate dependency/test gate. Core service checks
+must continue to pass without NumPy, ONNX or trained model weights installed.
+Synthetic evaluation measures technical pipeline behavior, never bird accuracy.
+
+Container configuration can be inspected with `docker compose config`. Container
+image execution remains a separate gate: this workspace's Docker build could not
+resolve the public package registry, although host installation/builds succeeded.
