@@ -58,7 +58,14 @@ class SessionVerifierContractTests(unittest.TestCase):
             self.validate({"version": 1, "identity": identity})
 
     def test_expiry_never_null_or_invalid_or_offset_time(self) -> None:
-        for expiry in [None, "", "2026-02-30T00:00:00Z", "2026-10-08T12:00:00+00:00"]:
+        for expiry in [
+            None,
+            "",
+            "2026-02-30T00:00:00Z",
+            "2026-10-08T12:00:00+00:00",
+            "2026-10-08T23:59:60Z",
+            "0000-01-01T00:00:00Z",
+        ]:
             for mode in ["development", "account"]:
                 with self.subTest(mode=mode, expiry=expiry):
                     with self.assertRaises(ValidationError):

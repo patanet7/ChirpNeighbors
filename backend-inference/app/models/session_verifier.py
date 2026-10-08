@@ -41,7 +41,10 @@ OwnerLabel = Annotated[str, StringConstraints(min_length=1, max_length=120)]
 UtcTime = Annotated[
     str,
     StringConstraints(
-        pattern=r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{1,6})?Z$",
+        pattern=(
+            r"^(?!0000)\d{4}-\d{2}-\d{2}T"
+            r"([01]\d|2[0-3]):[0-5]\d:[0-5]\d(\.\d{1,6})?Z$"
+        ),
         max_length=32,
     ),
     Field(json_schema_extra={"format": "date-time"}),
