@@ -6,11 +6,14 @@ import argparse
 import json
 from pathlib import Path
 
-from .contracts import AUDIO_COMMAND_ADAPTER, AUDIO_EVENT_ADAPTER
+from .contracts import AUDIO_COMMAND_ADAPTER, AUDIO_EVENT_ADAPTER, AudioRecordingPermit
 
 
 def schema_documents() -> dict[str, str]:
     schemas = {
+        "audio-recording-permit-v1.serialization.schema.json": AudioRecordingPermit.model_json_schema(
+            mode="serialization"
+        ),
         "audio-command-v1.validation.schema.json": AUDIO_COMMAND_ADAPTER.json_schema(
             mode="validation"
         ),

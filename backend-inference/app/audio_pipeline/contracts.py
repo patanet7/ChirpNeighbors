@@ -65,6 +65,14 @@ class RecordingRef(WireModel):
     sha256: SHA256
 
 
+class AudioRecordingPermit(WireModel):
+    """Snapshot only; durable derived-output publication needs an atomic fence."""
+
+    version: Annotated[Literal[1], BeforeValidator(json_integer)]
+    recording: RecordingRef
+    syntheticFixture: bool
+
+
 class ModelPin(WireModel):
     providerId: Key
     modelVersion: Key
