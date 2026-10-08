@@ -91,7 +91,12 @@ class SessionVerifierContractTests(unittest.TestCase):
         )
 
     def test_unknown_owner_fields_and_modes_fail(self) -> None:
-        for patch in [{"token": "synthetic"}, {"latitude": 1}, {"mode": "google"}]:
+        patches: list[dict[str, object]] = [
+            {"token": "synthetic"},
+            {"latitude": 1},
+            {"mode": "google"},
+        ]
+        for patch in patches:
             with self.subTest(patch=patch):
                 with self.assertRaises(ValidationError):
                     self.validate({"version": 1, "identity": {**IDENTITY, **patch}})

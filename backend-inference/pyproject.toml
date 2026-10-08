@@ -1,7 +1,13 @@
 [tool.mypy]
 python_version = "3.11"
 strict = true
-files = ["app/models/identification.py", "app/models/session_verifier.py", "app/models/generated"]
+files = [
+  "app/models/identification.py", "app/models/session_verifier.py", "app/models/generated",
+  "app/audio_pipeline", "tests/test_audio_api.py", "tests/test_audio_pipeline.py",
+  "tests/test_session_verifier_contract.py", "../scripts/generate_python_contracts.py",
+  "../scripts/check_contract_corpus.py", "../scripts/check_python_contract_roundtrips.py",
+  "../scripts/check_python_dependencies.py",
+]
 namespace_packages = true
 explicit_package_bases = true
 warn_unused_configs = true
@@ -21,9 +27,9 @@ select = ["E", "F", "I", "N", "W", "UP"]
 
 [tool.ruff.lint.per-file-ignores]
 # Wire names deliberately preserve established camelCase JSON keys.
-"app/models/generated/*.py" = ["N815"]
-"app/audio_pipeline/contracts.py" = ["N815"]
-"app/audio_pipeline/evaluation.py" = ["N815"]
+"**/app/models/generated/*.py" = ["N815"]
+"**/app/audio_pipeline/contracts.py" = ["N815"]
+"**/app/audio_pipeline/evaluation.py" = ["N815"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["app"]
