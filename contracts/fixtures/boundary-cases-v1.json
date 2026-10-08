@@ -1592,7 +1592,7 @@
           {
             "schemaVersion": 1,
             "kind": "recording.lifecycle",
-            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "recordingId": "fd843161-b9b9-4870-97c4-a3010975a61b",
             "generation": 2,
             "createdAt": "2026-10-08T00:00:00.000Z",
             "derivedCount": 0,
@@ -1651,7 +1651,7 @@
           {
             "schemaVersion": 1,
             "kind": "recording.lifecycle",
-            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "recordingId": "fd843161-b9b9-4870-97c4-a3010975a61b",
             "generation": 2,
             "createdAt": "2026-10-08T00:00:00.000Z",
             "derivedCount": 0,
@@ -1710,7 +1710,7 @@
           {
             "schemaVersion": 1,
             "kind": "recording.lifecycle",
-            "recordingId": "aa151cdd-3cfb-41f9-b060-e98eaf4bead7",
+            "recordingId": "fd843161-b9b9-4870-97c4-a3010975a61b",
             "generation": 2,
             "createdAt": "2026-10-08T00:00:00.000Z",
             "derivedCount": 0,
@@ -2369,6 +2369,67 @@
         "code": "SERVER_BUSY",
         "error": "The server is busy. Wait briefly, then retry.",
         "retryAfterSeconds": 2
+      }
+    },
+    {
+      "schema": "command-error-v1",
+      "name": "bounded reviewed domain error",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "request.command-error",
+        "code": "CONFLICT",
+        "error": "The synthetic state changed."
+      }
+    },
+    {
+      "schema": "command-error-v1",
+      "name": "command errors forbid extra private details",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "request.command-error",
+        "code": "CONFLICT",
+        "error": "The synthetic state changed.",
+        "privatePath": "/private"
+      }
+    },
+    {
+      "schema": "command-error-v1",
+      "name": "command errors refuse unknown codes",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "request.command-error",
+        "code": "SQLITE_INTERNAL",
+        "error": "The synthetic state changed."
+      }
+    },
+    {
+      "schema": "command-error-v1",
+      "name": "command error text bound",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "request.command-error",
+        "code": "CONFLICT",
+        "error": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      }
+    },
+    {
+      "schema": "command-error-v1",
+      "name": "command error control characters require semantic guard",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "request.command-error",
+        "code": "CONFLICT",
+        "error": "bad\u0000message"
       }
     }
   ]

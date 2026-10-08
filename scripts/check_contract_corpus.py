@@ -25,6 +25,7 @@ NAMES = frozenset(
         "share-error-v1",
         "public-share-unavailable-v1",
         "request-budget-error-v1",
+        "command-error-v1",
         "identification-v2",
         "finding-command-v1",
         "recording-metadata-v1",
@@ -43,6 +44,7 @@ def check_corpus(path: Path) -> list[dict[str, object]]:
         raise ValueError("Missing corpus cases")
     if "date-time" not in FormatChecker.checkers:
         raise RuntimeError("Install requirements-contract.txt")
+    validators: dict[str, Draft7Validator] = {}
     results: list[dict[str, object]] = []
     names: set[str] = set()
     for case in cases:
@@ -52,11 +54,19 @@ def check_corpus(path: Path) -> list[dict[str, object]]:
         if not isinstance(name, str) or name in names or contract not in NAMES:
             raise ValueError("Duplicate case or unknown contract")
         names.add(name)
-        schema = json.loads(
-            (ROOT / "contracts" / f"{contract}.schema.json").read_text(encoding="utf-8")
-        )
-        Draft7Validator.check_schema(schema)
-        validator = Draft7Validator(schema, format_checker=FormatChecker())
+        if not isinstance(contract, str):
+            raise TypeError("Malformed contract name")
+        if contract not in validators:
+            schema = json.loads(
+                (ROOT / "contracts" / f"{contract}.schema.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            Draft7Validator.check_schema(schema)
+            validators[contract] = Draft7Validator(
+                schema, format_checker=FormatChecker()
+            )
+        validator = validators[contract]
         accepted = validator.is_valid(case.get("value"))
         if accepted is not case.get("valid"):
             raise AssertionError(f"Python structural validation disagrees: {name}")

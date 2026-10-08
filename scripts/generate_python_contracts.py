@@ -13,6 +13,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "backend-inference"))
+from app.models.schema_document import require_local_references  # noqa: E402
+
 CONTRACTS = (
     "identification-v2",
     "finding-command-v1",
@@ -20,19 +23,6 @@ CONTRACTS = (
     "scene-manifest-v1",
     "recording-metadata-v1",
 )
-
-
-def require_local_references(value: object) -> None:
-    if isinstance(value, dict):
-        for key, child in value.items():
-            if key == "$ref" and (
-                not isinstance(child, str) or not child.startswith("#")
-            ):
-                raise ValueError("Only local schema references are allowed")
-            require_local_references(child)
-    elif isinstance(value, list):
-        for child in value:
-            require_local_references(child)
 
 
 def main() -> None:

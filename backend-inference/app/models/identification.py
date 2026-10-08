@@ -25,6 +25,7 @@ from app.models.generated.identification_v2 import Source as IdentificationSourc
 from app.models.generated.identification_v2 import (
     Species as Species,
 )
+from app.models.schema_document import require_local_references
 
 __all__ = [
     "IdentificationContractError",
@@ -39,21 +40,6 @@ __all__ = [
 
 class IdentificationContractError(ValueError):
     """Invalid event, with a safe message that does not disclose private evidence."""
-
-
-def _require_local_references(value: object) -> None:
-    """A repository contract must not trigger network requests during validation."""
-    if isinstance(value, dict):
-        reference = value.get("$ref")
-        if reference is not None and (
-            not isinstance(reference, str) or not reference.startswith("#")
-        ):
-            raise ValueError("Identification schema must use local references only")
-        for child in value.values():
-            _require_local_references(child)
-    elif isinstance(value, list):
-        for child in value:
-            _require_local_references(child)
 
 
 def validate_identification(
@@ -79,7 +65,7 @@ def validate_identification(
 
     with Path(schema_path).open(encoding="utf-8") as source:
         schema = json.load(source)
-    _require_local_references(schema)
+    require_local_references(schema)
     Draft7Validator.check_schema(schema)
     if "date-time" not in FormatChecker.checkers:
         raise RuntimeError(

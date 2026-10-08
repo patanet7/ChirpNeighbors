@@ -29,6 +29,7 @@
                 "createdAt": {
                   "type": "string",
                   "format": "date-time",
+                  "maxLength": 30,
                   "pattern": "Z$"
                 },
                 "expiresAt": {
@@ -73,29 +74,7 @@
               "const": "share.created"
             },
             "share": {
-              "type": "object",
-              "properties": {
-                "id": {
-                  "$ref": "#/definitions/ShareCreatedV1/anyOf/0/properties/share/properties/id"
-                },
-                "state": {
-                  "type": "string",
-                  "const": "active"
-                },
-                "createdAt": {
-                  "$ref": "#/definitions/ShareCreatedV1/anyOf/0/properties/share/properties/createdAt"
-                },
-                "expiresAt": {
-                  "$ref": "#/definitions/ShareCreatedV1/anyOf/0/properties/share/properties/createdAt"
-                }
-              },
-              "required": [
-                "id",
-                "state",
-                "createdAt",
-                "expiresAt"
-              ],
-              "additionalProperties": false
+              "$ref": "#/definitions/ShareCreatedV1/anyOf/0/properties/share"
             },
             "link": {
               "type": "null"
