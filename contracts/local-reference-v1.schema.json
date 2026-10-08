@@ -1,0 +1,506 @@
+{
+  "$ref": "#/definitions/LocalReferenceV1",
+  "definitions": {
+    "LocalReferenceV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+        },
+        "fixture": {
+          "type": "boolean"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "local-file",
+                "archive-file",
+                "technical-fixture"
+              ]
+            },
+            "fileIdentity": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "originalUrl": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 2048,
+                  "pattern": "^https:\\/\\/[!-~]+(?![\\s\\S])"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "descriptionPageUrl": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/originalUrl/anyOf/0"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "author": {
+              "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/fileIdentity"
+            },
+            "uploader": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/fileIdentity"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "attribution": {
+              "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/fileIdentity"
+            },
+            "description": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/fileIdentity"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "sourceTimestamp": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "remoteHash": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "algorithm": {
+                      "type": "string",
+                      "enum": [
+                        "sha1",
+                        "sha256"
+                      ]
+                    },
+                    "value": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{40}([a-f0-9]{24})?$"
+                    }
+                  },
+                  "required": [
+                    "algorithm",
+                    "value"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "fileIdentity",
+            "originalUrl",
+            "descriptionPageUrl",
+            "author",
+            "uploader",
+            "attribution",
+            "description",
+            "sourceTimestamp",
+            "remoteHash"
+          ],
+          "additionalProperties": false
+        },
+        "original": {
+          "type": "object",
+          "properties": {
+            "bytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16777216
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "mime": {
+              "type": "string",
+              "enum": [
+                "image/png",
+                "image/jpeg",
+                "application/x-chirp-rgba8"
+              ]
+            }
+          },
+          "required": [
+            "bytes",
+            "sha256",
+            "mime"
+          ],
+          "additionalProperties": false
+        },
+        "decoded": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "const": "rgba8-straight"
+            },
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            },
+            "sha256": {
+              "$ref": "#/definitions/LocalReferenceV1/properties/original/properties/sha256"
+            },
+            "decoder": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                },
+                "version": {
+                  "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                }
+              },
+              "required": [
+                "id",
+                "version"
+              ],
+              "additionalProperties": false
+            },
+            "derivation": {
+              "type": "string",
+              "enum": [
+                "raw-identity",
+                "declared-unverified"
+              ]
+            }
+          },
+          "required": [
+            "format",
+            "width",
+            "height",
+            "sha256",
+            "decoder",
+            "derivation"
+          ],
+          "additionalProperties": false
+        },
+        "rights": {
+          "type": "object",
+          "properties": {
+            "licenseId": {
+              "$ref": "#/definitions/LocalReferenceV1/properties/id"
+            },
+            "licenseVersion": {
+              "$ref": "#/definitions/LocalReferenceV1/properties/id"
+            },
+            "licenseUrl": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/originalUrl/anyOf/0"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "approved",
+                "denied",
+                "conflicting"
+              ]
+            },
+            "restrictions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/fileIdentity"
+              },
+              "maxItems": 16
+            },
+            "referenceUseAllowed": {
+              "type": "boolean"
+            },
+            "derivativesAllowed": {
+              "type": "boolean"
+            },
+            "redistributionAllowed": {
+              "type": "boolean"
+            },
+            "generationPermission": {
+              "type": "string",
+              "enum": [
+                "not-reviewed",
+                "allowed",
+                "denied"
+              ]
+            },
+            "review": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "reviewerId": {
+                      "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                    },
+                    "evidenceId": {
+                      "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                    },
+                    "reviewedAt": {
+                      "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/sourceTimestamp/anyOf/0"
+                    }
+                  },
+                  "required": [
+                    "reviewerId",
+                    "evidenceId",
+                    "reviewedAt"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "licenseId",
+            "licenseVersion",
+            "licenseUrl",
+            "status",
+            "restrictions",
+            "referenceUseAllowed",
+            "derivativesAllowed",
+            "redistributionAllowed",
+            "generationPermission",
+            "review"
+          ],
+          "additionalProperties": false
+        },
+        "taxonomy": {
+          "type": "object",
+          "properties": {
+            "application": {
+              "type": "object",
+              "properties": {
+                "catalog": {
+                  "type": "string",
+                  "const": "chirp-display-catalog"
+                },
+                "version": {
+                  "type": "number",
+                  "const": 1
+                },
+                "speciesId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                }
+              },
+              "required": [
+                "catalog",
+                "version",
+                "speciesId"
+              ],
+              "additionalProperties": false
+            },
+            "declaredScientificName": {
+              "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/fileIdentity"
+            },
+            "aliases": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "authority": {
+                    "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                  },
+                  "version": {
+                    "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                  },
+                  "taxonId": {
+                    "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                  },
+                  "scientificName": {
+                    "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/fileIdentity"
+                  }
+                },
+                "required": [
+                  "authority",
+                  "version",
+                  "taxonId",
+                  "scientificName"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 16
+            },
+            "externalEvidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "authority": {
+                    "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                  },
+                  "version": {
+                    "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                  },
+                  "entityId": {
+                    "$ref": "#/definitions/LocalReferenceV1/properties/id"
+                  },
+                  "statement": {
+                    "type": "string",
+                    "enum": [
+                      "scientific-name",
+                      "rank",
+                      "parent-taxon",
+                      "image",
+                      "depicts"
+                    ]
+                  },
+                  "value": {
+                    "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/fileIdentity"
+                  },
+                  "status": {
+                    "type": "string",
+                    "const": "candidate-evidence"
+                  }
+                },
+                "required": [
+                  "authority",
+                  "version",
+                  "entityId",
+                  "statement",
+                  "value",
+                  "status"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 32
+            },
+            "review": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/LocalReferenceV1/properties/rights/properties/review/anyOf/0"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "application",
+            "declaredScientificName",
+            "aliases",
+            "externalEvidence",
+            "review"
+          ],
+          "additionalProperties": false
+        },
+        "annotations": {
+          "type": "object",
+          "properties": {
+            "sex": {
+              "type": "string",
+              "enum": [
+                "female",
+                "male",
+                "unknown"
+              ]
+            },
+            "age": {
+              "type": "string",
+              "enum": [
+                "juvenile",
+                "adult",
+                "unknown"
+              ]
+            },
+            "plumage": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/LocalReferenceV1/properties/source/properties/fileIdentity"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "viewpoint": {
+              "type": "string",
+              "enum": [
+                "left",
+                "right",
+                "front",
+                "back",
+                "above",
+                "below",
+                "oblique",
+                "unknown"
+              ]
+            }
+          },
+          "required": [
+            "sex",
+            "age",
+            "plumage",
+            "viewpoint"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "fixture",
+        "source",
+        "original",
+        "decoded",
+        "rights",
+        "taxonomy",
+        "annotations"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/local-reference-v1.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

@@ -1,0 +1,342 @@
+{
+  "$ref": "#/definitions/ImageStageSequenceV1",
+  "definitions": {
+    "ImageStageSequenceV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "fixture": {
+          "type": "boolean"
+        },
+        "canvas": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            }
+          },
+          "required": [
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        },
+        "frames": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160,
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+              },
+              "timestampUs": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "durationUs": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 60000000
+              },
+              "sourceRgba": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "minItems": 4,
+                "maxItems": 262144
+              },
+              "sourceSha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "anchor": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 256
+                  },
+                  "y": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 256
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "additionalProperties": false
+              },
+              "contacts": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/anchor/properties/x"
+                    },
+                    "y": {
+                      "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/anchor/properties/y"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "left-foot",
+                        "right-foot",
+                        "ground",
+                        "perch"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "kind"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 4
+              },
+              "segmentation": {
+                "anyOf": [
+                  {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "encoding": {
+                            "type": "string",
+                            "const": "binary-mask-u8"
+                          },
+                          "values": {
+                            "type": "array",
+                            "items": {
+                              "type": "number",
+                              "enum": [
+                                0,
+                                255
+                              ]
+                            },
+                            "minItems": 1,
+                            "maxItems": 65536
+                          },
+                          "sha256": {
+                            "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/sourceSha256"
+                          },
+                          "adapter": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/id"
+                              },
+                              "version": {
+                                "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/id"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "version"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "encoding",
+                          "values",
+                          "sha256",
+                          "adapter"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "encoding": {
+                            "type": "string",
+                            "const": "logits-f32-le"
+                          },
+                          "values": {
+                            "type": "array",
+                            "items": {
+                              "type": "number",
+                              "minimum": -1000000,
+                              "maximum": 1000000
+                            },
+                            "minItems": 1,
+                            "maxItems": 65536
+                          },
+                          "sha256": {
+                            "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/sourceSha256"
+                          },
+                          "adapter": {
+                            "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/segmentation/anyOf/0/anyOf/0/properties/adapter"
+                          }
+                        },
+                        "required": [
+                          "encoding",
+                          "values",
+                          "sha256",
+                          "adapter"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "matte": {
+                "type": "object",
+                "properties": {
+                  "encoding": {
+                    "type": "string",
+                    "const": "alpha-u8"
+                  },
+                  "alpha": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/sourceRgba/items"
+                    },
+                    "minItems": 1,
+                    "maxItems": 65536
+                  },
+                  "sha256": {
+                    "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/sourceSha256"
+                  },
+                  "origin": {
+                    "type": "string",
+                    "enum": [
+                      "supplied-matte",
+                      "technical-fixture"
+                    ]
+                  },
+                  "adapter": {
+                    "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/segmentation/anyOf/0/anyOf/0/properties/adapter"
+                  }
+                },
+                "required": [
+                  "encoding",
+                  "alpha",
+                  "sha256",
+                  "origin",
+                  "adapter"
+                ],
+                "additionalProperties": false
+              },
+              "foreground": {
+                "type": "object",
+                "properties": {
+                  "encoding": {
+                    "type": "string",
+                    "const": "rgb8"
+                  },
+                  "rgb": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/sourceRgba/items"
+                    },
+                    "minItems": 3,
+                    "maxItems": 196608
+                  },
+                  "sha256": {
+                    "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/sourceSha256"
+                  },
+                  "alphaMode": {
+                    "type": "string",
+                    "enum": [
+                      "straight",
+                      "premultiplied"
+                    ]
+                  },
+                  "recovery": {
+                    "type": "string",
+                    "enum": [
+                      "supplied-recovered",
+                      "technical-fixture"
+                    ]
+                  },
+                  "adapter": {
+                    "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/segmentation/anyOf/0/anyOf/0/properties/adapter"
+                  }
+                },
+                "required": [
+                  "encoding",
+                  "rgb",
+                  "sha256",
+                  "alphaMode",
+                  "recovery",
+                  "adapter"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "timestampUs",
+              "durationUs",
+              "sourceRgba",
+              "sourceSha256",
+              "anchor",
+              "contacts",
+              "segmentation",
+              "matte",
+              "foreground"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "loop": {
+          "type": "boolean"
+        },
+        "referenceIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ImageStageSequenceV1/properties/frames/items/properties/id"
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "modelSlot": {
+          "type": "string",
+          "const": "unconfigured"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "fixture",
+        "canvas",
+        "frames",
+        "loop",
+        "referenceIds",
+        "modelSlot"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/image-stage-sequence-v1.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

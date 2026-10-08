@@ -1,7 +1,7 @@
 # Moving-bird visual work queue — 2026-10-08
 
 This queue follows the frozen contract/pose checkpoint. It records requested next
-implementation, not completed features. Existing birds already move autonomously
+implementation and its current verification status. Existing birds already move autonomously
 through layered yards; the next work must improve those moving birds rather than
 end at a metadata editor or static preview. Keep the yard visually simple and the
 eventual reviewed birds detailed. Current pixels remain technical fixtures with
@@ -12,16 +12,15 @@ in this workspace.
 
 - V2 and V3 reviewed manifests load through the same private owner-scoped registry.
   V3 has unequal pose durations, pivots, contact points, pinned references and an
-  immutable reviewed RGBA source. Contacts currently support review/diagnostics;
-  they are not a species footprint or contact solver.
+  immutable reviewed RGBA source. Reviewed shape revisions now provide support anchors and conservative physical
+  footprints; unannotated older manifests retain their existing behavior.
 - Pixi runs world locomotion and autonomous idle, move, perch, sing, feed, bathe,
   sleep, play and nest-building states. Missing authored clips use explicit fixture
   fallbacks. SVG preserves a static, reduced-motion/failed-GPU view.
-- The existing asset preview selects a raw frame. It lacks a shape workbench,
-  editable geometry review, native-pixel zoom and a clip/anchor diagnostic view.
+- The implemented workbench provides native/integer zoom, clip timing, geometry
+  overlays and immutable shape revision review. Browser verification is pending.
 - Recording candidates expose model scores and provenance through typed services.
-  Confirmation returns a verified receipt, but the UI does not focus the saved
-  Finding. Saved manual Findings do not retain every recording/model field; absent
+  Confirmation now links the verified receipt to the matching private Finding. Saved manual Findings do not retain every recording/model field; absent
   information must remain absent rather than be inferred.
 
 ## Ordered tasks and acceptance
@@ -42,7 +41,9 @@ in this workspace.
 ## Ownership and review gates
 
 This is an outcome → subsystem → bounded-task → acceptance-gate tree. Each row
-above is still **queued**. Owner roles below establish file/contract boundaries;
+above retains its acceptance criteria. V1–V5 code and V6 browser coverage are
+implemented locally; aggregate verification is still pending. P1–P4 have bounded
+local contracts/validators only, with real adapters and product integration pending. Owner roles below establish file/contract boundaries;
 assignment to a parallel worker occurs only when that bounded task starts.
 
 | Outcome / subsystem | Bounded tasks | Owner role and file scope | Contract authority | Done evidence required |
@@ -70,3 +71,50 @@ external provider, model download, credentials, paid service, deployment or
 publication belongs to this checkpoint. Future integrations require verified
 terms and an explicitly configured source. Shared views must continue omitting
 owner location, private evidence and private asset references.
+
+## Current local integration checkpoint
+
+- V1–V4: shared optional shape v1, exact source-preserving revisions, native-pixel
+  workbench, support transforms, conservative occupancy and opaque hit testing are
+  implemented. Old unannotated V2/V3 inputs remain accepted. Older closed readers
+  reject the new optional property; this is forward-reader compatibility only.
+- V5–V6: evidence display and receipt navigation are implemented; real local
+  BFF/SQLite browser verification is running with an explicitly technical upstream.
+  No durable model score/recording backlink is fabricated.
+- P1–P4: local reference rights/taxonomy/byte contracts, separate segmentation,
+  matte and supplied foreground stages, anchor-compensated QA and lossless crop
+  helpers are implemented. No photo decoder or model executes, and the image-stage
+  audit has no product route or durable retention yet. Normalize before reviewed
+  geometry; changing source pixels is not a shape-only revision.
+- Independent review requires retry/draft preservation across unrelated refreshes,
+  identical Pixi/SVG clearance, bounded channel preflight and JSON-stable byte
+  hashing. These fixes and their regressions precede the frozen full-system run.
+
+The prior verified checkpoint remains on `codex/species-manifest-local`; new work
+is isolated on `codex/visual-foundation-local`. Evidence from this wave must name
+its own exact tested commits and must not reuse prior checkpoint counts.
+
+## Interactive-yard expansion — requested after visual integration
+
+These waves preserve the current visual checkpoint and centralized domain/schema
+ownership. Implementation uses existing animated fixture pixels; it must include
+actual browser playback and changing pose pixels, not unit tests alone. No Svelte
+MCP/autofixer is exposed by this executor's available-tool discovery. Installed
+Svelte/SvelteKit compiler, strict `svelte-check`, typed ESLint, production build and
+real Chromium regression gates are the available validation tools. No MCP pass is
+claimed, and no connector or security configuration will be installed/changed.
+
+| Wave | Task / owner | Dependencies | Concrete acceptance |
+| --- | --- | --- | --- |
+| 1 | I1 free per-owner object inventory / inventory owner + central contract owner | Frozen visual checkpoint; existing SQLite yard and placement commands | Separate owned stock from placed instances. Transactional/idempotent place, return and move enforce owner, stock, placement and scene rules. Preserve every old object in deterministic migration. Reload/restart, backup/restore, retry and cross-owner tests; no purchases or currency. |
+| 1 | I2 session variation / simulation owner | V2 physical occupancy; central session-seed contract | New yard sessions may vary initial safe positions with a reproducible explicit seed. Identity and persisted home/layout stay stable. Rerenders/navigation do not unexpectedly reseed. Respect walkable zones, object collisions and perch capacity; compare seeds and restart/reduced-motion/browser behavior. |
+| 2 | I3 illustrative species behavior profiles / simulation owner + central contract owner | I2; existing species catalog and engine states | Bounded validated size, hop/flight tendencies, perch/ground/feed preferences, sociability and caution with stable defaults. Label tuning illustrative, not biologically validated or individual recognition. Deterministic tests and watched actual fixture locomotion/in-place clips. |
+| 2 | I4 decorative hawk visit / simulation owner | I2–I3; existing reservations and motion layers | Explicit fly-in/scatter/return/cooldown states; nonviolent decorative event distinct from observations. Bounded trigger queue/cancel/return times and reservation cleanup. Repeated triggers, removed objects, visibility, reduced motion and restart cannot strand/delete residents or mutate history. Actual changing-pose browser playback and screenshots. |
+| 3 | I5 real confirmed-sighting arrivals / arrival owner + central contract owner | Existing idempotent import/confirmation; I2–I3; V5 evidence links | Typed event and persisted dedupe/acknowledgment produce one eligible arrival and accessible bounded banner queue. Reload/reimport/retry do not replay notifications; fixture detections never appear as real sightings. Explicit labeled workshop demo remains separate. Optional keep action preserves visitor policy. Owner switches, mobile, keyboard, screen reader, background/reduced motion and cancellation are tested. |
+| Each | Independent architecture + integration review / reviewer and root | Actual author commits | One schema authority, reviewed migrations and generated contracts, focused real-browser gates, frozen complete aggregate on exact commits, retained prior failures and local screenshots. No publication or external services. |
+
+Current assignment: inventory and arrival owners are inspecting actual contracts
+and proposing bounded seams while the shape/evidence browser checkpoint finishes.
+The simulation owner finishes the current shape gate before editing I2–I4. Root
+owns shared domain declarations, exports, compatibility baselines and integration.
+No task above is complete merely because a proposal or test fixture exists.

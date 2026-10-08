@@ -469,6 +469,8 @@ def gates(
         ),
         ("image-intake", "image-intake-browser-checks.py", "CHIRP_IMAGE_INTAKE_OUTPUT"),
         ("image-v3", "image-v3-browser-checks.py", "CHIRP_IMAGE_V3_OUTPUT"),
+        ("shapes", "shape-browser-checks.py", "CHIRP_SHAPE_OUTPUT"),
+        ("evidence", "evidence-browser-checks.py", "CHIRP_EVIDENCE_OUTPUT"),
         ("sharing", "share-browser-checks.py", "CHIRP_SHARE_OUTPUT"),
     ]
     for name, script, variable in browser_suites:

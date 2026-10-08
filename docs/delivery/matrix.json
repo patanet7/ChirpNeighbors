@@ -90,14 +90,17 @@
       "acceptance": [
         "Typed query/form errors and loading/empty/retry/conflict states cover private recording upload/playback/delete.",
         "Accessible mobile/keyboard/reduced-motion journeys retain Finds, residents, collection, settings and fixture disclosures.",
-        "Login/logout/session expiry and owner changes never reveal stale private state."
+        "Login/logout/session expiry and owner changes never reveal stale private state.",
+        "Verified confirmation receipt focuses only a matching current-owner Finding; unknown, absent and corrected provenance stays explicit, and keeping a decorative resident is a separate action."
       ],
       "evidence": [
         "birdsong-yard-sprites/docs/browser-service-contracts.md",
         "birdsong-yard-sprites/scripts/recordings-ui-browser-checks.py",
         "birdsong-yard-sprites/scripts/analysis-browser-checks.py",
         "docs/delivery/verification-20261008.json",
-        "docs/delivery/lifecycle-verification-20261008.json"
+        "docs/delivery/lifecycle-verification-20261008.json",
+        "birdsong-yard-sprites/src/lib/findings/presentation.test.ts",
+        "birdsong-yard-sprites/scripts/evidence-browser-checks.py"
       ]
     },
     {
@@ -137,7 +140,8 @@
       "acceptance": [
         "Executable licensing/provenance intake, pinned provider boundary, pixel/palette/transparency/frame normalization and manifest packaging.",
         "Technical fixture pixels exercise strict validators; human review precedes immutable application catalog publication and explicit renderer pins.",
-        "No static concept misrepresented as a sheet; no invented reviewed art or generation provider success."
+        "No static concept misrepresented as a sheet; no invented reviewed art or generation provider success.",
+        "Immutable shape-only revisions preserve complete reviewed source and explicit pins; Pixi/SVG use shared support transforms, physical clearances and opaque hit geometry."
       ],
       "evidence": [
         "birdsong-yard-sprites/docs/image-asset-pipeline.md",
@@ -145,7 +149,13 @@
         "birdsong-yard-sprites/scripts/asset-pipeline-browser-checks.py",
         "docs/delivery/verification-20261008.json",
         "birdsong-yard-sprites/scripts/image-intake-browser-checks.py",
-        "docs/delivery/lifecycle-verification-20261008.json"
+        "docs/delivery/lifecycle-verification-20261008.json",
+        "birdsong-yard-sprites/docs/shape-workbench-checkpoint.md",
+        "birdsong-yard-sprites/scripts/shape-browser-checks.py",
+        "birdsong-yard-sprites/docs/image-stage-local-baseline.md"
+      ],
+      "remaining": [
+        "Current pixels are fixtures. Real photo decoding, reviewed species art and segmentation/matting/generation remain future adapters; local image-stage helpers have no product route or durable audit store."
       ]
     },
     {
@@ -283,6 +293,24 @@
         "{ui_repo}",
         "--output-dir",
         "{output_dir}"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-shapes",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/shape-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-evidence",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/evidence-browser-checks.py"
       ],
       "baseline": false
     }

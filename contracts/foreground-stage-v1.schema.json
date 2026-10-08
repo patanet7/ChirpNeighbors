@@ -1,0 +1,73 @@
+{
+  "$ref": "#/definitions/ForegroundStageV1",
+  "definitions": {
+    "ForegroundStageV1": {
+      "type": "object",
+      "properties": {
+        "encoding": {
+          "type": "string",
+          "const": "rgb8"
+        },
+        "rgb": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "minItems": 3,
+          "maxItems": 196608
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "alphaMode": {
+          "type": "string",
+          "enum": [
+            "straight",
+            "premultiplied"
+          ]
+        },
+        "recovery": {
+          "type": "string",
+          "enum": [
+            "supplied-recovered",
+            "technical-fixture"
+          ]
+        },
+        "adapter": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+            },
+            "version": {
+              "$ref": "#/definitions/ForegroundStageV1/properties/adapter/properties/id"
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "encoding",
+        "rgb",
+        "sha256",
+        "alphaMode",
+        "recovery",
+        "adapter"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/foreground-stage-v1.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

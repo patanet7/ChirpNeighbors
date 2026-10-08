@@ -553,6 +553,172 @@
             "loopEdges"
           ],
           "additionalProperties": false
+        },
+        "shape": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "basedOn": {
+              "$ref": "#/definitions/SpeciesManifestV3/properties/conditioning/properties/references/items/properties/pin"
+            },
+            "speciesId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+            },
+            "masterPoseId": {
+              "$ref": "#/definitions/SpeciesManifestV3/properties/shape/properties/speciesId"
+            },
+            "poses": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "poseId": {
+                    "$ref": "#/definitions/SpeciesManifestV3/properties/shape/properties/speciesId"
+                  },
+                  "frame": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 63
+                  },
+                  "visualBounds": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 256
+                      },
+                      "y": {
+                        "$ref": "#/definitions/SpeciesManifestV3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                      },
+                      "width": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 256
+                      },
+                      "height": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 256
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y",
+                      "width",
+                      "height"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "support": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "$ref": "#/definitions/SpeciesManifestV3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                      },
+                      "y": {
+                        "$ref": "#/definitions/SpeciesManifestV3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "footprint": {
+                    "type": "object",
+                    "properties": {
+                      "left": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 128
+                      },
+                      "right": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 128
+                      },
+                      "back": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 64
+                      },
+                      "front": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 64
+                      }
+                    },
+                    "required": [
+                      "left",
+                      "right",
+                      "back",
+                      "front"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "landmarks": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "$ref": "#/definitions/SpeciesManifestV3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                        },
+                        "y": {
+                          "$ref": "#/definitions/SpeciesManifestV3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "enum": [
+                            "head",
+                            "body",
+                            "beak",
+                            "tail",
+                            "left-foot",
+                            "right-foot"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y",
+                        "kind"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 6
+                  }
+                },
+                "required": [
+                  "poseId",
+                  "frame",
+                  "visualBounds",
+                  "support",
+                  "footprint",
+                  "landmarks"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 576
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "basedOn",
+            "speciesId",
+            "masterPoseId",
+            "poses"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
@@ -575,5 +741,5 @@
   },
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://chirpneighbors.local/contracts/species-manifest-v3.schema.json",
-  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3, packaging input v2 and retained RGBA source v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
 }
