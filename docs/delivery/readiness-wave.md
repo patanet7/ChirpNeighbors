@@ -7,7 +7,7 @@ passing evidence for 55 gates across a complete 54-pass run and a selector-only
 
 | Area | Implemented, integrated and locally tested | Adapter-only or missing |
 | --- | --- | --- |
-| Frontend | Owner entry, yard, Findings/corrections, collection/residents, scene/palette/private region/motion settings, bounded recording UI and explicit candidate confirmation | Snapshot controls/static public page in final integration; no extra onboarding wizard is justified |
+| Frontend | Owner entry, yard, Findings/corrections, collection/residents, scene/palette/private region/motion settings, bounded recording UI and explicit candidate confirmation | Explicit opt-in immutable snapshot controls and static public page implemented; no extra onboarding wizard is justified |
 | Backend/contracts | Svelte owner commands, strict Zod/Pydantic wire validation, fixed-origin authenticated FastAPI audio, immutable job artifacts/reviews | Autonomous worker and ESP32 artifacts remain unavailable and must not be recreated |
 | Storage | Owner SQLite, original evidence, exact artwork pins, bounded media, recording generations, durable deletion/outbox, retained-ledger restore and session invalidation | Account-wide deletion orchestration; distributed executor fencing; offline-copy erasure |
 | Auth | Email-link and Google flows, persisted sessions, sign-out/replay/expiry/linking, actual local TLS SMTP and signed provider mocks | Production SMTP/Google configuration and external delivery/consent; effective persisted native limits and safe transport failures now implemented locally |
@@ -50,7 +50,8 @@ PR, deployment or publication actions are part of this work.
   recover with the unchanged request without weakening owner/generation fences.
 - [x] Restore orchestration invalidates copied public links in both legacy and
   modern stores while preserving the source copy.
-- [ ] Integrate final static public UI and privacy browser regression.
+- [x] Integrate final static public UI and privacy browser regression (38 actual
+  isolated checks, including production without JavaScript and token-referrer privacy).
 - [ ] Run all 57 gates once on clean frozen source/test revisions; retain the
   original lifecycle failure and selector rerun as historical evidence.
 
