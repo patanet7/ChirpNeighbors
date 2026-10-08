@@ -1,0 +1,118 @@
+{
+  "$defs": {
+    "AccountIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "expiresAt": {
+          "format": "date-time",
+          "maxLength": 32,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?Z$",
+          "title": "Expiresat",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "mode": {
+          "const": "account",
+          "title": "Mode",
+          "type": "string"
+        },
+        "ownerId": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Ownerid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "ownerId",
+        "label",
+        "expiresAt"
+      ],
+      "title": "AccountIdentity",
+      "type": "object"
+    },
+    "DevelopmentIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "expiresAt": {
+          "format": "date-time",
+          "maxLength": 32,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?Z$",
+          "title": "Expiresat",
+          "type": "string"
+        },
+        "label": {
+          "maxLength": 120,
+          "minLength": 1,
+          "title": "Label",
+          "type": "string"
+        },
+        "mode": {
+          "const": "development",
+          "title": "Mode",
+          "type": "string"
+        },
+        "ownerId": {
+          "maxLength": 160,
+          "minLength": 1,
+          "title": "Ownerid",
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode",
+        "ownerId",
+        "label"
+      ],
+      "title": "DevelopmentIdentity",
+      "type": "object"
+    }
+  },
+  "$id": "https://chirpneighbors.local/contracts/session-verifier-v1.serialization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "identity": {
+      "anyOf": [
+        {
+          "discriminator": {
+            "mapping": {
+              "account": "#/$defs/AccountIdentity",
+              "development": "#/$defs/DevelopmentIdentity"
+            },
+            "propertyName": "mode"
+          },
+          "oneOf": [
+            {
+              "$ref": "#/$defs/AccountIdentity"
+            },
+            {
+              "$ref": "#/$defs/DevelopmentIdentity"
+            }
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Identity"
+    },
+    "version": {
+      "const": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "version",
+    "identity"
+  ],
+  "title": "SessionVerifierResponse",
+  "type": "object"
+}
