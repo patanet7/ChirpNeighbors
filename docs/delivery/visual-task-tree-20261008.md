@@ -22,7 +22,7 @@ in this workspace.
   sleep, play and nest-building states. Missing authored clips use explicit fixture
   fallbacks. SVG preserves a static, reduced-motion/failed-GPU view.
 - The implemented workbench provides native/integer zoom, clip timing, geometry
-  overlays and immutable shape revision review. Browser verification is pending.
+  overlays and immutable shape revision review. Browser verification passed in the retained 65-gate visual checkpoint.
 - Recording candidates expose model scores and provenance through typed services.
   Confirmation now links the verified receipt to the matching private Finding. Saved manual Findings do not retain every recording/model field; absent
   information must remain absent rather than be inferred.
@@ -46,7 +46,7 @@ in this workspace.
 
 This is an outcome → subsystem → bounded-task → acceptance-gate tree. Each row
 above retains its acceptance criteria. V1–V5 code and V6 browser coverage are
-implemented locally; aggregate verification is still pending. P1–P4 have bounded
+implemented locally and passed the retained 65-gate visual checkpoint. P1–P4 have bounded
 local contracts/validators only, with real adapters and product integration pending. Owner roles below establish file/contract boundaries;
 assignment to a parallel worker occurs only when that bounded task starts.
 
@@ -83,7 +83,7 @@ owner location, private evidence and private asset references.
   implemented. Old unannotated V2/V3 inputs remain accepted. Older closed readers
   reject the new optional property; this is forward-reader compatibility only.
 - V5–V6: evidence display and receipt navigation are implemented; real local
-  BFF/SQLite browser verification is running with an explicitly technical upstream.
+  BFF/SQLite browser verification passed with an explicitly technical upstream.
   No durable model score/recording backlink is fabricated.
 - P1–P4: local reference rights/taxonomy/byte contracts, separate segmentation,
   matte and supplied foreground stages, anchor-compensated QA and lossless crop
@@ -117,10 +117,11 @@ claimed, and no connector or security configuration will be installed/changed.
 | 3 | I5 real confirmed-sighting arrivals / arrival owner + central contract owner | Existing idempotent import/confirmation; I2–I3; V5 evidence links | Typed event and persisted dedupe/acknowledgment produce one eligible arrival and accessible bounded banner queue. Reload/reimport/retry do not replay notifications; fixture detections never appear as real sightings. Explicit labeled workshop demo remains separate. Optional keep action preserves visitor policy. Owner switches, mobile, keyboard, screen reader, background/reduced motion and cancellation are tested. |
 | Each | Independent architecture + integration review / reviewer and root | Actual author commits | One schema authority, reviewed migrations and generated contracts, focused real-browser gates, frozen complete aggregate on exact commits, retained prior failures and local screenshots. No publication or external services. |
 
-Current assignment: inventory and arrival owners are inspecting actual contracts
-and proposing bounded seams while the shape/evidence browser checkpoint finishes.
-The simulation owner finishes the current shape gate before editing I2–I4. Root
-owns shared domain declarations, exports, compatibility baselines and integration.
+Current integration: I1–I5, S1 and the bounded A1 foundation are implemented.
+Root owns shared declarations, exports, compatibility baselines and the complete
+70-gate verification. G1/G2 remain a contract/queue foundation with runtime
+activation unavailable; C1 remains design work. The visual 65-gate checkpoint
+is retained separately and does not establish the interactive wave's result.
 No task above is complete merely because a proposal or test fixture exists.
 
 ## Privacy, companionship and shared catalog follow-up
@@ -138,5 +139,8 @@ and UI `5ab2d97ef59f39738d2ae3c45ea7152dc50fa3c5` passed 60/65 gates.
 Retained evidence: `/tmp/chirp-visual-system-20261008-r1`. Failures were typed lint,
 formatting and three browser gates: two exposed the missing raw-frame inspection
 control; the core journey exposed an implicit live status on animation progress.
-UI `b225474` restores inspection and fixes those issues. The complete suite must be
-rerun on frozen commits; focused passes are not substituted for an aggregate.
+UI `b225474` restores inspection and fixes those issues. The complete rerun
+passed 65/65 on frozen commits, including 1,053 UI unit tests. See
+[visual verification](visual-verified-20261008.md) for exact revisions and retained
+logs. The interactive wave requires its own complete 70-gate checkpoint; focused
+passes are not substituted for an aggregate.

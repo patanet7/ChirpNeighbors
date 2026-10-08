@@ -59,7 +59,8 @@ production readiness or unperformed deployment. Fixture art remains fixture art.
 The prior contracts checkpoint is retained in
 [contracts-verified-20261008](contracts-verified-20261008). The visual wave's first
 aggregate retained 60/65 at `/tmp/chirp-visual-system-20261008-r1`; the corrected
-complete rerun is in progress. Interactive/privacy/catalog code is isolated and
-must not borrow that visual checkpoint's verification status. This document was
-committed separately while the visual source trees were frozen. Later checkpoints
-must reconcile statuses and point to exact tested commit IDs, including failures.
+complete rerun passed 65/65, recorded in
+[visual verification](visual-verified-20261008.md). Interactive/privacy/catalog
+code must not borrow that visual checkpoint's verification status. Its own
+complete 70-gate run is in progress. Later checkpoints must reconcile statuses
+and point to exact tested commit IDs, including failures.
