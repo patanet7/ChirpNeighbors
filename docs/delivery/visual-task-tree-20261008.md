@@ -1,5 +1,9 @@
 # Moving-bird visual work queue — 2026-10-08
 
+Product decisions and tentative ideas are maintained in the
+[stable behavior-and-ideas register](product-behavior-and-ideas.md). This tree owns
+execution order; the register owns intent/status and unresolved decisions.
+
 This queue follows the frozen contract/pose checkpoint. It records requested next
 implementation and its current verification status. Existing birds already move autonomously
 through layered yards; the next work must improve those moving birds rather than
