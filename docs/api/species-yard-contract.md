@@ -16,7 +16,7 @@ Executable definitions live in `src/lib/domain/yard.ts`; durable operations live
 | `BirdInstance` | Named temporary/permanent display instance with its own ID and optional immutable artwork pin. This does not identify an individual wild animal. |
 | `Artwork` | Species-bound ID/version, display image, representation and provenance; fixture or reviewed status remains explicit. |
 
-Every repository operation requires an owner supplied by the server session. Ownership is not accepted inside imports or backups. SQLite stores one validated version-2 aggregate per owner with transactional mutations; pipeline tables use a separate schema ledger in the same database. Unsupported future yard database versions fail rather than being silently downgraded. Development identity is explicitly opt-in and unavailable in production builds.
+Every repository operation requires an owner supplied by the server session. Ownership is not accepted inside imports or backups. SQLite stores one validated version-2 aggregate per owner with transactional mutations; pipeline tables use a separate schema ledger in the same database. Before initializing repositories, the application checks the existing yard, pipeline and recording migration ledgers through a read-only connection. Unsupported or malformed ledger versions refuse startup before repository writes. This local application preflight does not coordinate migrations across future workers or hosts. Development identity is explicitly opt-in and unavailable in production builds.
 
 ## Source-neutral intake
 
@@ -121,7 +121,9 @@ Deletion commits a permanent tombstone before file removal. New playback and
 processing permits fail immediately; stale simulated results cannot commit through
 the synchronous same-database generation guard. Cleanup is a bounded explicit local
 retry, not an autonomous worker. Actual derived-output cleanup remains a separate
-integration. Raw private `recordingId` evidence references are retained.
+integration. Failed deletion keeps its capacity reservation until cleanup succeeds;
+restart requeues tombstones and may require explicit cleanup before new uploads.
+Raw private `recordingId` evidence references are retained.
 
 Yard JSON backups contain no media ledger, bytes or tombstones. Restoring a yard
 cannot revive deleted media or remove its tombstone. Whole-filesystem backups and
