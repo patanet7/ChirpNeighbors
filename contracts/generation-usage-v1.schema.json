@@ -1,0 +1,269 @@
+{
+  "$ref": "#/definitions/GenerationUsageV1",
+  "definitions": {
+    "GenerationUsageV1": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "provider-attempt"
+            },
+            "providerClass": {
+              "type": "string",
+              "enum": [
+                "local",
+                "remote",
+                "fixture"
+              ]
+            },
+            "hardwareClass": {
+              "type": "string",
+              "enum": [
+                "cpu",
+                "gpu",
+                "remote-managed",
+                "unknown"
+              ]
+            },
+            "attempt": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10
+            },
+            "duration": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "const": "unknown"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "const": "measured"
+                    },
+                    "milliseconds": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 86400000
+                    },
+                    "basis": {
+                      "type": "string",
+                      "const": "adapter-wall-clock"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "milliseconds",
+                    "basis"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "outcome": {
+              "type": "string",
+              "enum": [
+                "output-returned",
+                "failed",
+                "cancelled",
+                "timed-out",
+                "unknown"
+              ]
+            },
+            "cost": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "const": "unknown"
+                    }
+                  },
+                  "required": [
+                    "status"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "const": "reported"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "pattern": "^[A-Z]{3}$"
+                    },
+                    "microUnits": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 9007199254740991
+                    },
+                    "basis": {
+                      "type": "string",
+                      "enum": [
+                        "provider-receipt",
+                        "operator-meter"
+                      ]
+                    },
+                    "evidenceSha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "currency",
+                    "microUnits",
+                    "basis",
+                    "evidenceSha256"
+                  ],
+                  "additionalProperties": false
+                }
+              ],
+              "default": {
+                "status": "unknown"
+              }
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "providerClass",
+            "hardwareClass",
+            "attempt",
+            "duration",
+            "outcome"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "provider-unavailable"
+            },
+            "reason": {
+              "type": "string",
+              "enum": [
+                "not-configured",
+                "version-unavailable"
+              ]
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "cache-hit"
+            },
+            "scope": {
+              "type": "string",
+              "enum": [
+                "shared-catalog",
+                "owner-private"
+              ]
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "scope"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "output-admission"
+            },
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "decision"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "output-review"
+            },
+            "decision": {
+              "type": "string",
+              "enum": [
+                "accepted",
+                "rejected"
+              ]
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "decision"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/generation-usage-v1.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}

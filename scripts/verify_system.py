@@ -472,10 +472,19 @@ def gates(
         ("shapes", "shape-browser-checks.py", "CHIRP_SHAPE_OUTPUT"),
         ("evidence", "evidence-browser-checks.py", "CHIRP_EVIDENCE_OUTPUT"),
         ("sharing", "share-browser-checks.py", "CHIRP_SHARE_OUTPUT"),
+        ("inventory", "inventory-browser-checks.py", "CHIRP_INVENTORY_OUTPUT"),
+        ("behavior", "behavior-browser-checks.py", "CHIRP_BEHAVIOR_OUTPUT"),
+        ("arrivals", "arrivals-browser-checks.py", "CHIRP_ARRIVALS_OUTPUT"),
+        ("analytics", "analytics-browser-checks.py", "CHIRP_ANALYTICS_OUTPUT"),
+        (
+            "session-binding",
+            "session-binding-browser-checks.py",
+            "CHIRP_SESSION_BINDING_OUTPUT",
+        ),
     ]
     for name, script, variable in browser_suites:
         command = [browser_python, f"scripts/{script}"]
-        if name == "core":
+        if name in ("core", "inventory"):
             command.append("--require-production")
         result.append(
             Gate(f"browser-{name}", ui, command, 300, {variable: str(output / name)})

@@ -28,6 +28,18 @@ class Weather(TypedDict, closed=True):
     simulation: Simulation
 
 
+class Owned(TypedDict, closed=True):
+    perch: int
+    feeder: int
+    bath: int
+    nest: int
+
+
+class Inventory(TypedDict, closed=True):
+    version: Literal[1]
+    owned: Owned
+
+
 JobId: TypeAlias = str
 
 
@@ -150,10 +162,18 @@ class Object(TypedDict, closed=True):
     y: float
 
 
+class ObjectReceipt(TypedDict, closed=True):
+    requestId: str
+    commandDigest: str
+    resultObjectId: Id
+
+
 class Environment(TypedDict, closed=True):
     version: Literal[1]
     objects: list[Object]
     weather: Weather
+    inventory: NotRequired[Inventory]
+    objectReceipts: NotRequired[list[ObjectReceipt]]
 
 
 ObservedAt: TypeAlias = ExportedAt | None

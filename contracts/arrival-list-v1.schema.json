@@ -1,0 +1,102 @@
+{
+  "$ref": "#/definitions/ArrivalListV1",
+  "definitions": {
+    "ArrivalListV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "yard.arrivals"
+        },
+        "arrivals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "schemaVersion": {
+                "type": "number",
+                "const": 1
+              },
+              "kind": {
+                "type": "string",
+                "const": "yard.arrival"
+              },
+              "id": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "eventId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160,
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                "not": {
+                  "enum": [
+                    "__proto__",
+                    "prototype",
+                    "constructor"
+                  ]
+                }
+              },
+              "speciesId": {
+                "$ref": "#/definitions/ArrivalListV1/properties/arrivals/items/properties/eventId"
+              },
+              "birdId": {
+                "$ref": "#/definitions/ArrivalListV1/properties/arrivals/items/properties/eventId"
+              },
+              "admission": {
+                "type": "string",
+                "const": "owner-manual"
+              },
+              "presentation": {
+                "type": "string",
+                "enum": [
+                  "fly-in",
+                  "notice-only"
+                ]
+              },
+              "observedAt": {
+                "type": "string",
+                "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+              },
+              "admittedAt": {
+                "$ref": "#/definitions/ArrivalListV1/properties/arrivals/items/properties/observedAt"
+              },
+              "eligibleUntil": {
+                "$ref": "#/definitions/ArrivalListV1/properties/arrivals/items/properties/observedAt"
+              }
+            },
+            "required": [
+              "schemaVersion",
+              "kind",
+              "id",
+              "eventId",
+              "speciesId",
+              "birdId",
+              "admission",
+              "presentation",
+              "observedAt",
+              "admittedAt",
+              "eligibleUntil"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 20
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "arrivals"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/arrival-list-v1.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}

@@ -672,6 +672,78 @@
                     "simulation"
                   ],
                   "additionalProperties": false
+                },
+                "inventory": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "owned": {
+                      "type": "object",
+                      "properties": {
+                        "perch": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "feeder": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "bath": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "nest": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        }
+                      },
+                      "required": [
+                        "perch",
+                        "feeder",
+                        "bath",
+                        "nest"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "owned"
+                  ],
+                  "additionalProperties": false
+                },
+                "objectReceipts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "requestId": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "commandDigest": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "resultObjectId": {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                      }
+                    },
+                    "required": [
+                      "requestId",
+                      "commandDigest",
+                      "resultObjectId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 4096
                 }
               },
               "required": [
@@ -719,7 +791,17 @@
                     "dayLengthSeconds": 600,
                     "epoch": "2026-01-01T00:00:00Z"
                   }
-                }
+                },
+                "inventory": {
+                  "version": 1,
+                  "owned": {
+                    "perch": 3,
+                    "feeder": 3,
+                    "bath": 3,
+                    "nest": 3
+                  }
+                },
+                "objectReceipts": []
               }
             }
           },

@@ -214,6 +214,71 @@
       "remaining": [
         "Same-code/destination transfer is approved, but supported preparation/helper download failed twice. No archive bytes were materialized; implementation remains unintegrated."
       ]
+    },
+    {
+      "id": "interactive-yard",
+      "owner": "root-integration",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "storage"
+      ],
+      "acceptance": [
+        "Free owner stock and idempotent place/return/move; legacy data, restart/restore, exact retry and isolation.",
+        "Explicit reproducible session seeds, illustrative profiles, bounded decorative scatter/return and trusted once-only arrival presentation.",
+        "Real changing-pose Pixi plus SVG/reduced-motion/browser regressions."
+      ],
+      "evidence": [
+        "docs/delivery/visual-task-tree-20261008.md",
+        "docs/delivery/product-behavior-and-ideas.md",
+        "birdsong-yard-sprites/scripts/inventory-browser-checks.py",
+        "birdsong-yard-sprites/scripts/behavior-browser-checks.py",
+        "birdsong-yard-sprites/scripts/arrivals-browser-checks.py"
+      ],
+      "remaining": [
+        "Integrated browser/full70gate checkpoint pending; real authorized import/audio arrival adapters unconfigured."
+      ]
+    },
+    {
+      "id": "optional-analytics",
+      "owner": "root-integration",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "auth"
+      ],
+      "acceptance": [
+        "Default-off explicit-consent first-party coarse event collection; private consent and identity-free aggregate stores separated.",
+        "Session/revision fences, bounded queues/budgets, server validation, restore revocation, no owner/evidence/location/URL/IP dimensions.",
+        "Collector failure cannot block login/yard; no public report endpoint or real-user activation."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/privacy-analytics-foundation.md",
+        "birdsong-yard-sprites/scripts/analytics-browser-checks.py",
+        "birdsong-yard-sprites/scripts/session-binding-browser-checks.py"
+      ],
+      "remaining": [
+        "Browser/full gates pending; idle retention needs operator maintenance; real web-vitals observer/policy review remain future."
+      ]
+    },
+    {
+      "id": "lazy-shared-assets",
+      "owner": "root-integration",
+      "status": "partial_local",
+      "dependencies": [
+        "contracts"
+      ],
+      "acceptance": [
+        "One canonical species/style/version request when configured, durable dedupe and explicit pending placeholder.",
+        "Private generation identity includes owner scope; usage distinguishes attempts/cache/admission/review with unknown cost preserved."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/generation-cost-foundation.md",
+        "birdsong-yard-sprites/src/lib/server/assets/catalog-requests.test.ts"
+      ],
+      "remaining": [
+        "Default request policy denies; app hook, approved public release payload, provider dispatch and persistent runtime usage/budgets remain future adapters."
+      ]
     }
   ],
   "gates": [
@@ -313,9 +378,63 @@
         "scripts/evidence-browser-checks.py"
       ],
       "baseline": false
+    },
+    {
+      "id": "browser-inventory",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/inventory-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-behavior",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/behavior-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-arrivals",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/arrivals-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-analytics",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/analytics-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-session-binding",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/session-binding-browser-checks.py"
+      ],
+      "baseline": false
     }
   ],
   "activeWave": {
+    "document": "docs/delivery/visual-task-tree-20261008.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Interactive inventory, session binding, illustrative behavior, trusted arrivals, optional analytics and pending canonical catalog contracts",
+    "verification": "in_progress",
+    "selectedGates": 70,
+    "priorVisualCheckpoint": "docs/delivery/visual-verified-20261008/report.json",
+    "independentReview": "UI root integration74f8a63 independently reviewed; browser/full checks remain mandatory"
+  },
+  "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",
     "uiBase": "305cbeabfbd08767907bb71d7bb0cb69719ef8de",
     "mainBase": "c46735bac08c77fd4f8689fc032fddc8199b3851",

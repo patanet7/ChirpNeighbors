@@ -1,0 +1,141 @@
+{
+  "$ref": "#/definitions/ArrivalAdapterCapabilityV1",
+  "definitions": {
+    "ArrivalAdapterCapabilityV1": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "yard.arrival-adapter-capability"
+            },
+            "capabilityId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+              "not": {
+                "enum": [
+                  "__proto__",
+                  "prototype",
+                  "constructor"
+                ]
+              }
+            },
+            "adapterKind": {
+              "type": "string",
+              "enum": [
+                "import",
+                "audio"
+              ]
+            },
+            "state": {
+              "type": "string",
+              "const": "unavailable"
+            },
+            "reason": {
+              "type": "string",
+              "enum": [
+                "unconfigured",
+                "unreviewed"
+              ]
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "capabilityId",
+            "adapterKind",
+            "state",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "yard.arrival-adapter-capability"
+            },
+            "capabilityId": {
+              "$ref": "#/definitions/ArrivalAdapterCapabilityV1/anyOf/0/properties/capabilityId"
+            },
+            "adapterKind": {
+              "$ref": "#/definitions/ArrivalAdapterCapabilityV1/anyOf/0/properties/adapterKind"
+            },
+            "state": {
+              "type": "string",
+              "const": "reviewed"
+            },
+            "adapterIdentity": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/ArrivalAdapterCapabilityV1/anyOf/0/properties/capabilityId"
+                },
+                "version": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9._:+-]*$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "id",
+                "version",
+                "sha256"
+              ],
+              "additionalProperties": false
+            },
+            "modelIdentity": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ArrivalAdapterCapabilityV1/anyOf/1/properties/adapterIdentity"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "authorizationPolicyId": {
+              "$ref": "#/definitions/ArrivalAdapterCapabilityV1/anyOf/0/properties/capabilityId"
+            },
+            "reviewedPurpose": {
+              "type": "string",
+              "const": "authorized-real-observation"
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "capabilityId",
+            "adapterKind",
+            "state",
+            "adapterIdentity",
+            "modelIdentity",
+            "authorizationPolicyId",
+            "reviewedPurpose"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/arrival-adapter-capability-v1.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}

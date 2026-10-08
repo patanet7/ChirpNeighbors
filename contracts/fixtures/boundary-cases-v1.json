@@ -2,6 +2,1218 @@
   "schemaVersion": 1,
   "cases": [
     {
+      "schema": "arrival-adapter-capability-v1",
+      "name": "arrival-adapter-capability-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival-adapter-capability",
+        "capabilityId": "arrival:audio:unconfigured",
+        "adapterKind": "audio",
+        "state": "unavailable",
+        "reason": "unconfigured"
+      }
+    },
+    {
+      "schema": "arrival-adapter-capability-v1",
+      "name": "arrival-adapter-capability-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival-adapter-capability",
+        "capabilityId": "arrival:audio:unconfigured",
+        "adapterKind": "audio",
+        "state": "unavailable",
+        "reason": "unconfigured",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "object-inventory-v1",
+      "name": "object-inventory-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "version": 1,
+        "owned": {
+          "perch": 3,
+          "feeder": 3,
+          "bath": 3,
+          "nest": 3
+        }
+      }
+    },
+    {
+      "schema": "object-inventory-v1",
+      "name": "object-inventory-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "version": 1,
+        "owned": {
+          "perch": 3,
+          "feeder": 3,
+          "bath": 3,
+          "nest": 3
+        },
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "object-inventory-command-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "action": "object-inventory",
+        "requestId": "11111111-1111-4111-8111-111111111111",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": []
+        },
+        "payload": {
+          "operation": "place",
+          "kind": "perch"
+        }
+      }
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "object-inventory-command-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "action": "object-inventory",
+        "requestId": "11111111-1111-4111-8111-111111111111",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": []
+        },
+        "payload": {
+          "operation": "place",
+          "kind": "perch"
+        },
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "object-operation-receipts-v1",
+      "name": "object-operation-receipts-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": [
+        {
+          "requestId": "11111111-1111-4111-8111-111111111111",
+          "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "resultObjectId": "fixture-object"
+        }
+      ]
+    },
+    {
+      "schema": "object-operation-receipts-v1",
+      "name": "object-operation-receipts-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": [
+        {
+          "requestId": "11111111-1111-4111-8111-111111111111",
+          "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "resultObjectId": "fixture-object",
+          "ownerId": "untrusted"
+        }
+      ]
+    },
+    {
+      "schema": "arrival-v1",
+      "name": "arrival-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival",
+        "id": "11111111-1111-4111-8111-111111111111",
+        "eventId": "manual:22222222-2222-4222-8222-222222222222",
+        "speciesId": "cn-species-erithacus-rubecula",
+        "birdId": "bird-fixture-1",
+        "admission": "owner-manual",
+        "presentation": "fly-in",
+        "observedAt": "2026-10-08T12:00:00.000Z",
+        "admittedAt": "2026-10-08T12:00:00.000Z",
+        "eligibleUntil": "2026-10-08T12:02:00.000Z"
+      }
+    },
+    {
+      "schema": "arrival-v1",
+      "name": "arrival-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival",
+        "id": "11111111-1111-4111-8111-111111111111",
+        "eventId": "manual:22222222-2222-4222-8222-222222222222",
+        "speciesId": "cn-species-erithacus-rubecula",
+        "birdId": "bird-fixture-1",
+        "admission": "owner-manual",
+        "presentation": "fly-in",
+        "observedAt": "2026-10-08T12:00:00.000Z",
+        "admittedAt": "2026-10-08T12:00:00.000Z",
+        "eligibleUntil": "2026-10-08T12:02:00.000Z",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "arrival-list-v1",
+      "name": "arrival-list-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrivals",
+        "arrivals": [
+          {
+            "schemaVersion": 1,
+            "kind": "yard.arrival",
+            "id": "11111111-1111-4111-8111-111111111111",
+            "eventId": "manual:22222222-2222-4222-8222-222222222222",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "birdId": "bird-fixture-1",
+            "admission": "owner-manual",
+            "presentation": "fly-in",
+            "observedAt": "2026-10-08T12:00:00.000Z",
+            "admittedAt": "2026-10-08T12:00:00.000Z",
+            "eligibleUntil": "2026-10-08T12:02:00.000Z"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "arrival-list-v1",
+      "name": "arrival-list-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrivals",
+        "arrivals": [
+          {
+            "schemaVersion": 1,
+            "kind": "yard.arrival",
+            "id": "11111111-1111-4111-8111-111111111111",
+            "eventId": "manual:22222222-2222-4222-8222-222222222222",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "birdId": "bird-fixture-1",
+            "admission": "owner-manual",
+            "presentation": "fly-in",
+            "observedAt": "2026-10-08T12:00:00.000Z",
+            "admittedAt": "2026-10-08T12:00:00.000Z",
+            "eligibleUntil": "2026-10-08T12:02:00.000Z"
+          }
+        ],
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "arrival-consume-command-v1",
+      "name": "arrival-consume-command-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival.consume",
+        "id": "11111111-1111-4111-8111-111111111111"
+      }
+    },
+    {
+      "schema": "arrival-consume-command-v1",
+      "name": "arrival-consume-command-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival.consume",
+        "id": "11111111-1111-4111-8111-111111111111",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "arrival-consume-result-v1",
+      "name": "arrival-consume-result-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival.consumed",
+        "status": "ready",
+        "arrival": {
+          "schemaVersion": 1,
+          "kind": "yard.arrival",
+          "id": "11111111-1111-4111-8111-111111111111",
+          "eventId": "manual:22222222-2222-4222-8222-222222222222",
+          "speciesId": "cn-species-erithacus-rubecula",
+          "birdId": "bird-fixture-1",
+          "admission": "owner-manual",
+          "presentation": "fly-in",
+          "observedAt": "2026-10-08T12:00:00.000Z",
+          "admittedAt": "2026-10-08T12:00:00.000Z",
+          "eligibleUntil": "2026-10-08T12:02:00.000Z"
+        }
+      }
+    },
+    {
+      "schema": "arrival-consume-result-v1",
+      "name": "arrival-consume-result-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival.consumed",
+        "status": "ready",
+        "arrival": {
+          "schemaVersion": 1,
+          "kind": "yard.arrival",
+          "id": "11111111-1111-4111-8111-111111111111",
+          "eventId": "manual:22222222-2222-4222-8222-222222222222",
+          "speciesId": "cn-species-erithacus-rubecula",
+          "birdId": "bird-fixture-1",
+          "admission": "owner-manual",
+          "presentation": "fly-in",
+          "observedAt": "2026-10-08T12:00:00.000Z",
+          "admittedAt": "2026-10-08T12:00:00.000Z",
+          "eligibleUntil": "2026-10-08T12:02:00.000Z"
+        },
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "arrival-cue-v1",
+      "name": "arrival-cue-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "token": "11111111-1111-4111-8111-111111111111",
+        "birdId": "bird-fixture-1"
+      }
+    },
+    {
+      "schema": "arrival-cue-v1",
+      "name": "arrival-cue-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "token": "11111111-1111-4111-8111-111111111111",
+        "birdId": "bird-fixture-1",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "session-context-v1",
+      "name": "session-context-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "sessionBinding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+      }
+    },
+    {
+      "schema": "session-context-v1",
+      "name": "session-context-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "sessionBinding": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "session-changed-v1",
+      "name": "session-changed-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "version": 1,
+        "kind": "auth.session-changed",
+        "code": "session_changed",
+        "error": "Your sign-in session changed. Reload this page before continuing."
+      }
+    },
+    {
+      "schema": "session-changed-v1",
+      "name": "session-changed-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "version": 1,
+        "kind": "auth.session-changed",
+        "code": "session_changed",
+        "error": "Your sign-in session changed. Reload this page before continuing.",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "illustrative-species-profile-v1",
+      "name": "illustrative-species-profile-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "tuning": "illustrative",
+        "sizeScale": 1,
+        "movement": {
+          "speed": 64,
+          "hopBias": 0.5
+        },
+        "preferences": {
+          "ground": 1,
+          "perch": 1,
+          "feed": 1
+        },
+        "socialSpacing": 4,
+        "caution": 0.5
+      }
+    },
+    {
+      "schema": "illustrative-species-profile-v1",
+      "name": "illustrative-species-profile-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "tuning": "illustrative",
+        "sizeScale": 1,
+        "movement": {
+          "speed": 64,
+          "hopBias": 0.5
+        },
+        "preferences": {
+          "ground": 1,
+          "perch": 1,
+          "feed": 1
+        },
+        "socialSpacing": 4,
+        "caution": 0.5,
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "simulation-options-v1",
+      "name": "simulation-options-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "sessionSeed": 1234,
+        "illustrativeProfiles": true
+      }
+    },
+    {
+      "schema": "simulation-options-v1",
+      "name": "simulation-options-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "sessionSeed": 1234,
+        "illustrativeProfiles": true,
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "product-event-v1",
+      "name": "product-event-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "kind": "action",
+        "route": "/",
+        "feature": "yard",
+        "action": "open"
+      }
+    },
+    {
+      "schema": "product-event-v1",
+      "name": "product-event-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "kind": "action",
+        "route": "/",
+        "feature": "yard",
+        "action": "open",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "analytics-batch-v1",
+      "name": "analytics-batch-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "consentRevision": 1,
+        "events": [
+          {
+            "kind": "action",
+            "route": "/",
+            "feature": "yard",
+            "action": "open"
+          }
+        ]
+      }
+    },
+    {
+      "schema": "analytics-batch-v1",
+      "name": "analytics-batch-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "consentRevision": 1,
+        "events": [
+          {
+            "kind": "action",
+            "route": "/",
+            "feature": "yard",
+            "action": "open"
+          }
+        ],
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "analytics-preference-command-v1",
+      "name": "analytics-preference-command-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "enabled": false,
+        "expectedRevision": 1
+      }
+    },
+    {
+      "schema": "analytics-preference-command-v1",
+      "name": "analytics-preference-command-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "enabled": false,
+        "expectedRevision": 1,
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "analytics-status-v1",
+      "name": "analytics-status-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "available": false,
+        "consented": false,
+        "collecting": false,
+        "revision": 0,
+        "blockedBy": "disabled"
+      }
+    },
+    {
+      "schema": "analytics-status-v1",
+      "name": "analytics-status-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "available": false,
+        "consented": false,
+        "collecting": false,
+        "revision": 0,
+        "blockedBy": "disabled",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "analytics-receipt-v1",
+      "name": "analytics-receipt-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "accepted": 0,
+        "outcome": "disabled"
+      }
+    },
+    {
+      "schema": "analytics-receipt-v1",
+      "name": "analytics-receipt-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "accepted": 0,
+        "outcome": "disabled",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "analytics-failure-v1",
+      "name": "analytics-failure-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "code": "UNAVAILABLE",
+        "error": "Analytics is unavailable."
+      }
+    },
+    {
+      "schema": "analytics-failure-v1",
+      "name": "analytics-failure-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "code": "UNAVAILABLE",
+        "error": "Analytics is unavailable.",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "security-audit-event-v1",
+      "name": "security-audit-event-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "event": "session-rejected",
+        "category": "session"
+      }
+    },
+    {
+      "schema": "security-audit-event-v1",
+      "name": "security-audit-event-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "event": "session-rejected",
+        "category": "session",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "catalog-request-v1",
+      "name": "catalog-request-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "taxonomy": {
+          "catalog": "chirp-display-catalog",
+          "version": 1,
+          "speciesId": "cn-species-erithacus-rubecula"
+        },
+        "style": {
+          "id": "technical-fixture",
+          "version": 1
+        },
+        "assetVersion": 1,
+        "variant": {
+          "kind": "canonical"
+        }
+      }
+    },
+    {
+      "schema": "catalog-request-v1",
+      "name": "catalog-request-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "taxonomy": {
+          "catalog": "chirp-display-catalog",
+          "version": 1,
+          "speciesId": "cn-species-erithacus-rubecula"
+        },
+        "style": {
+          "id": "technical-fixture",
+          "version": 1
+        },
+        "assetVersion": 1,
+        "variant": {
+          "kind": "canonical"
+        },
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "pending-catalog-request-v1",
+      "name": "pending-catalog-request-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "status": "pending",
+        "resolution": "placeholder-pending"
+      }
+    },
+    {
+      "schema": "pending-catalog-request-v1",
+      "name": "pending-catalog-request-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "status": "pending",
+        "resolution": "placeholder-pending",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "catalog-release-v1",
+      "name": "catalog-release-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "releaseVersion": 1,
+        "render": {
+          "contract": "public-catalog-render-v1",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 200
+        },
+        "review": {
+          "decision": "approved",
+          "policyVersion": 1
+        },
+        "rights": {
+          "redistributionAllowed": true,
+          "policyVersion": 1,
+          "publicAttributionSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "fixture": true,
+        "taxonFidelityReviewed": false
+      }
+    },
+    {
+      "schema": "catalog-release-v1",
+      "name": "catalog-release-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "releaseVersion": 1,
+        "render": {
+          "contract": "public-catalog-render-v1",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 200
+        },
+        "review": {
+          "decision": "approved",
+          "policyVersion": 1
+        },
+        "rights": {
+          "redistributionAllowed": true,
+          "policyVersion": 1,
+          "publicAttributionSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "generation-recipe-v1",
+      "name": "generation-recipe-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "provider": {
+          "id": "fixture",
+          "version": "1"
+        },
+        "model": {
+          "kind": "fixture",
+          "version": 1
+        },
+        "settings": {
+          "id": "fixture-settings",
+          "version": 1,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "seed": 1,
+        "pipelineVersion": 1,
+        "normalizationVersion": 1,
+        "posePlanSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "outputContract": "rgba8-frames-v1"
+      }
+    },
+    {
+      "schema": "generation-recipe-v1",
+      "name": "generation-recipe-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "provider": {
+          "id": "fixture",
+          "version": "1"
+        },
+        "model": {
+          "kind": "fixture",
+          "version": 1
+        },
+        "settings": {
+          "id": "fixture-settings",
+          "version": 1,
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "seed": 1,
+        "pipelineVersion": 1,
+        "normalizationVersion": 1,
+        "posePlanSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "outputContract": "rgba8-frames-v1",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "shared-generation-plan-v1",
+      "name": "shared-generation-plan-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "scope": "shared-catalog",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "recipe": {
+          "provider": {
+            "id": "fixture",
+            "version": "1"
+          },
+          "model": {
+            "kind": "fixture",
+            "version": 1
+          },
+          "settings": {
+            "id": "fixture-settings",
+            "version": 1,
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "seed": 1,
+          "pipelineVersion": 1,
+          "normalizationVersion": 1,
+          "posePlanSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outputContract": "rgba8-frames-v1"
+        },
+        "references": []
+      }
+    },
+    {
+      "schema": "shared-generation-plan-v1",
+      "name": "shared-generation-plan-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "scope": "shared-catalog",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "recipe": {
+          "provider": {
+            "id": "fixture",
+            "version": "1"
+          },
+          "model": {
+            "kind": "fixture",
+            "version": 1
+          },
+          "settings": {
+            "id": "fixture-settings",
+            "version": 1,
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "seed": 1,
+          "pipelineVersion": 1,
+          "normalizationVersion": 1,
+          "posePlanSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outputContract": "rgba8-frames-v1"
+        },
+        "references": [],
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "private-generation-plan-v1",
+      "name": "private-generation-plan-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "scope": "owner-private",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "recipe": {
+          "provider": {
+            "id": "fixture",
+            "version": "1"
+          },
+          "model": {
+            "kind": "fixture",
+            "version": 1
+          },
+          "settings": {
+            "id": "fixture-settings",
+            "version": 1,
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "seed": 1,
+          "pipelineVersion": 1,
+          "normalizationVersion": 1,
+          "posePlanSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outputContract": "rgba8-frames-v1"
+        },
+        "privateInputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      }
+    },
+    {
+      "schema": "private-generation-plan-v1",
+      "name": "private-generation-plan-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "scope": "owner-private",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "recipe": {
+          "provider": {
+            "id": "fixture",
+            "version": "1"
+          },
+          "model": {
+            "kind": "fixture",
+            "version": 1
+          },
+          "settings": {
+            "id": "fixture-settings",
+            "version": 1,
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "seed": 1,
+          "pipelineVersion": 1,
+          "normalizationVersion": 1,
+          "posePlanSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "outputContract": "rgba8-frames-v1"
+        },
+        "privateInputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "generation-cost-v1",
+      "name": "generation-cost-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "status": "unknown"
+      }
+    },
+    {
+      "schema": "generation-cost-v1",
+      "name": "generation-cost-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "status": "unknown",
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "generation-usage-v1",
+      "name": "generation-usage-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "provider-attempt",
+        "providerClass": "fixture",
+        "hardwareClass": "cpu",
+        "attempt": 1,
+        "duration": {
+          "status": "unknown"
+        },
+        "outcome": "unknown",
+        "cost": {
+          "status": "unknown"
+        }
+      }
+    },
+    {
+      "schema": "generation-usage-v1",
+      "name": "generation-usage-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "provider-attempt",
+        "providerClass": "fixture",
+        "hardwareClass": "cpu",
+        "attempt": 1,
+        "duration": {
+          "status": "unknown"
+        },
+        "outcome": "unknown",
+        "cost": {
+          "status": "unknown"
+        },
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "generation-usage-summary-v1",
+      "name": "generation-usage-summary-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "observations": 1,
+        "providerAttempts": 1,
+        "providerUnavailable": 0,
+        "measuredAdapterMilliseconds": 0,
+        "unknownDurationAttempts": 1,
+        "unknownCostAttempts": 1,
+        "knownCostSubtotals": [],
+        "cacheHits": {
+          "sharedCatalog": 0,
+          "ownerPrivate": 0
+        },
+        "admittedOutputs": 0,
+        "rejectedOutputs": 0,
+        "reviewAcceptedOutputs": 0,
+        "reviewRejectedOutputs": 0
+      }
+    },
+    {
+      "schema": "generation-usage-summary-v1",
+      "name": "generation-usage-summary-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "observations": 1,
+        "providerAttempts": 1,
+        "providerUnavailable": 0,
+        "measuredAdapterMilliseconds": 0,
+        "unknownDurationAttempts": 1,
+        "unknownCostAttempts": 1,
+        "knownCostSubtotals": [],
+        "cacheHits": {
+          "sharedCatalog": 0,
+          "ownerPrivate": 0
+        },
+        "admittedOutputs": 0,
+        "rejectedOutputs": 0,
+        "reviewAcceptedOutputs": 0,
+        "reviewRejectedOutputs": 0,
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "arrival-adapter-capability-v1",
+      "name": "reviewed import adapter remains a synthetic descriptor",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival-adapter-capability",
+        "capabilityId": "test-only:import:review",
+        "adapterKind": "import",
+        "state": "reviewed",
+        "adapterIdentity": {
+          "id": "test-only-adapter",
+          "version": "fixture-v1",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "modelIdentity": null,
+        "authorizationPolicyId": "test-only-per-source-review",
+        "reviewedPurpose": "authorized-real-observation"
+      }
+    },
+    {
+      "schema": "arrival-adapter-capability-v1",
+      "name": "reviewed audio requires an exact model beyond structure",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival-adapter-capability",
+        "capabilityId": "test-only:import:review",
+        "adapterKind": "audio",
+        "state": "reviewed",
+        "adapterIdentity": {
+          "id": "test-only-adapter",
+          "version": "fixture-v1",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "modelIdentity": null,
+        "authorizationPolicyId": "test-only-per-source-review",
+        "reviewedPurpose": "authorized-real-observation"
+      }
+    },
+    {
+      "schema": "arrival-adapter-capability-v1",
+      "name": "reviewed audio model is representable without activation",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 1,
+        "kind": "yard.arrival-adapter-capability",
+        "capabilityId": "test-only:import:review",
+        "adapterKind": "audio",
+        "state": "reviewed",
+        "adapterIdentity": {
+          "id": "test-only-adapter",
+          "version": "fixture-v1",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "modelIdentity": {
+          "id": "test-only-adapter",
+          "version": "fixture-v1",
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "authorizationPolicyId": "test-only-per-source-review",
+        "reviewedPurpose": "authorized-real-observation"
+      }
+    },
+    {
       "schema": "identification-v2",
       "name": "unknown observation time stays null",
       "valid": true,
