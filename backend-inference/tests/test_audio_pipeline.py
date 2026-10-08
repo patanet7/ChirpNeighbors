@@ -10,7 +10,7 @@ import threading
 import unittest
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import PropertyMock, patch
 
 from pydantic import ValidationError
 
@@ -421,6 +421,25 @@ class AudioServiceTests(unittest.TestCase):
                 error_code(service.analyze(FIXTURE_OWNER, self.command)),
                 "provider_blocked",
             )
+
+    def test_malformed_vendor_provenance_is_blocked_before_private_read(self) -> None:
+        invalid: tuple[object, ...] = (None, {}, "secret-diagnostic")
+        for value in invalid:
+            with (
+                self.subTest(value=value),
+                patch.object(
+                    SyntheticFixtureProvider,
+                    "provenance",
+                    new_callable=PropertyMock,
+                    return_value=value,
+                ),
+                patch.object(self.storage, "read") as read,
+            ):
+                service = AudioService(self.storage, self.provider, FIXTURE_TAXONOMY)
+                event = service.analyze(FIXTURE_OWNER, self.command)
+                self.assertEqual(error_code(event), "provider_blocked")
+                self.assertNotIn("secret", event.model_dump_json())
+                read.assert_not_called()
 
     def test_malformed_vendor_container_is_a_closed_failure(self) -> None:
         invalid: tuple[object, ...] = (

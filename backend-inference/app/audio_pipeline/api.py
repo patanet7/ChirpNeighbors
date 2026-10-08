@@ -34,6 +34,7 @@ from .providers import (
     ProviderConfigurationError,
     Taxonomy,
     UnconfiguredModelProvider,
+    provider_provenance,
 )
 from .service import (
     AudioService,
@@ -157,7 +158,9 @@ def create_app(
     async def ready() -> JSONResponse:
         configured = False
         try:
-            configured = service.provider.provenance.licenseStatus == "approved"
+            configured = (
+                provider_provenance(service.provider).licenseStatus == "approved"
+            )
         except ProviderConfigurationError:
             pass
         ready_for_requests = configured and verifier is not None

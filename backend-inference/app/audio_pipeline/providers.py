@@ -55,6 +55,20 @@ class InferenceProvider(Protocol):
     ) -> tuple[Prediction, ...]: ...
 
 
+def provider_provenance(provider: InferenceProvider) -> ProviderProvenance:
+    """Contain a vendor's metadata before pins or private audio are accessed."""
+    try:
+        value: object = provider.provenance
+        if not isinstance(value, ProviderProvenance):
+            raise ProviderConfigurationError("Invalid provider provenance shape")
+        # Also reject instances constructed via model_construct without validation.
+        return ProviderProvenance.model_validate(value.model_dump())
+    except ProviderConfigurationError:
+        raise
+    except Exception:  # noqa: BLE001 - reject opaque vendor metadata diagnostics.
+        raise ProviderConfigurationError("Invalid provider provenance") from None
+
+
 def invoke_provider(
     provider: InferenceProvider, chunk: Chunk, *, idempotency_key: str
 ) -> tuple[Prediction, ...]:

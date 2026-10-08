@@ -36,6 +36,7 @@ from .providers import (
     Taxonomy,
     TransientProviderError,
     invoke_provider,
+    provider_provenance,
 )
 
 
@@ -222,7 +223,7 @@ class AudioService:
         try:
             cancellation.checkpoint()
             source.assert_current(principal, command.recording)
-            provenance = self.provider.provenance
+            provenance = provider_provenance(self.provider)
             if (
                 provenance.providerId != command.model.providerId
                 or provenance.modelVersion != command.model.modelVersion
