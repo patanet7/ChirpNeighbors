@@ -76,3 +76,20 @@ replacement, revocation and expiry. Request checks exercise real configured
 limits, stalled bodies, safe unexpected errors and public reads while the account
 database is unavailable. These gates use isolated synthetic data and real local
 handlers; they do not establish hosted or external-provider readiness.
+
+
+The deep-contract wave adds inventory, reviewed structural compatibility,
+Zod/Python mutation agreement, Pydantic/TypeScript mutation agreement and offline
+reference tests. The generator gate now discovers all contract-tool regression
+files. These five additions bring the retained runner to 62 gates before any
+new v3 image browser journey. Run heavy builds and browser journeys in an
+exclusive window: focused parallel work is useful, but competing browser/GPU
+jobs invalidated timing conclusions in earlier readiness attempts. A source
+edit, selective rerun, or passing a different checkout does not repair a failed
+aggregate report. Keep each original report and report the final frozen run
+separately.
+
+Structural schema agreement is distinct from semantic admission. The bounded
+mutation corpus freezes reviewed divergences; it does not claim general Zod,
+JSON Schema and Pydantic equivalence. UTF-16 string length and escaped lone
+surrogate decoding differences are documented in the UI contract audit.
