@@ -26,6 +26,8 @@ NAMES = frozenset(
         "public-share-unavailable-v1",
         "request-budget-error-v1",
         "command-error-v1",
+        "species-manifest-v2",
+        "species-manifest-v3",
         "identification-v2",
         "finding-command-v1",
         "recording-metadata-v1",

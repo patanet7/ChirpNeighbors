@@ -8,6 +8,9 @@ from typing import Literal, NotRequired, TypeAlias
 
 from typing_extensions import TypedDict
 
+ScientificName: TypeAlias = str
+
+
 Id: TypeAlias = str
 
 
@@ -27,7 +30,7 @@ AdditionalProperties: TypeAlias = (
 class Species(TypedDict, closed=True):
     id: Id
     commonName: str
-    scientificName: str
+    scientificName: ScientificName
     description: NotRequired[str]
     referencePhoto: NotRequired[
         dict[

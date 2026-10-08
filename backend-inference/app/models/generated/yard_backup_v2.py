@@ -8,6 +8,8 @@ from typing import Literal, NotRequired, TypeAlias
 
 from typing_extensions import TypedDict
 
+ScientificName: TypeAlias = str
+
 
 class Manual(TypedDict, closed=True):
     condition: Literal["clear", "cloudy", "rain", "snow"]
@@ -48,7 +50,7 @@ ExportedAt: TypeAlias = str
 class Species(TypedDict, closed=True):
     id: str
     commonName: str
-    scientificName: str
+    scientificName: ScientificName
     description: NotRequired[str]
     referencePhoto: NotRequired[
         dict[
@@ -160,7 +162,7 @@ ObservedAt: TypeAlias = ExportedAt | None
 class Items(TypedDict, closed=True):
     id: str
     commonName: str
-    scientificName: str
+    scientificName: ScientificName
     description: NotRequired[str]
     referencePhoto: NotRequired[
         dict[

@@ -65,8 +65,14 @@
                     "anyOf": [
                       {
                         "type": "string",
-                        "minLength": 3,
-                        "maxLength": 160
+                        "minLength": 2,
+                        "maxLength": 160,
+                        "allOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))"
+                          }
+                        ]
                       },
                       {
                         "type": "null"
