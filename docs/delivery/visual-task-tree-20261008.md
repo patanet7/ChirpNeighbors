@@ -68,8 +68,8 @@ metadata editor or test fixture exists.
 
 ## Scope guardrails
 
-The next bounded ready slice is V1–V4 with retained fixture pixels, followed by V5–V6
-using existing services. P1–P4 are explicit implementation/input dependencies,
+V1–V6 are locally implemented and verified with retained fixture pixels and
+existing services. P1–P4 are explicit implementation/input dependencies,
 not claims that photo generation or segmentation runs today. No replacement art,
 external provider, model download, credentials, paid service, deployment or
 publication belongs to this checkpoint. Future integrations require verified
@@ -81,7 +81,7 @@ owner location, private evidence and private asset references.
 - V1–V4: shared optional shape v1, exact source-preserving revisions, native-pixel
   workbench, support transforms, conservative occupancy and opaque hit testing are
   implemented. Old unannotated V2/V3 inputs remain accepted. Older closed readers
-  reject the new optional property; this is forward-reader compatibility only.
+  reject the new optional property; this is backward-reading compatibility only.
 - V5–V6: evidence display and receipt navigation are implemented; real local
   BFF/SQLite browser verification passed with an explicitly technical upstream.
   No durable model score/recording backlink is fabricated.
@@ -90,13 +90,14 @@ owner location, private evidence and private asset references.
   helpers are implemented. No photo decoder or model executes, and the image-stage
   audit has no product route or durable retention yet. Normalize before reviewed
   geometry; changing source pixels is not a shape-only revision.
-- Independent review requires retry/draft preservation across unrelated refreshes,
+- Independent review required retry/draft preservation across unrelated refreshes,
   identical Pixi/SVG clearance, bounded channel preflight and JSON-stable byte
-  hashing. These fixes and their regressions precede the frozen full-system run.
+  hashing. These fixes and their regressions passed the frozen full-system run.
 
-The prior verified checkpoint remains on `codex/species-manifest-local`; new work
-is isolated on `codex/visual-foundation-local`. Evidence from this wave must name
-its own exact tested commits and must not reuse prior checkpoint counts.
+The prior checkpoints remain on `codex/species-manifest-local` and
+`codex/visual-foundation-local`. The current verified integration is on
+`codex/interactive-yard-verified-local` in both repositories. Each checkpoint
+names its own exact tested commits and retains its original verification counts.
 
 ## Interactive-yard expansion — requested after visual integration
 
@@ -117,9 +118,9 @@ claimed, and no connector or security configuration will be installed/changed.
 | 3 | I5 real confirmed-sighting arrivals / arrival owner + central contract owner | Existing idempotent import/confirmation; I2–I3; V5 evidence links | Typed event and persisted dedupe/acknowledgment produce one eligible arrival and accessible bounded banner queue. Reload/reimport/retry do not replay notifications; fixture detections never appear as real sightings. Explicit labeled workshop demo remains separate. Optional keep action preserves visitor policy. Owner switches, mobile, keyboard, screen reader, background/reduced motion and cancellation are tested. |
 | Each | Independent architecture + integration review / reviewer and root | Actual author commits | One schema authority, reviewed migrations and generated contracts, focused real-browser gates, frozen complete aggregate on exact commits, retained prior failures and local screenshots. No publication or external services. |
 
-Current integration: I1–I5, S1 and the bounded A1 foundation are implemented.
-Root owns shared declarations, exports, compatibility baselines and the complete
-70-gate verification. G1/G2 remain a contract/queue foundation with runtime
+Current integration: I1–I5, S1 and the bounded A1 foundation are implemented and
+verified. Root owns shared declarations, exports, compatibility baselines and
+the passing complete 70-gate verification. G1/G2 remain a contract/queue foundation with runtime
 activation unavailable; C1 remains design work. The visual 65-gate checkpoint
 is retained separately and does not establish the interactive wave's result.
 No task above is complete merely because a proposal or test fixture exists.
@@ -144,3 +145,10 @@ passed 65/65 on frozen commits, including 1,053 UI unit tests. See
 [visual verification](visual-verified-20261008.md) for exact revisions and retained
 logs. The interactive wave requires its own complete 70-gate checkpoint; focused
 passes are not substituted for an aggregate.
+
+## Verified interactive checkpoint
+
+I1–I5, S1 and the bounded A1 implementation passed the complete 70-gate run.
+See [interactive verification](interactive-verified-20261008.md) for exact source
+commits, retained failures, acceptance counts and previews. G1/G2 remain a
+verified contract/queue foundation with activation unavailable; C1 remains design.
