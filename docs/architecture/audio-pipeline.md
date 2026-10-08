@@ -192,3 +192,27 @@ No trained bird model or production-license review was fabricated for these test
 
 The implementation uses the official [ONNX Runtime inference API](https://onnxruntime.ai/docs/api/python/api_summary.html)
 and [ONNX graph construction/checker API](https://onnx.ai/onnx/intro/python.html).
+
+## Reproducible cross-process mechanics fixture
+
+`python -m app.audio_onnx.technical_fixture --output /tmp/new-mechanics-bundle`
+creates a deterministic authored arithmetic graph, synthetic tone, exact-checksum
+manifest and `FIXTURE-ONLY.txt` declaration. The output directory must be new or
+empty; existing files and symlink directories are rejected. No model downloads,
+training data or recordings enter this command.
+
+This isolated fixture's explicit test review covers an energy calculation, with
+the label “Technical mechanics fixture” / “No biological identification”. Its
+`LicenseRef-Generated-Arithmetic-Fixture-Test-Only` approval is limited to generated
+inputs in temporary integration tests. It does not approve bird inference or
+third-party models. Uploads retain ordinary `recording` provenance and are never
+silently relabeled as trusted synthetic storage.
+
+The UI repository's `scripts/audio-lifecycle-browser-checks.py` runs the actual
+Svelte application, session verifier, media gateway and FastAPI CPU provider on
+reserved loopback ports 8149/8150. It accepts `--main-repo` and `--onnx-python`, uses
+temporary owner data, and records JSON evidence and screenshots under a selected
+`--output` directory. `--pipeline-only` explicitly limits the run to the inference
+boundary when lifecycle changes are not integrated; it is not the full lifecycle
+acceptance gate. Native model execution remains optional and separate from the
+locked core environment.
