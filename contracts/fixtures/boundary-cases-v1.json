@@ -38151,6 +38151,116 @@
           "provider": "contract-fixtures"
         }
       }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "source year-zero compatibility",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": "0000-01-01T00:00:00Z",
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "source optional-seconds compatibility",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": "2026-01-01T00:00Z",
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "leap seconds refused by source",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": "2026-10-08T23:59:60Z",
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "timestamp rejects trailing newline",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": "2026-01-01T00:00:00Z\n",
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
+    },
+    {
+      "schema": "identification-v2",
+      "name": "timestamp rejects Unicode digits",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "schemaVersion": 2,
+        "id": "fixture:external-001",
+        "species": {
+          "id": "cn-species-erithacus-rubecula",
+          "commonName": "European Robin",
+          "scientificName": "Erithacus rubecula"
+        },
+        "observedAt": "٢٠٢٦-01-01T00:00:00Z",
+        "source": {
+          "kind": "fixture",
+          "label": "Contract test fixture, not a real observation",
+          "sourceEventId": "fixture:external-001",
+          "provider": "contract-fixtures"
+        }
+      }
     }
   ]
 }
