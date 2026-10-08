@@ -53,3 +53,17 @@ Its exact source revisions are UI `fe7016c52f1737cbaa2e8c4a92bb312c35f64e53`
 and companion `1ef72bc4031789db2fbd15adc13401c9098c3244`. This is interrupted
 verification, not a complete result. The [partial report](contracts-attempt-2-interrupted-20261008.json)
 is preserved, and a fresh complete run uses a new evidence directory.
+
+
+The post-recovery third run completed **62/63** gates at UI
+`fe7016c52f1737cbaa2e8c4a92bb312c35f64e53` and companion
+`95808ce1ab1394c24b694a8e7e7b44ee2d2a0f1c`, with both worktrees frozen.
+The corrected arrangement journey passed all 31 checks. Routines again timed
+out at its existing reduced-motion reload (`Page.reload`, 30 seconds,
+`networkidle`) after 13 successful checks, despite an exclusive browser window.
+This recurrence means competing jobs alone do not explain it. The unchanged
+application completed this journey in the first contract run, so the failure
+is intermittent. [The full third report](contracts-attempt-3-20261008.json) is
+preserved. Reload timing and outstanding requests are being investigated in an
+isolated checkout; no timeout widening or assertion removal is approved by this
+checkpoint. There is still no complete all-pass combined run.
