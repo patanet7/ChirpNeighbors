@@ -83,3 +83,14 @@ root from visit/depth budgets. A boundary candidate could complete both reviews
 but fail loading/pinning because loading counted that root. This is being fixed
 with last-admitted/first-rejected regressions before the final reviewed checkpoint.
 The passing fourth report does not claim coverage of that later fix.
+
+
+The independent review also found a pre-existing placement reconciliation bug:
+a typed server error could follow a committed move, but the browser treated it
+as definitive failure even after a valid fresh read confirmed the saved placement.
+The repair keeps 5xx results uncertain until that read; definitive 4xx rejection,
+owner boundaries, validation and one-POST behavior remain. The review dispositions
+and focused evidence are recorded in [the independent review](independent-review-20261008.md).
+The latest requested moving-bird/workbench/reference work is a
+[queued hierarchical task tree](visual-task-tree-20261008.md), not implemented
+features in this checkpoint. A final full frozen run must cover both review fixes.
