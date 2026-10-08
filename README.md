@@ -2,11 +2,13 @@
 
 Bird identification from an ESP32 microphone, with a personal illustrated yard in [birdsong-yard-sprites](https://github.com/patanet7/birdsong-yard-sprites).
 
-## Current local foundation · 2026-10-07
+## Current local implementation · 2026-10-08
 
-The UI repository now runs SvelteKit with owner-scoped SQLite persistence, a deterministic yard simulation, Pixi rendering, and persisted pipeline jobs. Its working loop is imported/test identification → grouped Finding → temporary visitor → named permanent resident, surviving a server restart. Development identities and all artwork/generation outputs are explicitly labeled. Production sign-in, live device ingestion, real inference, and external generation providers are not connected by this checkpoint.
+The companion UI runs SvelteKit, Pixi and owner-scoped SQLite. It preserves the Finding → visitor → resident loop and now includes reviewed versioned asset manifests, private recording upload/playback/deletion, configurable durable authentication and an authenticated audio-analysis bridge. Artwork remains explicitly labeled technical fixtures.
 
-This repository contains the matching [generated identification contract](contracts/README.md) and a standalone [Python adapter](backend-inference/app/models/identification.py). The adapter validates source-neutral version-2 events and preserves unknown observation times/confidence; it does not run an inference model or add an endpoint. Existing hardware, cloud, and inference code is unchanged.
+This repository owns the modular [audio request service](docs/architecture/audio-pipeline.md), Pydantic wire contracts, generated counterparts, synthetic evaluation and optional operator-supplied local ONNX adapter. Existing prototype hardware/streaming code is separate. No trained bird model, species-accurate art, live provider or device integration is claimed.
+
+Start with the [concrete task checklist](docs/delivery/README.md), [verified checkpoint](docs/delivery/checkpoint-20261008.md) and [complete local verification command](docs/delivery/quality.md). The final run passed 50 gates, including 469 UI tests, 127 Python tests and 410 browser assertions.
 
 ## Check the integration boundary
 
@@ -19,8 +21,8 @@ cd backend-inference
 /tmp/chirp-contract/bin/python -m unittest discover -s tests -p 'test_identification_contract.py' -v
 ```
 
-The lightweight contract CI uses these checks without downloading model weights or installing the full inference stack. See [the implementation log](docs/agents/20261007_061000_hierarchical-foundation.md) for the local checkpoint, verification, and remaining integration boundaries.
+This narrow command checks the original adapter only. The current CI and aggregate gate also cover the new request API, schema drift, strict typing and isolated optional-model tests without downloading trained weights. The [original foundation log](docs/agents/20261007_061000_hierarchical-foundation.md) remains historical evidence.
 
 ## Next useful work
 
-Connect one real identification source to the shared event contract, including stable taxonomy mapping and correction handling. Keep deployment and device work separate from the independently runnable UI foundation. The UI README contains its exact run instructions and the remaining authentication/provider work.
+Review real model/art inputs and production provider configuration, then integrate the separately completed worker/device artifacts only after authorized transfer. Durable derived-output deletion and historical backup retention remain explicit gaps. Docker image execution is unverified after a registry DNS failure; no publication or deployment occurred. See the checklist for dependencies and acceptance tests.

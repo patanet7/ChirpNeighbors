@@ -3,8 +3,10 @@
 `matrix.json` is the owned, versioned delivery graph. Its status is implementation
 status in these local checkouts, not a production readiness percentage. Each
 workstream has an owner, dependencies, acceptance criteria and evidence list.
-`partial_local` describes the consolidated baseline; it does not claim that the
-new acceptance criteria already pass.
+`implemented_local` means the bounded local slice has passed its declared checks.
+`partial_local` retains an explicit unmet acceptance criterion in `remaining`;
+storage retention and container execution are not silently called complete.
+The [integrated checkpoint](checkpoint-20261008.md) records exact verification.
 
 ```sh
 python3 scripts/delivery_matrix.py --check
@@ -12,7 +14,7 @@ python3 scripts/delivery_matrix.py --run baseline --ui-repo ../birdsong-yard-spr
 python3 scripts/delivery_matrix.py --run combined-browser --ui-repo ../birdsong-yard-sprites
 ```
 
-The first implementation wave assigns contract generation/quality, auth/session,
+The implementation waves assigned contract generation/quality, auth/session,
 private media/frontend, audio pipeline, image pipeline and reliability/operations
 to separate same-workspace agents and local branches. The integration owner owns
 this matrix, aggregate gates, shared package/config changes and final integration.
@@ -23,8 +25,8 @@ and preserve existing yard/media storage; no replacement application is planned.
 Existing Zod yard/finding/scene/recording boundaries remain authoritative. New
 Python-owned audio service boundaries use Pydantic v2 and generated JSON Schema/
 TypeScript counterparts. Do not hand-maintain equivalent wire models in both
-languages. An ownership document and executable cross-language tests will make
-these rules concrete during the first wave.
+languages. The UI's `docs/contract-platform.md` records ownership; executable
+cross-language tests enforce the exported boundary behavior.
 
 Worker `c08624d3` and ESP32 `c693ed0` remain outside this workspace pending approved
 transfer. This task will not reproduce their independent work to evade that gate.
@@ -69,10 +71,16 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
   expired session, deletion and honest provider-blocked results.
 - [x] Complete restore-time auth-session/token invalidation in a new restored
   directory while preserving source snapshots and account rows.
-- [ ] Run the [aggregate system gate](quality.md) from frozen integrated sources,
+- [x] Run the [aggregate system gate](quality.md) from frozen integrated sources,
   inspect browser evidence and commit the final matrix/checkpoint locally.
 
-## Remaining external dependencies
+## Remaining dependencies and integration gaps
+
+- [ ] Complete durable worker/derived-output lifecycle and deletion/retention
+  reconciliation across historical media backups. The current request API keeps
+  results transient and idempotency process-local. Restoring an old full snapshot
+  cannot reconstruct later deletion decisions; the restored-auth invalidation
+  fix does not establish a full media-retention guarantee.
 
 - [ ] Obtain and review actual species art and animation references. Acceptance:
   human-approved species fidelity, licensing/provenance, complete sheet/clip
