@@ -1,0 +1,498 @@
+{
+  "version": 1,
+  "at": "2026-10-08T20:09:23.232716+00:00",
+  "revisions": {
+    "main": "1ef72bc4031789db2fbd15adc13401c9098c3244",
+    "ui": "fe7016c52f1737cbaa2e8c4a92bb312c35f64e53"
+  },
+  "finalRevisions": {
+    "main": "1ef72bc4031789db2fbd15adc13401c9098c3244",
+    "ui": "fe7016c52f1737cbaa2e8c4a92bb312c35f64e53"
+  },
+  "frozenWorktrees": true,
+  "finished": false,
+  "selectedGates": 63,
+  "completeSuite": false,
+  "passed": false,
+  "gates": [
+    {
+      "gate": "delivery-matrix",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.03,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "scripts/delivery_matrix.py",
+        "--check"
+      ],
+      "log": "delivery-matrix.log"
+    },
+    {
+      "gate": "dependency-pins",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.11,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "scripts/check_python_dependencies.py"
+      ],
+      "log": "dependency-pins.log"
+    },
+    {
+      "gate": "dependency-consistency",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.26,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "log": "dependency-consistency.log"
+    },
+    {
+      "gate": "ui-types",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 8.87,
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "log": "ui-types.log"
+    },
+    {
+      "gate": "ui-typed-lint",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 23.11,
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "log": "ui-typed-lint.log"
+    },
+    {
+      "gate": "ui-format",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 4.19,
+      "command": [
+        "npm",
+        "run",
+        "format:check"
+      ],
+      "log": "ui-format.log"
+    },
+    {
+      "gate": "ui-unit",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 18.26,
+      "command": [
+        "npm",
+        "test"
+      ],
+      "log": "ui-unit.log"
+    },
+    {
+      "gate": "ui-build",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 11.24,
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "log": "ui-build.log"
+    },
+    {
+      "gate": "schema-export",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.22,
+      "command": [
+        "node",
+        "scripts/export-contract.mjs",
+        "--check",
+        "--main-repo",
+        "/workspace/ChirpNeighbors"
+      ],
+      "log": "schema-export.log"
+    },
+    {
+      "gate": "python-client-generation",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 1.27,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "scripts/generate_python_contracts.py",
+        "--check"
+      ],
+      "log": "python-client-generation.log"
+    },
+    {
+      "gate": "audio-schema-export",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.16,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "app.audio_pipeline.export_contracts",
+        "--check"
+      ],
+      "log": "audio-schema-export.log"
+    },
+    {
+      "gate": "session-schema-export",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.16,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "app.models.session_verifier",
+        "--check"
+      ],
+      "log": "session-schema-export.log"
+    },
+    {
+      "gate": "audio-openapi",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.36,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "app.audio_pipeline.export_openapi",
+        "--check"
+      ],
+      "log": "audio-openapi.log"
+    },
+    {
+      "gate": "typescript-client-generation",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.87,
+      "command": [
+        "node",
+        "scripts/sync-python-contracts.mjs",
+        "--check",
+        "--main-repo",
+        "/workspace/ChirpNeighbors"
+      ],
+      "log": "typescript-client-generation.log"
+    },
+    {
+      "gate": "json-client-generation",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.41,
+      "command": [
+        "node",
+        "scripts/generate-contract-clients.mjs",
+        "contracts/json-value-v1.schema.json",
+        "--output",
+        "src/lib/contracts/generated",
+        "--check"
+      ],
+      "log": "json-client-generation.log"
+    },
+    {
+      "gate": "schema-generator-tests",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 1.42,
+      "command": [
+        "node",
+        "--test",
+        "scripts/contract-tools/boundary-inventory.test.mjs",
+        "scripts/contract-tools/compatibility.test.mjs",
+        "scripts/contract-tools/property-cases.test.mjs",
+        "scripts/contract-tools/schema-tools.test.mjs",
+        "scripts/contract-tools/zod-codecs.test.mjs"
+      ],
+      "log": "schema-generator-tests.log"
+    },
+    {
+      "gate": "zod-python-roundtrips",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 3.88,
+      "command": [
+        "node",
+        "scripts/check-contract-roundtrips.mjs",
+        "--main-repo",
+        "/workspace/ChirpNeighbors",
+        "--python",
+        "/tmp/chirp-system-venv/bin/python"
+      ],
+      "log": "zod-python-roundtrips.log"
+    },
+    {
+      "gate": "pydantic-typescript-roundtrips",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.26,
+      "command": [
+        "node",
+        "scripts/check-python-contracts.mjs",
+        "--main-repo",
+        "/workspace/ChirpNeighbors",
+        "--python",
+        "/tmp/chirp-system-venv/bin/python"
+      ],
+      "log": "pydantic-typescript-roundtrips.log"
+    },
+    {
+      "gate": "contract-inventory",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.62,
+      "command": [
+        "node",
+        "scripts/check-contract-inventory.mjs",
+        "--main-repo",
+        "/workspace/ChirpNeighbors"
+      ],
+      "log": "contract-inventory.log"
+    },
+    {
+      "gate": "contract-compatibility",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.06,
+      "command": [
+        "node",
+        "scripts/check-contract-compatibility.mjs",
+        "--main-repo",
+        "/workspace/ChirpNeighbors"
+      ],
+      "log": "contract-compatibility.log"
+    },
+    {
+      "gate": "zod-python-properties",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 4.08,
+      "command": [
+        "node",
+        "scripts/check-contract-properties.mjs",
+        "--main-repo",
+        "/workspace/ChirpNeighbors",
+        "--python",
+        "/tmp/chirp-system-venv/bin/python"
+      ],
+      "log": "zod-python-properties.log"
+    },
+    {
+      "gate": "pydantic-typescript-properties",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.26,
+      "command": [
+        "node",
+        "scripts/check-python-contracts.mjs",
+        "--properties",
+        "--main-repo",
+        "/workspace/ChirpNeighbors",
+        "--python",
+        "/tmp/chirp-system-venv/bin/python"
+      ],
+      "log": "pydantic-typescript-properties.log"
+    },
+    {
+      "gate": "python-reference-tests",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.06,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_schema_document",
+        "-v"
+      ],
+      "log": "python-reference-tests.log"
+    },
+    {
+      "gate": "python-types",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.21,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "mypy"
+      ],
+      "log": "python-types.log"
+    },
+    {
+      "gate": "python-lint",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.03,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "ruff",
+        "check",
+        "app/models",
+        "app/audio_pipeline",
+        "tests/test_audio_api.py",
+        "tests/test_audio_pipeline.py",
+        "tests/test_session_verifier_contract.py",
+        "tests/test_schema_document.py",
+        "../scripts/generate_python_contracts.py",
+        "../scripts/check_contract_corpus.py",
+        "../scripts/check_python_contract_roundtrips.py",
+        "../scripts/check_python_dependencies.py",
+        "../scripts/test_quality_dependencies.py",
+        "../scripts/verify_system.py",
+        "../scripts/delivery_matrix.py"
+      ],
+      "log": "python-lint.log"
+    },
+    {
+      "gate": "python-format",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.03,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "ruff",
+        "format",
+        "--check",
+        "app/models",
+        "app/audio_pipeline",
+        "tests/test_audio_api.py",
+        "tests/test_audio_pipeline.py",
+        "tests/test_session_verifier_contract.py",
+        "tests/test_schema_document.py",
+        "../scripts/generate_python_contracts.py",
+        "../scripts/check_contract_corpus.py",
+        "../scripts/check_python_contract_roundtrips.py",
+        "../scripts/check_python_dependencies.py",
+        "../scripts/test_quality_dependencies.py",
+        "../scripts/verify_system.py",
+        "../scripts/delivery_matrix.py"
+      ],
+      "log": "python-format.log"
+    },
+    {
+      "gate": "python-contract-tests",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.36,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*contract.py",
+        "-v"
+      ],
+      "log": "python-contract-tests.log"
+    },
+    {
+      "gate": "python-audio-tests",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 1.87,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_audio_pipeline",
+        "tests.test_audio_api",
+        "-v"
+      ],
+      "log": "python-audio-tests.log"
+    },
+    {
+      "gate": "dependency-checker-tests",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.11,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_quality_dependencies.py",
+        "-v"
+      ],
+      "log": "dependency-checker-tests.log"
+    },
+    {
+      "gate": "synthetic-audio-evaluation",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.62,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "app.audio_pipeline",
+        "evaluate"
+      ],
+      "log": "synthetic-audio-evaluation.log"
+    },
+    {
+      "gate": "recovery-types",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 0.11,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "mypy",
+        "--strict",
+        "scripts/private_backup.py",
+        "scripts/operations-smoke.py",
+        "scripts/lifecycle-recovery-smoke.py",
+        "scripts/abuse-smoke.py"
+      ],
+      "log": "recovery-types.log"
+    },
+    {
+      "gate": "private-recovery-tests",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 1.02,
+      "command": [
+        "/tmp/chirp-system-venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts/tests",
+        "-v"
+      ],
+      "log": "private-recovery-tests.log"
+    },
+    {
+      "gate": "operations-http",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 4.68,
+      "command": [
+        "python3",
+        "scripts/operations-smoke.py"
+      ],
+      "log": "operations-http.log"
+    }
+  ]
+}

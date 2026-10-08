@@ -45,3 +45,11 @@ assert the unreviewed text is absent, and retain the saved-position check. No
 application code changes for this failure. The complete original report is
 [retained here](contracts-attempt-1-20261008.json); a second full frozen run is
 required rather than presenting a selective rerun as an all-pass aggregate.
+
+
+A second report survived the workspace restart with 33 completed gates and
+`finished: false`; no runner or test services remained active after recovery.
+Its exact source revisions are UI `fe7016c52f1737cbaa2e8c4a92bb312c35f64e53`
+and companion `1ef72bc4031789db2fbd15adc13401c9098c3244`. This is interrupted
+verification, not a complete result. The [partial report](contracts-attempt-2-interrupted-20261008.json)
+is preserved, and a fresh complete run uses a new evidence directory.
