@@ -32,7 +32,7 @@ browser checks run: Vite hot reload can invalidate a running journey.
 
 The full gate covers TypeScript's strict optional/indexed access, type-aware ESLint,
 formatting, unit tests, production build, Zod/Pydantic schema exports, generated
-clients, 107 cross-language cases, strict Python typing, lint/format, audio API and
+clients, 129 cross-language cases, strict Python typing, lint/format, audio API and
 portable contracts, synthetic evaluation, recovery, operations HTTP checks, and
 all retained renderer/browser journeys. Generated validator JavaScript is excluded
 only from source-style ESLint; deterministic regeneration, runtime cases, generated
@@ -52,3 +52,11 @@ Synthetic evaluation measures technical pipeline behavior, never bird accuracy.
 Container configuration can be inspected with `docker compose config`. Container
 image execution remains a separate gate: this workspace's Docker build could not
 resolve the public package registry, although host installation/builds succeeded.
+
+The lifecycle wave adds five gates to the retained 50: actual app/email/Google
+mock integration, lifecycle recovery HTTP, actual generated ONNX-to-confirmation
+journey, recording lifecycle browser failures/restarts, and owner image intake.
+The new aggregate has 55 gates. Email delivery uses loopback TLS SMTP; Google
+uses signed local responses through the real callback path. Neither establishes
+external provider configuration. New restore tests supply the retained canonical
+delete ledger; offline backups are never claimed erased.

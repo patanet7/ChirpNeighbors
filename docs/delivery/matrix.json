@@ -26,13 +26,14 @@
         "scripts/verify_system.py",
         "backend-inference/pyproject.toml",
         "107 cross-language golden cases; generated-client and schema drift checks",
-        "docs/delivery/verification-20261008.json"
+        "docs/delivery/verification-20261008.json",
+        "129 cross-language golden cases including lifecycle and confirmation structural mirrors"
       ]
     },
     {
       "id": "storage",
       "owner": "media_frontend",
-      "status": "in_progress",
+      "status": "implemented_local",
       "dependencies": [
         "contracts"
       ],
@@ -45,10 +46,13 @@
         "birdsong-yard-sprites/src/lib/server/recordings/recordings.test.ts",
         "birdsong-yard-sprites/src/lib/server/storage/private-files.test.ts",
         "birdsong-yard-sprites/scripts/recordings-browser-checks.py",
-        "docs/delivery/verification-20261008.json"
+        "docs/delivery/verification-20261008.json",
+        "birdsong-yard-sprites/src/lib/server/recordings/lifecycle.test.ts",
+        "birdsong-yard-sprites/scripts/recording-lifecycle-browser-checks.py",
+        "birdsong-yard-sprites/scripts/lifecycle-recovery-smoke.py"
       ],
       "remaining": [
-        "Historical full snapshots cannot reconstruct deletion decisions made after that checkpoint; deletion/retention reconciliation is still required. Durable derived-output and account-deletion lifecycle remains an integration gap."
+        "Offline copies require the operator to retain and supply the latest complete deletion ledger; remote erasure and account-wide deletion orchestration are not implemented."
       ]
     },
     {
@@ -67,7 +71,8 @@
         "birdsong-yard-sprites/docs/authentication.md",
         "birdsong-yard-sprites/src/lib/server/auth/service.test.ts",
         "birdsong-yard-sprites/scripts/auth-browser-checks.py",
-        "docs/delivery/verification-20261008.json"
+        "docs/delivery/verification-20261008.json",
+        "birdsong-yard-sprites/scripts/auth-integration.mjs"
       ]
     },
     {
@@ -109,10 +114,12 @@
         "backend-inference/tests/test_audio_pipeline.py",
         "backend-inference/tests/test_audio_api.py",
         "docs/architecture/audio-pipeline.md",
-        "docs/delivery/verification-20261008.json"
+        "docs/delivery/verification-20261008.json",
+        "birdsong-yard-sprites/docs/audio-confirmation.md",
+        "birdsong-yard-sprites/scripts/audio-lifecycle-browser-checks.py"
       ],
       "remaining": [
-        "Approved compatible weights, biological calibration and evaluation remain external. Request IDs are process-local; results are transient. Durable worker integration remains blocked on artifact transfer."
+        "Approved compatible bird-model weights, biological calibration and evaluation remain external. BFF completed results and manual confirmation receipts are durable; Python in-flight computation remains process-local. Separately blocked autonomous worker artifact remains unintegrated."
       ]
     },
     {
@@ -131,13 +138,14 @@
         "birdsong-yard-sprites/docs/image-asset-pipeline.md",
         "birdsong-yard-sprites/src/lib/server/asset-pipeline/pipeline.test.ts",
         "birdsong-yard-sprites/scripts/asset-pipeline-browser-checks.py",
-        "docs/delivery/verification-20261008.json"
+        "docs/delivery/verification-20261008.json",
+        "birdsong-yard-sprites/scripts/image-intake-browser-checks.py"
       ]
     },
     {
       "id": "operations",
       "owner": "reliability_ops",
-      "status": "in_progress",
+      "status": "implemented_local",
       "dependencies": [
         "contracts",
         "storage",

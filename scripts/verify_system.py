@@ -237,6 +237,7 @@ def gates(
                 "--strict",
                 "scripts/private_backup.py",
                 "scripts/operations-smoke.py",
+                "scripts/lifecycle-recovery-smoke.py",
             ],
         ),
         Gate(
@@ -268,12 +269,14 @@ def gates(
                 [
                     python,
                     "-c",
-                    "import importlib.util; "
-                    "assert all(importlib.util.find_spec(name) is None "
-                    "for name in ('numpy', 'onnx', 'onnxruntime')); "
-                    "from app.audio_pipeline.api import create_app; "
-                    "assert create_app() is not None; "
-                    "print('Core service imports without optional model packages')",
+                    (
+                        "import importlib.util; "
+                        "assert all(importlib.util.find_spec(name) is None "
+                        "for name in ('numpy', 'onnx', 'onnxruntime')); "
+                        "from app.audio_pipeline.api import create_app; "
+                        "assert create_app() is not None; "
+                        "print('Core service imports without optional model packages')"
+                    ),
                 ],
             ),
             Gate(
@@ -300,6 +303,7 @@ def gates(
                     "mypy",
                     "app/audio_onnx",
                     "tests/optional/test_audio_onnx.py",
+                    "tests/optional/test_technical_fixture.py",
                 ],
             ),
             Gate(
@@ -312,6 +316,7 @@ def gates(
                     "check",
                     "app/audio_onnx",
                     "tests/optional/test_audio_onnx.py",
+                    "tests/optional/test_technical_fixture.py",
                 ],
             ),
             Gate(
@@ -325,6 +330,7 @@ def gates(
                     "--check",
                     "app/audio_onnx",
                     "tests/optional/test_audio_onnx.py",
+                    "tests/optional/test_technical_fixture.py",
                 ],
             ),
             Gate(
@@ -339,6 +345,35 @@ def gates(
                     "tests/optional",
                     "-v",
                 ],
+            ),
+        ]
+    )
+    result.extend(
+        [
+            Gate(
+                "auth-provider-integration",
+                ui,
+                ["node", "scripts/auth-integration.mjs"],
+            ),
+            Gate(
+                "lifecycle-recovery-http",
+                ui,
+                [browser_python, "scripts/lifecycle-recovery-smoke.py"],
+            ),
+            Gate(
+                "audio-confirmation-lifecycle",
+                ui,
+                [
+                    browser_python,
+                    "scripts/audio-lifecycle-browser-checks.py",
+                    "--main-repo",
+                    str(ROOT),
+                    "--onnx-python",
+                    onnx_python,
+                    "--output",
+                    str(output / "audio-lifecycle"),
+                ],
+                300,
             ),
         ]
     )
@@ -365,6 +400,12 @@ def gates(
             "CHIRP_RECORDINGS_UI_OUTPUT",
         ),
         ("analysis", "analysis-browser-checks.py", "CHIRP_ANALYSIS_OUTPUT"),
+        (
+            "recording-lifecycle",
+            "recording-lifecycle-browser-checks.py",
+            "CHIRP_RECORDING_LIFECYCLE_OUTPUT",
+        ),
+        ("image-intake", "image-intake-browser-checks.py", "CHIRP_IMAGE_INTAKE_OUTPUT"),
     ]
     for name, script, variable in browser_suites:
         command = [browser_python, f"scripts/{script}"]
