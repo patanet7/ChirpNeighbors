@@ -9,7 +9,7 @@ from dataclasses import dataclass
 
 from .contracts import AudioAnalyzeCommand, RecordingRef
 from .providers import FIXTURE_PIN
-from .service import Principal, RecordingBytes, RecordingUnavailable
+from .service import Principal, RecordingAccessError, RecordingBytes
 
 FIXTURE_OWNER = Principal("technical-fixture-owner")
 FIXTURE_RECORDING_ID = "180b491d-ea12-418a-bbdd-77891fbd23bb"
@@ -67,7 +67,7 @@ class FixtureStorage:
             or recording.generation != self.generation
             or recording.sha256 != hashlib.sha256(self.data).hexdigest()
         ):
-            raise RecordingUnavailable
+            raise RecordingAccessError
 
     def read(self, principal: Principal, recording: RecordingRef) -> RecordingBytes:
         self.assert_current(principal, recording)

@@ -20,6 +20,7 @@ from app.audio_pipeline.contracts import (
     AudioCompletedEvent,
     AudioEvent,
     AudioFailedEvent,
+    RecordingRef,
 )
 from app.audio_pipeline.evaluation import evaluate
 from app.audio_pipeline.export_contracts import schema_documents
@@ -30,7 +31,13 @@ from app.audio_pipeline.fixtures import (
     synthetic_wav,
 )
 from app.audio_pipeline.identification import identification_candidates
-from app.audio_pipeline.pcm import Chunk, InvalidPCM, chunks, parse_pcm16, preprocess
+from app.audio_pipeline.pcm import (
+    Chunk,
+    InvalidPCMError,
+    chunks,
+    parse_pcm16,
+    preprocess,
+)
 from app.audio_pipeline.providers import (
     FIXTURE_TAXONOMY,
     Prediction,
@@ -195,7 +202,7 @@ class PCMTests(unittest.TestCase):
             mutated[offset : offset + len(encoded)] = encoded
             cases.append(bytes(mutated))
         for value in cases:
-            with self.subTest(size=len(value)), self.assertRaises(InvalidPCM):
+            with self.subTest(size=len(value)), self.assertRaises(InvalidPCMError):
                 parse_pcm16(value)
 
     def test_overlong_duration_rejected_even_within_byte_limit(self) -> None:
@@ -203,7 +210,7 @@ class PCMTests(unittest.TestCase):
         data.extend(b"\0\0")
         struct.pack_into("<I", data, 4, len(data) - 8)
         struct.pack_into("<I", data, 40, len(data) - 44)
-        with self.assertRaises(InvalidPCM):
+        with self.assertRaises(InvalidPCMError):
             parse_pcm16(bytes(data))
 
     def test_stereo_downmix_normalization(self) -> None:
@@ -377,6 +384,63 @@ class AudioServiceTests(unittest.TestCase):
             self.assertEqual(len(provider.keys), 3)
             self.assertEqual(len(set(provider.keys)), 1)
             self.assertNotIn("private-provider", result.model_dump_json())
+
+    def test_same_request_recovers_after_transient_failure_and_cancel(self) -> None:
+        provider = CountingProvider(fail_attempts=3)
+        service = AudioService(self.storage, provider, FIXTURE_TAXONOMY)
+        self.assertEqual(
+            error_code(service.analyze(FIXTURE_OWNER, self.command)), "provider_failure"
+        )
+        changed = AudioAnalyzeCommand.model_validate(
+            {**self.command.model_dump(), "reviewThreshold": 0.7}
+        )
+        self.assertEqual(
+            error_code(service.analyze(FIXTURE_OWNER, changed)), "conflict"
+        )
+        complete(service.analyze(FIXTURE_OWNER, self.command))
+        self.assertEqual(len(provider.keys), 4)
+        self.assertEqual(len(set(provider.keys)), 1)
+        token = Cancellation()
+        token.cancel()
+        service = AudioService(self.storage, self.provider, FIXTURE_TAXONOMY)
+        self.assertEqual(
+            error_code(service.analyze(FIXTURE_OWNER, self.command, token)), "cancelled"
+        )
+        complete(service.analyze(FIXTURE_OWNER, self.command))
+
+    def test_slow_cached_media_fence_does_not_block_another_request(self) -> None:
+        entered = threading.Event()
+        release = threading.Event()
+
+        class SlowStorage(FixtureStorage):
+            pause = False
+
+            def assert_current(
+                self, principal: Principal, recording: RecordingRef
+            ) -> None:
+                if self.pause:
+                    self.pause = False
+                    entered.set()
+                    if not release.wait(5):
+                        raise RuntimeError("Test coordination timed out")
+                super().assert_current(principal, recording)
+
+        storage = SlowStorage(self.data)
+        service = AudioService(storage, self.provider, FIXTURE_TAXONOMY)
+        complete(service.analyze(FIXTURE_OWNER, self.command))
+        storage.pause = True
+        other = fixture_command(
+            self.data, request_id="67496d61-046c-43f6-a9ab-411dab587e44"
+        )
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            cached = executor.submit(service.analyze, FIXTURE_OWNER, self.command)
+            try:
+                self.assertTrue(entered.wait(5))
+                fresh = executor.submit(service.analyze, FIXTURE_OWNER, other)
+                complete(fresh.result(timeout=1))
+            finally:
+                release.set()
+            complete(cached.result(timeout=5))
 
     def test_unexpected_provider_error_is_sanitized_without_automatic_retry(
         self,

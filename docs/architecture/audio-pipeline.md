@@ -84,7 +84,59 @@ review decisions, retry limits, safe errors, cancellation, concurrent duplicate
 requests, result-cache mutation and the existing identification contract.
 
 Production remains gated on approved model artifacts and license, real authorized
-evaluation data, actual model-specific preprocessing and calibration, an authenticated
-storage adapter, durable job/derived-output integration, and resource/performance
+evaluation data, actual model-specific preprocessing and calibration,
+durable job/derived-output integration, and resource/performance
 evaluation. No bird recognition, real hardware, paid API or external model has been
 executed by this slice. Existing `sql_app.db` and legacy inference files are untouched.
+
+## Authenticated request API
+
+Install `requirements-audio.txt`, then run from `backend-inference`:
+
+```sh
+CHIRP_BFF_ORIGIN=http://127.0.0.1:5173 CHIRP_AUDIO_LOCAL_DEVELOPMENT=1 \
+  uvicorn app.audio_pipeline.api:app --host 127.0.0.1 --port 8083 --no-access-log
+python -m app.audio_pipeline.export_openapi --check
+python -m unittest tests.test_audio_api tests.test_audio_pipeline -v
+```
+
+This starts an actual FastAPI request service without changing any credentials or
+creating sessions. `CHIRP_BFF_ORIGIN` is operator configuration, never a request
+parameter. Production requires HTTPS and an account identity. The explicit local
+development flag permits loopback HTTP and the BFF's labeled development sessions.
+It does not enable fake inference on actual uploads. With no reviewed model adapter,
+analysis returns `provider_blocked`; `/healthz` reports process liveness and `/readyz`
+honestly returns 503 because the model remains unconfigured. No access logs are
+enabled by the documented command; application errors omit cookies, evidence and
+upstream diagnostics.
+
+`POST /v1/audio/analyze` accepts only the generated command schema and at most
+4 KiB of body bytes, including streamed bodies without a Content-Length. It requires
+the exact configured BFF Origin, accepts no owner header and enables no CORS. The
+gateway forwards only a bounded Cookie header to the fixed `/api/session` endpoint.
+That response is checked by the shared `SESSION_VERIFIER_ADAPTER`; production
+development identities, expired sessions, redirects, malformed/oversized responses
+and verifier outages fail closed. A fresh HTTP client per call prevents cookie-jar
+state crossing owners; ambient proxy configuration and redirects are disabled.
+
+Private media is read from `/api/recordings/{id}/audio`, with generated
+`/analysis-permit` snapshots before/after reads, between chunks and on cached result
+replay. These snapshots cannot guarantee an atomic external derived-result commit.
+Cookie/session authority stays in the BFF database, including revocation checks.
+
+HTTP preflight failures use versioned `audio.rejected` errors. Analysis failures use
+`audio.failed`; actual status/response alternatives are exported from the app factory
+to `contracts/audio-openapi-v1.json`. No hand-maintained OpenAPI model is introduced.
+Responses are private/no-store. Client disconnects request cooperative cancellation;
+native provider calls still need their own timeout. Explicit retries can recover from
+transient provider failure or a prior cancellation using the same unchanged request
+ID. Remote cache revalidation runs outside the service's global lock.
+
+Tests use HTTPX's ASGI and mock transports to execute the real API/verifier/media
+stack without network access. Their completed-inference response uses only a
+server-marked synthetic test signal and an injected technical fixture provider.
+Real upload provenance deliberately fails that fixture provider. This does not
+claim live Google, email delivery, a trained model, or hardware verification.
+
+Implementation follows the official [FastAPI request and validation model](https://fastapi.tiangolo.com/advanced/using-request-directly/)
+and [HTTPX transport testing](https://www.python-httpx.org/advanced/transports/).

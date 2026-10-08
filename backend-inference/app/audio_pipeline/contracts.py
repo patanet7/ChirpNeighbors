@@ -73,6 +73,19 @@ class AudioRecordingPermit(WireModel):
     syntheticFixture: bool
 
 
+class AudioHTTPError(WireModel):
+    schemaVersion: Annotated[Literal[1], BeforeValidator(json_integer)]
+    kind: Literal["audio.rejected"]
+    code: Literal[
+        "authentication_required",
+        "invalid_request",
+        "service_unavailable",
+        "origin_rejected",
+        "request_too_large",
+    ]
+    traceId: UUIDText
+
+
 class ModelPin(WireModel):
     providerId: Key
     modelVersion: Key

@@ -28,10 +28,10 @@ from .contracts import (
     RecordingUnavailableError,
     ReviewCandidate,
 )
-from .pcm import InvalidPCM, chunks, parse_pcm16, preprocess
+from .pcm import InvalidPCMError, chunks, parse_pcm16, preprocess
 from .providers import (
     InferenceProvider,
-    ProviderBlocked,
+    ProviderConfigurationError,
     ProviderExecutionError,
     Taxonomy,
     TransientProviderError,
@@ -52,7 +52,7 @@ class RecordingBytes:
     synthetic_fixture: bool
 
 
-class RecordingUnavailable(RuntimeError):
+class RecordingAccessError(RuntimeError):
     """Missing, deleted, foreign, replaced or revoked all have the same response."""
 
 
@@ -79,10 +79,10 @@ class Cancellation:
 
     def checkpoint(self) -> None:
         if self._event.is_set():
-            raise AnalysisCancelled
+            raise AnalysisCancelledError
 
 
-class AnalysisCancelled(RuntimeError):
+class AnalysisCancelledError(RuntimeError):
     pass
 
 
@@ -135,7 +135,10 @@ class AudioService:
         principal: Principal,
         command: AudioAnalyzeCommand,
         cancellation: Cancellation | None = None,
+        *,
+        storage: RecordingStorage | None = None,
     ) -> AudioEvent:
+        source = self.storage if storage is None else storage
         token = cancellation if cancellation is not None else Cancellation()
         key = (principal.owner_id, command.requestId)
         fingerprint = hashlib.sha256(
@@ -149,32 +152,47 @@ class AudioService:
                 cached is not None and cached.fingerprint != fingerprint
             ):
                 return _failed(command, ConflictError(code="conflict", retryable=False))
-            if cached is not None:
-                try:
-                    token.checkpoint()
-                    self.storage.assert_current(principal, command.recording)
-                except RecordingUnavailable:
-                    del self._cache[key]
+            # Preserve content binding, but let explicit retries recover from
+            # transient failures or a previous request's cancellation.
+            replay = cached
+            if cached is not None and isinstance(cached.event, AudioFailedEvent):
+                if (
+                    cached.event.error.retryable
+                    or cached.event.error.code == "cancelled"
+                ):
+                    replay = None
+            if replay is None:
+                if len(self._running) >= self.capacity:
                     return _failed(
                         command,
-                        RecordingUnavailableError(
-                            code="recording_unavailable", retryable=False
-                        ),
+                        ProviderFailureError(code="provider_failure", retryable=True),
                     )
-                except AnalysisCancelled:
-                    return _failed(
-                        command, CancelledError(code="cancelled", retryable=False)
-                    )
-                self._cache.move_to_end(key)
-                return cached.event.model_copy(deep=True)
-            if len(self._running) >= self.capacity:
+                self._running.add(key)
+        if replay is not None:
+            # A remote media fence must never hold the cache lock across owners.
+            try:
+                token.checkpoint()
+                source.assert_current(principal, command.recording)
+            except RecordingAccessError:
+                with self._lock:
+                    if self._cache.get(key) is replay:
+                        del self._cache[key]
                 return _failed(
                     command,
-                    ProviderFailureError(code="provider_failure", retryable=True),
+                    RecordingUnavailableError(
+                        code="recording_unavailable", retryable=False
+                    ),
                 )
-            self._running.add(key)
+            except AnalysisCancelledError:
+                return _failed(
+                    command, CancelledError(code="cancelled", retryable=False)
+                )
+            with self._lock:
+                if self._cache.get(key) is replay:
+                    self._cache.move_to_end(key)
+            return replay.event.model_copy(deep=True)
         try:
-            result = self._analyze(principal, command, token)
+            result = self._analyze(principal, command, token, source)
             with self._lock:
                 self._cache[key] = CachedResult(
                     fingerprint, result.model_copy(deep=True)
@@ -191,13 +209,14 @@ class AudioService:
         principal: Principal,
         command: AudioAnalyzeCommand,
         cancellation: Cancellation,
+        source: RecordingStorage,
     ) -> AudioEvent:
         try:
             cancellation.checkpoint()
-            recording = self.storage.read(principal, command.recording)
+            recording = source.read(principal, command.recording)
             pcm = parse_pcm16(recording.data)
             if pcm.sha256 != command.recording.sha256:
-                raise RecordingUnavailable
+                raise RecordingAccessError
             provenance = self.provider.provenance
             if (
                 provenance.providerId != command.model.providerId
@@ -213,17 +232,17 @@ class AudioService:
                     and provenance.licenseStatus != "approved"
                 )
             ):
-                raise ProviderBlocked
+                raise ProviderConfigurationError
             samples = preprocess(pcm, cancellation.checkpoint)
             raw: list[RawCandidate] = []
             review: list[ReviewCandidate] = []
             chunk_count = 0
             for chunk in chunks(samples):
                 cancellation.checkpoint()
-                self.storage.assert_current(principal, command.recording)
+                source.assert_current(principal, command.recording)
                 for attempt in range(self.attempts):
                     try:
-                        # Opaque key includes owner scope, exact pins and chunk boundary.
+                        # Opaque key binds owner, model pin and chunk boundary.
                         chunk_key = hashlib.sha256(
                             f"{principal.owner_id}:{command.requestId}:{command.model.modelVersion}:{chunk.index}".encode()
                         ).hexdigest()
@@ -236,7 +255,7 @@ class AudioService:
                         if attempt + 1 == self.attempts:
                             raise
                 if len(predictions) > 20:
-                    raise ProviderBlocked
+                    raise ProviderConfigurationError
                 for prediction in predictions:
                     candidate = RawCandidate(
                         chunkIndex=chunk.index,
@@ -262,7 +281,7 @@ class AudioService:
                         )
                 chunk_count += 1
             cancellation.checkpoint()
-            self.storage.assert_current(principal, command.recording)
+            source.assert_current(principal, command.recording)
             return AudioCompletedEvent(
                 schemaVersion=1,
                 kind="audio.completed",
@@ -283,20 +302,20 @@ class AudioService:
                 rawCandidates=raw,
                 reviewCandidates=review,
             )
-        except RecordingUnavailable:
+        except RecordingAccessError:
             return _failed(
                 command,
                 RecordingUnavailableError(
                     code="recording_unavailable", retryable=False
                 ),
             )
-        except InvalidPCM:
+        except InvalidPCMError:
             return _failed(
                 command, InvalidAudioError(code="invalid_audio", retryable=False)
             )
-        except AnalysisCancelled:
+        except AnalysisCancelledError:
             return _failed(command, CancelledError(code="cancelled", retryable=False))
-        except (ProviderBlocked, ValidationError):
+        except (ProviderConfigurationError, ValidationError):
             return _failed(
                 command, ProviderBlockedError(code="provider_blocked", retryable=False)
             )

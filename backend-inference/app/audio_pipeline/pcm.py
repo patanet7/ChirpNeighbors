@@ -21,7 +21,7 @@ TARGET_RATE = 16000
 CHUNK_FRAMES = 48000
 
 
-class InvalidPCM(ValueError):
+class InvalidPCMError(ValueError):
     """Safe failure: no filenames, supplied headers or private sample values."""
 
 
@@ -45,7 +45,7 @@ class Chunk:
 def parse_pcm16(data: bytes) -> PCM:
     """Accept exactly the same bounded 44-byte canonical layout as media intake."""
     if not 46 <= len(data) <= MAX_BYTES:
-        raise InvalidPCM("Unsupported canonical audio")
+        raise InvalidPCMError("Unsupported canonical audio")
     (
         riff,
         size,
@@ -78,7 +78,7 @@ def parse_pcm16(data: bytes) -> PCM:
         or data_size % alignment != 0
         or not 1 <= data_size // alignment <= rate * 30
     ):
-        raise InvalidPCM("Unsupported canonical audio")
+        raise InvalidPCMError("Unsupported canonical audio")
     samples = array("h")
     samples.frombytes(data[44:])
     if sys.byteorder != "little":

@@ -14,7 +14,7 @@ class TransientProviderError(RuntimeError):
     """Adapter can retry this chunk with the same idempotency key."""
 
 
-class ProviderBlocked(RuntimeError):
+class ProviderConfigurationError(RuntimeError):
     """Missing configuration, license or exact model pin. Safe to expose as code."""
 
 
@@ -60,7 +60,7 @@ def invoke_provider(
     """Contain adapter errors; only explicit transient errors retry automatically."""
     try:
         return provider.infer(chunk, idempotency_key=idempotency_key)
-    except (TransientProviderError, ProviderBlocked):
+    except (TransientProviderError, ProviderConfigurationError):
         raise
     except Exception:  # noqa: BLE001 - sanitize exceptions at the provider boundary.
         raise ProviderExecutionError("Provider execution failed") from None
@@ -116,7 +116,11 @@ class UnconfiguredModelProvider:
 
     @property
     def provenance(self) -> ProviderProvenance:
-        raise ProviderBlocked("Reviewed model artifacts and license are required")
+        raise ProviderConfigurationError(
+            "Reviewed model artifacts and license are required"
+        )
 
     def infer(self, chunk: Chunk, *, idempotency_key: str) -> tuple[Prediction, ...]:
-        raise ProviderBlocked("Reviewed model artifacts and license are required")
+        raise ProviderConfigurationError(
+            "Reviewed model artifacts and license are required"
+        )

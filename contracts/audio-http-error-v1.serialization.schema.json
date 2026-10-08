@@ -1,0 +1,41 @@
+{
+  "$id": "https://chirpneighbors.local/contracts/audio-http-error-v1.serialization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "enum": [
+        "authentication_required",
+        "invalid_request",
+        "service_unavailable",
+        "origin_rejected",
+        "request_too_large"
+      ],
+      "title": "Code",
+      "type": "string"
+    },
+    "kind": {
+      "const": "audio.rejected",
+      "title": "Kind",
+      "type": "string"
+    },
+    "schemaVersion": {
+      "const": 1,
+      "title": "Schemaversion",
+      "type": "integer"
+    },
+    "traceId": {
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+      "title": "Traceid",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "kind",
+    "code",
+    "traceId"
+  ],
+  "title": "AudioHTTPError",
+  "type": "object"
+}
