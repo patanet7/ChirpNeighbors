@@ -103,6 +103,32 @@ v1 migration is unchanged. Shared projection exposes only the allowlisted resolv
 checks are supplemented by application reference/geometry validation. See UI
 `docs/scene-manifests.md` and `docs/scene-manifests-checkpoint.md` for behavior and evidence.
 
+## Private recording storage foundation
+
+The UI's local recording service uses separate version-1 SQLite metadata and a
+private byte-store interface. Authenticated development owners can upload canonical
+PCM16 WAV (mono/stereo 8–48 kHz, 30 seconds, 6 MiB), inspect their metadata, play
+single byte ranges/HEAD, delete, and explicitly retry cleanup. Production identity
+remains unconfigured and all media routes fail closed. There is no capture UI,
+inference call, provider transfer or worker integration.
+
+`recording-metadata-v1.schema.json` is a structural private response contract;
+ownership, frame/byte/duration agreement, lifecycle, file integrity and generation
+fences require the receiving service. Filenames, paths, location and media bytes
+are not contract fields. It is not an upload authorization or a public projection.
+
+Deletion commits a permanent tombstone before file removal. New playback and
+processing permits fail immediately; stale simulated results cannot commit through
+the synchronous same-database generation guard. Cleanup is a bounded explicit local
+retry, not an autonomous worker. Actual derived-output cleanup remains a separate
+integration. Raw private `recordingId` evidence references are retained.
+
+Yard JSON backups contain no media ledger, bytes or tombstones. Restoring a yard
+cannot revive deleted media or remove its tombstone. Whole-filesystem backups and
+downloaded copies require their own retention/deletion policy; local unlink is not
+secure erasure. Sharing excludes recording references, metadata and private evidence.
+See UI `docs/recordings.md` and `docs/recordings-checkpoint.md` for limits and recovery.
+
 ## Jobs and generation
 
 Pipeline definitions and hierarchical stage paths have pinned versions. Owner-scoped idempotency keys, durable leases, bounded retries/backoff and cancellation fences protect local execution. Artifact payloads/provenance and review records are immutable; publishing another result creates another version. The workbench advances one stage on request, not through a continuously running hosted worker. See [pipeline contracts and limitations](../src/lib/server/pipeline/README.md).
@@ -117,4 +143,4 @@ The development aggregate limit is 16 MiB per owner; the yard command body limit
 
 `GET /api/share-preview` is authenticated and creates no public token or share. Its separate allowlist includes only scene/palette, ordinal display keys, trusted catalog taxon labels and safe catalog keys. It excludes location (including coarse region), audio, EXIF/GPS, private/source IDs, observation times, user names, free-text species labels, URLs and provenance. Unknown taxa receive a generic label. Private data is removed from the response itself, not merely hidden in the UI.
 
-Email/Google sign-in, initial US hosting and owner-private recordings with deletion are selected directions, not provisioned capabilities. Recording upload/storage/deletion, account deletion/export across all services, backup retention, sharing authorization/revocation and hosted-worker deployment need explicit integration. No hardware, provider, real authentication or public-sharing service is connected by this contract.
+Email/Google sign-in and initial US hosting are selected directions, not provisioned capabilities. Local recording APIs do not provide hosted delivery, capture UI, cross-service derived deletion, account deletion/export, backup retention, sharing authorization/revocation or hosted-worker deployment. No hardware, provider, production authentication or public-sharing service is connected by this contract.

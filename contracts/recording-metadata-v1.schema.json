@@ -1,0 +1,75 @@
+{
+  "$ref": "#/definitions/RecordingMetadataV1",
+  "definitions": {
+    "RecordingMetadataV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f-]+$"
+        },
+        "mediaType": {
+          "type": "string",
+          "const": "audio/wav"
+        },
+        "byteLength": {
+          "type": "integer",
+          "minimum": 46,
+          "maximum": 6291456
+        },
+        "durationMs": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 30000
+        },
+        "sampleRate": {
+          "type": "integer",
+          "minimum": 8000,
+          "maximum": 48000
+        },
+        "channels": {
+          "type": "number",
+          "enum": [
+            1,
+            2
+          ]
+        },
+        "frames": {
+          "type": "integer",
+          "exclusiveMinimum": 0,
+          "maximum": 1440000
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "Z$"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "mediaType",
+        "byteLength",
+        "durationMs",
+        "sampleRate",
+        "channels",
+        "frames",
+        "sha256",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/recording-metadata-v1.schema.json",
+  "description": "Owner-private canonical PCM16 WAV metadata, not an upload or sharing authorization. Frames, byte length and duration must also agree semantically; ownership, byte integrity, lifecycle and deletion fences are enforced by the storage service. No paths, filenames, location, media bytes, inference or provider integration."
+}
