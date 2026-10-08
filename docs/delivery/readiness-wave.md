@@ -25,7 +25,8 @@ record a new combined run with exact source and test revisions after integration
 | reliability_ops | Audit typed unknown errors and authenticated request abuse; revoke public capabilities in isolated restores | No unknown exception details; bounded budgets with typed retry; existing legitimate journeys pass; restored copies cannot revive old links; coordinate auth and sharing owners |
 | auth_sessions | Effective native auth rate limits were disabled by IP-tracking configuration | Prove real handler 429 and persistence without trusting forwarded IP headers; retain account journeys and friendly error handling |
 | root | Confirmation request/body has no deadline and can hold Saving state indefinitely | Bounded cancellation/deadline, unchanged retry command and receipt semantics; compose complete frozen-head gate and evidence |
-| image_pipeline / audio_pipeline | Read-only integration/readiness audit; bounded fix only for actual defect | Preserve validated review/pin and model mechanics; do not invent features or test-volume targets |
+| audio_pipeline | Temporary gateway failure poisons same-request analysis retries | Recover the unchanged request after transient service recovery; preserve owner/generation and changed-command fences; actual local service regression |
+| image_pipeline | Read-only image integration audit found no consequential missing code | Existing 127 tests pass; preserve review/pin behavior and fixture-only art claims |
 
 ## External inputs remain separate
 

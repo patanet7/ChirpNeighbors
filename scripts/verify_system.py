@@ -36,6 +36,12 @@ def revision(path: Path) -> str:
     ).strip()
 
 
+def clean_worktree(path: Path) -> bool:
+    return not subprocess.check_output(
+        ["git", "status", "--porcelain"], cwd=path, text=True
+    ).strip()
+
+
 def gates(
     ui: Path, python: str, browser_python: str, onnx_python: str, output: Path
 ) -> list[Gate]:
@@ -453,6 +459,10 @@ def main() -> None:
         for gate in selected:
             print(f"{gate.name}: {' '.join(gate.command)}")
         return
+    if not clean_worktree(ROOT) or not clean_worktree(ui):
+        parser.error(
+            "Commit or isolate source/test changes before frozen verification."
+        )
     # An immutable evidence directory prevents confusing an old pass with this run.
     output.mkdir(parents=True, exist_ok=False)
     records: list[dict[str, object]] = []
@@ -500,20 +510,34 @@ def main() -> None:
             f"{'PASS' if passed else 'FAIL'} {gate.name} ({records[-1]['seconds']}s)",
             flush=True,
         )
+        final_revisions = {"main": revision(ROOT), "ui": revision(ui)}
+        frozen = (
+            final_revisions == revisions and clean_worktree(ROOT) and clean_worktree(ui)
+        )
+        if not frozen:
+            failed.append("frozen-worktrees")
+        finished = len(records) == len(selected)
         (output / "report.json").write_text(
             json.dumps(
                 {
                     "version": 1,
                     "at": datetime.now(UTC).isoformat(),
                     "revisions": revisions,
-                    "completeSuite": not args.only,
-                    "passed": not failed,
+                    "finalRevisions": final_revisions,
+                    "frozenWorktrees": frozen,
+                    "finished": finished,
+                    "selectedGates": len(selected),
+                    "completeSuite": not args.only and finished,
+                    "passed": finished and not failed,
                     "gates": records,
                 },
                 indent=2,
             )
             + "\n"
         )
+        if not frozen:
+            print("Source/test worktrees changed; refusing mixed-revision evidence.")
+            break
         if gate.name == "ui-build" and not passed:
             # Browser reports must never come from a stale production build.
             print("Build failed; refusing browser checks against stale output.")
