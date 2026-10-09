@@ -7,8 +7,9 @@ competing product roadmap or production-readiness percentage. Matrix implementat
 labels must be read with the named checkpoint and active-wave state; implemented
 code or an older passing aggregate does not verify a changed candidate.
 
-The current [ontology checkpoint](ontology-verified-20261009.md) records the
-complete 74-gate passing run, exact source commits and retained failed attempts.
+The current [environment checkpoint](environment-verified-20261009.md) records the
+complete 75-gate passing run, exact source commits and retained failed attempts.
+The prior [74-gate ontology checkpoint](ontology-verified-20261009.md) remains preserved.
 The index limits completion to named behavior and fixture scope.
 
 The historical checklist below records earlier bounded waves and their original
@@ -36,8 +37,7 @@ TypeScript counterparts. Do not hand-maintain equivalent wire models in both
 languages. The UI's `docs/contract-platform.md` records ownership; executable
 cross-language tests enforce the exported boundary behavior.
 
-Worker `c08624d3` and ESP32 `c693ed0` remain outside this workspace after already-approved supported
-transfer failed before bytes were materialized. See the [technical handoff blocker](approved-handoff-blocker-20261008.md). This task does not reproduce their separate work.
+Worker `c08624d3` remains outside this workspace after the approved supported transfer failed before bytes. The user reports ESP32 branch `codex/esp32-s3-verified-stream` published at `99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c`; actual Git inspection and local integration are authorized after the environment checkpoint. See EN-006/EN-007 in the [current index](product-behavior-and-ideas.md); the [original handoff blocker](approved-handoff-blocker-20261008.md) is historical for ESP32. Neither implementation is duplicated.
 Approved species artwork, real-source samples, production identity/mail credentials,
 model licenses and external provider/hosting configuration remain explicit external
 gates. Local coding, synthetic fixtures and ordinary package dependencies proceed.
