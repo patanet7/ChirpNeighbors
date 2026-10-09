@@ -4733,6 +4733,65 @@
       "gaps": [
         "Species tuning is product-authored and biologically unvalidated. Fictional personality and behavior decisions are decorative; observed individuality and reviewed scientific trait sources remain absent."
       ]
+    },
+    {
+      "id": "illustrative-scene-environment",
+      "category": "config",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/weather/environment-contracts.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/weather/environment-contracts.ts",
+          "symbols": [
+            "environmentControlsSchema",
+            "environmentFrameSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Two closed additive schemas bound transient owner preview controls and decorative environment samples. Saved weather settings, WeatherFrame, yard backup v2 and all previous wire schemas are unchanged."
+      ],
+      "semantic": [
+        "Resolver reuses the existing weather epoch, day length, seed and explicit caller clock; no ambient clock, randomness, location or provider fetch. Unconfigured real weather is neutral. Continuous lighting, stable seeded effects, day-boundary weather blends and active-time transitions derive only from bounded controls. Frame condition labels may name the destination during blends: actual effect strengths govern rendering and illustrative behavior bands."
+      ],
+      "codec": [
+        "Transient preview only, never persisted or publicly projected. Structural JSON Schema does not prove lighting formulas, temporal continuity, hidden-tab freezing or biological correctness; pure resolver, renderer, behavior and browser tests enforce those semantics."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/weather/environment.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/engine/renderer.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/weather/environment.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/environment-golden-cases.mjs",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Environment controls are temporary previews, not durable preferences. Lighting and bird weather responses are illustrative; regional astronomy, live weather providers, reviewed ecological tuning and location collection remain absent."
+      ]
     }
   ]
 }

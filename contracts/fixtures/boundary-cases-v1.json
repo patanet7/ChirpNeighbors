@@ -57725,6 +57725,922 @@
       },
       "valid": true,
       "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: defaults follow the existing shared weather clock",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: fractional fog preview and simultaneous bounded effects",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "fog",
+        "hour": 23.999,
+        "effects": {
+          "cloud": 0.2,
+          "rain": 0.4,
+          "snow": 0.3,
+          "fog": 0.8,
+          "wind": 1
+        },
+        "transitionSeconds": 0
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: maximum transition duration is bounded",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 30
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: decorative blended state excludes measurements",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: neutral unconfigured frame cannot claim live provenance",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "unconfigured",
+        "status": "unconfigured",
+        "condition": "clear",
+        "phase": "day",
+        "hour": 12,
+        "light": 1,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0
+        },
+        "effects": {
+          "cloud": 0,
+          "rain": 0,
+          "snow": 0,
+          "fog": 0,
+          "wind": 0
+        },
+        "particleSeed": 0
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject schemaVersion=2",
+      "value": {
+        "schemaVersion": 2,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject condition=lightning",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "lightning",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject hour=24",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": 24,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject hour=-0.01",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": -0.01,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject transitionSeconds=-1",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": -1
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject transitionSeconds=30.01",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 30.01
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject latitude=51.5",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4,
+        "latitude": 51.5
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject ownerId=private-owner",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4,
+        "ownerId": "private-owner"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject oversized cloud",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": 1.01,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects negative cloud",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": -0.01,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject oversized rain",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": 1.01,
+          "snow": null,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects negative rain",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": -0.01,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject oversized snow",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": 1.01,
+          "fog": null,
+          "wind": null
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects negative snow",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": -0.01,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject oversized fog",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": 1.01,
+          "wind": null
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects negative fog",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": -0.01,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: controls reject oversized wind",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": 1.01
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects negative wind",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": -0.01
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-controls-v1",
+      "name": "environment: effects reject flash channels",
+      "value": {
+        "schemaVersion": 1,
+        "condition": "follow-weather",
+        "hour": null,
+        "effects": {
+          "cloud": null,
+          "rain": null,
+          "snow": null,
+          "fog": null,
+          "wind": null,
+          "lightning": 1
+        },
+        "transitionSeconds": 4
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects schemaVersion=0",
+      "value": {
+        "schemaVersion": 0,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects provenance=live-provider",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "live-provider",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects source=real",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "real",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects particleSeed=-1",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": -1
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects particleSeed=4294967296",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 4294967296
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects particleSeed=1.5",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 1.5
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects hour=24",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 24,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects light=1.1",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 1.1,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects daylight=-0.1",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": -0.1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects warmth=1.1",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 1.1,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: frame rejects observationId=private-event",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 0.2
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42,
+        "observationId": "private-event"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "environment-frame-v1",
+      "name": "environment: sun visibility cannot exceed one",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "illustrative-scene",
+        "source": "manual",
+        "status": "ready",
+        "condition": "rain",
+        "phase": "day",
+        "hour": 12,
+        "light": 0.7,
+        "daylight": 1,
+        "warmth": 0,
+        "sun": {
+          "x": 0.5,
+          "y": 0.14,
+          "visibility": 1.01
+        },
+        "effects": {
+          "cloud": 1,
+          "rain": 0.75,
+          "snow": 0,
+          "fog": 0.08,
+          "wind": 0.48
+        },
+        "particleSeed": 42
+      },
+      "valid": false,
+      "authoritativeValid": false
     }
   ]
 }

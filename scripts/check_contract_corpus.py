@@ -53,6 +53,8 @@ NAMES = frozenset(
         "fictional-personality-v1",
         "behavior-decision-trace-v1",
         "behavior-experiment-v1",
+        "environment-controls-v1",
+        "environment-frame-v1",
         "product-event-v1",
         "analytics-batch-v1",
         "analytics-preference-command-v1",

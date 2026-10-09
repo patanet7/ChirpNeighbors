@@ -215,15 +215,15 @@
       "status": "unintegrated",
       "dependencies": [],
       "acceptance": [
-        "Previously completed ESP32 c693ed02 remains unavailable locally after the already-authorized supported transfer failed; separate resumed ESP32 work must not be duplicated.",
-        "Actual hardware/model execution remains unverified; transfer and integration are separate gates."
+        "User reports published codex/esp32-s3-verified-stream at 99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c including f0a71cb997a75f6383814a17c277f8855fe18cf9; inspect actual Git history after environment checkpoint.",
+        "Integrate accessible verified changes locally with conflict review and relevant tests; no Library retry, duplicated implementation, publication, deployment or hardware flash."
       ],
       "evidence": [
-        "docs/delivery/approved-handoff-blocker-20261008.md"
+        "docs/delivery/approved-handoff-blocker-20261008.md",
+        "docs/delivery/product-behavior-and-ideas.md"
       ],
       "remaining": [
-        "Same-code/destination transfer is approved, but supported preparation/helper download failed twice. No archive bytes were materialized; implementation remains unintegrated.",
-        "User resumed ESP32 work separately in another environment. Do not duplicate it or assume its commits exist in this checkout; no firmware was imported or changed in this retention slice."
+        "Remote report awaits independent Git inspection and local integration. Remote CI and actual hardware/model execution remain unverified. Background worker transfer remains separate."
       ]
     },
     {
@@ -324,6 +324,28 @@
       "remaining": [
         "Approved real artwork, verified rights and biological review; production catalog administration/authority and external execution adapters are unconfigured.",
         "Optional variants remain explicit contract identities without an enabled authoring/provider workflow."
+      ]
+    },
+    {
+      "id": "environment-animation",
+      "owner": "root-integration",
+      "status": "in_progress",
+      "dependencies": [
+        "contracts",
+        "interactive-yard"
+      ],
+      "acceptance": [
+        "Existing scene clock drives gradual visible solar motion and lighting with smooth, bounded weather transitions.",
+        "Owner-only transient controls and seeded replay respect pause, visibility and reduced motion without mutating saved layouts or public projections.",
+        "Illustrative weather-to-behavior mapping preserves safe occupancy, night rest, FIFO routine recovery and legacy callers.",
+        "Actual desktop/mobile Pixi and SVG screenshots, transition pixel comparisons, bounded draw diagnostics and all strict gates."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/environment-animation-checklist.md",
+        "birdsong-yard-sprites/docs/environment-contracts.md"
+      ],
+      "remaining": [
+        "Full integration/browser/frozen strict verification pending; approved art and real providers remain unavailable."
       ]
     }
   ],
@@ -496,44 +518,28 @@
         "scripts/session-binding-browser-checks.py"
       ],
       "baseline": false
+    },
+    {
+      "id": "browser-environment",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/environment-browser-checks.py"
+      ],
+      "baseline": false
     }
   ],
   "activeWave": {
-    "document": "birdsong-yard-sprites/docs/behavior-ontology-checklist.md",
+    "document": "birdsong-yard-sprites/docs/environment-animation-checklist.md",
     "productRegister": "docs/delivery/product-behavior-and-ideas.md",
-    "scope": "Versioned illustrative species ontology, deterministic fictional personality, observable trait-driven decisions and safe placement, owner-only transient workbench and actual fixture visual evaluation",
-    "verification": "complete_frozen_pass",
-    "selectedGates": 74,
+    "scope": "Continuous illustrative sky and weather, transient owner controls, deterministic bounded effect playback and environment-driven bird behavior",
+    "verification": "in_progress",
+    "selectedGates": 75,
     "baseRevisions": {
-      "main": "a3c5ec6d03d405dd11724cbe14356e1d99b5ea37",
-      "ui": "b7e1ddb6f38429fa88dedcf659f45b3eb5e4aa95"
+      "main": "32a7f2d837b6b56424470646475fe8017ca1d931",
+      "ui": "81e7a890cbda3f1245f847be7056a42b42a7ff21"
     },
-    "independentReview": "birdsong-yard-sprites/docs/behavior-ontology-review-20261009.md",
-    "firstAttempt": {
-      "report": "docs/delivery/ontology-attempts-20261009/system-r1/report.json",
-      "passed": 72,
-      "total": 74,
-      "failures": [
-        "browser-scenes",
-        "browser-behavior"
-      ]
-    },
-    "secondAttempt": {
-      "report": "docs/delivery/ontology-attempts-20261009/system-r2/report.json",
-      "finished": false,
-      "passed": 48,
-      "recorded": 49,
-      "selected": 74,
-      "failure": "browser-core",
-      "interrupted": "browser-arrangement"
-    },
-    "report": "docs/delivery/ontology-verified-20261009/report.json",
-    "checkpoint": "docs/delivery/ontology-verified-20261009.md",
-    "testedRevisions": {
-      "main": "6841630e3acc3ef64495cee17947ce4d3d00b6c9",
-      "ui": "1b87d62d5c99fa4936d213d44c44f56886671c36"
-    },
-    "passedGates": 74
+    "independentReview": "birdsong-yard-sprites/docs/environment-visual-audit-20261009.md"
   },
   "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",
@@ -613,5 +619,42 @@
     "verificationReport": "docs/delivery/catalog-verified-20261009/report.json",
     "verificationCounts": "docs/delivery/catalog-verified-20261009/counts.json",
     "checkpoint": "docs/delivery/catalog-verified-20261009.md"
+  },
+  "priorOntologyWave": {
+    "document": "birdsong-yard-sprites/docs/behavior-ontology-checklist.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Versioned illustrative species ontology, deterministic fictional personality, observable trait-driven decisions and safe placement, owner-only transient workbench and actual fixture visual evaluation",
+    "verification": "complete_frozen_pass",
+    "selectedGates": 74,
+    "baseRevisions": {
+      "main": "a3c5ec6d03d405dd11724cbe14356e1d99b5ea37",
+      "ui": "b7e1ddb6f38429fa88dedcf659f45b3eb5e4aa95"
+    },
+    "independentReview": "birdsong-yard-sprites/docs/behavior-ontology-review-20261009.md",
+    "firstAttempt": {
+      "report": "docs/delivery/ontology-attempts-20261009/system-r1/report.json",
+      "passed": 72,
+      "total": 74,
+      "failures": [
+        "browser-scenes",
+        "browser-behavior"
+      ]
+    },
+    "secondAttempt": {
+      "report": "docs/delivery/ontology-attempts-20261009/system-r2/report.json",
+      "finished": false,
+      "passed": 48,
+      "recorded": 49,
+      "selected": 74,
+      "failure": "browser-core",
+      "interrupted": "browser-arrangement"
+    },
+    "report": "docs/delivery/ontology-verified-20261009/report.json",
+    "checkpoint": "docs/delivery/ontology-verified-20261009.md",
+    "testedRevisions": {
+      "main": "6841630e3acc3ef64495cee17947ce4d3d00b6c9",
+      "ui": "1b87d62d5c99fa4936d213d44c44f56886671c36"
+    },
+    "passedGates": 74
   }
 }

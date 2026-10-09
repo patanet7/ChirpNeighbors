@@ -1,0 +1,118 @@
+{
+  "$ref": "#/definitions/EnvironmentControlsV1",
+  "definitions": {
+    "EnvironmentControlsV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "condition": {
+          "type": "string",
+          "enum": [
+            "follow-weather",
+            "clear",
+            "cloudy",
+            "rain",
+            "snow",
+            "fog"
+          ]
+        },
+        "hour": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMaximum": 24
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "effects": {
+          "type": "object",
+          "properties": {
+            "cloud": {
+              "anyOf": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "rain": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/EnvironmentControlsV1/properties/effects/properties/cloud/anyOf/0"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "snow": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/EnvironmentControlsV1/properties/effects/properties/cloud/anyOf/0"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "fog": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/EnvironmentControlsV1/properties/effects/properties/cloud/anyOf/0"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "wind": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/EnvironmentControlsV1/properties/effects/properties/cloud/anyOf/0"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "cloud",
+            "rain",
+            "snow",
+            "fog",
+            "wind"
+          ],
+          "additionalProperties": false
+        },
+        "transitionSeconds": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 30
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "condition",
+        "hour",
+        "effects",
+        "transitionSeconds"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/environment-controls-v1.schema.json",
+  "description": "Transient illustrative scene environment structural boundary. Controls are temporary owner previews, never saved-yard or backup extensions. Frames reuse the existing weather epoch, day length, seed and caller clock; lighting is illustrative, not regional astronomy. Resolver and transition semantics enforce neutral unconfigured providers, shared-clock derivation, bounded smooth blends and stable particle anchors. No location, live weather, observations, provider execution, biological claims or public sharing authority."
+}
