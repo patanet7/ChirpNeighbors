@@ -4677,6 +4677,62 @@
         }
       ],
       "gaps": []
+    },
+    {
+      "id": "decorative-behavior-ontology",
+      "category": "config",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/engine/ontology-contracts.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/engine/ontology-contracts.ts",
+          "symbols": [
+            "speciesBehaviorTraitsSchema",
+            "fictionalPersonalitySchema",
+            "behaviorExperimentSchema",
+            "behaviorDecisionTraceSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Four closed additive schemas bound illustrative traits, deterministic fictional personality, transient developer experiments and decision diagnostics; legacy profile v1 is unchanged."
+      ],
+      "semantic": [
+        "Known display-catalog species and nonzero location policy; activity zero disables eligibility. Fictional personality derives only from decorative resident identity, never session, names, observations, owner or location. Candidate behaviors are unique and populated elections bind an eligible selected intent and priority; intent may differ from a travel transition."
+      ],
+      "codec": [
+        "Transient simulator inputs and diagnostics only; strict schemas reject private evidence fields. JSON Schema provides structural checks, while source refinements and engine/renderer rules remain authoritative."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/engine/simulation.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/engine/ontology-contracts.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/ontology-golden-cases.mjs",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Species tuning is product-authored and biologically unvalidated. Fictional personality and behavior decisions are decorative; observed individuality and reviewed scientific trait sources remain absent."
+      ]
     }
   ]
 }

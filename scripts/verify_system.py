@@ -485,6 +485,7 @@ def gates(
         ("sharing", "share-browser-checks.py", "CHIRP_SHARE_OUTPUT"),
         ("inventory", "inventory-browser-checks.py", "CHIRP_INVENTORY_OUTPUT"),
         ("behavior", "behavior-browser-checks.py", "CHIRP_BEHAVIOR_OUTPUT"),
+        ("ontology", "ontology-browser-checks.py", "CHIRP_ONTOLOGY_OUTPUT"),
         ("arrivals", "arrivals-browser-checks.py", "CHIRP_ARRIVALS_OUTPUT"),
         ("analytics", "analytics-browser-checks.py", "CHIRP_ANALYTICS_OUTPUT"),
         (

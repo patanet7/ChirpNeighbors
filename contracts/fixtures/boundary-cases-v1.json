@@ -56221,6 +56221,1510 @@
       },
       "valid": true,
       "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: illustrative traits have explicit unvalidated provenance",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: all decorative activities may be disabled",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 0,
+          "bath": 0,
+          "nest": 0,
+          "play": 0,
+          "sing": 0
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "fictional-personality-v1",
+      "name": "behavior ontology: deterministic fictional individual excludes observations",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": {
+          "kind": "fictional-individual",
+          "version": 1,
+          "observationDerived": false,
+          "seedBasis": "decorative-resident-id"
+        },
+        "seed": 42,
+        "curiosity": 0.7,
+        "sociability": 0.5,
+        "boldness": 0.3
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "fictional-personality-v1",
+      "name": "behavior ontology: maximum unsigned seed is preserved",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": {
+          "kind": "fictional-individual",
+          "version": 1,
+          "observationDerived": false,
+          "seedBasis": "decorative-resident-id"
+        },
+        "seed": 4294967295,
+        "curiosity": 0.7,
+        "sociability": 0.5,
+        "boldness": 0.3
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: intent feeding differs from current travel transition",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: placement override has no candidate election",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "initial-placement",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: maximum object ID and center suffix are preserved",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:center",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-experiment-v1",
+      "name": "behavior ontology: transient experiment ground-only",
+      "value": {
+        "schemaVersion": 1,
+        "preset": "ground-only"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-experiment-v1",
+      "name": "behavior ontology: transient experiment perch-only",
+      "value": {
+        "schemaVersion": 1,
+        "preset": "perch-only"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-experiment-v1",
+      "name": "behavior ontology: transient experiment no-bathing",
+      "value": {
+        "schemaVersion": 1,
+        "preset": "no-bathing"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-experiment-v1",
+      "name": "behavior ontology: transient experiment no-routines",
+      "value": {
+        "schemaVersion": 1,
+        "preset": "no-routines"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-experiment-v1",
+      "name": "behavior ontology: transient experiment cautious",
+      "value": {
+        "schemaVersion": 1,
+        "preset": "cautious"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-experiment-v1",
+      "name": "behavior ontology: transient experiment sociable",
+      "value": {
+        "schemaVersion": 1,
+        "preset": "sociable"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "behavior-experiment-v1",
+      "name": "behavior ontology: unknown preset rejected",
+      "value": {
+        "schemaVersion": 1,
+        "preset": "force-breeding"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-experiment-v1",
+      "name": "behavior ontology: arbitrary weights rejected",
+      "value": {
+        "schemaVersion": 1,
+        "preset": "ground-only",
+        "weights": {
+          "feed": 100
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-experiment-v1",
+      "name": "behavior ontology: owner state cannot enter experiment",
+      "value": {
+        "schemaVersion": 1,
+        "preset": "ground-only",
+        "ownerId": "private-owner"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: unknown species is not inferred",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "unknown-species",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: no location preference fails closed",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 0,
+          "perch": 0,
+          "roost": 0
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: trait provenance rejects kind",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "biological-knowledge",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: trait provenance rejects biologicalValidation",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "reviewed",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: trait provenance rejects observationDerived",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": true
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: trait provenance rejects version",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 2,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: trait bound sizeScale",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 20,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: trait bound socialSpacing",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": -1,
+        "caution": 0.65
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: trait bound caution",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 1.1
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: activity weights are bounded integer priorities",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 0.5,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: locomotion speed is bounded",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 225,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "species-behavior-traits-v1",
+      "name": "behavior ontology: owner evidence cannot enter traits",
+      "value": {
+        "schemaVersion": 1,
+        "speciesId": "cn-species-erithacus-rubecula",
+        "provenance": {
+          "kind": "product-authored-illustrative",
+          "version": 1,
+          "biologicalValidation": "unvalidated",
+          "observationDerived": false
+        },
+        "sizeScale": 0.95,
+        "locomotion": {
+          "speed": 106,
+          "hopBias": 0.7
+        },
+        "affinities": {
+          "ground": 4,
+          "perch": 2,
+          "roost": 2
+        },
+        "activities": {
+          "feed": 2,
+          "bath": 1,
+          "nest": 1,
+          "play": 1,
+          "sing": 2
+        },
+        "socialSpacing": 12,
+        "caution": 0.65,
+        "observations": []
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "fictional-personality-v1",
+      "name": "behavior ontology: personality cannot claim observed individuality",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": {
+          "kind": "fictional-individual",
+          "version": 1,
+          "observationDerived": true,
+          "seedBasis": "decorative-resident-id"
+        },
+        "seed": 42,
+        "curiosity": 0.7,
+        "sociability": 0.5,
+        "boldness": 0.3
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "fictional-personality-v1",
+      "name": "behavior ontology: fictional provenance cannot claim species science",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": {
+          "kind": "validated-species",
+          "version": 1,
+          "observationDerived": false,
+          "seedBasis": "decorative-resident-id"
+        },
+        "seed": 42,
+        "curiosity": 0.7,
+        "sociability": 0.5,
+        "boldness": 0.3
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "fictional-personality-v1",
+      "name": "behavior ontology: personality seed cannot derive from observations",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": {
+          "kind": "fictional-individual",
+          "version": 1,
+          "observationDerived": false,
+          "seedBasis": "recording-id"
+        },
+        "seed": 42,
+        "curiosity": 0.7,
+        "sociability": 0.5,
+        "boldness": 0.3
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "fictional-personality-v1",
+      "name": "behavior ontology: negative seed rejected",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": {
+          "kind": "fictional-individual",
+          "version": 1,
+          "observationDerived": false,
+          "seedBasis": "decorative-resident-id"
+        },
+        "seed": -1,
+        "curiosity": 0.7,
+        "sociability": 0.5,
+        "boldness": 0.3
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "fictional-personality-v1",
+      "name": "behavior ontology: personality field bound rejected",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": {
+          "kind": "fictional-individual",
+          "version": 1,
+          "observationDerived": false,
+          "seedBasis": "decorative-resident-id"
+        },
+        "seed": 42,
+        "curiosity": 0.7,
+        "sociability": 0.5,
+        "boldness": 2
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "fictional-personality-v1",
+      "name": "behavior ontology: private observation metadata excluded",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": {
+          "kind": "fictional-individual",
+          "version": 1,
+          "observationDerived": false,
+          "seedBasis": "decorative-resident-id"
+        },
+        "seed": 42,
+        "curiosity": 0.7,
+        "sociability": 0.5,
+        "boldness": 0.3,
+        "sourceEventId": "private-source"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: private owner metadata excluded",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        },
+        "ownerId": "private-owner"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: location coordinates excluded",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        },
+        "location": {
+          "latitude": 1,
+          "longitude": 2
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: rule codes are not free-form notes",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "Private source note"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: unknown object capability rejected",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": "breed",
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: oversize derived slot ID rejected",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: negative rejection counts rejected",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": -1
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: candidate list is bounded",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: duplicate candidate behavior rejected",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          },
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: ineligible candidate cannot be selected",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 2,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": false,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "behavior-decision-trace-v1",
+      "name": "behavior ontology: selected priority binds candidate",
+      "value": {
+        "schemaVersion": 1,
+        "provenance": "decorative-simulation",
+        "tick": 48,
+        "phase": "day",
+        "trigger": "activity",
+        "selected": {
+          "behavior": "feeding",
+          "slotId": "object:feeder:left",
+          "affordance": "feed",
+          "capability": null,
+          "priority": 3,
+          "reasons": [
+            "activity-weight",
+            "slot-available"
+          ]
+        },
+        "candidates": [
+          {
+            "behavior": "feeding",
+            "eligible": true,
+            "priority": 2,
+            "reasons": [
+              "activity-weight"
+            ],
+            "availableSlots": 1,
+            "rejected": {
+              "occupiedOrClearance": 1,
+              "unsupported": 0,
+              "unreachable": 0
+            }
+          }
+        ],
+        "locomotion": {
+          "mode": "flight",
+          "reason": "flight-corridor"
+        },
+        "transition": {
+          "from": "idle",
+          "to": "moving",
+          "reason": "travel-to-activity"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
     }
   ]
 }

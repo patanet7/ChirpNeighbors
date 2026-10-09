@@ -1,0 +1,153 @@
+{
+  "$ref": "#/definitions/SpeciesBehaviorTraitsV1",
+  "definitions": {
+    "SpeciesBehaviorTraitsV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "speciesId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "prototype",
+              "constructor"
+            ]
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "product-authored-illustrative"
+            },
+            "version": {
+              "type": "number",
+              "const": 1
+            },
+            "biologicalValidation": {
+              "type": "string",
+              "const": "unvalidated"
+            },
+            "observationDerived": {
+              "type": "boolean",
+              "const": false
+            }
+          },
+          "required": [
+            "kind",
+            "version",
+            "biologicalValidation",
+            "observationDerived"
+          ],
+          "additionalProperties": false
+        },
+        "sizeScale": {
+          "type": "number",
+          "minimum": 0.75,
+          "maximum": 1.25
+        },
+        "locomotion": {
+          "type": "object",
+          "properties": {
+            "speed": {
+              "type": "number",
+              "minimum": 24,
+              "maximum": 224
+            },
+            "hopBias": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "speed",
+            "hopBias"
+          ],
+          "additionalProperties": false
+        },
+        "affinities": {
+          "type": "object",
+          "properties": {
+            "ground": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "perch": {
+              "$ref": "#/definitions/SpeciesBehaviorTraitsV1/properties/affinities/properties/ground"
+            },
+            "roost": {
+              "$ref": "#/definitions/SpeciesBehaviorTraitsV1/properties/affinities/properties/ground"
+            }
+          },
+          "required": [
+            "ground",
+            "perch",
+            "roost"
+          ],
+          "additionalProperties": false
+        },
+        "activities": {
+          "type": "object",
+          "properties": {
+            "feed": {
+              "$ref": "#/definitions/SpeciesBehaviorTraitsV1/properties/affinities/properties/ground"
+            },
+            "bath": {
+              "$ref": "#/definitions/SpeciesBehaviorTraitsV1/properties/affinities/properties/ground"
+            },
+            "nest": {
+              "$ref": "#/definitions/SpeciesBehaviorTraitsV1/properties/affinities/properties/ground"
+            },
+            "play": {
+              "$ref": "#/definitions/SpeciesBehaviorTraitsV1/properties/affinities/properties/ground"
+            },
+            "sing": {
+              "$ref": "#/definitions/SpeciesBehaviorTraitsV1/properties/affinities/properties/ground"
+            }
+          },
+          "required": [
+            "feed",
+            "bath",
+            "nest",
+            "play",
+            "sing"
+          ],
+          "additionalProperties": false
+        },
+        "socialSpacing": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 40
+        },
+        "caution": {
+          "$ref": "#/definitions/SpeciesBehaviorTraitsV1/properties/locomotion/properties/hopBias"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "speciesId",
+        "provenance",
+        "sizeScale",
+        "locomotion",
+        "affinities",
+        "activities",
+        "socialSpacing",
+        "caution"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/species-behavior-traits-v1.schema.json",
+  "description": "Transient decorative behavior structural boundary. Species traits are product-authored illustrative defaults with biological validation explicitly absent. Individual personality is deterministic fiction derived only from a decorative resident identity, never observations, species evidence, owner data or location. Developer presets are closed transient comparisons, not persisted edits. Eligibility, priorities, contact, reviewed geometry, slot arbitration and clip fallbacks require authoritative simulator/renderer semantics. This schema grants no biological claims or public sharing authority."
+}

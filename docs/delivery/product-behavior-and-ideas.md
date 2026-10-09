@@ -19,7 +19,7 @@ production readiness or unperformed deployment. Fixture art remains fixture art.
 | PB-002 | Recent eligible Findings create temporary species visitors; owners explicitly keep and name residents. | user decision | verified | PB-001; V5–V6, I5; `BirdInstance` and visitor policy | Unknown/future/old evidence cannot invent a recent visit. Expiry, explicit promotion, reload and names are stable. A decorative resident is not recognition of an individual wild bird. Existing observation-driven expiry behavior remains authoritative. |
 | PB-003 | Shared canonical species/style/version assets are built lazily as species arrive; optional later variants may be added as needed. | user decision | verified | G1–G2; UI `docs/shared-catalog-checklist.md`, shared render/release/selection contracts and service | Eligible arriving species create one owner-free canonical request. Explicit immutable fixture releases can be shared across accounts while each named resident keeps an exact version pin. Updates never replace pins; revoked/missing/corrupt packs retain pins with an explicit fallback. Production promotion, approved artwork/rights and biological review remain unavailable. The bounded fixture architecture passes the complete [73-gate checkpoint](catalog-verified-20261009.md), including 44 catalog browser/API assertions. |
 | PB-004 | Autonomous idle, move, hop, fly, perch, sing, feed, bathe, sleep, play and nest-building routines. | user decision | verified | V1–V4, I2–I4; animation registry, pose clips and simulation | World travel stays separate from in-place authored action. Missing clips use documented still/idle fallback; valid bounds/timing/support/occupancy persist across direction and object edits. Existing fixture routines do not establish real species likeness or biologically correct motion. Full authored species clips await reviewed art. |
-| PB-005 | Species-level illustrative tuning and fictional individual personality are different concepts. | user decision | agreed | I3, C1; bounded species profile contract; future traits contract | Biological knowledge, illustrative simulation tuning, fictional persistent traits and observed evidence are separate labelled fields. Profiles are bounded and deterministic. Persistent individual traits need a versioned model and migration before implementation; do not infer personality from private recordings or recognize individuals. |
+| PB-005 | Species-level illustrative tuning and fictional individual personality are different concepts. | user decision | implemented | I3, C1; UI `docs/behavior-ontology-checklist.md`; additive trait, fictional-personality, experiment and decision-trace contracts | Versioned unvalidated authored species defaults and stable decorative-ID-derived curiosity/sociability/boldness are separately labelled from biological knowledge and observations. Existing engine eligibility, priorities, locomotion, support choice, clearance and decorative caution use these bounded inputs. Owner-only temporary comparisons and decision/clip explanations change actual rendering without rewriting resident/evidence data. Full frozen verification is pending. Editable/persisted evolving personality and companionship progression remain future contracts/migrations; current deterministic fiction does not identify wild individuals. |
 | PB-006 | Earned companionship and levels should support attachment without pressure. | user decision | agreed | C1; PB-002, PB-005; progression contract pending | Specify interactions, bounded rewards, storage/migration and accessible alternatives before code. No missed-day punishment, starvation, guilt, paid affection or loss of birds. Exact progression rates, levels and rewards are unresolved. |
 | PB-007 | Free per-owner object inventory separates owned stock from placed perch, feeder, bath and nest instances. | user decision | verified | I1; `domain/object-inventory.ts`, placement snapshot/CAS, SQLite receipts | Place/return/move are transactional and idempotent; stock never becomes negative; legacy objects survive deterministic migration. Lost-response retry preserves exact intent UUID, reload/restart/restore and owner isolation. Pointer/keyboard integration and the complete 70-gate checkpoint pass. No currency or purchasing is included. |
 | PB-008 | Initial safe positions vary by session while persisted identities and yard layout stay stable. | user decision | verified | I2; uint32 session seed, occupancy, per-tab owner UI helper | Explicit seed reproduces initial positions; rerender/navigation/reload within the session does not reseed unexpectedly. Different seeds may vary positions without altering residents/layout; collision, perch capacity and reduced-motion fallback remain safe. Integrated behavior browser evidence passes in the 70-gate checkpoint. |
@@ -40,8 +40,7 @@ production readiness or unperformed deployment. Fixture art remains fixture art.
 
 ## Missing decisions and superseded approaches
 
-- PB-005/PB-006: individual trait dimensions, companionship levels, earning rates and
-  accessibility alternatives remain open. Species tuning is not a substitute.
+- PB-005/PB-006: deterministic fictional curiosity/sociability/boldness now have a bounded versioned model. Editable/evolving persistent traits, companionship levels, earning rates and accessibility alternatives remain open. No observation-derived personality or progression migration is implied.
 - PB-003: reviewed real artwork, production publication authority/rights policy and
   real execution adapters remain unavailable; private V3 lineage must not be relabelled.
   The bounded fixture shared-catalog implementation has its own [verified checkpoint](catalog-verified-20261009.md).
@@ -79,7 +78,7 @@ The subsequent [private retention checkpoint](retention-verified-20261009.md)
 passes 72/72 gates and verifies PB-022. That checkpoint coverage audit included all
 22 stable IDs PB-001 through PB-022: **15 verified, 5 agreed, 1 implemented and
 1 proposed**. The [catalog checkpoint](catalog-verified-20261009.md) verifies bounded fixture
-mechanics under PB-003: current counts are **16 verified, 4 agreed, 1 implemented,
+mechanics under PB-003: that checkpoint had **16 verified, 4 agreed, 1 implemented,
 1 proposed**. Prior checkpoint counts above are historical. Archive retains bytes;
 diagnostic eligibility does not authorize purge or account-wide erasure.
 
@@ -95,3 +94,9 @@ Append newly discussed behavior/ideas under stable IDs with their source type,
 decision status, dependencies and acceptance evidence. Preserve superseded
 decisions and do not mark plans complete. Competitor and OSS peer research stay
 outside both repositories; no research outputs were added in this slice.
+
+The active ontology slice implements the bounded distinction in PB-005 and awaits
+its complete frozen verification: **16 verified, 3 agreed, 2 implemented, 1 proposed**.
+The initial source-to-visible-effect map and concrete dependencies/acceptance are in
+UI `docs/behavior-ontology-checklist.md`. Biological validation and final sprite
+fidelity remain unavailable; source-grid inspection is not final art approval.
