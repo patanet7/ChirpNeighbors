@@ -4134,6 +4134,221 @@
       "gaps": [
         "No account-wide deletion orchestration; retained source lifecycle remains private owner-managed storage. Capacity is explicitly bounded, with no automatic deletion of reviewed sources."
       ]
+    },
+    {
+      "id": "api/asset-lifecycle:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "private asset lifecycle v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/asset-lifecycle/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/lifecycle-contracts.ts",
+          "symbols": [
+            "assetLifecycleTargetSchema",
+            "assetArchiveStateSchema",
+            "assetLifecycleCommandSchema",
+            "assetLifecycleReceiptSchema",
+            "assetLifecycleEntrySchema",
+            "assetLifecycleOverviewSchema",
+            "assetLifecycleResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle.ts",
+          "symbols": [
+            "AssetLifecycleService"
+          ]
+        }
+      ],
+      "structural": [
+        "Seven strict generated authorities for private file/package targets, archive state, commands, immutable receipts, retention entries, overview and response. Shared catalog is read-only; purgeEnabled is always false."
+      ],
+      "semantic": [
+        "Verified owner/session binding, archive revision compare-and-swap, exact pin compare-and-swap and owner-scoped idempotent receipts. Archive blocks new selection/derived intake while existing pins keep retained resolution. Eligibility requires complete bounded reference analysis; reviews, provenance, retained artwork and pipeline evidence remain retained."
+      ],
+      "codec": [
+        "POST uses same-origin bounded 4096-byte readCommand JSON decoding, then service authority validation inside a shared SQLite write transaction. GET and POST return private no-store session-bound projections; no paths, bytes or client owner field."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/AssetLifecycle.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/asset-retention-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/asset-lifecycle:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "private asset lifecycle v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/asset-lifecycle/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/lifecycle-contracts.ts",
+          "symbols": [
+            "assetLifecycleTargetSchema",
+            "assetArchiveStateSchema",
+            "assetLifecycleCommandSchema",
+            "assetLifecycleReceiptSchema",
+            "assetLifecycleEntrySchema",
+            "assetLifecycleOverviewSchema",
+            "assetLifecycleResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle.ts",
+          "symbols": [
+            "AssetLifecycleService"
+          ]
+        }
+      ],
+      "structural": [
+        "Seven strict generated authorities for private file/package targets, archive state, commands, immutable receipts, retention entries, overview and response. Shared catalog is read-only; purgeEnabled is always false."
+      ],
+      "semantic": [
+        "Verified owner/session binding, archive revision compare-and-swap, exact pin compare-and-swap and owner-scoped idempotent receipts. Archive blocks new selection/derived intake while existing pins keep retained resolution. Eligibility requires complete bounded reference analysis; reviews, provenance, retained artwork and pipeline evidence remain retained."
+      ],
+      "codec": [
+        "POST uses same-origin bounded 4096-byte readCommand JSON decoding, then service authority validation inside a shared SQLite write transaction. GET and POST return private no-store session-bound projections; no paths, bytes or client owner field."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/AssetLifecycle.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/asset-retention-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "asset-lifecycle:sqlite",
+      "category": "store",
+      "owner": "image",
+      "version": "asset_lifecycle_migrations1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/assets/lifecycle-storage.ts",
+        "symbols": []
+      },
+      "operation": "archive/unpin/restore/retain/verify",
+      "transport": "sqlite",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/lifecycle-contracts.ts",
+          "symbols": [
+            "assetLifecycleTargetSchema",
+            "assetArchiveStateSchema",
+            "assetLifecycleCommandSchema",
+            "assetLifecycleReceiptSchema",
+            "assetLifecycleEntrySchema",
+            "assetLifecycleOverviewSchema",
+            "assetLifecycleResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle-storage.ts",
+          "symbols": [
+            "ASSET_LIFECYCLE_SCHEMA",
+            "assertAssetLifecycleCompatibility",
+            "archiveState",
+            "readLifecycleReceipt",
+            "verifyAssetLifecycleStore"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle.ts",
+          "symbols": [
+            "AssetLifecycleService"
+          ]
+        }
+      ],
+      "structural": [
+        "Exact SQLite schema/trigger/version preflight, bounded archive rows and immutable receipt JSON. Archive target, receipt command/digest and row identity are validated before use and offline restore."
+      ],
+      "semantic": [
+        "The same SQLite transaction covers archive state or pin replacement plus immutable receipt publication; interrupted writes roll back together. Owner-qualified targets and receipts cannot affect another account. Retained dependency graphs fail closed on unavailable, unknown or cyclic references."
+      ],
+      "codec": [
+        "Read-only compatibility and retained-record verification precede recovery writes. Private PNG bytes and immutable source/manifest review records are retained; eligibility performs no unlink or destructive scheduled work."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/repository.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/pipeline/repository.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/operations/lifecycle-recovery.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/asset-retention-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Production purge execution, account-wide erasure and backup/downloaded-copy retention remain unimplemented. Cleanup eligibility is diagnostic and never authorizes destructive deletion."
+      ]
     }
   ]
 }

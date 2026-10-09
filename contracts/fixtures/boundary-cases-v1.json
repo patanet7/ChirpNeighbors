@@ -50877,6 +50877,1220 @@
       },
       "valid": false,
       "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-target-v1",
+      "name": "asset lifecycle: private PNG target",
+      "value": {
+        "kind": "private-file",
+        "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-target-v1",
+      "name": "asset lifecycle: private package target",
+      "value": {
+        "kind": "private-package",
+        "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-archive-state-v1",
+      "name": "asset lifecycle: untouched private file stays active",
+      "value": {
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "revision": 0,
+        "archived": false,
+        "changedAt": null
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-archive-state-v1",
+      "name": "asset lifecycle: archive is revisioned and reversible",
+      "value": {
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "revision": 1,
+        "archived": true,
+        "changedAt": "2026-10-09T00:00:00.000Z"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-command-v1",
+      "name": "asset lifecycle: archive has explicit compare-and-swap",
+      "value": {
+        "action": "set-archive",
+        "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "expectedRevision": 0,
+        "archived": true
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-command-v1",
+      "name": "asset lifecycle: unpin compares exact artwork",
+      "value": {
+        "action": "unpin",
+        "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+        "birdId": "bird:fixture-robin",
+        "expectedArtworkId": "art:fixture-robin-v1"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-command-v1",
+      "name": "asset lifecycle: restore pin names immutable unpin receipt",
+      "value": {
+        "action": "restore-pin",
+        "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+        "unpinRequestId": "6309e94f-4caf-471e-86c9-878cb30da1e3"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-receipt-v1",
+      "name": "asset lifecycle: archive receipt grants no deletion authority",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "set-archive",
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "expectedRevision": 0,
+          "archived": true
+        },
+        "commandDigest": "1111111111111111111111111111111111111111111111111111111111111111",
+        "previousArtworkId": null,
+        "savedAt": "2026-10-09T00:00:00.000Z"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-receipt-v1",
+      "name": "asset lifecycle: unpin receipt retains prior artwork identity",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "unpin",
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "birdId": "bird:fixture-robin",
+          "expectedArtworkId": "art:fixture-robin-v1"
+        },
+        "commandDigest": "1111111111111111111111111111111111111111111111111111111111111111",
+        "previousArtworkId": "art:fixture-robin-v1",
+        "savedAt": "2026-10-09T00:00:00.000Z"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: active file remains retained",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 0,
+          "archived": false,
+          "changedAt": null
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": true,
+        "selectionBlock": "none",
+        "cleanupEligible": false,
+        "retainedBecause": [
+          "active"
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: unreviewed archived file is eligible only",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 1,
+          "archived": true,
+          "changedAt": "2026-10-09T00:00:00.000Z"
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": false,
+        "selectionBlock": "archived",
+        "cleanupEligible": true,
+        "retainedBecause": []
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: review evidence retains archived bytes",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 1,
+          "archived": true,
+          "changedAt": "2026-10-09T00:00:00.000Z"
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": false,
+        "selectionBlock": "archived",
+        "cleanupEligible": false,
+        "retainedBecause": [
+          "file-review-evidence"
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-overview-v1",
+      "name": "asset lifecycle: shared catalog read-only and purge disabled",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "sharedCatalog": "read-only-not-owned",
+        "referenceScan": "complete",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active"
+            ]
+          }
+        ],
+        "pins": [
+          {
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          }
+        ],
+        "undoPins": []
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-overview-v1",
+      "name": "asset lifecycle: undo available from retained receipt",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "sharedCatalog": "read-only-not-owned",
+        "referenceScan": "complete",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 1,
+              "archived": true,
+              "changedAt": "2026-10-09T00:00:00.000Z"
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": false,
+            "selectionBlock": "archived",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "file-review-evidence"
+            ]
+          }
+        ],
+        "pins": [],
+        "undoPins": [
+          {
+            "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-response-v1",
+      "name": "asset lifecycle: lifecycle command response",
+      "value": {
+        "overview": {
+          "schemaVersion": 1,
+          "purgeEnabled": false,
+          "sharedCatalog": "read-only-not-owned",
+          "referenceScan": "complete",
+          "entries": [
+            {
+              "state": {
+                "target": {
+                  "kind": "private-file",
+                  "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+                },
+                "revision": 0,
+                "archived": false,
+                "changedAt": null
+              },
+              "label": "Synthetic unreviewed PNG",
+              "retainedBytes": 256,
+              "selectable": true,
+              "selectionBlock": "none",
+              "cleanupEligible": false,
+              "retainedBecause": [
+                "active"
+              ]
+            }
+          ],
+          "pins": [
+            {
+              "birdId": "bird:fixture-robin",
+              "artworkId": "art:fixture-robin-v1",
+              "label": "Synthetic fixture bird"
+            }
+          ],
+          "undoPins": []
+        },
+        "receipt": {
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "replayed": false
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-response-v1",
+      "name": "asset lifecycle: retry response preserves request identity",
+      "value": {
+        "overview": {
+          "schemaVersion": 1,
+          "purgeEnabled": false,
+          "sharedCatalog": "read-only-not-owned",
+          "referenceScan": "complete",
+          "entries": [
+            {
+              "state": {
+                "target": {
+                  "kind": "private-file",
+                  "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+                },
+                "revision": 1,
+                "archived": true,
+                "changedAt": "2026-10-09T00:00:00.000Z"
+              },
+              "label": "Synthetic unreviewed PNG",
+              "retainedBytes": 256,
+              "selectable": false,
+              "selectionBlock": "archived",
+              "cleanupEligible": false,
+              "retainedBecause": [
+                "file-review-evidence"
+              ]
+            }
+          ],
+          "pins": [],
+          "undoPins": [
+            {
+              "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+              "birdId": "bird:fixture-robin",
+              "artworkId": "art:fixture-robin-v1",
+              "label": "Synthetic fixture bird"
+            }
+          ]
+        },
+        "receipt": {
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "replayed": true
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-lifecycle-target-v1",
+      "name": "asset lifecycle: shared catalog is not a private target",
+      "value": {
+        "kind": "shared-catalog",
+        "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-target-v1",
+      "name": "asset lifecycle: target is not a filesystem path",
+      "value": {
+        "kind": "private-file",
+        "id": "../private/source.png"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-target-v1",
+      "name": "asset lifecycle: target cannot inject an owner",
+      "value": {
+        "kind": "private-file",
+        "id": "17746f92-24ae-44c5-b8db-fb0e2777c005",
+        "ownerId": "other-owner"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-command-v1",
+      "name": "asset lifecycle: destructive purge is not a command",
+      "value": {
+        "action": "purge",
+        "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "expectedRevision": 0,
+        "archived": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-command-v1",
+      "name": "asset lifecycle: archive cannot omit expected revision",
+      "value": {
+        "action": "set-archive",
+        "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "archived": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-command-v1",
+      "name": "asset lifecycle: archive revision is bounded",
+      "value": {
+        "action": "set-archive",
+        "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "expectedRevision": 1000001,
+        "archived": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-command-v1",
+      "name": "asset lifecycle: command cannot inject an owner",
+      "value": {
+        "action": "set-archive",
+        "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "expectedRevision": 0,
+        "archived": true,
+        "ownerId": "other-owner"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-command-v1",
+      "name": "asset lifecycle: restore cannot replace receipt artwork",
+      "value": {
+        "action": "restore-pin",
+        "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+        "unpinRequestId": "6309e94f-4caf-471e-86c9-878cb30da1e3",
+        "artworkId": "art:replacement"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-command-v1",
+      "name": "asset lifecycle: unpin reserved bird identity is forbidden",
+      "value": {
+        "action": "unpin",
+        "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+        "birdId": "__proto__",
+        "expectedArtworkId": "art:fixture-robin-v1"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-receipt-v1",
+      "name": "asset lifecycle: receipt hash is not arbitrary text",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "set-archive",
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "expectedRevision": 0,
+          "archived": true
+        },
+        "commandDigest": "invalid",
+        "previousArtworkId": null,
+        "savedAt": "2026-10-09T00:00:00.000Z"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-receipt-v1",
+      "name": "asset lifecycle: receipt cannot add private disk path",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "set-archive",
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "expectedRevision": 0,
+          "archived": true
+        },
+        "commandDigest": "1111111111111111111111111111111111111111111111111111111111111111",
+        "previousArtworkId": null,
+        "savedAt": "2026-10-09T00:00:00.000Z",
+        "path": "/private"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: retained byte count cannot be negative",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 0,
+          "archived": false,
+          "changedAt": null
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": -1,
+        "selectable": true,
+        "selectionBlock": "none",
+        "cleanupEligible": false,
+        "retainedBecause": [
+          "active"
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: retention reason is a closed enum",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 1,
+          "archived": true,
+          "changedAt": "2026-10-09T00:00:00.000Z"
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": false,
+        "selectionBlock": "archived",
+        "cleanupEligible": false,
+        "retainedBecause": [
+          "paid-plan"
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-overview-v1",
+      "name": "asset lifecycle: purge cannot be enabled by response",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": true,
+        "sharedCatalog": "read-only-not-owned",
+        "referenceScan": "complete",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active"
+            ]
+          }
+        ],
+        "pins": [
+          {
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          }
+        ],
+        "undoPins": []
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-overview-v1",
+      "name": "asset lifecycle: shared catalog cannot become privately owned",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "sharedCatalog": "owned",
+        "referenceScan": "complete",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active"
+            ]
+          }
+        ],
+        "pins": [
+          {
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          }
+        ],
+        "undoPins": []
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-response-v1",
+      "name": "asset lifecycle: response cannot add raw private bytes",
+      "value": {
+        "overview": {
+          "schemaVersion": 1,
+          "purgeEnabled": false,
+          "sharedCatalog": "read-only-not-owned",
+          "referenceScan": "complete",
+          "entries": [
+            {
+              "state": {
+                "target": {
+                  "kind": "private-file",
+                  "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+                },
+                "revision": 0,
+                "archived": false,
+                "changedAt": null
+              },
+              "label": "Synthetic unreviewed PNG",
+              "retainedBytes": 256,
+              "selectable": true,
+              "selectionBlock": "none",
+              "cleanupEligible": false,
+              "retainedBecause": [
+                "active"
+              ]
+            }
+          ],
+          "pins": [
+            {
+              "birdId": "bird:fixture-robin",
+              "artworkId": "art:fixture-robin-v1",
+              "label": "Synthetic fixture bird"
+            }
+          ],
+          "undoPins": []
+        },
+        "receipt": {
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "replayed": false
+        },
+        "originalBytes": "base64"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-archive-state-v1",
+      "name": "asset lifecycle: initial archive cannot already be archived",
+      "value": {
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "revision": 0,
+        "archived": true,
+        "changedAt": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-archive-state-v1",
+      "name": "asset lifecycle: initial archive cannot have a change timestamp",
+      "value": {
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "revision": 0,
+        "archived": false,
+        "changedAt": "2026-10-09T00:00:00.000Z"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-archive-state-v1",
+      "name": "asset lifecycle: changed archive needs retained timestamp",
+      "value": {
+        "target": {
+          "kind": "private-file",
+          "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+        },
+        "revision": 1,
+        "archived": true,
+        "changedAt": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-receipt-v1",
+      "name": "asset lifecycle: archive receipt cannot impersonate an unpin",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "set-archive",
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "expectedRevision": 0,
+          "archived": true
+        },
+        "commandDigest": "1111111111111111111111111111111111111111111111111111111111111111",
+        "previousArtworkId": "art:fixture-robin-v1",
+        "savedAt": "2026-10-09T00:00:00.000Z"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-receipt-v1",
+      "name": "asset lifecycle: unpin receipt cannot omit previous artwork",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "unpin",
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "birdId": "bird:fixture-robin",
+          "expectedArtworkId": "art:fixture-robin-v1"
+        },
+        "commandDigest": "1111111111111111111111111111111111111111111111111111111111111111",
+        "previousArtworkId": null,
+        "savedAt": "2026-10-09T00:00:00.000Z"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-receipt-v1",
+      "name": "asset lifecycle: unpin receipt must preserve exact artwork",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "unpin",
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "birdId": "bird:fixture-robin",
+          "expectedArtworkId": "art:fixture-robin-v1"
+        },
+        "commandDigest": "1111111111111111111111111111111111111111111111111111111111111111",
+        "previousArtworkId": "art:other-version",
+        "savedAt": "2026-10-09T00:00:00.000Z"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: archived asset cannot be newly selected",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 1,
+          "archived": true,
+          "changedAt": "2026-10-09T00:00:00.000Z"
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": true,
+        "selectionBlock": "none",
+        "cleanupEligible": true,
+        "retainedBecause": []
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: selection flag matches its reason",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 0,
+          "archived": false,
+          "changedAt": null
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": false,
+        "selectionBlock": "none",
+        "cleanupEligible": false,
+        "retainedBecause": [
+          "active"
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: active asset cannot claim archived reason",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 0,
+          "archived": false,
+          "changedAt": null
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": false,
+        "selectionBlock": "archived",
+        "cleanupEligible": false,
+        "retainedBecause": [
+          "active"
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: private package history cannot be eligible",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-package",
+            "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+          },
+          "revision": 1,
+          "archived": true,
+          "changedAt": "2026-10-09T00:00:00.000Z"
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": false,
+        "selectionBlock": "archived",
+        "cleanupEligible": true,
+        "retainedBecause": []
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: retained review evidence cannot be eligible",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 1,
+          "archived": true,
+          "changedAt": "2026-10-09T00:00:00.000Z"
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": false,
+        "selectionBlock": "archived",
+        "cleanupEligible": true,
+        "retainedBecause": [
+          "file-review-evidence"
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-entry-v1",
+      "name": "asset lifecycle: retention reasons cannot duplicate",
+      "value": {
+        "state": {
+          "target": {
+            "kind": "private-file",
+            "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+          },
+          "revision": 1,
+          "archived": true,
+          "changedAt": "2026-10-09T00:00:00.000Z"
+        },
+        "label": "Synthetic unreviewed PNG",
+        "retainedBytes": 256,
+        "selectable": false,
+        "selectionBlock": "archived",
+        "cleanupEligible": false,
+        "retainedBecause": [
+          "file-review-evidence",
+          "file-review-evidence"
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-overview-v1",
+      "name": "asset lifecycle: target entries must be unique",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "sharedCatalog": "read-only-not-owned",
+        "referenceScan": "complete",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active"
+            ]
+          }
+        ],
+        "pins": [
+          {
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          }
+        ],
+        "undoPins": []
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-overview-v1",
+      "name": "asset lifecycle: pinned bird identities must be unique",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "sharedCatalog": "read-only-not-owned",
+        "referenceScan": "complete",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active"
+            ]
+          }
+        ],
+        "pins": [
+          {
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          },
+          {
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          }
+        ],
+        "undoPins": []
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-overview-v1",
+      "name": "asset lifecycle: undo receipt identities must be unique",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "sharedCatalog": "read-only-not-owned",
+        "referenceScan": "complete",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 1,
+              "archived": true,
+              "changedAt": "2026-10-09T00:00:00.000Z"
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": false,
+            "selectionBlock": "archived",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "file-review-evidence"
+            ]
+          }
+        ],
+        "pins": [],
+        "undoPins": [
+          {
+            "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          },
+          {
+            "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-overview-v1",
+      "name": "asset lifecycle: incomplete scan fails closed for cleanup",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "sharedCatalog": "read-only-not-owned",
+        "referenceScan": "incomplete",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 1,
+              "archived": true,
+              "changedAt": "2026-10-09T00:00:00.000Z"
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": false,
+            "selectionBlock": "archived",
+            "cleanupEligible": true,
+            "retainedBecause": []
+          }
+        ],
+        "pins": [
+          {
+            "birdId": "bird:fixture-robin",
+            "artworkId": "art:fixture-robin-v1",
+            "label": "Synthetic fixture bird"
+          }
+        ],
+        "undoPins": []
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-lifecycle-response-v1",
+      "name": "asset lifecycle: nested response retains archive refinement",
+      "value": {
+        "overview": {
+          "schemaVersion": 1,
+          "purgeEnabled": false,
+          "sharedCatalog": "read-only-not-owned",
+          "referenceScan": "complete",
+          "entries": [
+            {
+              "state": {
+                "target": {
+                  "kind": "private-file",
+                  "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+                },
+                "revision": 0,
+                "archived": true,
+                "changedAt": null
+              },
+              "label": "Synthetic unreviewed PNG",
+              "retainedBytes": 256,
+              "selectable": true,
+              "selectionBlock": "none",
+              "cleanupEligible": false,
+              "retainedBecause": [
+                "active"
+              ]
+            }
+          ],
+          "pins": [
+            {
+              "birdId": "bird:fixture-robin",
+              "artworkId": "art:fixture-robin-v1",
+              "label": "Synthetic fixture bird"
+            }
+          ],
+          "undoPins": []
+        },
+        "receipt": {
+          "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
+          "replayed": false
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
     }
   ]
 }

@@ -425,6 +425,15 @@
       "baseline": false
     },
     {
+      "id": "browser-asset-retention",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/asset-retention-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
       "id": "browser-session-binding",
       "repo": "ui",
       "command": [
@@ -435,19 +444,16 @@
     }
   ],
   "activeWave": {
-    "document": "docs/delivery/visual-task-tree-20261008.md",
+    "document": "birdsong-yard-sprites/docs/asset-retention-checklist.md",
     "productRegister": "docs/delivery/product-behavior-and-ideas.md",
-    "scope": "Interactive inventory, session binding, illustrative behavior, trusted arrivals, optional analytics and pending canonical catalog contracts",
-    "verification": "passed",
-    "selectedGates": 70,
-    "priorVisualCheckpoint": "docs/delivery/visual-verified-20261008/report.json",
-    "independentReview": "birdsong-yard-sprites/docs/interactive-review-20261008.md",
-    "testedRevisions": {
-      "main": "71297f865f9274e2b5cf3100b852bb142bc98232",
-      "ui": "fde51db3e69375bdda53146d5b4b650a0d28f680"
+    "scope": "Reversible private file/package archive, guarded resident unpin/restore, read-only retention eligibility and recovery",
+    "verification": "in_progress",
+    "selectedGates": 72,
+    "baseRevisions": {
+      "main": "e97649c240a6dbab23c89a653130f064f862bf7f",
+      "ui": "1d3817710cb766d33272b3867d2d65c95dd4f50f"
     },
-    "verificationReport": "docs/delivery/interactive-verified-20261008/report.json",
-    "verificationCounts": "docs/delivery/interactive-verified-20261008/counts.json"
+    "independentReview": "birdsong-yard-sprites/docs/asset-retention-review-20261009.md"
   },
   "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",
@@ -464,5 +470,30 @@
     },
     "verificationReport": "docs/delivery/contracts-verified-20261008/report.json",
     "verificationCounts": "docs/delivery/contracts-verified-20261008/counts.json"
+  },
+  "priorInteractiveWave": {
+    "document": "docs/delivery/visual-task-tree-20261008.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Interactive inventory, session binding, illustrative behavior, trusted arrivals, optional analytics and pending canonical catalog contracts",
+    "verification": "passed",
+    "selectedGates": 70,
+    "priorVisualCheckpoint": "docs/delivery/visual-verified-20261008/report.json",
+    "independentReview": "birdsong-yard-sprites/docs/interactive-review-20261008.md",
+    "testedRevisions": {
+      "main": "71297f865f9274e2b5cf3100b852bb142bc98232",
+      "ui": "fde51db3e69375bdda53146d5b4b650a0d28f680"
+    },
+    "verificationReport": "docs/delivery/interactive-verified-20261008/report.json",
+    "verificationCounts": "docs/delivery/interactive-verified-20261008/counts.json"
+  },
+  "priorPngWave": {
+    "document": "docs/delivery/png-verified-20261009.md",
+    "verification": "passed",
+    "selectedGates": 71,
+    "testedRevisions": {
+      "main": "11ab5929d804d7fd5bff52f72afc2d22e595b1bc",
+      "ui": "a3be7e240cd7abbeddf1c71f96ae32c867778d6c"
+    },
+    "verificationReport": "docs/delivery/png-verified-20261009/report.json"
   }
 }

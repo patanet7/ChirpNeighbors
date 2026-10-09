@@ -470,6 +470,11 @@ def gates(
         ("image-intake", "image-intake-browser-checks.py", "CHIRP_IMAGE_INTAKE_OUTPUT"),
         ("image-v3", "image-v3-browser-checks.py", "CHIRP_IMAGE_V3_OUTPUT"),
         ("png-intake", "png-intake-browser-checks.py", "CHIRP_PNG_OUTPUT"),
+        (
+            "asset-retention",
+            "asset-retention-browser-checks.py",
+            "CHIRP_ASSET_RETENTION_OUTPUT",
+        ),
         ("shapes", "shape-browser-checks.py", "CHIRP_SHAPE_OUTPUT"),
         ("evidence", "evidence-browser-checks.py", "CHIRP_EVIDENCE_OUTPUT"),
         ("sharing", "share-browser-checks.py", "CHIRP_SHARE_OUTPUT"),
