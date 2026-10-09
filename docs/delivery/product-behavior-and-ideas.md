@@ -13,7 +13,7 @@ Paths prefixed **U:** belong to sibling `birdsong-yard-sprites`; **M:** belongs 
 - **Published** and **production validated** are separate states. **Every row below is unpublished by this local workstream and not production validated.** Existing published foundation bases are ancestry only; later local checkpoints are not publication evidence.
 - **Blocked** states name the missing input or technical dependency, not an invented request for renewed permission. Legacy design alternatives remain proposals unless a later decision explicitly adopts them.
 
-The last complete passing aggregate is E-CAT. Active ontology source is implemented and has E-ONT focused browser proof, and the first frozen aggregate finished **72/74**: `browser-scenes` failed on SVG fallback phase versus Pixi night; `browser-behavior` failed on a random-seed pairwise-diversity assertion. The ontology browser gate passed 38 checks in that run. A second candidate at main `944afe4cb3599c5c61c42216c37058a894ae10e2` / UI `0aab266317f844b1dd4d63c1f342c82e01b44a94` recorded 48 passing gates and one core-browser response-capture failure, then was intentionally stopped during arrangement; its [report is incomplete](LOCAL-EVIDENCE.md). Source review found a background-GET race in the one-shot POST observer; the exact intercepted method was not retained in that failed occurrence. There is **no active complete-pass claim** at this checkpoint. The integration owner must replace this paragraph only with the actual final report and exact source commits.
+The corrected ontology integration is recorded in **E-INT**, a complete frozen passing run of **74/74** gates at the exact source revisions below. This verifies the bounded illustrative engine/workbench and named regression assertions; it does not certify biological correctness, finished species artwork or production readiness. The initial **72/74** attempt remains retained in [system-r1/report.json](LOCAL-EVIDENCE.md): `browser-scenes` exposed SVG/Pixi phase divergence and `browser-behavior` exposed an invalid pairwise seed-diversity expectation. The corrected suite verifies day/night static parity and the complete fixed eight-seed matrix plus exact replay; no failed attempt is counted as a pass. The [second attempt](LOCAL-EVIDENCE.md) recorded 48 passes and one core-browser capture failure before intentional interruption. Source review found that a background GET could consume its one-shot POST observer; the original failure did not retain the intercepted method. The final harness explicitly exercises GET-before-POST and forwards the one captured POST unchanged. Neither failed nor interrupted runs establish completion.
 
 ## Exact evidence ledger
 
@@ -21,15 +21,16 @@ The last complete passing aggregate is E-CAT. Active ontology source is implemen
 | --- | --- |
 | E-CAT | main `ef67223f52448dcdbf2bef05283146a01bceda06`; ui `db931a2beb8e62dc012a981d478e27749062fd4a`. Complete local integrated 73-gate checkpoint; applicability only to named assertions and bounded scope. [docs/delivery/catalog-verified-20261009](../../docs/delivery/catalog-verified-20261009) |
 | E-ONT | ui `31585edfbb0de7fa1f04fd036a84a54428a52284`; main `Not a main-code aggregate`. Dedicated 38-check browser gate only; not full active integration. [docs/delivery/ontology-attempts-20261009/browser-r3](LOCAL-EVIDENCE.md) |
-| E-FOCUS | ui `Per-log focused working-tree runs; not a substitute frozen commit`; main `Per-log focused runs`. Focused contract/engine evidence; exact frozen integration pending. [docs/delivery/ontology-attempts-20261009/focused](LOCAL-EVIDENCE.md) |
+| E-FOCUS | ui `Per-log focused working-tree runs; not a substitute frozen commit`; main `Per-log focused runs`. Historical focused contract/engine evidence only; these logs are not a frozen integrated pass. E-INT records the later complete integration. [docs/delivery/ontology-attempts-20261009/focused](LOCAL-EVIDENCE.md) |
+| E-INT | main `6841630e3acc3ef64495cee17947ce4d3d00b6c9`; ui `1b87d62d5c99fa4936d213d44c44f56886671c36`. Complete frozen corrected ontology run, 74/74 gates; the retained report has `finished`, `completeSuite`, `frozenWorktrees` and `passed` true and unchanged final revisions. [Final report](LOCAL-EVIDENCE.md); [checkpoint](ontology-verified-20261009.md). |
 | E-HANDOFF | No passing source execution claim. Retained transport-failure record, not execution evidence. [docs/delivery/approved-handoff-blocker-20261008.md](../../docs/delivery/approved-handoff-blocker-20261008.md) |
 | E-PUBLICATION | No passing source execution claim. Historical foundation record only. Current stalled/excluded status comes from explicit 2026-10-09 user delegation; precise cause not available. [docs/agents/20261007_183500_publication-checks.md](../../docs/agents/20261007_183500_publication-checks.md) |
 
-Preserved complete checkpoint commits are main `a3c5ec6d03d405dd11724cbe14356e1d99b5ea37` / UI `b7e1ddb6f38429fa88dedcf659f45b3eb5e4aa95`; these retain E-CAT and are distinct from its tested source commits. The first active frozen candidate is main `5420c2e32a97536fc5d848f96cbd0ae49b9ed4bc` / UI `3938a260c5190ec488f637c9210f7cb37be46225`. Its attempt is not a passing checkpoint.
+Preserved complete checkpoint commits are main `a3c5ec6d03d405dd11724cbe14356e1d99b5ea37` / UI `b7e1ddb6f38429fa88dedcf659f45b3eb5e4aa95`; these retain E-CAT and are distinct from its tested source commits. The first active frozen candidate is main `5420c2e32a97536fc5d848f96cbd0ae49b9ed4bc` / UI `3938a260c5190ec488f637c9210f7cb37be46225`. Its attempt is retained as the failed [initial aggregate](LOCAL-EVIDENCE.md), distinct from the corrected E-INT tested sources.
 
 ## Coverage summary
 
-There are **34 stable entries: 22 product decisions/ideas and 12 architecture/dependency entries**. Of the original product entries, 20 are user decisions, PB-017 is a tentative user idea and PB-019 is an assistant proposal. Under the former broad register labels, 16 bounded product slices had complete historical local verification; PB-005 is implemented with dedicated browser proof awaiting full integration; PB-018 has tested pure helpers only; PB-006/PB-021 remain unimplemented at the product-outcome level; PB-016 has tested disabled helpers but unresolved operating integration; PB-017 remains unselected. These are overlapping evidence scopes, not a percentage of product readiness.
+There are **34 stable entries: 22 product decisions/ideas and 12 architecture/dependency entries**. Of the original product entries, 20 are user decisions, PB-017 is a tentative user idea and PB-019 is an assistant proposal. Under the former broad register labels, 16 bounded product slices had complete historical local verification; PB-005 now has bounded local integrated proof under E-INT; PB-018 has tested pure helpers only; PB-006/PB-021 remain unimplemented at the product-outcome level; PB-016 has tested disabled helpers but unresolved operating integration; PB-017 remains unselected. These are overlapping evidence scopes, not a percentage of product readiness.
 
 ## Product requirements and ideas
 
@@ -73,7 +74,7 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 ### PB-004 — Autonomous idle, move, hop, fly, perch, sing, feed, bathe, sleep, play and nest-building routines.
 
-**Source / decision:** user decision; Agreed. **Implementation:** Fixture engine implemented; ontology extension implemented. **Integration:** Historical local integration; active extension pending. **Publication / production:** unpublished in this workstream / not validated.
+**Source / decision:** user decision; Agreed. **Implementation:** Fixture engine implemented; ontology extension implemented. **Integration:** Local integrated ontology checkpoint (E-INT). **Publication / production:** unpublished in this workstream / not validated.
 
 **Architecture:** U:src/lib/engine/simulation.ts; U:src/lib/engine/behavior-policy.ts; U:src/lib/assets/manifest.ts; U:src/lib/engine/renderer.ts; U:src/lib/components/YardScene.svelte.
 
@@ -81,11 +82,15 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 **Tests and evidence:** [U:src/lib/engine/routines.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/routines.test.ts); [U:src/lib/engine/behavior-policy.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/behavior-policy.test.ts); [U:src/lib/engine/behavior-diagnostics.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/behavior-diagnostics.test.ts); [U:scripts/routines-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/routines-browser-checks.py); [U:scripts/ontology-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/ontology-browser-checks.py). [E-CAT:routines/routines-browser-results.json](LOCAL-EVIDENCE.md); [E-CAT:sleep/sleep-browser-results.json](LOCAL-EVIDENCE.md); [E-ONT:ontology-browser-results.json](LOCAL-EVIDENCE.md).
 
-**Dependencies:** PB-005, PB-007, PB-014. **Remaining gap:** Current sleep/play/nest frames fall back to still idle; authored species clips and biological motion remain unreviewed. Active full aggregate is not yet passing. **Next action:** Resolve current scene-phase regression, freeze, and pass the entire active suite; then review real clips under PB-021.
+**Corrected integrated evidence:** [E-INT:ui-unit.log](LOCAL-EVIDENCE.md); [E-INT:routines/routines-browser-results.json](LOCAL-EVIDENCE.md); [E-INT:sleep/sleep-browser-results.json](LOCAL-EVIDENCE.md); [E-INT:ontology/ontology-browser-results.json](LOCAL-EVIDENCE.md).
+
+**Representative exact current assertions:** `behavior-policy.test.ts`: “removes ineligible routine queue heads while serving every eligible resident finitely”; `behavior-policy.test.ts`: “skips a placed head whose valid footprint cannot fit the nest, then re-admits it after a legal object move”; `ontology-browser-checks.py`: “Missing play/nest clip deliberately resolves to the first still idle frame”; `ontology-browser-checks.py`: “Routine placement reserves its explicit object capability”.
+
+**Dependencies:** PB-005, PB-007, PB-014. **Remaining gap:** Current sleep/play/nest frames fall back to still idle; authored species clips and biological motion remain unreviewed. **Next action:** Preserve finite routine/clearance/fallback behavior while reviewing actual authored species clips under PB-021.
 
 ### PB-005 — Species-level illustrative tuning and fictional individual personality are different concepts.
 
-**Source / decision:** user decision; Agreed. **Implementation:** Bounded versioned traits/personality/workbench implemented. **Integration:** Focused and browser verified; full integration pending. **Publication / production:** unpublished in this workstream / not validated.
+**Source / decision:** user decision; Agreed. **Implementation:** Bounded versioned traits/personality/workbench implemented. **Integration:** Local integrated bounded ontology/workbench checkpoint (E-INT). **Publication / production:** unpublished in this workstream / not validated.
 
 **Architecture:** U:src/lib/engine/ontology-contracts.ts; U:src/lib/engine/behavior-profiles.ts; U:src/lib/engine/behavior-policy.ts; U:src/lib/engine/simulation.ts; U:src/lib/components/BehaviorWorkbench.svelte.
 
@@ -93,7 +98,11 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 **Tests and evidence:** [U:src/lib/engine/ontology-contracts.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/ontology-contracts.test.ts); [U:src/lib/engine/behavior-policy.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/behavior-policy.test.ts); [U:src/lib/engine/behavior-diagnostics.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/behavior-diagnostics.test.ts); [U:scripts/ontology-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/ontology-browser-checks.py). [E-ONT:ontology-browser-results.json](LOCAL-EVIDENCE.md); [E-FOCUS](LOCAL-EVIDENCE.md).
 
-**Dependencies:** PB-004, PB-007, PB-014, EN-001. **Remaining gap:** Three known illustrative profiles only (European Robin, House Sparrow and Blue Jay); unknown species retain legacy behavior. No validated biology, observed-individual inference, editable/persisted personality or progression migration. **Next action:** Complete frozen active integration, then decide persistent/editable personality separately from PB-006.
+**Corrected integrated evidence:** [E-INT:ui-unit.log](LOCAL-EVIDENCE.md); [E-INT:ontology/ontology-browser-results.json](LOCAL-EVIDENCE.md).
+
+**Representative exact current assertions:** `behavior-policy.test.ts`: “keeps illustrative species defaults separate from stable fictional personality and owner evidence”; `ontology-browser-checks.py`: “Ground-only experiment visibly relocates the same resident to eligible ground”; `ontology-browser-checks.py`: “Perch-only experiment changes actual target and world height with the same identity/pixels”; `ontology-browser-checks.py`: “Zero bathing trait rejects bathing in actual scheduling with an explicit reason”; `ontology-browser-checks.py`: “Experiments preserve private owner observations, collection, resident identity and artwork”.
+
+**Dependencies:** PB-004, PB-007, PB-014, EN-001. **Remaining gap:** Three known illustrative profiles only (European Robin, House Sparrow and Blue Jay); unknown species retain legacy behavior. No validated biology, observed-individual inference, editable/persisted personality or progression migration. **Next action:** Preserve the three authored defaults/fictional personality boundary; decide persistent/editable personality separately from PB-006.
 
 ### PB-006 — Earned companionship and levels should support attachment without pressure.
 
@@ -109,7 +118,7 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 ### PB-007 — Free per-owner object inventory separates owned stock from placed perch, feeder, bath and nest instances.
 
-**Source / decision:** user decision; Agreed. **Implementation:** Implemented. **Integration:** Local integrated checkpoint. **Publication / production:** unpublished in this workstream / not validated.
+**Source / decision:** user decision; Agreed. **Implementation:** Implemented. **Integration:** Local integrated inventory checkpoint; ontology-era capability/clearance regression reverified (E-INT). **Publication / production:** unpublished in this workstream / not validated.
 
 **Architecture:** U:src/lib/domain/object-inventory.ts; U:src/lib/server/storage/repository.ts; U:src/lib/arrangement.
 
@@ -117,11 +126,15 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 **Tests and evidence:** [U:src/lib/server/storage/object-inventory.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/storage/object-inventory.test.ts); [U:src/lib/client/save-inventory.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/client/save-inventory.test.ts); [U:scripts/inventory-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/inventory-browser-checks.py); [U:scripts/arrangement-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/arrangement-browser-checks.py). [E-CAT:inventory/inventory-browser-results.json](LOCAL-EVIDENCE.md); [E-CAT:arrangement/arrangement-browser-results.json](LOCAL-EVIDENCE.md).
 
-**Dependencies:** EN-001, PB-013. **Remaining gap:** No currency, purchases or stock economy; new ontology density behavior separately pending full verification. **Next action:** Preserve capabilities and inventory CAS when adding authored objects.
+**Corrected integrated evidence:** [E-INT:inventory/inventory-browser-results.json](LOCAL-EVIDENCE.md); [E-INT:arrangement/arrangement-browser-results.json](LOCAL-EVIDENCE.md); [E-INT:ontology/ontology-browser-results.json](LOCAL-EVIDENCE.md).
+
+**Representative exact current assertions:** `inventory-browser-checks.py`: “Returning an occupied perch releases reservations without deleting fixture residents”; `inventory-browser-checks.py`: “Inventory operations preserve evidence, residents, artwork, collection and weather”; `ontology-browser-checks.py`: “Removing the nest capability makes nesting unavailable with an explicit support rejection”.
+
+**Dependencies:** EN-001, PB-013. **Remaining gap:** No currency, purchases or stock economy. **Next action:** Preserve capabilities and inventory CAS when adding authored objects.
 
 ### PB-008 — Initial safe positions vary by session while persisted identities and yard layout stay stable.
 
-**Source / decision:** user decision; Agreed. **Implementation:** Implemented. **Integration:** Local integrated checkpoint; placement extension pending. **Publication / production:** unpublished in this workstream / not validated.
+**Source / decision:** user decision; Agreed. **Implementation:** Implemented. **Integration:** Local integrated placement and deterministic seed-matrix checkpoint (E-INT). **Publication / production:** unpublished in this workstream / not validated.
 
 **Architecture:** U:src/lib/engine/simulation.ts; U:src/lib/engine/behavior-contracts.ts; U:src/lib/components/YardScene.svelte.
 
@@ -129,11 +142,15 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 **Tests and evidence:** [U:src/lib/engine/behavior.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/behavior.test.ts); [U:src/lib/engine/behavior-policy.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/behavior-policy.test.ts); [U:scripts/behavior-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/behavior-browser-checks.py); [U:scripts/ontology-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/ontology-browser-checks.py). [E-CAT:behavior/behavior-browser-results.json](LOCAL-EVIDENCE.md); [E-ONT:ontology-browser-results.json](LOCAL-EVIDENCE.md).
 
-**Dependencies:** PB-005, PB-007. **Remaining gap:** Dense waiting protects settled/reserved support footprints; in-flight silhouettes may overlap. This is not a continuous collision solver or a finished dense-yard design. **Next action:** Finish active aggregate and preserve deterministic seed/personality separation.
+**Corrected integrated evidence:** [E-INT:ui-unit.log](LOCAL-EVIDENCE.md); [E-INT:behavior/behavior-browser-results.json](LOCAL-EVIDENCE.md); [E-INT:behavior/seed-matrix.json](LOCAL-EVIDENCE.md); [E-INT:ontology/ontology-browser-results.json](LOCAL-EVIDENCE.md).
+
+**Representative exact current assertions:** `behavior-policy.test.ts`: “retains real variation across a fixed trait-enabled seed matrix and exactly replays every outcome”; `behavior-browser-checks.py`: “The complete fixed seed matrix produces actual transient placement variation”; `behavior-browser-checks.py`: “Every fixed seed reproduces its exact initial actor state on replay”; `behavior-browser-checks.py`: “Every seed and replay preserves the complete private yard and observation evidence”; `ontology-browser-checks.py`: “Every waiting resident carries a clearance explanation and no reserved target”.
+
+**Dependencies:** PB-005, PB-007. **Remaining gap:** Dense waiting protects settled/reserved support footprints; in-flight silhouettes may overlap. This is not a continuous collision solver or a finished dense-yard design. **Next action:** Preserve complete-matrix variation and exact per-seed replay, including legal seed collisions, without changing persisted identities or personality.
 
 ### PB-009 — A decorative nonviolent predator/hawk visit can approach, scatter birds, return them and enter cooldown.
 
-**Source / decision:** user decision; Agreed. **Implementation:** Implemented. **Integration:** Local integrated checkpoint; trait response extension pending. **Publication / production:** unpublished in this workstream / not validated.
+**Source / decision:** user decision; Agreed. **Implementation:** Implemented. **Integration:** Local integrated trait-response and cancellation checkpoint (E-INT). **Publication / production:** unpublished in this workstream / not validated.
 
 **Architecture:** U:src/lib/engine/simulation.ts; U:src/lib/engine/behavior-policy.ts; U:src/lib/engine/renderer.ts.
 
@@ -141,7 +158,11 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 **Tests and evidence:** [U:src/lib/engine/visits.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/visits.test.ts); [U:src/lib/engine/behavior-policy.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/behavior-policy.test.ts); [U:scripts/behavior-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/behavior-browser-checks.py); [U:scripts/ontology-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/ontology-browser-checks.py). [E-CAT:behavior/behavior-browser-results.json](LOCAL-EVIDENCE.md); [E-ONT:ontology-browser-results.json](LOCAL-EVIDENCE.md).
 
-**Dependencies:** PB-005, PB-008. **Remaining gap:** Generic labelled fixture visitor, no approved hawk art or biological predator-response claim. **Next action:** Complete active aggregate; preserve nonviolent finite cancellation and no persistence.
+**Corrected integrated evidence:** [E-INT:ui-unit.log](LOCAL-EVIDENCE.md); [E-INT:behavior/behavior-browser-results.json](LOCAL-EVIDENCE.md); [E-INT:ontology/ontology-browser-results.json](LOCAL-EVIDENCE.md).
+
+**Representative exact current assertions:** `behavior-policy.test.ts`: “species and fictional personality alter priorities, spacing and decorative response delay”; `behavior-browser-checks.py`: “Actual renderer completes approach, scatter, return and cooldown”; `ontology-browser-checks.py`: “System reduced motion cancels the visit and refreshes stable settled renderer diagnostics”.
+
+**Dependencies:** PB-005, PB-008. **Remaining gap:** Generic labelled fixture visitor, no approved hawk art or biological predator-response claim. **Next action:** Preserve nonviolent finite cancellation, identity and no-persistence guarantees when real reviewed visitor art becomes available.
 
 ### PB-010 — A newly confirmed eligible sighting may receive one fly-in and an accessible banner; keeping remains optional.
 
@@ -157,7 +178,7 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 ### PB-011 — Visually simple regional yards use separate ground, objects, birds and foreground layers, weather and time.
 
-**Source / decision:** user decision; Agreed. **Implementation:** Layered fixture scenes implemented. **Integration:** Historical local integration; active scene regression open. **Publication / production:** unpublished in this workstream / not validated.
+**Source / decision:** user decision; Agreed. **Implementation:** Layered fixture scenes implemented. **Integration:** Local integrated fixture layers and corrected day/night Pixi/SVG parity (E-INT). **Publication / production:** unpublished in this workstream / not validated.
 
 **Architecture:** U:src/lib/scenes; U:src/lib/engine/scenes.ts; U:src/lib/domain/scene.ts; U:src/lib/components/YardScene.svelte; U:src/lib/server/weather.
 
@@ -165,7 +186,11 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 **Tests and evidence:** [U:src/lib/engine/layers.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/layers.test.ts); [U:src/lib/scenes/manifest.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/scenes/manifest.test.ts); [U:scripts/scenes-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/scenes-browser-checks.py); [U:scripts/layered-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/layered-browser-checks.py); [U:scripts/ontology-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/ontology-browser-checks.py). [E-CAT:scenes/scenes-browser-results.json](LOCAL-EVIDENCE.md); [E-CAT:layered/layered-browser-results.json](LOCAL-EVIDENCE.md); [E-ONT:ontology-browser-results.json](LOCAL-EVIDENCE.md).
 
-**Dependencies:** PB-007, PB-013, EN-009. **Remaining gap:** Active first aggregate detected fallback phase mismatch; prior passing scene proof does not verify current HEAD. Regional scenes and weather remain simulated fixtures. **Next action:** Fix and reverify SVG/Pixi phase parity; configure real weather only under EN-009.
+**Corrected integrated evidence:** [E-INT:scenes/scenes-browser-results.json](LOCAL-EVIDENCE.md); [E-INT:scenes/static-parity-night.json](LOCAL-EVIDENCE.md); [E-INT:scenes/static-parity-day.json](LOCAL-EVIDENCE.md); [E-INT:layered/layered-browser-results.json](LOCAL-EVIDENCE.md); [E-INT:ontology/ontology-browser-results.json](LOCAL-EVIDENCE.md).
+
+**Representative exact current assertions:** `scenes-browser-checks.py`: “Pixi and SVG share phase, supports, positions and depth for the same static inputs (night)” and the corresponding `(day)` assertion; `scenes-browser-checks.py`: “Static occlusion uses increasing ground-anchor depth, not elevated sprite height (night)” and the corresponding `(day)` assertion; `ontology-browser-checks.py`: “320px expanded workbench and controls do not overflow the document”; `ontology-browser-checks.py`: “Manual rain is visible without calling a weather provider”.
+
+**Dependencies:** PB-007, PB-013, EN-009. **Remaining gap:** Regional scenes and weather remain simulated fixtures. **Next action:** Preserve same-phase support/depth parity in both renderers; configure real weather only under EN-009.
 
 ### PB-012 — Private recording playback leads to analysis candidates, explicit confirmation and a saved Finding.
 
@@ -307,13 +332,17 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 ### EN-001 — Single contract authority, generated consumers and strict compatibility gates
 
-**Source / decision:** Architecture/delivery record; not new user authorization; Established architecture constraint. **Implementation:** Implemented. **Integration:** Local integrated checkpoint; four ontology additions pending full integration. **Publication / production:** unpublished in this workstream / not validated.
+**Source / decision:** Architecture/delivery record; not new user authorization; Established architecture constraint. **Implementation:** Implemented. **Integration:** Local integrated checkpoint including four additive ontology authorities (E-INT). **Publication / production:** unpublished in this workstream / not validated.
 
 **Architecture:** U:contracts/authority-inventory-v1.json; U:scripts/contract-tools; M:contracts; M:scripts/verify_system.py.
 
 **Behavioral acceptance:** One Zod/Pydantic authority per actual boundary; deterministic exports/types and independent semantic admission; bidirectional golden/property tests reject drift; explicitly version changed reader behavior and inventory each HTTP/SSR/store/config boundary.
 
 **Tests and evidence:** [U:scripts/contract-tools/boundary-inventory.test.mjs](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/contract-tools/boundary-inventory.test.mjs); [U:scripts/contract-tools/compatibility.test.mjs](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/contract-tools/compatibility.test.mjs); [M:backend-inference/tests/test_schema_document.py](../../backend-inference/tests/test_schema_document.py). [E-CAT:contract-inventory.log](LOCAL-EVIDENCE.md); [E-CAT:contract-compatibility.log](LOCAL-EVIDENCE.md); [E-CAT:zod-python-roundtrips.log](LOCAL-EVIDENCE.md); [E-FOCUS](LOCAL-EVIDENCE.md).
+
+**Corrected integrated evidence:** [E-INT:ui-unit.log](LOCAL-EVIDENCE.md); [E-INT:contract-inventory.log](LOCAL-EVIDENCE.md); [E-INT:contract-compatibility.log](LOCAL-EVIDENCE.md); [E-INT:zod-python-roundtrips.log](LOCAL-EVIDENCE.md); [E-INT:zod-python-properties.log](LOCAL-EVIDENCE.md); [E-INT:pydantic-typescript-roundtrips.log](LOCAL-EVIDENCE.md); [E-INT:pydantic-typescript-properties.log](LOCAL-EVIDENCE.md).
+
+**Representative exact current assertions:** [ontology-contracts.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/ontology-contracts.test.ts): “rejects biological claims and observation metadata”; `ontology-contracts.test.ts`: “admits maximal derived scene slot identities without private source fields”; `ontology-contracts.test.ts`: “limits developer experiments to closed transient presets”.
 
 **Dependencies:** None. **Remaining gap:** Structural validation is not owner/review authorization; inventory proves declarations/paths, not every runtime branch. Ontology adds four authorities, not biology validation. **Next action:** Keep exact authority inventory/semantic exceptions reviewed before future schemas.
 
@@ -451,13 +480,13 @@ There are **34 stable entries: 22 product decisions/ideas and 12 architecture/de
 
 ## Active ontology: input → actual effect → exact acceptance
 
-These claims are about illustrative authored product rules and decorative fiction. They are not biological knowledge or actual observations. E-ONT names the dedicated browser revision; the current full aggregate remains separate.
+These claims are about illustrative authored product rules and decorative fiction. They are not biological knowledge or actual observations. E-ONT preserves the earlier dedicated browser revision; E-INT supplies the corrected complete integration and current `ontology/ontology-browser-results.json`, `behavior/seed-matrix.json` and day/night `scenes/static-parity-*.json`. Historical screenshots and new aggregate captures remain separately labelled.
 
 | Input / boundary | Actual engine/rendering effect | Named behavioral test and visual evidence | Limit / next action |
 | --- | --- | --- | --- |
 | Species size | Fixture presentation scale changes transform/hit/legacy clearance; reviewed physical geometry retains authority | `behavior-policy.test.ts`: “never changes reviewed physical footprint when applying a developer behavior experiment”; `shape-occupancy.test.ts`: reserved support overlap; E-ONT 1×/4× pixel previews | Fractional responsive yard scaling is disclosed; native preview is separate. No anatomy approval. |
 | Speed/hop bias | Safe-ground travel changes hop/flight mode while keeping destination; unsafe routes fly | `behavior-policy.test.ts`: “locomotion bias changes actual safe-ground travel while retaining the same destination”; E-ONT actual moving transitions | Illustrative defaults for three catalog species only. |
-| Ground/perch/roost affinity | Initial placement, ordinary support choice and night support use trait eligibility and safe fallback | `behavior-policy.test.ts`: initial ground/perch affinity and night-compatible roost tests; E-ONT same resident moves perch→ground→perch | Current aggregate scene-phase regression must pass before integrated claim. |
+| Ground/perch/roost affinity | Initial placement, ordinary support choice and night support use trait eligibility and safe fallback | `behavior-policy.test.ts`: initial ground/perch affinity and night-compatible roost tests; E-ONT same resident moves perch→ground→perch | E-INT verifies corrected same-phase Pixi/SVG support, position and depth parity in day and night; authored biological roost correctness remains unvalidated. |
 | Feed/bath/nest/play/sing | Activities with zero priority are ineligible; object capability, fit and finite FIFO fairness constrain actual targets | `behavior-policy.test.ts`: disabled bathing, ineligible queue heads, unplaceable heads and legal nest move tests; E-ONT no-bathing/no-routines and nest removal | Missing authored sleep/play/nest clips deliberately use still idle; no breeding evidence. |
 | Social spacing / fictional sociability | Bounded modifier changes clearance; no-space actors wait visibly in owner controls without drawing/reserving unsafe coordinates | `behavior-policy.test.ts`: priorities/spacing/response and waits-without-overlap tests; E-ONT 84 identities / 29 placed / 55 waiting sample | Finite sample is not arbitrary-density aesthetic approval. |
 | Caution / fictional boldness | Bounded decorative response delay changes; trigger/cancel retains identities and clears reservations | `behavior-policy.test.ts`: species/personality response; `visits.test.ts`; E-ONT cautious preset and quiet cancellation | Nonviolent generic fixture predator, no observed response inference. |
@@ -474,9 +503,10 @@ Visual audit and actual screenshot interpretation: [UI behavior visual audit](ht
 | Original `architecture/product-requirements.md` names JWT/SQLModel coordinator, automatic inference→art, WS query-token auth and broad scaling targets as if current | Historical architecture proposal. Current owner application is SvelteKit/SQLite/session-bound BFF and reviewed FastAPI audio boundary; candidates require human confirmation. EN-002/004/005/012 record unimplemented alternatives and unvalidated targets. Do not turn old examples into current deployment instructions. |
 | Delivery README says “authorize transfer” | EN-006/007 and retained handoff evidence: transfer was already authorized; actual supported download failed twice before bytes. No new permission request or workaround is implied. |
 | Matrix `lazy-shared-assets` and UI `generation-cost-foundation.md` say application hook/public payload are absent | PB-003 and later shared-catalog checkpoint supersede that statement for the bounded fixture path. PB-018 runtime metering, real provider execution and production publication remain absent. |
-| Engine checklist H and row 11 refer to pending image-v3/sharing combined proof | E-CAT includes named `browser-image-v3` and `browser-sharing` passes. These older statuses are historical, not current blockers; no claim extends them to the active ontology candidate. |
-| Older visual task tree points to PNG branch as “current verified” | Checkpoint-specific history. E-CAT is the last complete verified aggregate; active ontology has separate pending integration. Preserve earlier exact revisions rather than rewriting their results. |
-| Broad PB-004/011 “verified” plus active scene failure | Historical fixture engine/layers pass is retained. Active ontology candidate is implemented/focused-tested, not completely integrated until repaired and re-run. |
+| Engine checklist H and row 11 refer to pending image-v3/sharing combined proof | E-CAT includes named `browser-image-v3` and `browser-sharing` passes. These older statuses are historical, not current blockers. E-INT separately reruns the complete ontology-era suite; retain E-CAT source revisions unchanged. |
+| Older visual task tree points to PNG branch as “current verified” | Checkpoint-specific history. E-CAT remains a preserved complete checkpoint; E-INT is the later corrected local integration. Neither checkpoint means publication or production validation. Preserve earlier exact revisions rather than rewriting their results. |
+| Broad PB-004/011 “verified” plus initial scene failure | The failed 72/74 report remains retained. E-INT separately verifies the corrected phase parity and whole-suite integration at exact source revisions; the older fixture pass was never used to erase that failure. |
+| PB-008 pairwise random-seed diversity assertion | Finite valid placement allows seed collisions. E-INT retains every case for eight fixed seeds and every replay; the full matrix must vary, and every seed must replay its exact actor state without changing private data. |
 | PB-016 described only as “agreed” despite helper tests | Helper exists and is tested disabled; operational hooks/retention policy remain unintegrated. Neither “all planned” nor “operational monitoring complete” is accurate. |
 | PB-018 wording could imply real dispatch instrumentation | Only schemas/fingerprints/pure summaries are tested. No runtime caller, durable ledger, budget enforcement or billable measurement exists. |
 | Svelte MCP/autofixer requested in older work | No dedicated callable Svelte MCP tool was available. Installed `svelte-check`, typed lint, build and actual Chromium checks are evidence; no MCP pass or connection is claimed. |
@@ -487,6 +517,6 @@ Visual audit and actual screenshot interpretation: [UI behavior visual audit](ht
 
 Reviewed source groups: the original architecture PRD and audio architecture; delivery README/matrix, visual task tree, all retained wave/checkpoint summaries and transfer record; UI engine, ontology, PNG, retention and catalog checklists; contract authority/differential inventories; generation usage, image/source/shape, authentication, private recordings/recovery, sharing, analytics, arrivals, scene/weather and local operations documents. Historical agent logs and checkpoint counts remain evidence, not new decisions. No competitor or OSS peer analysis is included.
 
-The subordinate [discovery and traceability audit](task-index-coverage.json) records 113 documentation files and 143 test-like files attributed to requirement families, with zero missing named test/evidence paths. This is file discovery and sampled traceability, not 143 passing test suites or complete case coverage. The legacy `backend-inference/tests/test_endpoints.py` is a manual device client and is explicitly excluded from automated gate claims. The independent reviewer checked all 158 relative links, the 34 stable IDs and sampled catalog/privacy/usage source assertions against retained evidence, and approved the bounded claims after narrowing physical-footprint guarantees.
+The subordinate [discovery and traceability audit](task-index-coverage.json) records 113 documentation files and 143 test-like files attributed to requirement families, with zero missing named test/evidence paths. This is file discovery and sampled traceability, not 143 passing test suites or complete case coverage. The legacy `backend-inference/tests/test_endpoints.py` is a manual device client and is explicitly excluded from automated gate claims. The independent reviewer checked all 159 then-existing relative links, the 34 stable IDs and sampled catalog/privacy/usage source assertions against retained evidence, and approved the bounded claims after narrowing physical-footprint guarantees.
 
 On each bounded slice, update this index's affected stable IDs, exact tested revision and explicit residual gap; link the detailed slice evidence rather than cloning acceptance tables into another roadmap. A focused test pass may change local-verification state, but only a complete frozen passing report changes integration state for the active candidate. Publication and production validation require their own evidence and never follow from local integration. Independent review must challenge at least one source→test→evidence link and a remaining gap before a new completed claim.

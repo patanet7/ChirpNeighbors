@@ -7,6 +7,10 @@ competing product roadmap or production-readiness percentage. Matrix implementat
 labels must be read with the named checkpoint and active-wave state; implemented
 code or an older passing aggregate does not verify a changed candidate.
 
+The current [ontology checkpoint](ontology-verified-20261009.md) records the
+complete 74-gate passing run, exact source commits and retained failed attempts.
+The index limits completion to named behavior and fixture scope.
+
 The historical checklist below records earlier bounded waves and their original
 counts. Later checkpoint links and the authoritative index supersede stale current-
 status wording without rewriting historical evidence. The [initial integrated
