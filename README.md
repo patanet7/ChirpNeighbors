@@ -2,13 +2,13 @@
 
 Bird identification from an ESP32 microphone, with a personal illustrated yard in [birdsong-yard-sprites](https://github.com/patanet7/birdsong-yard-sprites).
 
-## Current local implementation · 2026-10-08
+## Current local implementation · 2026-10-09
 
-The companion UI runs SvelteKit, Pixi and owner-scoped SQLite. It preserves the Finding → visitor → resident loop and now includes reviewed versioned asset manifests, private recording upload/playback/deletion, configurable durable authentication and an authenticated audio-analysis bridge. Artwork remains explicitly labeled technical fixtures.
+The companion UI runs SvelteKit, Pixi and owner-scoped SQLite. It includes reviewed versioned asset manifests, pose validation/fallbacks, provenance, private PNG intake/review/pins/archive, Findings and residents, configurable authentication, private recordings and analysis, revocable safe sharing, and deterministic illustrative yard/weather behavior. Artwork, biology and model scores remain technical fixtures.
 
-This repository owns the modular [audio request service](docs/architecture/audio-pipeline.md), Pydantic wire contracts, generated counterparts, synthetic evaluation and optional operator-supplied local ONNX adapter. Existing prototype hardware/streaming code is separate. No trained bird model, species-accurate art, live provider or device integration is claimed.
+This repository owns the [audio request service](docs/architecture/audio-pipeline.md), generated wire contracts and optional operator-supplied local ONNX adapter. The original ESP32 stream history is now [locally integrated](docs/delivery/esp32-integrated-20261009.md); its development receiver is separate from authenticated private recording admission. The original autonomous worker remains unavailable.
 
-Start with the [concrete task checklist](docs/delivery/README.md), [verified checkpoint](docs/delivery/checkpoint-20261008.md) and [complete local verification command](docs/delivery/quality.md). The [lifecycle checkpoint](docs/delivery/lifecycle-checkpoint-20261008.md) covers all 55 gates across the complete run and one selector-fix rerun: 554 UI tests, 136 Python tests and 460 renderer/browser assertions, plus actual auth/recovery/audio journeys. The [task checklist](docs/delivery/lifecycle-wave.md) records dependencies and remaining gates.
+Start with the [authoritative 36-entry task index](docs/delivery/product-behavior-and-ideas.md), [current product/connection audit](docs/delivery/product-audit-20261009.md), and [complete verification command](docs/delivery/quality.md). The historical [environment checkpoint](docs/delivery/environment-verified-20261009.md) retains its complete 75-gate proof; the current audit records its own exact revisions and verification state. Historical checkpoint counts are not current-source results.
 
 ## Check the integration boundary
 
@@ -25,4 +25,4 @@ This narrow command checks the original adapter only. The current CI and aggrega
 
 ## Next useful work
 
-Review real model/art inputs and production provider configuration, then integrate the separately completed worker/device artifacts only after authorized transfer. Durable managed derived-output deletion and retained-ledger recovery are implemented. Operators must retain the newest complete deletion ledger; offline backups and pre-identity checkpoints cannot be erased or automatically reconciled without that history. Docker image execution is unverified after a registry DNS failure; no publication or deployment occurred. See the checklist for dependencies and acceptance tests.
+The [audit task breakdown](docs/delivery/product-audit-20261009.md#concrete-next-tasks) gives dependencies and observable acceptance. Remaining work includes transport deadlines, the original worker, private device admission, approved model/art inputs, a real authorized import adapter, scene sound, whole-scene performance budgets and production operating policy. Normal PlatformIO registry access is blocked at proxy CONNECT; QEMU starts after a local dependency repair, but board/simulator/hardware acceptance is still open. Provider setup, publication and deployment were not performed.

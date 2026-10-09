@@ -17,6 +17,8 @@ The corrected ontology integration is recorded in **E-INT**, a complete frozen p
 
 The environment-animation slice has a **complete local integrated checkpoint, 75/75 gates passed**, on `codex/environment-animation-local` in both repositories. E-ENV records the tested main `8a7a4f078d838a0fb07f8ed62c3d28bb4b3f2916` / UI `a6da5e9b415bc3a122a38985a1c8d408d0f77b4f`. PB-023 implements continuous illustrative lighting/weather rendering and transient owner preview controls; PB-024 implements explicit authored environment-to-bird/shelter rules. Existing persisted weather schemas, saved settings and scene-clock authority remain unchanged. E-INT remains historical ontology proof; the new bounded fixture proof, independent review and residual limits are recorded in the [environment checkpoint](environment-verified-20261009.md).
 
+The subsequent [product/connection audit](product-audit-20261009.md) records four concrete fixes, official dependency/connection documentation, current browser journeys and engine resource/sound gaps. Focused evidence is retained separately from the pending complete frozen run; E-ENV and E-ESP remain historical proof at their stated revisions. The 36 stable entries below remain the authority; the audit task breakdown maps follow-up acceptance back to them.
+
 ## Exact evidence ledger
 
 | Code | Source revision(s), scope and retained evidence |
@@ -96,6 +98,8 @@ E-ENV retains 1,564 UI tests across 98 files, including 45 new tests; 429 cross-
 
 **Integrated environment extension (E-ENV; separate from E-INT):** PB-024 applies illustrative rain/snow/wind/fog and day-phase rules through existing scheduling, travel, capability, reservation and fallback paths. [Environment-policy tests](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/environment-policy.test.ts) and the [environment browser result](LOCAL-EVIDENCE.md) verify blended-effect restrictions, arrival settlement, shelter capacity/removal, safe fallback and FIFO recovery. Rain and shelter preferences create no new species clips or observations; missing clips and in-flight silhouette overlap remain explicit limits.
 
+**Current audit boundary:** Singing is visual only. Native private recording playback is implemented, but no yard sound manifest/mixer/cue scheduler exists. Future sound needs an explicit control/licensing/resource contract; see [engine review](LOCAL-EVIDENCE.md).
+
 ### PB-005 — Species-level illustrative tuning and fictional individual personality are different concepts.
 
 **Source / decision:** user decision; Agreed. **Implementation:** Bounded versioned traits/personality/workbench and environment diagnostics implemented. **Integration:** Local integrated bounded ontology/workbench checkpoint (E-INT) and environment extension (E-ENV). **Publication / production:** unpublished in this workstream / not validated.
@@ -158,6 +162,8 @@ E-ENV retains 1,564 UI tests across 98 files, including 45 new tests; 429 cross-
 
 **Dependencies:** PB-005, PB-007. **Remaining gap:** Dense waiting protects settled/reserved support footprints; in-flight silhouettes may overlap. This is not a continuous collision solver or a finished dense-yard design. **Next action:** Preserve complete-matrix variation and exact per-seed replay, including legal seed collisions, without changing persisted identities or personality.
 
+**Current audit fix:** Asymmetric reviewed bodies now reserve clearance for either facing, including ground/world bounds and hop corridors. Eight new regressions pass in the focused 132-test engine run; full current-source integration is recorded separately in the [audit](product-audit-20261009.md). Conservative waiting preserves residents; no continuous in-flight collision solver or global actor/rendering budget is claimed.
+
 ### PB-009 — A decorative nonviolent predator/hawk visit can approach, scatter birds, return them and enter cooldown.
 
 **Source / decision:** user decision; Agreed. **Implementation:** Implemented. **Integration:** Local integrated trait-response and cancellation checkpoint (E-INT). **Publication / production:** unpublished in this workstream / not validated.
@@ -216,6 +222,8 @@ E-ENV retains 1,564 UI tests across 98 files, including 45 new tests; 429 cross-
 
 **Dependencies:** PB-001, PB-013, EN-002, EN-004. **Remaining gap:** Real bird-model weights/calibration and durable autonomous Python execution are absent; saved manual Findings do not invent an unretained model backlink. **Next action:** Review real compatible model/dataset under EN-004; integrate original worker under EN-006.
 
+**Current audit fix:** Upload cancellation keeps the exact idempotent retry receipt, distinguishes uncertain server completion, aborts on navigation and fences stale-owner responses. Focused client/browser evidence is 15/15 and 34/34; see the [journey audit](LOCAL-EVIDENCE.md).
+
 ### PB-013 — Private accounts, media and owner data are the default; optional shares are safe view-only projections.
 
 **Source / decision:** user decision; Agreed. **Implementation:** Private defaults and opt-in projection implemented. **Integration:** Local integrated checkpoint. **Publication / production:** unpublished in this workstream / not validated.
@@ -229,6 +237,8 @@ E-ENV retains 1,564 UI tests across 98 files, including 45 new tests; 429 cross-
 **Representative exact assertions:** sharing.test.ts: “invalidates every capability in an older backup without changing owner yard data”; E-CAT browser result: “public view performs no API or private image requests”; E-CAT catalog browser result: “Shared view still excludes private resident names, observations, local source job and location”.
 
 **Dependencies:** EN-001, EN-002. **Remaining gap:** Production provider/account policies and account-wide erasure remain external; shared views do not show private reviewed artwork or live owner ontology. **Next action:** Preserve narrow share projection and use EN-011 for erasure scope.
+
+**Current audit fixes and limits:** A present signed Google `azp` must match the sole configured client. Supported browser origins now normalize consistently before Python CORS/session admission. The [connection audit](product-audit-20261009.md) distinguishes local signed-provider/SMTP fixtures from unverified live sign-in, explicit transport deadline gaps and missing account-wide recovery/erasure.
 
 ### PB-014 — Reviewed source rights, provenance and immutable shape/animation workbench precede reusable artwork.
 
@@ -452,7 +462,7 @@ E-ENV retains 1,564 UI tests across 98 files, including 45 new tests; 429 cross-
 
 **Tests and evidence:** [E-ESP checkpoint](esp32-integrated-20261009.md), [source hashes](LOCAL-EVIDENCE.md), [host checks](LOCAL-EVIDENCE.md), [firmware checks/setup failures](LOCAL-EVIDENCE.md) and [25-gate selected report](LOCAL-EVIDENCE.md). Main `4ce5fb535c38f67a3f31caf3a2c7ebfb988a9ceb` / UI `03574ee8509e7e45d79e0e745b6ef38fd042aca4`: 52 host tests, 96% coverage, eight native tests with ASan/UBSan, formatting and 205 browser/HTTP assertions pass. All incoming runtime sources match `99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c`. Historical upstream emulator results are not counted as new local passes.
 
-**Dependencies:** Completed PB-023/PB-024 checkpoint; EN-001, EN-004, EN-005. **Remaining gap:** PlatformIO registry proxy HTTP 403 prevents platform installation/board compilation; QEMU additionally lacks `libslirp.so.0`. Board static checks and protocol/control simulator reruns remain unrun here. Physical I2S/radio/stack/slow-peer/settings behavior, device authentication/TLS/owner binding, short-burst policy and remote CI remain unverified. EN-006's original worker transfer is separately unresolved. **Next action:** Restore supported pinned toolchain access and rerun original board/static/simulator checks with retained failure evidence; then validate hardware and design the authenticated private recording adapter. No Library retry, replacement firmware, publication or flash is authorized by this checkpoint.
+**Dependencies:** Completed PB-023/PB-024 checkpoint; EN-001, EN-004, EN-005. **Remaining gap:** PlatformIO registry proxy CONNECT 403 prevents metadata resolution and compilation. The prior successful workspace used a separate cache that is absent here. QEMU now starts after a verified temporary official Debian `libslirp0` repair; this is not a firmware scenario pass. See the [exact diagnosis](LOCAL-EVIDENCE.md). Board static checks and protocol/control simulator reruns remain unrun here. Physical I2S/radio/stack/slow-peer/settings behavior, device authentication/TLS/owner binding, short-burst policy and remote CI remain unverified. EN-006's original worker transfer is separately unresolved. **Next action:** Restore supported pinned toolchain access and rerun original board/static/simulator checks with retained failure evidence; then validate hardware and design the authenticated private recording adapter. No Library retry, replacement firmware, publication or flash is authorized by this checkpoint.
 
 ### EN-008 — One authorized real source import and trusted arrival adapter
 
@@ -460,11 +470,11 @@ E-ENV retains 1,564 UI tests across 98 files, including 45 new tests; 429 cross-
 
 **Architecture:** U:src/lib/domain/evidence.ts; U:src/lib/server/arrivals; U:docs/pending-arrival-adapters.md.
 
-**Behavioral acceptance:** Authorized representative Merlin/eBird export preserves source/taxonomy IDs and observed/unknown time; preview/errors visible; replay dedupes; only server-reviewed genuine confirmation can admit arrival receipt; unsupported data stays unknown.
+**Behavioral acceptance:** An authorized representative eBird personal-data artifact (distinct from eBird API 2.0), or another explicitly documented selected source, preserves source/taxonomy IDs and observed/unknown time; preview/errors visible; replay dedupes; only server-reviewed genuine confirmation can admit arrival receipt; unsupported data stays unknown.
 
 **Tests and evidence:** [U:src/lib/server/arrivals/adapter-eligibility.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/arrivals/adapter-eligibility.test.ts); [U:src/lib/server/storage/findings.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/storage/findings.test.ts). [E-CAT:ui-unit.log](LOCAL-EVIDENCE.md).
 
-**Dependencies:** PB-001, PB-010, PB-013. **Remaining gap:** Tests cover eligibility contracts/generic imports only, not a real Cornell integration. No representative authorized format/provider adapter exists. **Next action:** Obtain permitted sample and source semantics, then implement one bounded adapter; do not fabricate API access.
+**Dependencies:** PB-001, PB-010, PB-013. **Remaining gap:** Tests cover eligibility contracts/generic imports only, not a real Cornell integration. No representative authorized format/provider adapter exists. Merlin documents owner audio sharing and independent confirmation, not an established structured detection API/export here; BirdWeather is not a selected adapter. **Next action:** Obtain a permitted sample and exact source semantics, then implement one bounded adapter; do not fabricate API access. The [connection inventory](LOCAL-EVIDENCE.md) separates those interfaces and rights.
 
 ### EN-009 — Real regional weather and explicit coarse-location consent
 
