@@ -47,7 +47,8 @@ in this workspace.
 This is an outcome → subsystem → bounded-task → acceptance-gate tree. Each row
 above retains its acceptance criteria. V1–V5 code and V6 browser coverage are
 implemented locally and passed the retained 65-gate visual checkpoint. P1–P4 have bounded
-local contracts/validators only, with real adapters and product integration pending. Owner roles below establish file/contract boundaries;
+local contracts/validators and a verified local PNG atlas intake/review slice.
+General reference-photo, generation and segmentation adapters remain pending. Owner roles below establish file/contract boundaries;
 assignment to a parallel worker occurs only when that bounded task starts.
 
 | Outcome / subsystem | Bounded tasks | Owner role and file scope | Contract authority | Done evidence required |
@@ -87,16 +88,19 @@ owner location, private evidence and private asset references.
   No durable model score/recording backlink is fabricated.
 - P1–P4: local reference rights/taxonomy/byte contracts, separate segmentation,
   matte and supplied foreground stages, anchor-compensated QA and lossless crop
-  helpers are implemented. No photo decoder or model executes, and the image-stage
-  audit has no product route or durable retention yet. Normalize before reviewed
+  helpers are implemented. The later [PNG checkpoint](png-verified-20261009.md)
+  adds bounded real local PNG atlas decoding/private retention and reviewed packaging.
+  General reference-photo processing and models remain unavailable, and the image-stage
+  model audit has no product route or durable retention yet. Normalize before reviewed
   geometry; changing source pixels is not a shape-only revision.
 - Independent review required retry/draft preservation across unrelated refreshes,
   identical Pixi/SVG clearance, bounded channel preflight and JSON-stable byte
   hashing. These fixes and their regressions passed the frozen full-system run.
 
 The prior checkpoints remain on `codex/species-manifest-local` and
-`codex/visual-foundation-local`. The current verified integration is on
-`codex/interactive-yard-verified-local` in both repositories. Each checkpoint
+`codex/visual-foundation-local`. The prior interactive integration is preserved on
+`codex/interactive-yard-verified-local` in both repositories. The current verified
+PNG integration is on `codex/png-intake-local`; see the [PNG checkpoint](png-verified-20261009.md). Each checkpoint
 names its own exact tested commits and retains its original verification counts.
 
 ## Interactive-yard expansion — requested after visual integration
@@ -133,7 +137,7 @@ No task above is complete merely because a proposal or test fixture exists.
 | A1 | Explicit-consent first-party analytics; depends on S1 | Off by default; closed coarse schemas only, no owner/species/Findings/media/location/URLs/IP/token/freeform dimensions. Keep private consent and identity-free aggregates in separate databases, lazy runtime cannot block the yard. Revision-fence queued batches across revoke/regrant; purge bounded client buffers. Server independently enforces schema, consent, budgets and configurable retention. Internal reports require authentication and minimum bucket counts; those counts do not imply anonymity. Separate disabled security counters. No vendor or real-user activation. |
 | C1 | Fictional resident personality and companionship design | Keep biological knowledge, illustrative species simulation tuning, persistent fictional individual traits and observed evidence distinct. Specify a bounded versioned traits/progression model, earned companionship and accessible interactions before code. No missed-day punishment, starvation, guilt, loss of birds or paid affection. Daily credits and premium themes remain tentative design; no economy, ads or billing code. |
 | G1 | Typed generation usage and fingerprints | Record actual dispatch attempts/duration/hardware or provider class/cache reuse/normalization acceptance separately from human review. Unknown cost stays unknown; no invented currency amounts. Canonical recipe/model/settings/version fingerprints never contain private source data; private dedupe includes owner scope. Real execution and paid generation remain disabled. |
-| G2 | Lazy shared canonical species/style/version catalog requests; depends on G1 | This is the agreed baseline: build shared assets as species arrive, not the full catalog upfront. One durable canonical missing-asset request per identity; explicit placeholder while awaiting reviewed immutable release. Variants only as needed, pinned rights/provenance. Private input/output stays owner-scoped and cannot be promoted by relabelling metadata. Initially queue requests only; real adapters, dispatch budgets and shared rendering require separately implemented gates. |
+| G2 | Lazy shared canonical species/style/version catalog requests; depends on G1 | This is the agreed baseline: build shared assets as species arrive, not the full catalog upfront. One durable canonical missing-asset request per identity; explicit placeholder while awaiting reviewed immutable release. Optional later variants as needed, with pinned rights/provenance. Private input/output stays owner-scoped and cannot be promoted by relabelling metadata. Initially queue requests only; real adapters, dispatch budgets and shared rendering require separately implemented gates. |
 
 The first frozen visual aggregate at main `1a488d72776a19bc3750217844c9100de43d78d5`
 and UI `5ab2d97ef59f39738d2ae3c45ea7152dc50fa3c5` passed 60/65 gates.
@@ -152,3 +156,11 @@ I1–I5, S1 and the bounded A1 implementation passed the complete 70-gate run.
 See [interactive verification](interactive-verified-20261008.md) for exact source
 commits, retained failures, acceptance counts and previews. G1/G2 remain a
 verified contract/queue foundation with activation unavailable; C1 remains design.
+
+## Bounded real PNG follow-through — 2026-10-09
+
+The [71-gate PNG checkpoint](png-verified-20261009.md) on `codex/png-intake-local`
+preserves the earlier branch and completes one P1/P4 slice. Dependencies and
+acceptance are in UI `docs/png-intake-checklist.md`; PB-020 records its verified
+mechanics and PB-021 keeps the species-photo/art goal agreed. It does not complete
+P1–P4 as a whole or bootstrap nonfixture reference/fidelity authority.
