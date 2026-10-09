@@ -1,0 +1,40 @@
+{
+  "$ref": "#/definitions/PngFrameLayoutV1",
+  "definitions": {
+    "PngFrameLayoutV1": {
+      "type": "object",
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 256
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 256
+        },
+        "columns": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "rows": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        }
+      },
+      "required": [
+        "width",
+        "height",
+        "columns",
+        "rows"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/png-frame-layout-v1.schema.json",
+  "description": "Private local PNG structural boundary. Real binary PNG upload is bounded before decoding. File ownership, immutable original/canonical/RGBA hashes, exact atlas extraction, rights review, reference validation and explicit source/manifest review require server authority. A file, schema or fixture never grants derivative rights, species fidelity, provider execution or public release. No paths or remote fetching."
+}

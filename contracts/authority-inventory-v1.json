@@ -1,0 +1,4139 @@
+{
+  "schemaVersion": 1,
+  "kind": "contract-authority-inventory",
+  "boundaries": [
+    {
+      "id": "api/analysis:GET",
+      "category": "http",
+      "owner": "audio",
+      "version": "audio protocol v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/analysis/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/contracts.py",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/analysis-contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Pydantic validation-mode command and serialization-mode event/error generate executable TypeScript guards; GET returns local analysis configuration."
+      ],
+      "semantic": [
+        "Provider/model pins, WAV summary/window/review references, live owner generation and command digest must agree."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/analysis-client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/analysis.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/analysis:POST",
+      "category": "http",
+      "owner": "audio",
+      "version": "audio protocol v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/analysis/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/contracts.py",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/analysis-contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Pydantic validation-mode command and serialization-mode event/error generate executable TypeScript guards; GET returns local analysis configuration."
+      ],
+      "semantic": [
+        "Provider/model pins, WAV summary/window/review references, live owner generation and command digest must agree."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/analysis-client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/analysis.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/analysis/confirm:POST",
+      "category": "http",
+      "owner": "root",
+      "version": "confirmation v1; generated audio v1 payload",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/analysis/confirm/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/confirmation-contracts.ts",
+          "symbols": [
+            "confirmationCommandSchema",
+            "confirmationReceiptSchema",
+            "confirmationErrorSchema",
+            "latestAnalysisResponseSchema"
+          ]
+        },
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/contracts.py",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed command/receipt/error Zod shapes; latest-result wrapper embeds a generated audio guard and is deliberately not exported as portable JSON Schema."
+      ],
+      "semantic": [
+        "Receipt request/candidate/time binding, selected species domain admissibility, live derived generation and atomic independent Finding persistence."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/confirmation-client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/confirmation.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/backup:GET",
+      "category": "http",
+      "owner": "root",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/backup/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/domain/yard.ts",
+          "symbols": [
+            "yardDataSchema",
+            "yardSnapshotSchema",
+            "backupSchema",
+            "publicYardProjectionSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed Zod request/domain shapes; derived response composition references the same authority."
+      ],
+      "semantic": [
+        "Owner isolation, live state and command transaction checks remain server admission rules."
+      ],
+      "codec": [
+        "Private JSON attachment is a version-2 backup, not a share projection; receiving restore validates references and revisions."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "api/jobs:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/jobs/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/contracts.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/commands.ts",
+          "symbols": [
+            "jobCommandSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed Zod request/domain shapes; derived response composition references the same authority."
+      ],
+      "semantic": [
+        "Job ancestry, review ownership, stage status/lease/retry and artifact provenance are canonical pipeline graph refinements plus repository transactions."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/client/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/pipeline/pipeline.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/jobs:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/jobs/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/contracts.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/commands.ts",
+          "symbols": [
+            "jobCommandSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed Zod request/domain shapes; derived response composition references the same authority."
+      ],
+      "semantic": [
+        "Job ancestry, review ownership, stage status/lease/retry and artifact provenance are canonical pipeline graph refinements plus repository transactions.",
+        "revise-shape accepts geometry plus an exact base pin only; the server clones the complete retained source. Idempotent queueing creates a new review candidate without mutating pixels, lineage, approved artifacts or existing resident pins."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/client/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/pipeline/pipeline.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/revise-shape.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/jobs/asset-sample:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/jobs/asset-sample/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/intake.ts",
+          "symbols": [
+            "assetPackagingInputSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/intake-v2.ts",
+          "symbols": [
+            "assetPackagingInputV2Schema"
+          ]
+        }
+      ],
+      "structural": [
+        "Strict duplicate-free query union selects legacy intake1 or intake2; output is constructed through its original packaging schema."
+      ],
+      "semantic": [
+        "Authenticated existing technical pixels only. Intake2 requires an exact approved version2 fixture reference for this owner; request metadata grants no review authorization."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/client/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/pipeline/pipeline.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings:GET",
+      "category": "http",
+      "owner": "media",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/http-contracts.ts",
+          "symbols": [
+            "recordingsPageSchema",
+            "uploadResponseSchema",
+            "deleteResponseSchema",
+            "cleanupResponseSchema",
+            "recordingErrorResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/lifecycle-contracts.ts",
+          "symbols": [
+            "recordingLifecycleSchema",
+            "recordingLifecyclePageSchema",
+            "deletionLedgerSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed metadata/list/upload/delete/cleanup views; lifecycle version 1 discriminates retained/deleting/deleted; bounded cursor query."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings:POST",
+      "category": "http",
+      "owner": "media",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/http-contracts.ts",
+          "symbols": [
+            "recordingsPageSchema",
+            "uploadResponseSchema",
+            "deleteResponseSchema",
+            "cleanupResponseSchema",
+            "recordingErrorResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/lifecycle-contracts.ts",
+          "symbols": [
+            "recordingLifecycleSchema",
+            "recordingLifecyclePageSchema",
+            "deletionLedgerSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed metadata/list/upload/delete/cleanup views; lifecycle version 1 discriminates retained/deleting/deleted; bounded cursor query."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "Stream-bounded WAV upload with parsed metadata, SHA and optional idempotency headers; response JSON uses uploadResponseSchema."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings/[id]:GET",
+      "category": "http",
+      "owner": "media",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/[id]/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/http-contracts.ts",
+          "symbols": [
+            "recordingsPageSchema",
+            "uploadResponseSchema",
+            "deleteResponseSchema",
+            "cleanupResponseSchema",
+            "recordingErrorResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/lifecycle-contracts.ts",
+          "symbols": [
+            "recordingLifecycleSchema",
+            "recordingLifecyclePageSchema",
+            "deletionLedgerSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed metadata/list/upload/delete/cleanup views; lifecycle version 1 discriminates retained/deleting/deleted; bounded cursor query."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings/[id]:DELETE",
+      "category": "http",
+      "owner": "media",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/[id]/+server.ts",
+        "symbols": []
+      },
+      "operation": "DELETE",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/http-contracts.ts",
+          "symbols": [
+            "recordingsPageSchema",
+            "uploadResponseSchema",
+            "deleteResponseSchema",
+            "cleanupResponseSchema",
+            "recordingErrorResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/lifecycle-contracts.ts",
+          "symbols": [
+            "recordingLifecycleSchema",
+            "recordingLifecyclePageSchema",
+            "deletionLedgerSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed metadata/list/upload/delete/cleanup views; lifecycle version 1 discriminates retained/deleting/deleted; bounded cursor query."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings/[id]/analysis-permit:GET",
+      "category": "http",
+      "owner": "media",
+      "version": "permit v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/[id]/analysis-permit/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/contracts.py",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/service.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Generated Pydantic serialization schema for immutable recording UUID/generation/SHA and synthetic fixture flag."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings/[id]/analysis-result:GET",
+      "category": "http",
+      "owner": "root",
+      "version": "confirmation v1; generated audio v1 payload",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/[id]/analysis-result/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/confirmation-contracts.ts",
+          "symbols": [
+            "confirmationCommandSchema",
+            "confirmationReceiptSchema",
+            "confirmationErrorSchema",
+            "latestAnalysisResponseSchema"
+          ]
+        },
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/contracts.py",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed command/receipt/error Zod shapes; latest-result wrapper embeds a generated audio guard and is deliberately not exported as portable JSON Schema."
+      ],
+      "semantic": [
+        "Receipt request/candidate/time binding, selected species domain admissibility, live derived generation and atomic independent Finding persistence."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/confirmation-client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/confirmation.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings/[id]/audio:GET",
+      "category": "http",
+      "owner": "media",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/[id]/audio/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/wav.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/http.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/http-contracts.ts",
+          "symbols": [
+            "recordingsPageSchema",
+            "uploadResponseSchema",
+            "deleteResponseSchema",
+            "cleanupResponseSchema",
+            "recordingErrorResponseSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed metadata/list/upload/delete/cleanup views; lifecycle version 1 discriminates retained/deleting/deleted; bounded cursor query."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "Canonical PCM16 WAV header, byte-length/SHA verification, bounded single HTTP range and HEAD without bytes."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings/[id]/audio:HEAD",
+      "category": "http",
+      "owner": "media",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/[id]/audio/+server.ts",
+        "symbols": []
+      },
+      "operation": "HEAD",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/wav.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/http.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/http-contracts.ts",
+          "symbols": [
+            "recordingsPageSchema",
+            "uploadResponseSchema",
+            "deleteResponseSchema",
+            "cleanupResponseSchema",
+            "recordingErrorResponseSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed metadata/list/upload/delete/cleanup views; lifecycle version 1 discriminates retained/deleting/deleted; bounded cursor query."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "Canonical PCM16 WAV header, byte-length/SHA verification, bounded single HTTP range and HEAD without bytes."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings/[id]/lifecycle:GET",
+      "category": "http",
+      "owner": "media",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/[id]/lifecycle/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/http-contracts.ts",
+          "symbols": [
+            "recordingsPageSchema",
+            "uploadResponseSchema",
+            "deleteResponseSchema",
+            "cleanupResponseSchema",
+            "recordingErrorResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/lifecycle-contracts.ts",
+          "symbols": [
+            "recordingLifecycleSchema",
+            "recordingLifecyclePageSchema",
+            "deletionLedgerSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed metadata/list/upload/delete/cleanup views; lifecycle version 1 discriminates retained/deleting/deleted; bounded cursor query."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings/cleanup:POST",
+      "category": "http",
+      "owner": "media",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/cleanup/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/http-contracts.ts",
+          "symbols": [
+            "recordingsPageSchema",
+            "uploadResponseSchema",
+            "deleteResponseSchema",
+            "cleanupResponseSchema",
+            "recordingErrorResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/lifecycle-contracts.ts",
+          "symbols": [
+            "recordingLifecycleSchema",
+            "recordingLifecyclePageSchema",
+            "deletionLedgerSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed metadata/list/upload/delete/cleanup views; lifecycle version 1 discriminates retained/deleting/deleted; bounded cursor query."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "Empty strict JSON command invokes a bounded local cleanup batch; completion counts do not imply global deletion."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/recordings/lifecycle:GET",
+      "category": "http",
+      "owner": "media",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/recordings/lifecycle/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/http-contracts.ts",
+          "symbols": [
+            "recordingsPageSchema",
+            "uploadResponseSchema",
+            "deleteResponseSchema",
+            "cleanupResponseSchema",
+            "recordingErrorResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/lifecycle-contracts.ts",
+          "symbols": [
+            "recordingLifecycleSchema",
+            "recordingLifecyclePageSchema",
+            "deletionLedgerSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed metadata/list/upload/delete/cleanup views; lifecycle version 1 discriminates retained/deleting/deleted; bounded cursor query."
+      ],
+      "semantic": [
+        "Unique page IDs/cursor-last identity, metadata byte/frame agreement, owner/live generation, atomic revocation and lease-fenced cleanup."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/recordings.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/lifecycle.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/session:GET",
+      "category": "http",
+      "owner": "auth",
+      "version": "session verifier v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/session/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "main",
+          "path": "backend-inference/app/models/session_verifier.py",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/auth/session-binding.ts",
+          "symbols": [
+            "sessionBindingSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Generated Pydantic response guard validates identity/null; App.Locals derives the generated type."
+      ],
+      "semantic": [
+        "Signature/provider verification, expiry and owner identity authority precede response serialization.",
+        "Body contract remains unchanged; verified non-bearer binding response header protects document lifetime."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/app.d.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "api/share:GET",
+      "category": "http",
+      "owner": "ops",
+      "version": "sharing v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/share/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/contracts.ts",
+          "symbols": [
+            "shareCreateCommandSchema",
+            "shareRevokeCommandSchema",
+            "shareStatusSchema",
+            "shareCreatedSchema",
+            "publicShareSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed snapshot/status/create/revoke/error shapes; opaque token public lookup; share-preview uses publicYardProjectionSchema instead."
+      ],
+      "semantic": [
+        "Allowlisted catalog names/unique display keys, immutable snapshot, one-time capability, compare-and-swap replacement, bounded expiry and revocation."
+      ],
+      "codec": [
+        "Token entropy/hash, snapshot byte bound, no-store/no-referrer and opaque public failures are server/runtime rules."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/sharing/sharing.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/share:POST",
+      "category": "http",
+      "owner": "ops",
+      "version": "sharing v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/share/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/contracts.ts",
+          "symbols": [
+            "shareCreateCommandSchema",
+            "shareRevokeCommandSchema",
+            "shareStatusSchema",
+            "shareCreatedSchema",
+            "publicShareSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed snapshot/status/create/revoke/error shapes; opaque token public lookup; share-preview uses publicYardProjectionSchema instead."
+      ],
+      "semantic": [
+        "Allowlisted catalog names/unique display keys, immutable snapshot, one-time capability, compare-and-swap replacement, bounded expiry and revocation."
+      ],
+      "codec": [
+        "Token entropy/hash, snapshot byte bound, no-store/no-referrer and opaque public failures are server/runtime rules."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/sharing/sharing.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/share:DELETE",
+      "category": "http",
+      "owner": "ops",
+      "version": "sharing v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/share/+server.ts",
+        "symbols": []
+      },
+      "operation": "DELETE",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/contracts.ts",
+          "symbols": [
+            "shareCreateCommandSchema",
+            "shareRevokeCommandSchema",
+            "shareStatusSchema",
+            "shareCreatedSchema",
+            "publicShareSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed snapshot/status/create/revoke/error shapes; opaque token public lookup; share-preview uses publicYardProjectionSchema instead."
+      ],
+      "semantic": [
+        "Allowlisted catalog names/unique display keys, immutable snapshot, one-time capability, compare-and-swap replacement, bounded expiry and revocation."
+      ],
+      "codec": [
+        "Token entropy/hash, snapshot byte bound, no-store/no-referrer and opaque public failures are server/runtime rules."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/sharing/sharing.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/share-preview:GET",
+      "category": "http",
+      "owner": "ops",
+      "version": "legacy authenticated projection",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/share-preview/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/domain/yard.ts",
+          "symbols": [
+            "yardDataSchema",
+            "yardSnapshotSchema",
+            "backupSchema",
+            "publicYardProjectionSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed snapshot/status/create/revoke/error shapes; opaque token public lookup; share-preview uses publicYardProjectionSchema instead."
+      ],
+      "semantic": [
+        "Authenticated preview only; this endpoint creates no public capability."
+      ],
+      "codec": [
+        "Token entropy/hash, snapshot byte bound, no-store/no-referrer and opaque public failures are server/runtime rules."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/sharing/sharing.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/shares/[token]:GET",
+      "category": "http",
+      "owner": "ops",
+      "version": "sharing v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/shares/[token]/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/contracts.ts",
+          "symbols": [
+            "shareCreateCommandSchema",
+            "shareRevokeCommandSchema",
+            "shareStatusSchema",
+            "shareCreatedSchema",
+            "publicShareSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed snapshot/status/create/revoke/error shapes; opaque token public lookup; share-preview uses publicYardProjectionSchema instead."
+      ],
+      "semantic": [
+        "Allowlisted catalog names/unique display keys, immutable snapshot, one-time capability, compare-and-swap replacement, bounded expiry and revocation."
+      ],
+      "codec": [
+        "Token entropy/hash, snapshot byte bound, no-store/no-referrer and opaque public failures are server/runtime rules."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/client.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/sharing/sharing.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/yard:GET",
+      "category": "http",
+      "owner": "root",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/yard/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/domain/yard.ts",
+          "symbols": [
+            "yardDataSchema",
+            "yardSnapshotSchema",
+            "backupSchema",
+            "publicYardProjectionSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/domain/commands.ts",
+          "symbols": [
+            "yardCommandSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/client/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed Zod request/domain shapes; derived response composition references the same authority."
+      ],
+      "semantic": [
+        "Owner isolation, live state and command transaction checks remain server admission rules."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/repository.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/yard:POST",
+      "category": "http",
+      "owner": "root",
+      "version": "legacy stable view (unversioned envelope)",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/yard/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/domain/yard.ts",
+          "symbols": [
+            "yardDataSchema",
+            "yardSnapshotSchema",
+            "backupSchema",
+            "publicYardProjectionSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/domain/commands.ts",
+          "symbols": [
+            "yardCommandSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/client/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed Zod request/domain shapes; derived response composition references the same authority."
+      ],
+      "semantic": [
+        "Owner isolation, live state and command transaction checks remain server admission rules."
+      ],
+      "codec": [
+        "HTTP JSON decoding and bounded request bodies are distinct from object validation."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/repository.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "auth/dev:POST",
+      "category": "http",
+      "owner": "auth",
+      "version": "native form plus Better Auth library protocol",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/auth/dev/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "form",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/config.ts",
+          "symbols": [
+            "authConfigSchema",
+            "authAvailabilitySchema",
+            "authEnvironmentSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/forms.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed Zod request/domain shapes; derived response composition references the same authority."
+      ],
+      "semantic": [
+        "Provider allowlist, safe return path, signed development fixture only when explicit config allows it; redirects/cookies are not JSON DTOs."
+      ],
+      "codec": [
+        "Bounded native form data and framework origin/CSRF checks; Better Auth owns external provider protocol."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "auth/email:POST",
+      "category": "http",
+      "owner": "auth",
+      "version": "native form plus Better Auth library protocol",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/auth/email/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "form",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/config.ts",
+          "symbols": [
+            "authConfigSchema",
+            "authAvailabilitySchema",
+            "authEnvironmentSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/forms.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed Zod request/domain shapes; derived response composition references the same authority."
+      ],
+      "semantic": [
+        "Provider allowlist, safe return path, signed development fixture only when explicit config allows it; redirects/cookies are not JSON DTOs."
+      ],
+      "codec": [
+        "Bounded native form data and framework origin/CSRF checks; Better Auth owns external provider protocol."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "auth/google:POST",
+      "category": "http",
+      "owner": "auth",
+      "version": "native form plus Better Auth library protocol",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/auth/google/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "form",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/config.ts",
+          "symbols": [
+            "authConfigSchema",
+            "authAvailabilitySchema",
+            "authEnvironmentSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/forms.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed Zod request/domain shapes; derived response composition references the same authority."
+      ],
+      "semantic": [
+        "Provider allowlist, safe return path, signed development fixture only when explicit config allows it; redirects/cookies are not JSON DTOs."
+      ],
+      "codec": [
+        "Bounded native form data and framework origin/CSRF checks; Better Auth owns external provider protocol."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "auth/logout:POST",
+      "category": "http",
+      "owner": "auth",
+      "version": "native form plus Better Auth library protocol",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/auth/logout/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "form",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/config.ts",
+          "symbols": [
+            "authConfigSchema",
+            "authAvailabilitySchema",
+            "authEnvironmentSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/forms.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed Zod request/domain shapes; derived response composition references the same authority."
+      ],
+      "semantic": [
+        "Provider allowlist, safe return path, signed development fixture only when explicit config allows it; redirects/cookies are not JSON DTOs."
+      ],
+      "codec": [
+        "Bounded native form data and framework origin/CSRF checks; Better Auth owns external provider protocol."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "health/live:GET",
+      "category": "http",
+      "owner": "ops",
+      "version": "finite text health v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/health/live/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "text",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/operations/readiness.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Plain text alive / ready / not ready with finite HTTP statuses; no JSON schema claimed."
+      ],
+      "semantic": [
+        "Readiness probes configured private storage/auth; liveness says process can answer."
+      ],
+      "codec": [
+        "text/plain, no-cache operational response; no private diagnostic payload."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "health/ready:GET",
+      "category": "http",
+      "owner": "ops",
+      "version": "finite text health v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/health/ready/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "text",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/operations/readiness.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Plain text alive / ready / not ready with finite HTTP statuses; no JSON schema claimed."
+      ],
+      "semantic": [
+        "Readiness probes configured private storage/auth; liveness says process can answer."
+      ],
+      "codec": [
+        "text/plain, no-cache operational response; no private diagnostic payload."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "src/routes/+page.server.ts:load",
+      "category": "ssr",
+      "owner": "root",
+      "version": "SvelteKit load serialization",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/client/yard-page.ts",
+          "symbols": [
+            "yardPageDataSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/arrivals/contracts.ts",
+          "symbols": [
+            "arrivalListSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical yard aggregate validates generated identity, auth mode, snapshot, assets and workbench jobs before SSR serialization."
+      ],
+      "semantic": [
+        "Anonymous state cannot carry owner assets, jobs or snapshot; constituent snapshot/job/asset guards retain their source invariants.",
+        "Private arrivals remain bounded and anonymous pages have none; source admission remains server-owned."
+      ],
+      "codec": [
+        "SvelteKit SSR serialization/redirect/error codecs.",
+        "Generated identity and optimized JSON custom wrappers are runtime authority adapters, not independently portable-exportable schemas."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/client/yard-page.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "src/routes/recordings/+page.server.ts:load",
+      "category": "ssr",
+      "owner": "media",
+      "version": "SvelteKit load serialization",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/recordings/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/page-contracts.ts",
+          "symbols": [
+            "recordingPageDataSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed private aggregate composes generated session identity and analysis guards with canonical pages; anonymous/failure states exclude private records."
+      ],
+      "semantic": [
+        "Owner scoped list/lifecycle with truthful unavailable state; no zero-count success substituted for read failure."
+      ],
+      "codec": [
+        "SvelteKit SSR serialization/redirect/error codecs.",
+        "Custom identity/config wrappers reuse generated executable guards; this aggregate is not independently portable-exportable."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "src/routes/login/+page.server.ts:load",
+      "category": "ssr",
+      "owner": "auth",
+      "version": "SvelteKit load serialization",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/login/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/auth/contracts.ts",
+          "symbols": [
+            "loginPageSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical login aggregate is parsed before SSR serialization; availability and safe destination retain auth authority."
+      ],
+      "semantic": [
+        "Provider availability and safe return path only; no secrets or account details."
+      ],
+      "codec": [
+        "SvelteKit SSR serialization/redirect/error codecs.",
+        "Custom identity/config wrappers reuse generated executable guards; this aggregate is not independently portable-exportable."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "src/routes/s/[token]/+page.server.ts:load",
+      "category": "ssr",
+      "owner": "ops",
+      "version": "SvelteKit load serialization",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/s/[token]/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/sharing/contracts.ts",
+          "symbols": [
+            "publicSharePageSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed anonymous snapshot aggregate is parsed before serialization; invalid output becomes opaque404."
+      ],
+      "semantic": [
+        "Anonymous immutable sanitized snapshot; no client script or owner lookup."
+      ],
+      "codec": [
+        "SvelteKit SSR serialization/redirect/error codecs."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "better-auth:/api/auth/magic-link/verify",
+      "category": "hook-http",
+      "owner": "auth",
+      "version": "Better Auth pinned library protocol",
+      "source": {
+        "repo": "ui",
+        "path": "src/hooks.server.ts",
+        "symbols": []
+      },
+      "operation": "GET /api/auth/magic-link/verify",
+      "transport": "framework",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/service.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Library-owned provider callback/query/cookie protocol; no handwritten mirror."
+      ],
+      "semantic": [
+        "Exact mounted path/method allowlist, configured origin and provider verification."
+      ],
+      "codec": [
+        "Bounded URL, framework Request/Response and signed library cookies."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "better-auth:/api/auth/callback/google",
+      "category": "hook-http",
+      "owner": "auth",
+      "version": "Better Auth pinned library protocol",
+      "source": {
+        "repo": "ui",
+        "path": "src/hooks.server.ts",
+        "symbols": []
+      },
+      "operation": "GET /api/auth/callback/google",
+      "transport": "framework",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/service.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Library-owned provider callback/query/cookie protocol; no handwritten mirror."
+      ],
+      "semantic": [
+        "Exact mounted path/method allowlist, configured origin and provider verification."
+      ],
+      "codec": [
+        "Bounded URL, framework Request/Response and signed library cookies."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "better-auth:/api/auth/error",
+      "category": "hook-http",
+      "owner": "auth",
+      "version": "Better Auth pinned library protocol",
+      "source": {
+        "repo": "ui",
+        "path": "src/hooks.server.ts",
+        "symbols": []
+      },
+      "operation": "GET /api/auth/error",
+      "transport": "framework",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/service.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Library-owned provider callback/query/cookie protocol; no handwritten mirror."
+      ],
+      "semantic": [
+        "Exact mounted path/method allowlist, configured origin and provider verification."
+      ],
+      "codec": [
+        "Bounded URL, framework Request/Response and signed library cookies."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "audio:/healthz",
+      "category": "python-http",
+      "owner": "audio",
+      "version": "audio HTTP v1",
+      "source": {
+        "repo": "main",
+        "path": "backend-inference/app/audio_pipeline/api.py",
+        "symbols": []
+      },
+      "operation": "GET /healthz",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/contracts.py",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Pydantic command validation and event/error/health/readiness serialization-mode schemas; generated OpenAPI binds endpoint statuses."
+      ],
+      "semantic": [
+        "Live session/permit and generation checks, bounded private WAV decoding, pinned provider result semantics."
+      ],
+      "codec": [
+        "FastAPI JSON body/header limits and sanitized framework failures; fixed-origin HTTPX redirects prohibited."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "main",
+          "path": "backend-inference/tests/test_audio_api.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "audio:/readyz",
+      "category": "python-http",
+      "owner": "audio",
+      "version": "audio HTTP v1",
+      "source": {
+        "repo": "main",
+        "path": "backend-inference/app/audio_pipeline/api.py",
+        "symbols": []
+      },
+      "operation": "GET /readyz",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/contracts.py",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Pydantic command validation and event/error/health/readiness serialization-mode schemas; generated OpenAPI binds endpoint statuses."
+      ],
+      "semantic": [
+        "Live session/permit and generation checks, bounded private WAV decoding, pinned provider result semantics."
+      ],
+      "codec": [
+        "FastAPI JSON body/header limits and sanitized framework failures; fixed-origin HTTPX redirects prohibited."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "main",
+          "path": "backend-inference/tests/test_audio_api.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "audio:/v1/audio/analyze",
+      "category": "python-http",
+      "owner": "audio",
+      "version": "audio HTTP v1",
+      "source": {
+        "repo": "main",
+        "path": "backend-inference/app/audio_pipeline/api.py",
+        "symbols": []
+      },
+      "operation": "POST /v1/audio/analyze",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/contracts.py",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Pydantic command validation and event/error/health/readiness serialization-mode schemas; generated OpenAPI binds endpoint statuses."
+      ],
+      "semantic": [
+        "Live session/permit and generation checks, bounded private WAV decoding, pinned provider result semantics."
+      ],
+      "codec": [
+        "FastAPI JSON body/header limits and sanitized framework failures; fixed-origin HTTPX redirects prohibited."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "main",
+          "path": "backend-inference/tests/test_audio_api.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Escaped lone-surrogate free text is representable in JavaScript/Ajv but rejected by Pydantic JSON decoding; valid-Unicode corpus does not claim parity for this decoder edge."
+      ]
+    },
+    {
+      "id": "source-event",
+      "category": "event",
+      "owner": "root",
+      "version": "v2",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/domain/yard.ts",
+        "symbols": [
+          "yardDataSchema",
+          "yardSnapshotSchema",
+          "backupSchema",
+          "publicYardProjectionSchema"
+        ]
+      },
+      "operation": "import",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/domain/yard.ts",
+          "symbols": [
+            "yardDataSchema",
+            "yardSnapshotSchema",
+            "backupSchema",
+            "publicYardProjectionSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Source-neutral import event with UTC/null observation time; ingestion time is server owned."
+      ],
+      "semantic": [
+        "Evidence idempotency/fingerprints, correction revision and species links are transactional."
+      ],
+      "codec": [
+        "JSON text import and private backup restore are bounded separately."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": [
+        "Known portable/source string-length difference: JSON Schema counts Unicode code points while Zod counts UTF-16 units; exact observed cases are frozen in property-semantic-rejections-v1.json."
+      ]
+    },
+    {
+      "id": "yard-store",
+      "category": "store",
+      "owner": "root",
+      "version": "SQLite migrations + yard v2",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/storage/repository.ts",
+        "symbols": []
+      },
+      "operation": "read/write",
+      "transport": "sqlite",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/repository.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "yardDataSchema and projections are persisted state authority."
+      ],
+      "semantic": [
+        "Migrations, foreign references, scene placements and correction chains validate before admission."
+      ],
+      "codec": [
+        "SQLite transaction/savepoint and canonical JSON codecs."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "recording-store",
+      "category": "store",
+      "owner": "media",
+      "version": "recording migrations v3",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/recordings/rows.ts",
+        "symbols": []
+      },
+      "operation": "read/write",
+      "transport": "sqlite",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/rows.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed canonical row guards bind JSON metadata to SQL identity/time."
+      ],
+      "semantic": [
+        "Tombstones, generation, immutable intents and lease fencing survive restart."
+      ],
+      "codec": [
+        "Canonical JSON plus managed WAV bytes/SHA; lifecycle recovery validates lineage and contiguous retained ledger."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "derived-output",
+      "category": "store",
+      "owner": "root",
+      "version": "derived admission v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/recordings/lifecycle-contracts.ts",
+        "symbols": [
+          "derivedAdmissionSchema",
+          "derivedOutputSchema"
+        ]
+      },
+      "operation": "admit/read",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/recordings/lifecycle-contracts.ts",
+          "symbols": [
+            "derivedAdmissionSchema",
+            "derivedOutputSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Bounded safe generation/digest/JSON derived admission; no arbitrary browser result trust."
+      ],
+      "semantic": [
+        "Immutable command binding, payload digest, live owner/generation, deletion revocation; confirmation receipts survive independently."
+      ],
+      "codec": [
+        "256KiB canonical payload bound and stored digest check."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "pipeline",
+      "category": "job",
+      "owner": "image",
+      "version": "legacy pipeline v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/pipeline/contracts.ts",
+        "symbols": []
+      },
+      "operation": "queue/run/review",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Canonical inferred job/stage/artifact/review schemas; runtime payload acceleration must preserve graph."
+      ],
+      "semantic": [
+        "Ancestry, status timestamps, lease/retry, provenance and review ownership are semantic and repository checks."
+      ],
+      "codec": [
+        "Finite recursive JSON payload authority; callback provider configuration is non-wire."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "pixel-intake",
+      "category": "codec",
+      "owner": "image",
+      "version": "legacy intake v1 plus explicit intake v2",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/assets/intake.ts",
+        "symbols": []
+      },
+      "operation": "package/generate",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/intake.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/intake-v2.ts",
+          "symbols": [
+            "assetPackagingInputV2Schema",
+            "pixelAnimationSourceV2Schema",
+            "generationStrategySchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/package-v2.ts",
+          "symbols": [
+            "supportedPackagingInputV2",
+            "packageAssetV2"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed source/rights/pixel/clip/package/generation schemas."
+      ],
+      "semantic": [
+        "RGBA length/grid/palette/alpha/clip consistency and reviewed provenance require packaging admission.",
+        "Only decoded-rgba executes; the four other closed local-strategy metadata variants remain unconfigured and are refused before queueing. Reference ownership/review hashes are server admission, not portable schema permissions."
+      ],
+      "codec": [
+        "Byte/pixel budgets; fixture art only, future providers remain explicit adapters."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/pipeline-v2.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "species-manifest",
+      "category": "codec",
+      "owner": "image",
+      "version": "renderer v2; additive reviewed pose manifest v3",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/assets/manifest.ts",
+        "symbols": []
+      },
+      "operation": "render",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/manifest-v2.ts",
+          "symbols": [
+            "speciesManifestV2Schema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/manifest-v3.ts",
+          "symbols": [
+            "speciesManifestV3Schema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/shape.ts",
+          "symbols": [
+            "shapeReviewSchema",
+            "shapeReviewIssues"
+          ]
+        }
+      ],
+      "structural": [
+        "Versioned reviewed species manifest is renderer input authority."
+      ],
+      "semantic": [
+        "Frame bounds, mandatory idle/fallback graph and review state; cache key pins version/content.",
+        "V3 requires exact pose graph/reference/role relationships, taxonomy pin, normalization palette and measured loop-edge agreement; no fidelity claim follows from structural acceptance.",
+        "Optional shape v1 binds exact unique pose/frame identities, measured opaque bounds, support anchors and physical footprints to a reviewed base. Same-context dependency budgets and complete retained-source equality apply at admission and load. New readers preserve unannotated v2/v3 behavior; older closed readers reject the new shape property."
+      ],
+      "codec": [
+        "Manifest JSON/files, source image loading and frame geometry are separate runtime codecs."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "scene-manifest",
+      "category": "codec",
+      "owner": "image",
+      "version": "scene manifest v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/scenes/manifest.ts",
+        "symbols": []
+      },
+      "operation": "render",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/scenes/manifest.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Layer/object/region scene schema."
+      ],
+      "semantic": [
+        "Bounds, references, walkable navigation and fixture provenance are semantic."
+      ],
+      "codec": [
+        "Inline palette rectangles only; no remote assets or location data."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "weather",
+      "category": "event",
+      "owner": "root",
+      "version": "weather v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/weather/contracts.ts",
+        "symbols": []
+      },
+      "operation": "observe",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/weather/contracts.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Canonical bounded finite weather observation/input schemas."
+      ],
+      "semantic": [
+        "Authorized location handle and owner consent belong to provider admission; shared projection excludes location."
+      ],
+      "codec": [
+        "Disabled/fixture adapter only; no fabricated external integration."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "auth-config",
+      "category": "config",
+      "owner": "auth",
+      "version": "private config v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/auth/config.ts",
+        "symbols": [
+          "authConfigSchema",
+          "authAvailabilitySchema",
+          "authEnvironmentSchema"
+        ]
+      },
+      "operation": "parse",
+      "transport": "environment",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/config.ts",
+          "symbols": [
+            "authConfigSchema",
+            "authAvailabilitySchema",
+            "authEnvironmentSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed selected app-owned environment fields map to inferred AuthConfig/AuthAvailability."
+      ],
+      "semantic": [
+        "HTTPS/origin/provider pairing and SMTP config semantics remain authority."
+      ],
+      "codec": [
+        "Environment strings parse to bounded integers/booleans explicitly; full process environment is not a DTO."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "audio-config",
+      "category": "config",
+      "owner": "audio",
+      "version": "audio profile v1",
+      "source": {
+        "repo": "main",
+        "path": "backend-inference/app/audio_pipeline/api.py",
+        "symbols": []
+      },
+      "operation": "from_environment",
+      "transport": "environment",
+      "authorities": [
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/api.py",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Pydantic commands/model manifest are wire; service environment parser is local authority."
+      ],
+      "semantic": [
+        "Pinned model hash/license/taxonomy, synthetic opt-in and fixed origin/session policy."
+      ],
+      "codec": [
+        "No core ONNX dependency; optional manifest-loaded local adapter validates bytes before execution."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "request-budget",
+      "category": "event",
+      "owner": "ops",
+      "version": "request budget error v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/http/request-budget-contracts.ts",
+        "symbols": [
+          "requestBudgetErrorSchema"
+        ]
+      },
+      "operation": "error",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/http/request-budget-contracts.ts",
+          "symbols": [
+            "requestBudgetErrorSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed code/text/retryAfter envelope."
+      ],
+      "semantic": [
+        "Authenticated owner/global capacity keys never use bearer tokens."
+      ],
+      "codec": [
+        "Retry-After header and response body agree; bounded byte/timeout clients."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "command-error",
+      "category": "event",
+      "owner": "ops",
+      "version": "request command error v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/http/command-error-contracts.ts",
+        "symbols": [
+          "commandErrorSchema"
+        ]
+      },
+      "operation": "error",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/http/command-error-contracts.ts",
+          "symbols": [
+            "commandErrorSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed version/kind/code envelope plus reviewed bounded domain text."
+      ],
+      "semantic": [
+        "Control characters and arbitrary upstream text rejected; recognized legacy errors remain explicit compatibility adapters."
+      ],
+      "codec": [
+        "Non-JSON transport failure is distinct from a recognized business rejection."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "backup-manifest",
+      "category": "codec",
+      "owner": "ops",
+      "version": "offline backup manifest v1",
+      "source": {
+        "repo": "ui",
+        "path": "scripts/private_backup.py",
+        "symbols": []
+      },
+      "operation": "backup/restore",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "scripts/private_backup.py",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Python-owned private filesystem manifest; no duplicate TS/Python wire class."
+      ],
+      "semantic": [
+        "Offline restore applies canonical lifecycle ledger and invalidates all share/session capabilities before release."
+      ],
+      "codec": [
+        "Bounded private copied SQLite/files, digest/size inventory and atomic directory release; no network transfer."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "sharing-store",
+      "category": "store",
+      "owner": "ops",
+      "version": "sharing migration v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/sharing/recovery.ts",
+        "symbols": []
+      },
+      "operation": "restore",
+      "transport": "sqlite",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/sharing/recovery.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Canonical strict supported tables/columns/triggers guard restore."
+      ],
+      "semantic": [
+        "Revocation clears token hash/snapshot/request digest and verifies postcondition; old backups never resurrect live links."
+      ],
+      "codec": [
+        "Only SHA256 capability hashes persisted; sanitized snapshots bounded separately."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "session-library",
+      "category": "auth-library",
+      "owner": "auth",
+      "version": "Better Auth pinned library",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/auth/service.ts",
+        "symbols": []
+      },
+      "operation": "session/provider",
+      "transport": "framework",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/service.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "External auth wire/schema authority belongs to installed library."
+      ],
+      "semantic": [
+        "Verified account projects through generated SessionVerifier identity; development fixture has separate explicit admission."
+      ],
+      "codec": [
+        "Signed HTTP cookies and provider callbacks, no handcrafted provider protocol."
+      ],
+      "consumers": [],
+      "evidence": [],
+      "gaps": []
+    },
+    {
+      "id": "rgba-source-artifact",
+      "category": "job",
+      "owner": "image",
+      "version": "private source artifact v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/assets/intake-v2.ts",
+        "symbols": [
+          "rgbaSourceArtifactSchema"
+        ]
+      },
+      "operation": "retain/review/purge",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/intake-v2.ts",
+          "symbols": [
+            "rgbaSourceArtifactSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/package-v2.ts",
+          "symbols": [
+            "sourceArtifactV2",
+            "validateSourceArtifactV2"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed retained-input envelope with bounded raw RGBA frames and per-frame byte/hash descriptors."
+      ],
+      "semantic": [
+        "Zod correlates descriptors with every input frame; server codec recomputes input/frame hashes, grid, palette and binary alpha before admission. Owner review gates source pins separately from rendered output; deletion removes private source payloads."
+      ],
+      "codec": [
+        "Canonical JSON digest and SHA256 of exact RGBA byte arrays; no new file/blob service or external provider."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/definitions-v2.ts",
+          "symbols": [
+            "assetPackagingV2Definition"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/pipeline-v2.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "reviewed-shape-revision",
+      "category": "job",
+      "owner": "image",
+      "version": "shape v1 on retained intake v2 and manifest v3",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/asset-pipeline/revise-shape.ts",
+        "symbols": [
+          "shapeRevisionInput"
+        ]
+      },
+      "operation": "revise-shape",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/shape.ts",
+          "symbols": [
+            "shapeReviewSchema",
+            "shapeReviewIssues"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/commands.ts",
+          "symbols": [
+            "jobCommandSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/resolve.ts",
+          "symbols": [
+            "reviewedManifest",
+            "validateAssetReferencesV2"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed geometry command and optional shape payload; bounded integral coordinates and immutable animation pin."
+      ],
+      "semantic": [
+        "Complete source except shape must match the exact owner-approved v3 base, including hidden RGB, clips, timing, conditioning and rights. Review and explicit resident pinning remain separate."
+      ],
+      "codec": [
+        "Canonical source/pin digests and same-context bounded ancestry, not browser-supplied replacement pixels."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/AssetReviewPreview.svelte",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/pose-geometry.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/revise-shape.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/shape-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Existing shape ancestry has bounded depth; further revisions beyond the bound fail closed. No provenance flattening or automatic migration of old readers."
+      ]
+    },
+    {
+      "id": "local-reference-stage",
+      "category": "codec",
+      "owner": "image",
+      "version": "local reference and policy v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/assets/image-stage-contracts.ts",
+        "symbols": [
+          "localReferenceSchema",
+          "referencePolicySchema"
+        ]
+      },
+      "operation": "validate local evidence",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/image-stage-contracts.ts",
+          "symbols": [
+            "localReferenceSchema",
+            "referencePolicySchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/reference-stage.ts",
+          "symbols": [
+            "validateLocalReference"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed per-file author/uploader/rights/taxonomy/viewpoint declarations, hashes and bounded dimensions."
+      ],
+      "semantic": [
+        "Actual original and decoded bytes, exact rights allowlist, application taxon, fixture status and raw-identity derivation are checked by the local validator. Missing, conflicting and unreviewed permissions fail closed."
+      ],
+      "codec": [
+        "Plain-text metadata requires explicit sanitization before review. Encoded photo decoding cannot be verified from independently supplied pixels."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/image-stage.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/image-stage.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "No fetcher, photo decoder, approved reference pixels or real generation adapter is installed."
+      ]
+    },
+    {
+      "id": "local-image-stages",
+      "category": "codec",
+      "owner": "image",
+      "version": "segmentation, matte, foreground, sequence and QA policies v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/assets/image-stage-contracts.ts",
+        "symbols": [
+          "segmentationStageSchema",
+          "matteStageSchema",
+          "foregroundStageSchema",
+          "imageStageSequenceSchema",
+          "imageQaPolicySchema",
+          "losslessPixelPolicySchema"
+        ]
+      },
+      "operation": "validate and normalize local fixture stages",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/image-stage-contracts.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/image-stage.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Mask/logits, alpha and foreground RGB are distinct stages with bounded channel lengths, hashes, alpha modes and exact microsecond timestamps."
+      ],
+      "semantic": [
+        "Runtime validates actual hashes, premultiplication, motion-compensated edge/contact/loop QA and lossless stable-union crop. Reviewed binary-alpha/grid/palette conversion preserves authored timing and source identity."
+      ],
+      "codec": [
+        "RGBA8 and little-endian float32 are explicit byte formats. Source RGB multiplied by alpha is not recovered foreground."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/package-v2.ts",
+          "symbols": [
+            "packageAssetV2"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/image-stage.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "No segmentation/matting/generation model runs; supplied recovered foreground is a declaration. Fixture QA establishes mechanics only, not biological or visual fidelity."
+      ]
+    },
+    {
+      "id": "src/routes/+layout.server.ts:load",
+      "category": "ssr",
+      "owner": "auth",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/+layout.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/auth/session-binding.ts",
+          "symbols": [
+            "sessionContextSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Verified cookie/SQLite session produces non-bearer document binding; changed identity invalidates private document context."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/session-binding.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/session-binding-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/arrivals:GET",
+      "category": "http",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/arrivals/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/arrivals/contracts.ts",
+          "symbols": [
+            "arrivalListSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/session-binding.ts",
+          "symbols": [
+            "sessionBindingRejection"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Authenticate before body/runtime; private no-store responses; immutable document binding fences stale requests.",
+        "Arrivals consume transactionally before playback; analytics independently checks current consent revision and privacy signals."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "scripts/arrivals-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/arrivals/consume:POST",
+      "category": "http",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/arrivals/consume/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/arrivals/contracts.ts",
+          "symbols": [
+            "arrivalConsumeCommandSchema",
+            "arrivalConsumeResultSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/session-binding.ts",
+          "symbols": [
+            "sessionBindingRejection"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Authenticate before body/runtime; private no-store responses; immutable document binding fences stale requests.",
+        "Arrivals consume transactionally before playback; analytics independently checks current consent revision and privacy signals."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/arrivals/integration.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/analytics/preferences:GET",
+      "category": "http",
+      "owner": "auth",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/analytics/preferences/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/analytics/contracts.ts",
+          "symbols": [
+            "analyticsStatusSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/session-binding.ts",
+          "symbols": [
+            "sessionBindingRejection"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Authenticate before body/runtime; private no-store responses; immutable document binding fences stale requests.",
+        "Arrivals consume transactionally before playback; analytics independently checks current consent revision and privacy signals."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "scripts/analytics-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/analytics/preferences:POST",
+      "category": "http",
+      "owner": "auth",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/analytics/preferences/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/analytics/contracts.ts",
+          "symbols": [
+            "analyticsPreferenceCommandSchema",
+            "analyticsStatusSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/session-binding.ts",
+          "symbols": [
+            "sessionBindingRejection"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Authenticate before body/runtime; private no-store responses; immutable document binding fences stale requests.",
+        "Arrivals consume transactionally before playback; analytics independently checks current consent revision and privacy signals."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/analytics/analytics.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/analytics/events:POST",
+      "category": "http",
+      "owner": "auth",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/analytics/events/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/analytics/contracts.ts",
+          "symbols": [
+            "analyticsBatchSchema",
+            "analyticsReceiptSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/session-binding.ts",
+          "symbols": [
+            "sessionBindingRejection"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Authenticate before body/runtime; private no-store responses; immutable document binding fences stale requests.",
+        "Arrivals consume transactionally before playback; analytics independently checks current consent revision and privacy signals."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "scripts/analytics-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "inventory-receipts",
+      "category": "store",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/domain/object-inventory.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/domain/object-inventory.ts",
+          "symbols": [
+            "objectInventorySchema",
+            "objectInventoryCommandSchema",
+            "objectOperationReceiptsSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Legacy missing stock hydrates deterministically; explicit zero survives; owned >= placed; exact digest receipt checked before capacity/CAS; online restore unions receipts."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/object-inventory.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/client/save-inventory.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Receipts cap at4096 per owner; new operations fail closed at capacity."
+      ]
+    },
+    {
+      "id": "arrival-delivery",
+      "category": "store",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/arrivals/contracts.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/arrivals/contracts.ts",
+          "symbols": [
+            "arrivalSchema",
+            "arrivalListSchema",
+            "arrivalCueSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Only native manual new insert currently admits; current evidence/bird/time revalidated; consumed tombstone never grants twice; online/offline restore cancels pending."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/arrivals/integration.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/operations/restore-optional-state.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Lost committed response may skip flourish; trusted import/audio adapters remain pending."
+      ]
+    },
+    {
+      "id": "arrival-adapter-policy",
+      "category": "config",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/arrivals/adapter-capability.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/arrivals/adapter-capability.ts",
+          "symbols": [
+            "arrivalAdapterCapabilitySchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Future reviewed startup registry and exact owner/event/evidence receipts required; descriptor is never client authority."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/arrivals/adapter-eligibility.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "No real import/audio capability registered; no model invoked."
+      ]
+    },
+    {
+      "id": "illustrative-simulation",
+      "category": "config",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/engine/behavior-contracts.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/engine/behavior-contracts.ts",
+          "symbols": [
+            "illustrativeSpeciesProfileSchema",
+            "simulationOptionsSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Known catalog species, bounded nonzero preference weights and explicit seed; transient simulation never changes observation or resident identity."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/engine/behavior.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/engine/visits.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Tuning is illustrative, not validated biology or persistent fictional personality."
+      ]
+    },
+    {
+      "id": "document-session-binding",
+      "category": "codec",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/auth/session-binding.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/auth/session-binding.ts",
+          "symbols": [
+            "sessionContextSchema",
+            "sessionChangedSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Context hash derives verified session and owner; never bearer auth. Framework route IDs prevent encoded-path bypass; body streams remain fenced."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/auth/session-client.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/session-binding.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "optional-analytics",
+      "category": "store",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/analytics/contracts.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/analytics/contracts.ts",
+          "symbols": [
+            "productEventSchema",
+            "analyticsBatchSchema",
+            "analyticsPreferenceCommandSchema",
+            "analyticsStatusSchema",
+            "analyticsReceiptSchema",
+            "analyticsFailureSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Disabled by default; private consent physically separate from identity-free counts; revision-fenced consent lock, bounded schema/rates/capacity/retention."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/analytics/analytics.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/analytics/client.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Idle retention requires operator maintenance; no real web-vitals observer or unique-user retention metric."
+      ]
+    },
+    {
+      "id": "security-counter-purpose",
+      "category": "store",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/analytics/contracts.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/analytics/contracts.ts",
+          "symbols": [
+            "securityAuditEventSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Separate fixed-code counters off by default; no auth hooks, owner keys or raw exceptions in counters."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/analytics/analytics.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Not a forensic per-account audit trail."
+      ]
+    },
+    {
+      "id": "lazy-catalog-requests",
+      "category": "store",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/assets/catalog-contracts.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-contracts.ts",
+          "symbols": [
+            "catalogRequestSchema",
+            "pendingCatalogRequestSchema",
+            "catalogReleaseSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Immutable globally deduped canonical key with private inputs excluded; revalidate persisted digest/metadata; default policy denies."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-requests.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "No application hook, approved release repository or public render payload implemented."
+      ]
+    },
+    {
+      "id": "generation-usage",
+      "category": "event",
+      "owner": "root",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/pipeline/generation-usage.ts",
+        "symbols": []
+      },
+      "operation": "validate",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/generation-usage.ts",
+          "symbols": [
+            "generationRecipeSchema",
+            "sharedGenerationPlanSchema",
+            "privateGenerationPlanSchema",
+            "generationCostSchema",
+            "generationUsageSchema",
+            "generationUsageSummarySchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Actual dispatch attempts differ from cache reuse/admission/human review; unknown costs remain unknown; private fingerprint includes authenticated owner."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/pipeline/generation-usage.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "No provider dispatch, durable usage writes, measured cost or transactional execution budgets."
+      ]
+    },
+    {
+      "id": "analytics-config",
+      "category": "config",
+      "owner": "ops",
+      "version": "v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/analytics/config.ts",
+        "symbols": []
+      },
+      "operation": "read",
+      "transport": "environment",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/analytics/config.ts",
+          "symbols": [
+            "analyticsConfigSchema",
+            "readAnalyticsConfig"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed canonical source schema; generated JSON Schema provides structural checks only."
+      ],
+      "semantic": [
+        "Strict environment opt-in and bounded retention; optional database failures remain isolated from login/yard."
+      ],
+      "codec": [
+        "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/analytics/analytics.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/image-files:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "local PNG files v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/image-files/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-file-contracts.ts",
+          "symbols": [
+            "pngFileListSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-origin.ts",
+          "symbols": [
+            "pngFileOriginSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed generated JSON metadata, explicit bounded atlas layout and binary PNG media type."
+      ],
+      "semantic": [
+        "Verified owner/session binding, immutable per-file rights review, original/canonical/RGBA integrity, exact frame extraction, reviewed references, source and manifest approval, explicit pin. Upload grants no derivative rights."
+      ],
+      "codec": [
+        "PNG signature/chunk CRC and exact bounded inflate precede sharp/libvips decoding; no remote URL, APNG, foreign content execution or metadata interpretation. Canonical sRGB straight RGBA erases hidden RGB."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/PngFileIntake.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/decode.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/service.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/png-intake-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Nonfixture intake still needs separately reviewed species references/fidelity; photo conversion, APNG, real generators and remote fetching remain unsupported."
+      ]
+    },
+    {
+      "id": "api/image-files:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "local PNG files v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/image-files/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-file-contracts.ts",
+          "symbols": [
+            "pngFileReceiptSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-origin.ts",
+          "symbols": [
+            "pngFileOriginSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed generated JSON metadata, explicit bounded atlas layout and binary PNG media type."
+      ],
+      "semantic": [
+        "Verified owner/session binding, immutable per-file rights review, original/canonical/RGBA integrity, exact frame extraction, reviewed references, source and manifest approval, explicit pin. Upload grants no derivative rights."
+      ],
+      "codec": [
+        "PNG signature/chunk CRC and exact bounded inflate precede sharp/libvips decoding; no remote URL, APNG, foreign content execution or metadata interpretation. Canonical sRGB straight RGBA erases hidden RGB."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/PngFileIntake.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/decode.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/service.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/png-intake-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Nonfixture intake still needs separately reviewed species references/fidelity; photo conversion, APNG, real generators and remote fetching remain unsupported."
+      ]
+    },
+    {
+      "id": "api/image-files/[id]:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "local PNG files v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/image-files/[id]/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-file-contracts.ts",
+          "symbols": [
+            "pngFileReceiptSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-origin.ts",
+          "symbols": [
+            "pngFileOriginSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed generated JSON metadata, explicit bounded atlas layout and binary PNG media type."
+      ],
+      "semantic": [
+        "Verified owner/session binding, immutable per-file rights review, original/canonical/RGBA integrity, exact frame extraction, reviewed references, source and manifest approval, explicit pin. Upload grants no derivative rights."
+      ],
+      "codec": [
+        "PNG signature/chunk CRC and exact bounded inflate precede sharp/libvips decoding; no remote URL, APNG, foreign content execution or metadata interpretation. Canonical sRGB straight RGBA erases hidden RGB."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/PngFileIntake.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/decode.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/service.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/png-intake-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Nonfixture intake still needs separately reviewed species references/fidelity; photo conversion, APNG, real generators and remote fetching remain unsupported."
+      ]
+    },
+    {
+      "id": "api/image-files/[id]/preview:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "local PNG files v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/image-files/[id]/preview/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-file-contracts.ts",
+          "symbols": [
+            "pngFileRecordSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-origin.ts",
+          "symbols": [
+            "pngFileOriginSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed generated JSON metadata, explicit bounded atlas layout and binary PNG media type."
+      ],
+      "semantic": [
+        "Verified owner/session binding, immutable per-file rights review, original/canonical/RGBA integrity, exact frame extraction, reviewed references, source and manifest approval, explicit pin. Upload grants no derivative rights."
+      ],
+      "codec": [
+        "PNG signature/chunk CRC and exact bounded inflate precede sharp/libvips decoding; no remote URL, APNG, foreign content execution or metadata interpretation. Canonical sRGB straight RGBA erases hidden RGB."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/PngFileIntake.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/decode.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/service.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/png-intake-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Nonfixture intake still needs separately reviewed species references/fidelity; photo conversion, APNG, real generators and remote fetching remain unsupported."
+      ]
+    },
+    {
+      "id": "api/image-files/[id]/review:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "local PNG files v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/image-files/[id]/review/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-file-contracts.ts",
+          "symbols": [
+            "pngFileReviewCommandSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-origin.ts",
+          "symbols": [
+            "pngFileOriginSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed generated JSON metadata, explicit bounded atlas layout and binary PNG media type."
+      ],
+      "semantic": [
+        "Verified owner/session binding, immutable per-file rights review, original/canonical/RGBA integrity, exact frame extraction, reviewed references, source and manifest approval, explicit pin. Upload grants no derivative rights."
+      ],
+      "codec": [
+        "PNG signature/chunk CRC and exact bounded inflate precede sharp/libvips decoding; no remote URL, APNG, foreign content execution or metadata interpretation. Canonical sRGB straight RGBA erases hidden RGB."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/PngFileIntake.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/decode.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/service.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/png-intake-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Nonfixture intake still needs separately reviewed species references/fidelity; photo conversion, APNG, real generators and remote fetching remain unsupported."
+      ]
+    },
+    {
+      "id": "api/image-files/[id]/package:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "local PNG files v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/image-files/[id]/package/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-file-contracts.ts",
+          "symbols": [
+            "pngFilePackageCommandSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-origin.ts",
+          "symbols": [
+            "pngFileOriginSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed generated JSON metadata, explicit bounded atlas layout and binary PNG media type."
+      ],
+      "semantic": [
+        "Verified owner/session binding, immutable per-file rights review, original/canonical/RGBA integrity, exact frame extraction, reviewed references, source and manifest approval, explicit pin. Upload grants no derivative rights."
+      ],
+      "codec": [
+        "PNG signature/chunk CRC and exact bounded inflate precede sharp/libvips decoding; no remote URL, APNG, foreign content execution or metadata interpretation. Canonical sRGB straight RGBA erases hidden RGB."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/PngFileIntake.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/decode.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/service.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/png-intake-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Nonfixture intake still needs separately reviewed species references/fidelity; photo conversion, APNG, real generators and remote fetching remain unsupported."
+      ]
+    },
+    {
+      "id": "image-files:sqlite-filesystem",
+      "category": "store",
+      "owner": "image",
+      "version": "image_file_migrations1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/image-files/service.ts",
+        "symbols": [
+          "ImageFileService"
+        ]
+      },
+      "operation": "retain/review/resolve/recover",
+      "transport": "sqlite",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/png-file-contracts.ts",
+          "symbols": [
+            "pngFileRecordSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/files.ts",
+          "symbols": [
+            "IMAGE_SCHEMA",
+            "assertImageFileCompatibility",
+            "verifyStoredImageFiles"
+          ]
+        }
+      ],
+      "structural": [
+        "Immutable file descriptors and review, bounded metadata and private generated file paths."
+      ],
+      "semantic": [
+        "SQLite writer lock covers synchronous exclusive filesystem publication and cleanup; crashes leave unreachable files only. Verify all committed hashes without modifying existing pins."
+      ],
+      "codec": [
+        "Private 0600 files/0700 directory; O_NOFOLLOW/exclusive publication/fsync; no paths from requests. Offline restore uses the same read-only authority and preserves originals."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/resolve.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/operations/lifecycle-recovery.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/image-files/service.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "No account-wide deletion orchestration; retained source lifecycle remains private owner-managed storage. Capacity is explicitly bounded, with no automatic deletion of reviewed sources."
+      ]
+    }
+  ]
+}

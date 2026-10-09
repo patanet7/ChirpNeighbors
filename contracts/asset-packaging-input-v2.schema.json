@@ -971,6 +971,154 @@
             "poses"
           ],
           "additionalProperties": false
+        },
+        "fileOrigin": {
+          "type": "object",
+          "properties": {
+            "file": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "id": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "original": {
+                  "type": "object",
+                  "properties": {
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^[a-f0-9]{64}$"
+                    },
+                    "bytes": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 524288
+                    }
+                  },
+                  "required": [
+                    "sha256",
+                    "bytes"
+                  ],
+                  "additionalProperties": false
+                },
+                "canonical": {
+                  "type": "object",
+                  "properties": {
+                    "sha256": {
+                      "$ref": "#/definitions/AssetPackagingInputV2/properties/fileOrigin/properties/file/properties/original/properties/sha256"
+                    },
+                    "bytes": {
+                      "$ref": "#/definitions/AssetPackagingInputV2/properties/fileOrigin/properties/file/properties/original/properties/bytes"
+                    },
+                    "rgbaSha256": {
+                      "$ref": "#/definitions/AssetPackagingInputV2/properties/fileOrigin/properties/file/properties/original/properties/sha256"
+                    },
+                    "width": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 1024
+                    },
+                    "height": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 1024
+                    }
+                  },
+                  "required": [
+                    "sha256",
+                    "bytes",
+                    "rgbaSha256",
+                    "width",
+                    "height"
+                  ],
+                  "additionalProperties": false
+                },
+                "decoder": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "const": "sharp"
+                    },
+                    "version": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 40
+                    },
+                    "libvips": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 40
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "version",
+                    "libvips"
+                  ],
+                  "additionalProperties": false
+                },
+                "normalization": {
+                  "type": "string",
+                  "const": "chirp-png-straight-srgb8-hidden-rgb-zero-v1"
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "id",
+                "original",
+                "canonical",
+                "decoder",
+                "normalization"
+              ],
+              "additionalProperties": false
+            },
+            "reviewDigest": {
+              "$ref": "#/definitions/AssetPackagingInputV2/properties/fileOrigin/properties/file/properties/original/properties/sha256"
+            },
+            "layout": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                },
+                "columns": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 64
+                },
+                "rows": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 64
+                }
+              },
+              "required": [
+                "width",
+                "height",
+                "columns",
+                "rows"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "file",
+            "reviewDigest",
+            "layout"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
