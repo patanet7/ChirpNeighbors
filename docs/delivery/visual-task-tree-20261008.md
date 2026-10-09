@@ -164,3 +164,22 @@ preserves the earlier branch and completes one P1/P4 slice. Dependencies and
 acceptance are in UI `docs/png-intake-checklist.md`; PB-020 records its verified
 mechanics and PB-021 keeps the species-photo/art goal agreed. It does not complete
 P1–P4 as a whole or bootstrap nonfixture reference/fidelity authority.
+
+
+## Reversible private asset lifecycle — 2026-10-09
+
+The [72-gate retention checkpoint](retention-verified-20261009.md) on
+`codex/asset-retention-local` preserves the PNG checkpoint and completes PB-022.
+The concrete dependency/acceptance checklist is UI
+`docs/asset-retention-checklist.md`: versioned private overlay → all-selection
+and queue admission fences → reversible unpin/restore → bounded reference-aware
+eligibility → owner controls → independent review and full strict verification.
+The full run includes 1,431 UI tests and 38 retention browser/API assertions.
+
+Archive keeps bytes, provenance, review history and existing pins; new selection
+is fenced. Only unreviewed, unreferenced archived uploads can be diagnostic cleanup
+candidates. There is no production purge or destructive scheduled job. Account-wide
+erasure and backup deletion policy remain future work, as do P1–P4's approved
+species art and real adapters. G1/G2 and C1 retain their prior remaining work.
+ESP32 is progressing separately in another environment; no duplicate firmware
+work or assumed firmware integration was performed here.

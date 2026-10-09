@@ -37,7 +37,7 @@ production readiness or unperformed deployment. Fixture art remains fixture art.
 | PB-020 | Owner-supplied local PNG bytes become reusable animation candidates through separate file, source and manifest reviews, then an explicit resident pin. | user decision | verified | PB-013–014; [PNG checkpoint](png-verified-20261009.md); UI `docs/png-intake-checklist.md`, `image-files` service and PNG browser gate | Real maintained decoder; bounded bytes/pixels/inflate/frame grid; metadata-free canonical pixels and zero hidden RGB; owner-scoped immutable hashes and per-file rights. Upload grants no reuse or derivative rights. Verify crash cleanup, backup/restart, Pixi/SVG, account-switch fencing, missing/corrupt files and legacy inputs. Full 71-gate run passes with existing fixture pixels; no art fidelity, external provider or account-wide deletion claim. |
 | PB-021 | Actual-species reference photos should guide highly detailed species-correct reusable sprites and animations, paired with visually simple regional yards. | user decision | agreed | PB-003, PB-004, PB-011, PB-014, PB-020; P1–P4 in [task tree](visual-task-tree-20261008.md) | Obtain authorized per-file source/rights provenance and approved concept/reference pixels; record species/fidelity review of every authored frame before reusable release. Keep photos, master pose, in-place action and world travel distinct. Existing fixtures prove mechanics only. Approved art, biological review and real production adapters remain unavailable; this goal is not complete. |
 
-| PB-022 | Owners can reversibly archive private uploads/packages and unpin or restore resident artwork, with explicit retention reasons. | user decision | implemented | PB-013–014, PB-020; UI `docs/asset-retention-checklist.md`, lifecycle contracts/service, retention browser gate | Archive preserves bytes and existing pins while fencing every new selection/derivation, including automatic assignment and old yard restore. Owner/session isolation, revision/pin CAS, immutable retry receipts, incomplete-reference fail-closed eligibility and cold recovery are required. Shared catalog is read-only; immutable review/source/evidence stays retained. Only disposable fixtures exercise cleanup. No live purge, expiry policy, destructive scheduled job or account-wide erasure. Full 72-gate verification is pending. |
+| PB-022 | Owners can reversibly archive private uploads/packages and unpin or restore resident artwork, with explicit retention reasons. | user decision | verified | PB-013–014, PB-020; UI `docs/asset-retention-checklist.md`, lifecycle contracts/service, retention browser gate | Archive preserves bytes and existing pins while fencing every new selection/derivation, including automatic assignment and old yard restore. Owner/session isolation, revision/pin CAS, immutable retry receipts, incomplete-reference fail-closed eligibility and cold recovery are required. Shared catalog is read-only; immutable review/source/evidence stays retained. Only disposable fixtures exercise cleanup. No live purge, expiry policy, destructive scheduled job or account-wide erasure. The full [72-gate checkpoint](retention-verified-20261009.md) passes, including 38 retention browser checks and 21 new lifecycle tests. |
 
 ## Missing decisions and superseded approaches
 
@@ -75,13 +75,19 @@ PB-020. PB-021 records the longer-term art goal as agreed, not completed. The
 14 verified, 5 agreed, 1 implemented and 1 proposed. All except PB-017 (tentative
 user idea) and PB-019 (assistant proposal) are user decisions.
 
+The subsequent [private retention checkpoint](retention-verified-20261009.md)
+passes 72/72 gates and verifies PB-022. The current coverage audit includes all
+22 stable IDs PB-001 through PB-022: **15 verified, 5 agreed, 1 implemented and
+1 proposed**. Prior checkpoint counts above are historical. Archive retains bytes;
+diagnostic eligibility does not authorize purge or account-wide erasure.
+
 Coverage: visitor expiry/Keep PB-002; incremental canonical packs and optional
 variants PB-003; full actions and objects PB-004/PB-007; personalities and
 companionship/progression PB-005/PB-006; session positions PB-008; decorative
 hawk/scatter/return PB-009; trusted fly-in/accessibility PB-010; simple yards and
 private location-free shares PB-011/PB-013; privacy analytics PB-015; undecided
 ethical funding PB-017; real PNG lifecycle PB-020; reference-photo fidelity goal
-PB-021. Paid themes, daily credits, ads and monetized customization are undecided.
+PB-021; reversible private archive/unpin and retention explanations PB-022. Paid themes, daily credits, ads and monetized customization are undecided.
 
 Append newly discussed behavior/ideas under stable IDs with their source type,
 decision status, dependencies and acceptance evidence. Preserve superseded
