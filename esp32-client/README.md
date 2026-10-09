@@ -1,4 +1,88 @@
-# ESP32 Capture Client Roadmap
+# ESP32-S3 capture firmware
+
+The implemented target is the custom **ESP32-S3-DevKitC-1 N16R8V** board in
+`boards/esp32-s3-devkitc-1-n16r8v.json`: 16 MB QIO flash, 8 MB OPI PSRAM,
+Arduino-ESP32 2.0.17 through pinned PlatformIO Espressif32 6.12.0. I2S uses
+GPIO 4 BCLK, GPIO 5 WS, GPIO 8 data, 32-bit left-channel input, no MCLK;
+the onboard NeoPixel uses GPIO 48. The repository does not establish that the
+roadmap codec below is physically attached or configured. No codec I2C setup is
+implemented. Confirm microphone alignment and wiring on actual hardware.
+
+## Implemented stream contract
+
+Every binary WebSocket message is a 12-byte explicitly little-endian header
+(`uint32` sequence, `uint64` device uptime in microseconds at I2S read completion)
+followed by **1–512 signed PCM16 little-endian mono samples at 48,000 Hz**.
+Device uptime is not a wall-clock observation time. There is no format
+negotiation or raw-PCM mode. PCM conversion takes the high 16 bits of each
+left-justified 32-bit I2S word; peak magnitude can represent 32768.
+
+Sequence advances for each valid captured block before RMS gating, offline
+omission, or queue drops, and wraps modulo 2^32. A discarded nonempty/partial
+read or non-timeout driver error also consumes one sequence to expose a
+continuity break. Empty timeout/empty successful reads do not consume one.
+An RMS trigger retains capture until the configured hold time expires.
+The initial block of a new connection may have any sequence.
+
+Capture has fixed aligned input and output arrays and a **four-packet static
+FreeRTOS queue**. A full queue drops the incoming block without blocking capture.
+Network sends consume at most one packet per main-loop iteration with one
+nonblocking socket send of a fixed masked frame; short/would-block writes close
+the TCP stream and clear the connection/queue. Fresh hardware RNG masks preserve
+WebSocket client framing without the upstream per-send temporary allocation.
+SDK/network internals may still allocate memory. Every transport session has an internal epoch,
+which prevents a capture racing disconnect from being replayed after reconnect.
+There is no application-level retry of failed PCM messages. Library/SDK network
+calls are not a hard real-time guarantee; hardware slow-peer testing is still
+needed. `WEBSOCKETS_TCP_TIMEOUT=100` configures the library idle timeout; it does not
+bound total DNS, handshake, SDK, or shutdown wall time.
+
+Wi-Fi attempts are scheduled every 10 seconds without an application waiting
+loop. WebSocket reconnects use a five-second interval. The capture task runs
+independently while networking waits. Settings are immutable during capture;
+validated changes are persisted and request a main-loop restart after a response
+grace period. Shutdown signals the task, waits up to 250 ms, and uninstalls I2S
+only after capture acknowledges stopping. Status snapshots use a short critical
+section and contain at most 128 samples.
+
+Only the v1 format and unity gain are accepted. Unsupported rate/24-bit settings,
+nonfinite or out-of-range values, simulation fields, and unknown control fields
+are rejected. Invalid legacy persisted numeric settings reset to defaults;
+legacy gain 10 was unused by the old capture implementation and resets to 1.
+Connection settings accept a hostname/IPv4 and decimal port, not a URL.
+`/control.json` accepts at most 1024 bytes and serializes configuration updates.
+The HTTP settings and unencrypted WebSocket transport are for a trusted local
+network; authentication/TLS provisioning is unfinished.
+
+## Build and checks
+
+```bash
+python -m pip install platformio==6.2.0 clang-format==18.1.8
+# Set PLATFORMIO_CORE_DIR to a writable isolated directory when needed.
+clang-format --dry-run --Werror include/*.h src/*.cpp test/test_audio/*.cpp
+pio test -e native
+pio run -e esp32-s3-devkitc-1-n16r8v
+pio check -e esp32-s3-devkitc-1-n16r8v --fail-on-defect high --fail-on-defect medium
+```
+
+Project C++ compiles with `-Wall -Wextra -Werror -Wformat=2 -Wshadow`.
+The portable helper tests run with additional conversion/pedantic warnings and
+cover exact bytes, maximum/invalid lengths, all 65,536 PCM16 conversion values,
+full-scale negative peaks, finite settings, sequence wrap, and trigger-time wrap.
+Native unit tests are not firmware emulation. The separate `sim/` project is an
+explicit protocol/RTOS self-test for the Espressif ESP32-S3 QEMU machine;
+see its README for supported peripherals and evidence limitations.
+
+The binary is `.pio/build/esp32-s3-devkitc-1-n16r8v/firmware.bin` and the ELF
+is alongside it. These commands build/test only; they do not flash hardware.
+A successful build does not verify real microphone samples, clocks, Wi-Fi,
+power consumption, or model identification.
+
+## Historical roadmap — not implemented behavior
+
+The following roadmap predates the bounded PCM implementation above. Codec,
+compression, gateway, power, TLS, and OTA statements below describe future work.
+
 
 The embedded capture client is responsible for buffering microphone audio, tagging it with device metadata, and uploading it to the streaming gateway with minimal power draw. The plan below reflects our embedded-systems checklist so the firmware stays reliable even in unattended backyard deployments.
 

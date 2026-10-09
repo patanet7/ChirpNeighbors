@@ -18,9 +18,10 @@ python -m venv /tmp/chirp-intake
 This listens on `127.0.0.1:8080` by default. The firmware is the WebSocket
 **client**: it calls `wsClient.begin(host, port, "/")`; the backend must accept
 that connection. For a later trusted-LAN hardware test, pass an explicit private
-interface with `--host`, provision the firmware's `ws_server`/`ws_port`, and match
-its `sample_rate` using `--sample-rate` (default 48000). Keep device `output_bits`
-at **16**, mono. There is no authentication/TLS in this development receiver.
+interface with `--host`, provision the firmware's `ws_server`/`ws_port`. The
+ESP32-S3 firmware and receiver enforce **48000 Hz, 16-bit mono**; alternate
+`--sample-rate` values are rejected. There is no authentication/TLS in this
+development receiver.
 Ctrl-C closes the server and active connection and joins its tasks.
 
 `--chunk-duration-sec` defaults to 3 seconds. `audio_server(on_capture=...)`
@@ -32,7 +33,7 @@ bounded worker; do not block the event loop inside the callback.
 
 ## Wire format and capture rules
 
-The protocol is taken from `esp32-client/src/main.cpp`, not a proposed protocol:
+The shared firmware serializer is `esp32-client/include/audio_protocol.h`:
 
 | Bytes | Meaning |
 | --- | --- |
@@ -47,22 +48,26 @@ payloads, odd PCM lengths, oversized messages and text are rejected. Malformed
 messages discard a partial capture without poisoning the connection; transport
 oversize closes it with code 1009.
 
-Firmware also has a 24-bit mode. This receiver rejects a configured
-`output_bits=24`, but the wire format contains no bit depth, rate, device ID or
-format version. Many 24-bit payloads have an even length and are indistinguishable
-from 16-bit data. Correct device provisioning is required; automatic format
-verification needs a future firmware protocol change.
+The firmware now rejects alternate sample rates and output bit depths, and
+`AudioStreamHandler` rejects a configured `output_bits=24`. The wire format still
+contains no bit depth, rate, device ID or format version. Many incompatible PCM
+payloads have an even length and are indistinguishable from 16-bit data. Fixed
+firmware configuration does not detect arbitrary incompatible devices;
+automatic format verification needs a future firmware protocol change.
 
 - Sequence deltas use uint32 arithmetic. Duplicates and stale/half-range packets
   are ignored without moving the accepted sequence. Forward gaps count missing
   packets and discard the partial capture. `0xffffffff → 0` is contiguous.
-- The timestamp is **device uptime at packet creation**, not wall-clock time or
+- The timestamp is **device uptime at I2S read completion**, not wall-clock time or
   an exact sample start. It stays in `*_device_uptime_us` metadata. `received_at`
   is the UTC host receipt of the first contributing packet; `observed_at` stays
   `None`. Do not map uptime or receipt time to contract `observedAt`.
+- Firmware consumes a sequence number for every successful, aligned, nonempty
+  I2S capture, including gated, disconnected, and queue-dropped blocks. Sequence
+  gaps therefore expose capture discontinuities as well as transport loss.
 - Sequence gaps, malformed messages, timer regressions/non-advancement and device
   timer gaps over 100 ms discard partial PCM. The timer gap rule prevents joining
-  separate RMS-gated bursts when sequence numbers remain consecutive. It is a
+  separate bursts even when sequence numbers remain consecutive. It is a
   conservative heuristic requiring hardware validation, not sample-perfect timing.
 - Complete windows have exactly `int(sample_rate * chunk_duration_sec)` samples;
   packet remainders carry into the next window. No silence, padding or invented
@@ -71,8 +76,12 @@ verification needs a future firmware protocol change.
 - The default queue holds eight complete windows and drops the oldest window on
   overflow, counting `dropped_captures`. Assembly holds one partial window. At
   default settings each window is 288,000 PCM bytes; queue plus assembly is about
-  2.6 MB, excluding transient copies and Python/transport overhead. Configuration
-  caps are 192 kHz, 30 seconds/window and 64 queued windows.
+  2.6 MB, excluding transient copies and Python/transport overhead. The generic
+  assembler caps are 192 kHz, 30 seconds/window and 64 queued windows. Combinations
+  exceeding 16 MiB for queue, assembly, and one consumer-held PCM window are
+  rejected. Packet backing bytes, transient copies and Python/transport overhead
+  are additional; this is a window-storage budget, not a process-wide memory
+  limit. The network receiver only accepts 48 kHz configuration.
 - The WebSocket layer also bounds frame buffering (`max_queue=8`), message size,
   and open/close timeouts. Only one device session is admitted; a second receives
   1013. Each reconnect creates a fresh handler and discards prior partial audio.
@@ -91,15 +100,32 @@ former outbound `uri`/`connect` interface is replaced by accepted-socket intake.
 
 ## Local checks
 
+Install a native C++17 compiler (`c++`) for the serializer integration check.
+No ESP32 toolchain, microphone, model, or audio-device dependency is needed here.
+
 ```sh
-/tmp/chirp-intake/bin/python -m pip install -r requirements-contract.txt
-/tmp/chirp-intake/bin/python -B -W error -m unittest discover -s tests -v
+/tmp/chirp-intake/bin/python -m pip install -r requirements-intake-dev.txt
+/tmp/chirp-intake/bin/python scripts/check_intake.py --evidence-dir /tmp/chirp-host-checks
 ```
 
-Tests use synthetic firmware bytes and actual **loopback** WebSockets. They
+The pinned gate runs dependency validation, scoped Ruff lint/format, strict mypy
+on the four intake implementation modules, and all tests with asyncio debug and
+warnings as errors. Branch coverage of those modules must be at least 80%.
+Evidence includes gate logs, tool versions, coverage JSON, the native serializer
+binary, exact compiler command, and its golden packet. The formatter/linter gate
+does not broaden scope to unsupported GUI prototypes.
+
+Tests use synthetic firmware bytes and actual **loopback** WebSockets. The C++
+fixture includes the exact serializer used by firmware; its compiled output is
+checked against literal expected bytes and passed through the real receiver.
+Short and maximum-size masked WebSocket frames from the same firmware serializer
+also pass through a raw TCP HTTP upgrade into the receiver, checking masking and
+extended network-order lengths without a Python client frame encoder.
+This is native shared-code execution, **not ESP32 firmware emulation**. Tests
 exercise decoding, malformed packets, sequence loss/duplicates/wrap/stale
 arrivals, timing discontinuities, window assembly, slow consumers, reconnection,
-shutdown, callback failure and headless imports. Existing shared identification
+shutdown, callback failure, fragmented/oversized messages, cancelled consumers,
+fixed-rate enforcement, and headless imports. Existing shared identification
 contract tests run unchanged. `test_endpoints.py` is still an empty placeholder;
 this does not establish HTTP endpoint correctness. A separate intake CI workflow
 runs these checks on Python 3.11/3.12 when published; local work does not establish

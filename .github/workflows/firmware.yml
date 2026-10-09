@@ -1,0 +1,25 @@
+name: ESP32-S3 firmware
+on:
+  pull_request:
+    paths: ['esp32-client/**', '.github/workflows/firmware.yml']
+  push:
+    branches: [main]
+    paths: ['esp32-client/**', '.github/workflows/firmware.yml']
+jobs:
+  firmware:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: esp32-client
+    env:
+      PLATFORMIO_SETTING_ENABLE_TELEMETRY: 'no'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install platformio==6.2.0 clang-format==18.1.8
+      - run: clang-format --dry-run --Werror include/*.h src/*.cpp test/test_audio/*.cpp
+      - run: pio test -e native
+      - run: pio run -e esp32-s3-devkitc-1-n16r8v
+      - run: pio check -e esp32-s3-devkitc-1-n16r8v --fail-on-defect high --fail-on-defect medium

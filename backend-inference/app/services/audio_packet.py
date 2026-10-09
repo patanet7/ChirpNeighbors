@@ -7,8 +7,9 @@ from struct import Struct
 import numpy as np
 from numpy.typing import NDArray
 
-# esp32-client/src/main.cpp: packed uint32 sequence + uint64 esp_timer_get_time.
+# esp32-client/include/audio_protocol.h: LE uint32 sequence + uint64 device timer.
 HEADER = Struct("<IQ")
+SAMPLE_RATE = 48000
 MAX_PACKET_SAMPLES = 2048 // 4  # 32-bit I2S read, converted to 16-bit mono PCM.
 MAX_PACKET_BYTES = HEADER.size + MAX_PACKET_SAMPLES * 2
 
@@ -28,9 +29,9 @@ class AudioPacket:
 def parse_audio_packet(message: bytes) -> AudioPacket:
     """Strip exactly 12 header bytes, then decode little-endian signed PCM.
 
-    Firmware has no format negotiation. The device MUST be configured for mono
-    16-bit output; an even-length 24-bit payload cannot be detected reliably.
-    Uptime is a device timer at packet creation, not a UTC observation time.
+    Firmware has no format negotiation. This target sends 48 kHz mono 16-bit
+    output; a different even-length PCM format cannot be detected reliably.
+    Uptime is a timer at I2S read completion, not a UTC observation time.
     """
     if not isinstance(message, bytes):
         raise AudioPacketError("Expected a binary audio message")

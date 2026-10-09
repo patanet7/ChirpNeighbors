@@ -58,6 +58,14 @@ class PacketTests(unittest.TestCase):
         self.assertEqual(parsed.device_uptime_us, 123)
         self.assertEqual(parsed.received_at.tzinfo, UTC)
 
+    def test_uint64_uptime_extremes_are_preserved_as_device_metadata(self):
+        for uptime in (0, 2**63, 2**64 - 1):
+            with self.subTest(uptime=uptime):
+                parsed = packet(sequence=2**32 - 1, uptime=uptime)
+                self.assertEqual(parsed.device_uptime_us, uptime)
+                self.assertEqual(parsed.sequence, 2**32 - 1)
+                self.assertEqual(parsed.received_at.tzinfo, UTC)
+
 
 class CaptureTests(unittest.TestCase):
     def setUp(self):
@@ -115,6 +123,22 @@ class CaptureTests(unittest.TestCase):
         self.assertEqual(result[0].samples.tolist(), [1, 2, 3, 4, 5])
         self.assertEqual(self.assembler.stats.missing_packets, 2)
 
+    def test_half_range_is_ambiguous_but_largest_forward_gap_is_counted(self):
+        self.assembler.add(packet(0, [99], 1000))
+        self.assertEqual(self.assembler.add(packet(0x80000000, [99], 2000)), [])
+        result = self.assembler.add(packet(0x7FFFFFFF, [1, 2, 3, 4, 5], 3000))
+        self.assertEqual(result[0].samples.tolist(), [1, 2, 3, 4, 5])
+        self.assertEqual(self.assembler.stats.missing_packets, 0x7FFFFFFE)
+        self.assertEqual(self.assembler.stats.out_of_order_packets, 1)
+
+    def test_firmware_gated_sequence_gap_discards_even_a_short_timer_gap(self):
+        self.assembler.add(packet(20, [99, 99], 1000))
+        # Firmware increments sequence before RMS gating or queue-drop decisions.
+        result = self.assembler.add(packet(22, [1, 2, 3, 4, 5], 2000))
+        self.assertEqual(result[0].samples.tolist(), [1, 2, 3, 4, 5])
+        self.assertEqual(self.assembler.stats.missing_packets, 1)
+        self.assertEqual(self.assembler.stats.discarded_samples, 2)
+
     def test_silence_gaps_and_timer_regressions_do_not_join_recordings(self):
         for uptime in (1000, 999, 101001):
             with self.subTest(uptime=uptime):
@@ -129,6 +153,7 @@ class CaptureTests(unittest.TestCase):
             {"sample_rate": 0},
             {"sample_rate": 192001},
             {"sample_rate": 1.5},
+            {"sample_rate": True},
             {"chunk_duration_sec": 0},
             {"chunk_duration_sec": 31},
             {"chunk_duration_sec": float("inf")},
@@ -137,6 +162,8 @@ class CaptureTests(unittest.TestCase):
             {"queue_size": 0},
             {"queue_size": 65},
             {"queue_size": 1.5},
+            {"queue_size": True},
+            {"queue_size": 64, "chunk_duration_sec": 30},
             {"output_bits": 24},
             {"max_packet_gap_sec": 0},
             {"max_packet_gap_sec": float("nan")},
@@ -222,6 +249,31 @@ class StreamTests(unittest.IsolatedAsyncioTestCase):
             await listener
         self.assertIsNone(await asyncio.wait_for(consumer, 1))
         self.assertFalse(handler.connected)
+
+    async def test_cancelled_consumer_does_not_steal_next_capture(self):
+        handler = self.handler()
+        cancelled = asyncio.create_task(handler.get_capture())
+        await asyncio.sleep(0)
+        cancelled.cancel()
+        with self.assertRaises(asyncio.CancelledError):
+            await cancelled
+        next_consumer = asyncio.create_task(handler.get_capture())
+        handler.ingest(wire(samples=[1, 2, 3, 4, 5]))
+        capture = await asyncio.wait_for(next_consumer, 1)
+        self.assertEqual(capture.samples.tolist(), [1, 2, 3, 4, 5])
+        handler.shutdown()
+        self.assertIsNone(await handler.get_capture())
+
+    async def test_shutdown_drains_one_window_to_one_of_multiple_waiters(self):
+        handler = self.handler()
+        waiters = [asyncio.create_task(handler.get_capture()) for _ in range(4)]
+        await asyncio.sleep(0)
+        handler.ingest(wire(samples=[1, 2, 3, 4, 5]))
+        handler.shutdown()
+        results = await asyncio.wait_for(asyncio.gather(*waiters), 1)
+        captures = [capture for capture in results if capture is not None]
+        self.assertEqual(len(captures), 1)
+        self.assertEqual(captures[0].samples.tolist(), [1, 2, 3, 4, 5])
 
     async def test_reconnect_requires_fresh_state_and_never_joins_partial_audio(self):
         async def first_connection():

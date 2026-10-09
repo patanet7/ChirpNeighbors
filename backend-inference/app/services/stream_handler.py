@@ -8,6 +8,10 @@ from websockets.exceptions import ConnectionClosed
 from app.services.audio_capture import AudioCapture, CaptureAssembler
 from app.services.audio_packet import AudioPacketError, parse_audio_packet
 
+# Bounds queue, assembly and one consumer-held window's PCM storage. Packet
+# backing bytes, transient copies and Python/transport overhead are additional.
+MAX_BUFFERED_PCM_BYTES = 16 * 1024 * 1024
+
 
 class AudioStreamHandler:
     """One instance per connection, used only on its owning asyncio loop.
@@ -28,14 +32,18 @@ class AudioStreamHandler:
         queue_size: int = 8,
         output_bits: int = 16,
         max_packet_gap_sec: float = 0.1,
-    ):
+    ) -> None:
         if output_bits != 16:
             raise ValueError("Only configured 16-bit mono PCM is supported")
-        if not isinstance(queue_size, int) or not 1 <= queue_size <= 64:
+        if type(queue_size) is not int or not 1 <= queue_size <= 64:
             raise ValueError("queue_size must be an integer from 1 to 64")
         self.assembler = CaptureAssembler(
             sample_rate, chunk_duration_sec, max_packet_gap_sec
         )
+        if (queue_size + 2) * self.assembler.chunk_size * 2 > MAX_BUFFERED_PCM_BYTES:
+            raise ValueError(
+                "Queue and capture windows exceed the 16 MiB window budget"
+            )
         self._captures: asyncio.Queue[AudioCapture] = asyncio.Queue(queue_size)
         self._ready = asyncio.Event()
         self._closed = False
@@ -43,7 +51,7 @@ class AudioStreamHandler:
         self.connected = False
         self.invalid_packets = 0
         self.dropped_captures = 0
-        self._listener: asyncio.Task | None = None
+        self._listener: asyncio.Task[None] | None = None
 
     @property
     def queued_captures(self) -> int:

@@ -8,7 +8,7 @@ from collections.abc import Callable
 from websockets.asyncio.server import ServerConnection, serve
 
 from app.services.audio_capture import AudioCapture
-from app.services.audio_packet import MAX_PACKET_BYTES
+from app.services.audio_packet import MAX_PACKET_BYTES, SAMPLE_RATE
 from app.services.stream_handler import AudioStreamHandler
 
 logger = logging.getLogger(__name__)
@@ -22,11 +22,13 @@ def log_capture(capture: AudioCapture) -> None:
 async def receive_audio(
     websocket: ServerConnection,
     *,
-    sample_rate: int = 48000,
+    sample_rate: int = SAMPLE_RATE,
     chunk_duration_sec: float = 3.0,
     on_capture: Callable[[AudioCapture], None] = log_capture,
 ) -> None:
     """Own listener/consumer lifetimes together; callbacks must be nonblocking."""
+    if type(sample_rate) is not int or sample_rate != SAMPLE_RATE:
+        raise ValueError("The ESP32 wire contract requires 48000 Hz mono 16-bit PCM")
     handler = AudioStreamHandler(
         sample_rate=sample_rate, chunk_duration_sec=chunk_duration_sec
     )
@@ -48,7 +50,7 @@ def audio_server(
     host: str = "127.0.0.1",
     port: int = 8080,
     *,
-    sample_rate: int = 48000,
+    sample_rate: int = SAMPLE_RATE,
     chunk_duration_sec: float = 3.0,
     on_capture: Callable[[AudioCapture], None] = log_capture,
 ) -> serve:
@@ -58,6 +60,8 @@ def audio_server(
     an explicit private interface only when testing hardware on a trusted LAN.
     """
     # Validate before binding or accepting a device.
+    if type(sample_rate) is not int or sample_rate != SAMPLE_RATE:
+        raise ValueError("The ESP32 wire contract requires 48000 Hz mono 16-bit PCM")
     AudioStreamHandler(sample_rate=sample_rate, chunk_duration_sec=chunk_duration_sec)
     active = False
 
@@ -92,7 +96,7 @@ def audio_server(
 async def main(
     host: str = "127.0.0.1",
     port: int = 8080,
-    sample_rate: int = 48000,
+    sample_rate: int = SAMPLE_RATE,
     chunk_duration_sec: float = 3.0,
 ) -> None:
     async with audio_server(
@@ -106,7 +110,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8080)
-    parser.add_argument("--sample-rate", type=int, default=48000)
+    parser.add_argument(
+        "--sample-rate", type=int, choices=[SAMPLE_RATE], default=SAMPLE_RATE
+    )
     parser.add_argument("--chunk-duration-sec", type=float, default=3.0)
     args = parser.parse_args()
     logging.basicConfig(level=logging.INFO)

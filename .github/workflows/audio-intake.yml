@@ -21,5 +21,6 @@ jobs:
           cache-dependency-path: |
             backend-inference/requirements-intake.txt
             backend-inference/requirements-contract.txt
-      - run: python -m pip install -r requirements-intake.txt -r requirements-contract.txt
-      - run: python -B -W error -m unittest discover -s tests -v
+            backend-inference/requirements-intake-dev.txt
+      - run: python -m pip install -r requirements-intake-dev.txt
+      - run: python scripts/check_intake.py --evidence-dir "${{ runner.temp }}/intake-evidence"

@@ -46,8 +46,8 @@ class CaptureAssembler:
         sample_rate: int = 48000,
         chunk_duration_sec: float = 3.0,
         max_packet_gap_sec: float = 0.1,
-    ):
-        if not isinstance(sample_rate, int) or not 1 <= sample_rate <= 192000:
+    ) -> None:
+        if type(sample_rate) is not int or not 1 <= sample_rate <= 192000:
             raise ValueError("sample_rate must be an integer from 1 to 192000")
         if not math.isfinite(chunk_duration_sec) or not 0 < chunk_duration_sec <= 30:
             raise ValueError("chunk_duration_sec must be finite and in (0, 30]")

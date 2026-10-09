@@ -60,8 +60,7 @@ class ServerTests(unittest.IsolatedAsyncioTestCase):
         self.captures = asyncio.Queue()
         self.server = await audio_server(
             port=0,
-            sample_rate=10,
-            chunk_duration_sec=0.5,
+            chunk_duration_sec=5 / 48000,
             on_capture=self.captures.put_nowait,
         )
         port = self.server.sockets[0].getsockname()[1]
@@ -116,6 +115,56 @@ class ServerTests(unittest.IsolatedAsyncioTestCase):
         await self.wait_for_session_end()
         self.assertTrue(self.captures.empty())
 
+    async def test_fragmented_binary_message_reassembles_one_audio_packet(self):
+        message = wire(0, [-32768, -1, 0, 1, 32767], 2**63)
+        async with connect(self.uri, proxy=None) as client:
+            await client.send(
+                [message[:1], message[1:11], message[11:13], message[13:]]
+            )
+            capture = await asyncio.wait_for(self.captures.get(), 1)
+            self.assertEqual(capture.samples.tolist(), [-32768, -1, 0, 1, 32767])
+            self.assertEqual(capture.first_device_uptime_us, 2**63)
+            self.assertEqual(capture.sample_rate, 48000)
+            self.assertIsNone(capture.observed_at)
+
+    async def test_fragmented_oversize_message_is_rejected_as_a_whole(self):
+        message = wire(0, [0] * 513, 1000)
+        async with connect(self.uri, proxy=None) as client:
+            await client.send([message[:512], message[512:]])
+            await asyncio.wait_for(client.wait_closed(), 1)
+            self.assertEqual(client.close_code, 1009)
+        await self.wait_for_session_end()
+        self.assertTrue(self.captures.empty())
+
+    async def test_text_message_discards_partial_window_before_valid_packet(self):
+        async with connect(self.uri, proxy=None) as client:
+            await client.send(wire(0, [99, 99], 1000))
+            await client.send("status")
+            await client.send(wire(1, [1, 2, 3, 4, 5], 2000))
+            capture = await asyncio.wait_for(self.captures.get(), 1)
+            self.assertEqual(capture.samples.tolist(), [1, 2, 3, 4, 5])
+
+    async def test_receiver_rejects_rate_mismatch_before_opening_transport(self):
+        for rate in (16000, 44100, 48000.0, True):
+            with self.subTest(rate=rate), self.assertRaisesRegex(ValueError, "48000"):
+                audio_server(sample_rate=rate)
+            with self.subTest(rate=rate), self.assertRaisesRegex(ValueError, "48000"):
+                await receive_audio(None, sample_rate=rate)
+
+    async def test_server_cancellation_releases_session_for_new_connection(self):
+        async with connect(self.uri, proxy=None) as first:
+            await first.send(wire(9, [99, 99], 2000))
+            # Cancel the server-side connection task while receive_audio owns tasks.
+            handlers = list(self.server.handlers.values())
+            self.assertEqual(len(handlers), 1)
+            handlers[0].cancel()
+            await asyncio.wait_for(first.wait_closed(), 3)
+        await self.wait_for_session_end()
+        async with connect(self.uri, proxy=None) as second:
+            await second.send(wire(0, [1, 2, 3, 4, 5], 1000))
+            capture = await asyncio.wait_for(self.captures.get(), 1)
+            self.assertEqual(capture.samples.tolist(), [1, 2, 3, 4, 5])
+
     async def test_server_shutdown_closes_idle_socket_and_finishes_handlers(self):
         async with connect(self.uri, proxy=None) as client:
             self.server.close()
@@ -135,7 +184,7 @@ class ServerTests(unittest.IsolatedAsyncioTestCase):
         async def accept(socket):
             try:
                 await receive_audio(
-                    socket, sample_rate=10, chunk_duration_sec=0.5, on_capture=broken
+                    socket, chunk_duration_sec=5 / 48000, on_capture=broken
                 )
             except ExceptionGroup as error:
                 failure.set_result(error)

@@ -1,0 +1,30 @@
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+explicit_package_bases = true
+files = [
+  "app/main.py",
+  "app/services/audio_packet.py",
+  "app/services/audio_capture.py",
+  "app/services/stream_handler.py",
+]
+
+[tool.coverage.run]
+branch = true
+source = [
+  "app.main",
+  "app.services.audio_packet",
+  "app.services.audio_capture",
+  "app.services.stream_handler",
+]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
