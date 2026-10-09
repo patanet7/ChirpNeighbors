@@ -1,5 +1,7 @@
 # ChirpNeighbors Documentation
 
+Current product decisions, task status, architecture boundaries, named behavioral evidence and remaining blockers are consolidated in the [authoritative task index](delivery/product-behavior-and-ideas.md). The original architecture PRD and dated agent/checkpoint logs are historical inputs; they do not establish current implementation or production readiness.
+
 Complete documentation for the ChirpNeighbors IoT bird sound monitoring system.
 
 ## Documentation Structure

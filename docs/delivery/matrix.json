@@ -199,8 +199,8 @@
       "status": "unintegrated",
       "dependencies": [],
       "acceptance": [
-        "Previously completed worker c08624d3 is not present or reimplemented to circumvent transfer approval.",
-        "Integrate and reverify only after authorized same-artifact transfer; current manually advanced runner remains explicit."
+        "Previously completed worker c08624d3 remains unavailable locally after the already-authorized supported transfer failed; do not duplicate its implementation.",
+        "Integrate and reverify the same artifact only after transfer succeeds; the current manually advanced runner remains explicit."
       ],
       "evidence": [
         "docs/delivery/approved-handoff-blocker-20261008.md"
@@ -215,7 +215,7 @@
       "status": "unintegrated",
       "dependencies": [],
       "acceptance": [
-        "Previously completed ESP32 c693ed0 is not present or reimplemented to circumvent transfer approval.",
+        "Previously completed ESP32 c693ed02 remains unavailable locally after the already-authorized supported transfer failed; separate resumed ESP32 work must not be duplicated.",
         "Actual hardware/model execution remains unverified; transfer and integration are separate gates."
       ],
       "evidence": [
@@ -282,16 +282,20 @@
         "contracts"
       ],
       "acceptance": [
-        "One canonical species/style/version request when configured, durable dedupe and explicit pending placeholder.",
-        "Private generation identity includes owner scope; usage distinguishes attempts/cache/admission/review with unknown cost preserved."
+        "Pure usage/fingerprint contracts distinguish shared canonical identity, private owner scope, explicit attempt/cache/admission/review events and unknown monetary cost.",
+        "Bounded runtime catalog demand/release/selection is tracked under shared-catalog and PB-003; pure usage helpers must not be described as live dispatch instrumentation."
       ],
       "evidence": [
         "birdsong-yard-sprites/docs/generation-cost-foundation.md",
-        "birdsong-yard-sprites/src/lib/server/assets/catalog-requests.test.ts"
+        "birdsong-yard-sprites/src/lib/server/assets/catalog-requests.test.ts",
+        "birdsong-yard-sprites/src/lib/server/pipeline/generation-usage.test.ts",
+        "docs/delivery/catalog-verified-20261009.md",
+        "docs/delivery/product-behavior-and-ideas.md"
       ],
       "remaining": [
-        "Default request policy denies; app hook, approved public release payload, provider dispatch and persistent runtime usage/budgets remain future adapters.",
-        "Add explicit cross-language rights/review/fidelity/reference and union-branch cases before activating pending transport boundaries."
+        "Later shared-catalog work now wires eligible arriving-species demand and immutable public fixture payloads. The older pending app-hook/payload statements are superseded for this bounded path.",
+        "Real provider dispatch, runtime callers of usage/fingerprint helpers, a durable usage ledger, budgets, cancellation/retry settlement and operational metering remain absent (PB-018).",
+        "Production catalog promotion still defaults to denied; approved real artwork, per-file rights, species review and provider authority remain external (PB-003/PB-021)."
       ]
     },
     {
@@ -498,13 +502,22 @@
     "document": "birdsong-yard-sprites/docs/behavior-ontology-checklist.md",
     "productRegister": "docs/delivery/product-behavior-and-ideas.md",
     "scope": "Versioned illustrative species ontology, deterministic fictional personality, observable trait-driven decisions and safe placement, owner-only transient workbench and actual fixture visual evaluation",
-    "verification": "pending",
+    "verification": "pending_corrected_full_suite",
     "selectedGates": 74,
     "baseRevisions": {
       "main": "a3c5ec6d03d405dd11724cbe14356e1d99b5ea37",
       "ui": "b7e1ddb6f38429fa88dedcf659f45b3eb5e4aa95"
     },
-    "independentReview": "birdsong-yard-sprites/docs/behavior-ontology-review-20261009.md"
+    "independentReview": "birdsong-yard-sprites/docs/behavior-ontology-review-20261009.md",
+    "firstAttempt": {
+      "report": "docs/delivery/ontology-attempts-20261009/system-r1/report.json",
+      "passed": 72,
+      "total": 74,
+      "failures": [
+        "browser-scenes",
+        "browser-behavior"
+      ]
+    }
   },
   "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",

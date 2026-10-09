@@ -1,12 +1,16 @@
 # Executable full-system delivery matrix
 
-`matrix.json` is the owned, versioned delivery graph. Its status is implementation
-status in these local checkouts, not a production readiness percentage. Each
-workstream has an owner, dependencies, acceptance criteria and evidence list.
-`implemented_local` means the bounded local slice has passed its declared checks.
-`partial_local` retains an explicit unmet acceptance criterion in `remaining`;
-storage retention and container execution are not silently called complete.
-The [integrated checkpoint](checkpoint-20261008.md) records exact verification.
+The [consolidated task index](product-behavior-and-ideas.md) owns current decisions,
+requirement status, architecture boundaries, behavioral acceptance, exact tested
+revisions and residual gaps. `matrix.json` is its executable delivery graph, not a
+competing product roadmap or production-readiness percentage. Matrix implementation
+labels must be read with the named checkpoint and active-wave state; implemented
+code or an older passing aggregate does not verify a changed candidate.
+
+The historical checklist below records earlier bounded waves and their original
+counts. Later checkpoint links and the authoritative index supersede stale current-
+status wording without rewriting historical evidence. The [initial integrated
+checkpoint](checkpoint-20261008.md) retains its exact original verification.
 
 ```sh
 python3 scripts/delivery_matrix.py --check
@@ -28,8 +32,8 @@ TypeScript counterparts. Do not hand-maintain equivalent wire models in both
 languages. The UI's `docs/contract-platform.md` records ownership; executable
 cross-language tests enforce the exported boundary behavior.
 
-Worker `c08624d3` and ESP32 `c693ed0` remain outside this workspace pending approved
-transfer. This task will not reproduce their independent work to evade that gate.
+Worker `c08624d3` and ESP32 `c693ed0` remain outside this workspace after already-approved supported
+transfer failed before bytes were materialized. See the [technical handoff blocker](approved-handoff-blocker-20261008.md). This task does not reproduce their separate work.
 Approved species artwork, real-source samples, production identity/mail credentials,
 model licenses and external provider/hosting configuration remain explicit external
 gates. Local coding, synthetic fixtures and ordinary package dependencies proceed.
@@ -102,9 +106,10 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
 - [ ] Configure production identity/mail and any weather/image providers through
   operator-owned secrets and explicit adapters; verify real callbacks, transport,
   regional behavior and failure/revocation without exposing private locations.
-- [ ] Authorize transfer of worker `c08624d3` and ESP32 `c693ed0`, then integrate
-  and rerun their real execution/hardware acceptance tests. Do not recreate these
-  blocked artifacts in this task.
+- [ ] Repair the supported materialization path for the already-authorized worker
+  `c08624d3` and ESP32 `c693ed0` handoff, then inspect the original artifacts and
+  reverify their execution/hardware boundaries. ESP32 work continues separately;
+  do not assume newer commits exist here or recreate these artifacts.
 - [ ] Resolve Docker build-network access and verify built images/composition.
   Publication, hosting and deployment remain outside this local task.
 
