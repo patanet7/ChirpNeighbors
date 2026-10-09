@@ -138,6 +138,22 @@ class SessionVerifierTests(unittest.TestCase):
             "https://owner-app.invalid#fragment",
             "https://owner-app.invalid:99999",
             "https://owner-app.invalid\n",
+            "https://owner-app.invalid\\hidden",
+            "https://%6fwner-app.invalid",
+            "https://owner-app.invalid%2e",
+            "https://@owner-app.invalid",
+            "https://:@owner-app.invalid",
+            "https://owner^app.invalid",
+            "https://owner|app.invalid",
+            "https://.",
+            "https://127.1",
+            "https://0177.0.0.1",
+            "https://0x7f000001",
+            "https://2130706433",
+            "https://127.0.0.1.",
+            "https://example.1",
+            "https://[::1%25zone]",
+            "https://[::invalid]",
         ):
             with self.subTest(origin=origin), self.assertRaises(ValueError):
                 trusted_origin(origin, allow_loopback_http=True)
@@ -147,6 +163,24 @@ class SessionVerifierTests(unittest.TestCase):
             trusted_origin("http://127.0.0.1:5173", allow_loopback_http=True),
             "http://127.0.0.1:5173",
         )
+
+    def test_trusted_origin_matches_browser_serialization_for_supported_authorities(
+        self,
+    ) -> None:
+        cases = {
+            "HTTPS://OWNER-APP.INVALID:443/": ORIGIN,
+            "https://OWNER-APP.INVALID:8443/": "https://owner-app.invalid:8443",
+            "https://OWNER-APP.INVALID./": "https://owner-app.invalid.",
+            "https://[2001:0DB8:0:0:0:0:0:1]:443/": "https://[2001:db8::1]",
+            "https://127.0.0.1:443/": "https://127.0.0.1",
+            "HTTP://LOCALHOST:80/": "http://localhost",
+            "http://[0:0:0:0:0:0:0:1]:80/": "http://[::1]",
+        }
+        for configured, expected in cases.items():
+            with self.subTest(configured=configured):
+                self.assertEqual(
+                    trusted_origin(configured, allow_loopback_http=True), expected
+                )
 
     def test_session_rejected_for_expired_null_unknown_and_development(self) -> None:
         for payload in (
@@ -310,6 +344,40 @@ class AudioAPITests(unittest.IsolatedAsyncioTestCase):
                 "content-type": "application/json",
                 "cookie": cookie,
             },
+        )
+
+    async def test_canonical_browser_origin_reaches_configured_gateway_only(
+        self,
+    ) -> None:
+        gateway = BFFTransport(
+            "HTTPS://OWNER-APP.INVALID:443/",
+            transport=httpx.MockTransport(self.bff.handle),
+        )
+        async with httpx.AsyncClient(
+            transport=httpx.ASGITransport(
+                app=create_app(gateway=gateway, provider=SyntheticFixtureProvider())
+            ),
+            base_url="https://audio.invalid",
+        ) as client:
+            for origin, status in (("https://other.invalid", 403), (ORIGIN, 200)):
+                response = await client.post(
+                    "/v1/audio/analyze",
+                    content=self.bff.command.model_dump_json(),
+                    headers={
+                        "origin": origin,
+                        "content-type": "application/json",
+                        "cookie": COOKIE,
+                    },
+                )
+                self.assertEqual(response.status_code, status, response.text)
+                if status == 403:
+                    self.assertEqual(self.bff.requests, [])
+        self.assertTrue(self.bff.requests)
+        self.assertTrue(
+            all(
+                str(request.url).startswith(ORIGIN + "/api/")
+                for request in self.bff.requests
+            )
         )
 
     async def test_authenticated_synthetic_analysis_through_actual_adapter_stack(

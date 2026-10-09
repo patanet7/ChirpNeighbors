@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from datetime import UTC, datetime
+from ipaddress import IPv4Address, IPv6Address
 from urllib.parse import urlsplit
 
 import httpx
@@ -30,29 +31,56 @@ class GatewayUnavailableError(RuntimeError):
 
 def trusted_origin(value: str, *, allow_loopback_http: bool = False) -> str:
     parts = urlsplit(value)
+    host = parts.hostname
+    if host and ":" in host:
+        host = IPv6Address(host).compressed
     if (
-        not parts.hostname
-        or parts.username
-        or parts.password
+        not host
+        or parts.username is not None
+        or parts.password is not None
         or parts.path not in ("", "/")
         or parts.query
         or parts.fragment
+        or "\\" in value
         or any(ord(character) <= 32 or ord(character) >= 127 for character in value)
         or (
             parts.scheme != "https"
             and not (
                 allow_loopback_http
                 and parts.scheme == "http"
-                and parts.hostname in ("localhost", "127.0.0.1", "::1")
+                and host in ("localhost", "127.0.0.1", "::1")
             )
         )
     ):
         raise ValueError(
             "Configure an HTTPS BFF origin or explicit loopback development origin"
         )
+    # Origin headers serialize lowercase hosts, compressed IPv6 and no default
+    # port. Comparing them with the raw environment string rejects valid callers.
+    # Keep a deliberately narrow ASCII authority syntax: Python and browsers
+    # disagree about percent-encoded hosts and legacy numeric IPv4 spellings.
+    if "%" in host or not host.strip("."):
+        raise ValueError("Configure a literal ASCII host without percent encoding")
+    if ":" in host:
+        host = f"[{host}]"
+    else:
+        if any(
+            character not in "abcdefghijklmnopqrstuvwxyz0123456789._-"
+            for character in host
+        ):
+            raise ValueError("Configure an ASCII DNS host or IP address")
+        last_label = host.rstrip(".").rsplit(".", 1)[-1]
+        hex_label = last_label.startswith("0x") and all(
+            character in "0123456789abcdef" for character in last_label[2:]
+        )
+        if last_label.isdigit() or hex_label:
+            if str(IPv4Address(host)) != host:
+                raise ValueError("Configure canonical dotted-decimal IPv4")
     # Accessing port validates malformed or out-of-range values during startup.
-    _ = parts.port
-    return value.rstrip("/")
+    port = parts.port
+    default_port = 443 if parts.scheme == "https" else 80
+    suffix = f":{port}" if port is not None and port != default_port else ""
+    return f"{parts.scheme}://{host}{suffix}"
 
 
 class BFFTransport:
