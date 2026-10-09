@@ -10,7 +10,7 @@ code or an older passing aggregate does not verify a changed candidate.
 The current [environment checkpoint](environment-verified-20261009.md) records the
 complete 75-gate passing run, exact source commits and retained failed attempts.
 The prior [74-gate ontology checkpoint](ontology-verified-20261009.md) remains preserved.
-The index limits completion to named behavior and fixture scope.
+The [subsequent ESP32 integration](esp32-integrated-20261009.md) records the actual fetched head, local merge, 52 host tests, eight native tests and 25/25 selected regression gates. Board/simulator setup remains blocked; this selected run does not replace the complete environment proof. The index limits completion to named behavior and fixture scope.
 
 The historical checklist below records earlier bounded waves and their original
 counts. Later checkpoint links and the authoritative index supersede stale current-
@@ -37,7 +37,7 @@ TypeScript counterparts. Do not hand-maintain equivalent wire models in both
 languages. The UI's `docs/contract-platform.md` records ownership; executable
 cross-language tests enforce the exported boundary behavior.
 
-Worker `c08624d3` remains outside this workspace after the approved supported transfer failed before bytes. The user reports ESP32 branch `codex/esp32-s3-verified-stream` published at `99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c`; actual Git inspection and local integration are authorized after the environment checkpoint. See EN-006/EN-007 in the [current index](product-behavior-and-ideas.md); the [original handoff blocker](approved-handoff-blocker-20261008.md) is historical for ESP32. Neither implementation is duplicated.
+Worker `c08624d3` remains outside this workspace after the approved supported transfer failed before bytes. The original ESP32 branch was fetched at `99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c` and locally merged at `4ce5fb535c38f67a3f31caf3a2c7ebfb988a9ceb` after the environment checkpoint. See EN-006/EN-007 in the [current index](product-behavior-and-ideas.md) and the [integration evidence](esp32-integrated-20261009.md); the [original handoff blocker](approved-handoff-blocker-20261008.md) is historical for ESP32. Neither implementation was duplicated.
 Approved species artwork, real-source samples, production identity/mail credentials,
 model licenses and external provider/hosting configuration remain explicit external
 gates. Local coding, synthetic fixtures and ordinary package dependencies proceed.
@@ -111,9 +111,12 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
   operator-owned secrets and explicit adapters; verify real callbacks, transport,
   regional behavior and failure/revocation without exposing private locations.
 - [ ] Repair the supported materialization path for the already-authorized worker
-  `c08624d3` and ESP32 `c693ed0` handoff, then inspect the original artifacts and
-  reverify their execution/hardware boundaries. ESP32 work continues separately;
-  do not assume newer commits exist here or recreate these artifacts.
+  `c08624d3`; preserve its original implementation and separately verify execution.
+- [x] Fetch and locally integrate the original ESP32 branch at its exact reported
+  head; retain conflict review, host/native checks and frozen relevant regressions.
+- [ ] Restore ESP32 toolchain access and QEMU runtime dependencies, rerun the
+  original board/static/simulator checks, and separately validate physical hardware
+  and authenticated private recording admission. See the integration checkpoint.
 - [ ] Resolve Docker build-network access and verify built images/composition.
   Publication, hosting and deployment remain outside this local task.
 

@@ -212,11 +212,12 @@
     {
       "id": "esp32_transfer",
       "owner": "external_transfer",
-      "status": "unintegrated",
+      "status": "partial_local",
       "dependencies": [],
       "acceptance": [
-        "User reports published codex/esp32-s3-verified-stream at 99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c including f0a71cb997a75f6383814a17c277f8855fe18cf9; inspect actual Git history after environment checkpoint.",
-        "Integrate accessible verified changes locally with conflict review and relevant tests; no Library retry, duplicated implementation, publication, deployment or hardware flash."
+        "Original remote branch fetched at 99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c, reported ancestor verified, preserved environment checkpoint and normal two-parent local merge at 4ce5fb535c38f67a3f31caf3a2c7ebfb988a9ceb.",
+        "Original runtime sources preserved; existing strict core configuration unchanged; 52 scoped intake tests, eight native tests and 25/25 frozen selected regression gates pass.",
+        "Fresh board/static/simulator verification remains blocked by PlatformIO registry HTTP 403 and missing libslirp.so.0; hardware/private device admission and remote CI remain unverified. No Library retry, duplicate implementation, publication, deployment or flash."
       ],
       "evidence": [
         "docs/delivery/approved-handoff-blocker-20261008.md",
@@ -532,25 +533,26 @@
     }
   ],
   "activeWave": {
-    "document": "birdsong-yard-sprites/docs/environment-animation-checklist.md",
+    "document": "docs/delivery/esp32-integrated-20261009.md",
     "productRegister": "docs/delivery/product-behavior-and-ideas.md",
-    "scope": "Continuous illustrative sky and weather, transient owner controls, deterministic bounded effect playback and environment-driven bird behavior",
-    "verification": "complete_frozen_pass",
-    "selectedGates": 75,
-    "baseRevisions": {
-      "main": "32a7f2d837b6b56424470646475fe8017ca1d931",
-      "ui": "81e7a890cbda3f1245f847be7056a42b42a7ff21"
-    },
-    "independentReview": "birdsong-yard-sprites/docs/environment-visual-audit-20261009.md",
-    "report": "docs/delivery/environment-verified-20261009/report.json",
-    "checkpoint": "docs/delivery/environment-verified-20261009.md",
+    "scope": "Original ESP32 Git history integration with isolated intake quality and unchanged owner/API/renderer behavior",
+    "verification": "selected_regressions_passed_board_tooling_blocked",
+    "selectedGates": 25,
+    "passedGates": 25,
+    "completeSuite": false,
     "testedRevisions": {
-      "main": "8a7a4f078d838a0fb07f8ed62c3d28bb4b3f2916",
-      "ui": "a6da5e9b415bc3a122a38985a1c8d408d0f77b4f"
+      "main": "4ce5fb535c38f67a3f31caf3a2c7ebfb988a9ceb",
+      "ui": "03574ee8509e7e45d79e0e745b6ef38fd042aca4"
     },
-    "passedGates": 75,
-    "verificationCounts": "docs/delivery/environment-verified-20261009/counts.json",
-    "attempts": "docs/delivery/environment-attempts-20261009/attempts.json"
+    "baseRevisions": {
+      "main": "9f0c67662c19f68c5846520940497ccc86398eb9",
+      "ui": "03574ee8509e7e45d79e0e745b6ef38fd042aca4"
+    },
+    "incomingRevision": "99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c",
+    "report": "docs/delivery/esp32-integrated-20261009/regression/report.json",
+    "checkpoint": "docs/delivery/esp32-integrated-20261009.md",
+    "verificationCounts": "docs/delivery/esp32-integrated-20261009/counts.json",
+    "firmwareChecks": "docs/delivery/esp32-integrated-20261009/firmware/checks.json"
   },
   "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",
@@ -667,5 +669,26 @@
       "ui": "1b87d62d5c99fa4936d213d44c44f56886671c36"
     },
     "passedGates": 74
+  },
+  "priorEnvironmentWave": {
+    "document": "birdsong-yard-sprites/docs/environment-animation-checklist.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Continuous illustrative sky and weather, transient owner controls, deterministic bounded effect playback and environment-driven bird behavior",
+    "verification": "complete_frozen_pass",
+    "selectedGates": 75,
+    "baseRevisions": {
+      "main": "32a7f2d837b6b56424470646475fe8017ca1d931",
+      "ui": "81e7a890cbda3f1245f847be7056a42b42a7ff21"
+    },
+    "independentReview": "birdsong-yard-sprites/docs/environment-visual-audit-20261009.md",
+    "report": "docs/delivery/environment-verified-20261009/report.json",
+    "checkpoint": "docs/delivery/environment-verified-20261009.md",
+    "testedRevisions": {
+      "main": "8a7a4f078d838a0fb07f8ed62c3d28bb4b3f2916",
+      "ui": "a6da5e9b415bc3a122a38985a1c8d408d0f77b4f"
+    },
+    "passedGates": 75,
+    "verificationCounts": "docs/delivery/environment-verified-20261009/counts.json",
+    "attempts": "docs/delivery/environment-attempts-20261009/attempts.json"
   }
 }
