@@ -238,7 +238,7 @@ E-ENV retains 1,564 UI tests across 98 files, including 45 new tests; 429 cross-
 
 **Dependencies:** EN-001, EN-002. **Remaining gap:** Production provider/account policies and account-wide erasure remain external; shared views do not show private reviewed artwork or live owner ontology. **Next action:** Preserve narrow share projection and use EN-011 for erasure scope.
 
-**Current audit fixes and limits:** A present signed Google `azp` must match the sole configured client. Supported browser origins now normalize consistently before Python CORS/session admission. The [connection audit](product-audit-20261009.md) distinguishes local signed-provider/SMTP fixtures from unverified live sign-in, explicit transport deadline gaps and missing account-wide recovery/erasure.
+**Current audit fixes and limits:** A present signed Google `azp` must match the sole configured client. Supported browser origins now normalize consistently before Python Origin/session admission. The [connection audit](product-audit-20261009.md) distinguishes local signed-provider/SMTP fixtures from unverified live sign-in, explicit transport deadline gaps and missing account-wide recovery/erasure.
 
 ### PB-014 — Reviewed source rights, provenance and immutable shape/animation workbench precede reusable artwork.
 
