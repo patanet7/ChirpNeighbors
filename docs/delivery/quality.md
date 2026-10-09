@@ -114,3 +114,8 @@ Svelte MCP is unavailable; no compiler/linter result is an MCP/autofixer result.
 See [the exact scope/tooling audit](svelte-static-audit-20261009.md) and
 [transport checkpoint](external-transport-20261009.md) for current evidence.
 The standalone seven-command intake run is separate from the 76 aggregate gates.
+
+The corrected transport checkpoint now passes all76gates at the exact revisions
+in [its retained frozen report](LOCAL-EVIDENCE.md).
+The initial incomplete run and reviewed async fault-injection repair are retained
+separately; a focused rerun did not substitute for this full pass.
