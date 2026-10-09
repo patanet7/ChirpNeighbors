@@ -1,0 +1,565 @@
+{
+  "$ref": "#/definitions/CatalogCommandResponseV1",
+  "definitions": {
+    "CatalogCommandResponseV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "shared-catalog.command-response"
+        },
+        "receipt": {
+          "type": "object",
+          "properties": {
+            "requestId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "action": {
+              "type": "string",
+              "const": "pin-catalog"
+            },
+            "birdId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+              "not": {
+                "enum": [
+                  "__proto__",
+                  "prototype",
+                  "constructor"
+                ]
+              }
+            },
+            "pin": {
+              "type": "object",
+              "properties": {
+                "catalogKey": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "releaseVersion": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                },
+                "renderSha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "catalogKey",
+                "releaseVersion",
+                "renderSha256"
+              ],
+              "additionalProperties": false
+            },
+            "artworkId": {
+              "$ref": "#/definitions/CatalogCommandResponseV1/properties/receipt/properties/birdId"
+            },
+            "replayed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "requestId",
+            "action",
+            "birdId",
+            "pin",
+            "artworkId",
+            "replayed"
+          ],
+          "additionalProperties": false
+        },
+        "overview": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "shared-catalog.overview"
+            },
+            "enabled": {
+              "type": "boolean"
+            },
+            "species": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "taxonomy": {
+                    "type": "object",
+                    "properties": {
+                      "catalog": {
+                        "type": "string",
+                        "const": "chirp-display-catalog"
+                      },
+                      "version": {
+                        "type": "number",
+                        "const": 1
+                      },
+                      "speciesId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160,
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                      }
+                    },
+                    "required": [
+                      "catalog",
+                      "version",
+                      "speciesId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "commonName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "scientificName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 160,
+                    "allOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))"
+                      }
+                    ]
+                  },
+                  "request": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "taxonomy": {
+                            "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/taxonomy"
+                          },
+                          "style": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "pattern": "^[a-z0-9][a-z0-9._-]{0,79}$"
+                              },
+                              "version": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 9007199254740991
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "version"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "assetVersion": {
+                            "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/request/anyOf/0/properties/style/properties/version"
+                          },
+                          "variant": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "kind": {
+                                    "type": "string",
+                                    "const": "canonical"
+                                  }
+                                },
+                                "required": [
+                                  "kind"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "kind": {
+                                    "type": "string",
+                                    "const": "variant"
+                                  },
+                                  "id": {
+                                    "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/request/anyOf/0/properties/style/properties/id"
+                                  },
+                                  "version": {
+                                    "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/request/anyOf/0/properties/style/properties/version"
+                                  }
+                                },
+                                "required": [
+                                  "kind",
+                                  "id",
+                                  "version"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "taxonomy",
+                          "style",
+                          "assetVersion",
+                          "variant"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pending": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "catalogKey": {
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{64}$"
+                          },
+                          "request": {
+                            "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/request/anyOf/0"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "pending"
+                          },
+                          "resolution": {
+                            "type": "string",
+                            "const": "placeholder-pending"
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "catalogKey",
+                          "request",
+                          "status",
+                          "resolution"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "availability": {
+                    "type": "string",
+                    "enum": [
+                      "disabled",
+                      "unsupported",
+                      "pending",
+                      "available",
+                      "unavailable"
+                    ]
+                  },
+                  "releases": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "release": {
+                          "type": "object",
+                          "properties": {
+                            "schemaVersion": {
+                              "type": "number",
+                              "const": 1
+                            },
+                            "request": {
+                              "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/request/anyOf/0"
+                            },
+                            "catalogKey": {
+                              "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/pending/anyOf/0/properties/catalogKey"
+                            },
+                            "releaseVersion": {
+                              "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/request/anyOf/0/properties/style/properties/version"
+                            },
+                            "render": {
+                              "type": "object",
+                              "properties": {
+                                "contract": {
+                                  "type": "string",
+                                  "const": "public-catalog-render-v1"
+                                },
+                                "sha256": {
+                                  "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/pending/anyOf/0/properties/catalogKey"
+                                },
+                                "bytes": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "maximum": 1000000
+                                }
+                              },
+                              "required": [
+                                "contract",
+                                "sha256",
+                                "bytes"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "review": {
+                              "type": "object",
+                              "properties": {
+                                "decision": {
+                                  "type": "string",
+                                  "const": "approved"
+                                },
+                                "policyVersion": {
+                                  "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/request/anyOf/0/properties/style/properties/version"
+                                }
+                              },
+                              "required": [
+                                "decision",
+                                "policyVersion"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "rights": {
+                              "type": "object",
+                              "properties": {
+                                "redistributionAllowed": {
+                                  "type": "boolean",
+                                  "const": true
+                                },
+                                "policyVersion": {
+                                  "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/request/anyOf/0/properties/style/properties/version"
+                                },
+                                "publicAttributionSha256": {
+                                  "$ref": "#/definitions/CatalogCommandResponseV1/properties/overview/properties/species/items/properties/pending/anyOf/0/properties/catalogKey"
+                                }
+                              },
+                              "required": [
+                                "redistributionAllowed",
+                                "policyVersion",
+                                "publicAttributionSha256"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "fixture": {
+                              "type": "boolean"
+                            },
+                            "taxonFidelityReviewed": {
+                              "type": "boolean"
+                            }
+                          },
+                          "required": [
+                            "schemaVersion",
+                            "request",
+                            "catalogKey",
+                            "releaseVersion",
+                            "render",
+                            "review",
+                            "rights",
+                            "fixture",
+                            "taxonFidelityReviewed"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "pin": {
+                          "$ref": "#/definitions/CatalogCommandResponseV1/properties/receipt/properties/pin"
+                        },
+                        "provenance": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "source": {
+                                  "type": "string",
+                                  "enum": [
+                                    "deterministic_fixture",
+                                    "reviewed-original"
+                                  ]
+                                },
+                                "creator": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 160
+                                },
+                                "sourceVersion": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 160
+                                },
+                                "license": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 200
+                                },
+                                "usage": {
+                                  "type": "string",
+                                  "enum": [
+                                    "development-only",
+                                    "cleared"
+                                  ]
+                                },
+                                "attribution": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 300
+                                }
+                              },
+                              "required": [
+                                "source",
+                                "creator",
+                                "sourceVersion",
+                                "license",
+                                "usage",
+                                "attribution"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "available",
+                            "revoked",
+                            "unavailable"
+                          ]
+                        },
+                        "revision": {
+                          "type": "number",
+                          "enum": [
+                            0,
+                            1
+                          ]
+                        }
+                      },
+                      "required": [
+                        "release",
+                        "pin",
+                        "provenance",
+                        "status",
+                        "revision"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "maxItems": 512
+                  }
+                },
+                "required": [
+                  "taxonomy",
+                  "commonName",
+                  "scientificName",
+                  "request",
+                  "pending",
+                  "availability",
+                  "releases"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 512
+            },
+            "residents": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "birdId": {
+                    "$ref": "#/definitions/CatalogCommandResponseV1/properties/receipt/properties/birdId"
+                  },
+                  "speciesId": {
+                    "$ref": "#/definitions/CatalogCommandResponseV1/properties/receipt/properties/birdId"
+                  },
+                  "name": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 60
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "artworkId": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/CatalogCommandResponseV1/properties/receipt/properties/birdId"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "pin": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/CatalogCommandResponseV1/properties/receipt/properties/pin"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "available",
+                      "revoked",
+                      "unavailable"
+                    ]
+                  }
+                },
+                "required": [
+                  "birdId",
+                  "speciesId",
+                  "name",
+                  "artworkId",
+                  "pin",
+                  "status"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 512
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "enabled",
+            "species",
+            "residents"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "receipt",
+        "overview"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/catalog-command-response-v1.schema.json",
+  "description": "Generic species catalog structural boundary. Public render pixels exclude owners, observations, named birds, private source artifacts and pipeline references. Immutable release pins, byte digests, reviewed rights, trusted taxonomy labels, local fixture admission, monotonic revocation, owner session binding and compare-and-swap require server authority. Internal fixture promotion is not an HTTP or production publication capability. Existing pins never follow the latest release automatically; unavailable/revoked releases retain identity and use explicit fallback."
+}

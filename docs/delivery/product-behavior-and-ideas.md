@@ -17,7 +17,7 @@ production readiness or unperformed deployment. Fixture art remains fixture art.
 | --- | --- | --- | --- | --- | --- |
 | PB-001 | Preserve source Findings with stable dedupe and append-only corrections. | user decision | verified | V5–V6; UI `domain/evidence.ts`, `domain/yard.ts`, SQLite repository; [contracts](../../contracts) | Exact retries/imports do not duplicate events; changed same-ID input conflicts; corrections preserve source evidence and distinguish observed, uploaded and model intervals. Owner isolation and backup roundtrips pass. New arrival hooks must preserve these rules. |
 | PB-002 | Recent eligible Findings create temporary species visitors; owners explicitly keep and name residents. | user decision | verified | PB-001; V5–V6, I5; `BirdInstance` and visitor policy | Unknown/future/old evidence cannot invent a recent visit. Expiry, explicit promotion, reload and names are stable. A decorative resident is not recognition of an individual wild bird. Existing observation-driven expiry behavior remains authoritative. |
-| PB-003 | Shared canonical species/style/version assets are built lazily as species arrive; optional later variants may be added as needed. | user decision | agreed | G1–G2; reviewed immutable manifest/source, taxonomy, rights and future catalog release | One canonical missing-asset request rather than one generation per owner/sighting. Explicit placeholder until reviewed release. Do not prebuild the full catalog, reinterpret private manifests as public assets, or share raw private media. Durable request contracts/queue are implemented; the application hook and shared release rendering remain pending. |
+| PB-003 | Shared canonical species/style/version assets are built lazily as species arrive; optional later variants may be added as needed. | user decision | implemented | G1–G2; UI `docs/shared-catalog-checklist.md`, shared render/release/selection contracts and service | Eligible arriving species create one owner-free canonical request. Explicit immutable fixture releases can be shared across accounts while each named resident keeps an exact version pin. Updates never replace pins; revoked/missing/corrupt packs retain pins with an explicit fallback. Production promotion, approved artwork/rights and biological review remain unavailable. Local fixture architecture is implemented; the complete 73-gate verification is pending. |
 | PB-004 | Autonomous idle, move, hop, fly, perch, sing, feed, bathe, sleep, play and nest-building routines. | user decision | verified | V1–V4, I2–I4; animation registry, pose clips and simulation | World travel stays separate from in-place authored action. Missing clips use documented still/idle fallback; valid bounds/timing/support/occupancy persist across direction and object edits. Existing fixture routines do not establish real species likeness or biologically correct motion. Full authored species clips await reviewed art. |
 | PB-005 | Species-level illustrative tuning and fictional individual personality are different concepts. | user decision | agreed | I3, C1; bounded species profile contract; future traits contract | Biological knowledge, illustrative simulation tuning, fictional persistent traits and observed evidence are separate labelled fields. Profiles are bounded and deterministic. Persistent individual traits need a versioned model and migration before implementation; do not infer personality from private recordings or recognize individuals. |
 | PB-006 | Earned companionship and levels should support attachment without pressure. | user decision | agreed | C1; PB-002, PB-005; progression contract pending | Specify interactions, bounded rewards, storage/migration and accessible alternatives before code. No missed-day punishment, starvation, guilt, paid affection or loss of birds. Exact progression rates, levels and rewards are unresolved. |
@@ -43,8 +43,9 @@ production readiness or unperformed deployment. Fixture art remains fixture art.
 
 - PB-005/PB-006: individual trait dimensions, companionship levels, earning rates and
   accessibility alternatives remain open. Species tuning is not a substitute.
-- PB-003: shared render payload/public release contract, reviewed initial artwork and
+- PB-003: reviewed real artwork, production publication authority/rights policy and
   real execution adapters remain unavailable; private V3 lineage must not be relabelled.
+  The bounded fixture shared-catalog implementation has its own pending verification.
 - PB-015/PB-016: jurisdiction/policy review, final retention periods and operator
   access/cleanup requirements remain open. Voluntary DNT/GPC defaults are not a
   legal-compliance claim; minimum counts are not an anonymity guarantee.
@@ -76,9 +77,10 @@ PB-020. PB-021 records the longer-term art goal as agreed, not completed. The
 user idea) and PB-019 (assistant proposal) are user decisions.
 
 The subsequent [private retention checkpoint](retention-verified-20261009.md)
-passes 72/72 gates and verifies PB-022. The current coverage audit includes all
+passes 72/72 gates and verifies PB-022. That checkpoint coverage audit included all
 22 stable IDs PB-001 through PB-022: **15 verified, 5 agreed, 1 implemented and
-1 proposed**. Prior checkpoint counts above are historical. Archive retains bytes;
+1 proposed**. The in-progress catalog slice moves PB-003 to implemented: current
+counts are **15 verified, 4 agreed, 2 implemented, 1 proposed**. Prior checkpoint counts above are historical. Archive retains bytes;
 diagnostic eligibility does not authorize purge or account-wide erasure.
 
 Coverage: visitor expiry/Keep PB-002; incremental canonical packs and optional

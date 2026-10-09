@@ -446,6 +446,30 @@
                     ],
                     "additionalProperties": false
                   },
+                  "catalogPin": {
+                    "type": "object",
+                    "properties": {
+                      "catalogKey": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "releaseVersion": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 9007199254740991
+                      },
+                      "renderSha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "catalogKey",
+                      "releaseVersion",
+                      "renderSha256"
+                    ],
+                    "additionalProperties": false
+                  },
                   "imageUrl": {
                     "type": "string",
                     "maxLength": 1500000

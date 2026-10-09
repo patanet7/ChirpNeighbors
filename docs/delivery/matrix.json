@@ -293,6 +293,33 @@
         "Default request policy denies; app hook, approved public release payload, provider dispatch and persistent runtime usage/budgets remain future adapters.",
         "Add explicit cross-language rights/review/fidelity/reference and union-branch cases before activating pending transport boundaries."
       ]
+    },
+    {
+      "id": "shared-catalog",
+      "owner": "root_integration",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "storage",
+        "auth",
+        "frontend"
+      ],
+      "acceptance": [
+        "One owner-free canonical request per explicit supported taxonomy/style/version, created only for species present in owner collections or yards.",
+        "Immutable reviewed fixture releases and exact per-resident pins; version publication never replaces saved pins. Revoked/missing/corrupt entries preserve identity and render explicit fallback.",
+        "Two account reuse excludes private media, source provenance, observations, resident names and owner metadata from shared storage.",
+        "Default-deny internal promotion permits only existing synthetic fixtures under explicit test authority. No HTTP admin, real production rights or biological validity claim.",
+        "Owner/session-bound CAS selection and durable retries, restore/undo/automatic-assignment fences, cold restart/backup and all strict gates."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/shared-catalog-checklist.md",
+        "birdsong-yard-sprites/docs/shared-catalog-contract.md",
+        "birdsong-yard-sprites/docs/shared-catalog-review-20261009.md"
+      ],
+      "remaining": [
+        "Approved real artwork, verified rights and biological review; production catalog administration/authority and external execution adapters are unconfigured.",
+        "Optional variants remain explicit contract identities without an enabled authoring/provider workflow."
+      ]
     }
   ],
   "gates": [
@@ -439,6 +466,15 @@
       "baseline": false
     },
     {
+      "id": "browser-shared-catalog",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/shared-catalog-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
       "id": "browser-session-binding",
       "repo": "ui",
       "command": [
@@ -449,23 +485,16 @@
     }
   ],
   "activeWave": {
-    "document": "birdsong-yard-sprites/docs/asset-retention-checklist.md",
+    "document": "birdsong-yard-sprites/docs/shared-catalog-checklist.md",
     "productRegister": "docs/delivery/product-behavior-and-ideas.md",
-    "scope": "Reversible private file/package archive, guarded resident unpin/restore, read-only retention eligibility and recovery",
-    "verification": "passed",
-    "selectedGates": 72,
+    "scope": "Incremental shared canonical fixture releases, exact per-resident version selection, explicit revoked/unavailable fallback and private-owner isolation",
+    "verification": "pending",
+    "selectedGates": 73,
     "baseRevisions": {
-      "main": "e97649c240a6dbab23c89a653130f064f862bf7f",
-      "ui": "1d3817710cb766d33272b3867d2d65c95dd4f50f"
+      "main": "0128f0fb78241540ded36a78abd128f76fd757aa",
+      "ui": "f70a5cac70ce97f5bc160e58edec3468543cb9ca"
     },
-    "independentReview": "birdsong-yard-sprites/docs/asset-retention-review-20261009.md",
-    "testedRevisions": {
-      "main": "f7ea49e12a8cd602c98adf677b83049cbd464e7b",
-      "ui": "e62d05b975cbcdd97cbe78218ae1be3608606234"
-    },
-    "verificationReport": "docs/delivery/retention-verified-20261009/report.json",
-    "verificationCounts": "docs/delivery/retention-verified-20261009/counts.json",
-    "checkpoint": "docs/delivery/retention-verified-20261009.md"
+    "independentReview": "birdsong-yard-sprites/docs/shared-catalog-review-20261009.md"
   },
   "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",
@@ -507,5 +536,24 @@
       "ui": "a3be7e240cd7abbeddf1c71f96ae32c867778d6c"
     },
     "verificationReport": "docs/delivery/png-verified-20261009/report.json"
+  },
+  "priorRetentionWave": {
+    "document": "birdsong-yard-sprites/docs/asset-retention-checklist.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Reversible private file/package archive, guarded resident unpin/restore, read-only retention eligibility and recovery",
+    "verification": "passed",
+    "selectedGates": 72,
+    "baseRevisions": {
+      "main": "e97649c240a6dbab23c89a653130f064f862bf7f",
+      "ui": "1d3817710cb766d33272b3867d2d65c95dd4f50f"
+    },
+    "independentReview": "birdsong-yard-sprites/docs/asset-retention-review-20261009.md",
+    "testedRevisions": {
+      "main": "f7ea49e12a8cd602c98adf677b83049cbd464e7b",
+      "ui": "e62d05b975cbcdd97cbe78218ae1be3608606234"
+    },
+    "verificationReport": "docs/delivery/retention-verified-20261009/report.json",
+    "verificationCounts": "docs/delivery/retention-verified-20261009/counts.json",
+    "checkpoint": "docs/delivery/retention-verified-20261009.md"
   }
 }

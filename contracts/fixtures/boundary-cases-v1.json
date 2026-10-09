@@ -1857,6 +1857,151 @@
       }
     },
     {
+      "schema": "yard-backup-v2",
+      "name": "new shared catalog pin preserves old backup discriminator",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-08T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "amerob",
+              "commonName": "Synthetic robin",
+              "scientificName": "Synthetic taxon"
+            }
+          ],
+          "events": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [
+            {
+              "id": "art:shared-synthetic",
+              "speciesId": "amerob",
+              "version": 1,
+              "status": "fixture",
+              "imageUrl": "/placeholder.svg",
+              "representation": "Synthetic shared catalog contract probe",
+              "provenance": {},
+              "catalogPin": {
+                "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "releaseVersion": 1,
+                "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+              }
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          }
+        }
+      }
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "shared pin cannot mix private animation authority",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-08T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "amerob",
+              "commonName": "Synthetic robin",
+              "scientificName": "Synthetic taxon"
+            }
+          ],
+          "events": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [
+            {
+              "id": "art:shared-synthetic",
+              "speciesId": "amerob",
+              "version": 1,
+              "status": "fixture",
+              "imageUrl": "/placeholder.svg",
+              "representation": "Synthetic shared catalog contract probe",
+              "provenance": {},
+              "catalogPin": {
+                "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "releaseVersion": 1,
+                "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+              },
+              "animationPin": {
+                "jobId": "private-job",
+                "artifactId": "private-artifact",
+                "version": 1,
+                "contentDigest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+              }
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          }
+        }
+      }
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "shared pin cannot mix bundled catalog authority",
+      "valid": true,
+      "authoritativeValid": false,
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-08T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "amerob",
+              "commonName": "Synthetic robin",
+              "scientificName": "Synthetic taxon"
+            }
+          ],
+          "events": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [
+            {
+              "id": "art:shared-synthetic",
+              "speciesId": "amerob",
+              "version": 1,
+              "status": "fixture",
+              "imageUrl": "/placeholder.svg",
+              "representation": "Synthetic shared catalog contract probe",
+              "provenance": {},
+              "catalogPin": {
+                "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "releaseVersion": 1,
+                "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+              },
+              "catalogKey": "fixture-robin"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          }
+        }
+      }
+    },
+    {
       "schema": "scene-manifest-v1",
       "name": "technical scene",
       "valid": true,
@@ -52088,6 +52233,3991 @@
           "requestId": "01ab2986-0a45-4c9c-8937-575fbf23ef61",
           "replayed": false
         }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-pin-v1",
+      "name": "shared catalog: exact immutable shared release identity",
+      "value": {
+        "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "releaseVersion": 1,
+        "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: safe generic fixture rectangle",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-entry-v1",
+      "name": "shared catalog: available release descriptor",
+      "value": {
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "status": "available",
+        "revision": 0
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-entry-v1",
+      "name": "shared catalog: revocation keeps exact identity",
+      "value": {
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "status": "revoked",
+        "revision": 1
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-entry-v1",
+      "name": "shared catalog: unavailable bytes keep original revision",
+      "value": {
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "status": "unavailable",
+        "revision": 0
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-promotion-command-v1",
+      "name": "shared catalog: internal local fixture promotion only",
+      "value": {
+        "action": "promote-local-fixture",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "render": {
+          "schemaVersion": 1,
+          "scope": "generic-species",
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "representation": "Existing fixture rectangle; structural probe only",
+          "fixture": true,
+          "taxonFidelityReviewed": false,
+          "format": "pixel-rects",
+          "canvas": {
+            "width": 75,
+            "height": 60,
+            "anchorX": 36,
+            "anchorY": 48
+          },
+          "frames": [
+            [
+              {
+                "x": 33,
+                "y": 12,
+                "width": 3,
+                "height": 3,
+                "color": 2506050
+              }
+            ]
+          ],
+          "clips": {
+            "idle": {
+              "frames": [
+                0
+              ],
+              "ticksPerFrame": 8,
+              "loop": true
+            }
+          },
+          "provenance": {
+            "source": "deterministic_fixture",
+            "creator": "contract-fixtures",
+            "sourceVersion": "synthetic-local-v1",
+            "license": "Local technical fixture only",
+            "usage": "development-only",
+            "attribution": "Existing repository fixture pixels; no species fidelity claim"
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-revocation-command-v1",
+      "name": "shared catalog: internal monotonic local revocation",
+      "value": {
+        "action": "revoke-local-fixture",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "expectedRevision": 0
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-publication-receipt-v1",
+      "name": "shared catalog: immutable local promotion receipt",
+      "value": {
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "action": "promote-local-fixture",
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "commandDigest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "status": "available",
+        "revision": 0
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-publication-receipt-v1",
+      "name": "shared catalog: immutable local revocation receipt",
+      "value": {
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "action": "revoke-local-fixture",
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "commandDigest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "status": "revoked",
+        "revision": 1
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-pin-command-v1",
+      "name": "shared catalog: explicit owner pin compare-and-swap",
+      "value": {
+        "action": "pin-catalog",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "birdId": "bird:synthetic-one",
+        "expectedArtworkId": null,
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-pin-command-v1",
+      "name": "shared catalog: replacement requires prior artwork identity",
+      "value": {
+        "action": "pin-catalog",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "birdId": "bird:synthetic-one",
+        "expectedArtworkId": "art:existing",
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-selection-receipt-v1",
+      "name": "shared catalog: immutable owner selection receipt has no owner field",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "pin-catalog",
+          "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+          "birdId": "bird:synthetic-one",
+          "expectedArtworkId": null,
+          "pin": {
+            "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "releaseVersion": 1,
+            "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          }
+        },
+        "commandDigest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "artworkId": "art:catalog-synthetic-one"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-selection-receipt-v1",
+      "name": "shared catalog: stored selection cannot inject owner",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "pin-catalog",
+          "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+          "birdId": "bird:synthetic-one",
+          "expectedArtworkId": null,
+          "pin": {
+            "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "releaseVersion": 1,
+            "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          }
+        },
+        "commandDigest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "artworkId": "art:catalog-synthetic-one",
+        "ownerId": "other-owner"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-selection-receipt-v1",
+      "name": "shared catalog: stored selection requires exact command digest",
+      "value": {
+        "schemaVersion": 1,
+        "command": {
+          "action": "pin-catalog",
+          "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+          "birdId": "bird:synthetic-one",
+          "expectedArtworkId": null,
+          "pin": {
+            "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "releaseVersion": 1,
+            "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          }
+        },
+        "commandDigest": "not-sha256",
+        "artworkId": "art:catalog-synthetic-one"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: owner view separates public pack from named resident",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              }
+            ]
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "available"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: pending request has no renderable release",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": {
+              "schemaVersion": 1,
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "request": {
+                "schemaVersion": 1,
+                "taxonomy": {
+                  "catalog": "chirp-display-catalog",
+                  "version": 1,
+                  "speciesId": "cn-species-erithacus-rubecula"
+                },
+                "style": {
+                  "id": "technical-fixture",
+                  "version": 1
+                },
+                "assetVersion": 1,
+                "variant": {
+                  "kind": "canonical"
+                }
+              },
+              "status": "pending",
+              "resolution": "placeholder-pending"
+            },
+            "availability": "pending",
+            "releases": []
+          }
+        ],
+        "residents": []
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: unsupported mapping has no inferred request",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": null,
+            "pending": null,
+            "availability": "unsupported",
+            "releases": []
+          }
+        ],
+        "residents": []
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: disabled production catalog",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": false,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": null,
+            "pending": null,
+            "availability": "disabled",
+            "releases": []
+          }
+        ],
+        "residents": []
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: revoked resident pin remains explicit",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "unavailable",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "revoked",
+                "revision": 1
+              }
+            ]
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "revoked"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-command-response-v1",
+      "name": "shared catalog: validated owner pin response",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.command-response",
+        "receipt": {
+          "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+          "action": "pin-catalog",
+          "birdId": "bird:synthetic-one",
+          "pin": {
+            "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "releaseVersion": 1,
+            "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          "artworkId": "art:catalog-synthetic-one",
+          "replayed": false
+        },
+        "overview": {
+          "schemaVersion": 1,
+          "kind": "shared-catalog.overview",
+          "enabled": true,
+          "species": [
+            {
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "commonName": "Fixture species label",
+              "scientificName": "Fixture taxon label",
+              "request": {
+                "schemaVersion": 1,
+                "taxonomy": {
+                  "catalog": "chirp-display-catalog",
+                  "version": 1,
+                  "speciesId": "cn-species-erithacus-rubecula"
+                },
+                "style": {
+                  "id": "technical-fixture",
+                  "version": 1
+                },
+                "assetVersion": 1,
+                "variant": {
+                  "kind": "canonical"
+                }
+              },
+              "pending": null,
+              "availability": "available",
+              "releases": [
+                {
+                  "release": {
+                    "schemaVersion": 1,
+                    "request": {
+                      "schemaVersion": 1,
+                      "taxonomy": {
+                        "catalog": "chirp-display-catalog",
+                        "version": 1,
+                        "speciesId": "cn-species-erithacus-rubecula"
+                      },
+                      "style": {
+                        "id": "technical-fixture",
+                        "version": 1
+                      },
+                      "assetVersion": 1,
+                      "variant": {
+                        "kind": "canonical"
+                      }
+                    },
+                    "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "releaseVersion": 1,
+                    "render": {
+                      "contract": "public-catalog-render-v1",
+                      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                      "bytes": 1000
+                    },
+                    "review": {
+                      "decision": "approved",
+                      "policyVersion": 1
+                    },
+                    "rights": {
+                      "redistributionAllowed": true,
+                      "policyVersion": 1,
+                      "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                    },
+                    "fixture": true,
+                    "taxonFidelityReviewed": false
+                  },
+                  "pin": {
+                    "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "releaseVersion": 1,
+                    "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                  },
+                  "provenance": {
+                    "source": "deterministic_fixture",
+                    "creator": "contract-fixtures",
+                    "sourceVersion": "synthetic-local-v1",
+                    "license": "Local technical fixture only",
+                    "usage": "development-only",
+                    "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                  },
+                  "status": "available",
+                  "revision": 0
+                }
+              ]
+            }
+          ],
+          "residents": [
+            {
+              "birdId": "bird:synthetic-one",
+              "speciesId": "cn-species-erithacus-rubecula",
+              "name": "Private synthetic name",
+              "artworkId": "art:catalog-synthetic-one",
+              "pin": {
+                "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "releaseVersion": 1,
+                "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+              },
+              "status": "available"
+            }
+          ]
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-command-response-v1",
+      "name": "shared catalog: retry receipt does not overwrite later current pin",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.command-response",
+        "receipt": {
+          "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+          "action": "pin-catalog",
+          "birdId": "bird:synthetic-one",
+          "pin": {
+            "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "releaseVersion": 1,
+            "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          },
+          "artworkId": "art:catalog-synthetic-one",
+          "replayed": true
+        },
+        "overview": {
+          "schemaVersion": 1,
+          "kind": "shared-catalog.overview",
+          "enabled": true,
+          "species": [
+            {
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "commonName": "Fixture species label",
+              "scientificName": "Fixture taxon label",
+              "request": {
+                "schemaVersion": 1,
+                "taxonomy": {
+                  "catalog": "chirp-display-catalog",
+                  "version": 1,
+                  "speciesId": "cn-species-erithacus-rubecula"
+                },
+                "style": {
+                  "id": "technical-fixture",
+                  "version": 1
+                },
+                "assetVersion": 1,
+                "variant": {
+                  "kind": "canonical"
+                }
+              },
+              "pending": null,
+              "availability": "available",
+              "releases": [
+                {
+                  "release": {
+                    "schemaVersion": 1,
+                    "request": {
+                      "schemaVersion": 1,
+                      "taxonomy": {
+                        "catalog": "chirp-display-catalog",
+                        "version": 1,
+                        "speciesId": "cn-species-erithacus-rubecula"
+                      },
+                      "style": {
+                        "id": "technical-fixture",
+                        "version": 1
+                      },
+                      "assetVersion": 1,
+                      "variant": {
+                        "kind": "canonical"
+                      }
+                    },
+                    "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "releaseVersion": 1,
+                    "render": {
+                      "contract": "public-catalog-render-v1",
+                      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                      "bytes": 1000
+                    },
+                    "review": {
+                      "decision": "approved",
+                      "policyVersion": 1
+                    },
+                    "rights": {
+                      "redistributionAllowed": true,
+                      "policyVersion": 1,
+                      "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                    },
+                    "fixture": true,
+                    "taxonFidelityReviewed": false
+                  },
+                  "pin": {
+                    "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                    "releaseVersion": 1,
+                    "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                  },
+                  "provenance": {
+                    "source": "deterministic_fixture",
+                    "creator": "contract-fixtures",
+                    "sourceVersion": "synthetic-local-v1",
+                    "license": "Local technical fixture only",
+                    "usage": "development-only",
+                    "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                  },
+                  "status": "available",
+                  "revision": 0
+                }
+              ]
+            }
+          ],
+          "residents": [
+            {
+              "birdId": "bird:synthetic-one",
+              "speciesId": "cn-species-erithacus-rubecula",
+              "name": "Private synthetic name",
+              "artworkId": null,
+              "pin": null,
+              "status": "none"
+            }
+          ]
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "catalog-pin-v1",
+      "name": "shared catalog: reject catalog-pin-v1 jobId",
+      "value": {
+        "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "releaseVersion": 1,
+        "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "jobId": "private-job"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-pin-v1",
+      "name": "shared catalog: reject catalog-pin-v1 releaseVersion",
+      "value": {
+        "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "releaseVersion": 0,
+        "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-pin-v1",
+      "name": "shared catalog: reject catalog-pin-v1 renderSha256",
+      "value": {
+        "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "releaseVersion": 1,
+        "renderSha256": "../private/source.png"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: reject public-catalog-render-v1 ownerId",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "ownerId": "owner-private"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: reject public-catalog-render-v1 name",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "name": "Named individual bird"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: reject public-catalog-render-v1 observations",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "observations": []
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: reject public-catalog-render-v1 conditioning",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "conditioning": {}
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: reject public-catalog-render-v1 sourceArtifact",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "sourceArtifact": {
+          "jobId": "private-job"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: reject public-catalog-render-v1 scope",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "individual-bird",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-promotion-command-v1",
+      "name": "shared catalog: reject catalog-promotion-command-v1 ownerId",
+      "value": {
+        "action": "promote-local-fixture",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "render": {
+          "schemaVersion": 1,
+          "scope": "generic-species",
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "representation": "Existing fixture rectangle; structural probe only",
+          "fixture": true,
+          "taxonFidelityReviewed": false,
+          "format": "pixel-rects",
+          "canvas": {
+            "width": 75,
+            "height": 60,
+            "anchorX": 36,
+            "anchorY": 48
+          },
+          "frames": [
+            [
+              {
+                "x": 33,
+                "y": 12,
+                "width": 3,
+                "height": 3,
+                "color": 2506050
+              }
+            ]
+          ],
+          "clips": {
+            "idle": {
+              "frames": [
+                0
+              ],
+              "ticksPerFrame": 8,
+              "loop": true
+            }
+          },
+          "provenance": {
+            "source": "deterministic_fixture",
+            "creator": "contract-fixtures",
+            "sourceVersion": "synthetic-local-v1",
+            "license": "Local technical fixture only",
+            "usage": "development-only",
+            "attribution": "Existing repository fixture pixels; no species fidelity claim"
+          }
+        },
+        "ownerId": "owner-private"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-promotion-command-v1",
+      "name": "shared catalog: reject catalog-promotion-command-v1 action",
+      "value": {
+        "action": "publish-production",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "render": {
+          "schemaVersion": 1,
+          "scope": "generic-species",
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "representation": "Existing fixture rectangle; structural probe only",
+          "fixture": true,
+          "taxonFidelityReviewed": false,
+          "format": "pixel-rects",
+          "canvas": {
+            "width": 75,
+            "height": 60,
+            "anchorX": 36,
+            "anchorY": 48
+          },
+          "frames": [
+            [
+              {
+                "x": 33,
+                "y": 12,
+                "width": 3,
+                "height": 3,
+                "color": 2506050
+              }
+            ]
+          ],
+          "clips": {
+            "idle": {
+              "frames": [
+                0
+              ],
+              "ticksPerFrame": 8,
+              "loop": true
+            }
+          },
+          "provenance": {
+            "source": "deterministic_fixture",
+            "creator": "contract-fixtures",
+            "sourceVersion": "synthetic-local-v1",
+            "license": "Local technical fixture only",
+            "usage": "development-only",
+            "attribution": "Existing repository fixture pixels; no species fidelity claim"
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-revocation-command-v1",
+      "name": "shared catalog: reject catalog-revocation-command-v1 expectedRevision",
+      "value": {
+        "action": "revoke-local-fixture",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "expectedRevision": 1
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-revocation-command-v1",
+      "name": "shared catalog: reject catalog-revocation-command-v1 reason",
+      "value": {
+        "action": "revoke-local-fixture",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "expectedRevision": 0,
+        "reason": "Private note"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-publication-receipt-v1",
+      "name": "shared catalog: reject catalog-publication-receipt-v1 replayed",
+      "value": {
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "action": "promote-local-fixture",
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "commandDigest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "status": "available",
+        "revision": 0,
+        "replayed": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-pin-command-v1",
+      "name": "shared catalog: reject catalog-pin-command-v1 ownerId",
+      "value": {
+        "action": "pin-catalog",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "birdId": "bird:synthetic-one",
+        "expectedArtworkId": null,
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "ownerId": "another-owner"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-pin-command-v1",
+      "name": "shared catalog: reject catalog-pin-command-v1 birdId",
+      "value": {
+        "action": "pin-catalog",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "birdId": "__proto__",
+        "expectedArtworkId": null,
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-pin-command-v1",
+      "name": "shared catalog: reject catalog-pin-command-v1 requestId",
+      "value": {
+        "action": "pin-catalog",
+        "requestId": "not-uuid",
+        "birdId": "bird:synthetic-one",
+        "expectedArtworkId": null,
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: reject catalog-overview-v1 originalBytes",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              }
+            ]
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "available"
+          }
+        ],
+        "originalBytes": "private-bytes"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: private provenance references are rejected",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim",
+          "references": [
+            "private-job"
+          ]
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: idle is mandatory",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {},
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: clip duration is bounded",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 0,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-pin-command-v1",
+      "name": "shared catalog: expected artwork may not be omitted",
+      "value": {
+        "action": "pin-catalog",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "birdId": "bird:synthetic-one",
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: unknown taxonomy is never filename-inferred",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "unmapped-filename-robin"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: clip frames stay inside retained geometry",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              1
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: rectangles stay inside canvas",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 75,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: anchors stay inside canvas",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 76,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: rotation pose count matches clip frames",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true,
+            "rotations": [
+              0,
+              0.1
+            ]
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: fixtures cannot claim biological review",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": true,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "public-catalog-render-v1",
+      "name": "shared catalog: fixtures cannot claim cleared production usage",
+      "value": {
+        "schemaVersion": 1,
+        "scope": "generic-species",
+        "request": {
+          "schemaVersion": 1,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "style": {
+            "id": "technical-fixture",
+            "version": 1
+          },
+          "assetVersion": 1,
+          "variant": {
+            "kind": "canonical"
+          }
+        },
+        "representation": "Existing fixture rectangle; structural probe only",
+        "fixture": true,
+        "taxonFidelityReviewed": false,
+        "format": "pixel-rects",
+        "canvas": {
+          "width": 75,
+          "height": 60,
+          "anchorX": 36,
+          "anchorY": 48
+        },
+        "frames": [
+          [
+            {
+              "x": 33,
+              "y": 12,
+              "width": 3,
+              "height": 3,
+              "color": 2506050
+            }
+          ]
+        ],
+        "clips": {
+          "idle": {
+            "frames": [
+              0
+            ],
+            "ticksPerFrame": 8,
+            "loop": true
+          }
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "cleared",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-entry-v1",
+      "name": "shared catalog: release version cannot drift from pin",
+      "value": {
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 2,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "status": "available",
+        "revision": 0
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-entry-v1",
+      "name": "shared catalog: render digest cannot drift from pin",
+      "value": {
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "status": "available",
+        "revision": 0
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-entry-v1",
+      "name": "shared catalog: available entry cannot carry revoked revision",
+      "value": {
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "development-only",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "status": "available",
+        "revision": 1
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-entry-v1",
+      "name": "shared catalog: available entry requires reviewed public provenance",
+      "value": {
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "provenance": null,
+        "status": "available",
+        "revision": 0
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-promotion-command-v1",
+      "name": "shared catalog: promotion request must match public render request",
+      "value": {
+        "action": "promote-local-fixture",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "render": {
+          "schemaVersion": 1,
+          "scope": "generic-species",
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 2,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "representation": "Existing fixture rectangle; structural probe only",
+          "fixture": true,
+          "taxonFidelityReviewed": false,
+          "format": "pixel-rects",
+          "canvas": {
+            "width": 75,
+            "height": 60,
+            "anchorX": 36,
+            "anchorY": 48
+          },
+          "frames": [
+            [
+              {
+                "x": 33,
+                "y": 12,
+                "width": 3,
+                "height": 3,
+                "color": 2506050
+              }
+            ]
+          ],
+          "clips": {
+            "idle": {
+              "frames": [
+                0
+              ],
+              "ticksPerFrame": 8,
+              "loop": true
+            }
+          },
+          "provenance": {
+            "source": "deterministic_fixture",
+            "creator": "contract-fixtures",
+            "sourceVersion": "synthetic-local-v1",
+            "license": "Local technical fixture only",
+            "usage": "development-only",
+            "attribution": "Existing repository fixture pixels; no species fidelity claim"
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-entry-v1",
+      "name": "shared catalog: fixture descriptor cannot claim cleared public provenance",
+      "value": {
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": true,
+          "taxonFidelityReviewed": false
+        },
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "provenance": {
+          "source": "deterministic_fixture",
+          "creator": "contract-fixtures",
+          "sourceVersion": "synthetic-local-v1",
+          "license": "Local technical fixture only",
+          "usage": "cleared",
+          "attribution": "Existing repository fixture pixels; no species fidelity claim"
+        },
+        "status": "available",
+        "revision": 0
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-promotion-command-v1",
+      "name": "shared catalog: production-shaped payload is not a local fixture promotion",
+      "value": {
+        "action": "promote-local-fixture",
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "release": {
+          "schemaVersion": 1,
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "render": {
+            "contract": "public-catalog-render-v1",
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 1000
+          },
+          "review": {
+            "decision": "approved",
+            "policyVersion": 1
+          },
+          "rights": {
+            "redistributionAllowed": true,
+            "policyVersion": 1,
+            "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+          },
+          "fixture": false,
+          "taxonFidelityReviewed": true
+        },
+        "render": {
+          "schemaVersion": 1,
+          "scope": "generic-species",
+          "request": {
+            "schemaVersion": 1,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "style": {
+              "id": "technical-fixture",
+              "version": 1
+            },
+            "assetVersion": 1,
+            "variant": {
+              "kind": "canonical"
+            }
+          },
+          "representation": "Existing fixture rectangle; structural probe only",
+          "fixture": false,
+          "taxonFidelityReviewed": true,
+          "format": "pixel-rects",
+          "canvas": {
+            "width": 75,
+            "height": 60,
+            "anchorX": 36,
+            "anchorY": 48
+          },
+          "frames": [
+            [
+              {
+                "x": 33,
+                "y": 12,
+                "width": 3,
+                "height": 3,
+                "color": 2506050
+              }
+            ]
+          ],
+          "clips": {
+            "idle": {
+              "frames": [
+                0
+              ],
+              "ticksPerFrame": 8,
+              "loop": true
+            }
+          },
+          "provenance": {
+            "source": "reviewed-original",
+            "creator": "contract-fixtures",
+            "sourceVersion": "synthetic-local-v1",
+            "license": "Local technical fixture only",
+            "usage": "cleared",
+            "attribution": "Existing repository fixture pixels; no species fidelity claim"
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-publication-receipt-v1",
+      "name": "shared catalog: receipt action cannot disagree with status",
+      "value": {
+        "requestId": "6b56736d-b577-400f-92cc-b5a6f9a0e10a",
+        "action": "revoke-local-fixture",
+        "pin": {
+          "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "releaseVersion": 1,
+          "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+        },
+        "commandDigest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+        "status": "available",
+        "revision": 0
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: species identity cannot repeat",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              }
+            ]
+          },
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              }
+            ]
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "available"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: resident identity cannot repeat",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              }
+            ]
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "available"
+          },
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "available"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: release pin cannot repeat",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              },
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              }
+            ]
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "available"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: available status requires an available release",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": []
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "available"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: disabled mode cannot advertise available releases",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": false,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              }
+            ]
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "available"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: resident pin cannot be silently removed",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              }
+            ]
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": "art:catalog-synthetic-one",
+            "pin": null,
+            "status": "available"
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "catalog-overview-v1",
+      "name": "shared catalog: resident pin requires retained artwork identity",
+      "value": {
+        "schemaVersion": 1,
+        "kind": "shared-catalog.overview",
+        "enabled": true,
+        "species": [
+          {
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "commonName": "Fixture species label",
+            "scientificName": "Fixture taxon label",
+            "request": {
+              "schemaVersion": 1,
+              "taxonomy": {
+                "catalog": "chirp-display-catalog",
+                "version": 1,
+                "speciesId": "cn-species-erithacus-rubecula"
+              },
+              "style": {
+                "id": "technical-fixture",
+                "version": 1
+              },
+              "assetVersion": 1,
+              "variant": {
+                "kind": "canonical"
+              }
+            },
+            "pending": null,
+            "availability": "available",
+            "releases": [
+              {
+                "release": {
+                  "schemaVersion": 1,
+                  "request": {
+                    "schemaVersion": 1,
+                    "taxonomy": {
+                      "catalog": "chirp-display-catalog",
+                      "version": 1,
+                      "speciesId": "cn-species-erithacus-rubecula"
+                    },
+                    "style": {
+                      "id": "technical-fixture",
+                      "version": 1
+                    },
+                    "assetVersion": 1,
+                    "variant": {
+                      "kind": "canonical"
+                    }
+                  },
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "render": {
+                    "contract": "public-catalog-render-v1",
+                    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                    "bytes": 1000
+                  },
+                  "review": {
+                    "decision": "approved",
+                    "policyVersion": 1
+                  },
+                  "rights": {
+                    "redistributionAllowed": true,
+                    "policyVersion": 1,
+                    "publicAttributionSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  "fixture": true,
+                  "taxonFidelityReviewed": false
+                },
+                "pin": {
+                  "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                  "releaseVersion": 1,
+                  "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                },
+                "provenance": {
+                  "source": "deterministic_fixture",
+                  "creator": "contract-fixtures",
+                  "sourceVersion": "synthetic-local-v1",
+                  "license": "Local technical fixture only",
+                  "usage": "development-only",
+                  "attribution": "Existing repository fixture pixels; no species fidelity claim"
+                },
+                "status": "available",
+                "revision": 0
+              }
+            ]
+          }
+        ],
+        "residents": [
+          {
+            "birdId": "bird:synthetic-one",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "name": "Private synthetic name",
+            "artworkId": null,
+            "pin": {
+              "catalogKey": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "releaseVersion": 1,
+              "renderSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "status": "available"
+          }
+        ]
       },
       "valid": true,
       "authoritativeValid": false

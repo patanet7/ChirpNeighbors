@@ -11,6 +11,12 @@ from typing_extensions import TypedDict
 ScientificName: TypeAlias = str
 
 
+class CatalogPin(TypedDict, closed=True):
+    catalogKey: str
+    releaseVersion: int
+    renderSha256: str
+
+
 class Manual(TypedDict, closed=True):
     condition: Literal["clear", "cloudy", "rain", "snow"]
     hour: int
@@ -122,6 +128,7 @@ class Artwork(TypedDict, closed=True):
     version: int
     status: Literal["fixture", "reviewed"]
     animationPin: NotRequired[AnimationPin]
+    catalogPin: NotRequired[CatalogPin]
     imageUrl: str
     sha256: NotRequired[str]
     representation: str

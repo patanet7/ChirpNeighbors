@@ -1,0 +1,460 @@
+{
+  "$ref": "#/definitions/CatalogPromotionCommandV1",
+  "definitions": {
+    "CatalogPromotionCommandV1": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "promote-local-fixture"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "release": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "request": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "taxonomy": {
+                  "type": "object",
+                  "properties": {
+                    "catalog": {
+                      "type": "string",
+                      "const": "chirp-display-catalog"
+                    },
+                    "version": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "speciesId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160,
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                    }
+                  },
+                  "required": [
+                    "catalog",
+                    "version",
+                    "speciesId"
+                  ],
+                  "additionalProperties": false
+                },
+                "style": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9][a-z0-9._-]{0,79}$"
+                    },
+                    "version": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 9007199254740991
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "version"
+                  ],
+                  "additionalProperties": false
+                },
+                "assetVersion": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/release/properties/request/properties/style/properties/version"
+                },
+                "variant": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "const": "canonical"
+                        }
+                      },
+                      "required": [
+                        "kind"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "const": "variant"
+                        },
+                        "id": {
+                          "$ref": "#/definitions/CatalogPromotionCommandV1/properties/release/properties/request/properties/style/properties/id"
+                        },
+                        "version": {
+                          "$ref": "#/definitions/CatalogPromotionCommandV1/properties/release/properties/request/properties/style/properties/version"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "id",
+                        "version"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "taxonomy",
+                "style",
+                "assetVersion",
+                "variant"
+              ],
+              "additionalProperties": false
+            },
+            "catalogKey": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "releaseVersion": {
+              "$ref": "#/definitions/CatalogPromotionCommandV1/properties/release/properties/request/properties/style/properties/version"
+            },
+            "render": {
+              "type": "object",
+              "properties": {
+                "contract": {
+                  "type": "string",
+                  "const": "public-catalog-render-v1"
+                },
+                "sha256": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/release/properties/catalogKey"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000000
+                }
+              },
+              "required": [
+                "contract",
+                "sha256",
+                "bytes"
+              ],
+              "additionalProperties": false
+            },
+            "review": {
+              "type": "object",
+              "properties": {
+                "decision": {
+                  "type": "string",
+                  "const": "approved"
+                },
+                "policyVersion": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/release/properties/request/properties/style/properties/version"
+                }
+              },
+              "required": [
+                "decision",
+                "policyVersion"
+              ],
+              "additionalProperties": false
+            },
+            "rights": {
+              "type": "object",
+              "properties": {
+                "redistributionAllowed": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "policyVersion": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/release/properties/request/properties/style/properties/version"
+                },
+                "publicAttributionSha256": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/release/properties/catalogKey"
+                }
+              },
+              "required": [
+                "redistributionAllowed",
+                "policyVersion",
+                "publicAttributionSha256"
+              ],
+              "additionalProperties": false
+            },
+            "fixture": {
+              "type": "boolean"
+            },
+            "taxonFidelityReviewed": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "request",
+            "catalogKey",
+            "releaseVersion",
+            "render",
+            "review",
+            "rights",
+            "fixture",
+            "taxonFidelityReviewed"
+          ],
+          "additionalProperties": false
+        },
+        "render": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "scope": {
+              "type": "string",
+              "const": "generic-species"
+            },
+            "request": {
+              "$ref": "#/definitions/CatalogPromotionCommandV1/properties/release/properties/request"
+            },
+            "representation": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "fixture": {
+              "type": "boolean"
+            },
+            "taxonFidelityReviewed": {
+              "type": "boolean"
+            },
+            "format": {
+              "type": "string",
+              "const": "pixel-rects"
+            },
+            "canvas": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                },
+                "anchorX": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "anchorY": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/canvas/properties/anchorX"
+                }
+              },
+              "required": [
+                "width",
+                "height",
+                "anchorX",
+                "anchorY"
+              ],
+              "additionalProperties": false
+            },
+            "frames": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/canvas/properties/anchorX"
+                    },
+                    "y": {
+                      "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/canvas/properties/anchorX"
+                    },
+                    "width": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 256
+                    },
+                    "height": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 256
+                    },
+                    "color": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 16777215
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "width",
+                    "height",
+                    "color"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 4096
+              },
+              "minItems": 1,
+              "maxItems": 64
+            },
+            "clips": {
+              "type": "object",
+              "properties": {
+                "idle": {
+                  "type": "object",
+                  "properties": {
+                    "frames": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/canvas/properties/anchorX"
+                      },
+                      "minItems": 1,
+                      "maxItems": 256
+                    },
+                    "ticksPerFrame": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 300
+                    },
+                    "loop": {
+                      "type": "boolean"
+                    },
+                    "rotations": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "minimum": -0.5,
+                        "maximum": 0.5
+                      },
+                      "maxItems": 256
+                    }
+                  },
+                  "required": [
+                    "frames",
+                    "ticksPerFrame",
+                    "loop"
+                  ],
+                  "additionalProperties": false
+                },
+                "moving": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/clips/properties/idle"
+                },
+                "perching": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/clips/properties/idle"
+                },
+                "singing": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/clips/properties/idle"
+                },
+                "feeding": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/clips/properties/idle"
+                },
+                "bathing": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/clips/properties/idle"
+                },
+                "sleeping": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/clips/properties/idle"
+                },
+                "playing": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/clips/properties/idle"
+                },
+                "nesting": {
+                  "$ref": "#/definitions/CatalogPromotionCommandV1/properties/render/properties/clips/properties/idle"
+                }
+              },
+              "required": [
+                "idle"
+              ],
+              "additionalProperties": false
+            },
+            "provenance": {
+              "type": "object",
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "deterministic_fixture",
+                    "reviewed-original"
+                  ]
+                },
+                "creator": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "sourceVersion": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160
+                },
+                "license": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "usage": {
+                  "type": "string",
+                  "enum": [
+                    "development-only",
+                    "cleared"
+                  ]
+                },
+                "attribution": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "source",
+                "creator",
+                "sourceVersion",
+                "license",
+                "usage",
+                "attribution"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "scope",
+            "request",
+            "representation",
+            "fixture",
+            "taxonFidelityReviewed",
+            "format",
+            "canvas",
+            "frames",
+            "clips",
+            "provenance"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "requestId",
+        "release",
+        "render"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/catalog-promotion-command-v1.schema.json",
+  "description": "Generic species catalog structural boundary. Public render pixels exclude owners, observations, named birds, private source artifacts and pipeline references. Immutable release pins, byte digests, reviewed rights, trusted taxonomy labels, local fixture admission, monotonic revocation, owner session binding and compare-and-swap require server authority. Internal fixture promotion is not an HTTP or production publication capability. Existing pins never follow the latest release automatically; unavailable/revoked releases retain identity and use explicit fallback."
+}

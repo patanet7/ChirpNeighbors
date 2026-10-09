@@ -475,6 +475,11 @@ def gates(
             "asset-retention-browser-checks.py",
             "CHIRP_ASSET_RETENTION_OUTPUT",
         ),
+        (
+            "shared-catalog",
+            "shared-catalog-browser-checks.py",
+            "CHIRP_SHARED_CATALOG_OUTPUT",
+        ),
         ("shapes", "shape-browser-checks.py", "CHIRP_SHAPE_OUTPUT"),
         ("evidence", "evidence-browser-checks.py", "CHIRP_EVIDENCE_OUTPUT"),
         ("sharing", "share-browser-checks.py", "CHIRP_SHARE_OUTPUT"),

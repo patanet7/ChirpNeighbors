@@ -3556,11 +3556,13 @@
       "version": "v1",
       "source": {
         "repo": "ui",
-        "path": "src/lib/assets/catalog-contracts.ts",
-        "symbols": []
+        "path": "src/lib/server/assets/catalog-requests.ts",
+        "symbols": [
+          "CatalogRequestRepository"
+        ]
       },
-      "operation": "validate",
-      "transport": "internal",
+      "operation": "ensure-missing/lookup/verify",
+      "transport": "sqlite",
       "authorities": [
         {
           "repo": "ui",
@@ -3570,18 +3572,35 @@
             "pendingCatalogRequestSchema",
             "catalogReleaseSchema"
           ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-requests.ts",
+          "symbols": [
+            "CatalogRequestRepository",
+            "assertCatalogRequestCompatibility",
+            "verifyCatalogRequestStore"
+          ]
         }
       ],
       "structural": [
         "Closed canonical source schema; generated JSON Schema provides structural checks only."
       ],
       "semantic": [
-        "Immutable globally deduped canonical key with private inputs excluded; revalidate persisted digest/metadata; default policy denies."
+        "Immutable globally deduplicated canonical request identity excludes owner data. Exact schema/version and bounded stored rows are verified during lookup and cold recovery; default policy denies. Only actual known owner collection/resident species with trusted scientific identity creates local development demand; no filenames or observed labels infer taxonomy."
       ],
       "codec": [
         "Bounded JSON/SSR decoding precedes authoritative owner, revision and transaction checks."
       ],
-      "consumers": [],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-selection.ts",
+          "symbols": [
+            "SharedCatalogService"
+          ]
+        }
+      ],
       "evidence": [
         {
           "repo": "ui",
@@ -3590,7 +3609,7 @@
         }
       ],
       "gaps": [
-        "No application hook, approved release repository or public render payload implemented."
+        "Production request admission and generation adapters remain disabled; local fixture requests demonstrate canonical identity without private source sharing."
       ]
     },
     {
@@ -4349,6 +4368,315 @@
       "gaps": [
         "Production purge execution, account-wide erasure and backup/downloaded-copy retention remain unimplemented. Cleanup eligibility is diagnostic and never authorizes destructive deletion."
       ]
+    },
+    {
+      "id": "shared-catalog-release:sqlite",
+      "category": "store",
+      "owner": "image",
+      "version": "catalog_release_migrations1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/assets/catalog-releases.ts",
+        "symbols": []
+      },
+      "operation": "promote-local-fixture/revoke-local-fixture/resolve/verify",
+      "transport": "sqlite",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-pin.ts",
+          "symbols": [
+            "catalogPinSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-public-contracts.ts",
+          "symbols": [
+            "publicCatalogRenderSchema",
+            "catalogEntrySchema",
+            "catalogPromotionCommandSchema",
+            "catalogRevocationCommandSchema",
+            "catalogPublicationReceiptSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-releases.ts",
+          "symbols": [
+            "CatalogReleaseRepository",
+            "assertCatalogReleaseCompatibility",
+            "verifyCatalogReleaseStore"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-fixtures.ts",
+          "symbols": [
+            "localFixtureCatalogRequest",
+            "localFixturePromotion",
+            "isTrustedLocalFixturePromotion"
+          ]
+        }
+      ],
+      "structural": [
+        "Ten strict shared catalog schemas separate generic render geometry and public provenance, immutable exact release pins, internal local fixture commands, release and owner selection receipts, and owner-facing catalog projections. Existing pending request and release descriptor authorities remain unchanged."
+      ],
+      "semantic": [
+        "Canonical request, render SHA256 and byte length, public attribution digest, exact built-in fixture content and immutable command receipts are verified together. Monotonic revocation retains identity; unavailable or revoked packs are not selectable and never silently replace an existing resident version pin. Shared records exclude owners, named birds, private sources, observations and location."
+      ],
+      "codec": [
+        "Exact SQLite ledger/schema preflight and canonical bounded JSON precede release admission and cold recovery. Internal fixture promotion requires injected trusted local policy; no HTTP publication endpoint, production authority, external provider or new credential exists."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/resolve.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/registry.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-releases.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-public-contracts.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/catalog-public-golden-cases.mjs",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Production species/taxonomy and redistribution-rights review authority, original approved packs, external generation adapters and optional authored variants remain future work. Local fixture approval is not biological fidelity or public service publication."
+      ]
+    },
+    {
+      "id": "api/species-catalog:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "shared catalog selection v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/species-catalog/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-public-contracts.ts",
+          "symbols": [
+            "catalogPinCommandSchema",
+            "catalogSelectionReceiptSchema",
+            "catalogOverviewSchema",
+            "catalogCommandResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-selection.ts",
+          "symbols": [
+            "SharedCatalogService"
+          ]
+        }
+      ],
+      "structural": [
+        "Strict owner catalog overview and exact resident pin command/response authority. Generic species releases have no private source fields; owner-scoped resident names remain only in the authenticated overview."
+      ],
+      "semantic": [
+        "Authenticated owner, same-origin/session-bound writes, exact artwork compare-and-swap and immutable request receipts. Authoritative taxonomy labels and available exact release identity are checked before selection; versions never replace resident pins automatically. Known mismatched labels remain unsupported and unknown species never infer taxonomy from filenames."
+      ],
+      "codec": [
+        "GET and POST return validated private no-store JSON; POST decodes a bounded command with no client owner field, publication command, provider parameter or filesystem path. Replayed selection receipts accompany current overview without reapplying old pins."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/SharedSpeciesCatalog.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-selection.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-public-contracts.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/shared-catalog-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/species-catalog:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "shared catalog selection v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/species-catalog/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-public-contracts.ts",
+          "symbols": [
+            "catalogPinCommandSchema",
+            "catalogSelectionReceiptSchema",
+            "catalogOverviewSchema",
+            "catalogCommandResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-selection.ts",
+          "symbols": [
+            "SharedCatalogService"
+          ]
+        }
+      ],
+      "structural": [
+        "Strict owner catalog overview and exact resident pin command/response authority. Generic species releases have no private source fields; owner-scoped resident names remain only in the authenticated overview."
+      ],
+      "semantic": [
+        "Authenticated owner, same-origin/session-bound writes, exact artwork compare-and-swap and immutable request receipts. Authoritative taxonomy labels and available exact release identity are checked before selection; versions never replace resident pins automatically. Known mismatched labels remain unsupported and unknown species never infer taxonomy from filenames."
+      ],
+      "codec": [
+        "GET and POST return validated private no-store JSON; POST decodes a bounded command with no client owner field, publication command, provider parameter or filesystem path. Replayed selection receipts accompany current overview without reapplying old pins."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/SharedSpeciesCatalog.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-selection.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-public-contracts.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/shared-catalog-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "shared-catalog-selection:sqlite",
+      "category": "store",
+      "owner": "image",
+      "version": "catalog_selection_migrations1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/assets/catalog-selection.ts",
+        "symbols": []
+      },
+      "operation": "pin/replay/resolve/verify",
+      "transport": "sqlite",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-public-contracts.ts",
+          "symbols": [
+            "catalogPinCommandSchema",
+            "catalogSelectionReceiptSchema",
+            "catalogOverviewSchema",
+            "catalogCommandResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-selection.ts",
+          "symbols": [
+            "SharedCatalogService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-selection.ts",
+          "symbols": [
+            "CATALOG_SELECTION_SCHEMA",
+            "assertCatalogSelectionCompatibility",
+            "verifyCatalogSelectionStore"
+          ]
+        }
+      ],
+      "structural": [
+        "Exact SQLite schema/version, immutable owner-qualified UUID receipts, strict retained command and digest/result artwork identity; bounded 2048 owner and 32768 global receipts."
+      ],
+      "semantic": [
+        "The owner pin mutation and immutable receipt share a transaction. Old retry receipts cannot overwrite later selections. New selection/import/add-instance/backup admission respects exact release availability and trusted species identity, while unchanged existing pins keep explicit revoked/unavailable fallback."
+      ],
+      "codec": [
+        "Read-only compatibility and receipt verification precede cold recovery. No private source pixels or observations are copied into shared catalog storage; no production promotion, public publication or destructive migration is performed."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/repository.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/resolve.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/operations/lifecycle-recovery.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/catalog-selection.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/catalog-public-contracts.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/shared-catalog-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": []
     }
   ]
 }

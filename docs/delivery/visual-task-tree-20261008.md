@@ -183,3 +183,23 @@ erasure and backup deletion policy remain future work, as do P1–P4's approved
 species art and real adapters. G1/G2 and C1 retain their prior remaining work.
 ESP32 is progressing separately in another environment; no duplicate firmware
 work or assumed firmware integration was performed here.
+
+## Shared catalog implementation after the retention checkpoint
+
+The next bounded G2 slice is implemented on `codex/shared-catalog-local`, preserving
+the complete 72-gate checkpoint. UI `docs/shared-catalog-checklist.md` records the
+six concrete dependency/acceptance tasks; `docs/shared-catalog-review-20261009.md`
+records actual parallel review and corrected findings. Full verification is pending.
+
+Present collection/resident species with explicit trusted application taxonomy
+create deduplicated owner-free demand. Existing technical pixels can enter immutable
+reviewed local fixture releases under an internal allowlisted authority. Owners
+choose exact per-resident versions; both renderers resolve only the saved reviewed
+bytes. Version updates, revocation and missing/corrupt content never silently replace
+a pin. New selections, automatic assignment, backup and undo share availability
+guards; private media and observation/source provenance remain owner-scoped.
+
+Production catalog authority, real rights/fidelity review, approved pixels, external
+photo/sprite/import/audio adapters and dispatch budgets remain future work. Optional
+variants retain an explicit identity contract. No public publication, admin endpoint,
+credential change, data rewrite or new artwork is part of this fixture slice.
