@@ -81,7 +81,7 @@
       "reviewerResult": "Prior independent review approved; frozen75/75 proof retained, current integrated rerun pending."
     },
     {
-      "id": "NET-01a",
+      "id": "NET-F01",
       "severity": "high",
       "owner": "python",
       "finding": "Per-phase HTTPX timeout allowed slow-drip BFF responses and detached sync I/O after request cancellation.",
@@ -93,7 +93,7 @@
       "reviewerResult": "Independent source review approved;73/73 focused tests; frozen integrated rerun pending."
     },
     {
-      "id": "NET-01b",
+      "id": "NET-F02",
       "severity": "medium",
       "owner": "python",
       "finding": "Direct Python command body was byte bounded without a total read deadline.",
@@ -105,30 +105,30 @@
       "reviewerResult": "Independent source review approved; body/drip/disconnect/blocked-send cases included in73tests."
     },
     {
-      "id": "NET-01c",
+      "id": "NET-F03",
       "severity": "high",
       "owner": "auth",
       "finding": "Google token/JWKS calls lacked application total deadlines, response bounds and reviewed cache/redirect policy.",
-      "status": "implemented-verification-in-progress",
+      "status": "fixed-focused-pass",
       "fix": "Supported Better Auth provider extension, bounded token/JWK projections, total operation scope and key cache.",
       "regressionEvidence": [
         "../../../birdsong-yard-sprites/src/lib/server/auth/google.ts",
         "../../../birdsong-yard-sprites/scripts/auth-integration.mjs"
       ],
-      "reviewerResult": "Independent adversarial cache/lifetime review underway; live Google not tested."
+      "reviewerResult": "Independent source/cache/lifetime review approved;148focused and55localintegration pass; no live Google proof. Full corrected aggregate pending."
     },
     {
-      "id": "NET-01d",
+      "id": "NET-F04",
       "severity": "high",
       "owner": "auth",
       "finding": "SMTP phase timeouts did not bound total send lifetime or prove active socket cancellation.",
-      "status": "implemented-verification-in-progress",
-      "fix": "Owned socket, total10s, maxResponseSize65536 and safe no-retry errors.",
+      "status": "fixed-focused-pass",
+      "fix": "Owned socket, total10s,256KiB total inbound wire cap, separate64KiB unfinished/continued-reply guard; safe no-retry errors.",
       "regressionEvidence": [
         "../../../birdsong-yard-sprites/src/lib/server/auth/email.ts",
         "../../../birdsong-yard-sprites/scripts/auth-browser-checks.py"
       ],
-      "reviewerResult": "Focused local sockets and TLS integration pass; browser proof pending."
+      "reviewerResult": "Independent source/socket/TLS review approved;55localintegration and23authbrowser assertions pass. Full corrected aggregate pending."
     },
     {
       "id": "IR-01",
@@ -514,6 +514,20 @@
         "external-transport-20261009/review/review.json"
       ],
       "reviewerResult": "Approved; independent auth-r2 passes11/11, including the named regression."
+    },
+    {
+      "id": "IR-12",
+      "severity": "medium",
+      "owner": "root/test-integration",
+      "finding": "Audio lifecycle fault injection patched the old synchronous gateway and no longer exercised the actual async permit read.",
+      "status": "fixed-focused-pass",
+      "fix": "Intercept BFFTransport.aget, await actual transport on successful calls, assert outage marker consumption. Preserve opaque404 and same-command recovery assertions.",
+      "regressionEvidence": [
+        "external-transport-20261009/attempts/system-r1/report.json",
+        "../../../birdsong-yard-sprites/scripts/audio-lifecycle-browser-checks.py",
+        "external-transport-20261009/focused/audio-lifecycle-r2/results.json"
+      ],
+      "reviewerResult": "Independent source fix approved; focused full lifecycle53/53 passes with original assertions preserved. New complete frozen aggregate pending."
     }
   ]
 }

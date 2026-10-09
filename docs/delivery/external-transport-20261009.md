@@ -17,6 +17,8 @@ This local slice implements NET-01 from the [product audit](product-audit-202610
 
 All discovered implementation issues, preserved prior corrections and remaining scope have severity, owner, status, fix, regression evidence and reviewer result in the [consolidated findings register](audit-findings-20261009.json). The register does not turn an unconfigured future provider into an implemented connection.
 
+Checklist IDs NET-01a–f are task IDs. Finding IDs NET-F01/F02 cover Python transport/body ingress, NET-F03 Google and NET-F04 SMTP; IR findings describe specific review corrections. These namespaces are intentionally separate.
+
 ## Implemented transport inventory
 
 | Boundary / pinned authority | Exact operation and input/output | Application bounds, freshness and errors | Verification class |
@@ -54,3 +56,9 @@ Source commits: main `9e4bcaae762ef273d190b6d8aebe79459ade1577` (Python transpor
 Focused results are **43 audio UI tests, 73 Python audio tests, 148 auth/restore tests, 55 local auth integration assertions, 23 browser auth assertions, four negative static probes and 16 independent adversarial tests**. These overlap the future aggregate and must not be summed into a unique suite count. Separate intake passes seven commands, 52 tests and 96% scoped branch/statement coverage. Production build passes. Local TLS/STARTTLS, stalled SMTP browser recovery and actual socket closure are exercised; no live external account operation was attempted.
 
 [Independent review](LOCAL-EVIDENCE.md) approves the source and focused evidence. Raw successful and failed attempts are retained under [focused evidence](LOCAL-EVIDENCE.md) and [review evidence](LOCAL-EVIDENCE.md). Initial widened lint, stale suppression and intermediate SMTP type/TLS failures remain historical evidence; their later successful named runs do not erase those attempts. The final complete 76-gate frozen run is pending at this checkpoint.
+
+## Preserved first aggregate attempt
+
+[Attempt r1](LOCAL-EVIDENCE.md) stopped with46passing gates and one failing audio lifecycle gate among47recorded gates, out of76selected. Its worktrees remained frozen; `finished`, `completeSuite` and `passed` are false. The fault fixture patched the retained synchronous compatibility method after production moved to async `aget`, so the synthetic outage was never injected. IR-12 changes only the harness to intercept the real async method, await the actual successful transport and assert consumption of the outage marker. Existing404 and same-command recovery assertions remain. Independent source review approved the correction; focused and full corrected verification follow separately. The failed report/logs/screenshots remain unmodified, including partial artifacts from the intentionally stopped remainder.
+
+The corrected focused lifecycle run passes **53/53 assertions**; source fix is UI `8907328476675e64c62c12af3489a0c981f52d88`. The subsequent complete aggregate is still pending.
