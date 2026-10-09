@@ -1,17 +1,25 @@
-#ifndef GLOBALS_H
-#define GLOBALS_H
+#ifndef CHIRP_GLOBALS_H_
+#define CHIRP_GLOBALS_H_
 
-#include <stdint.h> // Include for standard types like int16_t
+#include <cstddef>
+#include <cstdint>
 
-// Runtime state variables shared between main.cpp and potentially settings_api.cpp
-// These are DEFINED in main.cpp and DECLARED here for other modules to use.
+#include "audio_protocol.h"
 
-extern float current_rms;      // Calculated Root Mean Square of recent audio samples
-extern int16_t current_peak;   // Peak absolute value of recent audio samples
-extern bool transmitting;      // Are we actively transmitting audio data? (Set based on triggers/logic)
-
-extern int16_t *latest_samples;      // Pointer to rolling diagnostics buffer used by the status API
-extern size_t latest_sample_index;   // Write index inside the diagnostics buffer
-extern size_t latest_sample_capacity; // Number of samples allocated for diagnostics
-
-#endif // GLOBALS_H
+struct RuntimeStatus {
+  float rms = 0;
+  uint16_t peak = 0;
+  bool transmitting = false;
+  bool connected = false;
+  uint32_t captured = 0;
+  uint32_t dropped = 0;
+  uint32_t sent = 0;
+  uint32_t send_failures = 0;
+  uint32_t read_errors = 0;
+  size_t sample_count = 0;
+  int16_t samples[chirp::kStatusSamples] = {};
+};
+RuntimeStatus readRuntimeStatus();
+// Settings API requests restart; only the main loop shuts down drivers/tasks.
+bool requestRestart();
+#endif  // CHIRP_GLOBALS_H_
