@@ -73,13 +73,21 @@
           "repo": "ui",
           "path": "src/lib/recordings/analysis-contracts.ts",
           "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/analysis.ts",
+          "symbols": [
+            "analyzeRecording"
+          ]
         }
       ],
       "structural": [
         "Pydantic validation-mode command and serialization-mode event/error generate executable TypeScript guards; GET returns local analysis configuration."
       ],
       "semantic": [
-        "Provider/model pins, WAV summary/window/review references, live owner generation and command digest must agree."
+        "Provider/model pins, WAV summary/window/review references, live owner generation and command digest must agree.",
+        "Caller abort is checked after local permit validation, during body read and before durable admission; total outbound deadline is 15 seconds, not a bound on prior local file validation."
       ],
       "codec": [
         "HTTP JSON decoding and bounded request bodies are distinct from object validation."
@@ -1893,13 +1901,28 @@
           "repo": "ui",
           "path": "src/lib/server/auth/service.ts",
           "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/google.ts",
+          "symbols": [
+            "boundedGooglePlugin"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/transport.ts",
+          "symbols": [
+            "boundedAuthJSON"
+          ]
         }
       ],
       "structural": [
         "Library-owned provider callback/query/cookie protocol; no handwritten mirror."
       ],
       "semantic": [
-        "Exact mounted path/method allowlist, configured origin and provider verification."
+        "Exact mounted path/method allowlist, configured origin and provider verification.",
+        "Fixed token/JWKS endpoints, bounded total transport and fresh key cache; preserved RS256 issuer/audience/age/expiry and signed azp/verified-email policy."
       ],
       "codec": [
         "Bounded URL, framework Request/Response and signed library cookies."
@@ -2039,7 +2062,8 @@
         "Pydantic command validation and event/error/health/readiness serialization-mode schemas; generated OpenAPI binds endpoint statuses."
       ],
       "semantic": [
-        "Live session/permit and generation checks, bounded private WAV decoding, pinned provider result semantics."
+        "Live session/permit and generation checks, bounded private WAV decoding, pinned provider result semantics.",
+        "5-second ASGI command-body deadline and 10-second request-owned BFF sequence budget; cancelled async network calls drain before the cooperative service worker is joined. Native inference is not forcibly terminated."
       ],
       "codec": [
         "FastAPI JSON body/header limits and sanitized framework failures; fixed-origin HTTPX redirects prohibited."
@@ -2617,7 +2641,7 @@
       "id": "session-library",
       "category": "auth-library",
       "owner": "auth",
-      "version": "Better Auth pinned library",
+      "version": "Better Auth 1.7.7 supported hooks; JOSE 6.2.3",
       "source": {
         "repo": "ui",
         "path": "src/lib/server/auth/service.ts",
@@ -2630,13 +2654,21 @@
           "repo": "ui",
           "path": "src/lib/server/auth/service.ts",
           "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/transport.ts",
+          "symbols": [
+            "authCheckpoint"
+          ]
         }
       ],
       "structural": [
-        "External auth wire/schema authority belongs to installed library."
+        "Better Auth owns state, PKCE, callback and signed-cookie protocol; bounded Google token/JWKS projections live in auth/google.ts."
       ],
       "semantic": [
-        "Verified account projects through generated SessionVerifier identity; development fixture has separate explicit admission."
+        "Verified account projects through generated SessionVerifier identity; development fixture has separate explicit admission.",
+        "Request/runtime cancellation and one monotonic 10-second operation budget guard supported database before-create hooks for user/account/session."
       ],
       "codec": [
         "Signed HTTP cookies and provider callbacks, no handcrafted provider protocol."
@@ -4791,6 +4823,180 @@
       ],
       "gaps": [
         "Environment controls are temporary previews, not durable preferences. Lighting and bird weather responses are illustrative; regional astronomy, live weather providers, reviewed ecological tuning and location collection remain absent."
+      ]
+    },
+    {
+      "id": "outbound-google-token-jwks",
+      "category": "auth-library",
+      "owner": "auth",
+      "version": "Google OAuth2/OIDC; Better Auth 1.7.7; JOSE 6.2.3",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/auth/google.ts",
+        "symbols": [
+          "boundedGooglePlugin"
+        ]
+      },
+      "operation": "POST https://oauth2.googleapis.com/token; GET https://www.googleapis.com/oauth2/v3/certs",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/google.ts",
+          "symbols": [
+            "GoogleKeyCache"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/transport.ts",
+          "symbols": [
+            "boundedAuthJSON"
+          ]
+        }
+      ],
+      "structural": [
+        "Library authorizationCodeRequest/getOAuth2Tokens map form exchange; local bounded projections validate token fields and at most16 RSA/RS256 signing JWKs."
+      ],
+      "semantic": [
+        "One 10-second auth operation budget; JWKS fetch additionally5seconds; fresh per-runtime cache, maximum5minutes and unknown-key refresh cooldown30seconds; coalesced waiters; no stale fallback, redirects or automatic token replay."
+      ],
+      "codec": [
+        "Token body32768bytes; JWKS65536bytes; strict UTF-8/JSON; bounded key material; safe errors with no credential or provider-body logging."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/service.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/auth-integration.mjs",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Local signed-provider/fault fixtures only; actual Google consent/account/token service not live-tested."
+      ]
+    },
+    {
+      "id": "outbound-operator-smtp",
+      "category": "auth-library",
+      "owner": "auth",
+      "version": "SMTP TLS/STARTTLS; Nodemailer 10.0.16",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/auth/email.ts",
+        "symbols": [
+          "smtpTransport"
+        ]
+      },
+      "operation": "Operator-configured SMTP host/port; plain one-time sign-in message",
+      "transport": "framework",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/email.ts",
+          "symbols": [
+            "smtpTransport"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/config.ts",
+          "symbols": [
+            "smtpConfigSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/smtp-socket.ts",
+          "symbols": [
+            "BoundedSMTPSocket"
+          ]
+        }
+      ],
+      "structural": [
+        "Nodemailer owns SMTP protocol; strict app-owned paired credential/TLS config and text-only message."
+      ],
+      "semantic": [
+        "One 10-second send budget linked to auth request/runtime; owned socket destroyed on timeout/abort/finish; no automatic resend; relay acceptance may already have occurred."
+      ],
+      "codec": [
+        "Verified implicit TLS or required STARTTLS; whole inbound wire capped at256KiB before TLS/parser, including handshake; separate Nodemailer maxResponseSize65536 unfinished/continued-reply guard, not a strict completed-reply bound; disabled file/URL content and logging."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/auth/email.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/auth-integration.mjs",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/auth-browser-checks.py",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Local TLS/fault fixtures only; operator relay, mailbox delivery and domain reputation not live-tested."
+      ]
+    },
+    {
+      "id": "outbound-python-bff",
+      "category": "codec",
+      "owner": "audio",
+      "version": "SessionVerifier1 / AudioRecordingPermit1 / bounded PCM WAV",
+      "source": {
+        "repo": "main",
+        "path": "backend-inference/app/audio_pipeline/gateway.py",
+        "symbols": []
+      },
+      "operation": "GET fixed BFF /api/session, /api/recordings/{UUID}/analysis-permit and /api/recordings/{UUID}/audio",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/gateway.py",
+          "symbols": []
+        },
+        {
+          "repo": "main",
+          "path": "backend-inference/app/audio_pipeline/contracts.py",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Generated strict session/permit validation;4096byteJSON and6MiBWAV limits independent of Content-Length; identity encoding required."
+      ],
+      "semantic": [
+        "5-second total GET and10-second shared request sequence budget; async socket cancellation; fresh owner-isolated client; no redirect, ambient proxy or automatic retry; permit generation rechecked."
+      ],
+      "codec": [
+        "httpx0.28.1 native async transport; body deadline is application controlled; errors remain existing redacted audio.rejected/audio.failed contracts."
+      ],
+      "consumers": [],
+      "evidence": [
+        {
+          "repo": "main",
+          "path": "backend-inference/tests/test_audio_api.py",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/recordings/analysis.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Network deadline is not forced native inference or OS resolver termination; local fixture proof does not establish deployed service reachability."
       ]
     }
   ]

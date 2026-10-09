@@ -1,5 +1,7 @@
 # Product, architecture and connection audit — 2026-10-09
 
+This retained checkpoint is followed by the [bounded transport and static-check slice](external-transport-20261009.md). Its transport timeout/cache gaps are baseline findings, with current fixes and remaining scope tracked in the [consolidated findings register](audit-findings-20261009.json). The original evidence and unsuccessful attempts below remain unchanged.
+
 Four bounded defects are corrected in local commits: supported-origin normalization at the Python admission boundary, signed Google authorized-party validation, cancellable recording uploads with safe page lifetimes, and turning clearance for asymmetric bird bodies. Independent source review and focused checks pass. **The complete frozen suite passed 75/75 gates** at main `22c405092f6fdeac7a42f5d3d8e840a2c7a1829b` / UI `65d5776eea463d9521b1fb4f29c40481539ae20b`. Historical environment and ESP32 results remain separately retained.
 
 Both repositories use `codex/external-contract-audit-local`, preserving the preceding environment and ESP32 branches. Bases: main `b5d69c61b1dcf7228ae33f1fb916a09b276fcf3a`, UI `a205bf0413b14f743a7f767ad0ea3a3723691717`. Published foundation commits remain ancestors. No push, PR, remote merge, deployment, flash, credentials, paid services, private uploads, provider writes or new artwork occurred. All test owners/media are disposable fixtures.

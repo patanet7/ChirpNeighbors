@@ -123,13 +123,22 @@ enabled by the documented command; application errors omit cookies, evidence and
 upstream diagnostics.
 
 `POST /v1/audio/analyze` accepts only the generated command schema and at most
-4 KiB of body bytes, including streamed bodies without a Content-Length. It requires
+4 KiB of body bytes, including streamed bodies without a Content-Length, within
+five seconds after ASGI body reading begins. A body deadline returns the existing
+400 `invalid_request` envelope. It requires
 the exact configured BFF Origin, accepts no owner header and enables no CORS. The
 gateway forwards only a bounded Cookie header to the fixed `/api/session` endpoint.
 That response is checked by the shared `SESSION_VERIFIER_ADAPTER`; production
 development identities, expired sessions, redirects, malformed/oversized responses
 and verifier outages fail closed. A fresh HTTP client per call prevents cookie-jar
 state crossing owners; ambient proxy configuration and redirects are disabled.
+Native asynchronous HTTPX gives each GET a five-second total connect/header/body
+deadline. All session, permit and media GETs share one ten-second request budget,
+starting with verification. This includes time spent in inference before the final
+authorization fence; expired requests cannot initiate another GET. JSON is capped
+at 4096 bytes, WAV at 6 MiB, and compressed replies are rejected before decoding.
+There are no automatic network retries. Session transport failure retains 401;
+media/permit failure retains 404 `recording_unavailable`.
 
 Private media is read from `/api/recordings/{id}/audio`, with generated
 `/analysis-permit` snapshots before/after reads, between chunks and on cached result
@@ -139,14 +148,21 @@ Cookie/session authority stays in the BFF database, including revocation checks.
 HTTP preflight failures use versioned `audio.rejected` errors. Analysis failures use
 `audio.failed`; actual status/response alternatives are exported from the app factory
 to `contracts/audio-openapi-v1.json`. No hand-maintained OpenAPI model is introduced.
-Responses are private/no-store. Client disconnects request cooperative cancellation;
-native provider calls still need their own timeout. Explicit retries can recover from
+Responses are private/no-store. Disconnect/shutdown cancels the request-owned async
+I/O, closes its scope, and joins the cooperative service worker before returning.
+Repeated shutdown cancellation does not detach that worker. Native provider calls
+still need their own timeout: neither this budget nor Python cancellation can
+forcibly terminate native inference or an OS DNS resolver. The legacy synchronous
+wrapper also waits for event-loop executor shutdown; production API I/O uses the
+asynchronous path. Pre-ASGI header limits remain a server/deployment responsibility.
+Explicit retries can recover from
 transient provider failure, an unavailable recording gateway or a prior cancellation
 using the same unchanged request ID. Remote cache revalidation runs outside the
 service's global lock.
 
-Tests use HTTPX's ASGI and mock transports to execute the real API/verifier/media
-stack without network access. Their completed-inference response uses only a
+Tests use HTTPX's ASGI/mock transports and deterministic local loopback fault servers
+to execute the real API/verifier/media stack without external network calls. Their
+completed-inference response uses only a
 server-marked synthetic test signal and an injected technical fixture provider.
 Real upload provenance deliberately fails that fixture provider. This does not
 claim live Google, email delivery, a trained model, or hardware verification.

@@ -102,3 +102,15 @@ after independent review and regression fixes. The routines test now uses
 WebGL-only SwiftShader to avoid a traced software-GPU compositor teardown stall;
 its original assertions/timeouts remain. See the UI
 `docs/routines-browser-diagnosis.md` for the measured comparison and limitations.
+
+
+The bounded transport/static wave adds `python-harness-lint`, bringing the current
+complete runner to 76 gates. It checks all UI Python harnesses/backend tests for
+undefined names and stale suppressions; strict runtime mypy and optional/intake
+scopes remain separately named. UI lint now includes first-party MJS/configs,
+Svelte warnings fail, and Vitest config receives inherited strict type checking.
+Four failing negative probes establish those policies are effective. The dedicated
+Svelte MCP is unavailable; no compiler/linter result is an MCP/autofixer result.
+See [the exact scope/tooling audit](svelte-static-audit-20261009.md) and
+[transport checkpoint](external-transport-20261009.md) for current evidence.
+The standalone seven-command intake run is separate from the 76 aggregate gates.

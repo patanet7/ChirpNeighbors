@@ -19,6 +19,8 @@ The environment-animation slice has a **complete local integrated checkpoint, 75
 
 The subsequent [product/connection audit](product-audit-20261009.md) records four concrete fixes, official dependency/connection documentation, current browser journeys and engine resource/sound gaps. E-AUD now records a complete 75/75 frozen run with the original ESP integration present. Focused evidence and prior E-ENV/E-ESP proof remain separately retained at their exact revisions. The 36 stable entries below remain the authority; the audit task breakdown maps follow-up acceptance back to them.
 
+The next [bounded transport/static-check slice](external-transport-20261009.md) closes NET-01 with application-controlled Google/JWKS/SMTP and reciprocal audio lifetimes, preserves wire/auth authority, and extends first-party lint/type coverage. Its [consolidated findings](audit-findings-20261009.json) record severity, owner, fix/status, regression and review. Dedicated Svelte MCP is unavailable; compiler/static diagnostics are reported separately. Focused proof and the new frozen aggregate are tracked in that checkpoint, not inferred from E-AUD.
+
 ## Exact evidence ledger
 
 | Code | Source revision(s), scope and retained evidence |
@@ -239,7 +241,7 @@ E-ENV retains 1,564 UI tests across 98 files, including 45 new tests; 429 cross-
 
 **Dependencies:** EN-001, EN-002. **Remaining gap:** Production provider/account policies and account-wide erasure remain external; shared views do not show private reviewed artwork or live owner ontology. **Next action:** Preserve narrow share projection and use EN-011 for erasure scope.
 
-**Current audit fixes and limits:** A present signed Google `azp` must match the sole configured client. Supported browser origins now normalize consistently before Python Origin/session admission. The [connection audit](product-audit-20261009.md) distinguishes local signed-provider/SMTP fixtures from unverified live sign-in, explicit transport deadline gaps and missing account-wide recovery/erasure.
+**Current audit fixes and limits:** A present signed Google `azp` must match the sole configured client. Supported browser origins now normalize consistently before Python Origin/session admission. The [connection audit](product-audit-20261009.md) distinguishes local signed-provider/SMTP fixtures from unverified live sign-in, baseline transport gaps (superseded by the bounded transport slice) and missing account-wide recovery/erasure.
 
 ### PB-014 — Reviewed source rights, provenance and immutable shape/animation workbench precede reusable artwork.
 

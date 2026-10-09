@@ -530,38 +530,36 @@
         "scripts/environment-browser-checks.py"
       ],
       "baseline": false
+    },
+    {
+      "id": "python-harness-lint",
+      "repo": "main",
+      "command": [
+        "{python}",
+        "-m",
+        "ruff",
+        "check",
+        "--select",
+        "F,RUF100",
+        "{ui_repo}/scripts",
+        "backend-inference/tests"
+      ],
+      "baseline": false
     }
   ],
   "activeWave": {
-    "document": "docs/delivery/product-audit-20261009.md",
+    "document": "docs/delivery/external-transport-20261009.md",
     "productRegister": "docs/delivery/product-behavior-and-ideas.md",
-    "scope": "Whole-product and external-contract audit; trusted-origin, signed Google claim, upload lifetime and asymmetric turning fixes",
-    "verification": "complete_frozen_pass",
-    "selectedGates": 75,
-    "completeSuite": true,
+    "scope": "Bounded Google/JWKS/SMTP and reciprocal audio transport, cancellation and cache correctness; meaningful Svelte/first-party static coverage",
+    "verification": "focused_pass_integrated_pending",
+    "selectedGates": 76,
+    "completeSuite": false,
     "baseRevisions": {
-      "main": "b5d69c61b1dcf7228ae33f1fb916a09b276fcf3a",
-      "ui": "a205bf0413b14f743a7f767ad0ea3a3723691717"
+      "main": "8880aa2814c1ed4d99683ac1ee7a6af36354bdc5",
+      "ui": "c2a0284f2f86c6ef9f847089ce97bf3b9f57b9ff"
     },
-    "independentReview": "docs/delivery/product-audit-20261009/independent-review.md",
-    "firstAttempt": {
-      "report": "docs/delivery/product-audit-20261009/attempts/system-r1/report.json",
-      "passed": 56,
-      "recorded": 57,
-      "selected": 75,
-      "finished": false,
-      "failure": "browser-routines",
-      "interrupted": "browser-recordings-ui"
-    },
-    "passedGates": 75,
-    "testedRevisions": {
-      "main": "22c405092f6fdeac7a42f5d3d8e840a2c7a1829b",
-      "ui": "65d5776eea463d9521b1fb4f29c40481539ae20b"
-    },
-    "report": "docs/delivery/product-audit-20261009/integrated/report.json",
-    "verificationCounts": "docs/delivery/product-audit-20261009/counts.json",
-    "standaloneIntake": "docs/delivery/product-audit-20261009/intake/checks.json",
-    "reportSha256": "2ab3686c83667ae041af1add5cd82892daabff8c063c9528d25e734c4b85a1f8"
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
+    "toolingAudit": "docs/delivery/svelte-static-audit-20261009.md"
   },
   "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",
@@ -721,5 +719,36 @@
     "checkpoint": "docs/delivery/esp32-integrated-20261009.md",
     "verificationCounts": "docs/delivery/esp32-integrated-20261009/counts.json",
     "firmwareChecks": "docs/delivery/esp32-integrated-20261009/firmware/checks.json"
+  },
+  "priorAuditWave": {
+    "document": "docs/delivery/product-audit-20261009.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Whole-product and external-contract audit; trusted-origin, signed Google claim, upload lifetime and asymmetric turning fixes",
+    "verification": "complete_frozen_pass",
+    "selectedGates": 75,
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "b5d69c61b1dcf7228ae33f1fb916a09b276fcf3a",
+      "ui": "a205bf0413b14f743a7f767ad0ea3a3723691717"
+    },
+    "independentReview": "docs/delivery/product-audit-20261009/independent-review.md",
+    "firstAttempt": {
+      "report": "docs/delivery/product-audit-20261009/attempts/system-r1/report.json",
+      "passed": 56,
+      "recorded": 57,
+      "selected": 75,
+      "finished": false,
+      "failure": "browser-routines",
+      "interrupted": "browser-recordings-ui"
+    },
+    "passedGates": 75,
+    "testedRevisions": {
+      "main": "22c405092f6fdeac7a42f5d3d8e840a2c7a1829b",
+      "ui": "65d5776eea463d9521b1fb4f29c40481539ae20b"
+    },
+    "report": "docs/delivery/product-audit-20261009/integrated/report.json",
+    "verificationCounts": "docs/delivery/product-audit-20261009/counts.json",
+    "standaloneIntake": "docs/delivery/product-audit-20261009/intake/checks.json",
+    "reportSha256": "2ab3686c83667ae041af1add5cd82892daabff8c063c9528d25e734c4b85a1f8"
   }
 }
