@@ -2,14 +2,20 @@
 
 from __future__ import annotations
 
+import asyncio
+import contextlib
 import json
+import threading
 import unittest
+from collections.abc import Awaitable, Callable
 from datetime import UTC, datetime
+from unittest.mock import patch
 from uuid import uuid4
 
 import httpx
+from starlette.types import ASGIApp, Message, Scope
 
-from app.audio_pipeline.api import create_app
+from app.audio_pipeline.api import BoundedCommandBody, create_app
 from app.audio_pipeline.contracts import AUDIO_EVENT_ADAPTER, AudioHTTPError
 from app.audio_pipeline.export_openapi import openapi_document
 from app.audio_pipeline.fixtures import FIXTURE_OWNER, fixture_command, synthetic_wav
@@ -18,11 +24,18 @@ from app.audio_pipeline.gateway import (
     BFFTransport,
     GatewayUnavailableError,
     HTTPRecordingStorage,
+    RequestGateway,
     SessionVerifier,
     trusted_origin,
 )
-from app.audio_pipeline.providers import SyntheticFixtureProvider
-from app.audio_pipeline.service import Principal, RecordingAccessError
+from app.audio_pipeline.pcm import Chunk
+from app.audio_pipeline.providers import Prediction, SyntheticFixtureProvider
+from app.audio_pipeline.service import (
+    AnalysisCancelledError,
+    AudioService,
+    Principal,
+    RecordingAccessError,
+)
 
 ORIGIN = "https://owner-app.invalid"
 COOKIE = "session=explicit-test-session"
@@ -650,6 +663,590 @@ class AudioAPITests(unittest.IsolatedAsyncioTestCase):
             self.assertIn(
                 status, document["paths"]["/v1/audio/analyze"]["post"]["responses"]
             )
+
+
+HTTPHandler = Callable[[str, asyncio.StreamWriter], Awaitable[None]]
+
+
+class LocalHTTP:
+    """Actual loopback sockets; stalled handlers observe peer EOF before cleanup."""
+
+    def __init__(self, handler: HTTPHandler) -> None:
+        self.handler = handler
+        self.paths: list[str] = []
+        self.active: set[asyncio.Task[None]] = set()
+        self.entered = asyncio.Event()
+        self.disconnected = asyncio.Event()
+
+    async def start(self) -> str:
+        self.server = await asyncio.start_server(self.accept, "127.0.0.1", 0)
+        return f"http://127.0.0.1:{self.server.sockets[0].getsockname()[1]}"
+
+    async def accept(
+        self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter
+    ) -> None:
+        task = asyncio.current_task()
+        assert task is not None
+        self.active.add(task)
+        children: list[asyncio.Task[object]] = []
+        try:
+            headers = await reader.readuntil(b"\r\n\r\n")
+            path = headers.split(b" ", 2)[1].decode("ascii")
+            self.paths.append(path)
+            self.entered.set()
+
+            async def respond() -> None:
+                await self.handler(path, writer)
+
+            response = asyncio.create_task(respond())
+            disconnected = asyncio.create_task(reader.read())
+            children.extend((response, disconnected))
+            await asyncio.wait(
+                {response, disconnected}, return_when=asyncio.FIRST_COMPLETED
+            )
+            if disconnected.done() and not response.done():
+                self.disconnected.set()
+        finally:
+            for child in children:
+                child.cancel()
+            await asyncio.gather(*children, return_exceptions=True)
+            writer.close()
+            with contextlib.suppress(ConnectionError):
+                await writer.wait_closed()
+            self.active.discard(task)
+
+    async def close(self) -> None:
+        self.server.close()
+        await self.server.wait_closed()
+        tasks = tuple(self.active)
+        for task in tasks:
+            task.cancel()
+        await asyncio.gather(*tasks, return_exceptions=True)
+
+
+async def write_response(
+    writer: asyncio.StreamWriter, body: bytes, *, media_type: str = "application/json"
+) -> None:
+    writer.write(
+        f"HTTP/1.1 200 OK\r\nContent-Type: {media_type}\r\n"
+        f"Content-Length: {len(body)}\r\nConnection: close\r\n\r\n".encode()
+        + body
+    )
+    await writer.drain()
+
+
+class TransportDeadlineTests(unittest.IsolatedAsyncioTestCase):
+    async def server(
+        self, handler: HTTPHandler, *, deadline: float = 0.12
+    ) -> tuple[LocalHTTP, BFFTransport]:
+        server = LocalHTTP(handler)
+        origin = await server.start()
+        self.addAsyncCleanup(server.close)
+        return server, BFFTransport(
+            origin, allow_loopback_http=True, deadline_seconds=deadline
+        )
+
+    async def test_total_deadline_closes_stalled_and_dripping_headers_and_body(
+        self,
+    ) -> None:
+        for mode in ("stalled-headers", "dripping-headers", "dripping-body"):
+            with self.subTest(mode=mode):
+                blocks = 0
+
+                async def slow(path: str, writer: asyncio.StreamWriter) -> None:
+                    nonlocal blocks
+                    if mode == "stalled-headers":
+                        await asyncio.Event().wait()
+                    if mode == "dripping-body":
+                        writer.write(
+                            b"HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n"
+                            b"Transfer-Encoding: chunked\r\n\r\n"
+                        )
+                    while True:
+                        writer.write(b"1\r\nx\r\n" if mode == "dripping-body" else b"H")
+                        await writer.drain()
+                        blocks += 1
+                        await asyncio.sleep(0.015)
+
+                server, gateway = await self.server(slow)
+                started = asyncio.get_running_loop().time()
+                with self.assertRaises(GatewayUnavailableError) as error:
+                    await gateway.aget(
+                        "/api/session",
+                        cookie=COOKIE,
+                        maximum=4096,
+                        media_type="application/json",
+                    )
+                elapsed = asyncio.get_running_loop().time() - started
+                self.assertLess(elapsed, 1)
+                self.assertEqual(str(error.exception), "")
+                await asyncio.wait_for(server.disconnected.wait(), 1)
+                if mode != "stalled-headers":
+                    self.assertGreater(blocks, 1)
+                count = blocks
+                await asyncio.sleep(0.04)
+                self.assertEqual(blocks, count)
+                self.assertEqual(server.paths, ["/api/session"])
+
+    async def test_external_cancellation_closes_socket_without_waiting_for_deadline(
+        self,
+    ) -> None:
+        async def blocked(path: str, writer: asyncio.StreamWriter) -> None:
+            await asyncio.Event().wait()
+
+        server, gateway = await self.server(blocked, deadline=5)
+        task = asyncio.create_task(
+            gateway.aget(
+                "/api/session",
+                cookie=COOKIE,
+                maximum=4096,
+                media_type="application/json",
+            )
+        )
+        await asyncio.wait_for(server.entered.wait(), 1)
+        task.cancel()
+        with self.assertRaises(asyncio.CancelledError):
+            await asyncio.wait_for(task, 1)
+        await asyncio.wait_for(server.disconnected.wait(), 1)
+        self.assertEqual(server.paths, ["/api/session"])
+
+    async def test_loopback_bounds_malformed_lengths_encodings_and_redirects(
+        self,
+    ) -> None:
+        prefix = b"HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n"
+        cases = (
+            prefix + b"Content-Length: 4097\r\n\r\n",
+            prefix + b"Content-Length: nope\r\n\r\n",
+            prefix + b"Content-Length: 1\r\nContent-Length: 2\r\n\r\nxx",
+            prefix + b"Content-Encoding: gzip\r\nContent-Length: 0\r\n\r\n",
+            prefix
+            + b"Transfer-Encoding: chunked\r\n\r\n1001\r\n"
+            + b"x" * 4097
+            + b"\r\n0\r\n\r\n",
+            prefix + b"Content-Length: 10\r\n\r\nx",
+            b"HTTP/1.1 302 Found\r\nLocation: /api/stolen\r\nContent-Length: 0\r\n\r\n",
+            b"HTTP/1.1 503 Failed\r\nContent-Length: 0\r\n\r\n",
+        )
+        for raw in cases:
+            with self.subTest(response=raw[:100]):
+
+                async def response(path: str, writer: asyncio.StreamWriter) -> None:
+                    writer.write(raw)
+                    await writer.drain()
+
+                server, gateway = await self.server(response)
+                with self.assertRaises(GatewayUnavailableError) as error:
+                    await gateway.aget(
+                        "/api/session",
+                        cookie=COOKIE,
+                        maximum=4096,
+                        media_type="application/json",
+                    )
+                self.assertEqual(str(error.exception), "")
+                self.assertEqual(server.paths, ["/api/session"])
+
+    async def test_shared_deadline_covers_sequence_and_rejects_later_calls(
+        self,
+    ) -> None:
+        count = 0
+
+        async def response(path: str, writer: asyncio.StreamWriter) -> None:
+            nonlocal count
+            count += 1
+            if count == 3:
+                await asyncio.Event().wait()
+            await asyncio.sleep(0.06)
+            await write_response(writer, b"{}")
+
+        server, gateway = await self.server(response, deadline=1)
+        scope = RequestGateway(gateway, deadline_seconds=0.3)
+        self.addAsyncCleanup(scope.aclose)
+        for _ in range(2):
+            self.assertEqual(
+                await asyncio.to_thread(
+                    scope.get,
+                    "/api/session",
+                    cookie=COOKIE,
+                    maximum=4096,
+                    media_type="application/json",
+                ),
+                b"{}",
+            )
+        with self.assertRaises(GatewayUnavailableError):
+            await asyncio.to_thread(
+                scope.get,
+                "/api/session",
+                cookie=COOKIE,
+                maximum=4096,
+                media_type="application/json",
+            )
+        await asyncio.wait_for(server.disconnected.wait(), 1)
+        before = len(server.paths)
+        with self.assertRaises(GatewayUnavailableError):
+            await scope.aget(
+                "/api/session",
+                cookie=COOKIE,
+                maximum=4096,
+                media_type="application/json",
+            )
+        self.assertEqual(len(server.paths), before)
+        self.assertEqual(before, 3)
+
+    async def test_closed_bridge_prevents_pending_and_new_worker_network_calls(
+        self,
+    ) -> None:
+        async def blocked(path: str, writer: asyncio.StreamWriter) -> None:
+            await asyncio.Event().wait()
+
+        server, gateway = await self.server(blocked, deadline=5)
+        scope = RequestGateway(gateway)
+        worker = asyncio.create_task(
+            asyncio.to_thread(
+                scope.get,
+                "/api/session",
+                cookie=COOKIE,
+                maximum=4096,
+                media_type="application/json",
+            )
+        )
+        await asyncio.wait_for(server.entered.wait(), 1)
+        await scope.aclose()
+        with self.assertRaises(AnalysisCancelledError):
+            await asyncio.wait_for(worker, 1)
+        await asyncio.wait_for(server.disconnected.wait(), 1)
+        with self.assertRaises(AnalysisCancelledError):
+            await asyncio.to_thread(
+                scope.get,
+                "/api/session",
+                cookie=COOKIE,
+                maximum=4096,
+                media_type="application/json",
+            )
+        self.assertEqual(server.paths, ["/api/session"])
+
+    async def test_sync_wrapper_uses_total_async_deadline(self) -> None:
+        async def blocked(path: str, writer: asyncio.StreamWriter) -> None:
+            await asyncio.Event().wait()
+
+        server, gateway = await self.server(blocked)
+        with self.assertRaises(GatewayUnavailableError):
+            await asyncio.wait_for(
+                asyncio.to_thread(
+                    gateway.get,
+                    "/api/session",
+                    cookie=COOKIE,
+                    maximum=4096,
+                    media_type="application/json",
+                ),
+                1,
+            )
+        await asyncio.wait_for(server.disconnected.wait(), 1)
+
+
+class RequestCancellationTests(unittest.IsolatedAsyncioTestCase):
+    def request(
+        self, app: ASGIApp, origin: str, body: bytes
+    ) -> tuple[asyncio.Task[None], asyncio.Queue[Message], list[Message]]:
+        messages: asyncio.Queue[Message] = asyncio.Queue()
+        messages.put_nowait({"type": "http.request", "body": body, "more_body": False})
+        output: list[Message] = []
+
+        async def send(message: Message) -> None:
+            output.append(message)
+
+        scope: Scope = {
+            "type": "http",
+            "asgi": {"version": "3.0"},
+            "http_version": "1.1",
+            "method": "POST",
+            "path": "/v1/audio/analyze",
+            "scheme": "https",
+            "query_string": b"",
+            "headers": [
+                (b"origin", origin.encode()),
+                (b"cookie", COOKIE.encode()),
+                (b"content-type", b"application/json"),
+            ],
+        }
+
+        async def dispatch() -> None:
+            await app(scope, messages.get, send)
+
+        return asyncio.create_task(dispatch()), messages, output
+
+    async def test_disconnect_and_shutdown_cancel_auth_permit_and_media_then_retry(
+        self,
+    ) -> None:
+        for stage in ("session", "analysis-permit", "audio"):
+            for shutdown in (False, True):
+                with self.subTest(stage=stage, shutdown=shutdown):
+                    bff = MockBFF()
+                    stalled = asyncio.Event()
+                    enabled = True
+                    finished_workers: list[bool] = []
+                    analyze = AudioService.analyze
+
+                    def observed(*args: object, **kwargs: object) -> object:
+                        try:
+                            return analyze(*args, **kwargs)  # type: ignore[arg-type]
+                        finally:
+                            finished_workers.append(True)
+
+                    async def handle(path: str, writer: asyncio.StreamWriter) -> None:
+                        if enabled and path.endswith("/" + stage):
+                            stalled.set()
+                            media_type = (
+                                "audio/wav" if stage == "audio" else "application/json"
+                            )
+                            writer.write(
+                                f"HTTP/1.1 200 OK\r\nContent-Type: {media_type}\r\n"
+                                "Transfer-Encoding: chunked\r\n\r\n1\r\nx\r\n".encode()
+                            )
+                            await writer.drain()
+                            await asyncio.Event().wait()
+                        response = bff.handle(
+                            httpx.Request(
+                                "GET", ORIGIN + path, headers={"cookie": COOKIE}
+                            )
+                        )
+                        await write_response(
+                            writer,
+                            response.content,
+                            media_type=response.headers.get(
+                                "content-type", "application/json"
+                            ),
+                        )
+
+                    server = LocalHTTP(handle)
+                    origin = await server.start()
+                    self.addAsyncCleanup(server.close)
+                    app = create_app(
+                        gateway=BFFTransport(origin, allow_loopback_http=True),
+                        provider=SyntheticFixtureProvider(),
+                    )
+                    with patch.object(AudioService, "analyze", observed):
+                        task, incoming, output = self.request(
+                            app, origin, bff.command.model_dump_json().encode()
+                        )
+                        await asyncio.wait_for(stalled.wait(), 1)
+                        if shutdown:
+                            task.cancel()
+                        else:
+                            incoming.put_nowait({"type": "http.disconnect"})
+                        with self.assertRaises(asyncio.CancelledError):
+                            await asyncio.wait_for(task, 1)
+                        await asyncio.wait_for(server.disconnected.wait(), 1)
+                        self.assertEqual(output, [])
+                        self.assertEqual(
+                            len(finished_workers), 0 if stage == "session" else 1
+                        )
+                        count = len(server.paths)
+                        await asyncio.sleep(0.03)
+                        self.assertEqual(len(server.paths), count)
+                        enabled = False
+                        retry, _, result = self.request(
+                            app, origin, bff.command.model_dump_json().encode()
+                        )
+                        await asyncio.wait_for(retry, 3)
+                        self.assertEqual(result[0]["status"], 200)
+                        body = next(
+                            item["body"]
+                            for item in result
+                            if item["type"] == "http.response.body"
+                        )
+                        self.assertEqual(
+                            AUDIO_EVENT_ADAPTER.validate_json(body).kind,
+                            "audio.completed",
+                        )
+
+    async def test_repeated_shutdown_joins_cooperative_inference_before_return(
+        self,
+    ) -> None:
+        entered = threading.Event()
+        release = threading.Event()
+        finished = threading.Event()
+
+        class BlockedProvider(SyntheticFixtureProvider):
+            def infer(
+                self, chunk: Chunk, *, idempotency_key: str
+            ) -> tuple[Prediction, ...]:
+                entered.set()
+                try:
+                    release.wait(3)
+                    return super().infer(chunk, idempotency_key=idempotency_key)
+                finally:
+                    finished.set()
+
+        bff = MockBFF()
+        app = create_app(gateway=bff.gateway(), provider=BlockedProvider())
+        task, _, output = self.request(
+            app, ORIGIN, bff.command.model_dump_json().encode()
+        )
+        try:
+            self.assertTrue(await asyncio.to_thread(entered.wait, 2))
+            task.cancel()
+            await asyncio.sleep(0.02)
+            task.cancel()
+            await asyncio.sleep(0.02)
+            self.assertFalse(task.done())
+            self.assertFalse(finished.is_set())
+        finally:
+            release.set()
+        with self.assertRaises(asyncio.CancelledError):
+            await asyncio.wait_for(task, 1)
+        self.assertTrue(finished.is_set())
+        self.assertEqual(output, [])
+
+    async def test_expired_shared_budget_refuses_final_fence_after_inference(
+        self,
+    ) -> None:
+        entered = threading.Event()
+        release = threading.Event()
+
+        class PausedProvider(SyntheticFixtureProvider):
+            def infer(
+                self, chunk: Chunk, *, idempotency_key: str
+            ) -> tuple[Prediction, ...]:
+                entered.set()
+                release.wait(3)
+                return super().infer(chunk, idempotency_key=idempotency_key)
+
+        bff = MockBFF()
+        app = create_app(
+            gateway=bff.gateway(),
+            provider=PausedProvider(),
+            request_deadline_seconds=0.2,
+        )
+        task, _, output = self.request(
+            app, ORIGIN, bff.command.model_dump_json().encode()
+        )
+        try:
+            self.assertTrue(await asyncio.to_thread(entered.wait, 2))
+            calls = len(bff.requests)
+            await asyncio.sleep(0.22)
+            # IO expiry does not claim to terminate the native inference call.
+            self.assertFalse(task.done())
+        finally:
+            release.set()
+        await asyncio.wait_for(task, 1)
+        self.assertEqual(output[0]["status"], 404)
+        self.assertEqual(len(bff.requests), calls)
+        event = AUDIO_EVENT_ADAPTER.validate_json(output[1]["body"])
+        self.assertEqual(event.kind, "audio.failed")
+        self.assertNotIn(b"rawCandidates", output[1]["body"])
+
+
+class CommandBodyDeadlineTests(unittest.IsolatedAsyncioTestCase):
+    async def test_oversize_response_send_is_outside_body_read_deadline(self) -> None:
+        output: list[Message] = []
+
+        async def downstream(
+            scope: Scope,
+            receive: Callable[[], Awaitable[Message]],
+            send: Callable[[Message], Awaitable[None]],
+        ) -> None:
+            self.fail("Oversized input must not enter the application")
+
+        async def receive() -> Message:
+            return {"type": "http.request", "body": b"x" * 4097, "more_body": False}
+
+        async def send(message: Message) -> None:
+            output.append(message)
+            await asyncio.sleep(0.03)
+
+        scope: Scope = {"type": "http", "method": "POST", "path": "/v1/audio/analyze"}
+        await BoundedCommandBody(downstream, deadline_seconds=0.01)(
+            scope, receive, send
+        )
+        self.assertEqual(
+            [
+                message["status"]
+                for message in output
+                if message["type"] == "http.response.start"
+            ],
+            [413],
+        )
+        self.assertEqual(
+            AudioHTTPError.model_validate_json(output[1]["body"]).code,
+            "request_too_large",
+        )
+
+    async def test_total_body_deadline_cancels_receive_before_parse_or_auth(
+        self,
+    ) -> None:
+        calls: list[str] = []
+        output: list[Message] = []
+        receiving = False
+
+        async def downstream(
+            scope: Scope,
+            receive: Callable[[], Awaitable[Message]],
+            send: Callable[[Message], Awaitable[None]],
+        ) -> None:
+            calls.append("downstream")
+
+        async def drip() -> Message:
+            nonlocal receiving
+            receiving = True
+            try:
+                await asyncio.sleep(0.025)
+                calls.append("chunk")
+                return {"type": "http.request", "body": b"secret", "more_body": True}
+            finally:
+                receiving = False
+
+        async def send(message: Message) -> None:
+            output.append(message)
+
+        scope: Scope = {"type": "http", "method": "POST", "path": "/v1/audio/analyze"}
+        await asyncio.wait_for(
+            BoundedCommandBody(downstream, deadline_seconds=0.09)(scope, drip, send), 1
+        )
+        self.assertGreater(calls.count("chunk"), 1)
+        self.assertNotIn("downstream", calls)
+        self.assertFalse(receiving)
+        self.assertEqual(output[0]["status"], 400)
+        self.assertIn((b"cache-control", b"private, no-store"), output[0]["headers"])
+        body = output[1]["body"]
+        self.assertEqual(
+            AudioHTTPError.model_validate_json(body).code, "invalid_request"
+        )
+        self.assertNotIn(b"secret", body)
+
+    async def test_body_disconnect_and_shutdown_do_not_enter_downstream(self) -> None:
+        entered = asyncio.Event()
+        downstream_called = False
+        output: list[Message] = []
+
+        async def downstream(
+            scope: Scope,
+            receive: Callable[[], Awaitable[Message]],
+            send: Callable[[Message], Awaitable[None]],
+        ) -> None:
+            nonlocal downstream_called
+            downstream_called = True
+
+        async def send(message: Message) -> None:
+            output.append(message)
+
+        async def disconnected() -> Message:
+            return {"type": "http.disconnect"}
+
+        async def stalled() -> Message:
+            entered.set()
+            await asyncio.Event().wait()
+            raise AssertionError("unreachable")
+
+        app = BoundedCommandBody(downstream)
+        scope: Scope = {"type": "http", "method": "POST", "path": "/v1/audio/analyze"}
+        await app(scope, disconnected, send)
+        task = asyncio.create_task(app(scope, stalled, send))
+        await entered.wait()
+        task.cancel()
+        with self.assertRaises(asyncio.CancelledError):
+            await task
+        self.assertFalse(downstream_called)
+        self.assertEqual(output, [])
 
 
 if __name__ == "__main__":

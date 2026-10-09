@@ -24,9 +24,11 @@ from .contracts import (
     RecordingRef,
 )
 from .gateway import (
+    REQUEST_DEADLINE_SECONDS,
     AuthenticationRequiredError,
     BFFTransport,
     HTTPRecordingStorage,
+    RequestGateway,
     SessionVerifier,
 )
 from .providers import (
@@ -46,6 +48,7 @@ from .service import (
 )
 
 MAX_COMMAND_BYTES = 4096
+COMMAND_BODY_DEADLINE_SECONDS = 5.0
 
 
 def rejected(code: str, status: int) -> JSONResponse:
@@ -68,10 +71,13 @@ def rejected(code: str, status: int) -> JSONResponse:
 
 
 class BoundedCommandBody:
-    """Bound bytes before FastAPI JSON parsing, including unknown content length."""
+    """Bound bytes and elapsed body time before FastAPI JSON parsing."""
 
-    def __init__(self, app: ASGIApp) -> None:
+    def __init__(
+        self, app: ASGIApp, *, deadline_seconds: float = COMMAND_BODY_DEADLINE_SECONDS
+    ) -> None:
         self.app = app
+        self.deadline_seconds = deadline_seconds
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
         if (
@@ -82,18 +88,30 @@ class BoundedCommandBody:
             await self.app(scope, receive, send)
             return
         body = bytearray()
-        while True:
-            message = await receive()
-            if message["type"] != "http.request":
-                await rejected("invalid_request", 400)(scope, receive, send)
-                return
-            block = message.get("body", b"")
-            if len(body) + len(block) > MAX_COMMAND_BYTES:
-                await rejected("request_too_large", 413)(scope, receive, send)
-                return
-            body.extend(block)
-            if not message.get("more_body", False):
-                break
+        failure: tuple[str, int] | None = None
+        try:
+            async with asyncio.timeout(self.deadline_seconds):
+                while True:
+                    message = await receive()
+                    if message["type"] == "http.disconnect":
+                        return
+                    if message["type"] != "http.request":
+                        failure = ("invalid_request", 400)
+                        break
+                    block = message.get("body", b"")
+                    if len(body) + len(block) > MAX_COMMAND_BYTES:
+                        failure = ("request_too_large", 413)
+                        break
+                    body.extend(block)
+                    if not message.get("more_body", False):
+                        break
+        except TimeoutError:
+            # Keep the existing closed error contract; never echo partial JSON.
+            failure = ("invalid_request", 400)
+        if failure is not None:
+            # The body-read budget must not interrupt a response in progress.
+            await rejected(*failure)(scope, receive, send)
+            return
         delivered = False
 
         async def replay() -> Message:
@@ -120,6 +138,7 @@ def create_app(
     allow_development: bool = False,
     provider: InferenceProvider | None = None,
     taxonomy: Taxonomy = FIXTURE_TAXONOMY,
+    request_deadline_seconds: float = REQUEST_DEADLINE_SECONDS,
 ) -> FastAPI:
     """Only tests inject fixtures; environment never enables a fake model."""
     app = FastAPI(
@@ -202,47 +221,75 @@ def create_app(
         ):
             return rejected("invalid_request", 415)
         cookie = request.headers.get("cookie", "")
-        try:
-            principal = await asyncio.to_thread(verifier.verify, cookie)
-        except AuthenticationRequiredError:
-            return rejected("authentication_required", 401)
-        storage = HTTPRecordingStorage(gateway, principal, cookie)
+        scope = RequestGateway(gateway, deadline_seconds=request_deadline_seconds)
         token = Cancellation()
-        task = asyncio.create_task(
-            asyncio.to_thread(
-                service.analyze, principal, command, token, storage=storage
+        worker: asyncio.Task[AudioEvent] | None = None
+
+        async def execute() -> JSONResponse:
+            nonlocal worker
+            try:
+                principal = await verifier.averify(cookie, gateway=scope)
+            except AuthenticationRequiredError:
+                return rejected("authentication_required", 401)
+            storage = HTTPRecordingStorage(scope, principal, cookie)
+            worker = asyncio.create_task(
+                asyncio.to_thread(
+                    service.analyze, principal, command, token, storage=storage
+                )
             )
-        )
+            # Keep the actual worker joinable when the HTTP coroutine is cancelled.
+            event = await asyncio.shield(worker)
+            status = 200
+            if isinstance(event, AudioFailedEvent):
+                match event.error.code:
+                    case "recording_unavailable":
+                        status = 404
+                    case "invalid_audio":
+                        status = 422
+                    case "conflict" | "cancelled":
+                        status = 409
+                    case "provider_blocked" | "provider_failure":
+                        status = 503
+                    case unknown:
+                        assert_never(unknown)
+            return JSONResponse(
+                event.model_dump(mode="json"),
+                status_code=status,
+                headers={
+                    "cache-control": "private, no-store",
+                    "x-content-type-options": "nosniff",
+                },
+            )
+
+        task = asyncio.create_task(execute())
         try:
             while not task.done():
                 await asyncio.wait({task}, timeout=0.1)
-                if await request.is_disconnected():
-                    token.cancel()
-            event = await task
-        except asyncio.CancelledError:
-            token.cancel()
-            raise
-        status = 200
-        if isinstance(event, AudioFailedEvent):
-            match event.error.code:
-                case "recording_unavailable":
-                    status = 404
-                case "invalid_audio":
-                    status = 422
-                case "conflict" | "cancelled":
-                    status = 409
-                case "provider_blocked" | "provider_failure":
-                    status = 503
-                case unknown:
-                    assert_never(unknown)
-        return JSONResponse(
-            event.model_dump(mode="json"),
-            status_code=status,
-            headers={
-                "cache-control": "private, no-store",
-                "x-content-type-options": "nosniff",
-            },
-        )
+                if not task.done() and await request.is_disconnected():
+                    task.cancel()
+            return await task
+        finally:
+
+            async def finish() -> None:
+                token.cancel()
+                task.cancel()
+                await scope.aclose()
+                await asyncio.gather(task, return_exceptions=True)
+                if worker is not None:
+                    await asyncio.gather(worker, return_exceptions=True)
+
+            cleanup = asyncio.create_task(finish())
+            interrupted = False
+            # Repeated shutdown cancellation must not detach the service worker.
+            # Native inference is cooperative: this join may exceed the IO budget.
+            while not cleanup.done():
+                try:
+                    await asyncio.shield(cleanup)
+                except asyncio.CancelledError:
+                    interrupted = True
+            cleanup.result()
+            if interrupted:
+                raise asyncio.CancelledError
 
     return app
 
