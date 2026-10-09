@@ -183,7 +183,7 @@ class ONNXProvider:
             self.session = session
         except ProviderConfigurationError:
             raise
-        except Exception:  # noqa: BLE001 - sanitize model/parser/native-runtime failures.
+        except Exception:  # Sanitize model/parser/native-runtime failures.
             raise ProviderConfigurationError(
                 "Cannot load reviewed model bundle"
             ) from None
@@ -233,7 +233,7 @@ class ONNXProvider:
             outputs = self.session.run(
                 [self.manifest.outputName], {self.manifest.inputName: values}, options
             )
-        except Exception:  # noqa: BLE001 - native execution errors contain model details.
+        except Exception:  # Native execution errors contain model details.
             raise ProviderExecutionError(
                 "Model execution failed or timed out"
             ) from None

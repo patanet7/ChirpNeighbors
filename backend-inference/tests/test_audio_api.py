@@ -16,7 +16,12 @@ import httpx
 from starlette.types import ASGIApp, Message, Scope
 
 from app.audio_pipeline.api import BoundedCommandBody, create_app
-from app.audio_pipeline.contracts import AUDIO_EVENT_ADAPTER, AudioHTTPError
+from app.audio_pipeline.contracts import (
+    AUDIO_EVENT_ADAPTER,
+    AudioAnalyzeCommand,
+    AudioEvent,
+    AudioHTTPError,
+)
 from app.audio_pipeline.export_openapi import openapi_document
 from app.audio_pipeline.fixtures import FIXTURE_OWNER, fixture_command, synthetic_wav
 from app.audio_pipeline.gateway import (
@@ -33,8 +38,10 @@ from app.audio_pipeline.providers import Prediction, SyntheticFixtureProvider
 from app.audio_pipeline.service import (
     AnalysisCancelledError,
     AudioService,
+    Cancellation,
     Principal,
     RecordingAccessError,
+    RecordingStorage,
 )
 
 ORIGIN = "https://owner-app.invalid"
@@ -986,9 +993,22 @@ class RequestCancellationTests(unittest.IsolatedAsyncioTestCase):
                     finished_workers: list[bool] = []
                     analyze = AudioService.analyze
 
-                    def observed(*args: object, **kwargs: object) -> object:
+                    def observed(
+                        service: AudioService,
+                        principal: Principal,
+                        command: AudioAnalyzeCommand,
+                        cancellation: Cancellation | None = None,
+                        *,
+                        storage: RecordingStorage | None = None,
+                    ) -> AudioEvent:
                         try:
-                            return analyze(*args, **kwargs)  # type: ignore[arg-type]
+                            return analyze(
+                                service,
+                                principal,
+                                command,
+                                cancellation,
+                                storage=storage,
+                            )
                         finally:
                             finished_workers.append(True)
 

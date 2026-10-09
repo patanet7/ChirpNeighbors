@@ -9,13 +9,13 @@ from pathlib import Path
 from pydantic import ValidationError
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "backend-inference"))
-from app.audio_pipeline.contracts import (  # noqa: E402
+from app.audio_pipeline.contracts import (
     AUDIO_COMMAND_ADAPTER,
     AUDIO_EVENT_ADAPTER,
     AudioHTTPError,
     AudioRecordingPermit,
 )
-from app.models.session_verifier import SESSION_VERIFIER_ADAPTER  # noqa: E402
+from app.models.session_verifier import SESSION_VERIFIER_ADAPTER
 
 
 def roundtrip(contract: str, value: object) -> bytes:

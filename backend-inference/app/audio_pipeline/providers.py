@@ -65,7 +65,7 @@ def provider_provenance(provider: InferenceProvider) -> ProviderProvenance:
         return ProviderProvenance.model_validate(value.model_dump())
     except ProviderConfigurationError:
         raise
-    except Exception:  # noqa: BLE001 - reject opaque vendor metadata diagnostics.
+    except Exception:  # Reject opaque vendor metadata diagnostics.
         raise ProviderConfigurationError("Invalid provider provenance") from None
 
 
@@ -85,7 +85,7 @@ def invoke_provider(
         return tuple(item for item in result if isinstance(item, Prediction))
     except (TransientProviderError, ProviderConfigurationError):
         raise
-    except Exception:  # noqa: BLE001 - sanitize exceptions at the provider boundary.
+    except Exception:  # Sanitize exceptions at the provider boundary.
         raise ProviderExecutionError("Provider execution failed") from None
 
 

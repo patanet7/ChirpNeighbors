@@ -2,13 +2,10 @@
 python_version = "3.11"
 strict = true
 files = [
-  "app/models/identification.py", "app/models/session_verifier.py", "app/models/schema_document.py", "app/models/generated",
+  "app/models",
   "app/audio_pipeline", "tests/test_audio_api.py", "tests/test_audio_pipeline.py",
-  "tests/test_session_verifier_contract.py", "tests/test_schema_document.py", "../scripts/generate_python_contracts.py",
-  "../scripts/check_contract_corpus.py", "../scripts/check_python_contract_roundtrips.py",
-  "../scripts/check_python_dependencies.py",
-  "../scripts/verify_system.py",
-  "../scripts/delivery_matrix.py",
+  "tests/test_session_verifier_contract.py", "tests/test_schema_document.py",
+  "../scripts",
 ]
 namespace_packages = true
 explicit_package_bases = true
@@ -25,7 +22,7 @@ line-length = 88
 target-version = "py311"
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "N", "W", "UP"]
+select = ["E", "F", "I", "N", "W", "UP", "RUF100"]
 
 [tool.ruff.lint.per-file-ignores]
 # Wire names deliberately preserve established camelCase JSON keys.
