@@ -18,6 +18,6 @@ The prior board success used a separate cache despite the same registry 403. Cur
 
 ## Next steps
 
-Freeze both clean repositories, execute the full 75-gate suite and separate intake quality, preserve exact report hashes/counts and commit the evidence checkpoint. Remaining acceptance/dependencies are in the task breakdown. No publication, deployment or flash belongs to this task.
+Complete frozen verification passed 75/75 at main `22c405092f6fdeac7a42f5d3d8e840a2c7a1829b` / UI `65d5776eea463d9521b1fb4f29c40481539ae20b`; standalone intake also passed. The linked checkpoint retains exact logs, hashes and counts. Remaining acceptance/dependencies are in the task breakdown. No publication, deployment or flash belongs to this task.
 
-**Agent status:** implementation/review complete; integrated verification pending at this research commit.
+**Agent status:** completed locally with exact frozen proof and retained evidence; residual external/product gaps remain explicit.
