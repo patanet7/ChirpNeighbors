@@ -45,6 +45,16 @@ grace period. Shutdown signals the task, waits up to 250 ms, and uninstalls I2S
 only after capture acknowledges stopping. Status snapshots use a short critical
 section and contain at most 128 samples.
 
+The capture stack has an explicit **8192-byte** budget. This ESP-IDF port uses
+byte-sized `StackType_t` and byte-count task depths; a compile-time assertion
+guards that assumption. The previous 4096-byte allocation was smaller than the
+compiled capture function's 4224-byte entry frame, which the adapted QEMU
+control test exposed as a stack-canary panic. The isolated `sim-control/`
+profile checks minimum free stack of at least 1024 bytes after maximum-payload,
+reconnect and shutdown paths. It replaces unsupported peripherals explicitly;
+real microphone/driver stack depth still requires hardware measurement. See the
+[control-profile verification log](../docs/agents/20261009_014700_simulator-control-profile.md).
+
 Only the v1 format and unity gain are accepted. Unsupported rate/24-bit settings,
 nonfinite or out-of-range values, simulation fields, and unknown control fields
 are rejected. Invalid legacy persisted numeric settings reset to defaults;

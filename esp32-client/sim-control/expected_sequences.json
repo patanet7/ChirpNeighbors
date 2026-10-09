@@ -1,0 +1,21 @@
+{
+  "description": "Independent expectations from the scripted production-control scenario, fixed before executing QEMU.",
+  "sessions": {
+    "1": [0, 2, 6, 7, 8, 9, 10, 12],
+    "2": [15],
+    "3": [],
+    "4": [18, 19]
+  },
+  "failed_sends": [
+    {"epoch": 2, "outcome": "short", "bytes": 5},
+    {"epoch": 3, "outcome": "error", "bytes": -1}
+  ],
+  "successful_frames": 11,
+  "minimum_assertions": 50,
+  "deadline_ms": 15000,
+  "stack_budget_bytes": 8192,
+  "minimum_stack_free_bytes": 1024,
+  "maximum_packet": {"epoch": 4, "sequence": 19, "samples": 512},
+  "begin_marker": "CHIRP_CONTROL_BEGIN production_main=included_source adapters=explicit",
+  "counters_marker": "CHIRP_CONTROL_COUNTERS captured=18 sent=11 dropped=1 read_errors=3 send_failures=2 attempts=13 stopped=1 queue=0"
+}

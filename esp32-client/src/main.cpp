@@ -61,7 +61,14 @@ StaticQueue_t queue_control;
 uint8_t queue_storage[chirp::kQueueDepth * sizeof(QueuedPacket)];
 QueueHandle_t audio_queue = nullptr;
 StaticTask_t capture_task_control;
-StackType_t capture_stack[4096];
+// ESP-IDF counts task stack size in bytes; StackType_t is uint8_t on this
+// target. The capture frame alone is 4,224 bytes before I2S/RTOS callees.
+constexpr size_t kCaptureStackBytes = 8192;
+static_assert(sizeof(StackType_t) == 1,
+              "ESP32-S3 task stack units must remain bytes");
+StackType_t capture_stack[kCaptureStackBytes / sizeof(StackType_t)];
+static_assert(sizeof(capture_stack) == kCaptureStackBytes,
+              "Capture task stack must match its explicit byte budget");
 std::atomic<bool> stopping{false};
 std::atomic<bool> capture_stopped{false};
 std::atomic<bool> connected{false};
