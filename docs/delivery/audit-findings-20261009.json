@@ -517,16 +517,20 @@
       "owner": "tooling",
       "finding": "Some first-party declarations, untyped tools/harnesses and two experimental simulator scripts lack full static type/lint coverage.",
       "status": "documented-open-scope",
-      "fix": "Retain exact 527-file source inventory (459 UI + 68 main), including the new comparison helper. Existing lint/type applicability and declaration/tool/experimental-script gaps remain explicit; no universal typing or environment/proxy cause claimed.",
+      "fix": "Targeted first-party declaration checks cover seven roots / 15 reachable files and strictly type both new MJS tools; six generated categories retain authoritative byte-drift guards. All 48 UI Python files and both simulator scripts plus their two helpers receive strict coverage. Exact 539-file inventory preserves all 527 baseline paths. Remaining 45 older JS/MJS and seven nonempty backend tests retain explicit open typing gaps.",
       "regressionEvidence": [
         "svelte-static-audit-20261009.md",
         "external-transport-20261009/focused/static/chirp-static-coverage-20261009.json",
         "external-transport-20261009/review/final-review.json",
         "renderer-performance-20261010/static/exact.json",
         "renderer-performance-20261010/static/brief.md",
-        "renderer-performance-20261010/integrated/report.json"
+        "renderer-performance-20261010/integrated/report.json",
+        "static-03-20261010/review/final-exact.json",
+        "static-03-20261010/review/ui-boundary-review.json",
+        "static-03-20261010/review/final-brief.md",
+        "static-03-20261010/integrated/report.json"
       ],
-      "reviewerResult": "Read-only exact source/configuration binding plus separate complete 81-gate execution. 45 handwritten JS/MJS, 37 UI Python, 7 nonempty backend tests, declaration-internal checks and 2 ungated experimental scripts remain explicit gaps. STATIC-03 remains open."
+      "reviewerResult": "Independent declaration 3/3, simulator 9/9 and UI 10/10 controls pass; concrete casts/producer interfaces and runtime assertion preservation reviewed, backup mock-target defect corrected. Complete frozen 88/88 integrated gates pass at recorded commits. STATIC-03 remains open for exact residual paths; no universal or third-party-internal typing claim."
     },
     {
       "id": "IR-09",
