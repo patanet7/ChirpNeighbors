@@ -1,5 +1,7 @@
 # Svelte tooling and static-check audit — 2026-10-09
 
+> Superseded setup assessment: the [2026-10-10 CLI audit](svelte-autofixer-20261010.md) installs and runs the official standalone CLI locally. An attached MCP server remains absent, but it is not required for CLI analysis. The statements below describe the earlier unrun checkpoint.
+
 The dedicated Svelte MCP is **unavailable in this session**. A fresh enabled-tool discovery found no Svelte tools and no tool-search service; `codex mcp list --json` returned an empty server list. `npm ls @sveltejs/mcp --depth=0` shows no local MCP package. Executor skill discovery returned no skills, and the workspace `.agents`/`.codex` mounts are empty. No checkout AGENTS.md/SKILL.md was found; the existing `ChirpNeighbors/claude.md` is historical context with links to the current implementation authorities.
 
 Consequently, **no dedicated MCP diagnostic or `svelte-autofixer` pass ran**. The installed compiler, `svelte-check`, TypeScript, ESLint, formatter and build are separate tools and must not be described as MCP output.

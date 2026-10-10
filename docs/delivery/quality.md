@@ -12,6 +12,7 @@ python3 -m venv /tmp/chirp-onnx-venv
 /tmp/chirp-onnx-venv/bin/python -m pip install -r backend-inference/requirements-onnx-quality.lock
 cd ../birdsong-yard-sprites
 npm ci
+npm run tooling:install
 python3 -m pip install playwright==1.62.0
 python3 -m playwright install chromium
 cd ../ChirpNeighbors
@@ -119,3 +120,13 @@ The corrected transport checkpoint now passes all76gates at the exact revisions
 in [its retained frozen report](LOCAL-EVIDENCE.md).
 The initial incomplete run and reviewed async fault-injection repair are retained
 separately; a focused rerun did not substitute for this full pass.
+
+
+The local Svelte tooling wave adds `ui-autofixer`, `ui-css` and `ui-tooling-tests`,
+bringing the complete frozen runner to **79 gates**. The isolated official CLI
+lock must be installed before checking; checks never download tools implicitly.
+The wrapper retains machine-readable results, checks source hashes and exact
+reviewed advisories, and fails tool/output/deadline errors even though the upstream
+CLI can exit zero with issues. The CSS gate covers standalone source stylesheets;
+existing compiler and Svelte ESLint diagnostics still cover component styles.
+See [the audit and acceptance checklist](svelte-autofixer-20261010.md).

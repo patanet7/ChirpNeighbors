@@ -21,6 +21,9 @@ The subsequent [product/connection audit](product-audit-20261009.md) records fou
 
 The completed [bounded transport/static-check slice](external-transport-20261009.md) closes NET-01 with application-controlled Google/JWKS/SMTP and reciprocal audio lifetimes, preserves wire/auth authority, and extends first-party lint/type coverage. Its [consolidated findings](audit-findings-20261009.json) record severity, owner, fix/status, regression and review. Dedicated Svelte MCP is unavailable; compiler/static diagnostics are reported separately. E-NET supplies the corrected 76/76 frozen proof; the initial failed attempt and focused repair remain retained, not inferred from E-AUD.
 
+The [official local Svelte CLI/CSS slice](svelte-autofixer-20261010.md) corrects the earlier unrun-CLI assessment. Its pinned official analyzer checks 30 components with zero issues and 75 individually reviewed intentional advisories; it adds bounded failure propagation and global CSS checking. Independent source review and 19 tooling tests pass. Full 79-gate integration remains pending at this source checkpoint; no visual fidelity claim or product decision changes.
+
+
 ## Exact evidence ledger
 
 | Code | Source revision(s), scope and retained evidence |

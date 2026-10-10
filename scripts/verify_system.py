@@ -53,6 +53,21 @@ def gates(
         Gate("dependency-pins", ROOT, [python, "scripts/check_python_dependencies.py"]),
         Gate("dependency-consistency", ROOT, [python, "-m", "pip", "check"]),
         Gate("ui-types", ui, ["npm", "run", "check"]),
+        Gate(
+            "ui-autofixer",
+            ui,
+            [
+                "npm",
+                "run",
+                "check:autofixer",
+                "--",
+                "--output",
+                str(output / "svelte-autofixer.json"),
+            ],
+            timeout=360,
+        ),
+        Gate("ui-css", ui, ["npm", "run", "check:css"]),
+        Gate("ui-tooling-tests", ui, ["npm", "run", "test:tooling"]),
         Gate("ui-typed-lint", ui, ["npm", "run", "lint"]),
         Gate(
             "python-harness-lint",

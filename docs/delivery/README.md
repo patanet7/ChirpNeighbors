@@ -121,3 +121,5 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
   Publication, hosting and deployment remain outside this local task.
 
 The later lifecycle wave is recorded in [its checkpoint](lifecycle-checkpoint-20261008.md), [55-gate evidence](lifecycle-verification-20261008.json) and [commit ledger](lifecycle-commits-20261008.md). The earlier checkpoint remains intact.
+
+The [local Svelte CLI and CSS audit](svelte-autofixer-20261010.md) corrects the earlier setup assessment and adds three repeatable bounded gates. Full verification status is recorded in that checkpoint.

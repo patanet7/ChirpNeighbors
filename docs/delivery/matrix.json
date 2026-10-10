@@ -545,31 +545,48 @@
         "backend-inference/tests"
       ],
       "baseline": false
+    },
+    {
+      "id": "ui-autofixer",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check:autofixer"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "ui-css",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check:css"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "ui-tooling-tests",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "test:tooling"
+      ],
+      "baseline": false
     }
   ],
   "activeWave": {
-    "document": "docs/delivery/external-transport-20261009.md",
-    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
-    "scope": "Bounded Google/JWKS/SMTP and reciprocal audio transport, cancellation and cache correctness; meaningful Svelte/first-party static coverage",
-    "verification": "passed",
-    "selectedGates": 76,
+    "document": "docs/delivery/svelte-autofixer-20261010.md",
+    "scope": "Official local Svelte CLI, exact advisory review and bounded CSS/static quality gates",
+    "verification": "pending",
+    "selectedGates": 79,
     "completeSuite": true,
     "baseRevisions": {
-      "main": "8880aa2814c1ed4d99683ac1ee7a6af36354bdc5",
-      "ui": "c2a0284f2f86c6ef9f847089ce97bf3b9f57b9ff"
-    },
-    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
-    "toolingAudit": "docs/delivery/svelte-static-audit-20261009.md",
-    "testedRevisions": {
-      "main": "12ef15273868c49e50e7bb797f298ae9ed841e11",
-      "ui": "8907328476675e64c62c12af3489a0c981f52d88"
-    },
-    "verificationReport": "docs/delivery/external-transport-20261009/integrated/report.json",
-    "verificationCounts": "docs/delivery/external-transport-20261009/counts.json",
-    "finishedAt": "2026-10-09T22:08:52.276999+00:00",
-    "reportSha256": "61a2664256541eaf302541f1b808901306c32d4a5159308ada384a65eaa0c106",
-    "independentReview": "docs/delivery/external-transport-20261009/review/final-review.md",
-    "priorFailedAttempt": "docs/delivery/external-transport-20261009/attempts/system-r1/report.json"
+      "main": "bf57c6a908c05932a6537da22de67deee688484e",
+      "ui": "8990bb098ea6dacc1fd854b0964588deb49baebe"
+    }
   },
   "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",
@@ -760,5 +777,29 @@
     "verificationCounts": "docs/delivery/product-audit-20261009/counts.json",
     "standaloneIntake": "docs/delivery/product-audit-20261009/intake/checks.json",
     "reportSha256": "2ab3686c83667ae041af1add5cd82892daabff8c063c9528d25e734c4b85a1f8"
+  },
+  "priorTransportWave": {
+    "document": "docs/delivery/external-transport-20261009.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Bounded Google/JWKS/SMTP and reciprocal audio transport, cancellation and cache correctness; meaningful Svelte/first-party static coverage",
+    "verification": "passed",
+    "selectedGates": 76,
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "8880aa2814c1ed4d99683ac1ee7a6af36354bdc5",
+      "ui": "c2a0284f2f86c6ef9f847089ce97bf3b9f57b9ff"
+    },
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
+    "toolingAudit": "docs/delivery/svelte-static-audit-20261009.md",
+    "testedRevisions": {
+      "main": "12ef15273868c49e50e7bb797f298ae9ed841e11",
+      "ui": "8907328476675e64c62c12af3489a0c981f52d88"
+    },
+    "verificationReport": "docs/delivery/external-transport-20261009/integrated/report.json",
+    "verificationCounts": "docs/delivery/external-transport-20261009/counts.json",
+    "finishedAt": "2026-10-09T22:08:52.276999+00:00",
+    "reportSha256": "61a2664256541eaf302541f1b808901306c32d4a5159308ada384a65eaa0c106",
+    "independentReview": "docs/delivery/external-transport-20261009/review/final-review.md",
+    "priorFailedAttempt": "docs/delivery/external-transport-20261009/attempts/system-r1/report.json"
   }
 }
