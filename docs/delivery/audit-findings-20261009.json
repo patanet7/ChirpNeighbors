@@ -516,8 +516,8 @@
       "severity": "low",
       "owner": "tooling",
       "finding": "Some first-party declarations, untyped tools/harnesses and two experimental simulator scripts lack full static type/lint coverage.",
-      "status": "documented-open-scope",
-      "fix": "Targeted first-party declaration checks cover seven roots / 15 reachable files and strictly type both new MJS tools; six generated categories retain authoritative byte-drift guards. All 48 UI Python files and both simulator scripts plus their two helpers receive strict coverage. Exact 539-file inventory preserves all 527 baseline paths. Remaining 45 older JS/MJS and seven nonempty backend tests retain explicit open typing gaps.",
+      "status": "resolved",
+      "fix": "Strict JSDoc/checkJs covers all 45 remaining JS files while preserving Node ESM entrypoints. Seven backend tests now have precise strict fixtures/mocks and producer-binding proofs. New discovery/configuration guards reject omitted/new source and weakened checks. Exact 563-file applicability inventory preserves all 539 baseline paths, adds 10 support files and explicitly accounts for 14 native/CSS/HTML sources.",
       "regressionEvidence": [
         "svelte-static-audit-20261009.md",
         "external-transport-20261009/focused/static/chirp-static-coverage-20261009.json",
@@ -528,9 +528,13 @@
         "static-03-20261010/review/final-exact.json",
         "static-03-20261010/review/ui-boundary-review.json",
         "static-03-20261010/review/final-brief.md",
-        "static-03-20261010/integrated/report.json"
+        "static-03-20261010/integrated/report.json",
+        "first-party-types-20261010/review/final-exact.json",
+        "first-party-types-20261010/review/final-review.json",
+        "first-party-types-20261010/integrated/report.json",
+        "first-party-types-20261010/counts.json"
       ],
-      "reviewerResult": "Independent declaration 3/3, simulator 9/9 and UI 10/10 controls pass; concrete casts/producer interfaces and runtime assertion preservation reviewed, backup mock-target defect corrected. Complete frozen 88/88 integrated gates pass at recorded commits. STATIC-03 remains open for exact residual paths; no universal or third-party-internal typing claim."
+      "reviewerResult": "Independent 44/44 controls pass: source applicability 18, backend 10, JavaScript 16. JSDoc any bypasses found during review were repaired and permanently probed. Complete frozen 93/93 integrated gates pass at recorded commits; current active first-party typing scope is closed with explicit generated/dependency/empty/legacy/firmware boundaries."
     },
     {
       "id": "IR-09",
