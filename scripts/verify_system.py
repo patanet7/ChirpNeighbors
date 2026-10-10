@@ -43,7 +43,12 @@ def clean_worktree(path: Path) -> bool:
 
 
 def gates(
-    ui: Path, python: str, browser_python: str, onnx_python: str, output: Path
+    ui: Path,
+    python: str,
+    browser_python: str,
+    onnx_python: str,
+    intake_python: str,
+    output: Path,
 ) -> list[Gate]:
     backend = ROOT / "backend-inference"
     result = [
@@ -53,6 +58,30 @@ def gates(
         Gate("dependency-pins", ROOT, [python, "scripts/check_python_dependencies.py"]),
         Gate("dependency-consistency", ROOT, [python, "-m", "pip", "check"]),
         Gate("ui-types", ui, ["npm", "run", "check"]),
+        Gate(
+            "ui-declarations",
+            ui,
+            [
+                "npm",
+                "run",
+                "check:declarations",
+                "--",
+                "--output",
+                str(output / "declarations.json"),
+            ],
+        ),
+        Gate(
+            "ui-declaration-probes",
+            ui,
+            [
+                "npm",
+                "run",
+                "test:declarations",
+                "--",
+                "--output",
+                str(output / "declaration-probes.json"),
+            ],
+        ),
         Gate(
             "ui-autofixer",
             ui,
@@ -69,6 +98,34 @@ def gates(
         Gate("ui-css", ui, ["npm", "run", "check:css"]),
         Gate("ui-tooling-tests", ui, ["npm", "run", "test:tooling"]),
         Gate("ui-typed-lint", ui, ["npm", "run", "lint"]),
+        Gate(
+            "ui-python-types",
+            ui,
+            [
+                python,
+                "scripts/check_python_quality.py",
+                "--mode",
+                "check",
+                "--python-executable",
+                browser_python,
+                "--output",
+                str(output / "python-quality"),
+            ],
+        ),
+        Gate(
+            "ui-python-probes",
+            ui,
+            [
+                python,
+                "scripts/check_python_quality.py",
+                "--mode",
+                "probes",
+                "--python-executable",
+                browser_python,
+                "--output",
+                str(output / "python-probes"),
+            ],
+        ),
         Gate(
             "python-harness-lint",
             ROOT,
@@ -342,6 +399,38 @@ def gates(
     result.extend(
         [
             Gate(
+                "intake-dependency-pins",
+                ROOT,
+                [
+                    intake_python,
+                    "scripts/check_python_dependencies.py",
+                    "--declarations",
+                    "backend-inference/requirements-intake-dev.txt",
+                    "--lock",
+                    "backend-inference/requirements-intake-dev.txt",
+                ],
+            ),
+            Gate(
+                "intake-quality",
+                backend,
+                [
+                    intake_python,
+                    "scripts/check_intake.py",
+                    "--evidence-dir",
+                    str(output / "intake-quality"),
+                ],
+            ),
+            Gate(
+                "simulator-quality",
+                ROOT,
+                [
+                    intake_python,
+                    "esp32-client/simulator_checks/check_simulator.py",
+                    "--output",
+                    str(output / "simulator-quality.json"),
+                ],
+            ),
+            Gate(
                 "core-model-isolation",
                 backend,
                 [
@@ -552,6 +641,11 @@ def main() -> None:
         default=sys.executable,
         help="Separate interpreter with requirements-onnx-quality.lock installed.",
     )
+    parser.add_argument(
+        "--intake-python",
+        default=sys.executable,
+        help="Separate interpreter with requirements-intake-dev.txt installed.",
+    )
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument(
         "--only",
@@ -566,7 +660,14 @@ def main() -> None:
     args = parser.parse_args()
     ui = args.ui_repo.resolve()
     output = args.output_dir.resolve()
-    selected = gates(ui, args.python, args.browser_python, args.onnx_python, output)
+    selected = gates(
+        ui,
+        args.python,
+        args.browser_python,
+        args.onnx_python,
+        args.intake_python,
+        output,
+    )
     if args.only:
         missing = set(args.only) - {gate.name for gate in selected}
         if missing:

@@ -430,6 +430,10 @@
         "{python}",
         "--onnx-python",
         "{onnx_python}",
+        "--intake-python",
+        "{intake_python}",
+        "--browser-python",
+        "{browser_python}",
         "--ui-repo",
         "{ui_repo}",
         "--output-dir",
@@ -602,6 +606,68 @@
         "{output_dir}/renderer-correctness"
       ],
       "baseline": false
+    },
+    {
+      "id": "ui-declarations",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check:declarations",
+        "--",
+        "--output",
+        "{output_dir}/declarations.json"
+      ]
+    },
+    {
+      "id": "ui-declaration-probes",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "test:declarations",
+        "--",
+        "--output",
+        "{output_dir}/declaration-probes.json"
+      ]
+    },
+    {
+      "id": "simulator-quality",
+      "repo": "main",
+      "command": [
+        "{intake_python}",
+        "esp32-client/simulator_checks/check_simulator.py",
+        "--output",
+        "{output_dir}/simulator-quality.json"
+      ]
+    },
+    {
+      "id": "ui-python-types",
+      "repo": "ui",
+      "command": [
+        "{python}",
+        "scripts/check_python_quality.py",
+        "--mode",
+        "check",
+        "--python-executable",
+        "{browser_python}",
+        "--output",
+        "{output_dir}/python-quality"
+      ]
+    },
+    {
+      "id": "ui-python-probes",
+      "repo": "ui",
+      "command": [
+        "{python}",
+        "scripts/check_python_quality.py",
+        "--mode",
+        "probes",
+        "--python-executable",
+        "{browser_python}",
+        "--output",
+        "{output_dir}/python-probes"
+      ]
     }
   ],
   "activeWave": {

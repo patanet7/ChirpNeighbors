@@ -28,6 +28,8 @@ def main() -> None:
     )
     parser.add_argument("--python", default=sys.executable)
     parser.add_argument("--onnx-python", default=sys.executable)
+    parser.add_argument("--intake-python", default=sys.executable)
+    parser.add_argument("--browser-python", default="python3")
     parser.add_argument(
         "--output-dir", type=Path, default=Path("/tmp/chirp-system-verification")
     )
@@ -72,6 +74,8 @@ def main() -> None:
         values = {
             "python": args.python,
             "onnx_python": args.onnx_python,
+            "intake_python": args.intake_python,
+            "browser_python": args.browser_python,
             "ui_repo": str(args.ui_repo.resolve()),
             "main_repo": str(ROOT),
             "output_dir": str(args.output_dir.resolve()),
