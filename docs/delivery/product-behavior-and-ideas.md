@@ -42,6 +42,10 @@ The [official local Svelte CLI/CSS slice](svelte-autofixer-20261010.md) corrects
 
 Preserved complete checkpoint commits are main `a3c5ec6d03d405dd11724cbe14356e1d99b5ea37` / UI `b7e1ddb6f38429fa88dedcf659f45b3eb5e4aa95`; these retain E-CAT and are distinct from its tested source commits. The first active frozen candidate is main `5420c2e32a97536fc5d848f96cbd0ae49b9ed4bc` / UI `3938a260c5190ec488f637c9210f7cb37be46225`. Its attempt is retained as the failed [initial aggregate](LOCAL-EVIDENCE.md), distinct from the corrected E-INT tested sources.
 
+## Active local resource/retry slice
+
+From E-TOOL, [scene resource and PNG retry work](scene-resources-20261010.md) implements the software part of GAP-03 and GAP-01. Whole-scene admission is shared by Pixi/SVG, keeps all saved data, reserves all animation frames and bounds canvas size; PNG list recovery preserves drafts and owner lifetimes. Source review and 26 new focused resource tests are complete; browser/integrated proof is pending. This extends PB-005/PB-008/PB-014/PB-020 without claiming physical-device, biological or finished-art validation. The reconciled 55-entry register and all 75 individual advisory rationales remain retained; STATIC-03 and the original worker transport dependency remain open.
+
 ## Coverage summary
 
 There are **36 stable entries: 24 product decisions/ideas and 12 architecture/dependency entries**. Of the product entries, 22 are user decisions, PB-017 is a tentative user idea and PB-019 is an assistant proposal. PB-023/PB-024 are implemented with bounded local integrated fixture proof under E-ENV. Under the former broad register labels, 16 bounded product slices had complete historical local verification; PB-005 has bounded local integrated proof under E-INT and its environment extension under E-ENV; PB-018 has tested pure helpers only; PB-006/PB-021 remain unimplemented at the product-outcome level; PB-016 has tested disabled helpers but unresolved operating integration; PB-017 remains unselected. These are overlapping evidence scopes, not a percentage of product readiness.

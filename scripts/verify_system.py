@@ -504,6 +504,7 @@ def gates(
         ("behavior", "behavior-browser-checks.py", "CHIRP_BEHAVIOR_OUTPUT"),
         ("ontology", "ontology-browser-checks.py", "CHIRP_ONTOLOGY_OUTPUT"),
         ("environment", "environment-browser-checks.py", "CHIRP_ENVIRONMENT_OUTPUT"),
+        ("resources", "resources-browser-checks.py", "CHIRP_RESOURCES_OUTPUT"),
         ("arrivals", "arrivals-browser-checks.py", "CHIRP_ARRIVALS_OUTPUT"),
         ("analytics", "analytics-browser-checks.py", "CHIRP_ANALYTICS_OUTPUT"),
         (
