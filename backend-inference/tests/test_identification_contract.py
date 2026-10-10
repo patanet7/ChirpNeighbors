@@ -7,18 +7,23 @@ import tempfile
 import unittest
 from copy import deepcopy
 from pathlib import Path
+from typing import Literal
 from unittest.mock import patch
 
 from app.models.identification import (
     IdentificationContractError,
+    IdentificationEvent,
+    JsonValue,
+    Species,
     build_model_candidate,
     validate_identification,
 )
+from tests.contract_containers import object_at
 
 SCHEMA_PATH = (
     Path(__file__).resolve().parents[2] / "contracts/identification-v2.schema.json"
 )
-SPECIES = {
+SPECIES: Species = {
     "id": "cn-species-erithacus-rubecula",
     "commonName": "European Robin",
     "scientificName": "Erithacus rubecula",
@@ -40,22 +45,22 @@ def event(kind: str = "external") -> dict[str, object]:
 
 
 class IdentificationContractTests(unittest.TestCase):
-    def validate(self, candidate: dict[str, object]):
+    def validate(self, candidate: dict[str, object]) -> IdentificationEvent:
         return validate_identification(candidate, schema_path=SCHEMA_PATH)
 
-    def test_shared_fixture_matches_the_cross_repository_contract(self):
+    def test_shared_fixture_matches_the_cross_repository_contract(self) -> None:
         fixture_path = SCHEMA_PATH.parent / "fixtures/identification-v2.json"
         fixture = json.loads(fixture_path.read_text(encoding="utf-8"))
         self.assertEqual(self.validate(fixture), fixture)
 
-    def test_all_supported_source_kinds_validate(self):
+    def test_all_supported_source_kinds_validate(self) -> None:
         for kind in ("external", "manual", "model", "fixture"):
             with self.subTest(kind=kind):
                 validated = self.validate(event(kind))
                 self.assertEqual(validated["source"]["kind"], kind)
                 self.assertNotIn("ingestedAt", validated)
 
-    def test_unknown_date_is_null_and_unknown_confidence_is_absent(self):
+    def test_unknown_date_is_null_and_unknown_confidence_is_absent(self) -> None:
         candidate = self.validate(event())
         self.assertIsNone(candidate["observedAt"])
         self.assertNotIn("confidence", candidate)
@@ -64,7 +69,9 @@ class IdentificationContractTests(unittest.TestCase):
         with self.assertRaises(IdentificationContractError):
             self.validate(missing)
 
-    def test_model_builder_preserves_engine_and_does_not_claim_confirmation(self):
+    def test_model_builder_preserves_engine_and_does_not_claim_confirmation(
+        self,
+    ) -> None:
         candidate = build_model_candidate(
             event_id="candidate-1",
             source_event_id="recording-1-window-0",
@@ -82,14 +89,25 @@ class IdentificationContractTests(unittest.TestCase):
         self.assertNotIn("confirmed", candidate)
         self.assertNotIn("ingestedAt", candidate)
 
-    def test_model_builder_preserves_supplied_confidence_and_private_metadata(self):
-        private = {"deviceId": "private-device", "location": {"latitude": 42.0}}
+    def test_model_builder_preserves_supplied_confidence_and_private_metadata(
+        self,
+    ) -> None:
+        private: dict[str, JsonValue] = {
+            "deviceId": "private-device",
+            "location": {"latitude": 42.0},
+        }
         candidate = build_model_candidate(
-            event_id="candidate-2", source_event_id="recording-2-window-0",
-            species=SPECIES, source_label="Supplied test evidence",
-            provider="contract-test-engine", model_version="test-version-2",
-            schema_path=SCHEMA_PATH, observed_at="2026-10-07T12:30:00Z",
-            confidence=0.0, recording_id="private-recording-2", metadata=private,
+            event_id="candidate-2",
+            source_event_id="recording-2-window-0",
+            species=SPECIES,
+            source_label="Supplied test evidence",
+            provider="contract-test-engine",
+            model_version="test-version-2",
+            schema_path=SCHEMA_PATH,
+            observed_at="2026-10-07T12:30:00Z",
+            confidence=0.0,
+            recording_id="private-recording-2",
+            metadata=private,
         )
         self.assertEqual(candidate["confidence"], 0.0)
         self.assertEqual(candidate["recordingId"], "private-recording-2")
@@ -98,7 +116,7 @@ class IdentificationContractTests(unittest.TestCase):
         private["deviceId"] = "mutated"
         self.assertEqual(candidate["metadata"]["deviceId"], "private-device")
 
-    def test_no_fake_provider_or_model_version(self):
+    def test_no_fake_provider_or_model_version(self) -> None:
         for provider, model_version in (("", "v1"), ("actual", " ")):
             with self.subTest(provider=provider, model_version=model_version):
                 with self.assertRaises(IdentificationContractError):
@@ -112,7 +130,7 @@ class IdentificationContractTests(unittest.TestCase):
                         schema_path=SCHEMA_PATH,
                     )
 
-    def test_schema_rejects_unknown_fields_including_owner_injection(self):
+    def test_schema_rejects_unknown_fields_including_owner_injection(self) -> None:
         for path, value in (
             ((), {"ownerId": "somebody-else"}),
             ((), {"confirmed": True}),
@@ -123,14 +141,15 @@ class IdentificationContractTests(unittest.TestCase):
                 candidate = event()
                 target = candidate
                 for key in path:
-                    target = target[key]
+                    target = object_at(target, key)
                 target.update(value)
                 with self.assertRaises(IdentificationContractError):
                     self.validate(candidate)
 
-    def test_invalid_versions_sources_and_dates_are_rejected(self):
-        changes = [
-            {"schemaVersion": 1}, {"observedAt": "yesterday"},
+    def test_invalid_versions_sources_and_dates_are_rejected(self) -> None:
+        changes: list[dict[str, object]] = [
+            {"schemaVersion": 1},
+            {"observedAt": "yesterday"},
             {"observedAt": "2026-02-30T12:00:00Z"},
             {"observedAt": "2026-10-07T25:00:00Z"},
             {"source": {"kind": "audio", "label": "unknown", "sourceEventId": "x"}},
@@ -140,8 +159,12 @@ class IdentificationContractTests(unittest.TestCase):
                 with self.assertRaises(IdentificationContractError):
                     self.validate({**event(), **changed})
 
-    def test_datetime_utc_only_policy_matches_the_typescript_boundary(self):
-        for field in ("observedAt", "ingestedAt"):
+    def test_datetime_utc_only_policy_matches_the_typescript_boundary(self) -> None:
+        fields: tuple[Literal["observedAt", "ingestedAt"], ...] = (
+            "observedAt",
+            "ingestedAt",
+        )
+        for field in fields:
             for timestamp in (
                 "2026-10-07T12:30:00+01:00",
                 "2026-10-07T12:30:00+00:00",
@@ -155,7 +178,7 @@ class IdentificationContractTests(unittest.TestCase):
                 "2026-10-07T12:30:00.123Z",
             )
 
-    def test_confidence_must_be_finite_within_range_and_not_null(self):
+    def test_confidence_must_be_finite_within_range_and_not_null(self) -> None:
         for confidence in (-0.1, 1.1, None, "0.5", float("nan"), float("inf")):
             with self.subTest(confidence=confidence):
                 with self.assertRaises(IdentificationContractError):
@@ -166,29 +189,31 @@ class IdentificationContractTests(unittest.TestCase):
                 confidence,
             )
 
-    def test_reserved_identifiers_follow_generated_schema_rules(self):
+    def test_reserved_identifiers_follow_generated_schema_rules(self) -> None:
         for reserved in ("__proto__", "prototype", "constructor"):
             for field in ("id", "species", "source", "recordingId"):
                 candidate = event()
                 if field == "species":
-                    candidate["species"]["id"] = reserved
+                    object_at(candidate, "species")["id"] = reserved
                 elif field == "source":
-                    candidate["source"]["sourceEventId"] = reserved
+                    object_at(candidate, "source")["sourceEventId"] = reserved
                 else:
                     candidate[field] = reserved
                 with self.subTest(reserved=reserved, field=field):
                     with self.assertRaises(IdentificationContractError):
                         self.validate(candidate)
 
-    def test_validation_does_not_mutate_or_share_input_references(self):
+    def test_validation_does_not_mutate_or_share_input_references(self) -> None:
         candidate = event()
         candidate["metadata"] = {"private": ["secret-observation-id"]}
         original = deepcopy(candidate)
         validated = self.validate(candidate)
-        validated["metadata"]["private"].append("changed")
+        private = validated["metadata"]["private"]
+        assert isinstance(private, list)
+        private.append("changed")
         self.assertEqual(candidate, original)
 
-    def test_private_values_are_not_embedded_in_validation_errors(self):
+    def test_private_values_are_not_embedded_in_validation_errors(self) -> None:
         candidate = {
             **event(),
             "ownerId": "secret-owner-id",
@@ -198,14 +223,14 @@ class IdentificationContractTests(unittest.TestCase):
             self.validate(candidate)
         self.assertNotIn("secret", str(raised.exception))
 
-    def test_remote_schema_references_are_rejected_without_network_access(self):
+    def test_remote_schema_references_are_rejected_without_network_access(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "remote.schema.json"
             path.write_text(json.dumps({"$ref": "https://invalid.example/private"}))
             with self.assertRaisesRegex(ValueError, "local references"):
                 validate_identification(event(), schema_path=path)
 
-    def test_missing_format_dependency_fails_closed(self):
+    def test_missing_format_dependency_fails_closed(self) -> None:
         with patch("app.models.identification.FormatChecker.checkers", {}):
             with self.assertRaisesRegex(RuntimeError, "requirements-contract"):
                 self.validate(event())

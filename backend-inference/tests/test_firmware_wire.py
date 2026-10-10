@@ -9,15 +9,22 @@ import subprocess
 import tempfile
 import unittest
 from pathlib import Path
+from typing import ClassVar
 
 from websockets.asyncio.client import connect
 
 from app.main import audio_server
+from app.services.audio_capture import AudioCapture
 
 
 class FirmwareWireTests(unittest.IsolatedAsyncioTestCase):
+    build_dir: ClassVar[tempfile.TemporaryDirectory[str]]
+    packet: ClassVar[bytes]
+    short_frame: ClassVar[bytes]
+    max_frame: ClassVar[bytes]
+
     @classmethod
-    def setUpClass(cls):
+    def setUpClass(cls) -> None:
         cls.build_dir = tempfile.TemporaryDirectory(prefix="chirp-wire-")
         cls.addClassCleanup(cls.build_dir.cleanup)
         root = Path(__file__).resolve().parents[2]
@@ -72,13 +79,13 @@ class FirmwareWireTests(unittest.IsolatedAsyncioTestCase):
                 + "\n"
             )
 
-    async def test_cpp_packet_delivers_exact_signed_pcm_and_uptime(self):
+    async def test_cpp_packet_delivers_exact_signed_pcm_and_uptime(self) -> None:
         # Literal bytes are independent of both encoder and Python parser.
         self.assertEqual(
             self.packet,
             bytes.fromhex("78563412 0807060504030201 0080 ffff 0000 0100 ff7f"),
         )
-        captures = asyncio.Queue()
+        captures: asyncio.Queue[AudioCapture] = asyncio.Queue()
         async with audio_server(
             port=0, chunk_duration_sec=5 / 48000, on_capture=captures.put_nowait
         ) as server:
@@ -93,8 +100,8 @@ class FirmwareWireTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual(capture.sample_rate, 48000)
                 self.assertIsNone(capture.observed_at)
 
-    async def assert_raw_frame_capture(self, frame, samples):
-        captures = asyncio.Queue()
+    async def assert_raw_frame_capture(self, frame: bytes, samples: list[int]) -> None:
+        captures: asyncio.Queue[AudioCapture] = asyncio.Queue()
         async with audio_server(
             port=0,
             chunk_duration_sec=len(samples) / 48000,
@@ -132,7 +139,7 @@ class FirmwareWireTests(unittest.IsolatedAsyncioTestCase):
                 writer.close()
                 await asyncio.wait_for(writer.wait_closed(), 1)
 
-    async def test_cpp_short_masked_frame_through_raw_websocket(self):
+    async def test_cpp_short_masked_frame_through_raw_websocket(self) -> None:
         self.assertEqual(self.short_frame[:6], bytes.fromhex("82 96 44332211"))
         mask = bytes.fromhex("44332211")
         decoded = bytes(
@@ -141,7 +148,7 @@ class FirmwareWireTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(decoded, self.packet)
         await self.assert_raw_frame_capture(self.short_frame, [-32768, -1, 0, 1, 32767])
 
-    async def test_cpp_max_masked_frame_through_raw_websocket(self):
+    async def test_cpp_max_masked_frame_through_raw_websocket(self) -> None:
         self.assertEqual(len(self.max_frame), 1044)
         self.assertEqual(self.max_frame[:8], bytes.fromhex("82 fe 040c 44332211"))
         samples = list(range(-256, 256))
