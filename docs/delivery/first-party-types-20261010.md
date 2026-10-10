@@ -8,12 +8,12 @@ The [539-file inventory](LOCAL-EVIDENCE.md) identifies 45 older handwritten Java
 
 | Task | Dependency | Acceptance | State |
 | --- | --- | --- | --- |
-| TYPE-01: preserve checkpoint and classify files | Verified 539-file baseline | Exact path/role/strategy inventory; no removed baseline source or rewritten historical evidence | In progress |
-| TYPE-02: strict-check Node tooling and configuration | TYPE-01 | Strict JSDoc/checkJs with indexed-access and optional-property checks; original `.mjs` and config entry paths execute under Node 24 | In progress |
-| TYPE-03: type contract authorities, fixtures and generators | TYPE-01 | Types derive from actual schemas/producer exports; generation remains byte-identical; invalid golden cases remain intentional unknown inputs | In progress |
-| TYPE-04: type auth and operator fixtures | TYPE-01 | Precise mock/transport interfaces, unchanged local fixture-provider and operator behavior, no owner-data mutation | In progress |
-| TYPE-05: strict backend test coverage | TYPE-01 | All seven tests and new support tools checked in the appropriate core/intake environment; actual fixture/mocking contracts and runtime assertions retained | In progress |
-| TYPE-06: discovery and negative controls | TYPE-02–05 | New files discovered; missing/symlinked paths and weakened settings rejected; representative type defects fail alongside clean positive controls | In progress |
+| TYPE-01: preserve checkpoint and classify files | Verified 539-file baseline | Exact path/role/strategy inventory; no removed baseline source or rewritten historical evidence | Implemented; final review pending |
+| TYPE-02: strict-check Node tooling and configuration | TYPE-01 | Strict JSDoc/checkJs with indexed-access and optional-property checks; original `.mjs` and config entry paths execute under Node 24 | Implemented; final review pending |
+| TYPE-03: type contract authorities, fixtures and generators | TYPE-01 | Types derive from actual schemas/producer exports; generation remains byte-identical; invalid golden cases remain intentional unknown inputs | Implemented; final review pending |
+| TYPE-04: type auth and operator fixtures | TYPE-01 | Precise mock/transport interfaces, unchanged local fixture-provider and operator behavior, no owner-data mutation | Implemented; final review pending |
+| TYPE-05: strict backend test coverage | TYPE-01 | All seven tests and new support tools checked in the appropriate core/intake environment; actual fixture/mocking contracts and runtime assertions retained | Implemented; final review pending |
+| TYPE-06: discovery and negative controls | TYPE-02–05 | New files discovered; missing/symlinked paths and weakened settings rejected; representative type defects fail alongside clean positive controls | Implemented; final review pending |
 | TYPE-07: independent inventory and boundary review | TYPE-02–06 | Every active first-party source mapped to applicable checks or an explicit reason a check does not apply; no blanket Any, broad suppressions, handwritten generated output or duplicate schemas | Pending |
 | TYPE-08: frozen full regression | TYPE-07 | Complete runtime, browser, build, lint, formatting, contract drift and static gates pass on committed clean revisions; failures retained | Pending |
 | TYPE-09: local delivery | TYPE-08 | Findings, counts, inventory, evidence and exact tested/final commits recorded; no publication or deployment | Pending |
@@ -28,4 +28,4 @@ Disjoint implementation ownership covers style/config/discovery, contract core/a
 
 ## Verification status
 
-Implementation is in progress. The previous 88-gate pass is a preserved checkpoint, not a claim that this new slice has passed its full regression. No publication, deployment, credential change, external model request or blocked toolchain retry is part of this work.
+Implementation and focused checks are complete except the final JavaScript probe/review pass. Backend tests are committed at `d3ef730d0835d5e507e9d8e9257852445b8ab225`. The aggregate retains all 88 original gates and adds five: strict JavaScript, JavaScript negative probes, backend test typing/probes, source applicability, and applicability failure controls. The planned full run therefore has 93 gates. The previous 88-gate pass is a preserved checkpoint, not a claim that this new slice has passed its full regression. No publication, deployment, credential change, external model request or blocked toolchain retry is part of this work.

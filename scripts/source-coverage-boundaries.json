@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "scope": "Exact unchanged historical Python and firmware boundaries; new or modified source must be explicitly reclassified. Historical docs/evidence copies and legacy-react are separately reported inactive.",
+  "files": [
+    {
+      "repo": "main",
+      "path": "backend-inference/app/api/endpoints.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Empty unmounted historical placeholder.",
+      "checks": [],
+      "empty": true
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/app/core/analyzer.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Empty unmounted historical placeholder.",
+      "checks": [],
+      "empty": true
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/app/core/config.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Empty unmounted historical placeholder.",
+      "checks": [],
+      "empty": true
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/app/db/crud.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Empty unmounted historical placeholder.",
+      "checks": [],
+      "empty": true
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/app/db/database.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Empty unmounted historical placeholder.",
+      "checks": [],
+      "empty": true
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/app/db/models.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Empty unmounted historical placeholder.",
+      "checks": [],
+      "empty": true
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/app/services/analysis_service.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Empty unmounted historical placeholder.",
+      "checks": [],
+      "empty": true
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/app/services/audio_player.py",
+      "sha256": "4a1e92aef8a78ed79f96c0a09e11205d343806b6f6dbe1b2c0146b61e547cfcb",
+      "reason": "Legacy GUI prototype, explicitly unsupported by headless intake; no active runtime import.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/app/services/audio_visualizer.py",
+      "sha256": "c8fcec351328564fa3b89049c2adac1eece284e7b99fce4237314c9b41a1a6b5",
+      "reason": "Legacy GUI prototype, explicitly unsupported by headless intake; no active runtime import.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/app/utils/helpers.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Empty unmounted historical placeholder.",
+      "checks": [],
+      "empty": true
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/server.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reason": "Historical empty/backend or GUI firmware receiver prototype, not the supported headless intake.",
+      "checks": [],
+      "empty": true
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/server.py",
+      "sha256": "def235581a8d985ce5998f35f2e454b35e6f45cec77f0ff5435bf674c9aae578",
+      "reason": "Historical empty/backend or GUI firmware receiver prototype, not the supported headless intake.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "backend-inference/tests/fixtures/encode_audio.cpp",
+      "sha256": "450798c3e0c584f846dd0f756616a4fbf97ddc18d2c734218fb4de1477468bbc",
+      "reason": "Host C++17 wire fixture and shared encoder header compile with -Wall -Wextra -Werror -pedantic in intake-quality. This does not verify the firmware target.",
+      "checks": [
+        "intake-quality:C++17-wire-fixture"
+      ],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/include/audio_protocol.h",
+      "sha256": "ead32d3a17be8263b2994a5925252b76e592cf3376a23cf2ffca05f9c2b854cb",
+      "reason": "Host C++17 wire fixture and shared encoder header compile with -Wall -Wextra -Werror -pedantic in intake-quality. This does not verify the firmware target.",
+      "checks": [
+        "intake-quality:C++17-wire-fixture"
+      ],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/include/globals.h",
+      "sha256": "dade004a4c50f0c186f026d94d87a4ce8215998cd76d73bdd49815c9d4619294",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/include/settings_api.h",
+      "sha256": "f6b0b5a96fc8b1507598ba01fbd0452a40bba947ab50f93d45804f6d684ddc11",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/include/settings_manager.h",
+      "sha256": "df71c712ccb7c896ec28a800448d694806e9ccdff35f3e6aab42caada42db2c3",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/include/settings_web.h",
+      "sha256": "5b458507c27033e94015eadd8ea4dece8d1b383d026f1aa9d0c85ec70c557947",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/sim-control/control_selftest.cpp",
+      "sha256": "fbf26f5efb6776c98f60ac7d650a60b068fe36b658e4689e066dae519bbd7875",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/sim/protocol_selftest.cpp",
+      "sha256": "1750146af691b8c8b58b4a457da4b159e7d02bd48cbff9931b9f9d37366ad26b",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/src/main.cpp",
+      "sha256": "0f8c4448ad79f845a4143e42e7e7c3c0f491b1febbd2d1c34f1355149916a84a",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/src/settings_api.cpp",
+      "sha256": "4dcfca7fa93c086a2dd306b7905f8739812059afea65cdc26da43431796df06e",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/src/settings_manager.cpp",
+      "sha256": "c44ce94f0fdb9c1a9956ff7f29d7ade8796faba9d29821e4d2f4e56b81c61b46",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    },
+    {
+      "repo": "main",
+      "path": "esp32-client/test/test_audio/test_main.cpp",
+      "sha256": "18484671e81c581cc1ae240e15e60a32e247dfb9200f5b8c9693efbce403b6ef",
+      "reason": "Firmware or QEMU target requires the previously blocked ESP32/native PlatformIO toolchain. Existing workflow remains documented; no retry or firmware compilation is claimed in this typing slice.",
+      "checks": [],
+      "empty": false
+    }
+  ]
+}

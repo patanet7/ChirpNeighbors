@@ -668,29 +668,81 @@
         "--output",
         "{output_dir}/python-probes"
       ]
+    },
+    {
+      "id": "ui-javascript",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check:javascript",
+        "--",
+        "--output",
+        "{output_dir}/javascript.json"
+      ]
+    },
+    {
+      "id": "ui-javascript-probes",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "test:javascript",
+        "--",
+        "--output",
+        "{output_dir}/javascript-probes.json"
+      ]
+    },
+    {
+      "id": "source-coverage",
+      "repo": "main",
+      "command": [
+        "{python}",
+        "scripts/check_source_coverage.py",
+        "--ui-repo",
+        "{ui_repo}",
+        "--output",
+        "{output_dir}/source-coverage.json"
+      ]
+    },
+    {
+      "id": "source-coverage-probes",
+      "repo": "main",
+      "command": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_source_coverage.py",
+        "-v"
+      ]
+    },
+    {
+      "id": "backend-test-types",
+      "repo": "backend",
+      "command": [
+        "{python}",
+        "scripts/check_backend_tests.py",
+        "--intake-python",
+        "{intake_python}",
+        "--evidence-dir",
+        "{output_dir}/backend-test-types"
+      ]
     }
   ],
   "activeWave": {
-    "document": "docs/delivery/static-03-20261010.md",
-    "scope": "Targeted first-party declaration, UI Python and simulator static coverage, independent failure controls and unchanged product regression suite",
-    "verification": "passed",
-    "selectedGates": 88,
-    "completeSuite": true,
+    "document": "docs/delivery/first-party-types-20261010.md",
+    "scope": "Strict typing of remaining first-party JavaScript and backend tests, source discovery and independent failure controls",
+    "verification": "in_progress",
+    "completeSuite": false,
+    "selectedGates": 93,
     "baseRevisions": {
-      "main": "5548f0ac668d18e7441d84d137b3393790745282",
-      "ui": "26d0179f6344507f1ceb279dcffae4f8dc0efeaf"
-    },
-    "testedRevisions": {
-      "main": "97b3dc05ee0364a09fd92249deedebf92b778d54",
-      "ui": "130626eedbb5e0259beec31419deeed23af30ba4"
-    },
-    "verificationReport": "docs/delivery/static-03-20261010/integrated/report.json",
-    "verificationCounts": "docs/delivery/static-03-20261010/counts.json",
-    "finishedAt": "2026-10-10T07:16:37.985039+00:00",
-    "reportSha256": "a95fa1e5b7d47121096cce36f9ee516b62b4fead3c6a845bd3caec71af9cb0be",
-    "independentReview": "docs/delivery/static-03-20261010/review/final-brief.md",
-    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
-    "residualScope": "45 older handwritten JS/MJS files and seven nonempty backend tests remain without new strict typing; third-party declaration internals and existing generated-runtime/inactive historical boundaries are explicit."
+      "main": "e27bcf0393e5c295e672648832025b76480f9671",
+      "ui": "a87168f5cba7105c76c59b2c06f67d166d9c5e37"
+    }
   },
   "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",
@@ -961,5 +1013,27 @@
     "reportSha256": "fb2c3c8836e714d8e25a2eaba7d8e294eccaa3d27cf319f5f466758d9313cc55",
     "independentReview": "docs/delivery/renderer-performance-20261010/review/delivery-final-review.md",
     "findingsRegister": "docs/delivery/audit-findings-20261009.json"
+  },
+  "priorStaticCoverageWave88": {
+    "document": "docs/delivery/static-03-20261010.md",
+    "scope": "Targeted first-party declaration, UI Python and simulator static coverage, independent failure controls and unchanged product regression suite",
+    "verification": "passed",
+    "selectedGates": 88,
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "5548f0ac668d18e7441d84d137b3393790745282",
+      "ui": "26d0179f6344507f1ceb279dcffae4f8dc0efeaf"
+    },
+    "testedRevisions": {
+      "main": "97b3dc05ee0364a09fd92249deedebf92b778d54",
+      "ui": "130626eedbb5e0259beec31419deeed23af30ba4"
+    },
+    "verificationReport": "docs/delivery/static-03-20261010/integrated/report.json",
+    "verificationCounts": "docs/delivery/static-03-20261010/counts.json",
+    "finishedAt": "2026-10-10T07:16:37.985039+00:00",
+    "reportSha256": "a95fa1e5b7d47121096cce36f9ee516b62b4fead3c6a845bd3caec71af9cb0be",
+    "independentReview": "docs/delivery/static-03-20261010/review/final-brief.md",
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
+    "residualScope": "45 older handwritten JS/MJS files and seven nonempty backend tests remain without new strict typing; third-party declaration internals and existing generated-runtime/inactive historical boundaries are explicit."
   }
 }
