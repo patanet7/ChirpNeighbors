@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scope": "Consolidated findings from retained product/connection audit and active transport/static-check slice. Product requirements remain the36-entry index; documented gaps are not asserted vulnerabilities or completed work.",
+  "scope": "Consolidated findings from retained product/connection audit and active transport/static-check slice. Product requirements remain the36-entry index; documented gaps are not asserted vulnerabilities or completed work. Includes the 2026-10-10 local Svelte CLI/CSS follow-up; prior assessments remain historical.",
   "findings": [
     {
       "id": "AUD-01",
@@ -295,14 +295,22 @@
     {
       "id": "TOOL-01",
       "severity": "informational",
-      "owner": "host-tooling",
-      "finding": "Dedicated Svelte MCP/autofixer is not exposed or configured.",
-      "status": "blocked-unavailable",
-      "fix": "Requires host registration/authorization of local @sveltejs/mcp or official remote MCP; no persistent setup or code transfer performed.",
+      "owner": "integration",
+      "finding": "Earlier assessment conflated an absent attached MCP server with the available official standalone CLI.",
+      "status": "resolved-local-cli; attached-mcp-unconfigured",
+      "fix": "Pinned official local CLI0.1.26 runs with bounded offline wrapper and exact advisory review; no persistent MCP registration or remote source transfer.",
       "regressionEvidence": [
-        "svelte-static-audit-20261009.md"
+        "svelte-autofixer-20261010.md",
+        "svelte-autofixer-20261010/integrated/svelte-autofixer.json",
+        "svelte-autofixer-20261010/review/findings-final.json"
       ],
-      "reviewerResult": "Fresh tool discovery, codex server list and local package check recorded; no MCP execution claimed."
+      "reviewerResult": "Independent provenance/source review,18guardprobes and complete79gate run pass; earlier no-CLI checkpoint retained as history.",
+      "priorAssessment": {
+        "finding": "Dedicated Svelte MCP/autofixer is not exposed or configured.",
+        "status": "blocked-unavailable",
+        "fix": "Requires host registration/authorization of local @sveltejs/mcp or official remote MCP; no persistent setup or code transfer performed.",
+        "reviewerResult": "Fresh tool discovery, codex server list and local package check recorded; no MCP execution claimed."
+      }
     },
     {
       "id": "GAP-01",
@@ -597,6 +605,152 @@
         "external-transport-20261009/review/final-review.json"
       ],
       "reviewerResult": "Final independent documentation/evidence review approved the corrected wording and namespace mapping."
+    },
+    {
+      "id": "AF-IR01",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Missing attached MCP is not sufficient evidence that the official standalone autofixer cannot run.",
+      "status": "resolved by local CLI installation",
+      "fix": "Official @sveltejs/mcp 0.1.26 CLI isolated under tools/svelte-autofixer; no MCP registration or hosted source transfer.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/provenance-check.json",
+        "https://svelte.dev/docs/ai/cli"
+      ],
+      "reviewerResult": "Independent provenance and final wrapper review approved; real failure-propagation probes,19tooling tests and79frozen gates pass."
+    },
+    {
+      "id": "AF-IR02",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "CLI imports documentation resources and fetches a public catalog before argument handling; network-dependent startup blocks even help.",
+      "status": "resolved for the reviewed autofixer invocation",
+      "fix": "Local preloader supplies only an empty unused documentation catalog, blocks network APIs and DNS, and Node permissions deny writes/children/workers/addons.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/guard-probes-final.json",
+        "svelte-autofixer-20261010/review/guard-probes-final-process.json"
+      ],
+      "reviewerResult": "18/18 independent probes passed; detected network use exits70 even if caught. JavaScript interception is defense in depth for audited pinned code, not an OS adversarial isolation boundary."
+    },
+    {
+      "id": "AF-IR03",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Official CLI returns exit0 for reported compiler/linter issues and catches internal analysis exceptions into issues.",
+      "status": "resolved",
+      "fix": "Strict result schema, bounded official child execution, issue/nonzero/timeout/malformed-result failure, exact hash/message/order advisory review, and removed-source detection.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/failure-propagation-r1.json",
+        "/workspace/birdsong-yard-sprites/scripts/style-tools/check-svelte-autofixer.test.mjs"
+      ],
+      "reviewerResult": "Independent real-CLI probes confirmed a11y warnings, invalid rune modules and new advisories all yield wrapper exit1 despite official exit0."
+    },
+    {
+      "id": "AF-IR04",
+      "severity": "low",
+      "owner": "integration",
+      "finding": "Bundled analyzer dependency versions differ from application compiler/linter versions.",
+      "status": "documented limitation",
+      "fix": "Record bundled Svelte5.56.1/plugin3.14.0/parser1.7.1/TS5.9.3 separately from application Svelte5.57.2/plugin3.23.0/TS5.8.3; retain app-specific strict checks.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/provenance/final-versions.json",
+        "svelte-autofixer-20261010/focused/css-analyzer-scope.json"
+      ],
+      "reviewerResult": "CLI is supplementary; not a substitute for installed application compiler/a11y/ESLint checks."
+    },
+    {
+      "id": "AF-IR05",
+      "severity": "low",
+      "owner": "integration",
+      "finding": "Flattened source-map extraction overwrote duplicate index.ts basenames, obscuring actual CLI provenance.",
+      "status": "resolved",
+      "fix": "Preserve actual CLI separately as provenance/source/mcp-stdio-index.ts.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/provenance/source/mcp-stdio-index.ts"
+      ],
+      "reviewerResult": "Confirmed CLI file path handling invokes local handler directly without a track hook."
+    },
+    {
+      "id": "AF-IR06",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Global directory-name exclusions silently skipped valid nested first-party components; source symlink directories were also silently omitted.",
+      "status": "resolved",
+      "fix": "Exclude documented generated/private/legacy paths only at repository root; exclude dependencies anywhere; fail explicitly on other symlinks.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/discovery-coverage-r1.json",
+        "svelte-autofixer-20261010/review/discovery-coverage-r2.json"
+      ],
+      "reviewerResult": "Independently confirmed src/data and src/docs sources are now included and symlink source directories fail."
+    },
+    {
+      "id": "AF-IR07",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Original wrapper read entire inputs before enforcing byte limits, and discovery preceded the total deadline; malformed UTF-8 could be silently replaced by official CLI.",
+      "status": "resolved",
+      "fix": "Streamed entry/depth/deadline-bounded discovery, O_NOFOLLOW bounded reads with pre-allocation size check, bounded baseline, fatal UTF-8 decoding and final source/set drift checks.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/discovery-coverage-r2.json",
+        "/workspace/birdsong-yard-sprites/scripts/check-svelte-autofixer.mjs"
+      ],
+      "reviewerResult": "Reviewed bounded implementation; independently confirmed invalid UTF-8 fails before any analyzer child starts."
+    },
+    {
+      "id": "AF-IR08",
+      "severity": "low",
+      "owner": "integration",
+      "finding": "Official CLI does not provide full component CSS diagnostics; supplemental standalone CSS gate validates parsing/property names, not value semantics or visual quality.",
+      "status": "documented limitation",
+      "fix": "Retain installed app svelte-check and ESLint Svelte checks. Describe standalone CSS scope precisely and keep formatter claims limited to formatting.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/css-probes.json"
+      ],
+      "reviewerResult": "Independent CSS probes confirm typo/missing-colon exit1 and intentionally out-of-scope invalid values exit0."
+    },
+    {
+      "id": "STYLE-F01",
+      "severity": "low",
+      "owner": "integration",
+      "finding": "Unknown standalone CSS property names were not covered by the existing compiler/formatter gate.",
+      "status": "resolved",
+      "fix": "Bounded PostCSS syntax and known-property checker for src/**/*.css, preserving custom properties and fallbacks.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/style/chirp-svelte-style-audit.json",
+        "svelte-autofixer-20261010/integrated/ui-css.log",
+        "svelte-autofixer-20261010/integrated/ui-tooling-tests.log"
+      ],
+      "reviewerResult": "Independent malformed/unknown-property probes pass; semantic values and visual quality remain explicitly outside static scope.",
+      "sourceFindingId": "STYLE-01"
+    },
+    {
+      "id": "STYLE-F02",
+      "sourceFindingId": "STYLE-02",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Prettier3.9.9 can emit a CSS stdin parse error but exit zero; repository file mode fails correctly.",
+      "status": "documented-tooling-caveat",
+      "fix": "Keep file-path format checks and the explicit CSS parser gate; do not trust stdin formatter status as syntax validation.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/style/prior-probes/prettier-malformed-css.json",
+        "svelte-autofixer-20261010/style/chirp-svelte-style-audit.json",
+        "svelte-autofixer-20261010/integrated/ui-format.log"
+      ],
+      "reviewerResult": "Recorded negative probes distinguish stdin exit0 from actual file-mode exit2; existing repo gate and new CSS checker are preserved."
+    },
+    {
+      "id": "STYLE-F03",
+      "sourceFindingId": "STYLE-03",
+      "severity": "informational",
+      "owner": "integration",
+      "finding": "Svelte compiler,ESLint and Prettier cover distinct static scopes; formatting does not establish visual quality.",
+      "status": "verified-preserved",
+      "fix": "Retain all application checks alongside supplementary official CLI; document30components,28styleblocks,37enabled Svelte rules and one standalone stylesheet.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/style/chirp-svelte-style-audit.json",
+        "svelte-autofixer-20261010/integrated/report.json"
+      ],
+      "reviewerResult": "Configuration and9styleprobe outcomes reviewed; complete79gate run passes without application dependency version changes."
     }
   ]
 }
