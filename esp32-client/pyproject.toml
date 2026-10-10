@@ -1,0 +1,24 @@
+# Host-only static checks. This configuration never starts a firmware toolchain.
+[tool.mypy]
+python_version = "3.11"
+strict = true
+disallow_any_explicit = true
+warn_unused_configs = true
+explicit_package_bases = true
+mypy_path = [
+  "$MYPY_CONFIG_FILE_DIR/../backend-inference",
+  "$MYPY_CONFIG_FILE_DIR/sim",
+  "$MYPY_CONFIG_FILE_DIR/sim-control",
+]
+files = [
+  "esp32-client/sim/run_qemu.py",
+  "esp32-client/sim-control/check_frames.py",
+  "esp32-client/simulator_checks",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "RUF100"]

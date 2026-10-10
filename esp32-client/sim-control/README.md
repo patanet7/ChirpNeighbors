@@ -108,3 +108,7 @@ profile passing must never be reported as the unchanged production firmware
 passing a complete peripheral simulation. Physical microphone timing, I2S
 alignment, radio reconnection, real slow peers, power, and model inference
 remain hardware/integration work.
+
+The [host-tool quality gate](../simulator_checks/README.md) provides strict mypy,
+Ruff and negative-probe coverage for `check_frames.py`, plus synthetic framing and
+loopback intake regressions. Passing it is not a QEMU firmware scenario pass.

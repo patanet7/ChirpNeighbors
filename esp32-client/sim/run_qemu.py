@@ -12,6 +12,15 @@ import subprocess
 from pathlib import Path
 
 
+class Arguments(argparse.Namespace):
+    qemu: Path
+    build_dir: Path
+    boot_app: Path
+    output_dir: Path
+    seconds: int
+    expect: str | None
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--qemu", type=Path, required=True)
@@ -20,7 +29,7 @@ def main() -> int:
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--seconds", type=int, default=15, choices=range(1, 61))
     parser.add_argument("--expect", help="Required serial marker for a passing check")
-    args = parser.parse_args()
+    args = parser.parse_args(namespace=Arguments())
     args.output_dir.mkdir(parents=True, exist_ok=True)
     # PlatformIO Arduino ESP32-S3 standard offsets, including ota_data initializer.
     parts = [

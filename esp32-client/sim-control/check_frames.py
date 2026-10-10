@@ -17,7 +17,7 @@ from collections import defaultdict
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Literal, NotRequired, Protocol, TypedDict, cast
 
 if TYPE_CHECKING:
     from websockets.asyncio.server import serve
@@ -46,6 +46,132 @@ class Packet:
     samples: list[int]
 
 
+class Window(TypedDict):
+    samples: list[int]
+    first_sequence: int
+    last_sequence: int
+    first_device_uptime_us: int
+    last_device_uptime_us: int
+
+
+class ReplayResult(TypedDict):
+    epoch: int
+    frame_selection: str
+    window_samples: int
+    successful_frames: int
+    captures: list[Window]
+    passed: bool
+
+
+class FailedSend(TypedDict):
+    epoch: int
+    outcome: Literal["short", "error"]
+    bytes: int
+
+
+class MaximumPacket(TypedDict):
+    epoch: int
+    sequence: int
+    samples: int
+
+
+class Expectations(TypedDict):
+    sessions: dict[str, list[int]]
+    failed_sends: list[FailedSend]
+    successful_frames: int
+    minimum_assertions: int
+    deadline_ms: int
+    stack_budget_bytes: NotRequired[int]
+    minimum_stack_free_bytes: int
+    maximum_packet: MaximumPacket
+    begin_marker: str
+    counters_marker: str
+
+
+class AudioServer(Protocol):
+    def __call__(
+        self,
+        *,
+        port: int,
+        chunk_duration_sec: float,
+        on_capture: Callable[[AudioCapture], None],
+    ) -> serve: ...
+
+
+class Arguments(argparse.Namespace):
+    serial_log: Path
+    expectations: Path
+    backend: Path
+    variant: str
+    source_worktree: Path
+    output: Path
+
+
+def object_fields(value: object) -> dict[str, object]:
+    if not isinstance(value, dict) or not all(isinstance(key, str) for key in value):
+        raise ValueError("Expected an object with string keys")
+    return {str(key): item for key, item in value.items()}
+
+
+def integer(value: object) -> int:
+    if type(value) is not int:
+        raise ValueError("Expected an integer")
+    return value
+
+
+def string(value: object) -> str:
+    if not isinstance(value, str):
+        raise ValueError("Expected a string")
+    return value
+
+
+def sequence(value: object) -> list[object]:
+    if not isinstance(value, list):
+        raise ValueError("Expected a list")
+    return list(value)
+
+
+def expectations_document(value: object) -> Expectations:
+    """Validate the local JSON boundary before it can direct replay assertions."""
+    fields = object_fields(value)
+    sessions = {
+        epoch: [integer(item) for item in sequence(packets)]
+        for epoch, packets in object_fields(fields["sessions"]).items()
+    }
+    failed: list[FailedSend] = []
+    for item in sequence(fields["failed_sends"]):
+        send = object_fields(item)
+        outcome = send["outcome"]
+        if outcome not in ("short", "error"):
+            raise ValueError("Unknown failed-send outcome")
+        failed.append(
+            {
+                "epoch": integer(send["epoch"]),
+                "outcome": outcome,
+                "bytes": integer(send["bytes"]),
+            }
+        )
+    maximum = object_fields(fields["maximum_packet"])
+    result: Expectations = {
+        "sessions": sessions,
+        "failed_sends": failed,
+        "successful_frames": integer(fields["successful_frames"]),
+        "minimum_assertions": integer(fields["minimum_assertions"]),
+        "deadline_ms": integer(fields["deadline_ms"]),
+        "minimum_stack_free_bytes": integer(fields["minimum_stack_free_bytes"]),
+        "maximum_packet": {
+            "epoch": integer(maximum["epoch"]),
+            "sequence": integer(maximum["sequence"]),
+            "samples": integer(maximum["samples"]),
+        },
+        "begin_marker": string(fields["begin_marker"]),
+        "counters_marker": string(fields["counters_marker"]),
+    }
+    if "stack_budget_bytes" in fields:
+        result["stack_budget_bytes"] = integer(fields["stack_budget_bytes"])
+    return result
+
+
 def decode_frame(frame: bytes) -> Packet:
     assert len(frame) >= 6 and frame[0] == 0x82, "Not a final binary frame"
     assert frame[1] & 0x80, "Client frame is not masked"
@@ -62,8 +188,11 @@ def decode_frame(frame: bytes) -> Packet:
     payload = bytes(
         byte ^ mask[index % 4] for index, byte in enumerate(frame[offset + 4 :])
     )
-    sequence, uptime = struct.unpack_from("<IQ", payload)
-    samples = list(struct.unpack_from(f"<{(size - 12) // 2}h", payload, 12))
+    # These casts describe fixed struct formats after the byte bounds above.
+    sequence, uptime = cast(tuple[int, int], struct.unpack_from("<IQ", payload))
+    samples = list(
+        cast(tuple[int, ...], struct.unpack_from(f"<{(size - 12) // 2}h", payload, 12))
+    )
     assert len(samples) in (5, 512), "Unexpected synthetic PCM length"
     assert samples == [PATTERN[i % 5] for i in range(len(samples))], (
         "Production I2S32 conversion changed synthetic PCM"
@@ -71,9 +200,11 @@ def decode_frame(frame: bytes) -> Packet:
     return Packet(frame, sequence, uptime, samples)
 
 
-def expected_windows(packets: list[Packet], count: int) -> list[dict[str, Any]]:
+def expected_windows(packets: list[Packet], count: int) -> list[Window]:
     """Independent protocol model over decoded UART bytes, with no app imports."""
-    windows: list[dict[str, Any]] = []
+    if count < 1:
+        raise ValueError("A replay window must contain at least one sample")
+    windows: list[Window] = []
     pending: list[int] = []
     previous: Packet | None = None
     first: Packet | None = None
@@ -110,11 +241,11 @@ def expected_windows(packets: list[Packet], count: int) -> list[dict[str, Any]]:
 async def replay(
     sessions: dict[int, list[Packet]],
     count: int,
-    audio_server: Callable[..., serve],
+    audio_server: AudioServer,
     selection: str,
-) -> list[dict[str, Any]]:
+) -> list[ReplayResult]:
     emitted: asyncio.Queue[AudioCapture] = asyncio.Queue()
-    results: list[dict[str, Any]] = []
+    results: list[ReplayResult] = []
     async with audio_server(
         port=0, chunk_duration_sec=count / 48000, on_capture=emitted.put_nowait
     ) as server:
@@ -150,7 +281,7 @@ async def replay(
             async with asyncio.timeout(2):
                 while server.handlers:
                     await asyncio.sleep(0.001)
-            actual = []
+            actual: list[Window] = []
             while not emitted.empty():
                 capture = emitted.get_nowait()
                 assert capture.sample_rate == 48000
@@ -159,7 +290,7 @@ async def replay(
                 assert offset is not None and offset.total_seconds() == 0
                 actual.append(
                     {
-                        "samples": capture.samples.tolist(),
+                        "samples": [int(sample) for sample in capture.samples],
                         "first_sequence": capture.first_sequence,
                         "last_sequence": capture.last_sequence,
                         "first_device_uptime_us": capture.first_device_uptime_us,
@@ -199,10 +330,11 @@ def main() -> None:
     )
     parser.add_argument("--source-worktree", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    args = parser.parse_args()
+    args = parser.parse_args(namespace=Arguments())
     raw = args.serial_log.read_bytes()
     serial = raw.decode("utf-8", errors="replace")
-    expected = json.loads(args.expectations.read_text())
+    expected_raw: object = json.loads(args.expectations.read_text())
+    expected = expectations_document(expected_raw)
     assert "CHIRP_CONTROL_FAIL" not in serial, "Adapter assertion failed"
     assert "CHIRP_CONTROL_RESULT FAIL" not in serial, "Adapter scenario failed"
     assert "Guru Meditation" not in serial and "abort()" not in serial
@@ -279,31 +411,33 @@ def main() -> None:
         for epoch, packets in sessions.items()
         if any(len(packet.samples) == 512 for packet in packets)
     }
+    production_main_sha256 = hashlib.sha256(
+        (args.source_worktree / "esp32-client/src/main.cpp").read_bytes()
+    ).hexdigest()
+    replay_results = [
+        *asyncio.run(replay(short_sessions, 5, audio_server, "short-only")),
+        *asyncio.run(replay(short_sessions, 10, audio_server, "short-only")),
+        *asyncio.run(replay(sessions, 256, audio_server, "full-trace")),
+        *asyncio.run(replay(sessions, 512, audio_server, "full-trace")),
+        *asyncio.run(replay(maximum_sessions, 512, audio_server, "maximum-only")),
+    ]
     result = {
         "serial_log": str(args.serial_log.resolve()),
         "serial_sha256": hashlib.sha256(raw).hexdigest(),
-        "expected_sequences": expected,
+        "expected_sequences": expected_raw,
         "assertions": assertion_count,
         "elapsed_ms": elapsed,
         "minimum_capture_stack_free_bytes": minimum_free,
         "capture_stack_budget_bytes": budget,
         "variant": args.variant,
         "source_worktree": str(args.source_worktree.resolve()),
-        "production_main_sha256": hashlib.sha256(
-            (args.source_worktree / "esp32-client/src/main.cpp").read_bytes()
-        ).hexdigest(),
+        "production_main_sha256": production_main_sha256,
         "source_integration_verified": False,
         "failed_sends_not_replayed": failed_sends,
         "maximum_packets": maximum_packets,
         "hardware_verified": False,
         "network_boundary": "synthetic device socket output replayed on host loopback",
-        "results": [
-            *asyncio.run(replay(short_sessions, 5, audio_server, "short-only")),
-            *asyncio.run(replay(short_sessions, 10, audio_server, "short-only")),
-            *asyncio.run(replay(sessions, 256, audio_server, "full-trace")),
-            *asyncio.run(replay(sessions, 512, audio_server, "full-trace")),
-            *asyncio.run(replay(maximum_sessions, 512, audio_server, "maximum-only")),
-        ],
+        "results": replay_results,
         "passed": True,
     }
     args.output.write_text(json.dumps(result, indent=2) + "\n")
@@ -313,7 +447,7 @@ def main() -> None:
                 "passed": True,
                 "variant": args.variant,
                 "successful_frames": frame_count,
-                "session_replays": len(result["results"]),
+                "session_replays": len(replay_results),
                 "output": str(args.output),
             },
             indent=2,

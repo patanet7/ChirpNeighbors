@@ -41,6 +41,10 @@ A bounded timeout is normal for an embedded loop; absence of an expected marker
 fails the check. A run without `--expect` is an observation, never an automatic
 production pass. No port, flash tool, account, or cloud simulator is used.
 
+The [host-tool quality gate](../simulator_checks/README.md) strictly checks this
+Python runner and its process-exit behavior using synthetic host children. It is
+independent of firmware compilation or QEMU availability.
+
 Official references:
 
 - [Espressif S3 QEMU guide](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-guides/tools/qemu.html)
