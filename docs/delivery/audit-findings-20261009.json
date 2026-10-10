@@ -343,14 +343,17 @@
       "severity": "medium",
       "owner": "engine",
       "finding": "No whole-scene actor/graphics budget or physical-device performance acceptance.",
-      "status": "resource-limits-verified-performance-open",
-      "fix": "Shared Pixi/SVG admission and geometry/cache/canvas budgets preserve all saved residents; physical-device and real reviewed-art performance remain open.",
+      "status": "resource-and-geometry-reuse-verified-performance-open",
+      "fix": "Existing scene limits plus renderer-local immutable geometry cache (256 contexts / 65,536 rectangle commands) preserve exact pixels, all saved residents and automatic batching. Synchronous geometry work falls; frame times remain workload-dependent.",
       "regressionEvidence": [
         "product-audit-20261009/engine-motion.md",
         "scene-resources-20261010.md",
-        "scene-resources-20261010/integrated/resources/resources-browser-results.json"
+        "scene-resources-20261010/integrated/resources/resources-browser-results.json",
+        "renderer-performance-20261010.md",
+        "renderer-performance-20261010/integrated/report.json",
+        "renderer-performance-20261010/comparisons/factorial/FINAL-FOLLOWUP.md"
       ],
-      "reviewerResult": "26 new unit tests and18 actual-resource browser assertions pass in80/80 suite. Limits/lifetime verified; active oversized dense stress remains slow (199.9ms integrated p95,216.6ms focused); physical device, real reviewed-art and worst-case smoothness acceptance remain open."
+      "reviewerResult": "17 new geometry tests included in complete 81/81 suite; 65 exact state/RGBA pairs and 67,179,016 pixels unchanged. Six surface blocks do not consistently reproduce cache p95 regression; interval crosses zero. Batching-only surface win and dense-tail regressions retained; worst-case smoothness, native rasterization, physical devices, production timing and reviewed-art acceptance remain open."
     },
     {
       "id": "GAP-04",
@@ -514,13 +517,16 @@
       "owner": "tooling",
       "finding": "Some first-party declarations, untyped tools/harnesses and two experimental simulator scripts lack full static type/lint coverage.",
       "status": "documented-open-scope",
-      "fix": "Retain exact 511-file coverage inventory. JS gets recommended lint; browser harnesses get correctness lint; generated declarations retain drift guards. Do not claim universal static typing or a proxy-related cause.",
+      "fix": "Retain exact 527-file source inventory (459 UI + 68 main), including the new comparison helper. Existing lint/type applicability and declaration/tool/experimental-script gaps remain explicit; no universal typing or environment/proxy cause claimed.",
       "regressionEvidence": [
         "svelte-static-audit-20261009.md",
         "external-transport-20261009/focused/static/chirp-static-coverage-20261009.json",
-        "external-transport-20261009/review/final-review.json"
+        "external-transport-20261009/review/final-review.json",
+        "renderer-performance-20261010/static/exact.json",
+        "renderer-performance-20261010/static/brief.md",
+        "renderer-performance-20261010/integrated/report.json"
       ],
-      "reviewerResult": "Independent scope review approved these explicit limits; not reported as fully closed."
+      "reviewerResult": "Read-only exact source/configuration binding plus separate complete 81-gate execution. 45 handwritten JS/MJS, 37 UI Python, 7 nonempty backend tests, declaration-internal checks and 2 ungated experimental scripts remain explicit gaps. STATIC-03 remains open."
     },
     {
       "id": "IR-09",
