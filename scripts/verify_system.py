@@ -520,6 +520,23 @@ def gates(
         result.append(
             Gate(f"browser-{name}", ui, command, 300, {variable: str(output / name)})
         )
+    # Deterministic real-Pixi captures and cache/lifetime assertions. Cross-revision
+    # exact pixel comparison is a separate measured slice artifact, not a FPS gate.
+    result.append(
+        Gate(
+            "browser-renderer-correctness",
+            ui,
+            [
+                browser_python,
+                "scripts/renderer-visual-parity-checks.py",
+                "--repo",
+                str(ui),
+                "--output",
+                str(output / "renderer-correctness"),
+            ],
+            timeout=900,
+        )
+    )
     return result
 
 

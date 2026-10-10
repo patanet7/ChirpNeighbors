@@ -584,6 +584,19 @@
         "scripts/resources-browser-checks.py"
       ],
       "baseline": false
+    },
+    {
+      "id": "browser-renderer-correctness",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/renderer-visual-parity-checks.py",
+        "--repo",
+        "{ui_repo}",
+        "--output",
+        "{output_dir}/renderer-correctness"
+      ],
+      "baseline": false
     }
   ],
   "activeWave": {
