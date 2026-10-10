@@ -317,13 +317,14 @@
       "severity": "low",
       "owner": "ui",
       "finding": "PNG list errors have no in-panel retry; remount retries.",
-      "status": "implemented-verification-pending",
+      "status": "fixed-and-frozen-integrated-pass",
       "fix": "Separate list loading/error/retry; cancellable generation-fenced reads preserve draft, preview, independent review errors and mutation IDs.",
       "regressionEvidence": [
         "product-audit-20261009/product-journeys.md",
-        "scene-resources-20261010.md"
+        "scene-resources-20261010.md",
+        "scene-resources-20261010/integrated/png-intake/png-intake-browser-results.json"
       ],
-      "reviewerResult": "Independent source review addressed post-disposal follow-up GET; focused browser and frozen suite pending."
+      "reviewerResult": "Independent source and focused review approved;45 PNG assertions pass in complete80/80 frozen run at UI5f9507d/main2928fec. Separate failed harness attempts retained."
     },
     {
       "id": "GAP-02",
@@ -342,13 +343,14 @@
       "severity": "medium",
       "owner": "engine",
       "finding": "No whole-scene actor/graphics budget or physical-device performance acceptance.",
-      "status": "software-implemented-device-validation-open",
+      "status": "resource-limits-verified-performance-open",
       "fix": "Shared Pixi/SVG admission and geometry/cache/canvas budgets preserve all saved residents; physical-device and real reviewed-art performance remain open.",
       "regressionEvidence": [
         "product-audit-20261009/engine-motion.md",
-        "scene-resources-20261010.md"
+        "scene-resources-20261010.md",
+        "scene-resources-20261010/integrated/resources/resources-browser-results.json"
       ],
-      "reviewerResult": "Independent source review addressed held-arrival replay, Pixi CSS resize, cache pruning and extreme dimensions;26new focused tests pass. Actual browser and frozen suite pending."
+      "reviewerResult": "26 new unit tests and18 actual-resource browser assertions pass in80/80 suite. Limits/lifetime verified; active oversized dense stress remains slow (199.9ms integrated p95,216.6ms focused); physical device, real reviewed-art and worst-case smoothness acceptance remain open."
     },
     {
       "id": "GAP-04",
