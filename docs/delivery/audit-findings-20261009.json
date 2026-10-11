@@ -517,7 +517,7 @@
       "owner": "tooling",
       "finding": "Some first-party declarations, untyped tools/harnesses and two experimental simulator scripts lack full static type/lint coverage.",
       "status": "resolved",
-      "fix": "Strict JSDoc/checkJs covers all 45 remaining JS files while preserving Node ESM entrypoints. Seven backend tests now have precise strict fixtures/mocks and producer-binding proofs. New discovery/configuration guards reject omitted/new source and weakened checks. Exact 563-file applicability inventory preserves all 539 baseline paths, adds 10 support files and explicitly accounts for 14 native/CSS/HTML sources.",
+      "fix": "All 52 active handwritten JavaScript implementations now use actual TypeScript. Nineteen exact one-line forwarding entries preserve existing command/config discovery; six generated validator bodies and inactive history remain explicit exceptions. Seven backend test gaps were closed at the preserved preceding checkpoint; Python services and native firmware keep their languages. Current discovery/configuration guards account for 583 active source files and reject omitted/new source, weakened checks, extra JavaScript implementation logic and unsupported native runtime imports.",
       "regressionEvidence": [
         "svelte-static-audit-20261009.md",
         "external-transport-20261009/focused/static/chirp-static-coverage-20261009.json",
@@ -532,9 +532,13 @@
         "first-party-types-20261010/review/final-exact.json",
         "first-party-types-20261010/review/final-review.json",
         "first-party-types-20261010/integrated/report.json",
-        "first-party-types-20261010/counts.json"
+        "first-party-types-20261010/counts.json",
+        "typescript-migration-20261011.md",
+        "typescript-migration-20261011/integrated/report.json",
+        "typescript-migration-20261011/counts.json",
+        "typescript-migration-20261011/review/final-source-review.json"
       ],
-      "reviewerResult": "Independent 44/44 controls pass: source applicability 18, backend 10, JavaScript 16. JSDoc any bypasses found during review were repaired and permanently probed. Complete frozen 93/93 integrated gates pass at recorded commits; current active first-party typing scope is closed with explicit generated/dependency/empty/legacy/firmware boundaries."
+      "reviewerResult": "Independent 44/44 controls pass: source applicability 18, backend 10, JavaScript 16. JSDoc any bypasses found during review were repaired and permanently probed. Complete frozen 93/93 integrated gates pass at recorded commits; current active first-party typing scope is closed with explicit generated/dependency/empty/legacy/firmware boundaries. TypeScript migration independent review passes 33 controls; full frozen 93/93 regression passes at main 9d553e4 / UI 70123b0, with 63 native tooling controls and 33 declaration controls."
     },
     {
       "id": "IR-09",
