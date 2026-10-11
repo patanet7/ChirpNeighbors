@@ -83,28 +83,28 @@ def gates(
             ],
         ),
         Gate(
-            "ui-javascript",
+            "ui-tooling-types",
             ui,
             [
                 "npm",
                 "run",
-                "check:javascript",
+                "check:typescript",
                 "--",
                 "--output",
-                str(output / "javascript.json"),
+                str(output / "tooling-types.json"),
             ],
             timeout=360,
         ),
         Gate(
-            "ui-javascript-probes",
+            "ui-tooling-probes",
             ui,
             [
                 "npm",
                 "run",
-                "test:javascript",
+                "test:typescript",
                 "--",
                 "--output",
-                str(output / "javascript-probes.json"),
+                str(output / "tooling-probes.json"),
             ],
             timeout=600,
         ),
@@ -214,7 +214,7 @@ def gates(
             ui,
             [
                 "node",
-                "scripts/export-contract.mjs",
+                "scripts/export-contract.ts",
                 "--check",
                 "--main-repo",
                 str(ROOT),
@@ -245,7 +245,7 @@ def gates(
             ui,
             [
                 "node",
-                "scripts/sync-python-contracts.mjs",
+                "scripts/sync-python-contracts.ts",
                 "--check",
                 "--main-repo",
                 str(ROOT),
@@ -256,7 +256,7 @@ def gates(
             ui,
             [
                 "node",
-                "scripts/generate-contract-clients.mjs",
+                "scripts/generate-contract-clients.ts",
                 "contracts/json-value-v1.schema.json",
                 "--output",
                 "src/lib/contracts/generated",
@@ -271,7 +271,7 @@ def gates(
                 "--test",
                 *sorted(
                     str(path.relative_to(ui))
-                    for path in (ui / "scripts/contract-tools").glob("*.test.mjs")
+                    for path in (ui / "scripts/contract-tools").glob("*.test.ts")
                 ),
             ],
         ),
@@ -280,7 +280,7 @@ def gates(
             ui,
             [
                 "node",
-                "scripts/check-contract-roundtrips.mjs",
+                "scripts/check-contract-roundtrips.ts",
                 "--main-repo",
                 str(ROOT),
                 "--python",
@@ -292,7 +292,7 @@ def gates(
             ui,
             [
                 "node",
-                "scripts/check-python-contracts.mjs",
+                "scripts/check-python-contracts.ts",
                 "--main-repo",
                 str(ROOT),
                 "--python",
@@ -302,14 +302,14 @@ def gates(
         Gate(
             "contract-inventory",
             ui,
-            ["node", "scripts/check-contract-inventory.mjs", "--main-repo", str(ROOT)],
+            ["node", "scripts/check-contract-inventory.ts", "--main-repo", str(ROOT)],
         ),
         Gate(
             "contract-compatibility",
             ui,
             [
                 "node",
-                "scripts/check-contract-compatibility.mjs",
+                "scripts/check-contract-compatibility.ts",
                 "--main-repo",
                 str(ROOT),
             ],
@@ -319,7 +319,7 @@ def gates(
             ui,
             [
                 "node",
-                "scripts/check-contract-properties.mjs",
+                "scripts/check-contract-properties.ts",
                 "--main-repo",
                 str(ROOT),
                 "--python",
@@ -331,7 +331,7 @@ def gates(
             ui,
             [
                 "node",
-                "scripts/check-python-contracts.mjs",
+                "scripts/check-python-contracts.ts",
                 "--properties",
                 "--main-repo",
                 str(ROOT),
@@ -587,7 +587,7 @@ def gates(
             Gate(
                 "auth-provider-integration",
                 ui,
-                ["node", "scripts/auth-integration.mjs"],
+                ["node", "scripts/auth-integration.ts"],
             ),
             Gate(
                 "lifecycle-recovery-http",

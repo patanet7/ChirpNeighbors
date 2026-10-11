@@ -180,12 +180,14 @@ def boundaries(main: Path) -> dict[tuple[str, str], Boundary]:
 class UiInventory(TypedDict):
     roots: list[str]
     appRoots: list[str]
+    typeScriptFiles: list[str]
+    javaScriptFiles: list[str]
     notApplicable: list[dict[str, str]]
 
 
 def node_inventory(ui: Path) -> UiInventory:
     result = subprocess.run(
-        ["node", "scripts/check-javascript.mjs", "--inventory"],
+        ["node", "scripts/check-typescript.ts", "--inventory"],
         cwd=ui,
         text=True,
         capture_output=True,
@@ -193,22 +195,40 @@ def node_inventory(ui: Path) -> UiInventory:
     )
     data: object = json.loads(result.stdout)
     table = object_table(data)
+    if table.get("schemaVersion") != 2:
+        raise ValueError("Expected TypeScript language-aware inventory schema 2")
     if table.get("mode") != "inventory" or table.get("aggregatePassed") is not False:
-        raise ValueError("Expected fresh applicability-only JavaScript inventory")
+        raise ValueError("Expected fresh applicability-only TypeScript inventory")
     if table.get("passed") is not True:
-        raise ValueError("JavaScript applicability validation failed")
+        raise ValueError("TypeScript applicability validation failed")
     roots = strings(table["roots"])
     app_roots = strings(table["appRoots"])
+    typescript = strings(table["typeScriptFiles"])
+    javascript = strings(table["javaScriptFiles"])
+    if any(Path(name).suffix not in {".ts", ".mts", ".cts"} for name in typescript):
+        raise ValueError(
+            "TypeScript coverage cannot contain JavaScript implementations"
+        )
+    if any(Path(name).suffix not in {".js", ".mjs", ".cjs"} for name in javascript):
+        raise ValueError("JavaScript compatibility entries must be JavaScript paths")
+    if not set(typescript + javascript).issubset(roots):
+        raise ValueError("Language inventory must be covered by strict compiler roots")
     boundaries_value = table["notApplicable"]
     if not isinstance(boundaries_value, list):
-        raise TypeError("Expected JavaScript boundary records")
+        raise TypeError("Expected generated/historical JavaScript boundary records")
     records: list[dict[str, str]] = []
     for entry in boundaries_value:
         row = object_table(entry)
         if not all(isinstance(v, str) for v in row.values()):
             raise TypeError("JavaScript boundary values must be strings")
         records.append(cast(dict[str, str], row))
-    return {"roots": roots, "appRoots": app_roots, "notApplicable": records}
+    return {
+        "roots": roots,
+        "appRoots": app_roots,
+        "typeScriptFiles": typescript,
+        "javaScriptFiles": javascript,
+        "notApplicable": records,
+    }
 
 
 def reconcile(main: Path, ui: Path, inventory: UiInventory) -> dict[str, object]:
@@ -231,7 +251,8 @@ def reconcile(main: Path, ui: Path, inventory: UiInventory) -> dict[str, object]
     index = optional.command.index("mypy")
     roots["mypy-strict-optional-onnx"] = expand(backend, optional.command[index + 1 :])
     app = set(inventory["appRoots"])
-    javascript = set(inventory["roots"])
+    tooling = set(inventory["roots"])
+    compatibility_shims = set(inventory["javaScriptFiles"])
     js_boundaries = {entry["path"]: entry for entry in inventory["notApplicable"]}
     known = boundaries(main)
     seen: set[tuple[str, str]] = set()
@@ -248,8 +269,14 @@ def reconcile(main: Path, ui: Path, inventory: UiInventory) -> dict[str, object]
                 checks = [
                     label for label, selected in roots.items() if path in selected
                 ]
-            elif repo == "ui" and name in javascript:
-                checks = ["ui-javascript:strict-discovered-roots"]
+            elif repo == "ui" and name in tooling:
+                checks = ["ui-tooling-types:strict-discovered-roots"]
+                if name in compatibility_shims:
+                    checks.append("ui-tooling-types:exact-forwarding-shim")
+                    reason = (
+                        "Historical command/config discovery entry; "
+                        "implementation is TypeScript."
+                    )
             elif name.startswith(("docs/", "legacy-react/")):
                 active = False
                 reason = (
@@ -296,8 +323,8 @@ def reconcile(main: Path, ui: Path, inventory: UiInventory) -> dict[str, object]
                     entry_js = js_boundaries[name]
                     reason = entry_js["reason"]
                     checks = [entry_js["authority"]]
-                elif name in javascript:
-                    checks = ["ui-javascript:strict-discovered-roots"]
+                elif name in tooling:
+                    checks = ["ui-tooling-types:strict-discovered-roots"]
                 elif name in app and path.suffix in {".ts", ".svelte"}:
                     checks = ["ui-types:svelte-check", "ui-typed-lint"]
                     if name.startswith("src/") and name.endswith(".d.ts"):
@@ -332,6 +359,21 @@ def reconcile(main: Path, ui: Path, inventory: UiInventory) -> dict[str, object]
         "files": files,
         "activeCount": sum(row["active"] for row in files),
         "inactiveCount": sum(not row["active"] for row in files),
+        "languageCoverage": {
+            "toolingTypeScriptRoots": len(inventory["typeScriptFiles"]),
+            "javaScriptCompatibilityShims": len(compatibility_shims),
+            "activeBySuffix": {
+                suffix: sum(
+                    row["active"] and Path(row["path"]).suffix == suffix
+                    for row in files
+                )
+                for suffix in sorted(SOURCE_SUFFIXES)
+                if any(
+                    row["active"] and Path(row["path"]).suffix == suffix
+                    for row in files
+                )
+            },
+        },
         "errors": errors,
         "passed": not errors,
     }
@@ -356,6 +398,7 @@ def main() -> int:
             for name in (
                 "tsconfig.json",
                 "tsconfig.javascript.json",
+                "tsconfig.tools.json",
                 ".svelte-kit/tsconfig.json",
                 "package.json",
                 "tsconfig.declarations.json",

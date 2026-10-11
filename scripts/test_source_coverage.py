@@ -53,6 +53,8 @@ class CoverageTests(unittest.TestCase):
         self.inventory: UiInventory = {
             "roots": [],
             "appRoots": ["src/example.ts"],
+            "typeScriptFiles": [],
+            "javaScriptFiles": [],
             "notApplicable": [],
         }
 
@@ -88,7 +90,25 @@ class CoverageTests(unittest.TestCase):
         self.write(self.ui, "nested/check.mjs", "export const value = 1;\n")
         self.assertFalse(self.passed())
         self.inventory["roots"].append("nested/check.mjs")
+        self.inventory["javaScriptFiles"].append("nested/check.mjs")
         self.assertTrue(self.passed())
+
+    def test_language_counts_distinguish_typescript_from_command_shims(self) -> None:
+        self.write(self.ui, "scripts/check.ts", "export const value: number = 1;\n")
+        self.write(self.ui, "scripts/check.mjs", "export * from './check.ts';\n")
+        self.inventory["roots"].extend(["scripts/check.ts", "scripts/check.mjs"])
+        self.inventory["typeScriptFiles"].append("scripts/check.ts")
+        self.inventory["javaScriptFiles"].append("scripts/check.mjs")
+        report = reconcile(self.main, self.ui, self.inventory)
+        self.assertTrue(report["passed"])
+        self.assertEqual(
+            report["languageCoverage"],
+            {
+                "toolingTypeScriptRoots": 1,
+                "javaScriptCompatibilityShims": 1,
+                "activeBySuffix": {".mjs": 1, ".py": 7, ".ts": 2},
+            },
+        )
 
     def test_config_root_removal_is_rejected(self) -> None:
         self.assertTrue(self.passed())

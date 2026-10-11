@@ -670,27 +670,27 @@
       ]
     },
     {
-      "id": "ui-javascript",
+      "id": "ui-tooling-types",
       "repo": "ui",
       "command": [
         "npm",
         "run",
-        "check:javascript",
+        "check:typescript",
         "--",
         "--output",
-        "{output_dir}/javascript.json"
+        "{output_dir}/tooling-types.json"
       ]
     },
     {
-      "id": "ui-javascript-probes",
+      "id": "ui-tooling-probes",
       "repo": "ui",
       "command": [
         "npm",
         "run",
-        "test:javascript",
+        "test:typescript",
         "--",
         "--output",
-        "{output_dir}/javascript-probes.json"
+        "{output_dir}/tooling-probes.json"
       ]
     },
     {
@@ -734,26 +734,15 @@
     }
   ],
   "activeWave": {
-    "document": "docs/delivery/first-party-types-20261010.md",
-    "scope": "Strict typing of remaining first-party JavaScript and backend tests, source discovery and independent failure controls",
-    "verification": "passed",
-    "completeSuite": true,
-    "selectedGates": 93,
+    "document": "docs/delivery/typescript-migration-20261011.md",
+    "scope": "Real TypeScript migration of all active first-party JavaScript implementations and configuration; minimal historical command shims and immutable generated/history boundaries",
+    "verification": "in_progress",
+    "completeSuite": false,
     "baseRevisions": {
-      "main": "e27bcf0393e5c295e672648832025b76480f9671",
-      "ui": "a87168f5cba7105c76c59b2c06f67d166d9c5e37"
+      "main": "2c80bd4c2e074885b0204fecb07bfd3c6c2f684a",
+      "ui": "720cf519b3ce877aa286da36453c03048e45372a"
     },
-    "testedRevisions": {
-      "main": "6f3c378049bdac2bc38cfaa5fdcbfd28235a1e34",
-      "ui": "c32cdfbba0760a90bf8a5a97aacf0fffab874bc6"
-    },
-    "verificationReport": "docs/delivery/first-party-types-20261010/integrated/report.json",
-    "verificationCounts": "docs/delivery/first-party-types-20261010/counts.json",
-    "finishedAt": "2026-10-10T08:21:39.968226+00:00",
-    "reportSha256": "0885e9550878e8b9628d2a96a7019718142a1a0701ffc5c8946c261304e927de",
-    "independentReview": "docs/delivery/first-party-types-20261010/review/final-brief.md",
-    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
-    "residualScope": "Current active first-party typing gaps closed. Exact generated-runtime, dependency, archived/empty/unsupported and blocked firmware boundaries remain explicit; no universal or hardware typing claim."
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json"
   },
   "priorContractsWave": {
     "document": "docs/delivery/contracts-wave-20261008.md",
@@ -1046,5 +1035,27 @@
     "independentReview": "docs/delivery/static-03-20261010/review/final-brief.md",
     "findingsRegister": "docs/delivery/audit-findings-20261009.json",
     "residualScope": "45 older handwritten JS/MJS files and seven nonempty backend tests remain without new strict typing; third-party declaration internals and existing generated-runtime/inactive historical boundaries are explicit."
+  },
+  "priorFirstPartyTypingWave93": {
+    "document": "docs/delivery/first-party-types-20261010.md",
+    "scope": "Strict typing of remaining first-party JavaScript and backend tests, source discovery and independent failure controls",
+    "verification": "passed",
+    "completeSuite": true,
+    "selectedGates": 93,
+    "baseRevisions": {
+      "main": "e27bcf0393e5c295e672648832025b76480f9671",
+      "ui": "a87168f5cba7105c76c59b2c06f67d166d9c5e37"
+    },
+    "testedRevisions": {
+      "main": "6f3c378049bdac2bc38cfaa5fdcbfd28235a1e34",
+      "ui": "c32cdfbba0760a90bf8a5a97aacf0fffab874bc6"
+    },
+    "verificationReport": "docs/delivery/first-party-types-20261010/integrated/report.json",
+    "verificationCounts": "docs/delivery/first-party-types-20261010/counts.json",
+    "finishedAt": "2026-10-10T08:21:39.968226+00:00",
+    "reportSha256": "0885e9550878e8b9628d2a96a7019718142a1a0701ffc5c8946c261304e927de",
+    "independentReview": "docs/delivery/first-party-types-20261010/review/final-brief.md",
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
+    "residualScope": "Current active first-party typing gaps closed. Exact generated-runtime, dependency, archived/empty/unsupported and blocked firmware boundaries remain explicit; no universal or hardware typing claim."
   }
 }
