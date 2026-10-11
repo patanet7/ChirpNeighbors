@@ -1,0 +1,309 @@
+{
+  "$ref": "#/definitions/DiscoveredReferenceV1",
+  "definitions": {
+    "DiscoveredReferenceV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]{0,159}$"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/DiscoveredReferenceV1/properties/id"
+            },
+            "version": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ],
+          "additionalProperties": false
+        },
+        "sourceFileId": {
+          "$ref": "#/definitions/DiscoveredReferenceV1/properties/id"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "pageUrl": {
+          "type": "string",
+          "maxLength": 2048
+        },
+        "originalUrl": {
+          "$ref": "#/definitions/DiscoveredReferenceV1/properties/pageUrl"
+        },
+        "accessedAt": {
+          "type": "string",
+          "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+        },
+        "sourceUpdatedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "creator": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DiscoveredReferenceV1/properties/title"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "uploader": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/DiscoveredReferenceV1/properties/title"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "license": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "enum": [
+                "CC0",
+                "CC-BY",
+                "CC-BY-SA",
+                "CC-BY-NC",
+                "CC-BY-ND",
+                "CC-BY-NC-SA",
+                "CC-BY-NC-ND",
+                "PDM",
+                "unknown"
+              ]
+            },
+            "version": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[1-4]\\.[05]$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "url": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/DiscoveredReferenceV1/properties/pageUrl"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "declaredName": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/DiscoveredReferenceV1/properties/title"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "attribution": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/DiscoveredReferenceV1/properties/title"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "recognized",
+                "unknown",
+                "conflicting"
+              ]
+            },
+            "restrictions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DiscoveredReferenceV1/properties/title"
+              },
+              "maxItems": 8
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "url",
+            "declaredName",
+            "attribution",
+            "status",
+            "restrictions"
+          ],
+          "additionalProperties": false
+        },
+        "sourceSha1": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{40}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "declaredBytes": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "mime": {
+          "type": "string",
+          "enum": [
+            "image/jpeg",
+            "image/png"
+          ]
+        },
+        "identification": {
+          "type": "object",
+          "properties": {
+            "confidence": {
+              "type": "string",
+              "enum": [
+                "text-match",
+                "unresolved"
+              ]
+            },
+            "matchedName": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "pattern": "^[A-Z][a-z]{1,39} [a-z]{2,40}(?: [a-z]{2,40})?$"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "review": {
+              "type": "string",
+              "const": "required"
+            }
+          },
+          "required": [
+            "confidence",
+            "matchedName",
+            "review"
+          ],
+          "additionalProperties": false
+        },
+        "poseSuitability": {
+          "type": "string",
+          "const": "unreviewed"
+        },
+        "rightsDecision": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "eligible-for-review",
+                "review-required",
+                "denied"
+              ]
+            },
+            "reasons": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "unknown-license",
+                  "conflicting-license",
+                  "missing-creator",
+                  "missing-attribution",
+                  "restrictions-present",
+                  "commercial-use-excluded",
+                  "derivative-use-excluded",
+                  "share-alike-not-accepted",
+                  "per-file-review-required"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 9
+            },
+            "generationApproved": {
+              "type": "boolean",
+              "const": false
+            }
+          },
+          "required": [
+            "status",
+            "reasons",
+            "generationApproved"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "source",
+        "sourceFileId",
+        "title",
+        "pageUrl",
+        "originalUrl",
+        "accessedAt",
+        "sourceUpdatedAt",
+        "creator",
+        "uploader",
+        "license",
+        "sourceSha1",
+        "declaredBytes",
+        "width",
+        "height",
+        "mime",
+        "identification",
+        "poseSuitability",
+        "rightsDecision"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/discovered-reference-v1.schema.json",
+  "description": "Owner-private reference discovery structural boundary. Versioned source descriptors, intended-use policies, scientific-name queries, metadata-only results and fetch receipts preserve explicit review requirements. Scientific/catalog identity, URL safety, unique pins and candidates, status correlations and snapshot consistency require source refinements. Known adapter admission, redirect/host restrictions, transport budgets, cancellation, original-byte hashes, per-file rights decisions and source freshness require authoritative server checks. Unknown source pins are not execution permission. Text matches and license metadata are unreviewed declarations, never species fidelity, legal clearance, generation permission, selectable artwork or public release. Discovery contains zero downloads and zero generated frames; original fetching requires a separate explicit caller."
+}

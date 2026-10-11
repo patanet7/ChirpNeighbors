@@ -282,6 +282,13 @@
             "animationPlanningInputSchema",
             "animationProductionPlanSchema"
           ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/animation-specification.ts",
+          "symbols": [
+            "animationPlanningInputV2Schema"
+          ]
         }
       ],
       "structural": [
@@ -290,7 +297,8 @@
       "semantic": [
         "Job ancestry, review ownership, stage status/lease/retry and artifact provenance are canonical pipeline graph refinements plus repository transactions.",
         "revise-shape accepts geometry plus an exact base pin only; the server clones the complete retained source. Idempotent queueing creates a new review candidate without mutating pixels, lineage, approved artifacts or existing resident pins.",
-        "plan-animation compiles an owner-private proposal with complete frame/prompt inventory and mandatory missing-production gates. It never invokes generation, approves source pixels or exposes a selectable animation manifest."
+        "plan-animation compiles an owner-private proposal with complete frame/prompt inventory and mandatory missing-production gates. It never invokes generation, approves source pixels or exposes a selectable animation manifest.",
+        "The current version-two command accepts legacy planning input v1 or explicit recipe input v2 and selects the matching registered pipeline version. The frozen job-command-v1 export rejects v2 input; no legacy branch is widened or removed."
       ],
       "codec": [
         "HTTP JSON decoding and bounded request bodies are distinct from object validation."
@@ -5012,7 +5020,7 @@
       "id": "animation-planning",
       "category": "job",
       "owner": "image",
-      "version": "animation-planning@1; proposed specification and production-plan v1",
+      "version": "animation-planning@1 and explicit recipe/discovery workflow @2; proposed specification and production-plan v1",
       "source": {
         "repo": "ui",
         "path": "src/lib/assets/animation-specification.ts",
@@ -5048,6 +5056,23 @@
             "compileAnimationPlan",
             "animationPlanningDefinition"
           ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/animation-specification.ts",
+          "symbols": [
+            "animationPlanningInputV2Schema",
+            "animationRecipeSchema",
+            "resolveAnimationSpecification"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/animation-planning-v2.ts",
+          "symbols": [
+            "animationReferenceRequest",
+            "animationPlanningV2Definition"
+          ]
         }
       ],
       "structural": [
@@ -5055,7 +5080,8 @@
       ],
       "semantic": [
         "Pinned catalog scientific identity, unique matching references, canonical action order, contiguous frame allocation, exact decoded allocation, loop/completion agreement, canvas bounds, contact uniqueness, ordered clip/frame prompts and mandatory unverified production blockers require source refinements.",
-        "The deterministic compiler hashes exact normalized input and specification and uses reviewed application identity in templates. Reference metadata is declaration-only; original bytes, source rights, scientific fidelity, model execution, art direction and output approval are not granted. Owner-private immutable job storage/review remains authoritative. Approving a plan cannot select it as renderable artwork."
+        "The deterministic compiler hashes exact normalized input and specification and uses reviewed application identity in templates. Reference metadata is declaration-only; original bytes, source rights, scientific fidelity, model execution, art direction and output approval are not granted. Owner-private immutable job storage/review remains authoritative. Approving a plan cannot select it as renderable artwork.",
+        "Version two resolves a registered reusable recipe plus explicit validated overrides before discovery and prompt planning; version one remains available with unchanged default contract semantics. Discovery results are distinct candidate metadata artifacts and never become renderable manifest or generation approval."
       ],
       "codec": [
         "Strict JSON decoding and the existing bounded authenticated job command route; planning returns no pixels and performs no provider/network execution. Proposed frame budgets remain within the existing renderer allocation capacity."
@@ -5095,6 +5121,184 @@
       "gaps": [
         "Approved concept pixels, actual species reference bytes and scientific review, verified generation rights, configured generation/model adapters and final generated output are absent. The proposed 32x32/60-frame budget is not accepted visual fidelity.",
         "Only right-facing mirrorable clips are supported. Independent directional sets, takeoff/landing, authored cross-clip transitions and support-specific sleep variants require future reviewed contracts and artwork. Arrival/scatter reuse moving; environment effects remain separate procedural layers."
+      ]
+    },
+    {
+      "id": "animation-recipes",
+      "category": "codec",
+      "owner": "image",
+      "version": "recipe v1 and planning input v2; immutable legacy input v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/assets/animation-specification.ts",
+        "symbols": [
+          "animationRecipeSchema",
+          "animationPlanningInputV2Schema"
+        ]
+      },
+      "operation": "inherit/override/resolve",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/animation-specification.ts",
+          "symbols": [
+            "animationRecipeSchema",
+            "animationPlanningInputV2Schema",
+            "canonicalAnimationPlanningInputV2",
+            "resolveAnimationSpecification"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/commands.ts",
+          "symbols": [
+            "jobCommandV1Schema",
+            "jobCommandSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Versioned reusable recipe data points to the existing proposed specification authority. Explicit v2 input requires recipe identity/version and a closed override object. Existing v1 commands and planning schemas remain frozen; current command v2 accepts both planning input versions."
+      ],
+      "semantic": [
+        "Scientific identity and reference correlation remain mandatory. Duplicate clip/frame overrides, empty patches and repeated contact requirements fail source refinements. Trusted recipe registry resolution rejects unknown identity/version and frame indices absent from that selected clip. Explicit override fields replace inherited proposal fields; absent fields inherit defaults. Loop changes update completion and seam-review requirements together.",
+        "Resolved specification revalidates canonical actions, canvas, frame allocation, contacts and bounded ticks. Recipes and overrides modify presentation proposals, never species facts, individual behavior, observations, reference rights or output approval."
+      ],
+      "codec": [
+        "Stable source/override ordering and canonical JSON digests bind the normalized request and resolved specification without changing v1 artifact semantics."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/jobs/+server.ts",
+          "symbols": [
+            "POST"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/animation-recipe-golden-cases.ts",
+          "symbols": [
+            "animationRecipeGoldenCases"
+          ]
+        }
+      ],
+      "gaps": [
+        "The registered default remains a proposed 32x32/60-frame engineering budget. New frame art, multi-view contracts, provider execution, scientific review and accepted visual quality remain separate work."
+      ]
+    },
+    {
+      "id": "reference-discovery",
+      "category": "job",
+      "owner": "image",
+      "version": "discovery request/result/policy/source descriptor/candidate/fetch receipt v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/assets/reference-discovery.ts",
+        "symbols": [
+          "referenceDiscoveryRequestSchema",
+          "referenceDiscoveryResultSchema"
+        ]
+      },
+      "operation": "discover/filter/retain-metadata",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-discovery.ts",
+          "symbols": [
+            "referenceSourceDescriptorSchema",
+            "referenceDiscoveryPolicySchema",
+            "referenceDiscoveryRequestSchema",
+            "discoveredReferenceSchema",
+            "referenceDiscoveryResultSchema",
+            "referenceFetchReceiptSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-discovery/registry.ts",
+          "symbols": [
+            "ReferenceSourceRegistry",
+            "DISCOVERY_LIMITS"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-discovery/policy.ts",
+          "symbols": [
+            "identifyReferenceLicense",
+            "evaluateReferenceRights"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-discovery/network.ts",
+          "symbols": [
+            "fetchBounded",
+            "withBoundedRetry"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-discovery/wikimedia.ts",
+          "symbols": [
+            "createWikimediaCommonsAdapter",
+            "admitWikimediaOriginalUrl",
+            "admitWikimediaPageUrl"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-discovery/service.ts",
+          "symbols": [
+            "discoverReferences",
+            "fetchDiscoveredOriginal"
+          ]
+        }
+      ],
+      "structural": [
+        "Six strict generated boundaries reuse nested source-pin, license and rights authorities. Input names the catalog species, canonical scientific name, bounded aliases, exact source versions, supplied references and explicit intended-use policy. Output retains metadata-only candidates, per-source status, hashes, budgets and mandatory rights/species/pose review. Discovery declares zero original downloads and zero generated frames."
+      ],
+      "semantic": [
+        "Source refinements enforce canonical scientific identity, distinct reference/source/candidate identities, safe public HTTPS identifiers and coherent result status. Trusted server registry rejects unknown adapter versions and unregistered aliases. Supplied references bypass external discovery. Snapshot ownership, immutable job ancestry and request binding remain server authority.",
+        "License declarations can be unknown or conflicting. Mechanical use-policy evaluation retains missing attribution/creator, commercial/derivative restrictions and share-alike exclusions. Eligible-for-review is never approval to generate. A text name match does not certify depicted species or pose.",
+        "The fixed Commons adapter admits exact hosts/paths, refuses redirects, bounds request/byte/time/retry/candidate counts and preserves cancellation. The original fetch adapter is a separate explicit operation with byte hashes and per-file review receipts; discovery cannot return selectable artwork."
+      ],
+      "codec": [
+        "Finite strict JSON metadata; no downloaded adapter code, browser credentials, private paths, location, pixels or arbitrary URL fetch permission."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/jobs/+server.ts",
+          "symbols": [
+            "POST"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/animation-planning-v2.ts",
+          "symbols": [
+            "animationReferenceRequest",
+            "animationPlanningV2Definition"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/discovery-golden-cases.ts",
+          "symbols": [
+            "discoveryGoldenCases"
+          ]
+        }
+      ],
+      "gaps": [
+        "Public metadata and license declarations require per-file rights and scientific review before reference admission or sprite generation. Candidate discovery does not configure a generation model or manufacture approved artwork. Original media acquisition and reusable release require separately authorized admission."
       ]
     }
   ]

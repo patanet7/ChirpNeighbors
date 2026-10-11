@@ -1,0 +1,61 @@
+{
+  "$ref": "#/definitions/ReferenceSourceDescriptorV1",
+  "definitions": {
+    "ReferenceSourceDescriptorV1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]{0,159}$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        },
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "homepage": {
+          "type": "string",
+          "maxLength": 2048
+        },
+        "capabilities": {
+          "type": "object",
+          "properties": {
+            "search": {
+              "type": "boolean",
+              "const": true
+            },
+            "originalFetch": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "search",
+            "originalFetch"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "schemaVersion",
+        "name",
+        "homepage",
+        "capabilities"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/reference-source-descriptor-v1.schema.json",
+  "description": "Owner-private reference discovery structural boundary. Versioned source descriptors, intended-use policies, scientific-name queries, metadata-only results and fetch receipts preserve explicit review requirements. Scientific/catalog identity, URL safety, unique pins and candidates, status correlations and snapshot consistency require source refinements. Known adapter admission, redirect/host restrictions, transport budgets, cancellation, original-byte hashes, per-file rights decisions and source freshness require authoritative server checks. Unknown source pins are not execution permission. Text matches and license metadata are unreviewed declarations, never species fidelity, legal clearance, generation permission, selectable artwork or public release. Discovery contains zero downloads and zero generated frames; original fetching requires a separate explicit caller."
+}
