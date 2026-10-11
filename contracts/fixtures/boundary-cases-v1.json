@@ -104234,6 +104234,4163 @@
       },
       "valid": false,
       "authoritativeValid": false
+    },
+    {
+      "schema": "reference-image-identity-v1",
+      "name": "reference admission: immutable private decoded byte identity",
+      "value": {
+        "schemaVersion": 1,
+        "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+        "original": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 100,
+          "mime": "image/png"
+        },
+        "canonical": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 120,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "decoder": {
+          "id": "sharp",
+          "version": "0.35.5",
+          "libvips": "8.18.3"
+        },
+        "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-source-v1",
+      "name": "reference admission: owner upload without URL or path",
+      "value": {
+        "kind": "owner-upload"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-source-v1",
+      "name": "reference admission: retained discovery keeps full metadata snapshot",
+      "value": {
+        "kind": "retained-discovery",
+        "discoveryPin": {
+          "jobId": "synthetic-job",
+          "artifactId": "synthetic-artifact",
+          "version": 1,
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "candidateId": "synthetic-contract-candidate",
+        "candidate": {
+          "schemaVersion": 1,
+          "id": "synthetic-contract-candidate",
+          "source": {
+            "id": "wikimedia-commons",
+            "version": 1
+          },
+          "sourceFileId": "synthetic-file-1",
+          "title": "File:Synthetic contract metadata only",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+          "accessedAt": "2026-10-11T00:00:00Z",
+          "sourceUpdatedAt": null,
+          "creator": "Synthetic contract author",
+          "uploader": null,
+          "license": {
+            "id": "CC-BY",
+            "version": "4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/",
+            "declaredName": "Synthetic CC BY declaration",
+            "attribution": "Synthetic contract author; no actual media downloaded",
+            "status": "recognized",
+            "restrictions": []
+          },
+          "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "declaredBytes": 100,
+          "width": 10,
+          "height": 10,
+          "mime": "image/jpeg",
+          "identification": {
+            "confidence": "text-match",
+            "matchedName": "Erithacus rubecula",
+            "review": "required"
+          },
+          "poseSuitability": "unreviewed",
+          "rightsDecision": {
+            "status": "eligible-for-review",
+            "reasons": [
+              "per-file-review-required"
+            ],
+            "generationApproved": false
+          }
+        },
+        "receipt": {
+          "schemaVersion": 1,
+          "candidateId": "synthetic-contract-candidate",
+          "source": {
+            "id": "wikimedia-commons",
+            "version": 1
+          },
+          "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+          "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+          "fetchedAt": "2026-10-11T00:00:00Z",
+          "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 100,
+          "mime": "image/jpeg",
+          "license": {
+            "id": "CC-BY",
+            "version": "4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/",
+            "declaredName": "Synthetic CC BY declaration",
+            "attribution": "Synthetic contract author; no actual media downloaded",
+            "status": "recognized",
+            "restrictions": []
+          },
+          "creator": "Synthetic contract author",
+          "rightsReview": "required",
+          "speciesReview": "required",
+          "poseReview": "required",
+          "generationApproved": false
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-pin-v1",
+      "name": "reference admission: exact content and content-bound review hashes",
+      "value": {
+        "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: explicit rights assertions",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "rights",
+        "decision": "approved",
+        "generationAllowed": true,
+        "derivativesAllowed": true,
+        "redistributionAllowed": true,
+        "licenseId": "synthetic-owner-permission",
+        "licenseVersion": null,
+        "licenseUrl": null,
+        "creator": "Synthetic contract author",
+        "evidenceId": "synthetic-contract-evidence",
+        "attribution": "Synthetic contract fixture, not actual media"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: independent species assertion",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "species",
+        "decision": "approved",
+        "speciesId": "cn-species-erithacus-rubecula",
+        "evidenceId": "synthetic-contract-evidence"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: explicit pose action and viewpoint scope",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "pose",
+        "decision": "approved",
+        "poseLabel": "Synthetic right-facing idle scope",
+        "evidenceId": "synthetic-contract-evidence",
+        "permittedActions": [
+          "idle"
+        ],
+        "viewpoints": [
+          "right"
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-review-v1",
+      "name": "reference admission: server-owned reviewer and time",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "rights",
+        "decision": "approved",
+        "generationAllowed": true,
+        "derivativesAllowed": true,
+        "redistributionAllowed": true,
+        "licenseId": "synthetic-owner-permission",
+        "licenseVersion": null,
+        "licenseUrl": null,
+        "creator": "Synthetic contract author",
+        "evidenceId": "synthetic-contract-evidence",
+        "attribution": "Synthetic contract fixture, not actual media",
+        "reviewerId": "synthetic-owner",
+        "reviewedAt": "2026-10-11T00:00:00Z"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-revoke-command-v1",
+      "name": "reference admission: terminal permission withdrawal command",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "reason": "Synthetic owner withdrew permission"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-revocation-v1",
+      "name": "reference admission: server-owned revocation event",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "reason": "Synthetic owner withdrew permission",
+        "reviewerId": "synthetic-owner",
+        "revokedAt": "2026-10-11T00:00:00Z"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: unreviewed bytes grant no permission",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/png"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "owner-upload"
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": null,
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: three separately recorded decisions",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/png"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "owner-upload"
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "synthetic-owner-permission",
+            "licenseVersion": null,
+            "licenseUrl": null,
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract fixture, not actual media",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "species",
+            "decision": "approved",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "evidenceId": "synthetic-contract-evidence",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "pose": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "pose",
+            "decision": "approved",
+            "poseLabel": "Synthetic right-facing idle scope",
+            "evidenceId": "synthetic-contract-evidence",
+            "permittedActions": [
+              "idle"
+            ],
+            "viewpoints": [
+              "right"
+            ],
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          }
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: revocation retains review history",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/png"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "owner-upload"
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "synthetic-owner-permission",
+            "licenseVersion": null,
+            "licenseUrl": null,
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract fixture, not actual media",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "species",
+            "decision": "approved",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "evidenceId": "synthetic-contract-evidence",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "pose": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "pose",
+            "decision": "approved",
+            "poseLabel": "Synthetic right-facing idle scope",
+            "evidenceId": "synthetic-contract-evidence",
+            "permittedActions": [
+              "idle"
+            ],
+            "viewpoints": [
+              "right"
+            ],
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          }
+        },
+        "revocation": {
+          "requestId": "12345678-1234-4234-8234-123456789abc",
+          "reason": "Synthetic owner withdrew permission",
+          "reviewerId": "synthetic-owner",
+          "revokedAt": "2026-10-11T00:00:00Z"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained snapshot pins original bytes",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": null,
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained review preserves exact source rights metadata",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "CC-BY",
+            "licenseVersion": "4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract author; no actual media downloaded",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-list-v1",
+      "name": "reference admission: bounded private list",
+      "value": {
+        "files": [
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-admission-response-v1",
+      "name": "reference admission: private file response",
+      "value": {
+        "file": {
+          "identity": {
+            "schemaVersion": 1,
+            "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+            "original": {
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "bytes": 100,
+              "mime": "image/png"
+            },
+            "canonical": {
+              "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "bytes": 120,
+              "width": 2,
+              "height": 2,
+              "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            },
+            "decoder": {
+              "id": "sharp",
+              "version": "0.35.5",
+              "libvips": "8.18.3"
+            },
+            "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+          },
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "source": {
+            "kind": "owner-upload"
+          },
+          "createdAt": "2026-10-11T00:00:00Z",
+          "reviews": {
+            "rights": null,
+            "species": null,
+            "pose": null
+          },
+          "revocation": null
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-generation-provider-pin-v1",
+      "name": "reference admission: versioned local diagnostic adapter",
+      "value": {
+        "id": "local-diagnostic",
+        "version": 1
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-generation-input-v1",
+      "name": "reference admission: admitted pin plus versioned plan",
+      "value": {
+        "schemaVersion": 1,
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "planningInput": {
+          "schemaVersion": 2,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "scientificName": "Erithacus rubecula",
+          "references": [],
+          "recipe": {
+            "id": "chirp-default-bird",
+            "version": 1
+          },
+          "overrides": {
+            "clips": []
+          }
+        },
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-generation-command-v1",
+      "name": "reference admission: explicit queue command",
+      "value": {
+        "action": "queue",
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "input": {
+          "schemaVersion": 1,
+          "referencePin": {
+            "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "planningInput": {
+            "schemaVersion": 2,
+            "taxonomy": {
+              "catalog": "chirp-display-catalog",
+              "version": 1,
+              "speciesId": "cn-species-erithacus-rubecula"
+            },
+            "scientificName": "Erithacus rubecula",
+            "references": [],
+            "recipe": {
+              "id": "chirp-default-bird",
+              "version": 1
+            },
+            "overrides": {
+              "clips": []
+            }
+          },
+          "provider": {
+            "id": "local-diagnostic",
+            "version": 1
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-generation-command-v1",
+      "name": "reference admission: advance owned diagnostic job",
+      "value": {
+        "action": "advance",
+        "jobId": "synthetic-job"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-generation-command-v1",
+      "name": "reference admission: cancel owned diagnostic job",
+      "value": {
+        "action": "cancel",
+        "jobId": "synthetic-job"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-acquisition-command-v1",
+      "name": "reference admission: acquire owned retained candidate by IDs only",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "jobId": "synthetic-job",
+        "artifactId": "synthetic-artifact",
+        "candidateId": "synthetic-contract-candidate"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: diagnostic receipt cannot claim generated or renderable art",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": false,
+        "fixture": true,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 1,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-image-identity-v1",
+      "name": "reference admission: original byte budget",
+      "value": {
+        "schemaVersion": 1,
+        "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+        "original": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 10000000,
+          "mime": "image/png"
+        },
+        "canonical": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 120,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "decoder": {
+          "id": "sharp",
+          "version": "0.35.5",
+          "libvips": "8.18.3"
+        },
+        "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-image-identity-v1",
+      "name": "reference admission: canonical byte budget",
+      "value": {
+        "schemaVersion": 1,
+        "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+        "original": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 100,
+          "mime": "image/png"
+        },
+        "canonical": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 10000000,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "decoder": {
+          "id": "sharp",
+          "version": "0.35.5",
+          "libvips": "8.18.3"
+        },
+        "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-image-identity-v1",
+      "name": "reference admission: decoded allocation bounded across dimensions",
+      "value": {
+        "schemaVersion": 1,
+        "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+        "original": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 100,
+          "mime": "image/png"
+        },
+        "canonical": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 120,
+          "width": 2048,
+          "height": 1024,
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "decoder": {
+          "id": "sharp",
+          "version": "0.35.5",
+          "libvips": "8.18.3"
+        },
+        "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-image-identity-v1",
+      "name": "reference admission: reject identity schemaVersion",
+      "value": {
+        "schemaVersion": 2,
+        "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+        "original": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 100,
+          "mime": "image/png"
+        },
+        "canonical": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 120,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "decoder": {
+          "id": "sharp",
+          "version": "0.35.5",
+          "libvips": "8.18.3"
+        },
+        "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-image-identity-v1",
+      "name": "reference admission: reject identity ownerId",
+      "value": {
+        "schemaVersion": 1,
+        "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+        "original": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 100,
+          "mime": "image/png"
+        },
+        "canonical": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 120,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "decoder": {
+          "id": "sharp",
+          "version": "0.35.5",
+          "libvips": "8.18.3"
+        },
+        "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1",
+        "ownerId": "injected"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-image-identity-v1",
+      "name": "reference admission: reject identity path",
+      "value": {
+        "schemaVersion": 1,
+        "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+        "original": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 100,
+          "mime": "image/png"
+        },
+        "canonical": {
+          "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "bytes": 120,
+          "width": 2,
+          "height": 2,
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "decoder": {
+          "id": "sharp",
+          "version": "0.35.5",
+          "libvips": "8.18.3"
+        },
+        "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1",
+        "path": "/private/ref.png"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-pin-v1",
+      "name": "reference admission: hash is required rather than mutable file ID alone",
+      "value": {
+        "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-source-v1",
+      "name": "reference admission: upload cannot smuggle a fetch URL",
+      "value": {
+        "kind": "owner-upload",
+        "url": "https://example.invalid/photo"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: approved rights require generationAllowed",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "rights",
+        "decision": "approved",
+        "generationAllowed": false,
+        "derivativesAllowed": true,
+        "redistributionAllowed": true,
+        "licenseId": "synthetic-owner-permission",
+        "licenseVersion": null,
+        "licenseUrl": null,
+        "creator": "Synthetic contract author",
+        "evidenceId": "synthetic-contract-evidence",
+        "attribution": "Synthetic contract fixture, not actual media"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: approved rights require derivativesAllowed",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "rights",
+        "decision": "approved",
+        "generationAllowed": true,
+        "derivativesAllowed": false,
+        "redistributionAllowed": true,
+        "licenseId": "synthetic-owner-permission",
+        "licenseVersion": null,
+        "licenseUrl": null,
+        "creator": "Synthetic contract author",
+        "evidenceId": "synthetic-contract-evidence",
+        "attribution": "Synthetic contract fixture, not actual media"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: approved rights require redistributionAllowed",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "rights",
+        "decision": "approved",
+        "generationAllowed": true,
+        "derivativesAllowed": true,
+        "redistributionAllowed": false,
+        "licenseId": "synthetic-owner-permission",
+        "licenseVersion": null,
+        "licenseUrl": null,
+        "creator": "Synthetic contract author",
+        "evidenceId": "synthetic-contract-evidence",
+        "attribution": "Synthetic contract fixture, not actual media"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: explicit rejection retains denied permissions",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "rights",
+        "decision": "rejected",
+        "generationAllowed": false,
+        "derivativesAllowed": true,
+        "redistributionAllowed": true,
+        "licenseId": "synthetic-owner-permission",
+        "licenseVersion": null,
+        "licenseUrl": null,
+        "creator": "Synthetic contract author",
+        "evidenceId": "synthetic-contract-evidence",
+        "attribution": "Synthetic contract fixture, not actual media"
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: unresolved license cannot be approved",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "rights",
+        "decision": "approved",
+        "generationAllowed": true,
+        "derivativesAllowed": true,
+        "redistributionAllowed": true,
+        "licenseId": "unknown",
+        "licenseVersion": null,
+        "licenseUrl": null,
+        "creator": "Synthetic contract author",
+        "evidenceId": "synthetic-contract-evidence",
+        "attribution": "Synthetic contract fixture, not actual media"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: license metadata URL forbids credentials",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "rights",
+        "decision": "approved",
+        "generationAllowed": true,
+        "derivativesAllowed": true,
+        "redistributionAllowed": true,
+        "licenseId": "synthetic-owner-permission",
+        "licenseVersion": null,
+        "licenseUrl": "https://user:secret@example.invalid/license",
+        "creator": "Synthetic contract author",
+        "evidenceId": "synthetic-contract-evidence",
+        "attribution": "Synthetic contract fixture, not actual media"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: reviewer cannot be supplied by caller",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "rights",
+        "decision": "approved",
+        "generationAllowed": true,
+        "derivativesAllowed": true,
+        "redistributionAllowed": true,
+        "licenseId": "synthetic-owner-permission",
+        "licenseVersion": null,
+        "licenseUrl": null,
+        "creator": "Synthetic contract author",
+        "evidenceId": "synthetic-contract-evidence",
+        "attribution": "Synthetic contract fixture, not actual media",
+        "reviewerId": "forged"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: unknown species is not biological evidence",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "species",
+        "decision": "approved",
+        "speciesId": "unknown-species",
+        "evidenceId": "synthetic-contract-evidence"
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: pose action scopes cannot repeat",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "pose",
+        "decision": "approved",
+        "poseLabel": "Synthetic right-facing idle scope",
+        "evidenceId": "synthetic-contract-evidence",
+        "permittedActions": [
+          "idle",
+          "idle"
+        ],
+        "viewpoints": [
+          "right"
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: pose viewpoint scopes cannot repeat",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "pose",
+        "decision": "approved",
+        "poseLabel": "Synthetic right-facing idle scope",
+        "evidenceId": "synthetic-contract-evidence",
+        "permittedActions": [
+          "idle"
+        ],
+        "viewpoints": [
+          "right",
+          "right"
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-review-command-v1",
+      "name": "reference admission: pose scope must be explicit",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "kind": "pose",
+        "decision": "approved",
+        "poseLabel": "Synthetic right-facing idle scope",
+        "evidenceId": "synthetic-contract-evidence",
+        "permittedActions": [],
+        "viewpoints": [
+          "right"
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: reviews cannot predate admission",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/png"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "owner-upload"
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "synthetic-owner-permission",
+            "licenseVersion": null,
+            "licenseUrl": null,
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract fixture, not actual media",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-10T00:00:00Z"
+          },
+          "species": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "species",
+            "decision": "approved",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "evidenceId": "synthetic-contract-evidence",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "pose": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "pose",
+            "decision": "approved",
+            "poseLabel": "Synthetic right-facing idle scope",
+            "evidenceId": "synthetic-contract-evidence",
+            "permittedActions": [
+              "idle"
+            ],
+            "viewpoints": [
+              "right"
+            ],
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          }
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: no later reviews after terminal revocation",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/png"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "owner-upload"
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "synthetic-owner-permission",
+            "licenseVersion": null,
+            "licenseUrl": null,
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract fixture, not actual media",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "species",
+            "decision": "approved",
+            "speciesId": "cn-species-erithacus-rubecula",
+            "evidenceId": "synthetic-contract-evidence",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "pose": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "pose",
+            "decision": "approved",
+            "poseLabel": "Synthetic right-facing idle scope",
+            "evidenceId": "synthetic-contract-evidence",
+            "permittedActions": [
+              "idle"
+            ],
+            "viewpoints": [
+              "right"
+            ],
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-12T00:00:00Z"
+          }
+        },
+        "revocation": {
+          "requestId": "12345678-1234-4234-8234-123456789abc",
+          "reason": "Synthetic owner withdrew permission",
+          "reviewerId": "synthetic-owner",
+          "revokedAt": "2026-10-11T00:00:00Z"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained candidateId correlation",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "different",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": null,
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained originalHash correlation",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": null,
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained license correlation",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "3.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": null,
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: private record cannot expose filesystem storage",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/png"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "owner-upload"
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": null,
+          "species": null,
+          "pose": null
+        },
+        "revocation": null,
+        "path": "/private/reference"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained approved licenseId cannot be relabeled",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "different",
+            "licenseVersion": "4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract author; no actual media downloaded",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained approved licenseVersion cannot be relabeled",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "CC-BY",
+            "licenseVersion": "different",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract author; no actual media downloaded",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained approved licenseUrl cannot be relabeled",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "CC-BY",
+            "licenseVersion": "4.0",
+            "licenseUrl": "https://example.invalid/different-license",
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract author; no actual media downloaded",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained approved creator cannot be relabeled",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "CC-BY",
+            "licenseVersion": "4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "creator": "different",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract author; no actual media downloaded",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: retained approved attribution cannot be relabeled",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "recognized",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "CC-BY",
+            "licenseVersion": "4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "different",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-record-v1",
+      "name": "reference admission: unresolved retained license blocks approval despite owner assertions",
+      "value": {
+        "identity": {
+          "schemaVersion": 1,
+          "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "original": {
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "bytes": 100,
+            "mime": "image/jpeg"
+          },
+          "canonical": {
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 120,
+            "width": 2,
+            "height": 2,
+            "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "decoder": {
+            "id": "sharp",
+            "version": "0.35.5",
+            "libvips": "8.18.3"
+          },
+          "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        },
+        "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "source": {
+          "kind": "retained-discovery",
+          "discoveryPin": {
+            "jobId": "synthetic-job",
+            "artifactId": "synthetic-artifact",
+            "version": 1,
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "candidateId": "synthetic-contract-candidate",
+          "candidate": {
+            "schemaVersion": 1,
+            "id": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "sourceFileId": "synthetic-file-1",
+            "title": "File:Synthetic contract metadata only",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "accessedAt": "2026-10-11T00:00:00Z",
+            "sourceUpdatedAt": null,
+            "creator": "Synthetic contract author",
+            "uploader": null,
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "conflicting",
+              "restrictions": []
+            },
+            "sourceSha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "declaredBytes": 100,
+            "width": 10,
+            "height": 10,
+            "mime": "image/jpeg",
+            "identification": {
+              "confidence": "text-match",
+              "matchedName": "Erithacus rubecula",
+              "review": "required"
+            },
+            "poseSuitability": "unreviewed",
+            "rightsDecision": {
+              "status": "eligible-for-review",
+              "reasons": [
+                "per-file-review-required"
+              ],
+              "generationApproved": false
+            }
+          },
+          "receipt": {
+            "schemaVersion": 1,
+            "candidateId": "synthetic-contract-candidate",
+            "source": {
+              "id": "wikimedia-commons",
+              "version": 1
+            },
+            "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Synthetic-contract-only.jpg",
+            "pageUrl": "https://commons.wikimedia.org/wiki/File:Synthetic-contract-only.jpg",
+            "fetchedAt": "2026-10-11T00:00:00Z",
+            "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "sha1": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "bytes": 100,
+            "mime": "image/jpeg",
+            "license": {
+              "id": "CC-BY",
+              "version": "4.0",
+              "url": "https://creativecommons.org/licenses/by/4.0/",
+              "declaredName": "Synthetic CC BY declaration",
+              "attribution": "Synthetic contract author; no actual media downloaded",
+              "status": "conflicting",
+              "restrictions": []
+            },
+            "creator": "Synthetic contract author",
+            "rightsReview": "required",
+            "speciesReview": "required",
+            "poseReview": "required",
+            "generationApproved": false
+          }
+        },
+        "createdAt": "2026-10-11T00:00:00Z",
+        "reviews": {
+          "rights": {
+            "requestId": "12345678-1234-4234-8234-123456789abc",
+            "kind": "rights",
+            "decision": "approved",
+            "generationAllowed": true,
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "licenseId": "CC-BY",
+            "licenseVersion": "4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+            "creator": "Synthetic contract author",
+            "evidenceId": "synthetic-contract-evidence",
+            "attribution": "Synthetic contract author; no actual media downloaded",
+            "reviewerId": "synthetic-owner",
+            "reviewedAt": "2026-10-11T00:00:00Z"
+          },
+          "species": null,
+          "pose": null
+        },
+        "revocation": null
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-admission-list-v1",
+      "name": "reference admission: owner list allocation bounded",
+      "value": {
+        "files": [
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          },
+          {
+            "identity": {
+              "schemaVersion": 1,
+              "id": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+              "original": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 100,
+                "mime": "image/png"
+              },
+              "canonical": {
+                "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "bytes": 120,
+                "width": 2,
+                "height": 2,
+                "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.3"
+              },
+              "normalization": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+            },
+            "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "source": {
+              "kind": "owner-upload"
+            },
+            "createdAt": "2026-10-11T00:00:00Z",
+            "reviews": {
+              "rights": null,
+              "species": null,
+              "pose": null
+            },
+            "revocation": null
+          }
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-provider-pin-v1",
+      "name": "reference admission: provider versions cannot be zero",
+      "value": {
+        "id": "local-diagnostic",
+        "version": 0
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-provider-pin-v1",
+      "name": "reference admission: unknown adapter remains structural only and needs runtime registry rejection",
+      "value": {
+        "id": "unregistered-adapter",
+        "version": 99
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "reference-generation-input-v1",
+      "name": "reference admission: input version is exact",
+      "value": {
+        "schemaVersion": 2,
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "planningInput": {
+          "schemaVersion": 2,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "scientificName": "Erithacus rubecula",
+          "references": [],
+          "recipe": {
+            "id": "chirp-default-bird",
+            "version": 1
+          },
+          "overrides": {
+            "clips": []
+          }
+        },
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-input-v1",
+      "name": "reference admission: unadmitted planning declarations cannot imply provider conditioning",
+      "value": {
+        "schemaVersion": 1,
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "planningInput": {
+          "schemaVersion": 2,
+          "taxonomy": {
+            "catalog": "chirp-display-catalog",
+            "version": 1,
+            "speciesId": "cn-species-erithacus-rubecula"
+          },
+          "scientificName": "Erithacus rubecula",
+          "references": [
+            {
+              "schemaVersion": 1,
+              "id": "existing-pixel-probe",
+              "fixture": true,
+              "source": {
+                "kind": "technical-fixture",
+                "fileIdentity": "existing-fixture.rgba",
+                "originalUrl": null,
+                "descriptionPageUrl": null,
+                "author": "ChirpNeighbors fixture author",
+                "uploader": null,
+                "attribution": "Existing technical fixture pixels; no species fidelity",
+                "description": null,
+                "sourceTimestamp": null,
+                "remoteHash": null
+              },
+              "original": {
+                "bytes": 4,
+                "sha256": "2653dc80aaad5a4aa0945da285ab22baca44b0cceb9eb3c35f6908539e4ad6b7",
+                "mime": "application/x-chirp-rgba8"
+              },
+              "decoded": {
+                "format": "rgba8-straight",
+                "width": 1,
+                "height": 1,
+                "sha256": "2653dc80aaad5a4aa0945da285ab22baca44b0cceb9eb3c35f6908539e4ad6b7",
+                "decoder": {
+                  "id": "existing-fixture-pixels",
+                  "version": "1"
+                },
+                "derivation": "raw-identity"
+              },
+              "rights": {
+                "licenseId": "project-authored-development-fixture",
+                "licenseVersion": "1",
+                "licenseUrl": null,
+                "status": "approved",
+                "restrictions": [],
+                "referenceUseAllowed": true,
+                "derivativesAllowed": true,
+                "redistributionAllowed": true,
+                "generationPermission": "not-reviewed",
+                "review": {
+                  "reviewerId": "mechanical-fixture-reviewer",
+                  "evidenceId": "local-contract-probe",
+                  "reviewedAt": "2026-10-08T00:00:00.000Z"
+                }
+              },
+              "taxonomy": {
+                "application": {
+                  "catalog": "chirp-display-catalog",
+                  "version": 1,
+                  "speciesId": "cn-species-erithacus-rubecula"
+                },
+                "declaredScientificName": "Erithacus rubecula",
+                "aliases": [],
+                "externalEvidence": [],
+                "review": null
+              },
+              "annotations": {
+                "sex": "unknown",
+                "age": "unknown",
+                "plumage": null,
+                "viewpoint": "unknown"
+              }
+            }
+          ],
+          "recipe": {
+            "id": "chirp-default-bird",
+            "version": 1
+          },
+          "overrides": {
+            "clips": []
+          }
+        },
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: candidate rejects renderable authority claim",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": true,
+        "fixture": true,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 1,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: candidate rejects fixture authority claim",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": false,
+        "fixture": false,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 1,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: candidate rejects generated authority claim",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": false,
+        "fixture": true,
+        "generated": true,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 1,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: candidate rejects format authority claim",
+      "value": {
+        "schemaVersion": 1,
+        "format": "species-manifest",
+        "renderable": false,
+        "fixture": true,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 1,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: candidate cannot imply model execution",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": false,
+        "fixture": true,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 1,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 1,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: single frame is required",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": false,
+        "fixture": true,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 1,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: diagnostic canvas max8 is independent from sprites",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": false,
+        "fixture": true,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 9,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: channel allocation must match canvas",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": false,
+        "fixture": true,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 2,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: binary alpha required",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": false,
+        "fixture": true,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 1,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-candidate-v1",
+      "name": "reference admission: hidden RGB must be zero",
+      "value": {
+        "schemaVersion": 1,
+        "format": "reference-generation-candidate",
+        "renderable": false,
+        "fixture": true,
+        "generated": false,
+        "purpose": "local-diagnostic-not-species-art",
+        "provider": {
+          "id": "local-diagnostic",
+          "version": 1
+        },
+        "inputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "planSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "referencePin": {
+          "referenceId": "5c83bc65-53ba-4441-beb0-fef2f8c5f5da",
+          "contentDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "reviewDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "reference": {
+          "originalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rgbaSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        },
+        "pixels": {
+          "schemaVersion": 2,
+          "format": "rgba8-frames",
+          "canvas": {
+            "width": 1,
+            "height": 1
+          },
+          "logicalPixelSize": 1,
+          "paletteLimit": 2,
+          "frames": [
+            {
+              "rgba": [
+                255,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        "outputSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "execution": {
+          "kind": "local-fake",
+          "externalCalls": 0,
+          "modelCalls": 0,
+          "scientificFidelityApproved": false
+        },
+        "limitations": [
+          "Contract fixture only; no generated artwork."
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-generation-command-v1",
+      "name": "reference admission: unknown action cannot grant artifact approval",
+      "value": {
+        "action": "review",
+        "artifactId": "synthetic",
+        "decision": "approved"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "reference-acquisition-command-v1",
+      "name": "reference admission: acquisition does not accept an arbitrary URL",
+      "value": {
+        "requestId": "12345678-1234-4234-8234-123456789abc",
+        "jobId": "synthetic-job",
+        "artifactId": "synthetic-artifact",
+        "candidateId": "synthetic-contract-candidate",
+        "url": "https://example.invalid/photo"
+      },
+      "valid": false,
+      "authoritativeValid": false
     }
   ]
 }

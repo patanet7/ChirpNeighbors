@@ -342,7 +342,7 @@
       "id": "GAP-03",
       "severity": "medium",
       "owner": "engine",
-      "finding": "No whole-scene actor/graphics budget or physical-device performance acceptance.",
+      "finding": "Whole-scene allocation budgets and geometry reuse are implemented; active stress frame time, physical-device and real-art performance acceptance remain open.",
       "status": "resource-and-geometry-reuse-verified-performance-open",
       "fix": "Existing scene limits plus renderer-local immutable geometry cache (256 contexts / 65,536 rectangle commands) preserve exact pixels, all saved residents and automatic batching. Synchronous geometry work falls; frame times remain workload-dependent.",
       "regressionEvidence": [
@@ -353,7 +353,17 @@
         "renderer-performance-20261010/integrated/report.json",
         "renderer-performance-20261010/comparisons/factorial/FINAL-FOLLOWUP.md"
       ],
-      "reviewerResult": "17 new geometry tests included in complete 81/81 suite; 65 exact state/RGBA pairs and 67,179,016 pixels unchanged. Six surface blocks do not consistently reproduce cache p95 regression; interval crosses zero. Batching-only surface win and dense-tail regressions retained; worst-case smoothness, native rasterization, physical devices, production timing and reviewed-art acceptance remain open."
+      "reviewerResult": "17 new geometry tests included in complete 81/81 suite; 65 exact state/RGBA pairs and 67,179,016 pixels unchanged. Six surface blocks do not consistently reproduce cache p95 regression; interval crosses zero. Batching-only surface win and dense-tail regressions retained; worst-case smoothness, native rasterization, physical devices, production timing and reviewed-art acceptance remain open.",
+      "historicalFinding": "No whole-scene actor/graphics budget or physical-device performance acceptance.",
+      "referenceAdmissionFollowUp": {
+        "status": "documentation-reconciliation-only",
+        "note": "Real consumers apply actor/geometry/canvas admission; no new performance benchmark or acceptance is claimed in this wave. Keep the existing partial status and all prior measurements.",
+        "evidence": [
+          "reference-admission-20261011.md",
+          "../../../birdsong-yard-sprites/src/lib/engine/scene-resource-budget.ts",
+          "../../../birdsong-yard-sprites/src/lib/engine/renderer.ts"
+        ]
+      }
     },
     {
       "id": "GAP-04",
@@ -449,6 +459,13 @@
           "animation-planning-20261011/integrated/report.json",
           "animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md"
         ]
+      },
+      "referenceAdmissionFollowUp": {
+        "status": "source-still-blocked",
+        "note": "Original worker commit absent in local object stores; remote-head listing through configured Git transport succeeds but isolated exact-commit fetch returns not our ref. No readable original archive found, no source recreation or Library retry. Require original digest-identified ZIP or exact-commit bundle.",
+        "evidence": [
+          "reference-admission-20261011.md"
+        ]
       }
     },
     {
@@ -502,6 +519,13 @@
           "animation-planning-20261011.md",
           "animation-planning-20261011/integrated/report.json",
           "animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md"
+        ]
+      },
+      "referenceAdmissionFollowUp": {
+        "status": "local-reference-admission-in-progress; real-image-generation-unconfigured",
+        "note": "PNG/JPEG admission and exact approved reference pins into a local fake generator are scoped, not verified yet. Existing decoder/CPU-runtime libraries are not trained image models. Direct DNS and ordinary Commons HTTPSproxy403 failures remain recorded; no bypass, live image download or actual image model execution.",
+        "evidence": [
+          "reference-admission-20261011.md"
         ]
       }
     },

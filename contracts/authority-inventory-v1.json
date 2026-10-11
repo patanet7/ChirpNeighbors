@@ -5300,6 +5300,978 @@
       "gaps": [
         "Public metadata and license declarations require per-file rights and scientific review before reference admission or sprite generation. Candidate discovery does not configure a generation model or manufacture approved artwork. Original media acquisition and reusable release require separately authorized admission."
       ]
+    },
+    {
+      "id": "api/reference-files:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/reference-files/+server.ts",
+        "symbols": [
+          "GET"
+        ]
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceAdmissionListSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner",
+            "readCommand",
+            "readBoundedBytes"
+          ]
+        }
+      ],
+      "structural": [
+        "Read the authenticated owner private bounded image record list without initializing an untouched media store."
+      ],
+      "semantic": [
+        "Authentication, same-owner lookup, session/origin protections, bounded bodies, immutable idempotency and live permission remain server authority. Structural UUID/hash validation does not establish ownership, file integrity, rights or biological truth."
+      ],
+      "codec": [
+        "Raw upload bytes are bounded before decode; JSON commands and private strict response schemas do not contain arbitrary filesystem paths or fetch URLs. Existing command errors disclose no private source details."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/reference-files:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/reference-files/+server.ts",
+        "symbols": [
+          "POST"
+        ]
+      },
+      "operation": "POST",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "REFERENCE_IMAGE_LIMITS",
+            "referenceAdmissionResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner",
+            "readCommand",
+            "readBoundedBytes"
+          ]
+        }
+      ],
+      "structural": [
+        "Admit raw PNG/JPEG with an explicit upload UUID; decoder and storage create immutable hashes and no automatic reviews."
+      ],
+      "semantic": [
+        "Authentication, same-owner lookup, session/origin protections, bounded bodies, immutable idempotency and live permission remain server authority. Structural UUID/hash validation does not establish ownership, file integrity, rights or biological truth."
+      ],
+      "codec": [
+        "Raw upload bytes are bounded before decode; JSON commands and private strict response schemas do not contain arbitrary filesystem paths or fetch URLs. Existing command errors disclose no private source details."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/reference-files/[id]:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/reference-files/[id]/+server.ts",
+        "symbols": [
+          "GET"
+        ]
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceAdmissionResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner",
+            "readCommand",
+            "readBoundedBytes"
+          ]
+        }
+      ],
+      "structural": [
+        "Read one owned immutable reference record and its current explicit review and terminal revocation state."
+      ],
+      "semantic": [
+        "Authentication, same-owner lookup, session/origin protections, bounded bodies, immutable idempotency and live permission remain server authority. Structural UUID/hash validation does not establish ownership, file integrity, rights or biological truth."
+      ],
+      "codec": [
+        "Raw upload bytes are bounded before decode; JSON commands and private strict response schemas do not contain arbitrary filesystem paths or fetch URLs. Existing command errors disclose no private source details."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/reference-files/[id]/preview:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/reference-files/[id]/preview/+server.ts",
+        "symbols": [
+          "GET"
+        ]
+      },
+      "operation": "GET",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceImageIdentitySchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner",
+            "readCommand",
+            "readBoundedBytes"
+          ]
+        }
+      ],
+      "structural": [
+        "Return only owned verified canonical PNG preview bytes through a private no-store response."
+      ],
+      "semantic": [
+        "Authentication, same-owner lookup, session/origin protections, bounded bodies, immutable idempotency and live permission remain server authority. Structural UUID/hash validation does not establish ownership, file integrity, rights or biological truth."
+      ],
+      "codec": [
+        "Raw upload bytes are bounded before decode; JSON commands and private strict response schemas do not contain arbitrary filesystem paths or fetch URLs. Existing command errors disclose no private source details."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/reference-files/[id]/review:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/reference-files/[id]/review/+server.ts",
+        "symbols": [
+          "POST"
+        ]
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceReviewCommandSchema",
+            "referenceAdmissionResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner",
+            "readCommand",
+            "readBoundedBytes"
+          ]
+        }
+      ],
+      "structural": [
+        "Record one immutable rights, species or explicitly scoped pose decision; owner identity and time are assigned by the server."
+      ],
+      "semantic": [
+        "Authentication, same-owner lookup, session/origin protections, bounded bodies, immutable idempotency and live permission remain server authority. Structural UUID/hash validation does not establish ownership, file integrity, rights or biological truth."
+      ],
+      "codec": [
+        "Raw upload bytes are bounded before decode; JSON commands and private strict response schemas do not contain arbitrary filesystem paths or fetch URLs. Existing command errors disclose no private source details."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/reference-files/[id]/revoke:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/reference-files/[id]/revoke/+server.ts",
+        "symbols": [
+          "POST"
+        ]
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceRevokeCommandSchema",
+            "referenceAdmissionResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner",
+            "readCommand",
+            "readBoundedBytes"
+          ]
+        }
+      ],
+      "structural": [
+        "Withdraw permission terminally while retaining original records and reviews; future resolution and completion fail closed."
+      ],
+      "semantic": [
+        "Authentication, same-owner lookup, session/origin protections, bounded bodies, immutable idempotency and live permission remain server authority. Structural UUID/hash validation does not establish ownership, file integrity, rights or biological truth."
+      ],
+      "codec": [
+        "Raw upload bytes are bounded before decode; JSON commands and private strict response schemas do not contain arbitrary filesystem paths or fetch URLs. Existing command errors disclose no private source details."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/reference-files/discover:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/reference-files/discover/+server.ts",
+        "symbols": [
+          "POST"
+        ]
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceAcquisitionCommandSchema",
+            "referenceAdmissionResponseSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner",
+            "readCommand",
+            "readBoundedBytes"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-acquisition.ts",
+          "symbols": [
+            "ownedReferenceAcquisition"
+          ]
+        }
+      ],
+      "structural": [
+        "Resolve an owned retained discovery candidate by identifiers before separately authorized bounded original acquisition; caller URLs and metadata are not accepted."
+      ],
+      "semantic": [
+        "Authentication, same-owner lookup, session/origin protections, bounded bodies, immutable idempotency and live permission remain server authority. Structural UUID/hash validation does not establish ownership, file integrity, rights or biological truth."
+      ],
+      "codec": [
+        "Raw upload bytes are bounded before decode; JSON commands and private strict response schemas do not contain arbitrary filesystem paths or fetch URLs. Existing command errors disclose no private source details."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/reference-generation:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/reference-generation/+server.ts",
+        "symbols": [
+          "GET"
+        ]
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceGenerationCandidateSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner",
+            "readCommand",
+            "readBoundedBytes"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/admission.ts",
+          "symbols": [
+            "admittedPipeline"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/reference-generation.ts",
+          "symbols": [
+            "canonicalReferenceGenerationInput",
+            "referenceGenerationDefinition",
+            "referenceGenerationProviders"
+          ]
+        }
+      ],
+      "structural": [
+        "Read owner diagnostic jobs through the existing admitted pipeline workbench response authority."
+      ],
+      "semantic": [
+        "Authentication, same-owner lookup, session/origin protections, bounded bodies, immutable idempotency and live permission remain server authority. Structural UUID/hash validation does not establish ownership, file integrity, rights or biological truth."
+      ],
+      "codec": [
+        "Raw upload bytes are bounded before decode; JSON commands and private strict response schemas do not contain arbitrary filesystem paths or fetch URLs. Existing command errors disclose no private source details."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "api/reference-generation:POST",
+      "category": "http",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/reference-generation/+server.ts",
+        "symbols": [
+          "POST"
+        ]
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceGenerationCommandSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/http.ts",
+          "symbols": [
+            "requireOwner",
+            "readCommand",
+            "readBoundedBytes"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/admission.ts",
+          "symbols": [
+            "admittedPipeline"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/reference-generation.ts",
+          "symbols": [
+            "canonicalReferenceGenerationInput",
+            "referenceGenerationDefinition",
+            "referenceGenerationProviders"
+          ]
+        }
+      ],
+      "structural": [
+        "Queue, advance or cancel an owned local diagnostic job with an exact reference pin and versioned plan; no model or renderer admission."
+      ],
+      "semantic": [
+        "Authentication, same-owner lookup, session/origin protections, bounded bodies, immutable idempotency and live permission remain server authority. Structural UUID/hash validation does not establish ownership, file integrity, rights or biological truth."
+      ],
+      "codec": [
+        "Raw upload bytes are bounded before decode; JSON commands and private strict response schemas do not contain arbitrary filesystem paths or fetch URLs. Existing command errors disclose no private source details."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "references:load",
+      "category": "ssr",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/references/+page.server.ts",
+        "symbols": [
+          "load"
+        ]
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceAdmissionListSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-workbench.ts",
+          "symbols": [
+            "referenceFiles",
+            "referenceJobs"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/admission.ts",
+          "symbols": [
+            "admittedPipeline"
+          ]
+        }
+      ],
+      "structural": [
+        "Private page load returns authenticated identity, owned admission records, existing admitted pipeline jobs and a bounded generic failure message."
+      ],
+      "semantic": [
+        "An untouched yard read never initializes reference storage. Malformed or unavailable reference authority fails closed while saved records remain retained. Review controls require explicit owner decisions; no automatic species or rights approval."
+      ],
+      "codec": [
+        "Private no-store SSR data uses existing owner session binding; source metadata is never shared yard content."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/references/+page.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/reference-admission-golden-cases.ts",
+          "symbols": [
+            "referenceAdmissionGoldenCases"
+          ]
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "reference-admission:store",
+      "category": "store",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/reference-admission/service.ts",
+        "symbols": [
+          "ReferenceAdmissionService"
+        ]
+      },
+      "operation": "admit/review/revoke/resolve",
+      "transport": "sqlite",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceAdmissionRecordSchema",
+            "referenceAdmissionPinSchema",
+            "referenceReviewSchema",
+            "referenceRevocationSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/files.ts",
+          "symbols": [
+            "referenceDirectory",
+            "readPrivate",
+            "publishPrivate",
+            "referenceAdmissionInitialized"
+          ]
+        }
+      ],
+      "structural": [
+        "Immutable original, canonical PNG and decoded RGBA identities bind decoder normalization, owner upload or retained candidate/receipt snapshots. UUID references, content digests and content-bound three-review digests are exact version-one boundaries."
+      ],
+      "semantic": [
+        "Content identity hashes immutable identity plus source; review digest hashes contentDigest plus all three one-shot decisions. Server-bound reviewer identity, byte verification, catalog species consistency, explicit pose scope and current retained-source rights policy are mandatory before generation use. Terminal external revocation records prevent permission resurrection; stale or mismatched DB/file identity fails closed.",
+        "Retained source license ID/version/URL/creator/attribution cannot be replaced by owner assertions. No record hash alone grants generation permission or renderable admission."
+      ],
+      "codec": [
+        "Bounded strict persisted JSON and private immutable original/canonical/RGBA files use independent filesystem integrity checks. Recovery refuses initialized/nonempty reference stores in this slice; no ledger merge is attempted."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/reference-generation.ts",
+          "symbols": [
+            "referenceGenerationDefinition",
+            "referenceGenerationProviders"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/discovery.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/operations/reference-recovery.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Restore and migration of initialized reference stores remain intentionally blocked until an independently reviewed ledger-aware recovery protocol exists."
+      ]
+    },
+    {
+      "id": "reference-admission:image-codec",
+      "category": "codec",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/reference-admission/decode.ts",
+        "symbols": [
+          "decodeReferenceImage"
+        ]
+      },
+      "operation": "decode/orient/normalize",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "REFERENCE_IMAGE_LIMITS",
+            "referenceImageIdentitySchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/decode.ts",
+          "symbols": [
+            "decodeReferenceImage",
+            "referenceHash"
+          ]
+        }
+      ],
+      "structural": [
+        "Only PNG/JPEG original bytes up to 2 MiB, side2048 and 1,048,576 decoded pixels; canonical PNG is at most5 MiB. Decoder identity/version and canonical normalization are retained."
+      ],
+      "semantic": [
+        "Declared MIME does not establish encoding. Actual container boundaries, decode allocation, metadata stripping, orientation, straight sRGB8 RGBA and zero hidden transparent RGB are verified by the local decoder before immutable publication."
+      ],
+      "codec": [
+        "Original bytes, canonical PNG bytes and decoded RGBA have separate hashes. Image decoding has no provider/network side effects."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/decode.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
+    },
+    {
+      "id": "reference-generation:local-diagnostic",
+      "category": "job",
+      "owner": "image",
+      "version": "private reference admission and local diagnostic generation v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/asset-pipeline/reference-generation.ts",
+        "symbols": [
+          "referenceGenerationDefinition"
+        ]
+      },
+      "operation": "validate/execute/package",
+      "transport": "internal",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceGenerationInputSchema",
+            "referenceGenerationCandidateSchema",
+            "referenceGenerationProviderPinSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/reference-generation.ts",
+          "symbols": [
+            "LocalReferenceGenerationRegistry",
+            "validateReferenceGenerationRequest",
+            "validateReferenceGenerationCandidate",
+            "validateReferenceGenerationReview"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/service.ts",
+          "symbols": [
+            "ReferenceAdmissionService"
+          ]
+        }
+      ],
+      "structural": [
+        "An exact private reference pin, empty-declaration planning-v2 input and explicit registry provider version feed a bounded three-stage local diagnostic. Candidate is fixture:true/generated:false/renderable:false with exact input/plan/reference/output hashes and zero external/model calls."
+      ],
+      "semantic": [
+        "Unknown provider versions fail registry admission. Verified admitted bytes are resolved at queue, execution and completion; immutable plan and provider receipts cannot be supplied by adapters. Provider receives copied bytes and canonical plan without owner identities, source text or URLs. Revocation and completion fences prevent stale permission from publishing a candidate.",
+        "Diagnostic output is one frame at most8x8 with exact RGBA allocation, binary alpha and zero hidden RGB. Artifact review cannot convert this diagnostic kind into renderer artwork or a reusable admitted photo."
+      ],
+      "codec": [
+        "Strict provider output admits pixels only; server constructs provenance and canonical digests. Existing runner idempotency, retries, cancellation, lease and safe-error semantics apply."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/reference-generation/+server.ts",
+          "symbols": [
+            "POST"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle.ts",
+          "symbols": [
+            "AssetLifecycleService"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/reference-generation.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/pipeline/completion-authority.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "The only registered adapter is an explicitly labeled local diagnostic fixture. Real model assets, licensing/resource checks, reviewed generation adapters, full pose coverage, species-fidelity approval and renderable packaging remain future work."
+      ]
     }
   ]
 }

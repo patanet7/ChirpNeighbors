@@ -1,0 +1,189 @@
+{
+  "$ref": "#/definitions/ReferenceReviewCommandV1",
+  "definitions": {
+    "ReferenceReviewCommandV1": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "requestId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "decision": {
+              "type": "string",
+              "enum": [
+                "approved",
+                "rejected"
+              ]
+            },
+            "evidenceId": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]{0,159}$"
+            },
+            "kind": {
+              "type": "string",
+              "const": "rights"
+            },
+            "generationAllowed": {
+              "type": "boolean"
+            },
+            "derivativesAllowed": {
+              "type": "boolean"
+            },
+            "redistributionAllowed": {
+              "type": "boolean"
+            },
+            "licenseId": {
+              "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/evidenceId"
+            },
+            "licenseVersion": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/evidenceId"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "licenseUrl": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "maxLength": 2048
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "creator": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            },
+            "attribution": {
+              "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/creator"
+            }
+          },
+          "required": [
+            "requestId",
+            "decision",
+            "evidenceId",
+            "kind",
+            "generationAllowed",
+            "derivativesAllowed",
+            "redistributionAllowed",
+            "licenseId",
+            "licenseVersion",
+            "licenseUrl",
+            "creator",
+            "attribution"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "requestId": {
+              "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/requestId"
+            },
+            "decision": {
+              "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/decision"
+            },
+            "evidenceId": {
+              "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/evidenceId"
+            },
+            "kind": {
+              "type": "string",
+              "const": "species"
+            },
+            "speciesId": {
+              "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/evidenceId"
+            }
+          },
+          "required": [
+            "requestId",
+            "decision",
+            "evidenceId",
+            "kind",
+            "speciesId"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "requestId": {
+              "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/requestId"
+            },
+            "decision": {
+              "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/decision"
+            },
+            "evidenceId": {
+              "$ref": "#/definitions/ReferenceReviewCommandV1/anyOf/0/properties/evidenceId"
+            },
+            "kind": {
+              "type": "string",
+              "const": "pose"
+            },
+            "poseLabel": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "permittedActions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "idle",
+                  "moving",
+                  "perching",
+                  "singing",
+                  "feeding",
+                  "bathing",
+                  "sleeping",
+                  "playing",
+                  "nesting"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 9
+            },
+            "viewpoints": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "left",
+                  "right",
+                  "front",
+                  "back",
+                  "three-quarter",
+                  "other"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 6
+            }
+          },
+          "required": [
+            "requestId",
+            "decision",
+            "evidenceId",
+            "kind",
+            "poseLabel",
+            "permittedActions",
+            "viewpoints"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/reference-review-command-v1.schema.json",
+  "description": "Owner-private immutable image admission and local diagnostic generation structural boundary. Bounded PNG/JPEG byte identities retain decoder normalization and source provenance. Rights, species and explicit pose scopes are separate owner assertions; content-bound review pins require exact live ownership, byte hashes, current permissions and terminal revocation checks. Retained discovery snapshots cannot be relabeled by review. Source/refinement semantics enforce allocation, source correspondence, review chronology and diagnostic pixel constraints. Unknown adapter pins require runtime registry rejection. Diagnostic candidates are fixture-only, generated false and nonrenderable; they do not certify legal rights, species fidelity, real generation, renderer admission or public release. No arbitrary URL fetch, model call, paid service or external upload is authorized."
+}

@@ -1,0 +1,238 @@
+{
+  "$ref": "#/definitions/ReferenceGenerationCandidateV1",
+  "definitions": {
+    "ReferenceGenerationCandidateV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "format": {
+          "type": "string",
+          "const": "reference-generation-candidate"
+        },
+        "renderable": {
+          "type": "boolean",
+          "const": false
+        },
+        "fixture": {
+          "type": "boolean",
+          "const": true
+        },
+        "generated": {
+          "type": "boolean",
+          "const": false
+        },
+        "purpose": {
+          "type": "string",
+          "const": "local-diagnostic-not-species-art"
+        },
+        "provider": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]{0,159}$"
+            },
+            "version": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ],
+          "additionalProperties": false
+        },
+        "inputSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "planSha256": {
+          "$ref": "#/definitions/ReferenceGenerationCandidateV1/properties/inputSha256"
+        },
+        "referencePin": {
+          "type": "object",
+          "properties": {
+            "referenceId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "contentDigest": {
+              "$ref": "#/definitions/ReferenceGenerationCandidateV1/properties/inputSha256"
+            },
+            "reviewDigest": {
+              "$ref": "#/definitions/ReferenceGenerationCandidateV1/properties/inputSha256"
+            }
+          },
+          "required": [
+            "referenceId",
+            "contentDigest",
+            "reviewDigest"
+          ],
+          "additionalProperties": false
+        },
+        "reference": {
+          "type": "object",
+          "properties": {
+            "originalSha256": {
+              "$ref": "#/definitions/ReferenceGenerationCandidateV1/properties/inputSha256"
+            },
+            "canonicalSha256": {
+              "$ref": "#/definitions/ReferenceGenerationCandidateV1/properties/inputSha256"
+            },
+            "rgbaSha256": {
+              "$ref": "#/definitions/ReferenceGenerationCandidateV1/properties/inputSha256"
+            }
+          },
+          "required": [
+            "originalSha256",
+            "canonicalSha256",
+            "rgbaSha256"
+          ],
+          "additionalProperties": false
+        },
+        "pixels": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 2
+            },
+            "format": {
+              "type": "string",
+              "const": "rgba8-frames"
+            },
+            "canvas": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 8
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 8
+                }
+              },
+              "required": [
+                "width",
+                "height"
+              ],
+              "additionalProperties": false
+            },
+            "logicalPixelSize": {
+              "type": "number",
+              "const": 1
+            },
+            "paletteLimit": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 64
+            },
+            "frames": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "rgba": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 255
+                    },
+                    "minItems": 4,
+                    "maxItems": 256
+                  }
+                },
+                "required": [
+                  "rgba"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 1
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "format",
+            "canvas",
+            "logicalPixelSize",
+            "paletteLimit",
+            "frames"
+          ],
+          "additionalProperties": false
+        },
+        "outputSha256": {
+          "$ref": "#/definitions/ReferenceGenerationCandidateV1/properties/inputSha256"
+        },
+        "execution": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "local-fake"
+            },
+            "externalCalls": {
+              "type": "number",
+              "const": 0
+            },
+            "modelCalls": {
+              "type": "number",
+              "const": 0
+            },
+            "scientificFidelityApproved": {
+              "type": "boolean",
+              "const": false
+            }
+          },
+          "required": [
+            "kind",
+            "externalCalls",
+            "modelCalls",
+            "scientificFidelityApproved"
+          ],
+          "additionalProperties": false
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2000
+          },
+          "minItems": 1,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "format",
+        "renderable",
+        "fixture",
+        "generated",
+        "purpose",
+        "provider",
+        "inputSha256",
+        "planSha256",
+        "referencePin",
+        "reference",
+        "pixels",
+        "outputSha256",
+        "execution",
+        "limitations"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/reference-generation-candidate-v1.schema.json",
+  "description": "Owner-private immutable image admission and local diagnostic generation structural boundary. Bounded PNG/JPEG byte identities retain decoder normalization and source provenance. Rights, species and explicit pose scopes are separate owner assertions; content-bound review pins require exact live ownership, byte hashes, current permissions and terminal revocation checks. Retained discovery snapshots cannot be relabeled by review. Source/refinement semantics enforce allocation, source correspondence, review chronology and diagnostic pixel constraints. Unknown adapter pins require runtime registry rejection. Diagnostic candidates are fixture-only, generated false and nonrenderable; they do not certify legal rights, species fidelity, real generation, renderer admission or public release. No arbitrary URL fetch, model call, paid service or external upload is authorized."
+}
