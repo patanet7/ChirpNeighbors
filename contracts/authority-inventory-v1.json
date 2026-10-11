@@ -274,6 +274,14 @@
           "symbols": [
             "jobCommandSchema"
           ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/animation-specification.ts",
+          "symbols": [
+            "animationPlanningInputSchema",
+            "animationProductionPlanSchema"
+          ]
         }
       ],
       "structural": [
@@ -281,7 +289,8 @@
       ],
       "semantic": [
         "Job ancestry, review ownership, stage status/lease/retry and artifact provenance are canonical pipeline graph refinements plus repository transactions.",
-        "revise-shape accepts geometry plus an exact base pin only; the server clones the complete retained source. Idempotent queueing creates a new review candidate without mutating pixels, lineage, approved artifacts or existing resident pins."
+        "revise-shape accepts geometry plus an exact base pin only; the server clones the complete retained source. Idempotent queueing creates a new review candidate without mutating pixels, lineage, approved artifacts or existing resident pins.",
+        "plan-animation compiles an owner-private proposal with complete frame/prompt inventory and mandatory missing-production gates. It never invokes generation, approves source pixels or exposes a selectable animation manifest."
       ],
       "codec": [
         "HTTP JSON decoding and bounded request bodies are distinct from object validation."
@@ -4997,6 +5006,95 @@
       ],
       "gaps": [
         "Network deadline is not forced native inference or OS resolver termination; local fixture proof does not establish deployed service reachability."
+      ]
+    },
+    {
+      "id": "animation-planning",
+      "category": "job",
+      "owner": "image",
+      "version": "animation-planning@1; proposed specification and production-plan v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/assets/animation-specification.ts",
+        "symbols": [
+          "animationPlanningInputSchema",
+          "animationSpecificationSchema",
+          "animationProductionPlanSchema"
+        ]
+      },
+      "operation": "plan/compile/review",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/animation-specification.ts",
+          "symbols": [
+            "animationPlanningInputSchema",
+            "animationSpecificationSchema",
+            "animationProductionPlanSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/pipeline/commands.ts",
+          "symbols": [
+            "jobCommandSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/asset-pipeline/animation-planning.ts",
+          "symbols": [
+            "compileAnimationPlan",
+            "animationPlanningDefinition"
+          ]
+        }
+      ],
+      "structural": [
+        "Four generated authoritative schemas cover the existing job-command union plus strict planning input, proposed animation specification and non-renderable production plan. Canonical nine actions carry explicit proposed frames, bounded ticks, mirrorable direction, pivot/contact requirements, loop/terminal behavior, transitions and per-frame prompts. All previous command alternatives remain available."
+      ],
+      "semantic": [
+        "Pinned catalog scientific identity, unique matching references, canonical action order, contiguous frame allocation, exact decoded allocation, loop/completion agreement, canvas bounds, contact uniqueness, ordered clip/frame prompts and mandatory unverified production blockers require source refinements.",
+        "The deterministic compiler hashes exact normalized input and specification and uses reviewed application identity in templates. Reference metadata is declaration-only; original bytes, source rights, scientific fidelity, model execution, art direction and output approval are not granted. Owner-private immutable job storage/review remains authoritative. Approving a plan cannot select it as renderable artwork."
+      ],
+      "codec": [
+        "Strict JSON decoding and the existing bounded authenticated job command route; planning returns no pixels and performs no provider/network execution. Proposed frame budgets remain within the existing renderer allocation capacity."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/jobs/+server.ts",
+          "symbols": [
+            "POST"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/pipeline/definitions.ts",
+          "symbols": [
+            "developmentPipelines"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/animation-golden-cases.ts",
+          "symbols": [
+            "animationGoldenCases"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/contract-tools/job-command-golden-cases.ts",
+          "symbols": [
+            "jobCommandGoldenCases"
+          ]
+        }
+      ],
+      "gaps": [
+        "Approved concept pixels, actual species reference bytes and scientific review, verified generation rights, configured generation/model adapters and final generated output are absent. The proposed 32x32/60-frame budget is not accepted visual fidelity.",
+        "Only right-facing mirrorable clips are supported. Independent directional sets, takeoff/landing, authored cross-clip transitions and support-specific sleep variants require future reviewed contracts and artwork. Arrival/scatter reuse moving; environment effects remain separate procedural layers."
       ]
     }
   ]

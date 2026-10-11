@@ -397,7 +397,6 @@ def main() -> int:
             ui / name
             for name in (
                 "tsconfig.json",
-                "tsconfig.javascript.json",
                 "tsconfig.tools.json",
                 ".svelte-kit/tsconfig.json",
                 "package.json",

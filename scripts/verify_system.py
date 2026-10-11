@@ -629,6 +629,11 @@ def gates(
         ("auth", "auth-browser-checks.py", "CHIRP_AUTH_OUTPUT"),
         ("assets", "asset-pipeline-browser-checks.py", "CHIRP_ASSET_OUTPUT"),
         (
+            "animation-planning",
+            "animation-planning-browser-checks.py",
+            "CHIRP_ANIMATION_PLANNING_OUTPUT",
+        ),
+        (
             "recordings-ui",
             "recordings-ui-browser-checks.py",
             "CHIRP_RECORDINGS_UI_OUTPUT",

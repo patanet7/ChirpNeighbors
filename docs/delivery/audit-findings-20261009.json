@@ -517,7 +517,7 @@
       "owner": "tooling",
       "finding": "Some first-party declarations, untyped tools/harnesses and two experimental simulator scripts lack full static type/lint coverage.",
       "status": "resolved",
-      "fix": "All 52 active handwritten JavaScript implementations now use actual TypeScript. Nineteen exact one-line forwarding entries preserve existing command/config discovery; six generated validator bodies and inactive history remain explicit exceptions. Seven backend test gaps were closed at the preserved preceding checkpoint; Python services and native firmware keep their languages. Current discovery/configuration guards account for 583 active source files and reject omitted/new source, weakened checks, extra JavaScript implementation logic and unsupported native runtime imports.",
+      "fix": "All 52 formerly active handwritten JavaScript implementations use actual TypeScript. The animation-planning wave removes 18 avoidable historical command forwarders and migrates active callers; the sole remaining handwritten JavaScript file is an exact one-line svelte.config.js export required by the pinned analyzer. Six generated validator bodies and inactive history remain explicit exceptions. Python services and native firmware keep their languages. Discovery/configuration guards reject omitted/new source, weakened checks, extra JavaScript implementation logic and unsupported native runtime imports.",
       "regressionEvidence": [
         "svelte-static-audit-20261009.md",
         "external-transport-20261009/focused/static/chirp-static-coverage-20261009.json",
@@ -536,9 +536,10 @@
         "typescript-migration-20261011.md",
         "typescript-migration-20261011/integrated/report.json",
         "typescript-migration-20261011/counts.json",
-        "typescript-migration-20261011/review/final-source-review.json"
+        "typescript-migration-20261011/review/final-source-review.json",
+        "animation-planning-20261011.md"
       ],
-      "reviewerResult": "Independent 44/44 controls pass: source applicability 18, backend 10, JavaScript 16. JSDoc any bypasses found during review were repaired and permanently probed. Complete frozen 93/93 integrated gates pass at recorded commits; current active first-party typing scope is closed with explicit generated/dependency/empty/legacy/firmware boundaries. TypeScript migration independent review passes 33 controls; full frozen 93/93 regression passes at main 9d553e4 / UI 70123b0, with 63 native tooling controls and 33 declaration controls."
+      "reviewerResult": "Independent 44/44 controls pass: source applicability 18, backend 10, JavaScript 16. JSDoc any bypasses found during review were repaired and permanently probed. Complete frozen 93/93 integrated gates pass at recorded commits; current active first-party typing scope is closed with explicit generated/dependency/empty/legacy/firmware boundaries. TypeScript migration independent review passes 33 controls; full frozen 93/93 regression passes at main 9d553e4 / UI 70123b0, with 63 native tooling controls and 33 declaration controls. Current shim removal has focused strict and discovery-control proof; the new complete frozen animation-planning regression is pending in its own checkpoint."
     },
     {
       "id": "IR-09",
