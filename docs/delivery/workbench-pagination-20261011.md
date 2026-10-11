@@ -30,3 +30,11 @@ only list membership/order is frozen.
 Retention remains a separately bounded whole-owner dependency scan. Its 512-job,
 64-file and 32 MB scan bounds and fail-closed incomplete status are unchanged;
 this work does not claim unlimited retention scale or paginate away dependencies.
+
+Compatibility is backward reading of retained list envelopes. Old strict clients
+reject added page metadata, and old list consumers may assume arrays are complete.
+This local unpublished slice requires the matching updated server/UI and a reload
+of old UI sessions. Independently deployed old clients would need a versioned or
+negotiated endpoint; returning truncated arrays without metadata is not a legacy
+adapter. Only the reviewed PNG-list digest entries changed; no compatibility
+checker rule was relaxed.
