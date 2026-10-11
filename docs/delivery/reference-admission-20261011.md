@@ -1,134 +1,170 @@
-# Private reference admission — local task and status
+# Private reference admission — local implementation and status
 
-The local application and contract/review pipeline are implemented and broadly tested.
-The next bounded step is private **PNG/JPEG reference admission, explicit rights/species/
-pose approval, terminal revocation and exact reference pins consumed by a local fake
-generator through the existing runner**. Its output is a non-renderable candidate;
-existing species fixtures, resident artwork pins and owner data remain unchanged.
-This document records scope and acceptance, not a completed new implementation.
+Private PNG/JPEG reference admission is implemented: bounded original/decoded byte
+retention, separate explicit rights/species/pose reviews, terminal revocation and exact
+reference pins consumed by a local diagnostic provider through the existing runner.
+The private workbench connects these steps. The output is a **non-renderable 4×4 digest
+grid**, not bird artwork. Existing species fixtures and resident artwork selection are
+unchanged. Approved real-species/concept pixels and image-generation models remain absent.
 
-Branches: `codex/reference-admission-local`. Starting heads are main
-`d2d0e0ed35706c762b7c69439f92cf2fbdd1618d` and UI
-`a7e44323e1ff718b45fe12e4d12d2b61ac89e54a`. The [preceding complete checkpoint](animation-planning-20261011.md)
-passed **94/94** at tested main `7311d2496f66074bdc5fcfd70abfaec7a0127115` and UI
-`e389a1f83e15057a8625dc7b7a10ca011442db6e`; changes from those tested sources to the
-starting heads are documentation/evidence only. That historical proof does not verify
-new reference-admission code. No new test counts or passing implementation are claimed here.
+Branches: `codex/reference-admission-local`. The tested frozen source commits are main
+`7279b5626f290d8fab24ed632f6a6e57d2f2e477` and UI
+`53e414077799384ba2f56340235424016a309324`. The **replacement aggregate (r2) passed 95/95 frozen gates**, completed
+`2026-10-11T18:51:04.665366+00:00`. [Integrated report](LOCAL-EVIDENCE.md), [counts](LOCAL-EVIDENCE.md).
+Report SHA-256: `e2c96e45510851456b4641b9a2b2092814e8b4c70dfbded1a73614afae6376e9`. Documentation/evidence
+commits follow tested source commits and are reported separately in the final delivery
+and Git history. Starting heads remain main `d2d0e0ed35706c762b7c69439f92cf2fbdd1618d`
+and UI `a7e44323e1ff718b45fe12e4d12d2b61ac89e54a`.
 
 The [36-entry product index](product-behavior-and-ideas.md) and
-[55-finding register](audit-findings-20261009.json) remain authoritative. Statuses below
-apply to named boundaries: **BUILT/TESTED** local connected implementation;
-**FIXTURE-ONLY** content/validity, not fake app execution; **LIVE-UNVERIFIED** external,
-physical or deployed acceptance; **ABSENT** missing integration; **BLOCKED** concrete
-unavailable input/access. There is no product-completion percentage.
+[55-finding register](audit-findings-20261009.json) retain every stable ID and historical
+proof. **BUILT/TESTED** below describes a connected local boundary with named focused or
+preceding integrated evidence; **FIXTURE-ONLY** describes its content/validity;
+**LIVE-UNVERIFIED** describes external, physical or production acceptance; **ABSENT**
+means missing implementation/input; **BLOCKED** names a concrete unavailable dependency.
+There is no product-completion percentage.
 
-## Completed status assessment at the starting checkpoint
+## Current completion matrix
 
-| Area and register IDs | Current status and actual boundary | Code authority / next dependency |
+| Area | Status and actual boundary | Highest-value next dependency |
 | --- | --- | --- |
-| Auth/login — EN-002 | BUILT/TESTED email-link/Google/session mechanics; LIVE-UNVERIFIED actual Google consent and SMTP mailbox | [Auth service](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/auth/service.ts), [strict config](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/auth/config.ts); operator config and live callback/mail test |
-| Uploads/storage — PB-012/020/022, EN-003/011 | BUILT/TESTED real private WAV/PNG bytes, SQLite/files, review/pins/archive/delete ledger and restart/backup recovery; general reference photos and account-wide erasure ABSENT | [PNG service](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/image-files/service.ts), [recordings](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/recordings/service.ts), [lifecycle](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/assets/lifecycle.ts); exact reference admission next |
-| Audio identification — PB-012, EN-004 | BUILT/TESTED audio transport/confirmation and optional ONNX execution; FIXTURE-ONLY model accuracy; trained/licensed bird bundle ABSENT | [ONNX adapter](../../backend-inference/app/audio_onnx/provider.py); authorized model/data and withheld real-recording evaluation |
-| Reference discovery — PB-021 | BUILT/TESTED Commons adapter, bounded transport, persisted metadata; actual live request BLOCKED/network-unavailable | [Discovery service](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/reference-discovery/service.ts); successful source retrieval is separate from image identity/rights review |
-| Image-generation/art — PB-014/021 | Planner/packaging BUILT/TESTED; approved species artwork and actual image model ABSENT. Default 9 clips / 60 frames are proposals, generated 0 | [V2 planner](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/asset-pipeline/animation-planning-v2.ts), [image stage](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/asset-pipeline/image-stage.ts); reviewed references/concept direction and provider/output licenses |
-| Shared canonical assets/variants — PB-003 | BUILT/TESTED request dedupe/exact releases/pins; runtime FIXTURE-ONLY/default-deny promotion. Shared optional variant authoring ABSENT | [Catalog selection](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/assets/catalog-selection.ts); approved production reference/art and explicit promotion authority |
-| Autonomous yard motion — PB-004/008/009/010 | BUILT/TESTED nine-state routines, movement/support/fairness, seed replay, arrival/scatter; FIXTURE-ONLY 5 frames / 6 clips, sleep/play/nest still fallback | [Simulation](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/simulation.ts), [sampler](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/assets/manifest.ts); actual reviewed clips before claiming visual completion |
-| Traits/personality — PB-005 | BUILT/TESTED strict data composition and transient variants; FIXTURE-ONLY illustrative biology. Persisted trait selection ABSENT | [Profiles](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/behavior-profiles.ts); distinct scientific facts, private observations, fictional personality and presentation |
-| Objects/themes/regions — PB-007/011 | BUILT/TESTED four kinds, inventory, layered scenes/palette roles and real-consumer variant tests. New kinds/theme IDs/world-region graph ABSENT | [Scene kinds](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/domain/scene.ts), [scene manifest](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/scenes/manifest.ts); versioned definition/selection/storage admission |
-| Weather — PB-023/024, EN-009 | BUILT/TESTED procedural visuals and illustrative shelter policy; FIXTURE-ONLY environment; real provider/location authorization ABSENT | [Policy](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/environment-policy.ts), [disabled provider](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/weather/provider.ts); chosen provider/coarse-consent policy |
-| Privacy/sharing/analytics — PB-001/013/015/016/019 | BUILT/TESTED private defaults, narrow revocable location-free shares, consent-off analytics and restore fences. Security helper tested but operational hooks ABSENT | [Projection](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/domain/yard.ts:502), [analytics config](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/analytics/config.ts), [security helper](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/analytics/security-audit.ts); retention/erasure/operator policy |
-| Worker/dispatch/accounting — EN-005/006, PB-018 | Durable manually advanced jobs BUILT/TESTED; original worker BLOCKED before source transfer. Distributed architecture and runtime usage ledger ABSENT | [Runner](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/pipeline/runner.ts), [usage helpers](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/pipeline/generation-usage.ts); obtain original source, do not recreate it |
-| Firmware — EN-007 | Original history locally integrated; simulator Python tooling/14 host tests in the 94-gate run BUILT/TESTED, with eight direct native tests retained from earlier scoped proof. Board compile/static and QEMU firmware scenarios BLOCKED; physical device/private enrollment/TLS LIVE-UNVERIFIED | [Firmware](../../esp32-client/src/main.cpp), [CI definition](../../.github/workflows/firmware.yml); supported toolchain then physical acceptance |
-| Contracts/CI/publication — EN-001/010 | Contract consumers, compatibility and local94-gate suite BUILT/TESTED; remoteCI/deployment LIVE-UNVERIFIED; publication excluded/separately stalled | [Compatibility](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/storage/compatibility.ts), [corpus](../../scripts/check_contract_corpus.py); no push/PR/merge/deploy here |
-| Performance — GAP-03/04/05 | Actor/geometry/canvas budgets and reuse BUILT/TESTED; stress frame time, physical devices, real-art load LIVE-UNVERIFIED; SVG is static fallback | [Budget consumer](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/renderer.ts:137), [limits](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/scene-resource-budget.ts); measured workload/target and physical-device validation |
-| Sound, progression, economy, MLOps — PB-006/017, GAP-02, EN-012 | ABSENT or unselected ideas; no yard mixer/sound catalog, progression, payments or operating training platform | Existing native recording playback is not yard sound; product/license/runtime decisions precede implementation |
-
-
-The 94-gate report covers 1,823 UI tests, 35 browser/HTTP reports with 1,464 recorded
-assertions, plus 55 additional local auth-provider assertions. Counts overlap; they
-are not a summed unique-test count. Pixi and SVG consume the real asset registry,
-clip sampler and scene admission; the local app is more than a collection of contracts.
-The 107-assertion planning browser flow uses synthetic Commons metadata in the actual
-development app. Neither that flow nor the complete aggregate proves real species
-fidelity, successful live source retrieval, live account/mail delivery, physical
-hardware, production performance, remote CI or publication.
-
-Generation usage is a **built contract/estimator/fingerprint foundation** in
-[the usage helpers](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/pipeline/generation-usage.ts),
-with tests; no runtime caller of its summaries/fingerprints, durable execution ledger,
-actual model metering or budget enforcement was found. A pipeline stage record is
-not evidence of a billable provider invocation.
-
-Whole-scene allocation guards are already implemented and consumed by both renderers:
-96 actors, 32,768 primitives, 262,144 retained rectangles and 4,194,304 backing pixels,
-with a 4,096 edge cap. GAP-03 remains open for active frame-time stress, real-art loads
-and physical devices; it no longer means allocation budgets are absent.
-
-## Why this slice comes next
-
-[Reference discovery](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/reference-discovery/service.ts)
-currently retains metadata, and its optional original-fetch helper can validate bytes
-before an optional writer. Normal planning does not retain these as an independent
-reviewed private reference authority. Existing
-[PNG intake](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/image-files/service.ts)
-is an atlas path with distinct bounded decoding and source/manifest reviews. In
-[V2 conditioning](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/assets/resolve.ts),
-nonfixture production references must already be approved species animation manifests.
-A photo-reference record is missing; legacy V1 declaration-based packaging is not
-proof that actual photo bytes, identity and rights were independently reviewed.
-
-The new slice connects actual private file bytes to explicit review and a real local
-consumer. It preserves existing V1/V2 contracts by deliberate additive admission,
-keeps reference records and fake outputs non-renderable, and does not require an
-image model or network availability to prove its mechanics. It does not relax the
-existing sprite-atlas or taxonomy boundaries.
+| Reference photos, review and source identity — PB-014/020/021 | BUILT/TESTED bounded PNG/JPEG originals, canonical previews, immutable owner reviews, exact content/review pins and terminal revocation. Tests use technical image bytes; approved actual-species imagery is ABSENT. | Obtain authorized actual-species/concept inputs and named biological/art review; upload alone grants no rights. [Admission service](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/reference-admission/service.ts), [decoder](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/reference-admission/decode.ts). |
+| Planning, discovery and generation — PB-021 | BUILT/TESTED versioned recipes, prompts, persisted discovery, acquisition authority and local diagnostic execution. Commons live lookup BLOCKED; real image-generation adapter/model and reviewed sprites ABSENT. Nine clips / 60 frames remain proposals, with zero produced species-art frames. | Resolve approved inputs/model contract before a real generation adapter. [Acquisition](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/reference-acquisition.ts), [local bridge](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/asset-pipeline/reference-generation.ts). |
+| Yard and shared artwork — PB-003/004/008/009/010 | BUILT/TESTED manifests, exact releases/pins, cache/fallbacks, autonomous nine-state routines, arrivals/scatter and replay. Art is FIXTURE-ONLY: five frames / six clips; sleep/play/nest still fall back. | Review actual clip pixels/contact/loop/transition quality before production promotion. [Simulation](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/simulation.ts), [catalog selection](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/assets/catalog-selection.ts). |
+| Traits, objects, scenery and weather — PB-005/007/011/023/024 | BUILT/TESTED strict illustrative traits, fictional personality, four object kinds, layers/supports and procedural weather. Validated biology, persistent trait variants, arbitrary new kinds/theme IDs/world-region graph and real weather adapters are ABSENT. | Add one versioned definition/selection/storage extension with consumer/replay tests when its product need is selected. [Traits](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/behavior-profiles.ts), [scene authority](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/scenes/manifest.ts). |
+| Privacy, storage and recovery — PB-001/013/015/019/022; EN-003/011 | BUILT/TESTED private owner bytes, location-free revocable sharing, consent-off analytics, ordinary restart and existing media recovery. Reference-bearing cold restore is deliberately BLOCKED, including after store initialization before the first upload. Account-wide erasure/security-hook operation is ABSENT. | Define a reference revocation recovery protocol retaining the newest external authority before enabling reference-store restore. [Recovery refusal](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/operations/lifecycle-recovery.ts), [backup CLI](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/private_backup.py). |
+| Accounts and bird-audio recognition — EN-002/004 | BUILT/TESTED local auth/session flows, private WAV handling and optional ONNX execution on synthetic graphs. Actual Google/SMTP delivery LIVE-UNVERIFIED; licensed trained bird model/accuracy ABSENT. | Operator configuration and live callback/mail acceptance separately; approved audio weights/taxonomy/data plus independent accuracy evaluation. [Auth](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/auth/service.ts), [ONNX adapter](../../backend-inference/app/audio_onnx/provider.py). |
+| Worker and accounting — EN-005/006; PB-018 | BUILT/TESTED manually advanced durable runner and pure usage/fingerprint helpers; original autonomous worker source BLOCKED. Durable provider usage ledger/live metering and distributed platform are ABSENT. | Obtain the exact original worker archive/bundle below; do not recreate it. Add accounting alongside separately scoped real execution. [Runner](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/pipeline/runner.ts), [usage foundation](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/pipeline/generation-usage.ts). |
+| Firmware — EN-007 | Original history integrated locally; simulator tooling/14 host tests in the preceding aggregate and eight earlier direct native tests BUILT/TESTED. Board/static and QEMU firmware scenarios BLOCKED; physical device/I2S/radio/private enrollment/TLS LIVE-UNVERIFIED. | Supported pinned board toolchain and original scenario execution, then physical acceptance. QEMU startup alone is not a firmware test. [Firmware](../../esp32-client/src/main.cpp). |
+| Contracts, CI and publication — EN-001/010 | New strict additive reference contracts and gate wiring implemented; previous 94-gate checkpoint BUILT/TESTED, current 95/95 frozen aggregate BUILT/TESTED. Remote CI/deployment LIVE-UNVERIFIED; publication remains excluded. | Retain the frozen report and independent review; keep local evidence commits distinct from publication and deployment. [Aggregate runner](../../scripts/verify_system.py), [compatibility](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/storage/compatibility.ts). |
+| Performance and unselected outcomes — GAP-02/03/04/05; PB-006/017; EN-012 | BUILT/TESTED renderer allocation limits/cache reuse; physical-device frame time/real-art load LIVE-UNVERIFIED. Yard sound, progression, economy and operating MLOps are ABSENT/unselected. | Measure a named workload/device after real art exists; choose each product outcome and its acceptance before implementation. [Scene limits](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/scene-resource-budget.ts). |
 
 ## Concrete task checklist
 
-| Task | Dependency | Acceptance | Current status |
+| Task | Dependency | Acceptance and implementation | Current status |
 | --- | --- | --- | --- |
-| RA-01: Reconcile actual status and capabilities | Existing36requirements/55findings, source and retained94-gate proof | Distinguish built consumers from fixtures, live/unavailable providers and absent integrations; retain exact IDs, old evidence and source revisions | Completed read-only assessment; no new implementation proof |
-| RA-02: Define versioned reference records and exact pins | RA-01; existing shared contract authorities | Separate original/decoded identity, private owner, catalog species, intended-use rights and independent species/pose review; reject unknown versions/keys and conflicting identities; generated counterparts agree | In progress; source and tests pending |
-| RA-03: Admit private PNG/JPEG originals and preview bytes | RA-02; maintained decoder/private-file patterns | Explicit byte/dimension/pixel/metadata limits; signature/format checks; malformed/truncated/oversized inputs reject before publication; original/decoded hashes bind immutable private storage; no public paths or URL-fetch bypass | Planned within current implementation scope |
-| RA-04: Persist immutable approval and terminal revocation | RA-02–03 | Rights, species and pose are explicit gates; caller booleans cannot fabricate server approval; revoked identity cannot be restored/reapproved under the same exact pin; wrong owner/version/hash fails; retained evidence remains inspectable | Planned within current implementation scope |
-| RA-05: Resolve exact approved references into existing runner | RA-04; existing durable jobs/provider seam | Queue/execute recheck owner, exact digest/version and current approval; revoke/missing/corrupt dependencies fail before local fake execution; retry/restart/idempotency preserve source identity; no time-of-check bypass | Planned within current implementation scope |
-| RA-06: Local fake generation candidate | RA-05; strict provider/result authority | Invoke only the explicitly local fake provider through the existing runner; retained output clearly fixture/synthetic and non-renderable; review cannot make it a resident manifest or shared release; no art/model-output claim | Planned within current implementation scope |
-| RA-07: Private UI and lifecycle integration | RA-03–06; current owner/auth/privacy paths | Upload/inspect/review/revoke/select exact references; two-owner isolation; reload/restart and revoked-state display; shares/analytics omit private files and source metadata; present yard/media/pins unchanged | Planned within current implementation scope |
-| RA-08: Contract, regression and independent verification | RA-02–07 frozen source | Applicable strict types/lint/build, contract compatibility, meaningful corrupt/version/owner/revocation/late-result tests and actual browser flow; full suite and review bound to exact new commits | Pending; preceding94pass is historical |
-| RA-09: Local evidence and task reconciliation | RA-08 | Preserve failures/logs/network/source audit, exact counts and commits; reconcile same36/55IDs; local commits only, no publication | Pending |
+| RA-01: Reconcile actual status and capabilities | Existing 36 requirements / 55 findings and retained source/evidence | Distinguish consumers, fixtures, unavailable providers and missing integrations; preserve exact IDs and prior proof. | Completed assessment and register reconciliation. |
+| RA-02: Define versioned reference records and exact pins | RA-01; existing shared contract authorities | Separate original/canonical identity, private owner scope, catalog species, intended-use rights and explicit species/pose reviews; reject unknown keys/versions; generated contracts preserve old versions. | Implemented; additive strict contracts and focused boundary tests. Included in the complete frozen 95 compatibility run. |
+| RA-03: Admit private PNG/JPEG originals and previews | RA-02; maintained decoder/private-file patterns | Enforce signature/structure, metadata, decode deadline and allocation limits; retain immutable original/canonical/RGBA hashes; reject corrupt/truncated/oversized/multipage inputs; private paths and owner-only previews. | Implemented; focused technical-image tests. No approved actual-species photo acceptance. |
+| RA-04: Persist immutable review and terminal revocation | RA-02–03 | Rights, supported species and pose/action/viewpoint scope are separate owner assertions; approval cannot bypass retained source restrictions; request identity/idempotency and external tombstones fence revoked pins and stale DB state. | Implemented; focused denial/retry/restart/corruption tests. Whole-store cold restore remains blocked. |
+| RA-05: Resolve exact references through the existing runner | RA-04; durable job/provider seams | Recheck live owner, hashes, all reviews and action plus direction/viewpoint scope at queue/execution/completion/review; reject missing/corrupt/revoked dependencies and late outputs; preserve bounded retry and immutable job identity. | Implemented; ENG-01 corrected with explicit left/right scope for current mirrorable side-view plans; 41 provider tests pass. |
+| RA-06: Local diagnostic candidate | RA-05; strict provider/result authority | Explicit `local-fake` registry only; bounded diagnostic pixels, private provenance and `renderable:false`; approval grants no sprite pin/shared release; no network/model calls by the fake adapter. | Implemented; deterministic one-frame 4×4 digest grid. Zero species-art frames generated. |
+| RA-07: Private workbench and lifecycle boundary | RA-03–06; owner/auth/privacy paths | Upload/inspect/review/revoke/select exact references; source acquisition resolves an owned saved discovery instead of caller URLs; preserve private sharing/telemetry and existing yard/artwork authority. Reject unsupported reference-store recovery before mutation. | Implemented. Clean focused browser flow passes 72/72 with front-only UI/API rejection; current R5 security/engine review and the complete frozen 95 run are recorded under RA-08. |
+| RA-08: Frozen regression and independent verification | RA-02–07 frozen source | Strict types/lint/build, old/new contract compatibility, owner/version/action/viewpoint/revocation/corruption/late-output cases, actual private browser flow and renderer regressions bound to exact commits. | Retained 50 admission controls; updated 41 provider tests; clean 72/72 browser flow; R5 13 original plus six separate viewpoint controls pass. Complete frozen 95 r2 passed; r1 remains interrupted, not passed. |
+| RA-09: Local evidence and register reconciliation | RA-08 | Retain failures/logs/source/network audit, exact totals and commits; reconcile the same 36/55 IDs; local delivery only. | Exact raw evidence archived and registers reconciled; the local documentation/evidence commit follows tested sources. |
 
-Fake generation is an execution-boundary test. It is not a new species sprite,
-segmentation model, biological classifier, paid service or production generator.
-The user-facing language must distinguish reference approval, model eligibility,
-synthetic execution, candidate review and renderable artwork selection.
+## Verification boundaries and retained attempts
 
-## Current external and source constraints
+**95/95 frozen gates passed**, completed `2026-10-11T18:51:04.665366+00:00`. 1,967 UI tests / 118 files; 682 cross-language goldens; 16,955 deterministic mutations; 1,536 assertions in 36 browser/HTTP reports; 55 additional local auth assertions. These are overlapping named scopes, not a summed unique-test total.
 
-The bounded [network diagnostic](/tmp/chirp-admission-network/initial-diagnostic.json)
-records direct DNS failures for Commons and GitHub, and an ordinary Commons HTTPS
-request denied by the proxy with **403 Forbidden**. No DNS/proxy/security settings
-were changed and no bypass was attempted. This is a transport failure, not a successful
-empty search. Keep local admission useful without silently substituting external data.
+[Integrated report](LOCAL-EVIDENCE.md), [counts](LOCAL-EVIDENCE.md). Report SHA-256: `e2c96e45510851456b4641b9a2b2092814e8b4c70dfbded1a73614afae6376e9`.
 
-The [worker audit](/tmp/chirp-admission-worker/worker-source-audit.json) confirms original
-commit `c08624d3db5050603a513c73b00bb2d1697abefc` is absent from both local object stores.
-The separately configured Git transport could list current remote heads, but an
-isolated exact-commit fetch returned `not our ref`; this does not contradict the direct
-DNS diagnostic or establish access to the missing worker. Approved handoff directories
-contain no readable archive. The minimal source dependency is the original handoff ZIP
-at its recorded digest or a Git bundle containing that exact commit with base/handoff
-instructions. No original worker was recreated and no Library retry occurred.
+Current focused proof is separated by scope:
 
-The [capability inventory](/tmp/chirp-admission-worker/capability-inventory.json) finds
-maintained image-decoder and CPU inference libraries; accessible model-file candidates
-are packaged library fixtures. Restricted caches were not readable, so the inventory
-does not assert universal absence of files outside accessible roots. Installed Sharp,
-Pillow or ONNX runtimes are not approved trained image models. Real image inference
-still needs a selected local task/model, immutable weights digest, model/input/output
-license evidence, preprocessing/tensor contract and resource/deadline limits.
+- **41 provider tests** pass after six viewpoint cases were added: four rejected
+  front/back/three-quarter/other-only reviews and two admitted left/right reviews.
+  The [provider log](LOCAL-EVIDENCE.md)
+  is the updated result; the earlier 35-test log remains historical.
+- **72/72 browser checks** pass at the replacement UI commit with unchanged clean
+  source, no runtime errors and zero external requests. The
+  [focused report](LOCAL-EVIDENCE.md) uses the
+  actual development app with temporary owners/SQLite and technical PNG/JPEG bytes.
+  Fully approved front-only history stays visible, while UI queueing and a direct API
+  attempt are rejected without jobs/stages/artifacts or yard changes.
+  [Focused media review](LOCAL-EVIDENCE.md) inspected
+  six screenshots and decoded the full 257-frame video. Its final section has gray
+  padding; the standalone candidate image is readable. [Integrated media review](LOCAL-EVIDENCE.md)
+  separately verified all six integrated screenshots and the 260-frame, 10.40-second
+  VP8 capture at 1024×768; its full decode passed. The focused 257-frame capture
+  remains separately retained.
+- [R5 security review](LOCAL-EVIDENCE.md)
+  replays the original **13 controls** and adds **six separate viewpoint controls** at
+  the new source. These are distinct from the six added provider unit cases.
+  [Exact binding](LOCAL-EVIDENCE.md).
+  [Engine review](LOCAL-EVIDENCE.md) closes ENG-01.
+- The retained [admission receipt](LOCAL-EVIDENCE.md)
+  includes **50 admission controls** (20 decoder, 20 service, 10 discovery) and the
+  then-current 35 provider tests, for **85 at that earlier source**. It transcribes
+  observed tool output with later source binding; it is not a fabricated raw log or
+  a fresh 91-test suite. The admission implementation is unchanged by the viewpoint
+  correction. The complete aggregate reran applicable suites at the replacement commit.
 
-Auth configuration, a licensed bird-audio model, real observation/weather adapters,
-original worker source, board/QEMU toolchain access, physical devices, production
-retention/erasure policy and approved reference/concept pixels remain separate
-requirements. This scope changes no credentials, providers, paid services, model
+**Retained attempts and correction:** the first browser attempt had 57 functional
+checks pass and its source-freeze guard fail (58 checks); its
+[report](LOCAL-EVIDENCE.md) is not a completed
+frozen browser pass. The first aggregate at UI `033c0ce17772532a58294e2481459e8fbb57b811`
+was deliberately stopped after **60 recorded passing gates** when independent engine
+review found ENG-01: pose action permission was enforced but viewpoint permission was
+not. Its active audio gate finished **53 passing checks** and cleaned up before the
+scheduler terminated; those checks are not an additional recorded aggregate gate or
+full pass. [Interruption receipt](LOCAL-EVIDENCE.md).
+No source changed during that partial run. Original R4 security proof is preserved:
+its 13 controls did not detect the viewpoint gap, so it does not verify the correction.
+
+The replacement shared consumer and private UI now require an explicit reviewed
+`left` or `right` view for the current `right-facing-mirrorable` recipe. A front/back/
+three-quarter/other-only review cannot authorize that plan, and unsupported future
+directions fail closed. Approved history is still retained. The correction reaches
+queue, execution, transactional completion and artifact review through the same live
+consumer. The **95/95 frozen r2 aggregate passed** at the replacement source; focused
+proof remains separately retained rather than substituted for aggregate completion.
+
+Additional root acquisition/lifecycle/compatibility controls overlap these suites and
+the full unit run. Final aggregate counts come from the retained [counts](LOCAL-EVIDENCE.md); do not
+sum focused/unit/browser/security scopes as unique tests. Source/type/lint/format
+checks do not prove actual species fidelity or successful live retrieval.
+
+The [preceding complete checkpoint](animation-planning-20261011.md) remains **94/94**
+at main `7311d2496f66074bdc5fcfd70abfaec7a0127115` and UI
+`e389a1f83e15057a8625dc7b7a10ca011442db6e`: 1,823 UI tests, 35 browser/HTTP reports with
+1,464 recorded assertions and 55 additional local auth-provider assertions. Its
+107-assertion planning flow uses synthetic Commons metadata in the actual app.
+These historical scopes overlap and do not verify the new reference source commits.
+
+Reference recovery is an explicit residual requirement. Ordinary process restart and
+same-store revocation checks are implemented. The supported cold-restore path refuses
+initialized/partial reference schemas and nonempty reference storage, including dry
+runs, before installing an older database. Replacing both a database and its external
+revocation files from an old complete filesystem is not secured by this implementation.
+The recording-deletion export retains its old scope; it is not a reference-revocation
+export. Existing no-reference backup/restore remains supported.
+
+## Next priorities and required inputs
+
+1. Define reference recovery before relying on backup restore for admitted references:
+   versioned newest-authority export/import, source/store identity binding, stale or
+   missing authority refusal, idempotent full/dry-run recovery and late-output fences.
+   This depends on an explicit operator/offline-copy policy; it cannot infer the newest
+   revocation state from an older snapshot alone.
+2. Supply authorized actual-species reference/concept material and a selected local
+   model bundle. Require immutable weights digest, per-file model/input/output rights,
+   task and tensor/preprocessing/output contract, resource/deadline limits and named
+   biological/art reviewer. Decoder/runtime libraries do not provide trained models.
+   New frame production must separately prove alpha, species identity, anchors/contact,
+   action/pose/direction coverage, loop/transition consistency and provenance before
+   any production manifest or shared release. The diagnostic candidate grants none of
+   these approvals.
+3. Obtain the original worker source: `ChirpNeighbors-code-handoff-20261008.zip`,
+   reported **41,686 bytes**, SHA-256
+   `09634e2479d6709daefb4a79c8d8b14c71ac1fec9d3b79a154fede581f32109a`, or an original
+   Git bundle containing commit `c08624d3db5050603a513c73b00bb2d1697abefc` with its exact
+   base and handoff instructions. Verify identity before integration; do not recreate
+   a substitute worker or retry the blocked Library materialization.
+4. Keep live auth/mail, licensed audio-model evaluation, real import/weather adapters,
+   board/QEMU/physical hardware, production security/erasure, runtime usage accounting
+   and real-art performance as separately accepted work with their named inputs.
+
+The [bounded network diagnostic](LOCAL-EVIDENCE.md)
+records direct Commons/GitHub DNS failures and ordinary Commons HTTPS proxy **403
+Forbidden**. This is blocked transport, not a successful empty lookup. No bypass or
+network/credential/security setting change was attempted. A separately configured Git
+transport listed remote heads, but an isolated fetch of the original worker commit
+returned `not our ref`; it supplied no missing source. No readable approved archive
+was found. [Worker/source audit](LOCAL-EVIDENCE.md).
+
+The [capability inventory](LOCAL-EVIDENCE.md) found
+maintained image decoders and CPU inference libraries, with only packaged model
+fixtures in accessible candidate locations. Restricted caches were unreadable; this
+is not a universal claim about inaccessible files. No approved image model was
+executed or downloaded. This slice changes no credentials, paid services, trained
 weights, firmware or publication state.
