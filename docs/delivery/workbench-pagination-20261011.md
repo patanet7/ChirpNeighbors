@@ -16,9 +16,25 @@ worker are outside this workstream.
 | WP-06 — Inventory reconciliation | Completed E-REF and E-REC evidence | Inventory describes current PNG/JPEG admission, diagnostic-only generation and receipt-bound cold recovery. Proposed 32×32/60-frame recipe is explicitly unapproved for art quality. |
 | WP-07 — Frozen verification and independent review | WP-01–06 | Focused server/contract/client/browser adversarial controls, full local aggregate with exact committed heads, independent final review and retained failed attempts. No publication. |
 
-Implementation and focused verification are in progress. No new passing aggregate
-is claimed until its complete report is retained. The prior 96-gate checkpoint
-remains historical evidence, not verification of this work.
+All seven tasks are complete within the bounded scope below. **97/97 frozen
+gates passed** at main `ca8f9cd9cb072245b3dfe81a68fc1bf7f9db66ca` / UI
+`269183ff6d333a125f0fee5fb0dfcb80aafe5a38`. [Evidence index](LOCAL-EVIDENCE.md),
+[report](LOCAL-EVIDENCE.md) and
+[counts](LOCAL-EVIDENCE.md) retain the exact source,
+independent review, corrections and failed attempts. The prior 96-gate checkpoint
+remains historical evidence.
+
+| Completed acceptance | Named evidence |
+| --- | --- |
+| WP-01–03: signed owner/scope limits, frozen insertion membership, live state, UTF-8 bounds and corrupt/oversized hydration | `src/lib/server/workbench/pagination.test.ts`; independent 20-control runtime review; `contract-compatibility`, `zod-python-roundtrips` and `zod-python-properties` gates |
+| WP-04: off-page selections, previews, renderer pins and whole-owner retention authority | `scripts/workbench-pagination-browser-checks.py`: “Off-page selected PNG and canonical preview are retained”, “All page operations preserve exact renderer assets and saved artwork pins”, “Pinned older-page artwork still loads through Pixi”; existing asset-retention browser gate and independent archived-dependency control |
+| WP-05: exact retry, keyboard focus, failure retention and stale result fencing | `src/lib/client/page-navigation.test.ts` (7 tests); pagination browser (27 checks), including repeated exact PNG cursor retry and delayed page response defeated by Restart |
+| WP-06: current admission/recovery/animation boundaries | UI `docs/animation-production-inventory.md`; E-REF/E-REC remain historical source evidence |
+| WP-07: frozen regression and review | Complete 97-gate R4 report; 2,072 UI tests; 718 goldens; 17,315 mutations; 20 independent runtime controls and 10 independent compatibility comparisons |
+
+Server test paths and browser scripts above are in the sibling UI repository.
+Diagnostic-job scope is tested at the server boundary; its separate reference-page
+Next/Previous controls are not independently exercised by a browser journey.
 
 Cursor signatures use an in-memory process key, not a new credential or key file.
 Restarting the server requires restarting traversal. Cursors are not authority;
