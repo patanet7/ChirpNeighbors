@@ -49812,6 +49812,89 @@
       "authoritativeValid": true
     },
     {
+      "schema": "png-file-list-v1",
+      "name": "paged private file listing",
+      "value": {
+        "files": [
+          {
+            "file": {
+              "schemaVersion": 1,
+              "id": "17746f92-24ae-44c5-b8db-fb0e2777c005",
+              "original": {
+                "bytes": 128,
+                "sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+              },
+              "canonical": {
+                "bytes": 128,
+                "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+                "rgbaSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+                "width": 4,
+                "height": 2
+              },
+              "decoder": {
+                "id": "sharp",
+                "version": "0.35.5",
+                "libvips": "8.18.7"
+              },
+              "normalization": "chirp-png-straight-srgb8-hidden-rgb-zero-v1"
+            },
+            "createdAt": "2026-10-09T00:00:00.000Z",
+            "review": null
+          }
+        ],
+        "page": {
+          "cursor": "body.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "png-file-list-v1",
+      "name": "page rejects unbounded limit",
+      "value": {
+        "files": [],
+        "page": {
+          "cursor": "body.signature",
+          "nextCursor": null,
+          "limit": 11
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "png-file-list-v1",
+      "name": "page rejects unknown private fields",
+      "value": {
+        "files": [],
+        "page": {
+          "cursor": "body.signature",
+          "nextCursor": null,
+          "limit": 5,
+          "owner": "alice"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "png-file-list-v1",
+      "name": "page rejects malformed cursor",
+      "value": {
+        "files": [],
+        "page": {
+          "cursor": "not-a-cursor",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
       "schema": "png-file-receipt-v1",
       "name": "owner-scoped upload receipt",
       "value": {
