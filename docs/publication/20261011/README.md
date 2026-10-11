@@ -60,12 +60,15 @@ Public main omits raw nested delivery archives, synthetic SQLite snapshots,
 copied private-UI review patches/bundles, videos/screenshots and excessive generated
 evidence. Private Library identifiers are redacted from outgoing documentation.
 Links to omitted evidence lead to the explicit [local-evidence notice](../../delivery/LOCAL-EVIDENCE.md).
-Concise exact receipts above remain public; no private UI implementation is copied
+The [historical ESP32 toolchain diagnosis](../../delivery/product-audit-20261009/toolchain-diagnosis.md)
+is a curated project-document exception at its established link target; it does
+not restore its raw evidence archive. Concise exact receipts above remain public; no private UI implementation is copied
 into main. Required font attribution remains in the private UI repository.
 
-Existing workflows trigger on `main ` pushes or pull requests, not these review
-branch pushes. Remote CI must be checked after push; absent runs are unavailable
-verification, not failures or passes. No PR is created by this workstream.
+Existing workflows trigger on `main` pushes or pull requests, not these review
+branch pushes. The GitHub Actions read returned HTTP 403; CI inspection is
+unavailable here and the denied request is not retried through another route.
+This is not evidence of a failed or successful CI run. No PR is created by this workstream.
 
 ## Remaining limits
 

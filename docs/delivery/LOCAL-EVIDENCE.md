@@ -17,4 +17,6 @@ Use scripts/verify_system.py and scripts/delivery_matrix.py to reproduce the
 declared checks with the sibling UI repository and pinned tooling. Species art,
 models, real providers and hardware remain separate dependencies.
 
+One curated project-document exception is the [historical ESP32 toolchain diagnosis](product-audit-20261009/toolchain-diagnosis.md), retained at its established link target. Its raw request logs, cache inventory and runtime artifacts remain local.
+
 Current concise receipts: [97-gate publication record](../publication/20261011/README.md).

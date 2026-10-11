@@ -125,7 +125,7 @@ necessary; fixture art remains fixture-only.
 
 ## Evidence and remaining work
 
-[Evidence directory](svelte-autofixer-20261010/) retains initial/final raw findings,
+[Evidence directory](LOCAL-EVIDENCE.md) retains initial/final raw findings,
 all three triage reports, source/provenance, style audit, independent review,
 negative probes and failed attempts. The [consolidated register](audit-findings-20261009.json) now contains 55 findings, including all eight independent autofixer findings and all three style-audit findings with their resolutions. UI scripts and CI now include isolated tool
 installation, autofixer/CSS checks and tooling tests. The aggregate runner retains

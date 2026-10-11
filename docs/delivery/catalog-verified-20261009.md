@@ -73,7 +73,7 @@ as legacy rendering. No material source findings remain. See UI
 
 ## Retained attempts and visual evidence
 
-[Focused attempts](catalog-attempts-20261009) retain incomplete runs and corrected
+[Focused attempts](LOCAL-EVIDENCE.md) retain incomplete runs and corrected
 failures. Browser r1 stopped after 14 assertions on a Python async-generator
 assertion. Browser r2 stopped after 20 assertions because keyboard retry ran before
 the remounted control was enabled. Awaiting the response before the assertion and

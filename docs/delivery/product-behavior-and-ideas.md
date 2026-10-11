@@ -47,7 +47,7 @@ retain R1/R2 interruptions and the failed 95/97 R3 separately from passing R4.
 
 | Code | Source revision(s), scope and retained evidence |
 | --- | --- |
-| E-CAT | main `ef67223f52448dcdbf2bef05283146a01bceda06`; ui `db931a2beb8e62dc012a981d478e27749062fd4a`. Complete local integrated 73-gate checkpoint; applicability only to named assertions and bounded scope. [docs/delivery/catalog-verified-20261009](../../docs/delivery/catalog-verified-20261009) |
+| E-CAT | main `ef67223f52448dcdbf2bef05283146a01bceda06`; ui `db931a2beb8e62dc012a981d478e27749062fd4a`. Complete local integrated 73-gate checkpoint; applicability only to named assertions and bounded scope. [docs/delivery/catalog-verified-20261009](LOCAL-EVIDENCE.md) |
 | E-ONT | ui `31585edfbb0de7fa1f04fd036a84a54428a52284`; main `Not a main-code aggregate`. Dedicated 38-check browser gate only; not full active integration. [docs/delivery/ontology-attempts-20261009/browser-r3](LOCAL-EVIDENCE.md) |
 | E-FOCUS | ui `Per-log focused working-tree runs; not a substitute frozen commit`; main `Per-log focused runs`. Historical focused contract/engine evidence only; these logs are not a frozen integrated pass. E-INT records the later complete integration. [docs/delivery/ontology-attempts-20261009/focused](LOCAL-EVIDENCE.md) |
 | E-INT | main `6841630e3acc3ef64495cee17947ce4d3d00b6c9`; ui `1b87d62d5c99fa4936d213d44c44f56886671c36`. Complete frozen corrected ontology run, 74/74 gates; the retained report has `finished`, `completeSuite`, `frozenWorktrees` and `passed` true and unchanged final revisions. [Final report](LOCAL-EVIDENCE.md); [checkpoint](ontology-verified-20261009.md). |

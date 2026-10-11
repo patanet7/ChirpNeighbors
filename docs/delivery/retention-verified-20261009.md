@@ -74,7 +74,7 @@ dependencies/acceptance are in UI `docs/asset-retention-checklist.md`.
 
 ## Retained attempts and preview
 
-[Focused attempts](retention-attempts-20261009) retain failures as well as passes.
+[Focused attempts](LOCAL-EVIDENCE.md) retain failures as well as passes.
 The first browser run stopped at an incorrect harness expectation: PNG upload
 returns HTTP 200, not 201. Only the two upload assertions changed. The second run
 passed all 38 assertions before the full aggregate. Existing domain-conflict HTTP

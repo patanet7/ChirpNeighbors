@@ -60,7 +60,7 @@ production visitor expiry is unchanged. The first PNG capture attempt lacked
 Playwright's bundled encoder. The already installed `/usr/bin/ffmpeg` was exposed
 through task-only `/tmp/chirp-playwright-media` with `PLAYWRIGHT_BROWSERS_PATH`;
 no download or system change was needed. Failed evidence is retained under
-[PNG attempts](png-attempts-20261009). A 00:23 UTC disconnect notification was
+[PNG attempts](LOCAL-EVIDENCE.md). A 00:23 UTC disconnect notification was
 checked at 00:24: the executor, original runner and actively advancing browser log
 were usable. No interrupted or incomplete gate was counted as passed.
 

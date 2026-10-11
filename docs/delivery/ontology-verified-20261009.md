@@ -84,7 +84,7 @@ actual browser renders. Screenshots were visually inspected. The dedicated
 placed physical footprints; all 84 remained saved and selectable. This bounded
 capacity check is not an arbitrary-density or finished-composition claim.
 
-[Attempts](ontology-attempts-20261009) retain eight baseline screenshots, 16 dedicated
+[Attempts](LOCAL-EVIDENCE.md) retain eight baseline screenshots, 16 dedicated
 final screenshots, initial type/lint/allowlist corrections, two incomplete browser
 runs and their bounded diagnostics. Browser r1 read an old compatible ground
 placement decision; r2 waited on a perch legitimately occupied by another bird.

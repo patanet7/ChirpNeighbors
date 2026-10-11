@@ -21,7 +21,7 @@ System design and architecture documentation.
 - Scalability considerations
 - [Product Requirements Document](./architecture/product-requirements.md)
 
-### 🔧 [hardware/](./hardware/)
+### 🔧 [ESP32 hardware and firmware](../esp32-client/README.md)
 Hardware specifications and design documents.
 - ESP32 pinout and configuration
 - Digital microphone specifications
@@ -51,7 +51,7 @@ Backend API documentation.
 
 1. **Choose the right location**:
    - Architecture design → `architecture/`
-   - Hardware specs → `hardware/`
+   - Hardware specs → `../esp32-client/`
    - API changes → `api/`
    - Agent work → `agents/` (auto-generated)
 
