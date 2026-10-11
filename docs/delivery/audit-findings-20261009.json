@@ -579,7 +579,16 @@
       "regressionEvidence": [
         "product-audit-20261009/product-journeys.md"
       ],
-      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice."
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice.",
+      "referenceRecoveryFollowUp": {
+        "status": "bounded-reference-cold-recovery-in-progress; evidence-pending",
+        "note": "The new offline full-reference-authority export and explicit restore path are being implemented. Restore requires independently retained trusted latest SHA-256 evidence and the exact same admission set, validates all rows/bytes/reviews/revocations/retries, and publishes a verified staged directory without clobbering a destination. Default refusal remains when evidence is absent or invalid. A hash cannot prove newestness if authority and receipt are rolled back together; genuine authority/receipt loss stays blocked. This does not establish account-wide erasure, deployed recovery or production policy. No new passing counts or completed aggregate are claimed; all previous finding fields and E-REF evidence remain unchanged.",
+        "evidence": [
+          "reference-recovery-20261011.md",
+          "../../../birdsong-yard-sprites/src/lib/assets/reference-recovery.ts",
+          "../../../birdsong-yard-sprites/scripts/private_backup.py"
+        ]
+      }
     },
     {
       "id": "GAP-13",

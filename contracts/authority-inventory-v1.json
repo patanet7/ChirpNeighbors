@@ -6272,6 +6272,67 @@
       "gaps": [
         "The only registered adapter is an explicitly labeled local diagnostic fixture. Real model assets, licensing/resource checks, reviewed generation adapters, full pose coverage, species-fidelity approval and renderable packaging remain future work."
       ]
+    },
+    {
+      "id": "reference-authority:cold-recovery",
+      "category": "store",
+      "owner": "image",
+      "version": "private reference authority v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/lib/server/reference-admission/recovery.ts",
+        "symbols": [
+          "exportReferenceAuthority",
+          "validateReferenceAuthority",
+          "reconcileReferenceAuthority"
+        ]
+      },
+      "operation": "offline export/validate/reconcile",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-recovery.ts",
+          "symbols": [
+            "referenceAuthoritySchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-admission.ts",
+          "symbols": [
+            "referenceAdmissionRecordSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Strict versioned database identity and full reference records retain original request identities, immutable byte/source metadata, review decisions and terminal revocation; at most64 records total."
+      ],
+      "semantic": [
+        "Identity order is strictly ASCII with no duplicates; at most16 records per owner. Every review/revocation belongs to that owner and all admission/review/revoke request IDs are unique per owner. Existing admission chronology and retained-source correspondence apply; canonical UTF-8 record metadata is bounded at65536 bytes.",
+        "The server requires externally supplied exact authority-byte SHA-256 and verifies content/review/request hashes, database identity, retained files and anti-revocation rollback constraints before offline reconciliation. A structural document cannot self-certify freshness, reset permission or authorize rendering/provider execution."
+      ],
+      "codec": [
+        "Raw input is bounded to8MiB before JSON decoding. Canonical export omits an export timestamp so unchanged authority yields identical bytes; external final hashes are not embedded inside the authority."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/reference-admission/recovery.ts",
+          "symbols": [
+            "readReferenceAuthority",
+            "assertReferenceAuthorityMatchesBackup"
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/reference-recovery.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": []
     }
   ]
 }

@@ -639,6 +639,11 @@ def gates(
             "CHIRP_REFERENCE_ADMISSION_OUTPUT",
         ),
         (
+            "reference-recovery",
+            "reference-recovery-browser-checks.py",
+            "CHIRP_REFERENCE_RECOVERY_OUTPUT",
+        ),
+        (
             "recordings-ui",
             "recordings-ui-browser-checks.py",
             "CHIRP_RECORDINGS_UI_OUTPUT",

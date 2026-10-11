@@ -39,6 +39,7 @@ NAMES = frozenset(
         "reference-generation-command-v1",
         "reference-acquisition-command-v1",
         "reference-generation-candidate-v1",
+        "reference-authority-v1",
         "catalog-pin-v1",
         "public-catalog-render-v1",
         "catalog-entry-v1",
