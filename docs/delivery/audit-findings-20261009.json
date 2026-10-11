@@ -588,6 +588,39 @@
           "../../../birdsong-yard-sprites/src/lib/assets/reference-recovery.ts",
           "../../../birdsong-yard-sprites/scripts/private_backup.py"
         ]
+      },
+      "referenceRecoveryCompletion": {
+        "status": "local-integrated-checkpoint; production-erasure-policy-open",
+        "note": "Bounded offline export and same-admission-set restore now validate complete canonical reference authority and exact independently retained SHA-256 evidence before staged no-clobber publication. Later immutable reviews/revocations/idempotency reconcile; changed admissions, conflicts, corruption and orphans refuse. Default refusal without evidence remains. Hash equality cannot prove newestness if both authority and receipt roll back, and genuine authority or trusted receipt loss stays blocked. Focused 42 recovery / 38 schema / 52 browser and independent 17 + 6 controls are overlapping scopes. Account-wide erasure, production policy and actual deployment remain open; historical finding fields are preserved.",
+        "evidence": [
+          "reference-recovery-20261011.md",
+          "reference-recovery-20261011/review/security/FROZEN-REVIEW-R2.md",
+          "reference-recovery-20261011/focused/integration/focused-receipt.json",
+          "reference-recovery-20261011/integrated/report.json",
+          "reference-recovery-20261011/counts.json",
+          "reference-recovery-20261011/README.md"
+        ],
+        "receiptPrivacyFollowUp": {
+          "finding": "Conditional development-server exposure of recovery receipt lineage/hash/count metadata under an allowed custom data path.",
+          "status": "fixed-at-replacement-source; complete-local-proof",
+          "replacementUiCommit": "bd23e784397d7b5e0b01c0c2d12e6d000fefa1c0",
+          "note": "Vite deny rules protect both root-relative and /@fs receipt paths; default data paths were already denied. Original data was not read by the synthetic probes. Eight additional recovery browser assertions raise the replacement gate from52 to60; the prior52 result remains historical. Receipt privacy does not remove the external latest-digest trust requirement.",
+          "evidence": [
+            "reference-recovery-20261011/review/security/receipt-exposure-r2.json",
+            "reference-recovery-20261011/review/security/receipt-exposure-allowed-fixed-r4.json",
+            "reference-recovery-20261011/focused/integration/receipt-privacy-followup.json"
+          ]
+        },
+        "aggregate": {
+          "gates": 96,
+          "finishedAt": "2026-10-11T20:22:29.123693+00:00",
+          "reportSha256": "488b282da542eb9262231c2064b5c85fa87c66a5fa963a3ec6bf0178b4349081",
+          "testedRevisions": {
+            "main": "82a45ca8e62c8c9847df92d0bf7dc6034d3bb26b",
+            "ui": "bd23e784397d7b5e0b01c0c2d12e6d000fefa1c0"
+          },
+          "scope": "Bounded local reference cold recovery; external latest-receipt trust required."
+        }
       }
     },
     {

@@ -1,10 +1,11 @@
 # Private reference cold recovery: authority and acceptance checklist
 
-This local workstream adds a bounded recovery path for the private reference store.
-Implementation and verification are **in progress**; no new passing test counts or
-completed aggregate are claimed here. Branch: `codex/reference-recovery-local` in
-both repositories, starting at main `1bf814628e973951ca953a04c3424ea6fab369a8`
-and UI `53e414077799384ba2f56340235424016a309324`.
+This local workstream implements bounded private reference cold recovery.
+**Complete frozen 96/96 local aggregate passed**. Finished `2026-10-11T20:22:29.123693+00:00`; report SHA-256 `488b282da542eb9262231c2064b5c85fa87c66a5fa963a3ec6bf0178b4349081`. [Report](LOCAL-EVIDENCE.md), [counts](LOCAL-EVIDENCE.md), [evidence index](LOCAL-EVIDENCE.md).
+
+Tested source commits: main `82a45ca8e62c8c9847df92d0bf7dc6034d3bb26b` / UI `bd23e784397d7b5e0b01c0c2d12e6d000fefa1c0`.
+Branch: `codex/reference-recovery-local` in both repositories. Documentation/evidence
+commits follow tested sources and are reported separately.
 
 The preceding [reference-admission checkpoint](reference-admission-20261011.md)
 and its [95-gate report](LOCAL-EVIDENCE.md) are
@@ -20,7 +21,7 @@ writer must be stopped: the application, jobs and any direct storage client.
 `--offline` is an operator assertion, not a mechanism that can make a running
 writer safe or prove that another process is absent.
 
-The intended CLI, implemented in the existing private-backup tool, is:
+The implemented offline CLI is:
 
 ```text
 python3 scripts/private_backup.py export-references SOURCE DEST --offline
@@ -46,14 +47,14 @@ assertions, and never certify biological identity, ownership or reuse rights.
 
 | Task | Status | Dependency | Observable acceptance |
 | --- | --- | --- | --- |
-| RR-01 — Strict versioned full authority | In progress; evidence pending | Existing admission/review/revocation contracts | One exported shared authority includes exact records and all review/revocation/idempotency data required by the store. Unknown fields/versions, duplicate/conflicting rows and incomplete authority fail closed; Python and TypeScript agree. |
-| RR-02 — Offline export and trusted receipt | In progress; evidence pending | RR-01; operator has current store and all writers stopped | Export validates current rows, tombstones and retained original/canonical bytes, writes only a new destination and reports the exact file digest. It never turns partial or corrupt state into an authoritative empty export. |
-| RR-03 — Exact backup admission-set reconciliation | In progress; evidence pending | RR-01/02; independently retained latest digest | Restore verifies the supplied file digest and requires the exact same admissions and immutable identities/owners as the backup. Later review/revocation/idempotency state can reconcile only under validated history. Post-backup admissions, missing rows, changed owners/requests/versions and inconsistent timelines fail before publication. |
-| RR-04 — Full row, tombstone and byte validation | In progress; evidence pending | RR-03 | Every retained record and referenced byte is validated, including original/canonical/hash relationships, review and terminal-revocation state. Corrupt/missing bytes, orphan files/rows, conflicting receipts and incomplete schema cannot be hidden by a valid outer hash. |
-| RR-05 — Atomic new-directory publication | In progress; evidence pending | RR-03/04 | Restore prepares and verifies a sibling staging directory, then publishes without clobbering an existing or concurrently created destination. Every refusal leaves the source and preexisting destination byte-identical and exposes no partial restored store. |
-| RR-06 — Restored live consumers and replay | In progress; evidence pending | RR-05; existing runner/reference authority | After real application restart, current approvals/revocations and exact retries are preserved. Revoked or stale pins cannot queue, execute, complete or approve candidates; a currently authorized action/viewpoint remains usable only within its existing scope. Yard/resident/artwork pins and unrelated owner data remain unchanged. |
-| RR-07 — Adversarial CLI/browser regression and review | In progress; evidence pending | RR-01–06 | Exercise real backup/export/restore, trusted and wrong digests, missing authority, post-backup admission, corruption, destination race and repeated operation. Capture restored private UI/API behavior plus unchanged fixture yard; independent review checks recovery trust assumptions and failure atomicity. |
-| RR-08 — Complete frozen local evidence | Pending | RR-07; clean committed sources | New `browser-reference-recovery` gate joins all prior aggregate gates. Retain exact source heads, complete report/counts, failed attempts, source applicability and reviewed media. Historical 95-gate evidence is preserved byte-for-byte; no publication or deployment is implied. |
+| RR-01 — Strict versioned full authority | Local integrated checkpoint | Existing admission/review/revocation contracts | One exported shared authority includes exact records and all review/revocation/idempotency data required by the store. Unknown fields/versions, duplicate/conflicting rows and incomplete authority fail closed; Python and TypeScript agree. |
+| RR-02 — Offline export and trusted receipt | Local integrated checkpoint | RR-01; operator has current store and all writers stopped | Export validates current rows, tombstones and retained original/canonical/RGBA bytes, writes only a new destination and reports the exact file digest. It never turns partial or corrupt state into an authoritative empty export. |
+| RR-03 — Exact backup admission-set reconciliation | Local integrated checkpoint | RR-01/02; independently retained latest digest | Restore verifies the supplied file digest and requires the exact same admissions and immutable identities/owners as the backup. Later review/revocation/idempotency state can reconcile only under validated history. Post-backup admissions, missing rows, changed owners/requests/versions and conflicting immutable history fail before publication. |
+| RR-04 — Full row, tombstone and byte validation | Local integrated checkpoint | RR-03 | Every retained record and referenced byte is validated, including original/canonical/hash relationships, review and terminal-revocation state. Corrupt/missing bytes, orphan files/rows, conflicting receipts and incomplete schema cannot be hidden by a valid outer hash. |
+| RR-05 — Atomic new-directory publication | Local integrated checkpoint | RR-03/04 | Restore prepares and verifies a sibling staging directory, then publishes without clobbering an existing or concurrently created destination. Every refusal leaves the source and preexisting destination byte-identical and exposes no partial restored store. |
+| RR-06 — Restored live consumers and replay | Local integrated checkpoint | RR-05; existing runner/reference authority | After real application restart, current approvals/revocations and exact retries are preserved. Revoked or stale pins cannot queue, execute, complete or approve candidates; a currently authorized action/viewpoint remains usable only within its existing scope. Yard/resident/artwork pins and unrelated owner data remain unchanged. |
+| RR-07 — Adversarial CLI/browser regression and review | Local integrated checkpoint | RR-01–06 | Exercise real backup/export/restore, trusted and wrong digests, missing authority, post-backup admission, corruption, destination race and repeated operation. Capture restored private UI/API behavior plus unchanged fixture yard; independent review checks recovery trust assumptions and failure atomicity. |
+| RR-08 — Complete frozen local evidence | 96/96 passed; evidence retained | RR-07; clean committed sources | New `browser-reference-recovery` gate joins all prior aggregate gates. Retain exact source heads, complete report/counts, failed attempts, source applicability and reviewed media. Historical 95-gate evidence is preserved byte-for-byte; no publication or deployment is implied. |
 
 ## Existing authorities and consumers
 
@@ -68,8 +69,46 @@ assertions, and never certify biological identity, ownership or reuse rights.
 - Existing [recovery tests](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/operations/reference-recovery.test.ts),
   [backup tests](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/tests/test_private_backup.py)
   and [aggregate runner](../../scripts/verify_system.py) are extended in this
-  workstream. Test-file presence is not a passing result; counts and final source
-  revisions will be recorded only after actual verification.
+  workstream. Named focused proof and its exact limitations are recorded below;
+  final aggregate counts derive from retained logs, never from file presence.
+
+## Verification and retained corrections
+
+- [Root focused receipt](LOCAL-EVIDENCE.md):
+  42 recovery unit tests pass. Earlier 79-test attempts include overlapping 39 new,
+  20 admission and 20 legacy refusal tests. One full-capacity test exceeded its
+  default five-second bound; the final bounded 20-second test completed in 4.709
+  seconds. Failed lint/type attempts and their corrections remain retained.
+- [Schema proof](LOCAL-EVIDENCE.md):
+  38 controls; [cross-language focused proof](LOCAL-EVIDENCE.md)
+  and [mutations](LOCAL-EVIDENCE.md)
+  retain 714 goldens and 17,155 mutations. These overlap final aggregate suites.
+- [Python focused history](LOCAL-EVIDENCE.md)
+  records 49 earlier tests; [latest wrapper controls](LOCAL-EVIDENCE.md)
+  record 18. They are overlapping scopes, not 67 unique tests; the complete current
+  Python count must come from the aggregate.
+- [Independent frozen review](LOCAL-EVIDENCE.md)
+  binds 17 recovery plus six bridge controls to the exact current sources. Earlier
+  pending-commit notes and auxiliary-database findings remain historical evidence.
+- [Focused browser report](LOCAL-EVIDENCE.md)
+  passes 52 checks / 14 cold operations with four screenshots at a stable dirty
+  snapshot. It is distinct from the frozen aggregate. The earlier two failed
+  browser attempts exposed the auxiliary analytics-database guard; their original
+  reports are retained. The focused screenshots predate the corrected recovery
+  explanatory copy. No video was recorded by the recovery harness.
+
+The complete aggregate passes 2,047 UI tests in 120 files, 50 Python backup/recovery tests, 714 goldens and 17,155 mutations. It records 1,596 assertions in 37 browser/HTTP reports plus 55 separate local auth assertions. [Integrated recovery media review](LOCAL-EVIDENCE.md) verifies the clean 60-check recovery gate and all four screenshots. These named scopes overlap; do not sum them as unique tests.
+
+The [first aggregate](LOCAL-EVIDENCE.md)
+recorded **75 passes and two failures among 77 completed gates**, then was stopped.
+The existing planning-video capture lacked `PLAYWRIGHT_BROWSERS_PATH`; an admission
+browser assertion expected obsolete explanatory copy. The recovery browser itself
+passed 52/52. The [interruption receipt](LOCAL-EVIDENCE.md)
+records that the active analysis child finished after scheduling stopped but was
+not added to the 77 recorded gates. R1 is not a complete or passing aggregate.
+The separate receipt-privacy follow-up is recorded below.
+
+The conditional development-server receipt exposure (RR-F03) occurred under an allowed custom .svelte-kit data path: both receipt routes returned 200 while the default data path returned 403. Replacement UI bd23e784397d7b5e0b01c0c2d12e6d000fefa1c0 adds Vite deny rules, corrects the old-copy assertion and adds eight recovery browser privacy assertions (60 total; 14 cold operations; four screenshots). Independent pre/post probes are retained; replacement source review approves 17 + 6 semantic controls and eight separate receipt-privacy HTTP observations; the complete r2 aggregate passes at the exact recorded source. The planning-video rerun uses the existing Playwright browser/ffmpeg directory through PLAYWRIGHT_BROWSERS_PATH. An initial Vite-lint attempt omitted the repository native-TypeScript configuration flag; the corrected command passed without a dependency change. [Pre-fix probes](LOCAL-EVIDENCE.md), [post-fix probes](LOCAL-EVIDENCE.md), [lint correction receipt](LOCAL-EVIDENCE.md).
 
 ## What this does not recover or enable
 
@@ -88,9 +127,9 @@ network retry or original worker implementation is part of this recovery slice.
 
 ## Highest-value next dependencies
 
-1. Complete and independently review this exact recovery path before recommending
-   reference-store cold restore. Select how operators will retain the latest
-   receipt independently and stop all writers; do not imply the CLI proves either.
+1. Select and document the operator procedure for independently retaining the
+   latest receipt and stopping every writer. The CLI cannot prove either condition;
+   loss of genuine authority or its trusted latest receipt remains blocked.
 2. Supply authorized actual-species/concept imagery and a reviewed model bundle
    with immutable weights digest, input/output rights, task/tensor/preprocessing
    contract, resource/time bounds and named fidelity reviewer. Current local
