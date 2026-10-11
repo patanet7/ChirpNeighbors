@@ -16,3 +16,5 @@ not relabel filtered commits as the original executed commits.
 Use scripts/verify_system.py and scripts/delivery_matrix.py to reproduce the
 declared checks with the sibling UI repository and pinned tooling. Species art,
 models, real providers and hardware remain separate dependencies.
+
+Current concise receipts: [97-gate publication record](../publication/20261011/README.md).

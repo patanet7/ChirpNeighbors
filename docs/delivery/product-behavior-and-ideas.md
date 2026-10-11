@@ -1,5 +1,8 @@
 # Consolidated product, architecture and delivery task index
 
+
+Publication preparation is recorded in [the reviewed-history record](../publication/20261011/README.md). Historical local/unpublished labels below describe their verification checkpoints; remote publication requires the separately reported Git push and SHA confirmation.
+
 This is the **single authoritative task index** for current intent, decisions, implementation and remaining gaps across the two local repositories. It retains PB-001–PB-022 and EN-001–EN-012, and adds accepted environment-animation requirements PB-023–PB-024. The EN entries consolidate architecture, operational and external dependencies that were previously scattered. EN entries do not convert a historical proposal into user approval. Detailed [task tree](visual-task-tree-20261008.md), UI slice checklists, [delivery matrix](matrix.json) and retained reports remain supporting execution/evidence records, not competing completion authorities.
 
 Paths prefixed **U:** belong to sibling `birdsong-yard-sprites`; **M:** belongs to `ChirpNeighbors`. Every requirement below records its decision, implementation, integration, architecture boundary, observable acceptance, named tests, exact evidence revision, dependencies, gap and next action. A missing test is written as missing; aggregate counts never establish a requirement by themselves.
