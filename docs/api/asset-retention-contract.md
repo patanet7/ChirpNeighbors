@@ -46,7 +46,7 @@ fixtures only.
 
 ## Portable interfaces and semantic limits
 
-Seven schema authorities are exported to both repositories:
+Eight schema authorities are exported to both repositories:
 
 - `asset-lifecycle-target-v1`
 - `asset-archive-state-v1`
@@ -55,6 +55,7 @@ Seven schema authorities are exported to both repositories:
 - `asset-lifecycle-entry-v1`
 - `asset-lifecycle-overview-v1`
 - `asset-lifecycle-response-v1`
+- `asset-package-history-v1`
 
 They add no fields to pre-existing wire formats. Legacy stores with no lifecycle
 tables remain active by default; schema initialization is separate from archive
@@ -90,3 +91,11 @@ lifecycle-only cases (186 total). The deterministic differential check covers
 9,544 mutations with 651 source-valid inputs preserved. These are contract-level
 results; the integration owner's strict suite separately verifies runtime and
 browser behavior.
+
+## Bounded package history
+
+`GET /api/asset-lifecycle/packages?limit=10&cursor=…` adds a versioned read response independently of the legacy overview. It admits only `limit` (1–10; default 5) and an optional bounded signed cursor. Owner/session binding, no-store headers and normal private read admission apply. Cursors bind owner, list scope, page size, process lifetime and frozen insertion watermark; restart traversal after server restart or to include new jobs. Metadata/state stays live, so archive mutations still require the exact returned revision.
+
+The response is `{schemaVersion:1,purgeEnabled:false,referenceScan:"not-run",entries,page}`. Each row is a private package with pipeline-history/incomplete-scan retention and cleanup disabled. This projection never establishes whole-graph completeness; the old 512-job / 32 MB scan remains conservative. A corrupt/missing package dependency remains visible as unavailable instead of hiding unrelated history. Input/artifact byte checks precede hydration. Standalone history/overview reads use a SQLite read transaction; command response assembly reuses its original atomic write transaction.
+
+Old overview/POST command and receipt schemas are unchanged. After a confirmed write, the UI reads its current cursor because an older target may be absent from the legacy command response. Read failure preserves confirmed rows and disables stale package actions; exact-cursor retry recovers. A lost write reply retains the same request UUID. The existing workshop selection gate remains conservative beyond its overview budget; history reachability does not grant selection, deletion or public-release authority.

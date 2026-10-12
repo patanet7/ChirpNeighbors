@@ -1,0 +1,40 @@
+file:///workspace/archive-history/audit-storage-concurrency-probe.mjs:679
+        const error = new ZodError(ctx.common.issues);
+                      ^
+
+_ZodError: [
+  {
+    "received": "warm",
+    "code": "invalid_enum_value",
+    "options": [
+      "twilight",
+      "fieldnotes",
+      "moonlit"
+    ],
+    "path": [
+      "palette"
+    ],
+    "message": "Invalid enum value. Expected 'twilight' | 'fieldnotes' | 'moonlit', received 'warm'"
+  }
+]
+    at get error (file:///workspace/archive-history/audit-storage-concurrency-probe.mjs:679:23)
+    at _ZodObject.parse (file:///workspace/archive-history/audit-storage-concurrency-probe.mjs:754:18)
+    at YardRepository.updatePreferences (file:///workspace/archive-history/audit-storage-concurrency-probe.mjs:5574:43)
+    at file:///workspace/archive-history/audit-storage-concurrency-probe.mjs:5913:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  issues: [
+    {
+      received: 'warm',
+      code: 'invalid_enum_value',
+      options: [ 'twilight', 'fieldnotes', 'moonlit' ],
+      path: [ 'palette' ],
+      message: "Invalid enum value. Expected 'twilight' | 'fieldnotes' | 'moonlit', received 'warm'"
+    }
+  ],
+  addIssue: [Function (anonymous)],
+  addIssues: [Function (anonymous)]
+}
+
+Node.js v24.19.0

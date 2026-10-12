@@ -23,3 +23,5 @@ Update the canonical topic when behavior or acceptance changes. Keep setup comma
 The PB/EN topic entry owns current status, dependencies and acceptance; lettered subtasks are part of that same authority. Dated review IDs and delivery checkboxes describe their recorded source revision and do not reopen a completed task or close a later defect. Preserve their unique content while linking to the canonical entry for present work.
 
 The [cleanup map](documentation-map.json) records removed duplicates and their destinations. Published Git history and pinned original checkpoint links retain full prior text. License/attribution files and immutable verification receipts are preserved.
+
+The [integrated architecture/query audit](architecture/integrated-query-audit-20261012.md) records measured scaling, local repairs and canonical follow-up ownership; [archive-history verification](delivery/archive-history-local-20261012.md) binds the implementation evidence.

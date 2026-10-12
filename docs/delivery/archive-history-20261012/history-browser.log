@@ -1,0 +1,18 @@
+PASS Anonymous history reads are denied
+PASS Legacy scan remains incomplete at 513 and omits oldest without dropping pins
+PASS 513 jobs traverse once in stable insertion order, excluding concurrent backdated insert
+PASS Restart includes new insertion
+PASS Altered, wrong-limit and cross-list cursors and owner injection are rejected
+PASS Other owner has empty history and cannot use owner cursor
+PASS Corrupt job metadata cannot prevent yard load or private retention recovery
+PASS Initial unavailable workshop Retry starts a real fresh read
+PASS Failed next page retains rows and retry uses the identical cursor
+PASS Oldest archived package is reachable through 52 keyboard-accessible pages
+PASS History stays visible after 32 MB scan overflow; whole-graph cleanup remains closed
+PASS Lost restore reply retries exact command once and refreshes current page at revision two
+PASS Confirmed write plus malformed refresh keeps stale actions disabled; read retry recovers
+PASS Archive/restore preserved resident pins and observation history
+PASS asset-history-320: no horizontal overflow
+PASS Prior-process cursor fails closed after restart; fresh history works
+PASS Delayed former-owner history cannot restore controls after account switch
+PASS No browser runtime errors or external requests

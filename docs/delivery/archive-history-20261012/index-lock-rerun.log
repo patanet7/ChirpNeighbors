@@ -1,0 +1,31 @@
+
+> chirpneighbors@0.2.0 test
+> vitest run src/lib/server/pipeline/artifact-index.test.ts src/lib/server/assets/lifecycle.test.ts src/lib/server/asset-pipeline/pipeline-v2.test.ts
+
+
+ RUN  v3.2.4 /workspace/archive-history/birdsong-yard-sprites
+
+ ✓ src/lib/server/pipeline/artifact-index.test.ts (3 tests) 155ms
+ ✓ src/lib/server/assets/lifecycle.test.ts (30 tests) 6584ms
+   ✓ private asset archive, selection and retention > retains admitted work and exact queue retries while rejecting new work from archived references  614ms
+   ✓ private asset archive, selection and retention > starts PNG validation inside a cold undo or automatic-selection transaction without nested writes  2705ms
+   ✓ bounded private package history > restores the oldest of 513 jobs without changing pins, receipts or scan budgets  1121ms
+ ✓ src/lib/server/asset-pipeline/pipeline-v2.test.ts (20 tests) 12030ms
+   ✓ versioned immutable RGBA intake and reviewed render path > uses unchanged pixels, two independent reviews and an explicit pin with actual pose timing  1657ms
+   ✓ versioned immutable RGBA intake and reviewed render path > rechecks the exact approved source dependency when loading a pinned animation  1001ms
+   ✓ versioned immutable RGBA intake and reviewed render path > rechecks the exact approved reference dependency when loading a pinned animation  1001ms
+   ✓ versioned immutable RGBA intake and reviewed render path > rejecting source frames never produces a render artifact; owner cleanup also removes retained bytes  630ms
+   ✓ versioned immutable RGBA intake and reviewed render path > memoizes repeated exact references and bounds the whole branching dependency traversal  1955ms
+   ✓ versioned immutable RGBA intake and reviewed render path > reserves the candidate ancestry level before retaining an over-depth source  3464ms
+   ✓ version-4 private presentation review and storage > retains presentation through both reviews, pin, load, immutable shape revision and lifecycle scan  420ms
+
+ Test Files  3 passed (3)
+      Tests  53 passed (53)
+   Start at  18:21:28
+   Duration  12.81s (transform 674ms, setup 0ms, collect 1.45s, tests 18.77s, environment 1ms, prepare 181ms)
+
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

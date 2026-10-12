@@ -6333,6 +6333,79 @@
         }
       ],
       "gaps": []
+    },
+    {
+      "id": "api/asset-lifecycle/packages:GET",
+      "category": "http",
+      "owner": "image",
+      "version": "private package history v1",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/asset-lifecycle/packages/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/assets/lifecycle-contracts.ts",
+          "symbols": [
+            "assetPackageHistorySchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle.ts",
+          "symbols": [
+            "AssetLifecycleService"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/workbench/pagination.ts",
+          "symbols": [
+            "readOwnerPage",
+            "readPageRequest"
+          ]
+        }
+      ],
+      "structural": [
+        "Strict additive schemaVersion1 page: at most ten private-package entries, bounded cursors, no purge and no whole-graph completeness assertion. Existing lifecycle overview/command/receipt formats remain unchanged."
+      ],
+      "semantic": [
+        "Authenticated owner/session binding and private read admission; signed cursor binds owner, list scope, limit and process lifetime. Frozen insertion watermark with live CAS revisions; bounded hydration independent of full-graph scan limits. Every history row retains pipeline history; page never grants cleanup. Standalone read transaction does not acquire a writer lock; nested commands retain their original atomic write transaction."
+      ],
+      "codec": [
+        "Bounded validated query fields, UTF-8 byte guards before stored JSON hydration, private no-store JSON response. No caller-supplied owner, raw files, disk paths or shared-view history."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/lib/components/AssetLifecycle.svelte",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/lifecycle.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "scripts/asset-history-browser-checks.py",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/operations/request-budget.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "The older workshop selection gate still reads the legacy overview; history navigation repairs archive/restore reachability without broadening that gate."
+      ]
     }
   ]
 }

@@ -1,0 +1,52 @@
+PASS Anonymous history reads are denied
+PASS Legacy scan remains incomplete at 513 and omits oldest without dropping pins
+PASS 513 jobs traverse once in stable insertion order, excluding concurrent backdated insert
+PASS Restart includes new insertion
+PASS Altered, wrong-limit and cross-list cursors and owner injection are rejected
+PASS Other owner has empty history and cannot use owner cursor
+PASS Corrupt job metadata cannot prevent yard load or private retention recovery
+PASS Initial unavailable workshop Retry starts a real fresh read
+PASS Failed next page retains rows and retry uses the identical cursor
+PASS Oldest archived package is reachable through 52 keyboard-accessible pages
+PASS History stays visible after 32 MB scan overflow; whole-graph cleanup remains closed
+PASS Lost restore reply retries exact command once and refreshes current page at revision two
+Traceback (most recent call last):
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 319, in <module>
+    asyncio.run(main())
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 311, in main
+    await journey(directory, server)
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 250, in journey
+    await expect(retry).to_be_enabled()
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 23074, in to_be_enabled
+    await self._impl_obj.to_be_enabled(
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 807, in to_be_enabled
+    await self._expect_impl(
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be enabled
+Actual value: None
+Error: element(s) not found 
+Call log:
+  - Expect "to_be_enabled" with timeout 5000ms
+  - waiting for get_by_test_id("asset-lifecycle").get_by_role("navigation", name="Packages pages").get_by_role("button", name="Retry packages page", exact=True)
+
+Aria snapshot:
+- main:
+  - heading "Sign-in session changed" [level=1]
+  - alert: Your sign-in session changed. Reload this page before continuing.
+  - paragraph: Private page content and pending requests have been closed. Unsaved input was not transferred to another account.
+  - link "Reload your yard":
+    - /url: /
+  - link "Sign in":
+    - /url: /login

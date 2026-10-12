@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 317, in <module>
+    asyncio.run(main())
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 309, in main
+    await journey(directory, server)
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 100, in journey
+    await core.api(page, HISTORY, status=401)
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/browser-checks.py", line 290, in api
+    raise AssertionError(f"{path}: expected {status}, received {result}")
+AssertionError: /api/asset-lifecycle/packages: expected 401, received {'status': 503, 'payload': {'message': 'Production authentication is not configured. Development identity is disabled.'}, 'cache': 'private, no-store'}

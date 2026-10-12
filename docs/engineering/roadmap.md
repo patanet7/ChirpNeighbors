@@ -82,6 +82,38 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 
 **Acceptance tests:** A clean supported machine follows the documented commands without inherited packages; imports/version checks confirm the intended packages in each environment and NumPy/ONNX remain absent from core. Warm bootstrap is idempotent; failed installs create no success marker. `verify_system.py --list` resolves the same commands/interpreters, then a committed frozen run records its actual result. Syntax/command inspection alone does not close clean-platform acceptance.
 
+#### EN-003-E — Bound yard responses without losing retained history
+
+**Status / priority:** Open P1 correctness defect. **Evidence:** CSA-04 / RQ01 in the [integrated query audit](../architecture/integrated-query-audit-20261012.md). **Dependencies:** EN-001, PB-001, PB-002, PB-007.
+
+**Work:** Reconcile accepted owner storage, expanded snapshots, assets and bounded client transport. Define a versioned compact/paged read projection and mutation acknowledgement without silently truncating evidence or stranding already-valid databases. Merely raising the client cap or lowering storage admission does not repair existing large owners.
+
+**Acceptance:** Reproduce both 30k/45k-event valid histories and declared maximum supported shapes; every successful write must have a consumable confirmation, recoverable read and export. A rejected operation changes no state. Old readers fail predictably or keep their supported projection; migration/restore preserves all evidence/pins; command retry, owner isolation and small-yard compatibility pass. Measure serialized UTF-8 bytes at real HTTP/client boundaries, including asset overhead and derived history.
+
+#### EN-003-F — Reduce repeated owner snapshot work
+
+**Status / priority:** Open P2. **Evidence:** RQ02. **Dependencies:** Existing PB-001/PB-002/PB-010 evidence and resident semantics. **Coordinate with:** EN-003-E response projections; request-local work can proceed before that versioned transport change.
+
+**Work:** Within one verified request, avoid reparsing/reprojecting unchanged complete owner history at every boundary; make empty-arrival checks avoid an unnecessary full snapshot. Reuse event-origin lookup for residents instead of rescanning history for each resident. Preserve one authoritative validation boundary for untrusted data, expiry semantics and owner isolation. Do not introduce a global authorization cache.
+
+**Acceptance:** Instrument 100/1k/10k/30k-event snapshots, initial page, yard command and empty/nonempty arrivals. Count full-owner hydration/validation and serialized bytes; repeated work must fall while outputs match. Include corruption, corrections, resident origin, expiry/clock changes and account switch. Do not assert success from SQL statement count alone.
+
+#### EN-003-G — Index event identities within each import transaction
+
+**Status / priority:** Open P2. **Evidence:** RQ03; 1k duplicate imports against 10k events took 4.21 s in an isolated warm probe. **Dependencies:** Existing PB-001/PB-010 identity and correction semantics. **Coordinate with:** EN-003-E; local scan/no-op improvements do not require its transport migration.
+
+**Work:** Build one in-memory event identity/content lookup per transaction instead of scanning retained history for every incoming item. Detect exact no-op imports/retries and avoid rewriting the complete owner aggregate when no state or required hook changes. Keep original evidence and conflicting-id semantics. Include correction-revision lookup/rebuild cost and exact inventory retry paths that currently UPSERT unchanged owner state; these remain open parts of RQ03.
+
+**Acceptance:** Exact retries, changed-content conflicts, mixed new/duplicate batches, same-batch duplicates and rollback yield identical state/arrival effects/receipts. Query/scan counts grow with history plus batch, not their product. Compare 100/1k batches over small/large histories; no-op reads must not silently skip required reconciliation or owner checks. For an exact import/inventory retry with no required reconciliation or hook changes, SQLite `total_changes` must remain unchanged. Exercise correction histories and resident-origin projection alongside batching.
+
+#### EN-003-H — Bound synchronous writer waits and preserve retries
+
+**Status / priority:** Open P2 operational defect. **Evidence:** RQ04; the synchronous 5,000 ms busy wait blocked unrelated owner work in an isolated contention probe. **Dependencies:** Existing SQLite/CAS/receipt and local job-lease authorities. **Coordinate with:** EN-003-C streaming admission, EN-003-E response handling and EN-006 worker integration; unavailable external/original workers are not prerequisites for local contention repair.
+
+**Work:** Define bounded writer admission/busy handling and retry semantics for the synchronous runtime, with a safe HTTP error classification. Preserve WAL committed reads, CAS/idempotent receipts, lease claims and atomic writes. Consider async backoff or a dedicated writer only after measurement; no speculative service layer or timeout change that loses successful writes.
+
+**Acceptance:** Independent-process lock contention under multiple owners must not stall the event loop for the full SQLite busy interval. Measure timer drift and unrelated reads; test overload/retry, cancellation, committed-but-lost replies, lease completion, restart and partial failure. Record CPU/storage/concurrency conditions; use correctness/work-count gates rather than inventing a production SLO.
+
 ### EN-004 — Real audio model accuracy, taxonomy calibration and independent ML execution
 
 **Source / decision:** Architecture/delivery record; not new user authorization; Real identification goal agreed; old numeric targets unvalidated proposals. **Implementation:** Validation/chunking/fixture/optional local ONNX adapters implemented. **Integration:** Technical cross-process integration only. **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.

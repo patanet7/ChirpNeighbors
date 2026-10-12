@@ -8,9 +8,11 @@ The product is highly detailed species-correct pixel birds in simple regional ya
 
 ## Architecture follow-up
 
-The [2026-10-12 architecture evidence](../architecture/architecture-review-20261012.md) maps all four reviews to the existing requirements and records the subsequent failed visual acceptance. The fourteen lettered subtasks below refine those requirements, including the bounded local visual implementation; each linked entry alone owns its current status, dependencies and acceptance. They do not change the 36 requirement IDs or imply that a planned fix has passed. Review IDs such as CSA/JA/RG/RDX are evidence aliases, not a second backlog.
+The [integrated query audit](../architecture/integrated-query-audit-20261012.md) adds measured scaling and end-to-end correctness evidence. Its overlapping review IDs map to the same canonical entries below; they are not separate backlogs.
 
-| Sequence / scope | Canonical implementation task |
+The [2026-10-12 architecture evidence](../architecture/architecture-review-20261012.md) maps all four reviews to the existing requirements and records the subsequent failed visual acceptance. The twenty-one lettered subtasks below refine those requirements, including the bounded local visual implementation; each linked entry alone owns its current status, dependencies and acceptance. They do not change the 36 requirement IDs or imply that a planned fix has passed. Review IDs such as CSA/JA/RG/RDX are evidence aliases, not a second backlog.
+
+| Scope / concern | Canonical implementation task |
 | --- | --- |
 | Private storage boundary | [EN-003-A — Reject served private data roots](../engineering/roadmap.md#en-003-a--reject-served-private-data-roots) |
 | Safe visible development | [EN-003-B — Repeatable loopback development lifecycle](../engineering/roadmap.md#en-003-b--repeatable-loopback-development-lifecycle) |
@@ -25,6 +27,13 @@ The [2026-10-12 architecture evidence](../architecture/architecture-review-20261
 | Production/device measurements | [PB-011-B — Measure production and device performance](../product/yard-and-behavior.md#pb-011-b--measure-production-and-device-performance) |
 | Source density and restored sidebar | [PB-011-C — Separate artwork detail from world size and restrain the UI](../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui) |
 | Approved visual inputs | [PB-021-B — Review actual species art and action clips](../product/artwork-and-assets.md#pb-021-b--review-actual-species-art-and-action-clips) |
+| Oversized valid yard responses (P1) | [EN-003-E — Bound yard responses without losing retained history](../engineering/roadmap.md#en-003-e--bound-yard-responses-without-losing-retained-history) |
+| Repeated owner projection | [EN-003-F — Reduce repeated owner snapshot work](../engineering/roadmap.md#en-003-f--reduce-repeated-owner-snapshot-work) |
+| Duplicate import scaling | [EN-003-G — Index event identities within each import transaction](../engineering/roadmap.md#en-003-g--index-event-identities-within-each-import-transaction) |
+| Synchronous writer contention | [EN-003-H — Bound synchronous writer waits and preserve retries](../engineering/roadmap.md#en-003-h--bound-synchronous-writer-waits-and-preserve-retries) |
+| Retained source query reuse | [PB-014-A — Reuse retained asset validation within one request](../product/artwork-and-assets.md#pb-014-a--reuse-retained-asset-validation-within-one-request) |
+| Lifecycle graph query reuse | [PB-022-B — Project lifecycle state from one bounded graph](../product/artwork-and-assets.md#pb-022-b--project-lifecycle-state-from-one-bounded-graph) |
+| Unchanged renderer resources | [PB-011-D — Retain unchanged render assets within one owner epoch](../product/yard-and-behavior.md#pb-011-d--retain-unchanged-render-assets-within-one-owner-epoch) |
 | Optional behavior decision | [PB-023-A — Decide whether live context recovery is required](../product/yard-and-behavior.md#pb-023-a--decide-whether-live-context-recovery-is-required) |
 
 Previously identified requirements remain in the tables below, including the original worker, model/provider/art inputs, real import/weather, device acceptance, account operation/erasure and optional product decisions. An item absent from this immediate architecture sequence is not completed or dropped. Dated delivery tables and old checkboxes retain their original evidence; update present status in the linked PB/EN entry instead.

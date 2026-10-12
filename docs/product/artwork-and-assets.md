@@ -36,6 +36,14 @@ The photo-conditioned species-art acceptance in PB-021 excludes a plain downsamp
 
 **Current admission slice (E-REF; local integrated checkpoint):** Independent private reference-file authority now retains bounded original/canonical bytes, explicit rights/species/pose owner assertions, terminal revocation and exact reference pins. Queue, execution, completion and candidate review recheck current action and direction/viewpoint authority through the existing runner; late results and stale/missing/corrupt dependencies cannot advance. [Service tests](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/reference-admission/service.test.ts) and [provider tests](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/asset-pipeline/reference-generation.test.ts) cover the bounded path. For the current right-facing-mirrorable recipe, a left or right reviewed viewpoint is required; front/back/three-quarter/other alone cannot authorize it. Owner review is not automatic biological/legal certification; even approved diagnostic candidates cannot become renderable manifests, resident pins or shared artwork.
 
+#### PB-014-A — Reuse retained asset validation within one request
+
+**Status / priority:** Open P2 for repeated source hydration; the measured owner/job artifact index is implemented locally. **Evidence:** JAQ-01 / EI-001 in the [integrated query audit](../architecture/integrated-query-audit-20261012.md). **Dependencies:** EN-001, PB-014. This supplies shared request-local validation for PB-022-B.
+
+**Work:** Share exact verified source/dependency results within one request snapshot across selected artwork, preserving graph visit/depth limits and review/rights checks. Current per-package resolution rereads a shared ancestor. Use request-local validated data, not a global authority cache. Existing startup index migration is nonunique and leaves v1 rows/contracts unchanged.
+
+**Acceptance:** Instrument 1/8/24 selected packages sharing an ancestor and branching/deep graphs. Hydrations should track unique retained nodes/edges, with identical pixels/pins/status. Corruption, review rejection, foreign owner, revoked rights, archive/new-selection distinction and version changes remain enforced. Upgrade/reopen/busy/query-plan tests preserve every source/review/version byte. Re-measure in a quiet run after the index; pre-index shared-cloud timings are not final SLO evidence.
+
 ### PB-018 — Track generation resource usage and unknown costs accurately.
 
 **Source / decision:** user decision; Agreed. **Implementation:** Contracts and pure helpers implemented. **Integration:** Helper tests verified; runtime dispatch accounting absent. **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.
@@ -110,12 +118,22 @@ The photo-conditioned species-art acceptance in PB-021 excludes a plain downsamp
 
 **Tests and evidence:** [U:src/lib/server/assets/lifecycle.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/assets/lifecycle.test.ts); [U:scripts/asset-retention-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/asset-retention-browser-checks.py). [E-CAT:asset-retention/asset-retention-browser-results.json](../delivery/LOCAL-EVIDENCE.md); [E-CAT:ui-unit.log](../delivery/LOCAL-EVIDENCE.md).
 
-**Dependencies:** PB-013, PB-014, PB-020. **Remaining gap:** No live purge, expiry job, account-wide erasure or authorization to destroy retained evidence; shared catalog read-only. Older archived packages can disappear from bounded lifecycle controls (PB-022-A). **Next action:** Repair history reachability without weakening conservative dependency scans; specify retention/erasure separately under EN-011.
+**Dependencies:** PB-013, PB-014, PB-020. **Remaining gap:** No live purge, expiry job, account-wide erasure or authorization to destroy retained evidence; shared catalog read-only. History reachability repair is implemented locally (PB-022-A), with final verification recorded in its delivery receipt. **Next action:** Complete frozen verification and reduce repeated graph work without weakening conservative dependency scans; specify retention/erasure separately under EN-011.
 
 #### PB-022-A — Keep archived history reachable
 
-**Status / priority:** Open, confirmed P2 owner-workflow defect. **Review:** JA-02. **Dependencies:** EN-001 versioned response/consumer compatibility and the existing owner-bound keyset pagination pattern. No provider/art input is required.
+**Status / priority:** Implemented locally; frozen browser/quality acceptance in progress. **Review:** JA-02 / ARCH-01–04 / JAQ-02 / JAQ-04 / EI-005. **Dependencies:** EN-001 versioned response/consumer compatibility and the existing owner-bound keyset pagination pattern. No provider/art input is required.
 
 **Work:** Separate bounded visible lifecycle history from conservative whole-graph reference completeness. Provide versioned cursor pagination or exact-target retrieval, preserving archive/restore CAS, existing pins and old-reader compatibility. Raising the full-graph limit is not the repair.
 
 **Acceptance tests:** With at least 513 valid jobs, restore the oldest archived package through the UI; exercise source metadata beyond the 32 MB graph budget as well. Cover tampered/cross-owner/stale-restart cursors, concurrent insertion, missing/corrupt dependencies, idempotent retry and account switching. An incomplete graph must never authorize purge or discard resident pins. [513-job reproduction and unexecuted overflow distinction](../architecture/architecture-review-20261012.md#jobs-providers-and-asset-lifecycle).
+
+**Local implementation:** Separate owner-bound `asset-package-history-v1` pages retain all package rows independently of the full-graph scan. Standalone reads avoid the writer lock; byte guards and request admission fail closed; archive/restore CAS, pins, old overview/commands and the restored sidebar remain intact. A corrupt initial job list leaves the valid yard and retention controls accessible with working refresh/retry. [Implementation and exact verification](../delivery/archive-history-local-20261012.md). The older workshop's new-selection gate still conservatively reads the bounded overview; a future exact-target status read should remove that omission without weakening server admission.
+
+#### PB-022-B — Project lifecycle state from one bounded graph
+
+**Status / priority:** Open P2. **Evidence:** JAQ-03 / EI-002 in the [integrated query audit](../architecture/integrated-query-audit-20261012.md). **Dependencies:** PB-022-A, PB-014-A, EN-003.
+
+**Work:** Reuse validated package, archive and dependency state within one transactionally consistent overview; construct reverse-reference reasons once. Current graph construction and per-entry selectability repeatedly hydrate the same data, extending write-lock tenure when a command returns overview. Preserve exact-target checks when the global scan is incomplete.
+
+**Acceptance:** On 32/256/512-package flat, chain and diamond graphs, count unique input/artifact hydration and reverse-edge work; avoid repeated hydration per node within one projection. Old/new entries and cleanup decisions must agree for complete/incomplete scans, cycles, depth/visit caps, corrupt/missing/foreign dependencies, 32 MB overflow and archived sources. Existing rendering pins stay retained; new selection remains blocked where appropriate. Include rollback/idempotent command response and measure lock tenure without a guessed latency target.

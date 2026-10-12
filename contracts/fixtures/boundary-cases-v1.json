@@ -55328,6 +55328,664 @@
       "authoritativeValid": false
     },
     {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: bounded package history with conservative retention",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "not-run",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: empty history remains paginated",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "not-run",
+        "entries": [],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: history cannot claim a complete scan",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "complete",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: history forbids purge",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": true,
+        "referenceScan": "not-run",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: history bounds rows before semantic validation",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "not-run",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: history bounds cursor length",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "not-run",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: history rejects injected owner",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "not-run",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 5
+        },
+        "ownerId": "other-owner"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: history forbids duplicate targets",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "not-run",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: history contains only packages",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "not-run",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-file",
+                "id": "17746f92-24ae-44c5-b8db-fb0e2777c005"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: history requires conservative retention reasons",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "not-run",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 5
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "asset-package-history-v1",
+      "name": "asset lifecycle: history respects requested page size",
+      "value": {
+        "schemaVersion": 1,
+        "purgeEnabled": false,
+        "referenceScan": "not-run",
+        "entries": [
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "46e61f6a-c2c9-4eba-b38a-0a924d093e37"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          },
+          {
+            "state": {
+              "target": {
+                "kind": "private-package",
+                "id": "01ab2986-0a45-4c9c-8937-575fbf23ef61"
+              },
+              "revision": 0,
+              "archived": false,
+              "changedAt": null
+            },
+            "label": "Synthetic unreviewed PNG",
+            "retainedBytes": 256,
+            "selectable": true,
+            "selectionBlock": "none",
+            "cleanupEligible": false,
+            "retainedBecause": [
+              "active",
+              "pipeline-history",
+              "incomplete-reference-scan"
+            ]
+          }
+        ],
+        "page": {
+          "cursor": "fixture.signature",
+          "nextCursor": null,
+          "limit": 1
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
       "schema": "catalog-pin-v1",
       "name": "shared catalog: exact immutable shared release identity",
       "value": {

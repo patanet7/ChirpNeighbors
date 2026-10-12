@@ -130,6 +130,14 @@ Canonical requirements and acceptance for this topic. Stable IDs, decisions, dep
 
 **Next dependency:** Retrieve inspectable approved pixels, review one genuine master pose at intended yard scale, then a short idle clip. Four native 128×128 frames fit the current 65,536 decoded-pixel ceiling; sixty do not. The legacy 32×32/60-frame production proposal is not an approved art profile. Full nine-action detail, physical GPU/mobile legibility and public V4 projection need separate measured acceptance.
 
+#### PB-011-D — Retain unchanged render assets within one owner epoch
+
+**Status / priority:** Open P2 measured cache churn, not a demonstrated stale-version rendering defect. **Evidence:** EI-003 in the [integrated query audit](../architecture/integrated-query-audit-20261012.md). **Dependencies:** EN-001 exact asset/owner authority and the implemented PB-011-C density behavior. **Coordinate with:** PB-014-A request resolution. Physical-device measurement under PB-011-B and approved-art acceptance remain independent; neither blocks equal-byte local cache reuse.
+
+**Work:** Reconcile validated asset entries by exact content/status within the same owner epoch so equal responses from rename/move/weather do not rebuild all registry/geometry resources. Do not identify content by artwork ID alone or preserve caches across account replacement.
+
+**Acceptance:** Actual Pixi context/build counters stay stable for an equal-byte response. Changed manifest, density, version or pin invalidates; missing/revoked/corrupt entries fall back; removal releases contexts; account switch clears old assets; teardown remains isolated. Exercise SVG fallback parity and existing resource caps. Actual authored artwork and physical-device performance remain independent acceptance.
+
 ### PB-023 — Animate the illustrative yard environment, with continuous daylight/weather, deterministic replay and accessible owner preview controls.
 
 **Source / decision:** user decision; Agreed. **Implementation:** Bounded environment contracts/resolver, renderer playback and owner controls implemented. **Integration:** Local integrated bounded fixture checkpoint (E-ENV). **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.

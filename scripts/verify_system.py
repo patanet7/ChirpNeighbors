@@ -667,6 +667,7 @@ def gates(
             "asset-retention-browser-checks.py",
             "CHIRP_ASSET_RETENTION_OUTPUT",
         ),
+        ("asset-history", "asset-history-browser-checks.py", "CHIRP_HISTORY_OUTPUT"),
         (
             "shared-catalog",
             "shared-catalog-browser-checks.py",

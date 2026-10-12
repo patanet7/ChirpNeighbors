@@ -1,0 +1,11 @@
+{
+  "status": "failed-probe-assumption",
+  "failedControl": "Invalid owner cannot be hidden by initial fallback",
+  "observed": "AssertionError: Missing expected exception for initialJobPage(jobs, '../foreign')",
+  "reason": "pipelineIdentifierSchema permits any 1-200 character opaque identifier containing a non-whitespace character. '../foreign' is valid under this existing authority, and is used only in bound SQL and cursor HMAC inputs here.",
+  "correction": "Use the empty string, which the existing pipelineIdentifierSchema rejects, to test that the new fallback cannot swallow an owner-validation error.",
+  "productChangeRequired": false,
+  "parentNotifiedOfSameUnitTestAssumption": true,
+  "preservedExecutable": "delta-probe.cjs",
+  "preservedEmbeddedSource": "delta-probe.cjs.map"
+}
