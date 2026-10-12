@@ -2,6 +2,8 @@
 
 Canonical requirements and acceptance for this topic. Stable IDs, decisions, dependencies and named evidence are retained from the [task index](../delivery/product-behavior-and-ideas.md). U: paths refer to the UI repository; M: paths refer to ChirpNeighbors. Evidence labels resolve through the [verification ledger](../delivery/verification-ledger.md). Current GitHub publication is tracked separately in the [release record](../publication/20261011/README.md).
 
+The photo-conditioned species-art acceptance in PB-021 excludes a plain downsampled photograph: that does not satisfy the promised reusable species-art workflow. Reviewed anatomy, plumage, silhouette, contacts and animation consistency remain necessary.
+
 ### PB-003 — Shared canonical species/style/version assets are built lazily as species arrive; optional later variants may be added as needed.
 
 **Source / decision:** user decision; Agreed. **Implementation:** Bounded fixture catalog implemented. **Integration:** Local integrated checkpoint. **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.
