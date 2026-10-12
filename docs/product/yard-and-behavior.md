@@ -100,7 +100,7 @@ Canonical requirements and acceptance for this topic. Stable IDs, decisions, dep
 
 #### PB-011-A — Dispose every owned renderer context
 
-**Status / priority:** Implemented and verified locally on Linux; integrated receipt pending. The original teardown defect was P2. **Review:** RG-001. **Dependencies:** existing Pixi ownership/geometry leases; no artwork, hardware purchase or provider. Local integration `918d876a2d604bc4aacc4bb3c00a06cf32c81103` and actual-context cycle evidence are recorded in the [local follow-up](../architecture/architecture-review-20261012.md#local-implementation-follow-up); no publication is claimed.
+**Status / priority:** Implemented and verified locally on Linux; the frozen UI quality and bounded integration receipt is complete for `926ab9f02d4f50f0349d00a2d11cc7a9477db0d5`. The original teardown defect was P2. **Review:** RG-001. **Dependencies:** existing Pixi ownership/geometry leases; no artwork, hardware purchase or provider. Local integration `918d876a2d604bc4aacc4bb3c00a06cf32c81103` and actual-context cycle evidence are recorded in the [local follow-up](../architecture/architecture-review-20261012.md#local-implementation-follow-up); no publication is claimed.
 
 **Work:** Dispose remaining renderer-owned GraphicsContexts after shared bird views detach, keeping global resource release disabled and preserving other live renderers. Diagnostic zero counters alone do not establish disposal.
 
@@ -111,6 +111,14 @@ Canonical requirements and acceptance for this topic. Stable IDs, decisions, dep
 **Status / priority:** Open production measurement; physical-device acceptance blocked on selected hardware, P2 release acceptance. **Review:** RG-002; retains historical GAP-03/PERF scope. **Dependencies:** declared representative workloads/budgets and pending GPU/device choice. A purchase or paid GPU service is not implied.
 
 **Acceptance tests:** Add a production-bundle measurement path with consistent warmup/sample counts and source fingerprints. Record actual simulation ticks, visible/waiting/deferred actors, backing dimensions and CPU work separately from frame pacing. Retain fixed-ticker pixel/behavior parity and current admission/quality limits; later repeat on the selected physical devices. Existing development-mode SwiftShader results and geometry-work reductions do not satisfy this acceptance. Optimize measured bottlenecks only; no blanket batching/reactivity rewrite is selected. [Historical measurements and limits](../architecture/architecture-review-20261012.md#renderer-simulation-and-game-behavior).
+
+#### PB-011-C — Separate artwork detail from world size and restrain the UI
+
+**Status / priority:** Authorized next visual implementation; no new visual code or accepted visual result is claimed by this documentation update. The user rejected the fixture-art screenshot. **Source:** subsequent user direction after local runtime verification. **Dependencies:** existing reviewed manifest/renderer geometry and PB-013 privacy; actual species-art matching depends on PB-021-B's blocked retrieval of approved Library concept pixels. Code/layout work can proceed without claiming to have seen those pixels.
+
+**Work:** Separate the source artwork's pixel-detail resolution from its world footprint and display transform so detailed birds need not become oversized objects. Keep regional yards visually simple and controls restrained, with the yard prominent and required owner workflows still reachable. This is a distinct implementation slice, not permission to treat current fixture birds as accepted art. No 32px canvas or world-size choice has been approved.
+
+**Acceptance tests:** Demonstrate that increasing source detail can preserve the intended logical world footprint, pivots, contact/support positions, hit testing and depth; test normal/reduced-motion/Pixi/SVG rendering without blurring or clipping the chosen pixel treatment. Retain placement, import/Findings, residents, weather and owner data. Inspect desktop and narrow layouts, keyboard/focus and accessible access to the simplified controls. Produce actual updated browser captures for visual review and record the user's acceptance separately from runtime checks. Actual concept/species fidelity remains unaccepted until the approved pixels are retrieved, inspected and compared. [Visual rejection and authorization evidence](../architecture/architecture-review-20261012.md#visual-acceptance-and-next-authorized-work).
 
 ### PB-023 — Animate the illustrative yard environment, with continuous daylight/weather, deterministic replay and accessible owner preview controls.
 
