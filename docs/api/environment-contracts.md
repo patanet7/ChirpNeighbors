@@ -1,5 +1,7 @@
 # Illustrative environment contracts
 
+Canonical shared contract documentation. Executable code paths below refer to the private UI repository; portable generated schemas are under `ChirpNeighbors/contracts/`. Update this document instead of maintaining a prose mirror.
+
 `environment-controls-v1` and `environment-frame-v1` are additive structural
 boundaries for temporary owner preview controls and decorative scene samples.
 The existing stored weather settings, `WeatherFrame`, legacy `resolveWeather`,

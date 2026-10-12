@@ -30,4 +30,4 @@ Offline backup copies cannot be remotely erased. Reconciliation can enforce only
 the retained ledger supplied by the operator; it must not invent missing history
 or assert that an old export is the latest one.
 
-Final evidence: [lifecycle checkpoint](lifecycle-checkpoint-20261008.md), [verification](lifecycle-verification-20261008.json), and [exact local commits](lifecycle-commits-20261008.md). All 55 gates have passing evidence across the full run and the targeted selector-fix rerun.
+Final evidence: [lifecycle checkpoint](verification-ledger.md#lifecycle-checkpoint-complete-run-and-separate-repair), [verification](lifecycle-verification-20261008.json), and [exact local commits](lifecycle-commits-20261008.md). All 55 gates have passing evidence across the full run and the targeted selector-fix rerun.
