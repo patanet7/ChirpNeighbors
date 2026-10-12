@@ -100,7 +100,7 @@ Canonical requirements and acceptance for this topic. Stable IDs, decisions, dep
 
 #### PB-011-A — Dispose every owned renderer context
 
-**Status / priority:** In progress; confirmed P2 teardown defect, acceptance pending. **Review:** RG-001. **Dependencies:** existing Pixi ownership/geometry leases; no artwork, hardware purchase or provider.
+**Status / priority:** Implemented and verified locally on Linux; integrated receipt pending. The original teardown defect was P2. **Review:** RG-001. **Dependencies:** existing Pixi ownership/geometry leases; no artwork, hardware purchase or provider. Local integration `918d876a2d604bc4aacc4bb3c00a06cf32c81103` and actual-context cycle evidence are recorded in the [local follow-up](../architecture/architecture-review-20261012.md#local-implementation-follow-up); no publication is claimed.
 
 **Work:** Dispose remaining renderer-owned GraphicsContexts after shared bird views detach, keeping global resource release disabled and preserving other live renderers. Diagnostic zero counters alone do not establish disposal.
 

@@ -52,7 +52,7 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 
 #### EN-003-A — Reject served private data roots
 
-**Status / priority:** In progress; confirmed high-severity configuration defect, acceptance pending. **Review:** CSA-01. **Dependencies:** PB-013; existing private-root and build/startup boundaries. No provider or artwork input is needed.
+**Status / priority:** Implemented and verified locally on Linux; integrated receipt pending. The original finding was high severity. **Review:** CSA-01. **Dependencies:** PB-013; existing private-root and build/startup boundaries. No provider or artwork input is needed. Local integration commit `6cdf8fb3ebb576c1d6026d1fb6ea48cc2081e403` and focused/production evidence are recorded in the [local follow-up](../architecture/architecture-review-20261012.md#local-implementation-follow-up); no publication is claimed.
 
 **Work:** Reject application data paths within source/generated served roots, including prospective paths and symlink aliases, before creation/chmod/open and before a built server listens. Retained files are served ahead of lazy application hooks; do not move/delete operator data to repair configuration.
 
@@ -60,11 +60,11 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 
 #### EN-003-B — Repeatable loopback development lifecycle
 
-**Status / priority:** In progress; high-priority fixture exposure repair plus bounded developer experience. **Reviews:** CSA-02, RDX-001, RDX-002, RDX-005. **Dependencies:** EN-003-A for safe storage validation; existing Node/SvelteKit app. Node-only yard startup does not depend on Python services, the original worker, providers or approved art.
+**Status / priority:** Implemented and verified locally on Linux at UI `926ab9f02d4f50f0349d00a2d11cc7a9477db0d5`; final integrated quality receipt pending. The original fixture exposure was high priority. **Reviews:** CSA-02, RDX-001, RDX-002, RDX-005. **Dependencies:** EN-003-A for safe storage validation; existing Node/SvelteKit app. Node-only yard startup does not depend on Python services, the original worker, providers or approved art. Implementation `1f931335903f6b3aa2718018e8670485187b143b`, the final test/lint correction, fresh/warm setup and bounded checks are recorded in the [local follow-up](../architecture/architecture-review-20261012.md#local-implementation-follow-up).
 
-**Work:** Pin supported mise tools and compose bootstrap/check/test/build/dev/status/stop around existing authorities. Default to loopback and explicit fixture identity, validate ports and report the actual origin, separate optional receiver/service tasks, and preserve local data. Dynamic allocation must use the actual bound address. Use a live owned controller for shutdown; no kill-by-port, stale-PID targeting, automatic tunnel or OS service. The [UI setup guide](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/runtime-safety-20261012/docs/setup.md) owns executable startup instructions.
+**Work:** Pinned mise tasks compose bootstrap/check/test/build/dev/status/stop around existing authorities. Startup uses loopback and explicit fixture identity, preserves local data, and accepts explicit integer ports **1–65535**. Port **0 is rejected**; occupied ports fail without selecting another port or killing its owner. The reported origin comes from the actual listener. Optional receiver/services remain separate. A live owned controller handles shutdown; no kill-by-port, stale-PID targeting, automatic tunnel or OS service. The [UI setup guide](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/runtime-safety-20261012/docs/setup.md) owns executable startup instructions.
 
-**Acceptance tests:** Fresh and warm bootstrap; normal fixture sign-in/sample yard; persistence and session re-selection after restart; simultaneous same-checkout launch admits only one controller; isolated dynamic instances have distinct working origins. Occupied/invalid ports leave unrelated listeners intact. Missing dependencies, bad storage and readiness timeout fail with bounded owned cleanup. Ctrl-C/SIGTERM/stop release HTTP/HMR and are idempotent. Private state is excluded from Git/static serving; forms/session binding use the actual origin; production fixture login remains closed. Check/test/build failures propagate. State clearly which operating systems were executed and whether a preview is user-accessible. [Review basis](../architecture/architecture-review-20261012.md#runtime-developer-experience-and-ci).
+**Acceptance tests:** Fresh and warm bootstrap; normal fixture sign-in/sample yard; persistence and session re-selection after restart; simultaneous same-checkout launch admits only one controller; isolated instances on distinct configured ports have distinct working origins. Occupied/invalid ports, including zero, leave unrelated listeners intact. Missing dependencies, bad storage and readiness timeout fail with bounded owned cleanup. Ctrl-C/SIGTERM/stop release HTTP/HMR and are idempotent. Private state is excluded from Git/static serving; forms/session binding use the actual origin; production fixture login remains closed. Check/test/build failures propagate. State clearly which operating systems were executed and whether a preview is user-accessible. [Review basis](../architecture/architecture-review-20261012.md#runtime-developer-experience-and-ci).
 
 #### EN-003-C — Hold read admission through stream completion
 
@@ -76,7 +76,7 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 
 #### EN-003-D — Reproduce verification from explicit environments
 
-**Status / priority:** Documentation corrected here; clean-install/runtime acceptance remains open, P2. **Review:** RDX-003. **Dependencies:** exact declared tool/dependency pins, supported browser libraries; EN-003-B for optional task wrappers.
+**Status / priority:** Documentation corrected; fresh/warm Node/npm setup verified locally on Linux, but full cold Python and other-platform acceptance remain open, P2. **Review:** RDX-003. **Dependencies:** exact declared tool/dependency pins, supported browser libraries; EN-003-B task wrappers. Mise downloaded and verified Node 24.19.0. The workspace proxy blocked Python 3.12.14 download metadata; optional local checks used an already installed matching runtime linked into mise. That is not a cold Python installation pass. [Bounded follow-up evidence](../architecture/architecture-review-20261012.md#local-implementation-follow-up).
 
 **Work:** [Aggregate setup](../delivery/quality.md) separates core, browser, ONNX and intake interpreters, installs complete browser requirements including Pillow, and passes all interpreter paths. Preserve core/model isolation and explicit browser OS prerequisites. Keep ordinary UI startup lightweight.
 
@@ -188,7 +188,7 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 
 #### EN-010-C — Maintain one current task authority
 
-**Status / priority:** In progress, P2; main review findings/status links consolidated here, paired UI historical-label reconciliation and integrated review pending. **Review:** RDX-006. **Dependencies:** actual reviewed code/CI evidence from each implementation owner.
+**Status / priority:** Main/paired-UI documentation reconciliation complete locally; documentation merge remains pending. **Review:** RDX-006, P2. **Dependencies:** actual reviewed code/CI evidence from each implementation owner. The UI's engine checklist and contracts/operations audit are labeled historical; its README points to the canonical setup and PB/EN authority. Current status remains in these topic entries, with implementation evidence in the [local follow-up](../architecture/architecture-review-20261012.md#local-implementation-follow-up).
 
 **Acceptance:** Every review finding maps to one PB/EN requirement/subtask with current status, dependencies and observable acceptance. Historical task tables remain dated evidence, preserving unique requirements/provenance and failed attempts, with links to the canonical index. Main/UI setup links resolve; stale ESP32/publication checkboxes do not masquerade as current blockers. Do not mark another branch's planned fix complete before receiving its commit and verification evidence.
 

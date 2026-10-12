@@ -84,9 +84,11 @@ The photo-conditioned species-art acceptance in PB-021 excludes a plain downsamp
 
 #### PB-021-A — Stop discovery at cancelled request boundaries
 
-**Status / priority:** In progress; confirmed P2 defect, acceptance pending. **Review:** JA-01. **Dependencies:** existing runner/discovery interfaces and EN-001 semantics. This bounded fix does not depend on obtaining EN-006's original worker, approved art, providers or GPU selection.
+**Status / priority:** Implemented and verified locally on Linux; integrated receipt pending. The original cancellation defect was P2. **Review:** JA-01. **Dependencies:** existing runner/discovery interfaces and EN-001 semantics. This bounded fix does not depend on obtaining EN-006's original worker, approved art, providers or GPU selection. Local integration `cea846388f4f67a3858dce00c690623419c5cc3e` and four added cancellation regressions are recorded in the [local follow-up](../architecture/architecture-review-20261012.md#local-implementation-follow-up); no publication is claimed.
 
 **Work:** Propagate persisted cooperative cancellation into every discovery page/retry dispatch boundary while preserving per-job isolation, deadlines, lease fencing and late-output rejection. Cancellation cannot undo a request already sent; do not promise in-flight abort without testing it.
+
+**Implemented limit:** Persisted cancellation is observed at bounded request/admission/retry boundaries. A fetch/read or delay already awaiting completion is not synchronously interrupted by a database status change; the existing AbortSignal/deadline still bounds it. No later page/retry dispatch occurs once cancellation is observed.
 
 **Acceptance tests:** Pause page one, cancel the job, then release the page with a next cursor; no next page/retry may dispatch and no output may commit. Cover simultaneous independent owners/jobs, cancellation after completion, deadline abort, ordinary multiple-page success and late completion fencing. [Two-call stub reproduction and source locations](../architecture/architecture-review-20261012.md#jobs-providers-and-asset-lifecycle).
 
