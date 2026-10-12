@@ -1,0 +1,478 @@
+{
+  "completed": true,
+  "failure": null,
+  "checks": [
+    {
+      "check": "Anonymous access to all private endpoints is denied",
+      "passed": true
+    },
+    {
+      "check": "Unsigned sign-in requires same-origin requests and never grants a foreign session",
+      "passed": true
+    },
+    {
+      "check": "Oversized sign-in form is rejected without setting a session",
+      "passed": true
+    },
+    {
+      "check": "Streamed sign-in body is capped without Content-Length",
+      "passed": true
+    },
+    {
+      "check": "Forged development session is denied",
+      "passed": true
+    },
+    {
+      "check": "Alice starts with an isolated empty yard",
+      "passed": true
+    },
+    {
+      "check": "Response capture preserves a GET-before-POST and forwards exactly one actual POST",
+      "passed": true,
+      "detail": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 1,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      }
+    },
+    {
+      "check": "Fixture import creates three Findings and three temporary visitors",
+      "passed": true
+    },
+    {
+      "check": "Repeated fixture import changes neither evidence nor visitor IDs",
+      "passed": true
+    },
+    {
+      "check": "Pixi canvas actually initializes in Chromium",
+      "passed": true
+    },
+    {
+      "check": "Autonomous animation visibly changes rendered frames",
+      "passed": true
+    },
+    {
+      "check": "Naming and promotion preserve identity, pinned artwork and evidence",
+      "passed": true
+    },
+    {
+      "check": "Promoted resident survives browser reload",
+      "passed": true
+    },
+    {
+      "check": "Collecting another species adds membership without a resident",
+      "passed": true
+    },
+    {
+      "check": "Collection search matches scientific names",
+      "passed": true
+    },
+    {
+      "check": "Multiple instances of one species are allowed without duplicating Findings",
+      "passed": true
+    },
+    {
+      "check": "Removing an instance retains its collection, observations and assets",
+      "passed": true
+    },
+    {
+      "check": "Changing scene, palette and motion preserves IDs, assets and history",
+      "passed": true
+    },
+    {
+      "check": "Reduced motion pauses rendered bird animation",
+      "passed": true
+    },
+    {
+      "check": "A bird can be selected through its keyboard-accessible control",
+      "passed": true
+    },
+    {
+      "check": "desktop-yard: no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "renderer": "pixi"
+      }
+    },
+    {
+      "check": "Mobile layout exposes the test identity switch",
+      "passed": true
+    },
+    {
+      "check": "mobile-yard: no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390,
+        "renderer": "pixi"
+      }
+    },
+    {
+      "check": "320-pixel yard has no horizontal overflow",
+      "passed": true
+    },
+    {
+      "check": "Malformed multi-event import is atomic",
+      "passed": true
+    },
+    {
+      "check": "Evidence identity conflict rolls back the whole batch",
+      "passed": true
+    },
+    {
+      "check": "Configured visitor expiry derives from observation time",
+      "passed": true
+    },
+    {
+      "check": "Same imported evidence is idempotent",
+      "passed": true
+    },
+    {
+      "check": "Distinct observations group into one Find and one default visitor",
+      "passed": true
+    },
+    {
+      "check": "Historical imports add Findings without inventing a live visitor",
+      "passed": true
+    },
+    {
+      "check": "Undated imports add Findings without inventing a live visitor",
+      "passed": true
+    },
+    {
+      "check": "Share preview has an exact public allowlist",
+      "passed": true
+    },
+    {
+      "check": "Shared data excludes locations, audio, private IDs/names/times and imported labels",
+      "passed": true
+    },
+    {
+      "check": "Unknown taxa have neutral public labels and no private artwork URL",
+      "passed": true
+    },
+    {
+      "check": "Authenticated share preview is visible without creating a public link",
+      "passed": true
+    },
+    {
+      "check": "Backup exports evidence, membership, instances and pinned assets",
+      "passed": true
+    },
+    {
+      "check": "Expired visitors disappear from active view without losing evidence",
+      "passed": true
+    },
+    {
+      "check": "Explicit file restore recovers the exported yard",
+      "passed": true
+    },
+    {
+      "check": "Invalid backup leaves the current yard unchanged",
+      "passed": true
+    },
+    {
+      "check": "Trusted shared catalog labels never expose imported labels or private asset URLs",
+      "passed": true
+    },
+    {
+      "check": "Explicit v1 migration keeps resident/event/art IDs, pins and private provenance",
+      "passed": true
+    },
+    {
+      "check": "Pipeline queue idempotency prevents duplicate jobs",
+      "passed": true
+    },
+    {
+      "check": "Advancing executes only one hierarchical pipeline stage",
+      "passed": true
+    },
+    {
+      "check": "Fixture pipeline creates versioned provenance and waits for review",
+      "passed": true
+    },
+    {
+      "check": "Explicit fixture review completes the job without claiming generation",
+      "passed": true
+    },
+    {
+      "check": "Unconfigured generation is blocked and creates no artifacts",
+      "passed": true
+    },
+    {
+      "check": "desktop-workshop: no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "renderer": null
+      }
+    },
+    {
+      "check": "mobile-workshop: no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390,
+        "renderer": null
+      }
+    },
+    {
+      "check": "Blocked generation can be cancelled without output",
+      "passed": true
+    },
+    {
+      "check": "Bob cannot see Alice\u2019s observations, residents or jobs",
+      "passed": true
+    },
+    {
+      "check": "Forged owner, bird, job and artifact mutations are denied",
+      "passed": true
+    },
+    {
+      "check": "Mutation requires same-origin requests",
+      "passed": true
+    },
+    {
+      "check": "Owner-scoped responses are explicitly private and not cached",
+      "passed": true
+    },
+    {
+      "check": "Restart invalidates ephemeral development identity tokens",
+      "passed": true
+    },
+    {
+      "check": "Yard survives a real server process restart",
+      "passed": true
+    },
+    {
+      "check": "Job stages, artifacts and reviews survive server restart",
+      "passed": true
+    },
+    {
+      "check": "Owner isolation survives server restart",
+      "passed": true
+    },
+    {
+      "check": "A visitor expires visibly while the page stays open, without reload or API polling",
+      "passed": true
+    },
+    {
+      "check": "Live expiry retains the observation and Find in authoritative storage",
+      "passed": true
+    },
+    {
+      "check": "No browser runtime exceptions occurred",
+      "passed": true
+    },
+    {
+      "check": "No external requests were attempted during the journey",
+      "passed": true
+    },
+    {
+      "check": "Production UI says authentication is unconfigured",
+      "passed": true
+    },
+    {
+      "check": "Production /api/yard is closed even with CHIRP_DEV_AUTH=1",
+      "passed": true
+    },
+    {
+      "check": "Production /api/jobs is closed even with CHIRP_DEV_AUTH=1",
+      "passed": true
+    },
+    {
+      "check": "Production /api/backup is closed even with CHIRP_DEV_AUTH=1",
+      "passed": true
+    },
+    {
+      "check": "Production /api/share-preview is closed even with CHIRP_DEV_AUTH=1",
+      "passed": true
+    },
+    {
+      "check": "Production cannot issue a development session",
+      "passed": true
+    }
+  ],
+  "audits": {
+    "responseCaptures": {
+      "capture-1": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 1,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-2": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-3": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-4": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-5": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 1,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-6": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-7": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-8": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-9": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-10": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-11": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-12": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-13": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-14": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-15": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      },
+      "capture-16": {
+        "bodyAvailable": true,
+        "forwarded": true,
+        "ignoredNonPost": 0,
+        "fetchCalls": 1,
+        "stage": "complete",
+        "method": "POST",
+        "status": 200
+      }
+    },
+    "desktop-yard": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "renderer": "pixi"
+    },
+    "mobile-yard": {
+      "width": 390,
+      "scrollWidth": 390,
+      "renderer": "pixi"
+    },
+    "desktop-workshop": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "renderer": null
+    },
+    "mobile-workshop": {
+      "width": 390,
+      "scrollWidth": 390,
+      "renderer": null
+    }
+  },
+  "runtime_errors": [],
+  "external_requests": [],
+  "notes": [
+    "Temporary isolated SQLite data; only servers owned by this script are stopped.",
+    "Fixture artwork/observations only. No live inference, location collection, public sharing or AI provider calls.",
+    "Screenshot audits check overflow; no axe accessibility audit was run."
+  ]
+}

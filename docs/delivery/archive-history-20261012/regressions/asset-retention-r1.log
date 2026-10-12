@@ -1,0 +1,548 @@
+PASS Anonymous lifecycle overview is denied
+PASS Overview separates read-only shared catalog and disables purge
+PASS Reviewed PNG explains immutable review and queued package retention
+PASS Selected package explains pins, retained artwork and pipeline history
+PASS Foreign origin cannot mutate lifecycle
+PASS Stale document binding cannot mutate lifecycle
+PASS Wrong media type cannot mutate lifecycle
+PASS Strict target/schema/body boundaries reject malformed and oversized commands without mutation
+PASS Pin then archive preserves the exact reviewed Pixi pin
+PASS New instance automatic artwork selection skips archived package
+PASS Archive before explicit pin blocks new selection
+PASS Exact archive retry is idempotent
+PASS Old request replay after restore never reapplies archive
+PASS Concurrent same-revision archive commands admit exactly one transaction
+PASS Stale unpin never clears a concurrent replacement
+PASS Unpin replay and stale undo preserve a later pin
+PASS Archived original blocks dependent package selection without making reviewed bytes eligible
+PASS Archived file rejects new package but retains exact already-admitted queue retry
+PASS Job admitted before archive can finish source processing while history remains retained
+PASS Archived dependency fences undo, old yard backup, package and shape admission
+PASS Restored dependency permits exact pin undo and the same valid shape request
+PASS Archived conditioning reference blocks new derivation while existing PNG pin resolves
+PASS Concurrent pin and archive preserve one valid transaction order
+PASS Only unreviewed unreferenced archived upload is cleanup-eligible and all bytes remain
+PASS Restore cancels cleanup eligibility
+PASS Foreign owner cannot inspect, archive, unpin or reuse another owner's receipt
+PASS Public yard excludes private lifecycle, file identity, review and command receipts
+PASS Lost-response retry survives tab navigation and keyboard activation with the exact original command
+Traceback (most recent call last):
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-retention-browser-checks.py", line 865, in <module>
+    asyncio.run(asyncio.wait_for(main(), timeout=280))
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-retention-browser-checks.py", line 856, in main
+    await journey(server)
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-retention-browser-checks.py", line 733, in journey
+    await expect(
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 23191, in to_be_visible
+    await self._impl_obj.to_be_visible(
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 852, in to_be_visible
+    await self._expect_impl(
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be visible
+Actual value: None
+Error: element(s) not found 
+Call log:
+  - Expect "to_be_visible" with timeout 5000ms
+  - waiting for get_by_test_id("asset-lifecycle").locator("[data-testid=\"lifecycle-entry\"][data-target-id=\"656541ff-6f98-47c0-9391-6888564312be\"]").get_by_role("button", name="Archive file", exact=True)
+
+Aria snapshot:
+- complementary:
+  - link "ChirpNeighbors":
+    - /url: /
+  - navigation "Main navigation":
+    - button "My yard"
+    - button "Findings 3"
+    - button "Collection"
+    - button "Workshop"
+    - button "Yard settings"
+  - text: A
+  - strong: Alice’s test yard
+  - text: Development identity
+  - button "Switch test identity ↗"
+- main:
+  - text: Local development · saved on this server
+  - link "Private recordings":
+    - /url: /recordings
+  - link "Private references":
+    - /url: /references
+  - paragraph: Behind the feathers
+  - heading "A reusable art workshop." [level=1]
+  - paragraph: Durable jobs, separate stages and reviewed versions. Real AI providers stay disconnected.
+  - heading "Try the pipeline foundation" [level=2]
+  - paragraph: The fixture pipeline validates a specification and waits for review. Packaging also checks source rights, references, pixel grids, palette, transparency and clips. Both use existing technical fixture pixels; neither generates bird art.
+  - button "Queue fixture pipeline"
+  - button "Package technical fixture"
+  - button "Check generation adapter"
+  - group: Plan native detail and yard size
+  - region "Plan a species animation":
+    - heading "Plan a species animation" [level=2]
+    - paragraph: Inspect repeatable prompts and proposed frames for idle, move, perch, sing, feed, bathe, sleep, play and nest-building. This creates a private production plan, with no generated pixels.
+    - paragraph: This legacy planner fixes a 32 × 32 canvas and proposes 60 frames. That is not an approved detail target. Review native detail and yard size above before using this proposal. Frame counts and timing still need art and biological review. Without supplied references, the source stage searches Wikimedia Commons using the public scientific name. Candidate metadata stays private and requires rights, species and pose review. This does not download images, call a model or select artwork for a bird.
+    - text: Species from the application catalog
+    - combobox "Species from the application catalog":
+      - option "European Robin · Erithacus rubecula" [selected]
+      - option "House Sparrow · Passer domesticus"
+      - option "Blue Jay · Cyanocitta cristata"
+    - button "Queue animation plan"
+  - region "Bring a PNG atlas":
+    - heading "Bring a PNG atlas" [level=2]
+    - paragraph: Upload a local pixel atlas, inspect its decoded pixels and review its source declarations. Uploading a file does not establish permission to reuse it.
+    - paragraph: Non-interlaced 8-bit RGB/RGBA PNG · 512 KiB · 1,024 pixels per side · 65,536 pixels total. Up to 64 complete frame cells. No APNG, remote URLs or automatic generation. Partial alpha can be inspected but cannot enter the current binary-alpha animation format.
+    - text: PNG source file
+    - button "PNG source file"
+    - button "Upload PNG bytes" [disabled]
+    - button "Refresh saved files"
+    - status: 2 saved private PNG files loaded.
+    - navigation "Saved files pages":
+      - button "Previous saved files page" [disabled]
+      - button "Next saved files page" [disabled]
+      - button "Restart saved files pages"
+      - status: Page 1. Refresh to include newly saved items.
+    - text: Saved private PNG
+    - combobox "Saved private PNG":
+      - option "Choose a saved file" [selected]
+      - option "656541ff · 375 × 60 · unreviewed"
+      - option "5333b2d6 · 375 × 60 · approved"
+  - region "Bring an asset bundle":
+    - heading "Bring an asset bundle" [level=2]
+    - paragraph: Submit decoded pixel frames with their source, license and species references. Nothing is sent until you queue the bundle. Approved artwork remains pinned until you explicitly choose a reviewed replacement.
+    - paragraph: Version 1 or 2 JSON · up to 1 MB · RGBA frames up to 256 × 256 · at most 64 frames and 65,536 decoded pixels total. Use the PNG atlas panel for supported local PNG files. Photo conversion and generation providers remain unavailable.
+    - link "Download existing technical fixture bundle":
+      - /url: /api/jobs/asset-sample
+    - paragraph: The sample reuses existing fixture pixels. It does not contain species-reviewed or newly generated art.
+    - text: Asset bundle JSON
+    - button "Asset bundle JSON"
+  - region "Private asset retention":
+    - heading "Private asset retention" [level=2]
+    - paragraph: Archive stops new selection and new derived packages. Existing pins keep rendering the same artwork. Restore makes an asset available again when its sources and references are available.
+    - paragraph: Archive does not delete files or free storage. Original bytes, decoded pixels, provenance, reviews and evidence remain private and count toward storage limits. There is no automatic expiration or live purge control.
+    - paragraph: Shared catalog and fixture assets are read-only and are not privately owned files. Archiving a private package does not remove shared artwork. External license evidence remains a retained reference; this app cannot erase that external evidence.
+    - button "Refresh retention status"
+    - status: Earlier request confirmed. Showing current state; the old change was not applied again.
+    - heading "Package history" [level=3]
+    - paragraph: History pages retain every private package. A page does not establish cleanup eligibility.
+    - navigation "Packages pages":
+      - button "Previous packages page" [disabled]
+      - button "Next packages page" [disabled]
+      - button "Restart packages pages"
+      - status: Page 1. Refresh to include newly saved items.
+    - list:
+      - listitem:
+        - heading "PNG · 656541ff" [level=3]
+        - paragraph:
+          - text: Private PNG file ·
+          - code: 656541ff-6f98-47c0-9391-6888564312be
+        - paragraph:
+          - strong: Archived
+          - text: · 91,720 bytes retained
+        - paragraph: Unavailable for new use while archived.
+        - paragraph: "Eligible for a future cleanup review: archived, unreviewed and unreferenced. No bytes are deleted by this control."
+        - button "Restore file"
+      - listitem:
+        - heading "PNG · 5333b2d6" [level=3]
+        - paragraph:
+          - text: Private PNG file ·
+          - code: 5333b2d6-2312-48e4-800a-80b9174dfd17
+        - paragraph:
+          - strong: Active
+          - text: · 91,720 bytes retained
+        - paragraph: Available for new use.
+        - paragraph: "Retained because:"
+        - list:
+          - listitem: Immutable file review and rights evidence
+          - listitem: A retained package or source refers to it
+          - listitem: Available for new use
+        - paragraph: Not eligible for cleanup. Retained references and evidence are preserved.
+        - button "Archive file"
+      - listitem:
+        - heading "asset-packaging · 8ba1cd10" [level=3]
+        - paragraph:
+          - text: Private package and its retained artifacts ·
+          - code: 8ba1cd10-c836-477a-bd40-844c19364c2d
+        - paragraph:
+          - strong: Active
+          - text: · Job, source pixels, artifacts and reviews retained (217,168 bytes of source/metadata)
+        - paragraph: Available for new use.
+        - paragraph: "Retained because:"
+        - list:
+          - listitem: Retained job, source and review history
+          - listitem: Reference checking is incomplete; retention is required
+          - listitem: Available for new use
+        - paragraph: Not eligible for cleanup. Retained references and evidence are preserved.
+        - button "Archive package"
+      - listitem:
+        - heading "asset-packaging · 50f89b53" [level=3]
+        - paragraph:
+          - text: Private package and its retained artifacts ·
+          - code: 50f89b53-4366-4763-93cd-fedee9d8ef87
+        - paragraph:
+          - strong: Active
+          - text: · Job, source pixels, artifacts and reviews retained (447,206 bytes of source/metadata)
+        - paragraph: Available for new use.
+        - paragraph: "Retained because:"
+        - list:
+          - listitem: Retained job, source and review history
+          - listitem: Reference checking is incomplete; retention is required
+          - listitem: Available for new use
+        - paragraph: Not eligible for cleanup. Retained references and evidence are preserved.
+        - button "Archive package"
+      - listitem:
+        - heading "asset-packaging · cc1f2dfa" [level=3]
+        - paragraph:
+          - text: Private package and its retained artifacts ·
+          - code: cc1f2dfa-d00e-4f49-8322-c8775d469692
+        - paragraph:
+          - strong: Active
+          - text: · Job, source pixels, artifacts and reviews retained (447,206 bytes of source/metadata)
+        - paragraph: Available for new use.
+        - paragraph: "Retained because:"
+        - list:
+          - listitem: Retained job, source and review history
+          - listitem: Reference checking is incomplete; retention is required
+          - listitem: Available for new use
+          - listitem: Saved artwork still refers to it
+          - listitem: A resident still uses this asset
+        - paragraph: Not eligible for cleanup. Retained references and evidence are preserved.
+        - button "Archive package"
+      - listitem:
+        - heading "fixture-artwork · 676d51c6" [level=3]
+        - paragraph:
+          - text: Private package and its retained artifacts ·
+          - code: 676d51c6-6afb-4fe0-90d1-647656b31953
+        - paragraph:
+          - strong: Active
+          - text: · Job, source pixels, artifacts and reviews retained (27,343 bytes of source/metadata)
+        - paragraph: Available for new use.
+        - paragraph: "Retained because:"
+        - list:
+          - listitem: Retained job, source and review history
+          - listitem: Reference checking is incomplete; retention is required
+          - listitem: Available for new use
+          - listitem: Saved artwork still refers to it
+        - paragraph: Not eligible for cleanup. Retained references and evidence are preserved.
+        - button "Archive package"
+    - heading "Current resident pins" [level=3]
+    - paragraph: Unpin changes only the selected artwork. It keeps the bird, source files and history.
+    - list:
+      - listitem:
+        - paragraph: European Robin
+        - paragraph:
+          - text: "Artwork:"
+          - code: e8bc77e0-b691-4f59-8864-4ce5ca2b455b
+        - button "Unpin artwork"
+      - listitem:
+        - paragraph: House Sparrow
+        - paragraph:
+          - text: "Artwork:"
+          - code: fixture-art:sparrow:v1
+        - button "Unpin artwork"
+      - listitem:
+        - paragraph: Blue Jay
+        - paragraph:
+          - text: "Artwork:"
+          - code: fixture-art:bluejay:v1
+        - button "Unpin artwork"
+    - heading "Restore a previous pin" [level=3]
+    - paragraph: Restore requires an unpinned resident and available source and reference assets. A newer pin is never replaced.
+    - list:
+      - listitem:
+        - paragraph: Retention fixture sibling
+        - paragraph:
+          - text: "Artwork:"
+          - code: e8bc77e0-b691-4f59-8864-4ce5ca2b455b
+        - button "Restore previous pin"
+  - navigation "Jobs pages":
+    - button "Previous jobs page" [disabled]
+    - button "Next jobs page" [disabled]
+    - button "Restart jobs pages"
+    - status: Page 1. Refresh to include newly saved items.
+  - article:
+    - text: Pixel packaging · manual review
+    - heading "Validated pixel packaging" [level=2]
+    - text: queued
+    - list
+    - button "Advance one stage"
+    - button "Cancel job"
+  - article:
+    - text: Pixel packaging · manual review
+    - heading "Validated pixel packaging" [level=2]
+    - text: awaiting review
+    - list:
+      - listitem:
+        - strong: asset/v2/intake/validate
+        - text: succeeded · attempt 1
+      - listitem:
+        - strong: asset/v2/source/retain
+        - text: succeeded · attempt 1
+      - listitem:
+        - strong: asset/v2/manifest/package
+        - text: succeeded · attempt 1
+    - button "Cancel job"
+    - strong: Fixture artifact v2
+    - text: approved · deterministic_fixture
+    - region "Private source frame review":
+      - paragraph:
+        - strong: Private source frames
+        - text: · 5 RGBA frames · 75 × 60
+      - text: Source frame 1 Inspect frame
+      - combobox "Inspect frame":
+        - option "1" [selected]
+        - option "2"
+        - option "3"
+        - option "4"
+        - option "5"
+      - paragraph: "License: project-authored-development-fixture · development-only. ChirpNeighbors authored development fixture; no generated or reviewed species art."
+      - paragraph: Review source rights and every frame before approving. This approval only unlocks packaging; the resulting animation requires another review and explicit selection. Technical fixtures have no species fidelity approval. Source bytes remain private until owner deletion.
+      - group: Inspect frame hashes and conditioning
+    - group: Inspect version and provenance
+    - strong: Fixture artifact v2
+    - text: pending · deterministic_fixture
+    - button "Approve fixture manifest"
+    - figure "Shape and animation workbench Technical fixture pixels; species likeness is not reviewed. In-place authored poses are previewed here. The yard simulation supplies travel and landing; this preview is not an observation.":
+      - strong: Shape and animation workbench
+      - paragraph: Technical fixture pixels; species likeness is not reviewed.
+      - paragraph: In-place authored poses are previewed here. The yard simulation supplies travel and landing; this preview is not an observation.
+      - text: Action
+      - combobox "Action":
+        - option "idle" [selected]
+        - option "moving"
+        - option "perching"
+        - option "singing"
+        - option "feeding"
+        - option "bathing"
+      - text: Inspect frame
+      - combobox "Inspect frame":
+        - option "Frame 1" [selected]
+        - option "Frame 2"
+        - option "Frame 3"
+        - option "Frame 4"
+        - option "Frame 5"
+      - text: Pixel zoom
+      - combobox "Pixel zoom":
+        - option "1× native pixels"
+        - option "2×" [selected]
+        - option "4×"
+        - option "8×"
+      - button "Face left"
+      - checkbox "Bounds and anchors" [checked]
+      - text: Bounds and anchors
+      - checkbox "Silhouette"
+      - text: Silhouette
+      - img "Technical fixture frame 1, idle-0, tick 0"
+      - button "Previous pose"
+      - button "Play clip" [disabled]
+      - button "Next pose"
+      - text: Clip tick
+      - slider "Clip tick": "0"
+      - paragraph: Frame 1 · tick 0/17 · 9 ticks per pose · loops
+      - paragraph: "Reduced motion: automatic playback is off. Select or scrub poses deliberately."
+      - paragraph: "Blue: measured opaque bounds. Orange: authored pivot. Pink: support/contact anchors. Green: physical ground footprint; separate from visual height. Missing actions use the yard’s documented fallback."
+      - paragraph: Unreviewed geometry draft; suggested measurements are technical starting points. Reference/model execution is not configured here.
+      - group "New metadata candidate · original pixels stay immutable":
+        - text: New metadata candidate · original pixels stay immutable Master reference pose
+        - combobox "Master reference pose" [disabled]:
+          - option "idle-0" [disabled] [selected]
+          - option "idle-1" [disabled]
+          - option "moving-0" [disabled]
+          - option "moving-1" [disabled]
+          - option "perching-0" [disabled]
+          - option "perching-1" [disabled]
+          - option "singing-0" [disabled]
+          - option "singing-1" [disabled]
+          - option "feeding-0" [disabled]
+          - option "feeding-1" [disabled]
+          - option "bathing-0" [disabled]
+          - option "bathing-1" [disabled]
+        - text: Support x
+        - spinbutton "Support x" [disabled]: "35"
+        - text: Support y
+        - spinbutton "Support y" [disabled]: "48"
+        - text: Footprint left
+        - spinbutton "Footprint left" [disabled]: "12"
+        - text: Footprint right
+        - spinbutton "Footprint right" [disabled]: "12"
+        - text: Footprint back
+        - spinbutton "Footprint back" [disabled]: "6"
+        - text: Footprint front
+        - spinbutton "Footprint front" [disabled]: "6"
+        - button "Save new geometry candidate" [disabled]
+    - button "Reject candidate"
+    - group: Inspect version and provenance
+  - article:
+    - text: Pixel packaging · manual review
+    - heading "Validated pixel packaging" [level=2]
+    - text: completed
+    - list:
+      - listitem:
+        - strong: asset/v2/intake/validate
+        - text: succeeded · attempt 1
+      - listitem:
+        - strong: asset/v2/source/retain
+        - text: succeeded · attempt 1
+      - listitem:
+        - strong: asset/v2/manifest/package
+        - text: succeeded · attempt 1
+    - strong: Fixture artifact v1
+    - text: approved · deterministic_fixture
+    - region "Private source frame review":
+      - paragraph:
+        - strong: Private source frames
+        - text: · 5 RGBA frames · 75 × 60
+      - text: Source frame 1 Inspect frame
+      - combobox "Inspect frame":
+        - option "1" [selected]
+        - option "2"
+        - option "3"
+        - option "4"
+        - option "5"
+      - paragraph: "License: project-authored-development-fixture · development-only. ChirpNeighbors authored development fixture; no generated or reviewed species art."
+      - paragraph: Review source rights and every frame before approving. This approval only unlocks packaging; the resulting animation requires another review and explicit selection. Technical fixtures have no species fidelity approval. Source bytes remain private until owner deletion.
+      - group: Inspect frame hashes and conditioning
+    - group: Inspect version and provenance
+    - strong: Fixture artifact v1
+    - text: approved · deterministic_fixture
+    - figure "Shape and animation workbench Technical fixture pixels; species likeness is not reviewed. In-place authored poses are previewed here. The yard simulation supplies travel and landing; this preview is not an observation.":
+      - strong: Shape and animation workbench
+      - paragraph: Technical fixture pixels; species likeness is not reviewed.
+      - paragraph: In-place authored poses are previewed here. The yard simulation supplies travel and landing; this preview is not an observation.
+      - text: Action
+      - combobox "Action":
+        - option "idle" [selected]
+        - option "moving"
+        - option "perching"
+        - option "singing"
+        - option "feeding"
+        - option "bathing"
+      - text: Inspect frame
+      - combobox "Inspect frame":
+        - option "Frame 1" [selected]
+        - option "Frame 2"
+        - option "Frame 3"
+        - option "Frame 4"
+        - option "Frame 5"
+      - text: Pixel zoom
+      - combobox "Pixel zoom":
+        - option "1× native pixels"
+        - option "2×" [selected]
+        - option "4×"
+        - option "8×"
+      - button "Face left"
+      - checkbox "Bounds and anchors" [checked]
+      - text: Bounds and anchors
+      - checkbox "Silhouette"
+      - text: Silhouette
+      - img "Technical fixture frame 1, idle-0, tick 0"
+      - button "Previous pose"
+      - button "Play clip" [disabled]
+      - button "Next pose"
+      - text: Clip tick
+      - slider "Clip tick": "0"
+      - paragraph: Frame 1 · tick 0/17 · 9 ticks per pose · loops
+      - paragraph: "Reduced motion: automatic playback is off. Select or scrub poses deliberately."
+      - paragraph: "Blue: measured opaque bounds. Orange: authored pivot. Pink: support/contact anchors. Green: physical ground footprint; separate from visual height. Missing actions use the yard’s documented fallback."
+      - paragraph: Unreviewed geometry draft; suggested measurements are technical starting points. Reference/model execution is not configured here.
+      - group "New metadata candidate · original pixels stay immutable":
+        - text: New metadata candidate · original pixels stay immutable Master reference pose
+        - combobox "Master reference pose":
+          - option "idle-0" [selected]
+          - option "idle-1"
+          - option "moving-0"
+          - option "moving-1"
+          - option "perching-0"
+          - option "perching-1"
+          - option "singing-0"
+          - option "singing-1"
+          - option "feeding-0"
+          - option "feeding-1"
+          - option "bathing-0"
+          - option "bathing-1"
+        - text: Support x
+        - spinbutton "Support x": "35"
+        - text: Support y
+        - spinbutton "Support y": "48"
+        - text: Footprint left
+        - spinbutton "Footprint left": "12"
+        - text: Footprint right
+        - spinbutton "Footprint right": "12"
+        - text: Footprint back
+        - spinbutton "Footprint back": "6"
+        - text: Footprint front
+        - spinbutton "Footprint front": "6"
+        - button "Save new geometry candidate"
+    - button "Use animation for European Robin"
+    - button "Use animation for Retention fixture sibling"
+    - group: Inspect version and provenance
+  - article:
+    - text: Technical fixture · no species fidelity review
+    - heading "Fixture animation manifest" [level=2]
+    - text: completed
+    - list:
+      - listitem:
+        - strong: artwork/specification/validate
+        - text: succeeded · attempt 1
+      - listitem:
+        - strong: artwork/fixture/prepare
+        - text: succeeded · attempt 1
+    - strong: Fixture artifact v1
+    - text: approved · deterministic_fixture
+    - figure "Shape and animation workbench Technical fixture pixels; species likeness is not reviewed. In-place authored poses are previewed here. The yard simulation supplies travel and landing; this preview is not an observation.":
+      - strong: Shape and animation workbench
+      - paragraph: Technical fixture pixels; species likeness is not reviewed.
+      - paragraph: In-place authored poses are previewed here. The yard simulation supplies travel and landing; this preview is not an observation.
+      - text: Action
+      - combobox "Action":
+        - option "idle" [selected]
+        - option "moving"
+        - option "perching"
+        - option "singing"
+        - option "feeding"
+        - option "bathing"
+      - text: Inspect frame
+      - combobox "Inspect frame":
+        - option "Frame 1" [selected]
+        - option "Frame 2"
+        - option "Frame 3"
+        - option "Frame 4"
+        - option "Frame 5"
+      - text: Pixel zoom
+      - combobox "Pixel zoom":
+        - option "1× native pixels"
+        - option "2×" [selected]
+        - option "4×"
+        - option "8×"
+      - button "Face left"
+      - checkbox "Bounds and anchors" [checked]
+      - text: Bounds and anchors
+      - checkbox "Silhouette"
+      - text: Silhouette
+      - img "Technical fixture frame 1, idle, tick 0"
+      - button "Previous pose"
+      - button "Play clip" [disabled]
+      - button "Next pose"
+      - text: Clip tick
+      - slider "Clip tick": "0"
+      - paragraph: Frame 1 · tick 0/17 · 9 ticks per pose · loops
+      - paragraph: "Reduced motion: automatic playback is off. Select or scrub poses deliberately."
+      - paragraph: "Blue: measured opaque bounds. Orange: authored pivot. Pink: support/contact anchors. Green: physical ground footprint; separate from visual height. Missing actions use the yard’s documented fallback."
+      - paragraph: "Legacy asset: download its version 2 pose bundle and review the retained source before adding per-pose geometry."
+    - link "Download version 2 pose bundle from these reviewed fixture pixels":
+      - /url: /api/jobs/asset-sample?version=2&jobId=676d51c6-6afb-4fe0-90d1-647656b31953&artifactId=de9093b1-07ca-4f0c-b6ae-24f8e19ce18f
+    - button "Use animation for European Robin"
+    - button "Use animation for Retention fixture sibling"
+    - group: Inspect version and provenance
+  - text: ChirpNeighbors Local foundation · fixture scenery & birds · no live inference

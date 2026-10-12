@@ -1,0 +1,67 @@
+PASS Anonymous access to all private endpoints is denied
+PASS Unsigned sign-in requires same-origin requests and never grants a foreign session
+PASS Oversized sign-in form is rejected without setting a session
+PASS Streamed sign-in body is capped without Content-Length
+PASS Forged development session is denied
+PASS Alice starts with an isolated empty yard
+PASS Response capture preserves a GET-before-POST and forwards exactly one actual POST
+PASS Fixture import creates three Findings and three temporary visitors
+PASS Repeated fixture import changes neither evidence nor visitor IDs
+PASS Pixi canvas actually initializes in Chromium
+PASS Autonomous animation visibly changes rendered frames
+PASS Naming and promotion preserve identity, pinned artwork and evidence
+PASS Promoted resident survives browser reload
+PASS Collecting another species adds membership without a resident
+PASS Collection search matches scientific names
+PASS Multiple instances of one species are allowed without duplicating Findings
+PASS Removing an instance retains its collection, observations and assets
+PASS Changing scene, palette and motion preserves IDs, assets and history
+PASS Reduced motion pauses rendered bird animation
+PASS A bird can be selected through its keyboard-accessible control
+PASS desktop-yard: no horizontal overflow
+PASS Mobile layout exposes the test identity switch
+PASS mobile-yard: no horizontal overflow
+PASS 320-pixel yard has no horizontal overflow
+PASS Malformed multi-event import is atomic
+PASS Evidence identity conflict rolls back the whole batch
+PASS Configured visitor expiry derives from observation time
+PASS Same imported evidence is idempotent
+PASS Distinct observations group into one Find and one default visitor
+PASS Historical imports add Findings without inventing a live visitor
+PASS Undated imports add Findings without inventing a live visitor
+PASS Share preview has an exact public allowlist
+PASS Shared data excludes locations, audio, private IDs/names/times and imported labels
+PASS Unknown taxa have neutral public labels and no private artwork URL
+PASS Authenticated share preview is visible without creating a public link
+PASS Backup exports evidence, membership, instances and pinned assets
+PASS Expired visitors disappear from active view without losing evidence
+PASS Explicit file restore recovers the exported yard
+PASS Invalid backup leaves the current yard unchanged
+PASS Trusted shared catalog labels never expose imported labels or private asset URLs
+PASS Explicit v1 migration keeps resident/event/art IDs, pins and private provenance
+PASS Pipeline queue idempotency prevents duplicate jobs
+PASS Advancing executes only one hierarchical pipeline stage
+PASS Fixture pipeline creates versioned provenance and waits for review
+PASS Explicit fixture review completes the job without claiming generation
+PASS Unconfigured generation is blocked and creates no artifacts
+PASS desktop-workshop: no horizontal overflow
+PASS mobile-workshop: no horizontal overflow
+PASS Blocked generation can be cancelled without output
+PASS Bob cannot see Alice’s observations, residents or jobs
+PASS Forged owner, bird, job and artifact mutations are denied
+PASS Mutation requires same-origin requests
+PASS Owner-scoped responses are explicitly private and not cached
+PASS Restart invalidates ephemeral development identity tokens
+PASS Yard survives a real server process restart
+PASS Job stages, artifacts and reviews survive server restart
+PASS Owner isolation survives server restart
+PASS A visitor expires visibly while the page stays open, without reload or API polling
+PASS Live expiry retains the observation and Find in authoritative storage
+PASS No browser runtime exceptions occurred
+PASS No external requests were attempted during the journey
+PASS Production UI says authentication is unconfigured
+PASS Production /api/yard is closed even with CHIRP_DEV_AUTH=1
+PASS Production /api/jobs is closed even with CHIRP_DEV_AUTH=1
+PASS Production /api/backup is closed even with CHIRP_DEV_AUTH=1
+PASS Production /api/share-preview is closed even with CHIRP_DEV_AUTH=1
+PASS Production cannot issue a development session

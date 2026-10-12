@@ -118,11 +118,11 @@ The photo-conditioned species-art acceptance in PB-021 excludes a plain downsamp
 
 **Tests and evidence:** [U:src/lib/server/assets/lifecycle.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/assets/lifecycle.test.ts); [U:scripts/asset-retention-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/asset-retention-browser-checks.py). [E-CAT:asset-retention/asset-retention-browser-results.json](../delivery/LOCAL-EVIDENCE.md); [E-CAT:ui-unit.log](../delivery/LOCAL-EVIDENCE.md).
 
-**Dependencies:** PB-013, PB-014, PB-020. **Remaining gap:** No live purge, expiry job, account-wide erasure or authorization to destroy retained evidence; shared catalog read-only. History reachability repair is implemented locally (PB-022-A), with final verification recorded in its delivery receipt. **Next action:** Complete frozen verification and reduce repeated graph work without weakening conservative dependency scans; specify retention/erasure separately under EN-011.
+**Dependencies:** PB-013, PB-014, PB-020. **Remaining gap:** No live purge, expiry job, account-wide erasure or authorization to destroy retained evidence; shared catalog read-only. History reachability repair is implemented locally (PB-022-A), with final verification recorded in its delivery receipt. **Next action:** Reduce repeated graph work without weakening conservative dependency scans; specify retention/erasure separately under EN-011.
 
 #### PB-022-A — Keep archived history reachable
 
-**Status / priority:** Implemented locally; frozen browser/quality acceptance in progress. **Review:** JA-02 / ARCH-01–04 / JAQ-02 / JAQ-04 / EI-005. **Dependencies:** EN-001 versioned response/consumer compatibility and the existing owner-bound keyset pagination pattern. No provider/art input is required.
+**Status / priority:** Implemented and verified locally; 18 dedicated history checks plus existing retention/renderer/core regressions pass. No publication is included. **Review:** JA-02 / ARCH-01–04 / JAQ-02 / JAQ-04 / EI-005. **Dependencies:** EN-001 versioned response/consumer compatibility and the existing owner-bound keyset pagination pattern. No provider/art input is required.
 
 **Work:** Separate bounded visible lifecycle history from conservative whole-graph reference completeness. Provide versioned cursor pagination or exact-target retrieval, preserving archive/restore CAS, existing pins and old-reader compatibility. Raising the full-graph limit is not the repair.
 

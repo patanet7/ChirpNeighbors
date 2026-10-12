@@ -1,0 +1,37 @@
+PASS A fresh yard has a versioned environment with four distinct object kinds
+PASS Weather begins in an explicitly simulated mode
+PASS Arrangement controls open with the keyboard
+PASS Visible place control creates one persisted object with a stable ID
+PASS Keyboard move persists coordinates without replacing object identity
+PASS Overlapping placement is rejected atomically
+PASS Out-of-bounds placement is rejected atomically
+PASS Visible return control removes only the selected placement
+PASS Scene replacement reanchors the edge object safely while preserving all object IDs
+PASS Palette changes preserve object IDs and placements
+PASS Adding, moving, removing and restyling preserve bird IDs, artwork pins and evidence
+PASS Manual midnight visibly changes lighting from midday
+PASS Manual rain renders distinct pixels over the night scene
+PASS Reduced motion freezes rain particles across clock updates
+PASS Manual snow is visibly distinct from rain
+PASS desktop-layered-yard: no horizontal overflow
+PASS mobile-layered-yard: no horizontal overflow
+PASS Weather and object controls fit a mobile viewport
+PASS Open arrangement controls do not overflow at 320 pixels
+PASS desktop-weather-controls: no horizontal overflow
+PASS Enabled motion animates rain in the empty sky independently of bird pixels
+PASS Simulated cycle controls persist duration and seed
+PASS Simulated weather advances from dawn to day on the running page
+PASS Real weather is explicitly unconfigured, with no fabricated forecast
+PASS Selecting real mode requests no geolocation and no weather endpoint
+PASS Weather settings reject location or provider metadata atomically
+PASS Shared projection exposes neither environment internals nor private object IDs
+PASS Weather changes preserve residents, artwork pins and discovery history
+PASS Private backup includes the persisted object and weather environment
+PASS Page reload retains object placements and weather settings
+PASS Another owner gets an independent default environment
+PASS Cross-owner object and weather mutations are denied
+PASS Real server restart retains typed weather and all object IDs and coordinates
+PASS Environment persistence leaves protected bird data unchanged after restart
+PASS Owner environment isolation survives server restart
+PASS Layered journey has no browser runtime exceptions
+PASS Layered journey attempts no external browser requests
