@@ -1,5 +1,7 @@
 # Owner workbench pagination
 
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+
 Local continuation from main `8a9ff3e2f6a702342c8028547adcc39aa24dc2b0`
 and UI `bd23e784397d7b5e0b01c0c2d12e6d000fefa1c0`, on
 `codex/workbench-pagination-local`. Publication, model downloads/providers,

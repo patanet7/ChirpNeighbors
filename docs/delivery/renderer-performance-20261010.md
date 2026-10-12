@@ -1,5 +1,7 @@
 # Measured renderer performance — local checkpoint
 
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+
 The selected implementation reuses bounded immutable bird geometry and preserves Pixi automatic batching. It reduces measured rectangle construction and synchronous render duration. Frame-time results remain workload-dependent; this checkpoint does not claim a universal frame-rate improvement.
 
 The preserved resource checkpoint is main `706d878be756aef1f474bbebfcf8c2b21022bf0d` / UI `fe1eb18845220b6cd059be639ce2e0d8455b13b0`, with its original [80-gate report](LOCAL-EVIDENCE.md). Both current local branches retain the user-specified published review commits as ancestors. The new implementation and evidence are local; artwork, providers and private owner storage are unchanged.

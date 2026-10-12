@@ -1,5 +1,7 @@
 # Recording lifecycle and real-journey implementation wave
 
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+
 Start from clean UI `83837529722ce48e210ed224e74cfbaf2f72881b` and companion
 `084b33dfac1160e1cc9b2db9336b0a16b9c4a831`. The previous 50-gate checkpoint stays
 intact. Work is local on isolated same-workspace branches; no worker/device

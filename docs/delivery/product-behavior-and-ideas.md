@@ -6,6 +6,29 @@ The product is highly detailed species-correct pixel birds in simple regional ya
 
 [Documentation index](../README.md) · [Current release and exact 97-gate proof](../publication/20261011/README.md) · [Historical verification ledger](verification-ledger.md) · [Reproduce the suite](quality.md)
 
+## Architecture follow-up
+
+The [2026-10-12 architecture evidence](../architecture/architecture-review-20261012.md) maps all four reviews to the existing requirements and records the subsequent failed visual acceptance. The fourteen lettered subtasks below refine those requirements, including the bounded local visual implementation; each linked entry alone owns its current status, dependencies and acceptance. They do not change the 36 requirement IDs or imply that a planned fix has passed. Review IDs such as CSA/JA/RG/RDX are evidence aliases, not a second backlog.
+
+| Sequence / scope | Canonical implementation task |
+| --- | --- |
+| Private storage boundary | [EN-003-A — Reject served private data roots](../engineering/roadmap.md#en-003-a--reject-served-private-data-roots) |
+| Safe visible development | [EN-003-B — Repeatable loopback development lifecycle](../engineering/roadmap.md#en-003-b--repeatable-loopback-development-lifecycle) |
+| Owned render resources | [PB-011-A — Dispose every owned renderer context](../product/yard-and-behavior.md#pb-011-a--dispose-every-owned-renderer-context) |
+| Cancelled external work | [PB-021-A — Stop discovery at cancelled request boundaries](../product/artwork-and-assets.md#pb-021-a--stop-discovery-at-cancelled-request-boundaries) |
+| Streaming resource budget | [EN-003-C — Hold read admission through stream completion](../engineering/roadmap.md#en-003-c--hold-read-admission-through-stream-completion) |
+| Long-lived archive controls | [PB-022-A — Keep archived history reachable](../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable) |
+| Reproducible tools | [EN-003-D — Reproduce verification from explicit environments](../engineering/roadmap.md#en-003-d--reproduce-verification-from-explicit-environments) |
+| Hosted execution evidence | [EN-010-A — Establish the hosted UI job outcome](../engineering/roadmap.md#en-010-a--establish-the-hosted-ui-job-outcome) |
+| Suite completeness | [EN-010-B — Reconcile hosted and local suite coverage](../engineering/roadmap.md#en-010-b--reconcile-hosted-and-local-suite-coverage) |
+| Task authority | [EN-010-C — Maintain one current task authority](../engineering/roadmap.md#en-010-c--maintain-one-current-task-authority) |
+| Production/device measurements | [PB-011-B — Measure production and device performance](../product/yard-and-behavior.md#pb-011-b--measure-production-and-device-performance) |
+| Source density and restored sidebar | [PB-011-C — Separate artwork detail from world size and restrain the UI](../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui) |
+| Approved visual inputs | [PB-021-B — Review actual species art and action clips](../product/artwork-and-assets.md#pb-021-b--review-actual-species-art-and-action-clips) |
+| Optional behavior decision | [PB-023-A — Decide whether live context recovery is required](../product/yard-and-behavior.md#pb-023-a--decide-whether-live-context-recovery-is-required) |
+
+Previously identified requirements remain in the tables below, including the original worker, model/provider/art inputs, real import/weather, device acceptance, account operation/erasure and optional product decisions. An item absent from this immediate architecture sequence is not completed or dropped. Dated delivery tables and old checkboxes retain their original evidence; update present status in the linked PB/EN entry instead.
+
 ## Product decisions
 
 | ID | Canonical requirement |
