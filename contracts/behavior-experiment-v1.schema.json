@@ -1,0 +1,33 @@
+{
+  "$ref": "#/definitions/BehaviorExperimentV1",
+  "definitions": {
+    "BehaviorExperimentV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "preset": {
+          "type": "string",
+          "enum": [
+            "ground-only",
+            "perch-only",
+            "no-bathing",
+            "no-routines",
+            "cautious",
+            "sociable"
+          ]
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "preset"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/behavior-experiment-v1.schema.json",
+  "description": "Transient decorative behavior structural boundary. Species traits are product-authored illustrative defaults with biological validation explicitly absent. Individual personality is deterministic fiction derived only from a decorative resident identity, never observations, species evidence, owner data or location. Developer presets are closed transient comparisons, not persisted edits. Eligibility, priorities, contact, reviewed geometry, slot arbitration and clip fallbacks require authoritative simulator/renderer semantics. This schema grants no biological claims or public sharing authority."
+}

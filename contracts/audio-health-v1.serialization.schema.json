@@ -1,0 +1,23 @@
+{
+  "$id": "https://chirpneighbors.local/contracts/audio-health-v1.serialization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "const": "alive",
+      "title": "Status",
+      "type": "string"
+    },
+    "version": {
+      "const": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "version",
+    "status"
+  ],
+  "title": "AudioHealth",
+  "type": "object"
+}

@@ -1,0 +1,117 @@
+{
+  "$ref": "#/definitions/ReferenceImageIdentityV1",
+  "definitions": {
+    "ReferenceImageIdentityV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "original": {
+          "type": "object",
+          "properties": {
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2097152
+            },
+            "mime": {
+              "type": "string",
+              "enum": [
+                "image/png",
+                "image/jpeg"
+              ]
+            }
+          },
+          "required": [
+            "sha256",
+            "bytes",
+            "mime"
+          ],
+          "additionalProperties": false
+        },
+        "canonical": {
+          "type": "object",
+          "properties": {
+            "sha256": {
+              "$ref": "#/definitions/ReferenceImageIdentityV1/properties/original/properties/sha256"
+            },
+            "bytes": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5242880
+            },
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2048
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 2048
+            },
+            "rgbaSha256": {
+              "$ref": "#/definitions/ReferenceImageIdentityV1/properties/original/properties/sha256"
+            }
+          },
+          "required": [
+            "sha256",
+            "bytes",
+            "width",
+            "height",
+            "rgbaSha256"
+          ],
+          "additionalProperties": false
+        },
+        "decoder": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "const": "sharp"
+            },
+            "version": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]{0,159}$"
+            },
+            "libvips": {
+              "$ref": "#/definitions/ReferenceImageIdentityV1/properties/decoder/properties/version"
+            }
+          },
+          "required": [
+            "id",
+            "version",
+            "libvips"
+          ],
+          "additionalProperties": false
+        },
+        "normalization": {
+          "type": "string",
+          "const": "chirp-reference-straight-srgb8-oriented-hidden-rgb-zero-v1"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "original",
+        "canonical",
+        "decoder",
+        "normalization"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/reference-image-identity-v1.schema.json",
+  "description": "Owner-private immutable image admission and local diagnostic generation structural boundary. Bounded PNG/JPEG byte identities retain decoder normalization and source provenance. Rights, species and explicit pose scopes are separate owner assertions; content-bound review pins require exact live ownership, byte hashes, current permissions and terminal revocation checks. Retained discovery snapshots cannot be relabeled by review. Source/refinement semantics enforce allocation, source correspondence, review chronology and diagnostic pixel constraints. Unknown adapter pins require runtime registry rejection. Diagnostic candidates are fixture-only, generated false and nonrenderable; they do not certify legal rights, species fidelity, real generation, renderer admission or public release. No arbitrary URL fetch, model call, paid service or external upload is authorized."
+}

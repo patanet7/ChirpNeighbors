@@ -1,0 +1,948 @@
+{
+  "version": 1,
+  "scope": "Consolidated findings from retained product/connection audit and active transport/static-check slice. Product requirements remain the36-entry index; documented gaps are not asserted vulnerabilities or completed work. Includes the 2026-10-10 local Svelte CLI/CSS follow-up; prior assessments remain historical.",
+  "findings": [
+    {
+      "id": "AUD-01",
+      "severity": "medium",
+      "owner": "python",
+      "finding": "Configured Python origin disagreed with browser normalization.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Preserved local correction dbcd51e932d4c206e8292e484d3fe01778e822f4",
+      "regressionEvidence": [
+        "product-audit-20261009/internal-service-boundaries.md",
+        "product-audit-20261009/integrated/report.json",
+        "external-transport-20261009/integrated/report.json"
+      ],
+      "reviewerResult": "Prior independent review approved; frozen 75/75 proof retained, current corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "AUD-02",
+      "severity": "high",
+      "owner": "auth",
+      "finding": "Signed Google azp could be discarded and replaced with configured client identity.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Preserved local correction 1c162033aa267181c1b45e474035db8f18fdb9c8",
+      "regressionEvidence": [
+        "product-audit-20261009/auth-import-weather.md",
+        "product-audit-20261009/integrated/report.json",
+        "external-transport-20261009/integrated/report.json"
+      ],
+      "reviewerResult": "Prior independent review approved; frozen 75/75 proof retained, current corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "AUD-03",
+      "severity": "medium",
+      "owner": "ui",
+      "finding": "Recording upload lacked cancellation and stale page-lifetime response fencing.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Preserved local correction 08b2c9ea7b64bd6d7fa65f0eba2bb1b754e0ade3",
+      "regressionEvidence": [
+        "product-audit-20261009/product-journeys.md",
+        "product-audit-20261009/integrated/report.json",
+        "external-transport-20261009/integrated/report.json"
+      ],
+      "reviewerResult": "Prior independent review approved; frozen 75/75 proof retained, current corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "AUD-04",
+      "severity": "medium",
+      "owner": "engine",
+      "finding": "Asymmetric bird footprints could overlap reserved bodies after direction changed.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Preserved local correction 376ea8f4d1507fae5674da484e972ca9084dc143",
+      "regressionEvidence": [
+        "product-audit-20261009/engine-motion.md",
+        "product-audit-20261009/integrated/report.json",
+        "external-transport-20261009/integrated/report.json"
+      ],
+      "reviewerResult": "Prior independent review approved; frozen 75/75 proof retained, current corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "AUD-05",
+      "severity": "low",
+      "owner": "test-integration",
+      "finding": "Routine browser test did not retain a stable occupied-nest precondition or dispatch trace.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Preserved local correction 50813a443e57c17b7dba4e9d39c5dd97181ab2a5",
+      "regressionEvidence": [
+        "product-audit-20261009/attempts/routines-repair.json",
+        "product-audit-20261009/integrated/report.json",
+        "external-transport-20261009/integrated/report.json"
+      ],
+      "reviewerResult": "Prior independent review approved; frozen 75/75 proof retained, current corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "AUD-06",
+      "severity": "low",
+      "owner": "docs",
+      "finding": "Historical docs described implemented sharing/archive/ESP layers as absent.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Preserved local correction 8880aa2814c1ed4d99683ac1ee7a6af36354bdc5 / c2a0284f2f86c6ef9f847089ce97bf3b9f57b9ff",
+      "regressionEvidence": [
+        "product-audit-20261009.md",
+        "product-audit-20261009/integrated/report.json",
+        "external-transport-20261009/integrated/report.json"
+      ],
+      "reviewerResult": "Prior independent review approved; frozen 75/75 proof retained, current corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "NET-F01",
+      "severity": "high",
+      "owner": "python",
+      "finding": "Per-phase HTTPX timeout allowed slow-drip BFF responses and detached sync I/O after request cancellation.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Native async GET5s, shared request 10 s, owned bridge cancellation and joined cooperative worker.",
+      "regressionEvidence": [
+        "../../backend-inference/tests/test_audio_api.py",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Independent source review approved; 73/73 focused tests; corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "NET-F02",
+      "severity": "medium",
+      "owner": "python",
+      "finding": "Direct Python command body was byte bounded without a total read deadline.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "5 s ASGI read budget preserves 400 invalid_request and avoids double-send on timeout.",
+      "regressionEvidence": [
+        "../../backend-inference/tests/test_audio_api.py",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Independent source review approved; body/drip/disconnect/blocked-send cases included in 73 tests. Corrected complete frozen 76/76 passes; original source review decision remains preserved."
+    },
+    {
+      "id": "NET-F03",
+      "severity": "high",
+      "owner": "auth",
+      "finding": "Google token/JWKS calls lacked application total deadlines, response bounds and reviewed cache/redirect policy.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Supported Better Auth provider extension, bounded token/JWK projections, total operation scope and key cache.",
+      "regressionEvidence": [
+        "../../../birdsong-yard-sprites/src/lib/server/auth/google.ts",
+        "../../../birdsong-yard-sprites/scripts/auth-integration.ts",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Independent source/cache/lifetime review approved; 148 focused and 55 local integration pass; no live Google proof. Corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "NET-F04",
+      "severity": "high",
+      "owner": "auth",
+      "finding": "SMTP phase timeouts did not bound total send lifetime or prove active socket cancellation.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Owned socket, total 10 s, 256 KiB total inbound wire cap, separate 64 KiB unfinished/continued-reply guard; safe no-retry errors.",
+      "regressionEvidence": [
+        "../../../birdsong-yard-sprites/src/lib/server/auth/email.ts",
+        "../../../birdsong-yard-sprites/scripts/auth-browser-checks.py",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Independent source/socket/TLS review approved; 55 local integration and 23 auth browser assertions pass. Corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "IR-01",
+      "severity": "medium",
+      "owner": "root",
+      "finding": "Analysis could return a cached success after caller abort during awaited local permit validation.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Checkpoint caller signal after permit work with cancelled error precedence.",
+      "regressionEvidence": [
+        "Independent analysis-attack-r1: cached-permit cancellation rejects499 and performs no second fetch.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Approved. Corrected complete frozen 76/76 passes; original source review decision remains preserved."
+    },
+    {
+      "id": "IR-02",
+      "severity": "medium",
+      "owner": "root/auth_transport",
+      "finding": "Awaiting an untrusted stream cancellation promise could outlive a response deadline; injected streams can ignore fetch signal.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Abort listener requests reader cancellation; cleanup requests cancellation without awaiting custom cleanup promises; pre-admission cancellation fences remain.",
+      "regressionEvidence": [
+        "Audio5/5 and auth7/7 include never-settling cancellation cleanup promises.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Approved. Corrected complete frozen 76/76 passes; original source review decision remains preserved."
+    },
+    {
+      "id": "IR-03",
+      "severity": "medium",
+      "owner": "auth_transport",
+      "finding": "JWKS freshness subtracted Age after capping max-age, making legitimate aged responses prematurely stale.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Subtract Age from valid max-age first, then clamp remaining freshness to 300 s.",
+      "regressionEvidence": [
+        "Independent auth7/7 verifies max-age3600/Age1000 cachehit at299999ms then refreshat300000ms.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Approved. Corrected complete frozen 76/76 passes; original source review decision remains preserved."
+    },
+    {
+      "id": "IR-04",
+      "severity": "high",
+      "owner": "auth_transport",
+      "finding": "Oversized numeric max-age and Age each became Infinity; subtraction produced NaN expiry, so keys could remain cached indefinitely.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Reject non-safe-integer header values before arithmetic and treat invalid freshness as zero.",
+      "regressionEvidence": [
+        "Independent auth7/7 verifies400-digit headers force refresh aftercap; numeric baseline reproduction retained.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Approved. Corrected complete frozen 76/76 passes; original source review decision remains preserved."
+    },
+    {
+      "id": "IR-05",
+      "severity": "high",
+      "owner": "auth_transport",
+      "finding": "Transport/profile cancellation alone did not fence Better Auth's subsequent user/account/session creation.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Supported before-create hooks check caller/runtime/monotonic deadline before identity/session database admission.",
+      "regressionEvidence": [
+        "Signed provider fixture aborts after verified profile and asserts zero user/account/session rows and no session cookie.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Source and focused fixture evidence approved; corrected frozen 76/76 includes full browser verification."
+    },
+    {
+      "id": "IR-06",
+      "severity": "medium",
+      "owner": "auth_transport",
+      "finding": "Void close returned before active handlers drained; direct supported getSession lookups bypassed lifetime accounting.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Awaitable drain promise, shutdownAuth awaits close, supported accountSessionContext tracks active lookup and rejects postclose identity.",
+      "regressionEvidence": [
+        "Awaitable close/deferred database drain and active lookup accounting reviewed; focused auth71/71 includes shutdown regression.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Source and focused fixture evidence approved; corrected frozen 76/76 includes full browser verification."
+    },
+    {
+      "id": "IR-07",
+      "severity": "high",
+      "owner": "auth_transport",
+      "finding": "Ordinary nonpooled SMTP transport.close does not itself establish cancellation of an active send.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Use documented getSocket hook to own net socket with abort signal and explicit destruction, retaining Nodemailer TLS/STARTTLS and certificate checks.",
+      "regressionEvidence": [
+        "Actual local application integration r3 passes 55/55, including validated implicit TLS, STARTTLS and post-DATA deadline with peer socket closure and one send attempt.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Source and local TLS integration approved; final corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "IR-08",
+      "severity": "informational",
+      "owner": "root/python_transport/auth_transport",
+      "finding": "Network cancellation/deadlines cannot guarantee hard termination of native inference, synchronous SQLite or OS DNS resolution; sync asyncio.run can wait for resolver executor shutdown.",
+      "status": "explicit-scope-limit",
+      "fix": "Production native async I/O closes sockets; request-owned cooperative workers are joined; final admission is fenced. Document network/body versus CPU/DNS/pre-ASGI limits.",
+      "regressionEvidence": [
+        "Python repeated shutdown joins provider, expired shared budget refuses final fence without extra BFF calls; no native-hard-stop claim.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "approved as residual limit"
+    },
+    {
+      "id": "STATIC-01",
+      "severity": "medium",
+      "owner": "tooling",
+      "finding": "ESLint skipped first-party MJS tools/root configurations; vitest config was outside TypeScript inclusion.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Expanded 400-file ESLint, Vitest inclusion, 35-file strict core mypy, 52-file harness Ruff gate and checked suppressions; preserved generated/legacy limits.",
+      "regressionEvidence": [
+        "svelte-static-audit-20261009.md",
+        "external-transport-20261009/focused/static/chirp-static-negative-probes.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Independent configuration and 4 negative probes approved; corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "STATIC-02",
+      "severity": "low",
+      "owner": "tooling",
+      "finding": "Svelte warnings did not fail the check command.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Use --fail-on-warnings and preserve all compiler diagnostic sources.",
+      "regressionEvidence": [
+        "svelte-static-audit-20261009.md",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Independent warning-only probe confirms 0 errors/1 warning exits 1; actual auth check 0 errors 0 warnings. Corrected complete frozen 76/76 passes; original source review decision remains preserved."
+    },
+    {
+      "id": "TOOL-01",
+      "severity": "informational",
+      "owner": "integration",
+      "finding": "Earlier assessment conflated an absent attached MCP server with the available official standalone CLI.",
+      "status": "resolved-local-cli; attached-mcp-unconfigured",
+      "fix": "Pinned official local CLI0.1.26 runs with bounded offline wrapper and exact advisory review; no persistent MCP registration or remote source transfer.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010.md",
+        "svelte-autofixer-20261010/integrated/svelte-autofixer.json",
+        "svelte-autofixer-20261010/review/findings-final.json"
+      ],
+      "reviewerResult": "Independent provenance/source review,18guardprobes and complete79gate run pass; earlier no-CLI checkpoint retained as history.",
+      "priorAssessment": {
+        "finding": "Dedicated Svelte MCP/autofixer is not exposed or configured.",
+        "status": "blocked-unavailable",
+        "fix": "Requires host registration/authorization of local @sveltejs/mcp or official remote MCP; no persistent setup or code transfer performed.",
+        "reviewerResult": "Fresh tool discovery, codex server list and local package check recorded; no MCP execution claimed."
+      }
+    },
+    {
+      "id": "GAP-01",
+      "severity": "low",
+      "owner": "ui",
+      "finding": "PNG list errors have no in-panel retry; remount retries.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Separate list loading/error/retry; cancellable generation-fenced reads preserve draft, preview, independent review errors and mutation IDs.",
+      "regressionEvidence": [
+        "product-audit-20261009/product-journeys.md",
+        "scene-resources-20261010.md",
+        "scene-resources-20261010/integrated/png-intake/png-intake-browser-results.json"
+      ],
+      "reviewerResult": "Independent source and focused review approved;45 PNG assertions pass in complete80/80 frozen run at UI5f9507d/main2928fec. Separate failed harness attempts retained."
+    },
+    {
+      "id": "GAP-02",
+      "severity": "medium",
+      "owner": "engine",
+      "finding": "No yard sound engine or licensed sound catalog.",
+      "status": "documented-open-scope",
+      "fix": "Agree opt-in/mute/voices/cue semantics and licensed inputs before implementation.",
+      "regressionEvidence": [
+        "product-audit-20261009/engine-motion.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice."
+    },
+    {
+      "id": "GAP-03",
+      "severity": "medium",
+      "owner": "engine",
+      "finding": "Whole-scene allocation budgets and geometry reuse are implemented; active stress frame time, physical-device and real-art performance acceptance remain open.",
+      "status": "resource-and-geometry-reuse-verified-performance-open",
+      "fix": "Existing scene limits plus renderer-local immutable geometry cache (256 contexts / 65,536 rectangle commands) preserve exact pixels, all saved residents and automatic batching. Synchronous geometry work falls; frame times remain workload-dependent.",
+      "regressionEvidence": [
+        "product-audit-20261009/engine-motion.md",
+        "scene-resources-20261010.md",
+        "scene-resources-20261010/integrated/resources/resources-browser-results.json",
+        "renderer-performance-20261010.md",
+        "renderer-performance-20261010/integrated/report.json",
+        "renderer-performance-20261010/comparisons/factorial/FINAL-FOLLOWUP.md"
+      ],
+      "reviewerResult": "17 new geometry tests included in complete 81/81 suite; 65 exact state/RGBA pairs and 67,179,016 pixels unchanged. Six surface blocks do not consistently reproduce cache p95 regression; interval crosses zero. Batching-only surface win and dense-tail regressions retained; worst-case smoothness, native rasterization, physical devices, production timing and reviewed-art acceptance remain open.",
+      "historicalFinding": "No whole-scene actor/graphics budget or physical-device performance acceptance.",
+      "referenceAdmissionFollowUp": {
+        "status": "documentation-reconciliation-only",
+        "note": "Real consumers apply actor/geometry/canvas admission; no new performance benchmark or acceptance is claimed in this wave. Keep the existing partial status and all prior measurements.",
+        "evidence": [
+          "reference-admission-20261011.md",
+          "../../../birdsong-yard-sprites/src/lib/engine/scene-resource-budget.ts",
+          "../../../birdsong-yard-sprites/src/lib/engine/renderer.ts"
+        ]
+      }
+    },
+    {
+      "id": "GAP-04",
+      "severity": "informational",
+      "owner": "engine",
+      "finding": "Discrete clip transitions and static SVG GPU fallback do not restore arbitrary moving actor state.",
+      "status": "documented-open-scope",
+      "fix": "Preserve current explicit fallback; review authored transitions and state recovery separately.",
+      "regressionEvidence": [
+        "product-audit-20261009/engine-motion.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice.",
+      "animationPlanningFollowUp": {
+        "status": "Local integrated checkpoint",
+        "note": "Recipe prompts name entry/exit and loop review, but no cross-clip blending, takeoff/landing assets or moving-state SVG recovery is implemented. Optional clip variants preserve existing fallback. Finding remains open.",
+        "evidence": [
+          "animation-planning-20261011.md",
+          "animation-planning-20261011/integrated/report.json",
+          "animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md"
+        ]
+      }
+    },
+    {
+      "id": "GAP-05",
+      "severity": "informational",
+      "owner": "art-review",
+      "finding": "Fixture pixels/illustrative species policy do not establish anatomy, biological behavior or physical mobile/native-occlusion fidelity.",
+      "status": "documented-open-scope",
+      "fix": "Obtain approved inputs and independent biological/device evaluation; do not create substitute art.",
+      "regressionEvidence": [
+        "product-audit-20261009/engine-motion.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice.",
+      "animationPlanningFollowUp": {
+        "status": "Local integrated checkpoint",
+        "note": "Composed traits remain product-authored illustrative data, not validated biology. Nine default clips/60 frames are proposals with zero generated pixels. Metadata taxon matches do not establish anatomy or pose fidelity. Finding remains open.",
+        "evidence": [
+          "animation-planning-20261011.md",
+          "animation-planning-20261011/integrated/report.json",
+          "animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md"
+        ]
+      }
+    },
+    {
+      "id": "GAP-06",
+      "severity": "high",
+      "owner": "device",
+      "finding": "ESP WebSocket/settings HTTP lack authenticated private enrollment, TLS and revocation.",
+      "status": "documented-open-scope",
+      "fix": "Keep separate development intake; add reviewed enrollment/identity/replay/private admission before owner ingestion.",
+      "regressionEvidence": [
+        "product-audit-20261009/media-device-storage.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice."
+    },
+    {
+      "id": "GAP-07",
+      "severity": "medium",
+      "owner": "ml",
+      "finding": "No licensed compatible bird model or biological calibration evidence.",
+      "status": "documented-open-scope",
+      "fix": "Select authorized model/data and evaluate before identification accuracy claims.",
+      "regressionEvidence": [
+        "product-audit-20261009/media-device-storage.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice.",
+      "animationPlanningFollowUp": {
+        "status": "Local integrated checkpoint",
+        "note": "The configured Commons adapter is reference metadata discovery, not a licensed inference model or biological calibration. Existing synthetic audio/ONNX mechanics remain separate. Finding remains open.",
+        "evidence": [
+          "animation-planning-20261011.md",
+          "animation-planning-20261011/integrated/report.json",
+          "animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md"
+        ]
+      }
+    },
+    {
+      "id": "GAP-08",
+      "severity": "medium",
+      "owner": "worker",
+      "finding": "Original autonomous worker remains unavailable.",
+      "status": "documented-open-scope",
+      "fix": "Obtain original authorized source transfer; preserve existing request service, do not fabricate replacement.",
+      "regressionEvidence": [
+        "product-audit-20261009/media-device-storage.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice.",
+      "animationPlanningFollowUp": {
+        "status": "Local integrated checkpoint",
+        "note": "Private V2 jobs persist discovery and resume through the existing manual runner; the original separate autonomous worker is still unavailable. Finding remains open.",
+        "evidence": [
+          "animation-planning-20261011.md",
+          "animation-planning-20261011/integrated/report.json",
+          "animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md"
+        ]
+      },
+      "referenceAdmissionFollowUp": {
+        "status": "source-still-blocked",
+        "note": "Original worker commit absent in local object stores; remote-head listing through configured Git transport succeeds but isolated exact-commit fetch returns not our ref. No readable original archive found, no source recreation or Library retry. Require original digest-identified ZIP or exact-commit bundle.",
+        "evidence": [
+          "reference-admission-20261011.md"
+        ]
+      },
+      "referenceAdmissionCompletion": {
+        "status": "source-still-blocked; local-diagnostic-bridge-implemented",
+        "note": "The existing manually advanced runner now consumes exact reviewed private reference bytes with a registered local diagnostic adapter. This does not integrate or replace the missing original autonomous worker. Original digest-identified archive or exact-commit bundle remains required; no source recreation or Library retry.",
+        "evidence": [
+          "reference-admission-20261011.md",
+          "reference-admission-20261011/integrated/report.json",
+          "reference-admission-20261011/counts.json",
+          "reference-admission-20261011/README.md"
+        ],
+        "aggregate": {
+          "gates": 95,
+          "finishedAt": "2026-10-11T18:51:04.665366+00:00",
+          "reportSha256": "e2c96e45510851456b4641b9a2b2092814e8b4c70dfbded1a73614afae6376e9",
+          "testedRevisions": {
+            "main": "7279b5626f290d8fab24ed632f6a6e57d2f2e477",
+            "ui": "53e414077799384ba2f56340235424016a309324"
+          },
+          "scope": "Local reference/diagnostic integration only; original worker and real generation remain open."
+        }
+      }
+    },
+    {
+      "id": "GAP-09",
+      "severity": "medium",
+      "owner": "imports",
+      "finding": "No real eBird/other observation adapter; Merlin recording sharing is not a detection API.",
+      "status": "documented-open-scope",
+      "fix": "Select authorized real artifact/API and add source/version/time/taxonomy/rights mappings.",
+      "regressionEvidence": [
+        "product-audit-20261009/auth-import-weather.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice.",
+      "animationPlanningFollowUp": {
+        "status": "Local integrated checkpoint",
+        "note": "Commons metadata discovery is not an eBird/Cornell/Merlin observation integration and does not create Findings or arrival permission. Finding remains open.",
+        "evidence": [
+          "animation-planning-20261011.md",
+          "animation-planning-20261011/integrated/report.json",
+          "animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md"
+        ]
+      }
+    },
+    {
+      "id": "GAP-10",
+      "severity": "informational",
+      "owner": "weather",
+      "finding": "Real weather/location provider and authorization policy are unconfigured.",
+      "status": "documented-open-scope",
+      "fix": "Select provider only with consent/freshness/units/licensing/degraded-mode acceptance.",
+      "regressionEvidence": [
+        "product-audit-20261009/auth-import-weather.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice."
+    },
+    {
+      "id": "GAP-11",
+      "severity": "informational",
+      "owner": "providers",
+      "finding": "Image/video generation, remote object/database services and telemetry exporters are unselected future adapters.",
+      "status": "documented-open-scope",
+      "fix": "Define actual selected interface and authorization before implementation; preserve local-only paths.",
+      "regressionEvidence": [
+        "product-audit-20261009/media-device-storage.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice.",
+      "animationPlanningFollowUp": {
+        "status": "Local integrated checkpoint",
+        "note": "Commons reference metadata adapter/optional original-fetch boundary now exist, with blocked actual network evidence. Image/video generation adapters, credentials, remote storage/database selection and telemetry remain unconfigured/unselected. No image-generation model or live original-image download was executed; finding remains open.",
+        "evidence": [
+          "animation-planning-20261011.md",
+          "animation-planning-20261011/integrated/report.json",
+          "animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md"
+        ]
+      },
+      "referenceAdmissionFollowUp": {
+        "status": "local-reference-admission-in-progress; real-image-generation-unconfigured",
+        "note": "PNG/JPEG admission and exact approved reference pins into a local fake generator are scoped, not verified yet. Existing decoder/CPU-runtime libraries are not trained image models. Direct DNS and ordinary Commons HTTPSproxy403 failures remain recorded; no bypass, live image download or actual image model execution.",
+        "evidence": [
+          "reference-admission-20261011.md"
+        ]
+      },
+      "referenceAdmissionCompletion": {
+        "status": "local-reference-admission-viewpoint-corrected; local-integrated-checkpoint; real-image-generation-unconfigured",
+        "note": "Bounded private PNG/JPEG admission, immutable owner rights/species/pose assertions, terminal revocation and exact pins now reach a registered local diagnostic provider through the existing runner. Independent ENG-01 found that viewpoint scope was not enforced; the replacement UI 53e4140 requires left/right review for the current mirrorable side-view recipe at the live server consumer and UI readiness. The first aggregate stopped after 60 recorded passes. Updated 41 provider tests, a clean 72-check browser flow, and R5 original 13 plus separate 6 viewpoint controls are bounded proof; the corrected 95/95 frozen r2 aggregate passed at the bound source revisions. The one-frame 4x4 hash grid is fixture-only/non-renderable with zero model/external calls, not generated bird artwork. Actual Commons lookup remains blocked by DNS/proxy403; no approved actual-species/concept art or trained image-generation bundle was supplied. Reference-store cold restore is intentionally refused pending newest-authority recovery. The historical finding and evidence remain open and unchanged.",
+        "evidence": [
+          "reference-admission-20261011.md",
+          "reference-admission-20261011/integrated/report.json",
+          "reference-admission-20261011/counts.json",
+          "reference-admission-20261011/README.md"
+        ],
+        "aggregate": {
+          "gates": 95,
+          "finishedAt": "2026-10-11T18:51:04.665366+00:00",
+          "reportSha256": "e2c96e45510851456b4641b9a2b2092814e8b4c70dfbded1a73614afae6376e9",
+          "testedRevisions": {
+            "main": "7279b5626f290d8fab24ed632f6a6e57d2f2e477",
+            "ui": "53e414077799384ba2f56340235424016a309324"
+          },
+          "scope": "Local reference/diagnostic integration only; original worker and real generation remain open."
+        }
+      }
+    },
+    {
+      "id": "GAP-12",
+      "severity": "medium",
+      "owner": "operations",
+      "finding": "Account-wide erasure, lost-provider recovery and actual production restore/deployment policy remain open.",
+      "status": "documented-open-scope",
+      "fix": "Specify deletion/backup recovery authority and run authorized deployed restore validation.",
+      "regressionEvidence": [
+        "product-audit-20261009/product-journeys.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice.",
+      "referenceRecoveryFollowUp": {
+        "status": "bounded-reference-cold-recovery-in-progress; evidence-pending",
+        "note": "The new offline full-reference-authority export and explicit restore path are being implemented. Restore requires independently retained trusted latest SHA-256 evidence and the exact same admission set, validates all rows/bytes/reviews/revocations/retries, and publishes a verified staged directory without clobbering a destination. Default refusal remains when evidence is absent or invalid. A hash cannot prove newestness if authority and receipt are rolled back together; genuine authority/receipt loss stays blocked. This does not establish account-wide erasure, deployed recovery or production policy. No new passing counts or completed aggregate are claimed; all previous finding fields and E-REF evidence remain unchanged.",
+        "evidence": [
+          "reference-recovery-20261011.md",
+          "../../../birdsong-yard-sprites/src/lib/assets/reference-recovery.ts",
+          "../../../birdsong-yard-sprites/scripts/private_backup.py"
+        ]
+      },
+      "referenceRecoveryCompletion": {
+        "status": "local-integrated-checkpoint; production-erasure-policy-open",
+        "note": "Bounded offline export and same-admission-set restore now validate complete canonical reference authority and exact independently retained SHA-256 evidence before staged no-clobber publication. Later immutable reviews/revocations/idempotency reconcile; changed admissions, conflicts, corruption and orphans refuse. Default refusal without evidence remains. Hash equality cannot prove newestness if both authority and receipt roll back, and genuine authority or trusted receipt loss stays blocked. Focused 42 recovery / 38 schema / 52 browser and independent 17 + 6 controls are overlapping scopes. Account-wide erasure, production policy and actual deployment remain open; historical finding fields are preserved.",
+        "evidence": [
+          "reference-recovery-20261011.md",
+          "reference-recovery-20261011/review/security/FROZEN-REVIEW-R2.md",
+          "reference-recovery-20261011/focused/integration/focused-receipt.json",
+          "reference-recovery-20261011/integrated/report.json",
+          "reference-recovery-20261011/counts.json",
+          "reference-recovery-20261011/README.md"
+        ],
+        "receiptPrivacyFollowUp": {
+          "finding": "Conditional development-server exposure of recovery receipt lineage/hash/count metadata under an allowed custom data path.",
+          "status": "fixed-at-replacement-source; complete-local-proof",
+          "replacementUiCommit": "bd23e784397d7b5e0b01c0c2d12e6d000fefa1c0",
+          "note": "Vite deny rules protect both root-relative and /@fs receipt paths; default data paths were already denied. Original data was not read by the synthetic probes. Eight additional recovery browser assertions raise the replacement gate from52 to60; the prior52 result remains historical. Receipt privacy does not remove the external latest-digest trust requirement.",
+          "evidence": [
+            "reference-recovery-20261011/review/security/receipt-exposure-r2.json",
+            "reference-recovery-20261011/review/security/receipt-exposure-allowed-fixed-r4.json",
+            "reference-recovery-20261011/focused/integration/receipt-privacy-followup.json"
+          ]
+        },
+        "aggregate": {
+          "gates": 96,
+          "finishedAt": "2026-10-11T20:22:29.123693+00:00",
+          "reportSha256": "488b282da542eb9262231c2064b5c85fa87c66a5fa963a3ec6bf0178b4349081",
+          "testedRevisions": {
+            "main": "82a45ca8e62c8c9847df92d0bf7dc6034d3bb26b",
+            "ui": "bd23e784397d7b5e0b01c0c2d12e6d000fefa1c0"
+          },
+          "scope": "Bounded local reference cold recovery; external latest-receipt trust required."
+        }
+      }
+    },
+    {
+      "id": "GAP-13",
+      "severity": "informational",
+      "owner": "product",
+      "finding": "Progression/monetization rules and representative accessibility/physical-device certification are not implemented or established.",
+      "status": "documented-open-scope",
+      "fix": "Decide product rules and evaluate separately; local responsive/keyboard fixture checks have bounded scope.",
+      "regressionEvidence": [
+        "product-audit-20261009.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice."
+    },
+    {
+      "id": "GAP-14",
+      "severity": "medium",
+      "owner": "operator-auth",
+      "finding": "Actual Google account consent and external SMTP mailbox delivery are not live tested.",
+      "status": "documented-open-scope",
+      "fix": "Operator chooses deployment/provider configuration and separately authorizes real account/delivery checks.",
+      "regressionEvidence": [
+        "product-audit-20261009/auth-import-weather.md"
+      ],
+      "reviewerResult": "Prior audit reviewed scope/evidence; no code fix or live proof claimed in transport slice."
+    },
+    {
+      "id": "TOOL-02",
+      "severity": "medium",
+      "owner": "host-tooling",
+      "finding": "PlatformIO registry access was denied at proxy CONNECT403; compiler never started.",
+      "status": "blocked-preserved",
+      "fix": "Permitted normal registry reachability is required; no retry/bypass or cache-as-authorization substitution.",
+      "regressionEvidence": [
+        "product-audit-20261009/toolchain-diagnosis.md"
+      ],
+      "reviewerResult": "Prior independent diagnosis preserved; not retried in this task."
+    },
+    {
+      "id": "TOOL-03",
+      "severity": "low",
+      "owner": "host-tooling",
+      "finding": "QEMU initially lacked libslirp; repaired startup does not prove firmware execution.",
+      "status": "startup-repaired-scenario-unverified",
+      "fix": "Prior official local library repair preserved; board/simulator scenario still needs authorized toolchain/image.",
+      "regressionEvidence": [
+        "product-audit-20261009/toolchain-diagnosis.md"
+      ],
+      "reviewerResult": "Prior startup/version/machine proof reviewed; no new firmware run claimed."
+    },
+    {
+      "id": "STATIC-03",
+      "severity": "low",
+      "owner": "tooling",
+      "finding": "Some first-party declarations, untyped tools/harnesses and two experimental simulator scripts lack full static type/lint coverage.",
+      "status": "resolved",
+      "fix": "All 52 formerly active handwritten JavaScript implementations use actual TypeScript. The animation-planning wave removes 18 avoidable historical command forwarders and migrates active callers; the sole remaining handwritten JavaScript file is an exact one-line svelte.config.js export required by the pinned analyzer. Six generated validator bodies and inactive history remain explicit exceptions. Python services and native firmware keep their languages. Discovery/configuration guards reject omitted/new source, weakened checks, extra JavaScript implementation logic and unsupported native runtime imports.",
+      "regressionEvidence": [
+        "svelte-static-audit-20261009.md",
+        "external-transport-20261009/focused/static/chirp-static-coverage-20261009.json",
+        "external-transport-20261009/review/final-review.json",
+        "renderer-performance-20261010/static/exact.json",
+        "renderer-performance-20261010/static/brief.md",
+        "renderer-performance-20261010/integrated/report.json",
+        "static-03-20261010/review/final-exact.json",
+        "static-03-20261010/review/ui-boundary-review.json",
+        "static-03-20261010/review/final-brief.md",
+        "static-03-20261010/integrated/report.json",
+        "first-party-types-20261010/review/final-exact.json",
+        "first-party-types-20261010/review/final-review.json",
+        "first-party-types-20261010/integrated/report.json",
+        "first-party-types-20261010/counts.json",
+        "typescript-migration-20261011.md",
+        "typescript-migration-20261011/integrated/report.json",
+        "typescript-migration-20261011/counts.json",
+        "typescript-migration-20261011/review/final-source-review.json",
+        "animation-planning-20261011.md"
+      ],
+      "reviewerResult": "Independent 44/44 controls pass: source applicability 18, backend 10, JavaScript 16. JSDoc any bypasses found during review were repaired and permanently probed. Complete frozen 93/93 integrated gates pass at recorded commits; current active first-party typing scope is closed with explicit generated/dependency/empty/legacy/firmware boundaries. TypeScript migration independent review passes 33 controls; full frozen 93/93 regression passes at main 9d553e4 / UI 70123b0, with 63 native tooling controls and 33 declaration controls. Current shim removal has focused strict and discovery-control proof; the new complete frozen animation-planning regression is pending in its own checkpoint.",
+      "animationPlanningFollowUp": {
+        "status": "Local integrated checkpoint",
+        "note": "E-PLAN removes 18 avoidable forwarders; the exact analyzer-discovery export and six generated validators remain explicit. Current source evidence is Local integrated checkpoint; prior static/TypeScript evidence is retained unchanged.",
+        "evidence": [
+          "animation-planning-20261011.md",
+          "animation-planning-20261011/integrated/report.json",
+          "animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md"
+        ]
+      }
+    },
+    {
+      "id": "IR-09",
+      "severity": "medium",
+      "owner": "auth_transport/root",
+      "finding": "Nodemailer 10.0.16 maxResponseSize is not a strict 64 KiB cap on completed SMTP replies: a terminating line/chunk bypasses the partial-response length check.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "An application-owned Duplex forwards at most 262144 inbound wire bytes over the entire send, including TLS handshake, and destroys the raw socket on overflow. The separate vendor 65536-byte partial-response guard is documented accurately.",
+      "regressionEvidence": [
+        "Auth focused r5 passes 148/148 including the actual socket exact262144-byte budget and next-byte peer EOF. Local application integration r3 passes55/55 including implicit TLS, STARTTLS and post-DATA cancellation.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Approved with narrow documented callback type assertion; strict 64 KiB completed-reply claim remains expressly excluded. Corrected complete frozen 76/76 passes; original source review decision remains preserved."
+    },
+    {
+      "id": "IR-10",
+      "severity": "medium",
+      "owner": "auth_transport",
+      "finding": "The bounded Google JWK projection stripped optional key_ops before passing the key to JOSE, making encryption-only declared keys usable for signature verification.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Optional key_ops is preserved and accepts exactly one verify operation; malformed/incompatible operations and RSA private fields fail closed.",
+      "regressionEvidence": [
+        "Independent real signed-key fixture rejects encryption-only key_ops after the projection; focused auth also rejects private RSA fields. Strict unmatched Cache-Control quotes fail closed in2 independent cases.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Approved; independent auth-r2 passes 11/11, including the named regression. Corrected complete frozen 76/76 passes; original source review decision remains preserved."
+    },
+    {
+      "id": "IR-11",
+      "severity": "medium",
+      "owner": "auth_transport",
+      "finding": "Child auth scopes inherited abort events but reset their monotonic expiration. If the parent timer is delayed, a continuation could admit child network work after the original operation deadline.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Child monotonic expiry is clamped to every known parent expiry; timer delay uses that same absolute expiry. Shared JWKS I/O retains its separate five-second shared-fetch budget.",
+      "regressionEvidence": [
+        "Independent monotonic clock probe advances beyond parent deadline without firing its timer; child checkpoint rejects. Focused transport test and inherited-expiry admission fences also pass.",
+        "external-transport-20261009/review/review.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Approved; independent auth-r2 passes 11/11, including the named regression. Corrected complete frozen 76/76 passes; original source review decision remains preserved."
+    },
+    {
+      "id": "IR-12",
+      "severity": "medium",
+      "owner": "root/test-integration",
+      "finding": "Audio lifecycle fault injection patched the old synchronous gateway and no longer exercised the actual async permit read.",
+      "status": "fixed-and-frozen-integrated-pass",
+      "fix": "Intercept BFFTransport.aget, await actual transport on successful calls, assert outage marker consumption. Preserve opaque 404 and same-command recovery assertions.",
+      "regressionEvidence": [
+        "external-transport-20261009/attempts/system-r1/report.json",
+        "../../../birdsong-yard-sprites/scripts/audio-lifecycle-browser-checks.py",
+        "external-transport-20261009/focused/audio-lifecycle-r2/results.json",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Independent source fix approved; focused full lifecycle 53/53 passes with original assertions preserved. New complete corrected frozen 76/76 now passes."
+    },
+    {
+      "id": "DOC-01",
+      "severity": "low",
+      "owner": "root/docs",
+      "finding": "Google/SMTP findings retained in-progress text after focused review; the SMTP summary omitted the aggregate wire-byte cap.",
+      "status": "fixed-and-independently-reviewed",
+      "fix": "Record reviewed focused and frozen results; distinguish 256 KiB total wire cap from 64 KiB unfinished/continued-reply guard.",
+      "regressionEvidence": [
+        "external-transport-20261009.md",
+        "external-transport-20261009/integrated/report.json",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Final independent documentation/evidence review approved the corrected wording and namespace mapping."
+    },
+    {
+      "id": "DOC-02",
+      "severity": "low",
+      "owner": "root/docs",
+      "finding": "Task checklist and findings reused NET-01b/c/d for different transport boundaries.",
+      "status": "fixed-and-independently-reviewed",
+      "fix": "Use distinct NET-F01..04 finding IDs and explicitly map them to Python ingress/transport, Google and SMTP task scope.",
+      "regressionEvidence": [
+        "external-transport-20261009.md",
+        "external-transport-20261009/review/final-review.json"
+      ],
+      "reviewerResult": "Final independent documentation/evidence review approved the corrected wording and namespace mapping."
+    },
+    {
+      "id": "AF-IR01",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Missing attached MCP is not sufficient evidence that the official standalone autofixer cannot run.",
+      "status": "resolved by local CLI installation",
+      "fix": "Official @sveltejs/mcp 0.1.26 CLI isolated under tools/svelte-autofixer; no MCP registration or hosted source transfer.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/provenance-check.json",
+        "https://svelte.dev/docs/ai/cli"
+      ],
+      "reviewerResult": "Independent provenance and final wrapper review approved; real failure-propagation probes,19tooling tests and79frozen gates pass."
+    },
+    {
+      "id": "AF-IR02",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "CLI imports documentation resources and fetches a public catalog before argument handling; network-dependent startup blocks even help.",
+      "status": "resolved for the reviewed autofixer invocation",
+      "fix": "Local preloader supplies only an empty unused documentation catalog, blocks network APIs and DNS, and Node permissions deny writes/children/workers/addons.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/guard-probes-final.json",
+        "svelte-autofixer-20261010/review/guard-probes-final-process.json"
+      ],
+      "reviewerResult": "18/18 independent probes passed; detected network use exits70 even if caught. JavaScript interception is defense in depth for audited pinned code, not an OS adversarial isolation boundary."
+    },
+    {
+      "id": "AF-IR03",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Official CLI returns exit0 for reported compiler/linter issues and catches internal analysis exceptions into issues.",
+      "status": "resolved",
+      "fix": "Strict result schema, bounded official child execution, issue/nonzero/timeout/malformed-result failure, exact hash/message/order advisory review, and removed-source detection.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/failure-propagation-r1.json",
+        "/workspace/birdsong-yard-sprites/scripts/style-tools/check-svelte-autofixer.test.ts"
+      ],
+      "reviewerResult": "Independent real-CLI probes confirmed a11y warnings, invalid rune modules and new advisories all yield wrapper exit1 despite official exit0."
+    },
+    {
+      "id": "AF-IR04",
+      "severity": "low",
+      "owner": "integration",
+      "finding": "Bundled analyzer dependency versions differ from application compiler/linter versions.",
+      "status": "documented limitation",
+      "fix": "Record bundled Svelte5.56.1/plugin3.14.0/parser1.7.1/TS5.9.3 separately from application Svelte5.57.2/plugin3.23.0/TS5.8.3; retain app-specific strict checks.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/provenance/final-versions.json",
+        "svelte-autofixer-20261010/focused/css-analyzer-scope.json"
+      ],
+      "reviewerResult": "CLI is supplementary; not a substitute for installed application compiler/a11y/ESLint checks."
+    },
+    {
+      "id": "AF-IR05",
+      "severity": "low",
+      "owner": "integration",
+      "finding": "Flattened source-map extraction overwrote duplicate index.ts basenames, obscuring actual CLI provenance.",
+      "status": "resolved",
+      "fix": "Preserve actual CLI separately as provenance/source/mcp-stdio-index.ts.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/provenance/source/mcp-stdio-index.ts"
+      ],
+      "reviewerResult": "Confirmed CLI file path handling invokes local handler directly without a track hook."
+    },
+    {
+      "id": "AF-IR06",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Global directory-name exclusions silently skipped valid nested first-party components; source symlink directories were also silently omitted.",
+      "status": "resolved",
+      "fix": "Exclude documented generated/private/legacy paths only at repository root; exclude dependencies anywhere; fail explicitly on other symlinks.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/discovery-coverage-r1.json",
+        "svelte-autofixer-20261010/review/discovery-coverage-r2.json"
+      ],
+      "reviewerResult": "Independently confirmed src/data and src/docs sources are now included and symlink source directories fail."
+    },
+    {
+      "id": "AF-IR07",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Original wrapper read entire inputs before enforcing byte limits, and discovery preceded the total deadline; malformed UTF-8 could be silently replaced by official CLI.",
+      "status": "resolved",
+      "fix": "Streamed entry/depth/deadline-bounded discovery, O_NOFOLLOW bounded reads with pre-allocation size check, bounded baseline, fatal UTF-8 decoding and final source/set drift checks.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/discovery-coverage-r2.json",
+        "/workspace/birdsong-yard-sprites/scripts/check-svelte-autofixer.ts"
+      ],
+      "reviewerResult": "Reviewed bounded implementation; independently confirmed invalid UTF-8 fails before any analyzer child starts."
+    },
+    {
+      "id": "AF-IR08",
+      "severity": "low",
+      "owner": "integration",
+      "finding": "Official CLI does not provide full component CSS diagnostics; supplemental standalone CSS gate validates parsing/property names, not value semantics or visual quality.",
+      "status": "documented limitation",
+      "fix": "Retain installed app svelte-check and ESLint Svelte checks. Describe standalone CSS scope precisely and keep formatter claims limited to formatting.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/review/css-probes.json"
+      ],
+      "reviewerResult": "Independent CSS probes confirm typo/missing-colon exit1 and intentionally out-of-scope invalid values exit0."
+    },
+    {
+      "id": "STYLE-F01",
+      "severity": "low",
+      "owner": "integration",
+      "finding": "Unknown standalone CSS property names were not covered by the existing compiler/formatter gate.",
+      "status": "resolved",
+      "fix": "Bounded PostCSS syntax and known-property checker for src/**/*.css, preserving custom properties and fallbacks.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/style/chirp-svelte-style-audit.json",
+        "svelte-autofixer-20261010/integrated/ui-css.log",
+        "svelte-autofixer-20261010/integrated/ui-tooling-tests.log"
+      ],
+      "reviewerResult": "Independent malformed/unknown-property probes pass; semantic values and visual quality remain explicitly outside static scope.",
+      "sourceFindingId": "STYLE-01"
+    },
+    {
+      "id": "STYLE-F02",
+      "sourceFindingId": "STYLE-02",
+      "severity": "medium",
+      "owner": "integration",
+      "finding": "Prettier3.9.9 can emit a CSS stdin parse error but exit zero; repository file mode fails correctly.",
+      "status": "documented-tooling-caveat",
+      "fix": "Keep file-path format checks and the explicit CSS parser gate; do not trust stdin formatter status as syntax validation.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/style/prior-probes/prettier-malformed-css.json",
+        "svelte-autofixer-20261010/style/chirp-svelte-style-audit.json",
+        "svelte-autofixer-20261010/integrated/ui-format.log"
+      ],
+      "reviewerResult": "Recorded negative probes distinguish stdin exit0 from actual file-mode exit2; existing repo gate and new CSS checker are preserved."
+    },
+    {
+      "id": "STYLE-F03",
+      "sourceFindingId": "STYLE-03",
+      "severity": "informational",
+      "owner": "integration",
+      "finding": "Svelte compiler,ESLint and Prettier cover distinct static scopes; formatting does not establish visual quality.",
+      "status": "verified-preserved",
+      "fix": "Retain all application checks alongside supplementary official CLI; document30components,28styleblocks,37enabled Svelte rules and one standalone stylesheet.",
+      "regressionEvidence": [
+        "svelte-autofixer-20261010/style/chirp-svelte-style-audit.json",
+        "svelte-autofixer-20261010/integrated/report.json"
+      ],
+      "reviewerResult": "Configuration and9styleprobe outcomes reviewed; complete79gate run passes without application dependency version changes."
+    }
+  ]
+}

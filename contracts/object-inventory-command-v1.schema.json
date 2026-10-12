@@ -1,0 +1,181 @@
+{
+  "$ref": "#/definitions/ObjectInventoryCommandV1",
+  "definitions": {
+    "ObjectInventoryCommandV1": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "object-inventory"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "expected": {
+          "type": "object",
+          "properties": {
+            "scene": {
+              "type": "string",
+              "enum": [
+                "garden",
+                "courtyard"
+              ]
+            },
+            "scenePin": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160,
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                      "not": {
+                        "enum": [
+                          "__proto__",
+                          "prototype",
+                          "constructor"
+                        ]
+                      }
+                    },
+                    "version": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 1000000
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "version"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "objects": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected/properties/scenePin/anyOf/0/properties/id"
+                  },
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "perch",
+                      "feeder",
+                      "bath",
+                      "nest"
+                    ]
+                  },
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 960
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 540
+                  }
+                },
+                "required": [
+                  "id",
+                  "kind",
+                  "x",
+                  "y"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "scene",
+            "objects"
+          ],
+          "additionalProperties": false
+        },
+        "payload": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "const": "place"
+                },
+                "kind": {
+                  "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected/properties/objects/items/properties/kind"
+                }
+              },
+              "required": [
+                "operation",
+                "kind"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "const": "return"
+                },
+                "objectId": {
+                  "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected/properties/scenePin/anyOf/0/properties/id"
+                }
+              },
+              "required": [
+                "operation",
+                "objectId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "const": "move"
+                },
+                "objectId": {
+                  "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected/properties/scenePin/anyOf/0/properties/id"
+                },
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "operation",
+                "objectId",
+                "x",
+                "y"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "required": [
+        "action",
+        "requestId",
+        "expected",
+        "payload"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/object-inventory-command-v1.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}

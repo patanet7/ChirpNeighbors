@@ -1,0 +1,72 @@
+{
+  "$ref": "#/definitions/ConfirmationReceiptV1",
+  "definitions": {
+    "ConfirmationReceiptV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "audio.confirmed"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f-]+$"
+        },
+        "reviewCandidateIndex": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 199
+        },
+        "eventId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "prototype",
+              "constructor"
+            ]
+          }
+        },
+        "speciesId": {
+          "$ref": "#/definitions/ConfirmationReceiptV1/properties/eventId"
+        },
+        "observedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "inserted": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "requestId",
+        "reviewCandidateIndex",
+        "eventId",
+        "speciesId",
+        "observedAt",
+        "inserted"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/confirmation-receipt-v1.schema.json",
+  "description": "Owner-private structural contract generated from Zod. Lifecycle identity/count consistency, cumulative contiguous ledger sequence and uniqueness, matching database lineage/prefix/high-watermark, live recording generation, candidate selection and atomic confirmation receipts require authoritative application validation. No bearer authorization, location, raw media, provider credential or public projection."
+}

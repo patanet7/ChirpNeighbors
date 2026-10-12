@@ -1,5 +1,7 @@
 # ChirpNeighbors Documentation
 
+Current product decisions, task status, architecture boundaries, named behavioral evidence and remaining blockers are consolidated in the [authoritative task index](delivery/product-behavior-and-ideas.md). The original architecture PRD and dated agent/checkpoint logs are historical inputs; they do not establish current implementation or production readiness.
+
 Complete documentation for the ChirpNeighbors IoT bird sound monitoring system.
 
 ## Documentation Structure
@@ -19,7 +21,7 @@ System design and architecture documentation.
 - Scalability considerations
 - [Product Requirements Document](./architecture/product-requirements.md)
 
-### 🔧 [hardware/](./hardware/)
+### 🔧 [ESP32 hardware and firmware](../esp32-client/README.md)
 Hardware specifications and design documents.
 - ESP32 pinout and configuration
 - Digital microphone specifications
@@ -49,7 +51,7 @@ Backend API documentation.
 
 1. **Choose the right location**:
    - Architecture design → `architecture/`
-   - Hardware specs → `hardware/`
+   - Hardware specs → `../esp32-client/`
    - API changes → `api/`
    - Agent work → `agents/` (auto-generated)
 

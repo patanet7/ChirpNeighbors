@@ -1,0 +1,78 @@
+{
+  "$ref": "#/definitions/ReferencePolicyV1",
+  "definitions": {
+    "ReferencePolicyV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+        },
+        "version": {
+          "$ref": "#/definitions/ReferencePolicyV1/properties/id"
+        },
+        "use": {
+          "type": "string",
+          "enum": [
+            "reference-only",
+            "derived-sprite"
+          ]
+        },
+        "allowedLicenses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/ReferencePolicyV1/properties/id"
+              },
+              "version": {
+                "$ref": "#/definitions/ReferencePolicyV1/properties/id"
+              },
+              "url": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "maxLength": 2048,
+                    "pattern": "^https:\\/\\/[!-~]+(?![\\s\\S])"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "version",
+              "url"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 32
+        },
+        "allowTechnicalFixtures": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "version",
+        "use",
+        "allowedLicenses",
+        "allowTechnicalFixtures"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/reference-policy-v1.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

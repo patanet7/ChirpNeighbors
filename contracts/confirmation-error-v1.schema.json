@@ -1,0 +1,41 @@
+{
+  "$ref": "#/definitions/ConfirmationErrorV1",
+  "definitions": {
+    "ConfirmationErrorV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "audio.confirmation-error"
+        },
+        "code": {
+          "type": "string",
+          "enum": [
+            "invalid_command",
+            "not_available",
+            "conflict",
+            "storage_unavailable"
+          ]
+        },
+        "traceId": {
+          "type": "string",
+          "format": "uuid"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "code",
+        "traceId"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/confirmation-error-v1.schema.json",
+  "description": "Owner-private structural contract generated from Zod. Lifecycle identity/count consistency, cumulative contiguous ledger sequence and uniqueness, matching database lineage/prefix/high-watermark, live recording generation, candidate selection and atomic confirmation receipts require authoritative application validation. No bearer authorization, location, raw media, provider credential or public projection."
+}

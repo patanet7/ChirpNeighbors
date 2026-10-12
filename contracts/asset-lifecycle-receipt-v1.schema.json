@@ -1,0 +1,153 @@
+{
+  "$ref": "#/definitions/AssetLifecycleReceiptV1",
+  "definitions": {
+    "AssetLifecycleReceiptV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "command": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "const": "set-archive"
+                },
+                "requestId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "target": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "private-file",
+                        "private-package"
+                      ]
+                    },
+                    "id": {
+                      "$ref": "#/definitions/AssetLifecycleReceiptV1/properties/command/anyOf/0/properties/requestId"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "id"
+                  ],
+                  "additionalProperties": false
+                },
+                "expectedRevision": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000000
+                },
+                "archived": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "action",
+                "requestId",
+                "target",
+                "expectedRevision",
+                "archived"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "const": "unpin"
+                },
+                "requestId": {
+                  "$ref": "#/definitions/AssetLifecycleReceiptV1/properties/command/anyOf/0/properties/requestId"
+                },
+                "birdId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                  "not": {
+                    "enum": [
+                      "__proto__",
+                      "prototype",
+                      "constructor"
+                    ]
+                  }
+                },
+                "expectedArtworkId": {
+                  "$ref": "#/definitions/AssetLifecycleReceiptV1/properties/command/anyOf/1/properties/birdId"
+                }
+              },
+              "required": [
+                "action",
+                "requestId",
+                "birdId",
+                "expectedArtworkId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "const": "restore-pin"
+                },
+                "requestId": {
+                  "$ref": "#/definitions/AssetLifecycleReceiptV1/properties/command/anyOf/0/properties/requestId"
+                },
+                "unpinRequestId": {
+                  "$ref": "#/definitions/AssetLifecycleReceiptV1/properties/command/anyOf/0/properties/requestId"
+                }
+              },
+              "required": [
+                "action",
+                "requestId",
+                "unpinRequestId"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "commandDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "previousArtworkId": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/AssetLifecycleReceiptV1/properties/command/anyOf/1/properties/birdId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "savedAt": {
+          "type": "string",
+          "maxLength": 40,
+          "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "command",
+        "commandDigest",
+        "previousArtworkId",
+        "savedAt"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/asset-lifecycle-receipt-v1.schema.json",
+  "description": "Owner-private reversible archive and pin lifecycle structural boundary. Shared catalog assets are read-only and cannot be private lifecycle targets. Authoritative server checks enforce ownership, session binding, revision and pin compare-and-swap, immutable idempotent receipts, archive dependencies, reference completeness and retention eligibility. Archive never erases original bytes, provenance, reviews or existing pins. Eligibility is diagnostic; purge remains disabled. A schema does not authorize deletion, public release or a shared catalog change."
+}

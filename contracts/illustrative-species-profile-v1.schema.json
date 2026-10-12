@@ -1,0 +1,106 @@
+{
+  "$ref": "#/definitions/IllustrativeSpeciesProfileV1",
+  "definitions": {
+    "IllustrativeSpeciesProfileV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "speciesId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "prototype",
+              "constructor"
+            ]
+          }
+        },
+        "tuning": {
+          "type": "string",
+          "const": "illustrative"
+        },
+        "sizeScale": {
+          "type": "number",
+          "minimum": 0.75,
+          "maximum": 1.25
+        },
+        "movement": {
+          "type": "object",
+          "properties": {
+            "speed": {
+              "type": "number",
+              "minimum": 24,
+              "maximum": 224
+            },
+            "hopBias": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": [
+            "speed",
+            "hopBias"
+          ],
+          "additionalProperties": false
+        },
+        "preferences": {
+          "type": "object",
+          "properties": {
+            "ground": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "perch": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            },
+            "feed": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10
+            }
+          },
+          "required": [
+            "ground",
+            "perch",
+            "feed"
+          ],
+          "additionalProperties": false
+        },
+        "socialSpacing": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 40
+        },
+        "caution": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "speciesId",
+        "tuning",
+        "sizeScale",
+        "movement",
+        "preferences",
+        "socialSpacing",
+        "caution"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/illustrative-species-profile-v1.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}

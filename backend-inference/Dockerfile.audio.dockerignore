@@ -1,0 +1,12 @@
+# Default deny: neither legacy SQLite files/streams nor recordings enter the image context.
+*
+!Dockerfile.audio
+!requirements-audio.txt
+!app/
+!app/audio_pipeline/
+!app/audio_pipeline/**
+!app/models/
+!app/models/identification.py
+!app/models/session_verifier.py
+**/__pycache__/
+**/*.pyc

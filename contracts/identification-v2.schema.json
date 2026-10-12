@@ -1,0 +1,168 @@
+{
+  "$ref": "#/definitions/IdentificationEventV2",
+  "definitions": {
+    "IdentificationEventV2": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 2
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "prototype",
+              "constructor"
+            ]
+          }
+        },
+        "species": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/IdentificationEventV2/properties/id"
+            },
+            "commonName": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "scientificName": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 160,
+              "allOf": [
+                {
+                  "type": "string",
+                  "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))"
+                }
+              ]
+            },
+            "description": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "referencePhoto": {
+              "type": "object",
+              "additionalProperties": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/IdentificationEventV2/properties/species/properties/referencePhoto/additionalProperties"
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/definitions/IdentificationEventV2/properties/species/properties/referencePhoto/additionalProperties"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": [
+            "id",
+            "commonName",
+            "scientificName"
+          ],
+          "additionalProperties": false
+        },
+        "observedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "fixture",
+                "manual",
+                "model",
+                "external"
+              ]
+            },
+            "label": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "sourceEventId": {
+              "$ref": "#/definitions/IdentificationEventV2/properties/id"
+            },
+            "provider": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 100
+            },
+            "modelVersion": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          "required": [
+            "kind",
+            "label",
+            "sourceEventId"
+          ],
+          "additionalProperties": false
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "recordingId": {
+          "$ref": "#/definitions/IdentificationEventV2/properties/id"
+        },
+        "metadata": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/IdentificationEventV2/properties/species/properties/referencePhoto/additionalProperties"
+          }
+        },
+        "ingestedAt": {
+          "$ref": "#/definitions/IdentificationEventV2/properties/observedAt/anyOf/0"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "species",
+        "observedAt",
+        "source"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/identification-v2.schema.json",
+  "description": "Source-neutral import boundary. ingestedAt is server owned and replaced on intake. metadata and recording references are private. No live inference or location collection is implied."
+}

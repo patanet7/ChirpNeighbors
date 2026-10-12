@@ -1,5 +1,7 @@
 # Chirp Neighbor Product Requirements Document (PRD)
 
+> Historical architecture proposal. The [consolidated task index](../delivery/product-behavior-and-ideas.md) owns current decisions, actual architecture, implementation status and behavioral evidence. This document retains earlier alternatives and numeric targets; JWT/SQLModel coordinator, automatic art generation, distributed WebSockets, model accuracy/latency and MLOps tooling below are not current verified product claims. Current owner flows use the SvelteKit/SQLite session-bound BFF and explicit human confirmation; real model/provider, hardware, worker and production dependencies remain separately tracked.
+
 ## Table of Contents
 - [1. 🐦 Product Requirements (PRD)](#1--product-requirements-prd)
   - [1.1 Overview](#11-overview)

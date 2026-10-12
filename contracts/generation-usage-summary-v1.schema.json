@@ -1,0 +1,104 @@
+{
+  "$ref": "#/definitions/GenerationUsageSummaryV1",
+  "definitions": {
+    "GenerationUsageSummaryV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "observations": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000
+        },
+        "providerAttempts": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "providerUnavailable": {
+          "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+        },
+        "measuredAdapterMilliseconds": {
+          "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+        },
+        "unknownDurationAttempts": {
+          "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+        },
+        "unknownCostAttempts": {
+          "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+        },
+        "knownCostSubtotals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "currency": {
+                "type": "string",
+                "pattern": "^[A-Z]{3}$"
+              },
+              "microUnits": {
+                "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+              }
+            },
+            "required": [
+              "currency",
+              "microUnits"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 10000
+        },
+        "cacheHits": {
+          "type": "object",
+          "properties": {
+            "sharedCatalog": {
+              "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+            },
+            "ownerPrivate": {
+              "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+            }
+          },
+          "required": [
+            "sharedCatalog",
+            "ownerPrivate"
+          ],
+          "additionalProperties": false
+        },
+        "admittedOutputs": {
+          "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+        },
+        "rejectedOutputs": {
+          "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+        },
+        "reviewAcceptedOutputs": {
+          "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+        },
+        "reviewRejectedOutputs": {
+          "$ref": "#/definitions/GenerationUsageSummaryV1/properties/providerAttempts"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "observations",
+        "providerAttempts",
+        "providerUnavailable",
+        "measuredAdapterMilliseconds",
+        "unknownDurationAttempts",
+        "unknownCostAttempts",
+        "knownCostSubtotals",
+        "cacheHits",
+        "admittedOutputs",
+        "rejectedOutputs",
+        "reviewAcceptedOutputs",
+        "reviewRejectedOutputs"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/generation-usage-summary-v1.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}

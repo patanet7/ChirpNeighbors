@@ -1,159 +1,145 @@
-#include <Arduino.h>
-#include <ESPAsyncWebServer.h>
-#include <AsyncJson.h>
-#include <ArduinoJson.h>
-#include "globals.h"
 #include "settings_api.h"
-#include "settings_web.h"
+
+#include <Arduino.h>
+#include <ArduinoJson.h>
+#include <AsyncJson.h>
+#include <ESPAsyncWebServer.h>
+#include <WiFi.h>
+
+#include <atomic>
+
+#include "globals.h"
 #include "settings_manager.h"
+#include "settings_web.h"
 
 extern AsyncWebServer server;
-extern float current_rms;
-extern int16_t current_peak;
-extern bool transmitting;
-extern int16_t *latest_samples;
-extern size_t latest_sample_index;
-extern size_t latest_sample_capacity;
-unsigned long boot_time = 0;
+namespace {
+std::atomic<bool> update_pending{false};
 
-const char* methodToString(AsyncWebServerRequest *request) {
-    switch (request->method()) {
-        case HTTP_GET: return "GET";
-        case HTTP_POST: return "POST";
-        case HTTP_DELETE: return "DELETE";
-        case HTTP_PUT: return "PUT";
-        case HTTP_PATCH: return "PATCH";
-        case HTTP_HEAD: return "HEAD";
-        case HTTP_OPTIONS: return "OPTIONS";
-        default: return "UNKNOWN";
+bool parseSettings(JsonObjectConst obj, AudioSettings& s) {
+  for (JsonPairConst item : obj) {
+    const String key = item.key().c_str();
+    const JsonVariantConst value = item.value();
+    if (key == "threshold" || key == "gain") {
+      if (!value.is<float>()) return false;
+      if (key == "threshold")
+        s.trigger_rms_threshold = value.as<float>();
+      else
+        s.gain = value.as<float>();
+    } else if (key == "timeout" || key == "sample_rate" ||
+               key == "buffer_len" || key == "output_bits" ||
+               key == "led_brightness" || key == "status_sample_count") {
+      if (!value.is<uint32_t>()) return false;
+      const uint32_t number = value.as<uint32_t>();
+      if (key == "timeout")
+        s.trigger_timeout_ms = number;
+      else if (key == "sample_rate")
+        s.sample_rate = number;
+      else if (key == "buffer_len")
+        s.buffer_len = number;
+      else if (key == "output_bits") {
+        if (number != 16) return false;
+        s.output_bits = 16;
+      } else if (key == "led_brightness") {
+        if (number > 255) return false;
+        s.led_brightness = static_cast<uint8_t>(number);
+      } else {
+        if (number == 0 || number > chirp::kStatusSamples) return false;
+        s.status_sample_count = static_cast<uint16_t>(number);
+      }
+    } else if (key == "wifi_ssid" || key == "wifi_pass" || key == "ws_server" ||
+               key == "ws_port") {
+      if (!value.is<const char*>()) return false;
+      const String text = value.as<String>();
+      if (text.length() != value.as<JsonString>().size()) return false;
+      if (key == "wifi_ssid")
+        s.wifi_ssid = text;
+      else if (key == "wifi_pass")
+        s.wifi_pass = text;
+      else if (key == "ws_server")
+        s.ws_server = text;
+      else
+        s.ws_port = text;
+    } else {
+      return false;
     }
+  }
+  return validSettings(s);
 }
+}  // namespace
 
 void setupWebEndpoints() {
-    boot_time = millis();
-
-    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-        request->send(200, "text/html", settings_html);
-    });
-
-    server.on("/status.json", HTTP_GET, [](AsyncWebServerRequest *request){
-        String json = "{";
-        json += "\"rms\":" + String(current_rms, 5) + ",";
-        json += "\"peak\":" + String(current_peak) + ",";
-        json += "\"triggered\":" + String(transmitting ? "true" : "false") + ",";
-        json += "\"threshold\":" + String(Settings.settings.trigger_rms_threshold, 4) + ",";
-        json += "\"timeout\":" + String(Settings.settings.trigger_timeout_ms) + ",";
-        json += "\"uptime_ms\":" + String(millis() - boot_time) + ",";
-        json += "\"wifi_rssi\":" + String(WiFi.RSSI()) + ",";
-        json += "\"heap\":" + String(ESP.getFreeHeap()) + ",";
-        json += "\"sample_rate\":" + String(Settings.settings.sample_rate) + ",";
-        json += "\"buffer_len\":" + String(Settings.settings.buffer_len) + ",";
-        json += "\"wifi_ssid\":\"" + Settings.settings.wifi_ssid + "\",";
-        json += "\"ws_server\":\"" + Settings.settings.ws_server + "\",";
-        json += "\"simulate_mic\":" + String(Settings.settings.simulate_mic ? "true" : "false") + ",";
-        json += "\"pwr_offset\":" + String(Settings.settings.simulated_power_offset, 1) + ",";
-        json += "\"pwr_var\":" + String(Settings.settings.simulated_power_variation, 1) + ",";
-        json += "\"gain\":" + String(Settings.settings.gain) + ",";
-        json += "\"output_bits\":" + String(Settings.settings.output_bits) + ",";
-        json += "\"led_brightness\":" + String(Settings.settings.led_brightness) + ",";
-
-        float simulated_power = Settings.settings.simulated_power_offset +
-                                Settings.settings.simulated_power_variation * sin(millis() * 0.0005);
-        json += "\"power_mW\":" + String(simulated_power, 1) + ",";
-
-        json += "\"samples\":";
-        json += "[";
-        if (latest_samples == nullptr || latest_sample_capacity == 0) {
-            json += "]";
-        } else {
-            for (size_t i = 0; i < latest_sample_capacity; ++i) {
-                size_t slot = (latest_sample_index + i) % latest_sample_capacity;
-                json += String(latest_samples[slot]);
-                if (i < latest_sample_capacity - 1) {
-                    json += ",";
-                }
-            }
-            json += "]";
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest* request) {
+    request->send(200, "text/html", settings_html);
+  });
+  server.on("/status.json", HTTP_GET, [](AsyncWebServerRequest* request) {
+    const RuntimeStatus snapshot = readRuntimeStatus();
+    // Bounded document and bounded samples; no raw pointers cross task
+    // boundaries.
+    DynamicJsonDocument doc(4096);
+    doc["rms"] = snapshot.rms;
+    doc["peak"] = snapshot.peak;
+    doc["triggered"] = snapshot.transmitting;
+    doc["connected"] = snapshot.connected;
+    doc["captured_blocks"] = snapshot.captured;
+    doc["queue_drops"] = snapshot.dropped;
+    doc["sent_packets"] = snapshot.sent;
+    doc["send_failures"] = snapshot.send_failures;
+    doc["read_errors"] = snapshot.read_errors;
+    doc["queue_capacity"] = chirp::kQueueDepth;
+    doc["uptime_ms"] = millis();
+    doc["wifi_rssi"] = WiFi.RSSI();
+    doc["heap"] = ESP.getFreeHeap();
+    doc["threshold"] = Settings.settings.trigger_rms_threshold;
+    doc["timeout"] = Settings.settings.trigger_timeout_ms;
+    doc["sample_rate"] = Settings.settings.sample_rate;
+    doc["buffer_len"] = Settings.settings.buffer_len;
+    doc["output_bits"] = Settings.settings.output_bits;
+    doc["gain"] = Settings.settings.gain;
+    doc["wifi_ssid"] = Settings.settings.wifi_ssid;
+    doc["ws_server"] = Settings.settings.ws_server;
+    doc["ws_port"] = Settings.settings.ws_port;
+    doc["led_brightness"] = Settings.settings.led_brightness;
+    JsonArray samples = doc.createNestedArray("samples");
+    for (size_t i = 0; i < snapshot.sample_count; ++i) {
+      samples.add(snapshot.samples[i]);
+    }
+    String body;
+    serializeJson(doc, body);
+    request->send(200, "application/json", body);
+  });
+  auto* handler = new AsyncCallbackJsonWebHandler(
+      "/control.json", [](AsyncWebServerRequest* request, JsonVariant& json) {
+        if (!json.is<JsonObject>()) {
+          request->send(400, "application/json",
+                        "{\"error\":\"object required\"}");
+          return;
         }
-        json += "}";
-
-        request->send(200, "application/json", json);
-    });
-
-    AsyncCallbackJsonWebHandler* handler = new AsyncCallbackJsonWebHandler("/control.json", [](AsyncWebServerRequest *request, JsonVariant &json) {
-        JsonObject obj = json.as<JsonObject>();
-        bool needsRestart = false;
-
-        if (obj.containsKey("threshold")) {
-            Settings.settings.trigger_rms_threshold = obj["threshold"];
+        AudioSettings candidate = Settings.settings;
+        if (!parseSettings(json.as<JsonObjectConst>(), candidate)) {
+          request->send(400, "application/json",
+                        "{\"error\":\"invalid or unsupported settings\"}");
+          return;
         }
-        if (obj.containsKey("timeout")) {
-            Settings.settings.trigger_timeout_ms = obj["timeout"];
+        bool expected = false;
+        if (!update_pending.compare_exchange_strong(expected, true)) {
+          request->send(409, "application/json",
+                        "{\"error\":\"restart pending\"}");
+          return;
         }
-        if (obj.containsKey("pwr_offset")) {
-            Settings.settings.simulated_power_offset = obj["pwr_offset"];
+        if (!Settings.save(candidate)) {
+          update_pending.store(false);
+          request->send(500, "application/json",
+                        "{\"error\":\"settings persistence failed\"}");
+          return;
         }
-        if (obj.containsKey("pwr_var")) {
-            Settings.settings.simulated_power_variation = obj["pwr_var"];
-        }
-        if (obj.containsKey("sample_rate")) {
-            Settings.settings.sample_rate = obj["sample_rate"];
-        }
-        if (obj.containsKey("buffer_len")) {
-            Settings.settings.buffer_len = obj["buffer_len"];
-        }
-        if (obj.containsKey("wifi_ssid")) {
-            Settings.settings.wifi_ssid = obj["wifi_ssid"].as<String>();
-        }
-        if (obj.containsKey("wifi_pass")) {
-            Settings.settings.wifi_pass = obj["wifi_pass"].as<String>();
-        }
-        if (obj.containsKey("ws_server")) {
-            Settings.settings.ws_server = obj["ws_server"].as<String>();
-        }
-        if (obj.containsKey("simulate_mic")) {
-            bool newSim = obj["simulate_mic"];
-            if (newSim != Settings.settings.simulate_mic) {
-                Settings.settings.simulate_mic = newSim;
-                needsRestart = true;
-            }
-        }
-        if (obj.containsKey("gain")) {
-            Settings.settings.gain = obj["gain"];
-        }
-        if (obj.containsKey("output_bits")) {
-            Settings.settings.output_bits = obj["output_bits"];
-        }
-        if (obj.containsKey("led_brightness")) {
-            Settings.settings.led_brightness = obj["led_brightness"];
-        }
-
-        Settings.save();
-
-        Serial.printf("[UPDATED SETTINGS]\n Threshold=%.4f\n Timeout=%lu\n PwrOffset=%.1f\n PwrVar=%.1f\n SampleRate=%lu\n BufferLen=%lu\n WS=%s\n Gain=%.1f\n LED Brightness=%u\n",
-            Settings.settings.trigger_rms_threshold,
-            Settings.settings.trigger_timeout_ms,
-            Settings.settings.simulated_power_offset,
-            Settings.settings.simulated_power_variation,
-            Settings.settings.sample_rate,
-            Settings.settings.buffer_len,
-            Settings.settings.ws_server.c_str(),
-            Settings.settings.gain,
-            Settings.settings.led_brightness);
-
-        request->send(200, "application/json", "{\"status\":\"ok\"}");
-
-        if (needsRestart) {
-            delay(500);
-            ESP.restart();
-        }
-    });
-    server.addHandler(handler);
-
-    server.onNotFound([](AsyncWebServerRequest *request){
-        Serial.printf("[404] Not Found: %s %s\n",
-            methodToString(request),
-            request->url().c_str());
-        request->send(404, "text/plain", "Not Found");
-    });
+        request->send(202, "application/json", "{\"status\":\"restarting\"}");
+        requestRestart();
+      });
+  handler->setMethod(HTTP_POST);
+  handler->setMaxContentLength(1024);
+  server.addHandler(handler);
+  server.onNotFound([](AsyncWebServerRequest* request) {
+    request->send(404, "text/plain", "Not found");
+  });
 }

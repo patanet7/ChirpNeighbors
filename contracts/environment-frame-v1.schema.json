@@ -1,0 +1,140 @@
+{
+  "$ref": "#/definitions/EnvironmentFrameV1",
+  "definitions": {
+    "EnvironmentFrameV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "provenance": {
+          "type": "string",
+          "const": "illustrative-scene"
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "simulated",
+            "manual",
+            "unconfigured"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "unconfigured"
+          ]
+        },
+        "condition": {
+          "type": "string",
+          "enum": [
+            "clear",
+            "cloudy",
+            "rain",
+            "snow",
+            "fog"
+          ]
+        },
+        "phase": {
+          "type": "string",
+          "enum": [
+            "dawn",
+            "day",
+            "dusk",
+            "night"
+          ]
+        },
+        "hour": {
+          "type": "number",
+          "minimum": 0,
+          "exclusiveMaximum": 24
+        },
+        "light": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "daylight": {
+          "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+        },
+        "warmth": {
+          "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+        },
+        "sun": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+            },
+            "y": {
+              "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+            },
+            "visibility": {
+              "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+            }
+          },
+          "required": [
+            "x",
+            "y",
+            "visibility"
+          ],
+          "additionalProperties": false
+        },
+        "effects": {
+          "type": "object",
+          "properties": {
+            "cloud": {
+              "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+            },
+            "rain": {
+              "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+            },
+            "snow": {
+              "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+            },
+            "fog": {
+              "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+            },
+            "wind": {
+              "$ref": "#/definitions/EnvironmentFrameV1/properties/light"
+            }
+          },
+          "required": [
+            "cloud",
+            "rain",
+            "snow",
+            "fog",
+            "wind"
+          ],
+          "additionalProperties": false
+        },
+        "particleSeed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "provenance",
+        "source",
+        "status",
+        "condition",
+        "phase",
+        "hour",
+        "light",
+        "daylight",
+        "warmth",
+        "sun",
+        "effects",
+        "particleSeed"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/environment-frame-v1.schema.json",
+  "description": "Transient illustrative scene environment structural boundary. Controls are temporary owner previews, never saved-yard or backup extensions. Frames reuse the existing weather epoch, day length, seed and caller clock; lighting is illustrative, not regional astronomy. Resolver and transition semantics enforce neutral unconfigured providers, shared-clock derivation, bounded smooth blends and stable particle anchors. No location, live weather, observations, provider execution, biological claims or public sharing authority."
+}

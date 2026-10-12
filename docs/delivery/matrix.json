@@ -1,0 +1,1155 @@
+{
+  "version": 1,
+  "baseline": {
+    "ui": "ecccb0e56f50753d93044f74beaf7b2187edd2e2",
+    "main": "715c03dc5ae2ec93c7d786d3a3a18608988705e8"
+  },
+  "rules": [
+    "Local implementation and same-workspace integration only.",
+    "No publication, credential grants, external transfers, real user data or costs.",
+    "Existing owner storage and prior checkpoints must survive."
+  ],
+  "workstreams": [
+    {
+      "id": "contracts",
+      "owner": "contracts_platform",
+      "status": "implemented_local",
+      "dependencies": [],
+      "acceptance": [
+        "One documented source of truth per wire boundary; generated counterpart types and schema drift fail the gate.",
+        "Versioned strict discriminated commands/events/errors preserve unknown time, bounded numbers and UUID semantics across Python/TypeScript golden roundtrips.",
+        "Pydantic v2 public models and strict Python typing; assess and enable stricter TS options without blanket casts/ignores.",
+        "Reproducible aggregate lint/format/type/unit/integration/browser gate."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/contract-platform.md",
+        "scripts/verify_system.py",
+        "backend-inference/pyproject.toml",
+        "107 cross-language golden cases; generated-client and schema drift checks",
+        "docs/delivery/verification-20261008.json",
+        "129 cross-language golden cases including lifecycle and confirmation structural mirrors",
+        "docs/delivery/lifecycle-verification-20261008.json",
+        "docs/delivery/png-verified-20261009.md"
+      ]
+    },
+    {
+      "id": "storage",
+      "owner": "media_frontend",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts"
+      ],
+      "acceptance": [
+        "Owner-scoped transactional SQLite persistence survives restart and preserves prior data/migrations.",
+        "Recording idempotency, conflicts, bounded pagination/upload, tombstones and cleanup are explicit and tested.",
+        "Restore cannot resurrect media; derived-output deletion and full recovery boundaries remain honest."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/src/lib/server/recordings/recordings.test.ts",
+        "birdsong-yard-sprites/src/lib/server/storage/private-files.test.ts",
+        "birdsong-yard-sprites/scripts/recordings-browser-checks.py",
+        "docs/delivery/verification-20261008.json",
+        "birdsong-yard-sprites/src/lib/server/recordings/lifecycle.test.ts",
+        "birdsong-yard-sprites/scripts/recording-lifecycle-browser-checks.py",
+        "birdsong-yard-sprites/scripts/lifecycle-recovery-smoke.py",
+        "docs/delivery/lifecycle-verification-20261008.json",
+        "docs/delivery/png-verified-20261009.md"
+      ],
+      "remaining": [
+        "Offline copies require the operator to retain and supply the latest complete deletion ledger; remote erasure and account-wide deletion orchestration are not implemented."
+      ]
+    },
+    {
+      "id": "auth",
+      "owner": "auth_sessions",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts"
+      ],
+      "acceptance": [
+        "Real email-link and Google OIDC provider boundaries use a mature maintained protocol library.",
+        "Persisted sessions, callback state/PKCE/replay/expiry/logout and explicit linking are tested with labeled mocks only.",
+        "Missing credentials/transport fail closed; frontend explains interrupted and expired flows without claiming provider success."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/authentication.md",
+        "birdsong-yard-sprites/src/lib/server/auth/service.test.ts",
+        "birdsong-yard-sprites/scripts/auth-browser-checks.py",
+        "docs/delivery/verification-20261008.json",
+        "birdsong-yard-sprites/scripts/auth-integration.ts",
+        "docs/delivery/lifecycle-verification-20261008.json"
+      ]
+    },
+    {
+      "id": "frontend",
+      "owner": "media_frontend",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "storage",
+        "auth"
+      ],
+      "acceptance": [
+        "Typed query/form errors and loading/empty/retry/conflict states cover private recording upload/playback/delete.",
+        "Accessible mobile/keyboard/reduced-motion journeys retain Finds, residents, collection, settings and fixture disclosures.",
+        "Login/logout/session expiry and owner changes never reveal stale private state.",
+        "Verified confirmation receipt focuses only a matching current-owner Finding; unknown, absent and corrected provenance stays explicit, and keeping a decorative resident is a separate action."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/browser-service-contracts.md",
+        "birdsong-yard-sprites/scripts/recordings-ui-browser-checks.py",
+        "birdsong-yard-sprites/scripts/analysis-browser-checks.py",
+        "docs/delivery/verification-20261008.json",
+        "docs/delivery/lifecycle-verification-20261008.json",
+        "birdsong-yard-sprites/src/lib/findings/presentation.test.ts",
+        "birdsong-yard-sprites/scripts/evidence-browser-checks.py"
+      ]
+    },
+    {
+      "id": "ml",
+      "owner": "audio_pipeline",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "storage"
+      ],
+      "acceptance": [
+        "Executable modular audio validation, preprocessing, chunking, fixture inference, taxonomy/threshold normalization and provenance.",
+        "Raw candidates stay distinct from confirmed observations; model/license/version/idempotency/cancellation boundaries are enforced.",
+        "Synthetic eval fixtures produce recorded metrics; absent real model/credentials/license approval is explicit."
+      ],
+      "evidence": [
+        "backend-inference/app/audio_pipeline",
+        "backend-inference/tests/test_audio_pipeline.py",
+        "backend-inference/tests/test_audio_api.py",
+        "docs/architecture/audio-pipeline.md",
+        "docs/delivery/verification-20261008.json",
+        "birdsong-yard-sprites/docs/audio-confirmation.md",
+        "birdsong-yard-sprites/scripts/audio-lifecycle-browser-checks.py",
+        "docs/delivery/lifecycle-verification-20261008.json"
+      ],
+      "remaining": [
+        "Approved compatible bird-model weights, biological calibration and evaluation remain external. BFF completed results and manual confirmation receipts are durable; Python in-flight computation remains process-local. Separately blocked autonomous worker artifact remains unintegrated."
+      ]
+    },
+    {
+      "id": "image",
+      "owner": "image_pipeline",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts"
+      ],
+      "acceptance": [
+        "Executable licensing/provenance intake, pinned provider boundary, pixel/palette/transparency/frame normalization and manifest packaging.",
+        "Technical fixture pixels exercise strict validators; human review precedes immutable application catalog publication and explicit renderer pins.",
+        "No static concept misrepresented as a sheet; no invented reviewed art or generation provider success.",
+        "Immutable shape-only revisions preserve complete reviewed source and explicit pins; Pixi/SVG use shared support transforms, physical clearances and opaque hit geometry.",
+        "Real local PNG bytes cross private HTTP/filesystem boundaries, a maintained bounded decoder, immutable per-file rights review, source/manifest reviews and explicit renderer pin; legacy paths, restart/recovery and owner isolation pass.",
+        "Reversible private file/package archive and exact resident unpin/undo preserve existing pins and immutable evidence while fencing every new selection and derived intake. Bounded retention eligibility fails closed; recovery, process interruption, concurrent SQLite connections and owner/session/browser races pass without a production purge route."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/image-asset-pipeline.md",
+        "birdsong-yard-sprites/src/lib/server/asset-pipeline/pipeline.test.ts",
+        "birdsong-yard-sprites/scripts/asset-pipeline-browser-checks.py",
+        "docs/delivery/verification-20261008.json",
+        "birdsong-yard-sprites/scripts/image-intake-browser-checks.py",
+        "docs/delivery/lifecycle-verification-20261008.json",
+        "birdsong-yard-sprites/docs/shape-workbench-checkpoint.md",
+        "birdsong-yard-sprites/scripts/shape-browser-checks.py",
+        "birdsong-yard-sprites/docs/image-stage-local-baseline.md",
+        "docs/delivery/png-verified-20261009.md",
+        "birdsong-yard-sprites/docs/png-intake-checklist.md",
+        "birdsong-yard-sprites/scripts/png-intake-browser-checks.py",
+        "docs/delivery/retention-verified-20261009.md",
+        "birdsong-yard-sprites/docs/asset-retention-checklist.md",
+        "birdsong-yard-sprites/scripts/asset-retention-browser-checks.py"
+      ],
+      "remaining": [
+        "Current pixels are fixtures. Bounded local PNG atlas decoding/storage is verified; general reference-photo processing, approved species art and segmentation/matting/generation remain future adapters. Existing nonfixture references/fidelity authority is still required. Reversible archive/unpin and diagnostic retention UI are verified. Production purge, account-wide erasure and backup deletion policy remain separate work; image-stage model audits have no product route or durable store."
+      ]
+    },
+    {
+      "id": "operations",
+      "owner": "reliability_ops",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "storage",
+        "auth"
+      ],
+      "acceptance": [
+        "Safe structured logs, trace IDs, health/readiness and graceful process lifecycle are tested without private payloads.",
+        "Owner isolation, safe public projection, backup/restore and failure recovery gates are reproducible.",
+        "Local runbook/container composition and US configuration template are usable; no deployment or worker-loop duplication."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/local-operations.md",
+        "birdsong-yard-sprites/scripts/private_backup.py",
+        "birdsong-yard-sprites/scripts/tests/test_private_backup.py",
+        "docs/delivery/verification-20261008.json",
+        "docs/delivery/lifecycle-verification-20261008.json"
+      ],
+      "remaining": [
+        "Container image execution is unverified because Docker could not resolve its public package registry. Configuration and host execution pass; no deployment performed."
+      ]
+    },
+    {
+      "id": "worker_transfer",
+      "owner": "external_transfer",
+      "status": "unintegrated",
+      "dependencies": [],
+      "acceptance": [
+        "Previously completed worker c08624d3 remains unavailable locally after the already-authorized supported transfer failed; do not duplicate its implementation.",
+        "Integrate and reverify the same artifact only after transfer succeeds; the current manually advanced runner remains explicit."
+      ],
+      "evidence": [
+        "docs/delivery/approved-handoff-blocker-20261008.md"
+      ],
+      "remaining": [
+        "Same-code/destination transfer is approved, but supported preparation/helper download failed twice. No archive bytes were materialized; implementation remains unintegrated."
+      ]
+    },
+    {
+      "id": "esp32_transfer",
+      "owner": "external_transfer",
+      "status": "partial_local",
+      "dependencies": [],
+      "acceptance": [
+        "Original remote branch fetched at 99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c, reported ancestor verified, preserved environment checkpoint and normal two-parent local merge at 4ce5fb535c38f67a3f31caf3a2c7ebfb988a9ceb.",
+        "Original runtime sources preserved; existing strict core configuration unchanged; 52 scoped intake tests, eight native tests and 25/25 frozen selected regression gates pass.",
+        "Fresh board/static/simulator verification remains blocked by PlatformIO registry HTTP 403 and missing libslirp.so.0; hardware/private device admission and remote CI remain unverified. No Library retry, duplicate implementation, publication, deployment or flash."
+      ],
+      "evidence": [
+        "docs/delivery/approved-handoff-blocker-20261008.md",
+        "docs/delivery/product-behavior-and-ideas.md"
+      ],
+      "remaining": [
+        "Remote report awaits independent Git inspection and local integration. Remote CI and actual hardware/model execution remain unverified. Background worker transfer remains separate."
+      ]
+    },
+    {
+      "id": "interactive-yard",
+      "owner": "root-integration",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "storage"
+      ],
+      "acceptance": [
+        "Free owner stock and idempotent place/return/move; legacy data, restart/restore, exact retry and isolation.",
+        "Explicit reproducible session seeds, illustrative profiles, bounded decorative scatter/return and trusted once-only arrival presentation.",
+        "Real changing-pose Pixi plus SVG/reduced-motion/browser regressions.",
+        "Bounded immutable geometry ownership preserves exact fixed-ticker state/pixels; frame-time measurements retain workload-dependent gains and regressions."
+      ],
+      "evidence": [
+        "docs/delivery/visual-task-tree-20261008.md",
+        "docs/delivery/product-behavior-and-ideas.md",
+        "birdsong-yard-sprites/scripts/inventory-browser-checks.py",
+        "birdsong-yard-sprites/scripts/behavior-browser-checks.py",
+        "birdsong-yard-sprites/scripts/arrivals-browser-checks.py",
+        "docs/delivery/interactive-verified-20261008.md",
+        "docs/delivery/renderer-performance-20261010.md",
+        "docs/delivery/renderer-performance-20261010/integrated/report.json",
+        "birdsong-yard-sprites/docs/renderer-performance.md"
+      ],
+      "remaining": [
+        "Real authorized import/audio arrival adapters remain unconfigured; reviewed species art and individual companionship design remain pending.",
+        "Oversized/software rasterization tails, real GPU/mobile and production-build timing remain open; geometry reuse is not a universal frame-rate guarantee."
+      ]
+    },
+    {
+      "id": "optional-analytics",
+      "owner": "root-integration",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "auth"
+      ],
+      "acceptance": [
+        "Default-off explicit-consent first-party coarse event collection; private consent and identity-free aggregate stores separated.",
+        "Session/revision fences, bounded queues/budgets, server validation, restore revocation, no owner/evidence/location/URL/IP dimensions.",
+        "Collector failure cannot block login/yard; no public report endpoint or real-user activation."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/privacy-analytics-foundation.md",
+        "birdsong-yard-sprites/scripts/analytics-browser-checks.py",
+        "birdsong-yard-sprites/scripts/session-binding-browser-checks.py",
+        "docs/delivery/interactive-verified-20261008.md"
+      ],
+      "remaining": [
+        "Idle retention needs operator maintenance; real Web Vitals observation and operating policy review remain future. Collection and security counters remain disabled by default."
+      ]
+    },
+    {
+      "id": "lazy-shared-assets",
+      "owner": "root-integration",
+      "status": "partial_local",
+      "dependencies": [
+        "contracts"
+      ],
+      "acceptance": [
+        "Pure usage/fingerprint contracts distinguish shared canonical identity, private owner scope, explicit attempt/cache/admission/review events and unknown monetary cost.",
+        "Bounded runtime catalog demand/release/selection is tracked under shared-catalog and PB-003; pure usage helpers must not be described as live dispatch instrumentation."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/generation-cost-foundation.md",
+        "birdsong-yard-sprites/src/lib/server/assets/catalog-requests.test.ts",
+        "birdsong-yard-sprites/src/lib/server/pipeline/generation-usage.test.ts",
+        "docs/delivery/catalog-verified-20261009.md",
+        "docs/delivery/product-behavior-and-ideas.md"
+      ],
+      "remaining": [
+        "Later shared-catalog work now wires eligible arriving-species demand and immutable public fixture payloads. The older pending app-hook/payload statements are superseded for this bounded path.",
+        "Real provider dispatch, runtime callers of usage/fingerprint helpers, a durable usage ledger, budgets, cancellation/retry settlement and operational metering remain absent (PB-018).",
+        "Production catalog promotion still defaults to denied; approved real artwork, per-file rights, species review and provider authority remain external (PB-003/PB-021)."
+      ]
+    },
+    {
+      "id": "shared-catalog",
+      "owner": "root_integration",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "storage",
+        "auth",
+        "frontend"
+      ],
+      "acceptance": [
+        "One owner-free canonical request per explicit supported taxonomy/style/version, created only for species present in owner collections or yards.",
+        "Immutable reviewed fixture releases and exact per-resident pins; version publication never replaces saved pins. Revoked/missing/corrupt entries preserve identity and render explicit fallback.",
+        "Two account reuse excludes private media, source provenance, observations, resident names and owner metadata from shared storage.",
+        "Default-deny internal promotion permits only existing synthetic fixtures under explicit test authority. No HTTP admin, real production rights or biological validity claim.",
+        "Owner/session-bound CAS selection and durable retries, restore/undo/automatic-assignment fences, cold restart/backup and all strict gates."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/shared-catalog-checklist.md",
+        "birdsong-yard-sprites/docs/shared-catalog-contract.md",
+        "birdsong-yard-sprites/docs/shared-catalog-review-20261009.md",
+        "docs/delivery/catalog-verified-20261009.md"
+      ],
+      "remaining": [
+        "Approved real artwork, verified rights and biological review; production catalog administration/authority and external execution adapters are unconfigured.",
+        "Optional variants remain explicit contract identities without an enabled authoring/provider workflow."
+      ]
+    },
+    {
+      "id": "environment-animation",
+      "owner": "root-integration",
+      "status": "implemented_local",
+      "dependencies": [
+        "contracts",
+        "interactive-yard"
+      ],
+      "acceptance": [
+        "Existing scene clock drives gradual visible solar motion and lighting with smooth, bounded weather transitions.",
+        "Owner-only transient controls and seeded replay respect pause, visibility and reduced motion without mutating saved layouts or public projections.",
+        "Illustrative weather-to-behavior mapping preserves safe occupancy, night rest, FIFO routine recovery and legacy callers.",
+        "Actual desktop/mobile Pixi and SVG screenshots, transition pixel comparisons, bounded draw diagnostics and all strict gates."
+      ],
+      "evidence": [
+        "birdsong-yard-sprites/docs/environment-animation-checklist.md",
+        "birdsong-yard-sprites/docs/environment-contracts.md",
+        "docs/delivery/environment-verified-20261009.md",
+        "docs/delivery/environment-verified-20261009/report.json"
+      ],
+      "remaining": [
+        "Existing fixtures and authored illustrative policy only; approved species art, biological validation, real providers, native OS occlusion and physical-device performance remain unverified. Advanced preview controls are transient."
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": "ui-types",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "baseline": true
+    },
+    {
+      "id": "ui-lint",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "baseline": true
+    },
+    {
+      "id": "ui-unit",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "test"
+      ],
+      "baseline": true
+    },
+    {
+      "id": "ui-build",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "baseline": true
+    },
+    {
+      "id": "contract-drift",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "contracts:check",
+        "--",
+        "--main-repo",
+        "{main_repo}"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "combined-browser",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "test:consolidation"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "system",
+      "repo": "main",
+      "command": [
+        "{python}",
+        "scripts/verify_system.py",
+        "--python",
+        "{python}",
+        "--onnx-python",
+        "{onnx_python}",
+        "--intake-python",
+        "{intake_python}",
+        "--browser-python",
+        "{browser_python}",
+        "--ui-repo",
+        "{ui_repo}",
+        "--output-dir",
+        "{output_dir}"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-shapes",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/shape-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-evidence",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/evidence-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-inventory",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/inventory-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-behavior",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/behavior-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-ontology",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/ontology-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-arrivals",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/arrivals-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-analytics",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/analytics-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-asset-retention",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/asset-retention-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-shared-catalog",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/shared-catalog-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-session-binding",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/session-binding-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-environment",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/environment-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "python-harness-lint",
+      "repo": "main",
+      "command": [
+        "{python}",
+        "-m",
+        "ruff",
+        "check",
+        "--select",
+        "F,RUF100",
+        "{ui_repo}/scripts",
+        "backend-inference/tests"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "ui-autofixer",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check:autofixer"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "ui-css",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check:css"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "ui-tooling-tests",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "test:tooling"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-resources",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/resources-browser-checks.py"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "browser-renderer-correctness",
+      "repo": "ui",
+      "command": [
+        "python3",
+        "scripts/renderer-visual-parity-checks.py",
+        "--repo",
+        "{ui_repo}",
+        "--output",
+        "{output_dir}/renderer-correctness"
+      ],
+      "baseline": false
+    },
+    {
+      "id": "ui-declarations",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check:declarations",
+        "--",
+        "--output",
+        "{output_dir}/declarations.json"
+      ]
+    },
+    {
+      "id": "ui-declaration-probes",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "test:declarations",
+        "--",
+        "--output",
+        "{output_dir}/declaration-probes.json"
+      ]
+    },
+    {
+      "id": "simulator-quality",
+      "repo": "main",
+      "command": [
+        "{intake_python}",
+        "esp32-client/simulator_checks/check_simulator.py",
+        "--output",
+        "{output_dir}/simulator-quality.json"
+      ]
+    },
+    {
+      "id": "ui-python-types",
+      "repo": "ui",
+      "command": [
+        "{python}",
+        "scripts/check_python_quality.py",
+        "--mode",
+        "check",
+        "--python-executable",
+        "{browser_python}",
+        "--output",
+        "{output_dir}/python-quality"
+      ]
+    },
+    {
+      "id": "ui-python-probes",
+      "repo": "ui",
+      "command": [
+        "{python}",
+        "scripts/check_python_quality.py",
+        "--mode",
+        "probes",
+        "--python-executable",
+        "{browser_python}",
+        "--output",
+        "{output_dir}/python-probes"
+      ]
+    },
+    {
+      "id": "ui-tooling-types",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "check:typescript",
+        "--",
+        "--output",
+        "{output_dir}/tooling-types.json"
+      ]
+    },
+    {
+      "id": "ui-tooling-probes",
+      "repo": "ui",
+      "command": [
+        "npm",
+        "run",
+        "test:typescript",
+        "--",
+        "--output",
+        "{output_dir}/tooling-probes.json"
+      ]
+    },
+    {
+      "id": "source-coverage",
+      "repo": "main",
+      "command": [
+        "{python}",
+        "scripts/check_source_coverage.py",
+        "--ui-repo",
+        "{ui_repo}",
+        "--output",
+        "{output_dir}/source-coverage.json"
+      ]
+    },
+    {
+      "id": "source-coverage-probes",
+      "repo": "main",
+      "command": [
+        "{python}",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "scripts",
+        "-p",
+        "test_source_coverage.py",
+        "-v"
+      ]
+    },
+    {
+      "id": "backend-test-types",
+      "repo": "backend",
+      "command": [
+        "{python}",
+        "scripts/check_backend_tests.py",
+        "--intake-python",
+        "{intake_python}",
+        "--evidence-dir",
+        "{output_dir}/backend-test-types"
+      ]
+    }
+  ],
+  "activeWave": {
+    "document": "docs/delivery/animation-planning-20261011.md",
+    "scope": "Remove avoidable compatibility shims; typed versioned animation plans and content overrides; private automatic reference discovery through a bounded Wikimedia Commons adapter, without image-generation provider execution",
+    "verification": "passed",
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "ba627f13dc3d92f1427708ad6f15f69c4a943a3c",
+      "ui": "0d96e09a12b2c5c6315db7e28910eda28c21ec84"
+    },
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
+    "extensionChecklist": "docs/delivery/animation-planning-20261011.md#added-requirements-content-hierarchy-and-automatic-reference-discovery",
+    "partialAttempts": [
+      {
+        "path": "/tmp/chirp-animation-system-r1/report.json",
+        "recordedGates": 33,
+        "completeSuite": false,
+        "reason": "stale reviewed Svelte hash; source review renewed"
+      },
+      {
+        "path": "/tmp/chirp-animation-system-r2/report.json",
+        "recordedGates": 61,
+        "completeSuite": false,
+        "reason": "stopped for additional explicit hierarchy/reference-discovery requirements; all recorded gates passed"
+      }
+    ],
+    "testedRevisions": {
+      "main": "7311d2496f66074bdc5fcfd70abfaec7a0127115",
+      "ui": "e389a1f83e15057a8625dc7b7a10ca011442db6e"
+    },
+    "verificationReport": "docs/delivery/animation-planning-20261011/integrated/report.json",
+    "verificationCounts": "docs/delivery/animation-planning-20261011/counts.json",
+    "independentReview": "docs/delivery/animation-planning-20261011/review/extension-discovery/FROZEN-REVIEW.md",
+    "focusedVerification": {
+      "recipes": 52,
+      "discovery": 56,
+      "persistence": 11,
+      "newContentConsumers": 18,
+      "independentControls": 70,
+      "browserAssertions": 107,
+      "overlappingScopes": true
+    },
+    "partialAttemptCaveat": "r2 never completed browser-core; its orphan dev server appended hot-reload messages until targeted cleanup. Keep the raw report and separate cleanup receipt; the mutable server log is not frozen browser proof.",
+    "implementation": [
+      "preserved planning-v1 bytes and two-stage behavior",
+      "versioned recipe/default/strict clip-frame override composition",
+      "illustrative species defaults and transient variant consumer tests",
+      "existing-kind object and palette-role scene extension tests",
+      "configured Commons metadata adapter and bounded transport",
+      "owner-private three-stage V2 job with retained discovery snapshot",
+      "planning/discovery artifacts remain unpinnable after review"
+    ],
+    "notImplementedOrNotEstablished": [
+      "approved species art or generated frames",
+      "image-generation provider/model execution",
+      "successful live Commons retrieval",
+      "reviewed actual reference bootstrap into artwork",
+      "general world-region inheritance",
+      "new object kinds/palette IDs/catalog species admission",
+      "persisted trait variant selection",
+      "original autonomous worker integration",
+      "publication/deployment"
+    ],
+    "liveDiscovery": {
+      "status": "blocked/network-unavailable",
+      "requestAttempts": 1,
+      "candidates": 0,
+      "admittedBytes": 0,
+      "originalDownloads": 0,
+      "modelInvocations": 0,
+      "evidence": "animation-planning-20261011/live-discovery/runtime/receipt.json"
+    },
+    "libraryDelivery": {
+      "requestedFiles": 3,
+      "confirmedSaves": 0,
+      "status": "blocked-tools-list-network",
+      "localMediaPreserved": true
+    },
+    "passed": true,
+    "frozenWorktrees": true,
+    "selectedGates": 94,
+    "finishedAt": "2026-10-11T17:01:29.962358+00:00",
+    "reportSha256": "07fa7cc0659bba0c8e2a7afdeddabdbf55af0d2af4c1d567cfcf1734b8562530"
+  },
+  "priorContractsWave": {
+    "document": "docs/delivery/contracts-wave-20261008.md",
+    "uiBase": "305cbeabfbd08767907bb71d7bb0cb69719ef8de",
+    "mainBase": "c46735bac08c77fd4f8689fc032fddc8199b3851",
+    "scope": "Actual runtime contract boundaries, differential and compatibility gates, versioned reviewed pose manifests and one complete frozen run",
+    "verification": "passed",
+    "selectedGates": 63,
+    "independentReview": "docs/delivery/independent-review-20261008.md",
+    "queuedVisualTaskTree": "docs/delivery/visual-task-tree-20261008.md",
+    "testedRevisions": {
+      "main": "187a7604387790edf7adb22b21ed895dd63bddbf",
+      "ui": "67280c334d02eaf319029a212d7b89d06bd3d5e2"
+    },
+    "verificationReport": "docs/delivery/contracts-verified-20261008/report.json",
+    "verificationCounts": "docs/delivery/contracts-verified-20261008/counts.json"
+  },
+  "priorInteractiveWave": {
+    "document": "docs/delivery/visual-task-tree-20261008.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Interactive inventory, session binding, illustrative behavior, trusted arrivals, optional analytics and pending canonical catalog contracts",
+    "verification": "passed",
+    "selectedGates": 70,
+    "priorVisualCheckpoint": "docs/delivery/visual-verified-20261008/report.json",
+    "independentReview": "birdsong-yard-sprites/docs/interactive-review-20261008.md",
+    "testedRevisions": {
+      "main": "71297f865f9274e2b5cf3100b852bb142bc98232",
+      "ui": "fde51db3e69375bdda53146d5b4b650a0d28f680"
+    },
+    "verificationReport": "docs/delivery/interactive-verified-20261008/report.json",
+    "verificationCounts": "docs/delivery/interactive-verified-20261008/counts.json"
+  },
+  "priorPngWave": {
+    "document": "docs/delivery/png-verified-20261009.md",
+    "verification": "passed",
+    "selectedGates": 71,
+    "testedRevisions": {
+      "main": "11ab5929d804d7fd5bff52f72afc2d22e595b1bc",
+      "ui": "a3be7e240cd7abbeddf1c71f96ae32c867778d6c"
+    },
+    "verificationReport": "docs/delivery/png-verified-20261009/report.json"
+  },
+  "priorRetentionWave": {
+    "document": "birdsong-yard-sprites/docs/asset-retention-checklist.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Reversible private file/package archive, guarded resident unpin/restore, read-only retention eligibility and recovery",
+    "verification": "passed",
+    "selectedGates": 72,
+    "baseRevisions": {
+      "main": "e97649c240a6dbab23c89a653130f064f862bf7f",
+      "ui": "1d3817710cb766d33272b3867d2d65c95dd4f50f"
+    },
+    "independentReview": "birdsong-yard-sprites/docs/asset-retention-review-20261009.md",
+    "testedRevisions": {
+      "main": "f7ea49e12a8cd602c98adf677b83049cbd464e7b",
+      "ui": "e62d05b975cbcdd97cbe78218ae1be3608606234"
+    },
+    "verificationReport": "docs/delivery/retention-verified-20261009/report.json",
+    "verificationCounts": "docs/delivery/retention-verified-20261009/counts.json",
+    "checkpoint": "docs/delivery/retention-verified-20261009.md"
+  },
+  "priorCatalogWave": {
+    "document": "birdsong-yard-sprites/docs/shared-catalog-checklist.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Incremental shared canonical fixture releases, exact per-resident version selection, explicit revoked/unavailable fallback and private-owner isolation",
+    "verification": "passed",
+    "selectedGates": 73,
+    "baseRevisions": {
+      "main": "0128f0fb78241540ded36a78abd128f76fd757aa",
+      "ui": "f70a5cac70ce97f5bc160e58edec3468543cb9ca"
+    },
+    "independentReview": "birdsong-yard-sprites/docs/shared-catalog-review-20261009.md",
+    "testedRevisions": {
+      "main": "ef67223f52448dcdbf2bef05283146a01bceda06",
+      "ui": "db931a2beb8e62dc012a981d478e27749062fd4a"
+    },
+    "verificationReport": "docs/delivery/catalog-verified-20261009/report.json",
+    "verificationCounts": "docs/delivery/catalog-verified-20261009/counts.json",
+    "checkpoint": "docs/delivery/catalog-verified-20261009.md"
+  },
+  "priorOntologyWave": {
+    "document": "birdsong-yard-sprites/docs/behavior-ontology-checklist.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Versioned illustrative species ontology, deterministic fictional personality, observable trait-driven decisions and safe placement, owner-only transient workbench and actual fixture visual evaluation",
+    "verification": "complete_frozen_pass",
+    "selectedGates": 74,
+    "baseRevisions": {
+      "main": "a3c5ec6d03d405dd11724cbe14356e1d99b5ea37",
+      "ui": "b7e1ddb6f38429fa88dedcf659f45b3eb5e4aa95"
+    },
+    "independentReview": "birdsong-yard-sprites/docs/behavior-ontology-review-20261009.md",
+    "firstAttempt": {
+      "report": "docs/delivery/ontology-attempts-20261009/system-r1/report.json",
+      "passed": 72,
+      "total": 74,
+      "failures": [
+        "browser-scenes",
+        "browser-behavior"
+      ]
+    },
+    "secondAttempt": {
+      "report": "docs/delivery/ontology-attempts-20261009/system-r2/report.json",
+      "finished": false,
+      "passed": 48,
+      "recorded": 49,
+      "selected": 74,
+      "failure": "browser-core",
+      "interrupted": "browser-arrangement"
+    },
+    "report": "docs/delivery/ontology-verified-20261009/report.json",
+    "checkpoint": "docs/delivery/ontology-verified-20261009.md",
+    "testedRevisions": {
+      "main": "6841630e3acc3ef64495cee17947ce4d3d00b6c9",
+      "ui": "1b87d62d5c99fa4936d213d44c44f56886671c36"
+    },
+    "passedGates": 74
+  },
+  "priorEnvironmentWave": {
+    "document": "birdsong-yard-sprites/docs/environment-animation-checklist.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Continuous illustrative sky and weather, transient owner controls, deterministic bounded effect playback and environment-driven bird behavior",
+    "verification": "complete_frozen_pass",
+    "selectedGates": 75,
+    "baseRevisions": {
+      "main": "32a7f2d837b6b56424470646475fe8017ca1d931",
+      "ui": "81e7a890cbda3f1245f847be7056a42b42a7ff21"
+    },
+    "independentReview": "birdsong-yard-sprites/docs/environment-visual-audit-20261009.md",
+    "report": "docs/delivery/environment-verified-20261009/report.json",
+    "checkpoint": "docs/delivery/environment-verified-20261009.md",
+    "testedRevisions": {
+      "main": "8a7a4f078d838a0fb07f8ed62c3d28bb4b3f2916",
+      "ui": "a6da5e9b415bc3a122a38985a1c8d408d0f77b4f"
+    },
+    "passedGates": 75,
+    "verificationCounts": "docs/delivery/environment-verified-20261009/counts.json",
+    "attempts": "docs/delivery/environment-attempts-20261009/attempts.json"
+  },
+  "priorEsp32Wave": {
+    "document": "docs/delivery/esp32-integrated-20261009.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Original ESP32 Git history integration with isolated intake quality and unchanged owner/API/renderer behavior",
+    "verification": "selected_regressions_passed_board_tooling_blocked",
+    "selectedGates": 25,
+    "passedGates": 25,
+    "completeSuite": false,
+    "testedRevisions": {
+      "main": "4ce5fb535c38f67a3f31caf3a2c7ebfb988a9ceb",
+      "ui": "03574ee8509e7e45d79e0e745b6ef38fd042aca4"
+    },
+    "baseRevisions": {
+      "main": "9f0c67662c19f68c5846520940497ccc86398eb9",
+      "ui": "03574ee8509e7e45d79e0e745b6ef38fd042aca4"
+    },
+    "incomingRevision": "99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c",
+    "report": "docs/delivery/esp32-integrated-20261009/regression/report.json",
+    "checkpoint": "docs/delivery/esp32-integrated-20261009.md",
+    "verificationCounts": "docs/delivery/esp32-integrated-20261009/counts.json",
+    "firmwareChecks": "docs/delivery/esp32-integrated-20261009/firmware/checks.json"
+  },
+  "priorAuditWave": {
+    "document": "docs/delivery/product-audit-20261009.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Whole-product and external-contract audit; trusted-origin, signed Google claim, upload lifetime and asymmetric turning fixes",
+    "verification": "complete_frozen_pass",
+    "selectedGates": 75,
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "b5d69c61b1dcf7228ae33f1fb916a09b276fcf3a",
+      "ui": "a205bf0413b14f743a7f767ad0ea3a3723691717"
+    },
+    "independentReview": "docs/delivery/product-audit-20261009/independent-review.md",
+    "firstAttempt": {
+      "report": "docs/delivery/product-audit-20261009/attempts/system-r1/report.json",
+      "passed": 56,
+      "recorded": 57,
+      "selected": 75,
+      "finished": false,
+      "failure": "browser-routines",
+      "interrupted": "browser-recordings-ui"
+    },
+    "passedGates": 75,
+    "testedRevisions": {
+      "main": "22c405092f6fdeac7a42f5d3d8e840a2c7a1829b",
+      "ui": "65d5776eea463d9521b1fb4f29c40481539ae20b"
+    },
+    "report": "docs/delivery/product-audit-20261009/integrated/report.json",
+    "verificationCounts": "docs/delivery/product-audit-20261009/counts.json",
+    "standaloneIntake": "docs/delivery/product-audit-20261009/intake/checks.json",
+    "reportSha256": "2ab3686c83667ae041af1add5cd82892daabff8c063c9528d25e734c4b85a1f8"
+  },
+  "priorTransportWave": {
+    "document": "docs/delivery/external-transport-20261009.md",
+    "productRegister": "docs/delivery/product-behavior-and-ideas.md",
+    "scope": "Bounded Google/JWKS/SMTP and reciprocal audio transport, cancellation and cache correctness; meaningful Svelte/first-party static coverage",
+    "verification": "passed",
+    "selectedGates": 76,
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "8880aa2814c1ed4d99683ac1ee7a6af36354bdc5",
+      "ui": "c2a0284f2f86c6ef9f847089ce97bf3b9f57b9ff"
+    },
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
+    "toolingAudit": "docs/delivery/svelte-static-audit-20261009.md",
+    "testedRevisions": {
+      "main": "12ef15273868c49e50e7bb797f298ae9ed841e11",
+      "ui": "8907328476675e64c62c12af3489a0c981f52d88"
+    },
+    "verificationReport": "docs/delivery/external-transport-20261009/integrated/report.json",
+    "verificationCounts": "docs/delivery/external-transport-20261009/counts.json",
+    "finishedAt": "2026-10-09T22:08:52.276999+00:00",
+    "reportSha256": "61a2664256541eaf302541f1b808901306c32d4a5159308ada384a65eaa0c106",
+    "independentReview": "docs/delivery/external-transport-20261009/review/final-review.md",
+    "priorFailedAttempt": "docs/delivery/external-transport-20261009/attempts/system-r1/report.json"
+  },
+  "priorToolingWave": {
+    "document": "docs/delivery/svelte-autofixer-20261010.md",
+    "scope": "Official local Svelte CLI, exact advisory review and bounded CSS/static quality gates",
+    "verification": "passed",
+    "selectedGates": 79,
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "bf57c6a908c05932a6537da22de67deee688484e",
+      "ui": "8990bb098ea6dacc1fd854b0964588deb49baebe"
+    },
+    "testedRevisions": {
+      "main": "33218ebf527ab40ff2e82af6932e880ac6657b24",
+      "ui": "375ee15869491f934cccb67c52865848073eb399"
+    },
+    "verificationReport": "docs/delivery/svelte-autofixer-20261010/integrated/report.json",
+    "verificationCounts": "docs/delivery/svelte-autofixer-20261010/counts.json",
+    "finishedAt": "2026-10-10T00:51:21.172330+00:00",
+    "reportSha256": "7ca5dfbd0d8d0ed36dd660e4a8a301afd699e898977dde1ab02781ad4f4d1af5",
+    "independentReview": "docs/delivery/svelte-autofixer-20261010/review/final-review.md",
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json"
+  },
+  "priorSceneResourcesWave": {
+    "document": "docs/delivery/scene-resources-20261010.md",
+    "verification": "passed",
+    "completeSuite": true,
+    "selectedGates": 80,
+    "testedRevisions": {
+      "main": "2928fecb551b15fda133fbc356d90b47b2232cf5",
+      "ui": "5f9507ddaa624f9e12dcf04c984ebdf5c9b19660"
+    },
+    "verificationReport": "docs/delivery/scene-resources-20261010/integrated/report.json",
+    "verificationCounts": "docs/delivery/scene-resources-20261010/counts.json",
+    "finishedAt": "2026-10-10T02:54:09.715007+00:00",
+    "reportSha256": "8ceb7be23f17188d41ca1522f408c8d34feec0f5896c8e2f194219215eb87880"
+  },
+  "priorRendererPerformanceWave81": {
+    "document": "docs/delivery/renderer-performance-20261010.md",
+    "scope": "Bounded immutable geometry reuse, exact visual parity and measured four-arm renderer comparison",
+    "verification": "passed",
+    "selectedGates": 81,
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "706d878be756aef1f474bbebfcf8c2b21022bf0d",
+      "ui": "fe1eb18845220b6cd059be639ce2e0d8455b13b0"
+    },
+    "testedRevisions": {
+      "main": "2792f19b9bd84fff00bd322faa35f7b8d4575421",
+      "ui": "a5cf659b3f8f81a1ca3560ea5cf1333c795c289b"
+    },
+    "verificationReport": "docs/delivery/renderer-performance-20261010/integrated/report.json",
+    "verificationCounts": "docs/delivery/renderer-performance-20261010/counts.json",
+    "finishedAt": "2026-10-10T06:04:40.963710+00:00",
+    "reportSha256": "fb2c3c8836e714d8e25a2eaba7d8e294eccaa3d27cf319f5f466758d9313cc55",
+    "independentReview": "docs/delivery/renderer-performance-20261010/review/delivery-final-review.md",
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json"
+  },
+  "priorStaticCoverageWave88": {
+    "document": "docs/delivery/static-03-20261010.md",
+    "scope": "Targeted first-party declaration, UI Python and simulator static coverage, independent failure controls and unchanged product regression suite",
+    "verification": "passed",
+    "selectedGates": 88,
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "5548f0ac668d18e7441d84d137b3393790745282",
+      "ui": "26d0179f6344507f1ceb279dcffae4f8dc0efeaf"
+    },
+    "testedRevisions": {
+      "main": "97b3dc05ee0364a09fd92249deedebf92b778d54",
+      "ui": "130626eedbb5e0259beec31419deeed23af30ba4"
+    },
+    "verificationReport": "docs/delivery/static-03-20261010/integrated/report.json",
+    "verificationCounts": "docs/delivery/static-03-20261010/counts.json",
+    "finishedAt": "2026-10-10T07:16:37.985039+00:00",
+    "reportSha256": "a95fa1e5b7d47121096cce36f9ee516b62b4fead3c6a845bd3caec71af9cb0be",
+    "independentReview": "docs/delivery/static-03-20261010/review/final-brief.md",
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
+    "residualScope": "45 older handwritten JS/MJS files and seven nonempty backend tests remain without new strict typing; third-party declaration internals and existing generated-runtime/inactive historical boundaries are explicit."
+  },
+  "priorFirstPartyTypingWave93": {
+    "document": "docs/delivery/first-party-types-20261010.md",
+    "scope": "Strict typing of remaining first-party JavaScript and backend tests, source discovery and independent failure controls",
+    "verification": "passed",
+    "completeSuite": true,
+    "selectedGates": 93,
+    "baseRevisions": {
+      "main": "e27bcf0393e5c295e672648832025b76480f9671",
+      "ui": "a87168f5cba7105c76c59b2c06f67d166d9c5e37"
+    },
+    "testedRevisions": {
+      "main": "6f3c378049bdac2bc38cfaa5fdcbfd28235a1e34",
+      "ui": "c32cdfbba0760a90bf8a5a97aacf0fffab874bc6"
+    },
+    "verificationReport": "docs/delivery/first-party-types-20261010/integrated/report.json",
+    "verificationCounts": "docs/delivery/first-party-types-20261010/counts.json",
+    "finishedAt": "2026-10-10T08:21:39.968226+00:00",
+    "reportSha256": "0885e9550878e8b9628d2a96a7019718142a1a0701ffc5c8946c261304e927de",
+    "independentReview": "docs/delivery/first-party-types-20261010/review/final-brief.md",
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
+    "residualScope": "Current active first-party typing gaps closed. Exact generated-runtime, dependency, archived/empty/unsupported and blocked firmware boundaries remain explicit; no universal or hardware typing claim."
+  },
+  "priorTypeScriptMigrationWave": {
+    "document": "docs/delivery/typescript-migration-20261011.md",
+    "scope": "Real TypeScript migration of all active first-party JavaScript implementations and configuration; minimal historical command shims and immutable generated/history boundaries",
+    "verification": "passed",
+    "completeSuite": true,
+    "baseRevisions": {
+      "main": "2c80bd4c2e074885b0204fecb07bfd3c6c2f684a",
+      "ui": "720cf519b3ce877aa286da36453c03048e45372a"
+    },
+    "findingsRegister": "docs/delivery/audit-findings-20261009.json",
+    "selectedGates": 93,
+    "testedRevisions": {
+      "main": "9d553e4c6e0e1dbaeeec904ffa5ea6b462f54be3",
+      "ui": "70123b013bf5538599ad018b9f15dea19d2e45f7"
+    },
+    "verificationReport": "docs/delivery/typescript-migration-20261011/integrated/report.json",
+    "verificationCounts": "docs/delivery/typescript-migration-20261011/counts.json",
+    "finishedAt": "2026-10-11T02:16:10.568859+00:00",
+    "reportSha256": "70f069df1b632b38514c846f9fd8739464153deb9510add0c370cbfd00861d92",
+    "independentReview": "docs/delivery/typescript-migration-20261011/review/REVIEW.md",
+    "residualScope": "All 52 active handwritten JavaScript implementations migrated to TypeScript; 19 exact forwarders, 6 generated validator bodies and inactive history remain explicit. Python/native service languages unchanged; product dependencies separate."
+  }
+}

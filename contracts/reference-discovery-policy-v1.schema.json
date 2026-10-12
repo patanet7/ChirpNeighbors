@@ -1,0 +1,37 @@
+{
+  "$ref": "#/definitions/ReferenceDiscoveryPolicyV1",
+  "definitions": {
+    "ReferenceDiscoveryPolicyV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "purpose": {
+          "type": "string",
+          "enum": [
+            "reference-only",
+            "derived-sprite"
+          ]
+        },
+        "commercial": {
+          "type": "boolean"
+        },
+        "allowShareAlike": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "purpose",
+        "commercial",
+        "allowShareAlike"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/reference-discovery-policy-v1.schema.json",
+  "description": "Owner-private reference discovery structural boundary. Versioned source descriptors, intended-use policies, scientific-name queries, metadata-only results and fetch receipts preserve explicit review requirements. Scientific/catalog identity, URL safety, unique pins and candidates, status correlations and snapshot consistency require source refinements. Known adapter admission, redirect/host restrictions, transport budgets, cancellation, original-byte hashes, per-file rights decisions and source freshness require authoritative server checks. Unknown source pins are not execution permission. Text matches and license metadata are unreviewed declarations, never species fidelity, legal clearance, generation permission, selectable artwork or public release. Discovery contains zero downloads and zero generated frames; original fetching requires a separate explicit caller."
+}

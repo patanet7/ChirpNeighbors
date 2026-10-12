@@ -1,0 +1,36 @@
+{
+  "$ref": "#/definitions/JsonValueV1",
+  "definitions": {
+    "JsonValueV1": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/JsonValueV1"
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/JsonValueV1"
+          }
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/json-value-v1.schema.json",
+  "description": "Finite JSON values only. Generated runtime guards accelerate existing private pipeline payload validation; this is not an ownership or provider authorization boundary."
+}

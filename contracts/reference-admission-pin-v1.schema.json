@@ -1,0 +1,30 @@
+{
+  "$ref": "#/definitions/ReferenceAdmissionPinV1",
+  "definitions": {
+    "ReferenceAdmissionPinV1": {
+      "type": "object",
+      "properties": {
+        "referenceId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "contentDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "reviewDigest": {
+          "$ref": "#/definitions/ReferenceAdmissionPinV1/properties/contentDigest"
+        }
+      },
+      "required": [
+        "referenceId",
+        "contentDigest",
+        "reviewDigest"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/reference-admission-pin-v1.schema.json",
+  "description": "Owner-private immutable image admission and local diagnostic generation structural boundary. Bounded PNG/JPEG byte identities retain decoder normalization and source provenance. Rights, species and explicit pose scopes are separate owner assertions; content-bound review pins require exact live ownership, byte hashes, current permissions and terminal revocation checks. Retained discovery snapshots cannot be relabeled by review. Source/refinement semantics enforce allocation, source correspondence, review chronology and diagnostic pixel constraints. Unknown adapter pins require runtime registry rejection. Diagnostic candidates are fixture-only, generated false and nonrenderable; they do not certify legal rights, species fidelity, real generation, renderer admission or public release. No arbitrary URL fetch, model call, paid service or external upload is authorized."
+}

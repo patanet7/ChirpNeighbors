@@ -1,0 +1,388 @@
+{
+  "$ref": "#/definitions/SceneManifestV1",
+  "definitions": {
+    "SceneManifestV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "prototype",
+              "constructor"
+            ]
+          }
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000
+        },
+        "publicSceneId": {
+          "type": "string",
+          "enum": [
+            "garden",
+            "courtyard"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80
+        },
+        "representation": {
+          "type": "string",
+          "const": "technical-fixture"
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "existing-authored-geometry"
+            },
+            "approvedRegionalArt": {
+              "type": "boolean",
+              "const": false
+            }
+          },
+          "required": [
+            "kind",
+            "approvedRegionalArt"
+          ],
+          "additionalProperties": false
+        },
+        "world": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "number",
+              "const": 960
+            },
+            "height": {
+              "type": "number",
+              "const": 540
+            }
+          },
+          "required": [
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/SceneManifestV1/properties/id"
+              },
+              "kind": {
+                "type": "string",
+                "const": "inline-palette-rectangles"
+              },
+              "rectangles": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "y": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "width": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "height": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "color": {
+                      "type": "string",
+                      "enum": [
+                        "sky",
+                        "skyLow",
+                        "grass",
+                        "grassLight",
+                        "leaf",
+                        "leafLight",
+                        "trunk",
+                        "wood",
+                        "wall",
+                        "stone",
+                        "water",
+                        "flower",
+                        "glow"
+                      ]
+                    },
+                    "alpha": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1
+                    }
+                  },
+                  "required": [
+                    "x",
+                    "y",
+                    "width",
+                    "height",
+                    "color"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 512
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "rectangles"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "layers": {
+          "type": "object",
+          "properties": {
+            "background": {
+              "type": "object",
+              "properties": {
+                "order": {
+                  "type": "number",
+                  "const": 0
+                },
+                "assetId": {
+                  "$ref": "#/definitions/SceneManifestV1/properties/id"
+                }
+              },
+              "required": [
+                "order",
+                "assetId"
+              ],
+              "additionalProperties": false
+            },
+            "ground": {
+              "type": "object",
+              "properties": {
+                "order": {
+                  "type": "number",
+                  "const": 1
+                },
+                "assetId": {
+                  "$ref": "#/definitions/SceneManifestV1/properties/id"
+                }
+              },
+              "required": [
+                "order",
+                "assetId"
+              ],
+              "additionalProperties": false
+            },
+            "foreground": {
+              "type": "object",
+              "properties": {
+                "order": {
+                  "type": "number",
+                  "const": 3
+                },
+                "assetId": {
+                  "$ref": "#/definitions/SceneManifestV1/properties/id"
+                }
+              },
+              "required": [
+                "order",
+                "assetId"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "background",
+            "ground",
+            "foreground"
+          ],
+          "additionalProperties": false
+        },
+        "depth": {
+          "type": "object",
+          "properties": {
+            "order": {
+              "type": "number",
+              "const": 2
+            },
+            "sort": {
+              "type": "string",
+              "const": "ground-y"
+            },
+            "actorOffset": {
+              "type": "number",
+              "const": 0.25
+            },
+            "weatherOrder": {
+              "type": "number",
+              "const": 4
+            }
+          },
+          "required": [
+            "order",
+            "sort",
+            "actorOffset",
+            "weatherOrder"
+          ],
+          "additionalProperties": false
+        },
+        "zones": {
+          "type": "object",
+          "properties": {
+            "placement": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "left": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "right": {
+                    "type": "number",
+                    "maximum": 960
+                  },
+                  "top": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "bottom": {
+                    "type": "number",
+                    "maximum": 540
+                  }
+                },
+                "required": [
+                  "left",
+                  "right",
+                  "top",
+                  "bottom"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 8
+            },
+            "walkable": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SceneManifestV1/properties/zones/properties/placement/items"
+              },
+              "minItems": 1,
+              "maxItems": 8
+            }
+          },
+          "required": [
+            "placement",
+            "walkable"
+          ],
+          "additionalProperties": false
+        },
+        "navigation": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "const": "flight-corridors"
+            },
+            "groundSlots": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/SceneManifestV1/properties/id"
+                  },
+                  "x": {
+                    "type": "number"
+                  },
+                  "y": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "id",
+                  "x",
+                  "y"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 128
+            },
+            "roaming": {
+              "$ref": "#/definitions/SceneManifestV1/properties/zones/properties/placement/items"
+            },
+            "overflow": {
+              "type": "object",
+              "properties": {
+                "left": {
+                  "type": "number"
+                },
+                "right": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "left",
+                "right",
+                "y"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "mode",
+            "groundSlots",
+            "roaming",
+            "overflow"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "version",
+        "publicSceneId",
+        "label",
+        "representation",
+        "provenance",
+        "world",
+        "assets",
+        "layers",
+        "depth",
+        "zones",
+        "navigation"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/scene-manifest-v1.schema.json",
+  "description": "Technical fixture scene contract, fixed 960x540 coordinates in v1. Only inline palette rectangles are supported. Layer references, world bounds, positive-area zones, walkable navigation and safe overflow require semantic validation by the application. No approved regional artwork, asset transfer, location lookup or external provider is implied."
+}

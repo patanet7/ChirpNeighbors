@@ -1,0 +1,41 @@
+{
+  "$id": "https://chirpneighbors.local/contracts/audio-readiness-v1.serialization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Configuration readiness only; no inference or dependency health probe.",
+  "properties": {
+    "authentication": {
+      "enum": [
+        "configured",
+        "unconfigured"
+      ],
+      "title": "Authentication",
+      "type": "string"
+    },
+    "model": {
+      "enum": [
+        "configured",
+        "unconfigured"
+      ],
+      "title": "Model",
+      "type": "string"
+    },
+    "ready": {
+      "title": "Ready",
+      "type": "boolean"
+    },
+    "version": {
+      "const": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "version",
+    "ready",
+    "authentication",
+    "model"
+  ],
+  "title": "AudioReadiness",
+  "type": "object"
+}

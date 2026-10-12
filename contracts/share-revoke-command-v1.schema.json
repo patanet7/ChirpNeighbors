@@ -1,0 +1,32 @@
+{
+  "$ref": "#/definitions/ShareRevokeCommandV1",
+  "definitions": {
+    "ShareRevokeCommandV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "share.revoke"
+        },
+        "expectedShareId": {
+          "type": "string",
+          "format": "uuid",
+          "pattern": "^[0-9a-f-]+$"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "expectedShareId"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/share-revoke-command-v1.schema.json",
+  "description": "Generated structural sharing or request-budget boundary. Public snapshot catalog labels, unique display keys, bounded snapshot bytes, owner compare-and-swap, capability expiry/revocation, one-time token issuance and request budgets require authoritative application semantics. Browser commands cannot supply snapshot data, identities, locations or assets. Public snapshots contain only the trusted allowlist; the create response alone can contain a new bearer link."
+}

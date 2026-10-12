@@ -1,0 +1,219 @@
+{
+  "$ref": "#/definitions/AnimationSpecificationV1",
+  "definitions": {
+    "AnimationSpecificationV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "templateVersion": {
+          "type": "string",
+          "const": "chirp-animation-prompts@1"
+        },
+        "status": {
+          "type": "string",
+          "const": "proposed"
+        },
+        "canvas": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "number",
+              "const": 32
+            },
+            "height": {
+              "type": "number",
+              "const": 32
+            }
+          },
+          "required": [
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        },
+        "logicalPixelSize": {
+          "type": "number",
+          "const": 1
+        },
+        "paletteLimit": {
+          "type": "number",
+          "const": 32
+        },
+        "alpha": {
+          "type": "string",
+          "const": "binary-transparent-background"
+        },
+        "ticksPerSecond": {
+          "type": "number",
+          "const": 30
+        },
+        "totalFrames": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "decodedPixels": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65536
+        },
+        "clips": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": [
+                  "idle",
+                  "moving",
+                  "perching",
+                  "singing",
+                  "feeding",
+                  "bathing",
+                  "sleeping",
+                  "playing",
+                  "nesting"
+                ]
+              },
+              "direction": {
+                "type": "string",
+                "const": "right-facing-mirrorable"
+              },
+              "loop": {
+                "type": "boolean"
+              },
+              "completion": {
+                "type": "string",
+                "enum": [
+                  "repeat",
+                  "hold-final-pose"
+                ]
+              },
+              "purpose": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 300
+              },
+              "frames": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "frame": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 63
+                    },
+                    "phase": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160
+                    },
+                    "durationTicks": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 300
+                    },
+                    "proposedPivot": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 256
+                        },
+                        "y": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 256
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "contactRequirements": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "left-foot",
+                          "right-foot",
+                          "perch",
+                          "ground"
+                        ]
+                      },
+                      "maxItems": 4
+                    }
+                  },
+                  "required": [
+                    "frame",
+                    "phase",
+                    "durationTicks",
+                    "proposedPivot",
+                    "contactRequirements"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 64
+              },
+              "entry": {
+                "type": "string",
+                "const": "review-against-idle-support-and-silhouette"
+              },
+              "exit": {
+                "type": "string",
+                "const": "review-against-idle-support-and-silhouette"
+              },
+              "loopReview": {
+                "type": "string",
+                "enum": [
+                  "last-to-first-pixels-pivot-contacts",
+                  "not-looping-review-terminal-hold"
+                ]
+              }
+            },
+            "required": [
+              "action",
+              "direction",
+              "loop",
+              "completion",
+              "purpose",
+              "frames",
+              "entry",
+              "exit",
+              "loopReview"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 9,
+          "maxItems": 9
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "templateVersion",
+        "status",
+        "canvas",
+        "logicalPixelSize",
+        "paletteLimit",
+        "alpha",
+        "ticksPerSecond",
+        "totalFrames",
+        "decodedPixels",
+        "clips"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/animation-specification-v1.schema.json",
+  "description": "Owner-private animation planning and existing job command structural boundary. Proposed per-clip frames, timing, pivots, contacts and prompts are engineering plans, never generated assets, measured biology or review approval. Authoritative catalog identity, reference consistency, contiguous frame allocation, loop/transition requirements, prompt correspondence and mandatory production blockers require Zod semantics. Immutable job binding, actual byte hashes, ownership, input admission and provider execution require server validation. No renderable pixels, provider execution, external uploads or public release are authorized by this schema."
+}

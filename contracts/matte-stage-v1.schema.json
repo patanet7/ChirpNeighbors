@@ -1,0 +1,65 @@
+{
+  "$ref": "#/definitions/MatteStageV1",
+  "definitions": {
+    "MatteStageV1": {
+      "type": "object",
+      "properties": {
+        "encoding": {
+          "type": "string",
+          "const": "alpha-u8"
+        },
+        "alpha": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "minItems": 1,
+          "maxItems": 65536
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "origin": {
+          "type": "string",
+          "enum": [
+            "supplied-matte",
+            "technical-fixture"
+          ]
+        },
+        "adapter": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+            },
+            "version": {
+              "$ref": "#/definitions/MatteStageV1/properties/adapter/properties/id"
+            }
+          },
+          "required": [
+            "id",
+            "version"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "encoding",
+        "alpha",
+        "sha256",
+        "origin",
+        "adapter"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/matte-stage-v1.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

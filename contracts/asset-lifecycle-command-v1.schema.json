@@ -1,0 +1,117 @@
+{
+  "$ref": "#/definitions/AssetLifecycleCommandV1",
+  "definitions": {
+    "AssetLifecycleCommandV1": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "set-archive"
+            },
+            "requestId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "target": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "private-file",
+                    "private-package"
+                  ]
+                },
+                "id": {
+                  "$ref": "#/definitions/AssetLifecycleCommandV1/anyOf/0/properties/requestId"
+                }
+              },
+              "required": [
+                "kind",
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "expectedRevision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 1000000
+            },
+            "archived": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "action",
+            "requestId",
+            "target",
+            "expectedRevision",
+            "archived"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "unpin"
+            },
+            "requestId": {
+              "$ref": "#/definitions/AssetLifecycleCommandV1/anyOf/0/properties/requestId"
+            },
+            "birdId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+              "not": {
+                "enum": [
+                  "__proto__",
+                  "prototype",
+                  "constructor"
+                ]
+              }
+            },
+            "expectedArtworkId": {
+              "$ref": "#/definitions/AssetLifecycleCommandV1/anyOf/1/properties/birdId"
+            }
+          },
+          "required": [
+            "action",
+            "requestId",
+            "birdId",
+            "expectedArtworkId"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "restore-pin"
+            },
+            "requestId": {
+              "$ref": "#/definitions/AssetLifecycleCommandV1/anyOf/0/properties/requestId"
+            },
+            "unpinRequestId": {
+              "$ref": "#/definitions/AssetLifecycleCommandV1/anyOf/0/properties/requestId"
+            }
+          },
+          "required": [
+            "action",
+            "requestId",
+            "unpinRequestId"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/asset-lifecycle-command-v1.schema.json",
+  "description": "Owner-private reversible archive and pin lifecycle structural boundary. Shared catalog assets are read-only and cannot be private lifecycle targets. Authoritative server checks enforce ownership, session binding, revision and pin compare-and-swap, immutable idempotent receipts, archive dependencies, reference completeness and retention eligibility. Archive never erases original bytes, provenance, reviews or existing pins. Eligibility is diagnostic; purge remains disabled. A schema does not authorize deletion, public release or a shared catalog change."
+}

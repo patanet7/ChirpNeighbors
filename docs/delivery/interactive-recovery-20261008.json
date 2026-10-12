@@ -1,0 +1,114 @@
+{
+  "version": 1,
+  "at": "2026-10-08T23:08:34.376585+00:00",
+  "revisions": {
+    "main": "71297f865f9274e2b5cf3100b852bb142bc98232",
+    "ui": "189c5a2e023c83d7d27a617be0cec735fb440d13"
+  },
+  "finalRevisions": {
+    "main": "71297f865f9274e2b5cf3100b852bb142bc98232",
+    "ui": "189c5a2e023c83d7d27a617be0cec735fb440d13"
+  },
+  "frozenWorktrees": true,
+  "finished": true,
+  "selectedGates": 8,
+  "completeSuite": false,
+  "passed": true,
+  "gates": [
+    {
+      "gate": "ui-unit",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 24.15,
+      "command": [
+        "npm",
+        "test"
+      ],
+      "log": "ui-unit.log"
+    },
+    {
+      "gate": "audio-confirmation-lifecycle",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 32.82,
+      "command": [
+        "python3",
+        "scripts/audio-lifecycle-browser-checks.py",
+        "--main-repo",
+        "/workspace/ChirpNeighbors",
+        "--onnx-python",
+        "/tmp/chirp-onnx-venv/bin/python",
+        "--output",
+        "/tmp/chirp-interactive-recovery-20261008-r1/audio-lifecycle"
+      ],
+      "log": "audio-confirmation-lifecycle.log"
+    },
+    {
+      "gate": "browser-arrangement",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 57.78,
+      "command": [
+        "python3",
+        "scripts/arrangement-browser-checks.py"
+      ],
+      "log": "browser-arrangement.log"
+    },
+    {
+      "gate": "browser-recording-lifecycle",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 26.1,
+      "command": [
+        "python3",
+        "scripts/recording-lifecycle-browser-checks.py"
+      ],
+      "log": "browser-recording-lifecycle.log"
+    },
+    {
+      "gate": "browser-evidence",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 21.93,
+      "command": [
+        "python3",
+        "scripts/evidence-browser-checks.py"
+      ],
+      "log": "browser-evidence.log"
+    },
+    {
+      "gate": "browser-sharing",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 19.43,
+      "command": [
+        "python3",
+        "scripts/share-browser-checks.py"
+      ],
+      "log": "browser-sharing.log"
+    },
+    {
+      "gate": "browser-inventory",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 58.82,
+      "command": [
+        "python3",
+        "scripts/inventory-browser-checks.py",
+        "--require-production"
+      ],
+      "log": "browser-inventory.log"
+    },
+    {
+      "gate": "browser-arrivals",
+      "passed": true,
+      "exitCode": 0,
+      "seconds": 26.95,
+      "command": [
+        "python3",
+        "scripts/arrivals-browser-checks.py"
+      ],
+      "log": "browser-arrivals.log"
+    }
+  ]
+}

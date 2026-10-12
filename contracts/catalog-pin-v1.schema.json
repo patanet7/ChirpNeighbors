@@ -1,0 +1,32 @@
+{
+  "$ref": "#/definitions/CatalogPinV1",
+  "definitions": {
+    "CatalogPinV1": {
+      "type": "object",
+      "properties": {
+        "catalogKey": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "releaseVersion": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9007199254740991
+        },
+        "renderSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "catalogKey",
+        "releaseVersion",
+        "renderSha256"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/catalog-pin-v1.schema.json",
+  "description": "Generic species catalog structural boundary. Public render pixels exclude owners, observations, named birds, private source artifacts and pipeline references. Immutable release pins, byte digests, reviewed rights, trusted taxonomy labels, local fixture admission, monotonic revocation, owner session binding and compare-and-swap require server authority. Internal fixture promotion is not an HTTP or production publication capability. Existing pins never follow the latest release automatically; unavailable/revoked releases retain identity and use explicit fallback."
+}

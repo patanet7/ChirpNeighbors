@@ -1,0 +1,102 @@
+{
+  "$ref": "#/definitions/CommandErrorV1",
+  "definitions": {
+    "CommandErrorV1": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "request.command-error"
+            },
+            "code": {
+              "type": "string",
+              "const": "REQUEST_FAILED"
+            },
+            "error": {
+              "type": "string",
+              "const": "The request could not be completed. Please retry."
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "code",
+            "error"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "$ref": "#/definitions/CommandErrorV1/anyOf/0/properties/schemaVersion"
+            },
+            "kind": {
+              "$ref": "#/definitions/CommandErrorV1/anyOf/0/properties/kind"
+            },
+            "code": {
+              "type": "string",
+              "const": "INVALID_COMMAND"
+            },
+            "error": {
+              "type": "string",
+              "const": "The request is not valid. Check the supplied fields and try again."
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "code",
+            "error"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "$ref": "#/definitions/CommandErrorV1/anyOf/0/properties/schemaVersion"
+            },
+            "kind": {
+              "$ref": "#/definitions/CommandErrorV1/anyOf/0/properties/kind"
+            },
+            "code": {
+              "type": "string",
+              "enum": [
+                "NOT_FOUND",
+                "CONFLICT",
+                "INVALID",
+                "SCHEMA_VERSION",
+                "STALE_PLACEMENT",
+                "EVIDENCE_CONFLICT",
+                "pipeline_conflict",
+                "pipeline_not_found"
+              ]
+            },
+            "error": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "code",
+            "error"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/command-error-v1.schema.json",
+  "description": "Generated structural sharing or request-budget boundary. Public snapshot catalog labels, unique display keys, bounded snapshot bytes, owner compare-and-swap, capability expiry/revocation, one-time token issuance and request budgets require authoritative application semantics. Browser commands cannot supply snapshot data, identities, locations or assets. Public snapshots contain only the trusted allowlist; the create response alone can contain a new bearer link."
+}

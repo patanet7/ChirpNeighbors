@@ -1,0 +1,76 @@
+{
+  "$ref": "#/definitions/CatalogPinCommandV1",
+  "definitions": {
+    "CatalogPinCommandV1": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "const": "pin-catalog"
+        },
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "birdId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "prototype",
+              "constructor"
+            ]
+          }
+        },
+        "expectedArtworkId": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/CatalogPinCommandV1/properties/birdId"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pin": {
+          "type": "object",
+          "properties": {
+            "catalogKey": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "releaseVersion": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "renderSha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "catalogKey",
+            "releaseVersion",
+            "renderSha256"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "action",
+        "requestId",
+        "birdId",
+        "expectedArtworkId",
+        "pin"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/catalog-pin-command-v1.schema.json",
+  "description": "Generic species catalog structural boundary. Public render pixels exclude owners, observations, named birds, private source artifacts and pipeline references. Immutable release pins, byte digests, reviewed rights, trusted taxonomy labels, local fixture admission, monotonic revocation, owner session binding and compare-and-swap require server authority. Internal fixture promotion is not an HTTP or production publication capability. Existing pins never follow the latest release automatically; unavailable/revoked releases retain identity and use explicit fallback."
+}

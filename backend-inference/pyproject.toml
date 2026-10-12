@@ -1,0 +1,38 @@
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = [
+  "app/models",
+  "app/audio_pipeline", "tests/test_audio_api.py", "tests/test_audio_pipeline.py",
+  "tests/test_session_verifier_contract.py", "tests/test_schema_document.py",
+  "tests/test_finding_contract.py", "tests/test_identification_contract.py",
+  "tests/test_recording_contract.py", "tests/test_scene_manifest_contract.py",
+  "tests/contract_containers.py", "scripts/check_backend_tests.py",
+  "../scripts",
+]
+namespace_packages = true
+explicit_package_bases = true
+warn_unused_configs = true
+plugins = ["pydantic.mypy"]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "RUF100"]
+
+[tool.ruff.lint.per-file-ignores]
+# Wire names deliberately preserve established camelCase JSON keys.
+"**/app/models/generated/*.py" = ["N815"]
+"**/app/audio_pipeline/contracts.py" = ["N815"]
+"**/app/audio_pipeline/model_contracts.py" = ["N815"]
+"**/app/audio_pipeline/evaluation.py" = ["N815"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]

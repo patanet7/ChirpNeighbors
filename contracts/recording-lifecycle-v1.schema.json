@@ -1,0 +1,302 @@
+{
+  "$ref": "#/definitions/RecordingLifecycleV1",
+  "definitions": {
+    "RecordingLifecycleV1": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "kind": {
+              "type": "string",
+              "const": "recording.lifecycle"
+            },
+            "recordingId": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^[0-9a-f-]+$"
+            },
+            "generation": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "createdAt": {
+              "type": "string",
+              "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+            },
+            "derivedCount": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "state": {
+              "type": "string",
+              "const": "retained"
+            },
+            "recording": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "id": {
+                  "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/recordingId"
+                },
+                "mediaType": {
+                  "type": "string",
+                  "const": "audio/wav"
+                },
+                "byteLength": {
+                  "type": "integer",
+                  "minimum": 46,
+                  "maximum": 6291456
+                },
+                "durationMs": {
+                  "type": "number",
+                  "exclusiveMinimum": 0,
+                  "maximum": 30000
+                },
+                "sampleRate": {
+                  "type": "integer",
+                  "minimum": 8000,
+                  "maximum": 48000
+                },
+                "channels": {
+                  "type": "number",
+                  "enum": [
+                    1,
+                    2
+                  ]
+                },
+                "frames": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1440000
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "createdAt": {
+                  "type": "string",
+                  "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "id",
+                "mediaType",
+                "byteLength",
+                "durationMs",
+                "sampleRate",
+                "channels",
+                "frames",
+                "sha256",
+                "createdAt"
+              ],
+              "additionalProperties": false
+            },
+            "deletion": {
+              "type": "null"
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "recordingId",
+            "generation",
+            "createdAt",
+            "derivedCount",
+            "state",
+            "recording",
+            "deletion"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/schemaVersion"
+            },
+            "kind": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/kind"
+            },
+            "recordingId": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/recordingId"
+            },
+            "generation": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/generation"
+            },
+            "createdAt": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/createdAt"
+            },
+            "derivedCount": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/derivedCount"
+            },
+            "state": {
+              "type": "string",
+              "const": "deleting"
+            },
+            "recording": {
+              "type": "null"
+            },
+            "deletion": {
+              "type": "object",
+              "properties": {
+                "intentId": {
+                  "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/recordingId"
+                },
+                "sequence": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 9007199254740991
+                },
+                "requestedAt": {
+                  "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/createdAt"
+                },
+                "completedAt": {
+                  "type": "null"
+                },
+                "attempts": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "nextAttemptAt": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/createdAt"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "lastError": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "storage_unavailable"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "intentId",
+                "sequence",
+                "requestedAt",
+                "completedAt",
+                "attempts",
+                "nextAttemptAt",
+                "lastError"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "recordingId",
+            "generation",
+            "createdAt",
+            "derivedCount",
+            "state",
+            "recording",
+            "deletion"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/schemaVersion"
+            },
+            "kind": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/kind"
+            },
+            "recordingId": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/recordingId"
+            },
+            "generation": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/generation"
+            },
+            "createdAt": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/createdAt"
+            },
+            "derivedCount": {
+              "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/derivedCount"
+            },
+            "state": {
+              "type": "string",
+              "const": "deleted"
+            },
+            "recording": {
+              "type": "null"
+            },
+            "deletion": {
+              "type": "object",
+              "properties": {
+                "intentId": {
+                  "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/recordingId"
+                },
+                "sequence": {
+                  "$ref": "#/definitions/RecordingLifecycleV1/anyOf/1/properties/deletion/properties/sequence"
+                },
+                "requestedAt": {
+                  "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/createdAt"
+                },
+                "completedAt": {
+                  "$ref": "#/definitions/RecordingLifecycleV1/anyOf/0/properties/createdAt"
+                },
+                "attempts": {
+                  "$ref": "#/definitions/RecordingLifecycleV1/anyOf/1/properties/deletion/properties/attempts"
+                },
+                "nextAttemptAt": {
+                  "type": "null"
+                },
+                "lastError": {
+                  "type": "null"
+                }
+              },
+              "required": [
+                "intentId",
+                "sequence",
+                "requestedAt",
+                "completedAt",
+                "attempts",
+                "nextAttemptAt",
+                "lastError"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "kind",
+            "recordingId",
+            "generation",
+            "createdAt",
+            "derivedCount",
+            "state",
+            "recording",
+            "deletion"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/recording-lifecycle-v1.schema.json",
+  "description": "Owner-private structural contract generated from Zod. Lifecycle identity/count consistency, cumulative contiguous ledger sequence and uniqueness, matching database lineage/prefix/high-watermark, live recording generation, candidate selection and atomic confirmation receipts require authoritative application validation. No bearer authorization, location, raw media, provider credential or public projection."
+}

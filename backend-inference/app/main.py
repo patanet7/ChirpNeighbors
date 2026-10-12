@@ -1,43 +1,122 @@
+"""Local headless WebSocket receiver for the current ESP32 client firmware."""
+
+import argparse
 import asyncio
 import logging
-from app.services.stream_handler import AudioStreamHandler
-from app.services.audio_player import AudioPlayer
-from app.services.audio_visualizer import AudioVisualizer
+from collections.abc import Callable
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s [%(levelname)s] %(message)s',
-    handlers=[
-        logging.StreamHandler()
-    ]
-)
+from websockets.asyncio.server import ServerConnection, serve
+
+from app.services.audio_capture import AudioCapture
+from app.services.audio_packet import MAX_PACKET_BYTES, SAMPLE_RATE
+from app.services.stream_handler import AudioStreamHandler
 
 logger = logging.getLogger(__name__)
 
-async def main():
-    logger.info("Starting ESP32 Audio Stream Client...")
 
-    stream_handler = AudioStreamHandler(
-        uri="ws://192.168.1.118:8080",  # Adjust if ESP32 IP changes
-        sample_rate=48000,
-        chunk_duration_sec=3.0
+def log_capture(capture: AudioCapture) -> None:
+    # No PCM, identifiers, device timers or observation details in logs.
+    logger.info("Received PCM window: %d samples", len(capture.samples))
+
+
+async def receive_audio(
+    websocket: ServerConnection,
+    *,
+    sample_rate: int = SAMPLE_RATE,
+    chunk_duration_sec: float = 3.0,
+    on_capture: Callable[[AudioCapture], None] = log_capture,
+) -> None:
+    """Own listener/consumer lifetimes together; callbacks must be nonblocking."""
+    if type(sample_rate) is not int or sample_rate != SAMPLE_RATE:
+        raise ValueError("The ESP32 wire contract requires 48000 Hz mono 16-bit PCM")
+    handler = AudioStreamHandler(
+        sample_rate=sample_rate, chunk_duration_sec=chunk_duration_sec
     )
 
-    audio_player = AudioPlayer(sample_rate=48000)
-    audio_visualizer = AudioVisualizer(sample_rate=48000)
+    async def consume() -> None:
+        while (capture := await handler.get_capture()) is not None:
+            on_capture(capture)
 
-    # Wire the callbacks
-    stream_handler.add_callback(audio_player.play_chunk)
-    stream_handler.add_callback(audio_visualizer.update_plot)
+    try:
+        async with asyncio.TaskGroup() as group:
+            group.create_task(handler.listen(websocket))
+            group.create_task(consume())
+    finally:
+        handler.shutdown()
+        await websocket.close()
 
-    # Run both websocket listening and visualization loop
-    await asyncio.gather(
-        stream_handler.start(),
-        asyncio.to_thread(audio_visualizer.start_loop)
+
+def audio_server(
+    host: str = "127.0.0.1",
+    port: int = 8080,
+    *,
+    sample_rate: int = SAMPLE_RATE,
+    chunk_duration_sec: float = 3.0,
+    on_capture: Callable[[AudioCapture], None] = log_capture,
+) -> serve:
+    """Bound intake to one active device; reconnects start independent sessions.
+
+    This local development receiver has no device authentication or TLS. Bind
+    an explicit private interface only when testing hardware on a trusted LAN.
+    """
+    # Validate before binding or accepting a device.
+    if type(sample_rate) is not int or sample_rate != SAMPLE_RATE:
+        raise ValueError("The ESP32 wire contract requires 48000 Hz mono 16-bit PCM")
+    AudioStreamHandler(sample_rate=sample_rate, chunk_duration_sec=chunk_duration_sec)
+    active = False
+
+    async def accept(websocket: ServerConnection) -> None:
+        nonlocal active
+        if active:
+            await websocket.close(code=1013, reason="Audio receiver is busy")
+            return
+        active = True
+        try:
+            await receive_audio(
+                websocket,
+                sample_rate=sample_rate,
+                chunk_duration_sec=chunk_duration_sec,
+                on_capture=on_capture,
+            )
+        finally:
+            active = False
+
+    return serve(
+        accept,
+        host,
+        port,
+        max_size=MAX_PACKET_BYTES,
+        max_queue=8,
+        compression=None,
+        open_timeout=5,
+        close_timeout=2,
     )
+
+
+async def main(
+    host: str = "127.0.0.1",
+    port: int = 8080,
+    sample_rate: int = SAMPLE_RATE,
+    chunk_duration_sec: float = 3.0,
+) -> None:
+    async with audio_server(
+        host, port, sample_rate=sample_rate, chunk_duration_sec=chunk_duration_sec
+    ):
+        logger.info("Headless ESP32 audio intake listening on %s:%d", host, port)
+        await asyncio.Future()  # asyncio.run cancels this task on Ctrl-C.
+
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=8080)
+    parser.add_argument(
+        "--sample-rate", type=int, choices=[SAMPLE_RATE], default=SAMPLE_RATE
+    )
+    parser.add_argument("--chunk-duration-sec", type=float, default=3.0)
+    args = parser.parse_args()
+    logging.basicConfig(level=logging.INFO)
     try:
-        asyncio.run(main())
+        asyncio.run(main(**vars(args)))
     except KeyboardInterrupt:
-        logger.info("Shutting down cleanly...")
+        logger.info("Audio intake stopped")

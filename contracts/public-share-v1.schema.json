@@ -1,0 +1,131 @@
+{
+  "$ref": "#/definitions/PublicShareV1",
+  "definitions": {
+    "PublicShareV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "share.snapshot"
+        },
+        "createdAt": {
+          "type": "string",
+          "maxLength": 30,
+          "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+        },
+        "expiresAt": {
+          "$ref": "#/definitions/PublicShareV1/properties/createdAt"
+        },
+        "snapshot": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "number",
+              "const": 1
+            },
+            "viewOnly": {
+              "type": "boolean",
+              "const": true
+            },
+            "scene": {
+              "type": "string",
+              "enum": [
+                "garden",
+                "courtyard"
+              ]
+            },
+            "palette": {
+              "type": "string",
+              "enum": [
+                "twilight",
+                "fieldnotes",
+                "moonlit"
+              ]
+            },
+            "birds": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "displayKey": {
+                    "type": "string",
+                    "pattern": "^bird-[1-9][0-9]*$"
+                  },
+                  "commonName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "scientificName": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 2,
+                        "maxLength": 160,
+                        "allOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "catalogKey": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "fixture-robin",
+                          "fixture-sparrow",
+                          "fixture-bluejay"
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "displayKey",
+                  "commonName",
+                  "scientificName",
+                  "catalogKey"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 200
+            }
+          },
+          "required": [
+            "version",
+            "viewOnly",
+            "scene",
+            "palette",
+            "birds"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "createdAt",
+        "expiresAt",
+        "snapshot"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/public-share-v1.schema.json",
+  "description": "Generated structural sharing or request-budget boundary. Public snapshot catalog labels, unique display keys, bounded snapshot bytes, owner compare-and-swap, capability expiry/revocation, one-time token issuance and request budgets require authoritative application semantics. Browser commands cannot supply snapshot data, identities, locations or assets. Public snapshots contain only the trusted allowlist; the create response alone can contain a new bearer link."
+}

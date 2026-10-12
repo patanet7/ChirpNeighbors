@@ -1,0 +1,57 @@
+{
+  "$defs": {
+    "RecordingRef": {
+      "additionalProperties": false,
+      "properties": {
+        "generation": {
+          "maximum": 9007199254740991,
+          "minimum": 1,
+          "title": "Generation",
+          "type": "integer"
+        },
+        "id": {
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$",
+          "title": "Id",
+          "type": "string"
+        },
+        "sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Sha256",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "generation",
+        "sha256"
+      ],
+      "title": "RecordingRef",
+      "type": "object"
+    }
+  },
+  "$id": "https://chirpneighbors.local/contracts/audio-recording-permit-v1.serialization.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Snapshot only; durable derived-output publication needs an atomic fence.",
+  "properties": {
+    "recording": {
+      "$ref": "#/$defs/RecordingRef"
+    },
+    "syntheticFixture": {
+      "title": "Syntheticfixture",
+      "type": "boolean"
+    },
+    "version": {
+      "const": 1,
+      "title": "Version",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "version",
+    "recording",
+    "syntheticFixture"
+  ],
+  "title": "AudioRecordingPermit",
+  "type": "object"
+}

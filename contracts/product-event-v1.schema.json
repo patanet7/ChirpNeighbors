@@ -1,0 +1,156 @@
+{
+  "$ref": "#/definitions/ProductEventV1",
+  "definitions": {
+    "ProductEventV1": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "action"
+            },
+            "route": {
+              "type": "string",
+              "enum": [
+                "/",
+                "/recordings",
+                "/api/yard",
+                "/api/jobs",
+                "/api/recordings"
+              ]
+            },
+            "feature": {
+              "type": "string",
+              "enum": [
+                "yard",
+                "objects",
+                "recordings",
+                "workbench",
+                "preferences"
+              ]
+            },
+            "action": {
+              "type": "string",
+              "enum": [
+                "open",
+                "complete",
+                "cancel"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "route",
+            "feature",
+            "action"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "duration"
+            },
+            "route": {
+              "$ref": "#/definitions/ProductEventV1/anyOf/0/properties/route"
+            },
+            "feature": {
+              "$ref": "#/definitions/ProductEventV1/anyOf/0/properties/feature"
+            },
+            "bucket": {
+              "type": "string",
+              "enum": [
+                "under-100ms",
+                "100-499ms",
+                "500-1999ms",
+                "2000ms-plus"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "route",
+            "feature",
+            "bucket"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "error"
+            },
+            "route": {
+              "$ref": "#/definitions/ProductEventV1/anyOf/0/properties/route"
+            },
+            "feature": {
+              "$ref": "#/definitions/ProductEventV1/anyOf/0/properties/feature"
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "validation",
+                "unavailable",
+                "unexpected"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "route",
+            "feature",
+            "category"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "web-vital"
+            },
+            "route": {
+              "type": "string",
+              "enum": [
+                "/",
+                "/recordings"
+              ]
+            },
+            "metric": {
+              "type": "string",
+              "enum": [
+                "LCP",
+                "INP",
+                "CLS"
+              ]
+            },
+            "rating": {
+              "type": "string",
+              "enum": [
+                "good",
+                "needs-improvement",
+                "poor"
+              ]
+            }
+          },
+          "required": [
+            "kind",
+            "route",
+            "metric",
+            "rating"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/product-event-v1.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}

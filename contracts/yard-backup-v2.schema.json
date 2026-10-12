@@ -1,0 +1,856 @@
+{
+  "$ref": "#/definitions/YardBackupV2",
+  "definitions": {
+    "YardBackupV2": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "type": "string",
+          "const": "chirpneighbors-yard"
+        },
+        "version": {
+          "type": "number",
+          "const": 2
+        },
+        "exportedAt": {
+          "type": "string",
+          "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "number",
+              "const": 2
+            },
+            "species": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160,
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                    "not": {
+                      "enum": [
+                        "__proto__",
+                        "prototype",
+                        "constructor"
+                      ]
+                    }
+                  },
+                  "commonName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "scientificName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 160,
+                    "allOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))"
+                      }
+                    ]
+                  },
+                  "description": {
+                    "type": "string",
+                    "maxLength": 1000
+                  },
+                  "referencePhoto": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/referencePhoto/additionalProperties"
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": {
+                            "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/referencePhoto/additionalProperties"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "commonName",
+                  "scientificName"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "events": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "schemaVersion": {
+                    "type": "number",
+                    "const": 2
+                  },
+                  "id": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                  },
+                  "species": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items"
+                  },
+                  "observedAt": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardBackupV2/properties/exportedAt"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "ingestedAt": {
+                    "$ref": "#/definitions/YardBackupV2/properties/exportedAt"
+                  },
+                  "source": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "fixture",
+                          "manual",
+                          "model",
+                          "external"
+                        ]
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120
+                      },
+                      "sourceEventId": {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                      },
+                      "provider": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "modelVersion": {
+                        "type": "string",
+                        "maxLength": 100
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "label",
+                      "sourceEventId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "confidence": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "recordingId": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/referencePhoto/additionalProperties"
+                    }
+                  }
+                },
+                "required": [
+                  "schemaVersion",
+                  "id",
+                  "species",
+                  "observedAt",
+                  "ingestedAt",
+                  "source"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "corrections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "schemaVersion": {
+                    "type": "number",
+                    "const": 1
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "eventId": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                  },
+                  "expected": {
+                    "type": "object",
+                    "properties": {
+                      "speciesId": {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                      },
+                      "observedAt": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/definitions/YardBackupV2/properties/exportedAt"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "correctionId": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "speciesId",
+                      "observedAt",
+                      "correctionId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "replacement": {
+                    "type": "object",
+                    "properties": {
+                      "speciesId": {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                      },
+                      "observedAt": {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/corrections/items/properties/expected/properties/observedAt"
+                      }
+                    },
+                    "required": [
+                      "speciesId",
+                      "observedAt"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500,
+                    "pattern": "\\S"
+                  },
+                  "recordedAt": {
+                    "$ref": "#/definitions/YardBackupV2/properties/exportedAt"
+                  }
+                },
+                "required": [
+                  "schemaVersion",
+                  "id",
+                  "eventId",
+                  "expected",
+                  "replacement",
+                  "reason",
+                  "recordedAt"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 10000,
+              "default": []
+            },
+            "collection": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                  },
+                  "speciesId": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                  },
+                  "collectedAt": {
+                    "$ref": "#/definitions/YardBackupV2/properties/exportedAt"
+                  }
+                },
+                "required": [
+                  "id",
+                  "speciesId",
+                  "collectedAt"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "birds": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                  },
+                  "speciesId": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                  },
+                  "name": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 60
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "lifecycle": {
+                    "type": "string",
+                    "enum": [
+                      "temporary",
+                      "permanent",
+                      "expired"
+                    ]
+                  },
+                  "createdAt": {
+                    "$ref": "#/definitions/YardBackupV2/properties/exportedAt"
+                  },
+                  "expiresAt": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardBackupV2/properties/exportedAt"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "promotedAt": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardBackupV2/properties/exportedAt"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "artworkId": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "originEventId": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "speciesId",
+                  "name",
+                  "lifecycle",
+                  "createdAt",
+                  "expiresAt",
+                  "promotedAt",
+                  "artworkId",
+                  "originEventId"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "artworks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                  },
+                  "speciesId": {
+                    "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                  },
+                  "version": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "fixture",
+                      "reviewed"
+                    ]
+                  },
+                  "animationPin": {
+                    "type": "object",
+                    "properties": {
+                      "jobId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160
+                      },
+                      "artifactId": {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/artworks/items/properties/animationPin/properties/jobId"
+                      },
+                      "version": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "contentDigest": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "jobId",
+                      "artifactId",
+                      "version",
+                      "contentDigest"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "catalogPin": {
+                    "type": "object",
+                    "properties": {
+                      "catalogKey": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "releaseVersion": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 9007199254740991
+                      },
+                      "renderSha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "catalogKey",
+                      "releaseVersion",
+                      "renderSha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "imageUrl": {
+                    "type": "string",
+                    "maxLength": 1500000
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "representation": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "provenance": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/referencePhoto/additionalProperties"
+                    }
+                  },
+                  "catalogKey": {
+                    "type": "string",
+                    "enum": [
+                      "fixture-robin",
+                      "fixture-sparrow",
+                      "fixture-bluejay"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "speciesId",
+                  "version",
+                  "status",
+                  "imageUrl",
+                  "representation",
+                  "provenance"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "preferences": {
+              "type": "object",
+              "properties": {
+                "palette": {
+                  "type": "string",
+                  "enum": [
+                    "twilight",
+                    "fieldnotes",
+                    "moonlit"
+                  ]
+                },
+                "scene": {
+                  "type": "string",
+                  "enum": [
+                    "garden",
+                    "courtyard"
+                  ]
+                },
+                "scenePin": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                        },
+                        "version": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 1000000
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "version"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null
+                },
+                "regionPreference": {
+                  "type": "string",
+                  "enum": [
+                    "unspecified",
+                    "europe",
+                    "north-america",
+                    "south-america",
+                    "africa",
+                    "asia",
+                    "oceania"
+                  ],
+                  "default": "unspecified"
+                },
+                "reducedMotion": {
+                  "type": "boolean"
+                },
+                "visitorTtlHours": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2160
+                }
+              },
+              "required": [
+                "palette",
+                "scene",
+                "reducedMotion",
+                "visitorTtlHours"
+              ],
+              "additionalProperties": false
+            },
+            "environment": {
+              "type": "object",
+              "properties": {
+                "version": {
+                  "type": "number",
+                  "const": 1
+                },
+                "objects": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                      },
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "perch",
+                          "feeder",
+                          "bath",
+                          "nest"
+                        ]
+                      },
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 960
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 540
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "kind",
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 12
+                },
+                "weather": {
+                  "type": "object",
+                  "properties": {
+                    "mode": {
+                      "type": "string",
+                      "enum": [
+                        "simulated",
+                        "manual",
+                        "real"
+                      ]
+                    },
+                    "manual": {
+                      "type": "object",
+                      "properties": {
+                        "condition": {
+                          "type": "string",
+                          "enum": [
+                            "clear",
+                            "cloudy",
+                            "rain",
+                            "snow"
+                          ]
+                        },
+                        "hour": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 23
+                        }
+                      },
+                      "required": [
+                        "condition",
+                        "hour"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "simulation": {
+                      "type": "object",
+                      "properties": {
+                        "seed": {
+                          "type": "integer",
+                          "minimum": -9007199254740991,
+                          "maximum": 9007199254740991
+                        },
+                        "dayLengthSeconds": {
+                          "type": "integer",
+                          "minimum": 120,
+                          "maximum": 86400
+                        },
+                        "epoch": {
+                          "type": "string",
+                          "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                        }
+                      },
+                      "required": [
+                        "seed",
+                        "dayLengthSeconds",
+                        "epoch"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "mode",
+                    "manual",
+                    "simulation"
+                  ],
+                  "additionalProperties": false
+                },
+                "inventory": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "owned": {
+                      "type": "object",
+                      "properties": {
+                        "perch": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "feeder": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "bath": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "nest": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        }
+                      },
+                      "required": [
+                        "perch",
+                        "feeder",
+                        "bath",
+                        "nest"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "owned"
+                  ],
+                  "additionalProperties": false
+                },
+                "objectReceipts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "requestId": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "commandDigest": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "resultObjectId": {
+                        "$ref": "#/definitions/YardBackupV2/properties/data/properties/species/items/properties/id"
+                      }
+                    },
+                    "required": [
+                      "requestId",
+                      "commandDigest",
+                      "resultObjectId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "version",
+                "objects",
+                "weather"
+              ],
+              "additionalProperties": false,
+              "default": {
+                "version": 1,
+                "objects": [
+                  {
+                    "id": "fixture-perch",
+                    "kind": "perch",
+                    "x": 180,
+                    "y": 420
+                  },
+                  {
+                    "id": "fixture-feeder",
+                    "kind": "feeder",
+                    "x": 400,
+                    "y": 465
+                  },
+                  {
+                    "id": "fixture-bath",
+                    "kind": "bath",
+                    "x": 700,
+                    "y": 445
+                  },
+                  {
+                    "id": "fixture-nest",
+                    "kind": "nest",
+                    "x": 820,
+                    "y": 475
+                  }
+                ],
+                "weather": {
+                  "mode": "simulated",
+                  "manual": {
+                    "condition": "clear",
+                    "hour": 12
+                  },
+                  "simulation": {
+                    "seed": 17,
+                    "dayLengthSeconds": 600,
+                    "epoch": "2026-01-01T00:00:00Z"
+                  }
+                },
+                "inventory": {
+                  "version": 1,
+                  "owned": {
+                    "perch": 3,
+                    "feeder": 3,
+                    "bath": 3,
+                    "nest": 3
+                  }
+                },
+                "objectReceipts": []
+              }
+            }
+          },
+          "required": [
+            "version",
+            "species",
+            "events",
+            "collection",
+            "birds",
+            "artworks",
+            "preferences"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "format",
+        "version",
+        "exportedAt",
+        "data"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/yard-backup-v2.schema.json",
+  "description": "Private version-2 yard backup with optional append-only correction history version 1. Older v2 backups default to no corrections. Cross-record references, correction chain integrity, taxon identity and object placement require receiving-server validation beyond this structural schema."
+}

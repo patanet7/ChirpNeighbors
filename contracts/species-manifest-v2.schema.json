@@ -1,0 +1,245 @@
+{
+  "$ref": "#/definitions/SpeciesManifestV2",
+  "definitions": {
+    "SpeciesManifestV2": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 2
+        },
+        "speciesId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "representation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "fixture": {
+          "type": "boolean"
+        },
+        "taxonFidelityReviewed": {
+          "type": "boolean"
+        },
+        "format": {
+          "type": "string",
+          "const": "pixel-rects"
+        },
+        "canvas": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            },
+            "anchorX": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "anchorY": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/canvas/properties/anchorX"
+            }
+          },
+          "required": [
+            "width",
+            "height",
+            "anchorX",
+            "anchorY"
+          ],
+          "additionalProperties": false
+        },
+        "frames": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "$ref": "#/definitions/SpeciesManifestV2/properties/canvas/properties/anchorX"
+                },
+                "y": {
+                  "$ref": "#/definitions/SpeciesManifestV2/properties/canvas/properties/anchorX"
+                },
+                "width": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                },
+                "color": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 16777215
+                }
+              },
+              "required": [
+                "x",
+                "y",
+                "width",
+                "height",
+                "color"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4096
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "clips": {
+          "type": "object",
+          "properties": {
+            "idle": {
+              "type": "object",
+              "properties": {
+                "frames": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/SpeciesManifestV2/properties/canvas/properties/anchorX"
+                  },
+                  "minItems": 1,
+                  "maxItems": 256
+                },
+                "ticksPerFrame": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 300
+                },
+                "loop": {
+                  "type": "boolean"
+                },
+                "rotations": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -0.5,
+                    "maximum": 0.5
+                  },
+                  "maxItems": 256
+                }
+              },
+              "required": [
+                "frames",
+                "ticksPerFrame",
+                "loop"
+              ],
+              "additionalProperties": false
+            },
+            "moving": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/clips/properties/idle"
+            },
+            "perching": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/clips/properties/idle"
+            },
+            "singing": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/clips/properties/idle"
+            },
+            "feeding": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/clips/properties/idle"
+            },
+            "bathing": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/clips/properties/idle"
+            },
+            "sleeping": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/clips/properties/idle"
+            },
+            "playing": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/clips/properties/idle"
+            },
+            "nesting": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/clips/properties/idle"
+            }
+          },
+          "required": [
+            "idle"
+          ],
+          "additionalProperties": false
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "deterministic_fixture",
+                "provider",
+                "user_upload"
+              ]
+            },
+            "creator": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/speciesId"
+            },
+            "sourceVersion": {
+              "$ref": "#/definitions/SpeciesManifestV2/properties/speciesId"
+            },
+            "references": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SpeciesManifestV2/properties/speciesId"
+              },
+              "maxItems": 32
+            },
+            "license": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "usage": {
+              "type": "string",
+              "enum": [
+                "development-only",
+                "cleared"
+              ]
+            },
+            "attribution": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "required": [
+            "source",
+            "creator",
+            "sourceVersion",
+            "references",
+            "license",
+            "usage",
+            "attribution"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "speciesId",
+        "representation",
+        "fixture",
+        "taxonFidelityReviewed",
+        "format",
+        "canvas",
+        "frames",
+        "clips",
+        "provenance"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/species-manifest-v2.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

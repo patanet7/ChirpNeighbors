@@ -1,0 +1,27 @@
+{
+  "$ref": "#/definitions/ReferenceGenerationProviderPinV1",
+  "definitions": {
+    "ReferenceGenerationProviderPinV1": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]{0,159}$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/reference-generation-provider-pin-v1.schema.json",
+  "description": "Owner-private immutable image admission and local diagnostic generation structural boundary. Bounded PNG/JPEG byte identities retain decoder normalization and source provenance. Rights, species and explicit pose scopes are separate owner assertions; content-bound review pins require exact live ownership, byte hashes, current permissions and terminal revocation checks. Retained discovery snapshots cannot be relabeled by review. Source/refinement semantics enforce allocation, source correspondence, review chronology and diagnostic pixel constraints. Unknown adapter pins require runtime registry rejection. Diagnostic candidates are fixture-only, generated false and nonrenderable; they do not certify legal rights, species fidelity, real generation, renderer admission or public release. No arbitrary URL fetch, model call, paid service or external upload is authorized."
+}

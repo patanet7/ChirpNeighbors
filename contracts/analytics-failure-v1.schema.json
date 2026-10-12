@@ -1,0 +1,39 @@
+{
+  "$ref": "#/definitions/AnalyticsFailureV1",
+  "definitions": {
+    "AnalyticsFailureV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "code": {
+          "type": "string",
+          "enum": [
+            "INVALID",
+            "UNAVAILABLE",
+            "CONSENT_CONFLICT"
+          ]
+        },
+        "error": {
+          "type": "string",
+          "enum": [
+            "Analytics request is not valid.",
+            "Analytics is unavailable.",
+            "Analytics preference changed. Refresh and try again."
+          ]
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "code",
+        "error"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/analytics-failure-v1.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}
