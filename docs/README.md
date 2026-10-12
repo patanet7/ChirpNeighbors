@@ -1,110 +1,22 @@
-# ChirpNeighbors Documentation
+# Documentation index
 
-Current product decisions, task status, architecture boundaries, named behavioral evidence and remaining blockers are consolidated in the [authoritative task index](delivery/product-behavior-and-ideas.md). The original architecture PRD and dated agent/checkpoint logs are historical inputs; they do not establish current implementation or production readiness.
+Choose the canonical source for the question below. This index is for current navigation; dated verification records retain the scope of their original source revisions.
 
-Complete documentation for the ChirpNeighbors IoT bird sound monitoring system.
+| Topic | Canonical source |
+| --- | --- |
+| Product requirements, behavior, decisions and task status | [36-entry task index](delivery/product-behavior-and-ideas.md), linking focused product topics and the engineering roadmap |
+| Architecture and shared contracts | [Contract authority](../contracts/README.md), [yard/identification](api/species-yard-contract.md), [asset retention](api/asset-retention-contract.md), [catalog](api/shared-catalog-contract.md), [behavior](api/behavior-ontology-contracts.md), [environment](api/environment-contracts.md) |
+| Audio architecture and device protocol | [Audio service boundary](architecture/audio-pipeline.md), [ESP32 stream protocol](api/audio-stream-protocol.md) |
+| Setup, operation and recovery | [Backend run instructions](../backend-inference/README.md), [firmware](../esp32-client/README.md), [UI operation/recovery](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/docs-consolidation-20261012/docs/local-operations.md) |
+| Tests and quality tooling | [Full verification command](delivery/quality.md), [executable delivery matrix](delivery/README.md), [backend test coverage](../backend-inference/tests/README.md) |
+| Animation/artwork requirements and production | [Artwork acceptance](product/artwork-and-assets.md), [UI animation inventory and pipeline](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/docs-consolidation-20261012/docs/README.md#assets-animation-and-rendering) |
+| Current release, source binding and hosted status | [97-gate release record](publication/20261011/README.md) |
+| Historical verification and disagreements | [Verification ledger](delivery/verification-ledger.md), [dated source logs](agents/README.md) |
 
-## Documentation Structure
+The original [architecture PRD](architecture/product-requirements.md) and root `claude.md` are historical design context. They do not supersede the current SvelteKit/session-bound contracts or task decisions. The [audit findings register](delivery/audit-findings-20261009.json) and machine-readable delivery matrix retain their named historical evidence.
 
-### 📋 [agents/](./agents/)
-AI agent task logs tracking automated work performed on the project.
-- **Format**: `YYYYMMDD_HHMMSS_task-description.md`
-- **Purpose**: Transparency, history, and context for future development
-- **View**: [Agent logs README](./agents/README.md)
+## Maintaining documentation
 
-### 🏗️ [architecture/](./architecture/)
-System design and architecture documentation.
-- High-level system overview
-- Component interaction diagrams
-- Data flow and processing pipeline
-- Deployment architecture
-- Scalability considerations
-- [Product Requirements Document](./architecture/product-requirements.md)
+Update the canonical topic when behavior or acceptance changes. Keep setup commands with the component that runs them. A release summary should link exact tested revisions and receipts, not copy feature descriptions. Preserve failed/incomplete runs as such. Keep new experiments or prose drafts out of the permanent docs tree unless they supply a unique decision or reproducible result.
 
-### 🔧 [ESP32 hardware and firmware](../esp32-client/README.md)
-Hardware specifications and design documents.
-- ESP32 pinout and configuration
-- Digital microphone specifications
-- PCB schematics (if custom board)
-- Bill of Materials (BOM)
-- Power consumption analysis
-- Assembly instructions
-
-### 📡 [api/](./api/)
-Backend API documentation.
-- REST API endpoints
-- Request/response schemas
-- Authentication and authorization
-- WebSocket specifications (if applicable)
-- Error codes and handling
-- API versioning strategy
-
-## Quick Links
-
-- **Project Context**: [claude.md](../claude.md) - AI assistant context file
-- **Main README**: [README.md](../README.md) - Project overview
-- **Source Code**: See `/firmware/`, `/backend/`, `/frontend/` (when created)
-
-## Contributing to Documentation
-
-### Adding New Documentation
-
-1. **Choose the right location**:
-   - Architecture design → `architecture/`
-   - Hardware specs → `../esp32-client/`
-   - API changes → `api/`
-   - Agent work → `agents/` (auto-generated)
-
-2. **Use Markdown** (`.md` files)
-
-3. **Include diagrams** where helpful (Mermaid, SVG, or PNG)
-
-4. **Keep it current**: Update docs when code changes
-
-### Documentation Standards
-
-- **Format**: GitHub-flavored Markdown
-- **Diagrams**: Mermaid for flowcharts/sequence diagrams
-- **Code Examples**: Include language tags for syntax highlighting
-- **Links**: Use relative paths for internal links
-- **Images**: Store in `docs/images/` subdirectory
-
-### Example Documentation Template
-
-```markdown
-# Feature/Component Name
-
-## Overview
-Brief description of what this documents
-
-## Details
-Comprehensive explanation with:
-- Technical specifications
-- Implementation notes
-- Usage examples
-- Configuration options
-
-## Examples
-
-\`\`\`python
-# Code example
-\`\`\`
-
-## Related Documentation
-- [Link to related doc](./related-doc.md)
-```
-
-## Building Documentation Site (Future)
-
-When the project grows, consider setting up:
-- **Docusaurus** or **MkDocs** for static site generation
-- **Automated deployment** to GitHub Pages or Vercel
-- **Search functionality** for easy navigation
-- **Versioning** for different releases
-
-## Questions?
-
-For documentation questions or suggestions:
-1. Check existing docs first
-2. Review [claude.md](../claude.md) for project context
-3. Open a GitHub issue with the `documentation` label
+The [cleanup map](documentation-map.json) records removed duplicates and their destinations. Published Git history and pinned original checkpoint links retain full prior text. License/attribution files and immutable verification receipts are preserved.

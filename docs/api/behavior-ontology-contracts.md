@@ -1,5 +1,7 @@
 # Illustrative behavior ontology boundaries
 
+Canonical shared contract documentation. Executable code paths below refer to the private UI repository; portable generated schemas are under `ChirpNeighbors/contracts/`. Update this document instead of maintaining a prose mirror.
+
 This additive slice extends the existing simulator. It does not add biological
 knowledge, recognize observed individual birds or replace fixture artwork.
 `illustrative-species-profile-v1` and `simulation-options-v1` remain unchanged.

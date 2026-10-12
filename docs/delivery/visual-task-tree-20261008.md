@@ -146,7 +146,7 @@ formatting and three browser gates: two exposed the missing raw-frame inspection
 control; the core journey exposed an implicit live status on animation progress.
 UI `b225474` restores inspection and fixes those issues. The complete rerun
 passed 65/65 on frozen commits, including 1,053 UI unit tests. See
-[visual verification](visual-verified-20261008.md) for exact revisions and retained
+[visual verification](verification-ledger.md#65-gate-visual-checkpoint) for exact revisions and retained
 logs. The interactive wave requires its own complete 70-gate checkpoint; focused
 passes are not substituted for an aggregate.
 

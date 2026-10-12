@@ -1,5 +1,7 @@
 # Shared species catalog contract — local fixture architecture
 
+Canonical shared contract documentation. Executable code paths below refer to the private UI repository; portable generated schemas are under `ChirpNeighbors/contracts/`. Update this document instead of maintaining a prose mirror.
+
 This slice adds a generic species pack boundary beside private image manifests.
 Existing catalog request, pending request and release descriptor authorities remain
 unchanged. A catalog request pins the application taxonomy authority/version,

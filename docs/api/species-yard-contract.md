@@ -1,6 +1,6 @@
-> Mirror of `birdsong-yard-sprites/docs/species-yard-contract.md`. Code paths below refer to that UI repository. The portable schemas are in this repository’s `contracts/` directory.
-
 # Version-2 yard and identification contract
+
+Canonical shared contract documentation. Executable code paths below refer to the private UI repository; portable generated schemas are under `ChirpNeighbors/contracts/`. Update this document instead of maintaining a prose mirror.
 
 Executable definitions live in `src/lib/domain/yard.ts`; durable operations live in `src/lib/server/storage/repository.ts`. This document describes the local SvelteKit foundation, not a deployed service or working detector.
 

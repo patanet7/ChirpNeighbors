@@ -1,6 +1,6 @@
-> Mirror of `birdsong-yard-sprites/docs/asset-retention-contract.md`; code paths below refer to the UI repository.
-
 # Private asset retention contract
+
+Canonical shared contract documentation. Executable code paths below refer to the private UI repository; portable generated schemas are under `ChirpNeighbors/contracts/`. Update this document instead of maintaining a prose mirror.
 
 The source authority is `src/lib/assets/lifecycle-contracts.ts`. The lifecycle
 service owns admission and transactions; generated JSON Schema defines portable

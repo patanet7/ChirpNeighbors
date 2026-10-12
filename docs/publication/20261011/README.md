@@ -1,4 +1,14 @@
-# Engine review publication candidate — 2026-10-11
+# Engine checkpoint and release status — 2026-10-11
+
+## GitHub status — 2026-10-12
+
+- [ChirpNeighbors PR #3](https://github.com/patanet7/ChirpNeighbors/pull/3) merged to `main` at `ac11610289a927b8b9bf83b4ddea4ee8a2bc17e6`. All five hosted PR checks passed; the merge tree is identical to reviewed head `07000ded9974b801325de7d7ae6ff29c41c403fa`.
+- The companion UI review remains open at `09eed1998cb6ebf960a127bb1fa4e01c21d12dbd`: its hosted job failed before recorded steps, including one retry. No hosted pass or failure cause is inferred. See the private repository's PR for current status.
+- No deployment was performed. Matching updated UI/server versions are required. The separate documentation-consolidation branches are review work, not included in the original 97-gate execution or this main merge.
+
+## Publication preparation record — historical
+
+The following record describes preparation on 2026-10-11. Its local/unpublished statements are historical. Exact reports, tested source revisions and source mappings remain unchanged.
 
 Prepared review branch: `codex/engine-reviewed-20261011` in public
 [patanet7/ChirpNeighbors](https://github.com/patanet7/ChirpNeighbors/tree/codex/engine-reviewed-20261011)
