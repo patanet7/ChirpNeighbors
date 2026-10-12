@@ -23,7 +23,7 @@ The [2026-10-12 architecture evidence](../architecture/architecture-review-20261
 | Suite completeness | [EN-010-B — Reconcile hosted and local suite coverage](../engineering/roadmap.md#en-010-b--reconcile-hosted-and-local-suite-coverage) |
 | Task authority | [EN-010-C — Maintain one current task authority](../engineering/roadmap.md#en-010-c--maintain-one-current-task-authority) |
 | Production/device measurements | [PB-011-B — Measure production and device performance](../product/yard-and-behavior.md#pb-011-b--measure-production-and-device-performance) |
-| Source density and yard layout | [PB-011-C — Separate artwork detail from world size and restrain the UI](../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui) |
+| Source density and restored sidebar | [PB-011-C — Separate artwork detail from world size and restrain the UI](../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui) |
 | Approved visual inputs | [PB-021-B — Review actual species art and action clips](../product/artwork-and-assets.md#pb-021-b--review-actual-species-art-and-action-clips) |
 | Optional behavior decision | [PB-023-A — Decide whether live context recovery is required](../product/yard-and-behavior.md#pb-023-a--decide-whether-live-context-recovery-is-required) |
 
