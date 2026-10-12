@@ -26,7 +26,7 @@ Canonical requirements and acceptance for this topic. Stable IDs, decisions, dep
 
 **Representative exact assertions:** sharing.test.ts: “invalidates every capability in an older backup without changing owner yard data”; E-CAT browser result: “public view performs no API or private image requests”; E-CAT catalog browser result: “Shared view still excludes private resident names, observations, local source job and location”.
 
-**Dependencies:** EN-001, EN-002. **Remaining gap:** Production provider/account policies and account-wide erasure remain external; shared views do not show private reviewed artwork or live owner ontology. **Next action:** Preserve narrow share projection and use EN-011 for erasure scope.
+**Dependencies:** EN-001, EN-002. **Remaining gap:** Production provider/account policies and account-wide erasure remain external; shared views do not show private reviewed artwork or live owner ontology. The 2026-10-12 review also found unsafe configured storage roots and wildcard fixture startup. **Next action:** [EN-003-A](../engineering/roadmap.md#en-003-a--reject-served-private-data-roots) and [EN-003-B](../engineering/roadmap.md#en-003-b--repeatable-loopback-development-lifecycle) own those repairs; preserve narrow share projection and use EN-011 for erasure scope.
 
 **Current audit fixes and limits:** A present signed Google `azp` must match the sole configured client. Supported browser origins now normalize consistently before Python Origin/session admission. The [connection audit](../delivery/product-audit-20261009.md) distinguishes local signed-provider/SMTP fixtures from unverified live sign-in, baseline transport gaps (superseded by the bounded transport slice) and missing account-wide recovery/erasure.
 

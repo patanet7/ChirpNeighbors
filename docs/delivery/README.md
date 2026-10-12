@@ -12,17 +12,22 @@ its complete 75-gate passing run, exact source commits and retained failed attem
 The prior [74-gate ontology checkpoint](ontology-verified-20261009.md) remains preserved.
 The [subsequent ESP32 integration](esp32-integrated-20261009.md) records the actual fetched head, local merge, 52 host tests, eight native tests and 25/25 selected regression gates. Board/simulator setup remains blocked; this selected run does not replace the complete environment proof. The index limits completion to named behavior and fixture scope.
 
-The current [animation/content/reference-discovery checkpoint](animation-planning-20261011.md)
+The historical [animation/content/reference-discovery checkpoint](animation-planning-20261011.md)
 records 94/94 frozen gates and its exact tested source revisions.
 Versioned recipe composition and bounded Commons metadata discovery remain separate
 from image-generation providers and approved species artwork. The 33- and 61-gate
 interrupted attempts remain partial; later documentation/evidence commits are
 reported separately from tested source commits.
 
+The [release record](../publication/20261011/README.md) identifies the later exact
+97/97-gate checkpoint and hosted outcomes. The [architecture follow-up](product-behavior-and-ideas.md#architecture-follow-up)
+owns the subsequent confirmed defects and remaining acceptance; an earlier
+passing checkpoint is not proof that those findings are repaired.
+
 The historical checklist below records earlier bounded waves and their original
 counts. Later checkpoint links and the authoritative index supersede stale current-
 status wording without rewriting historical evidence. The [initial integrated
-checkpoint](checkpoint-20261008.md) retains its exact original verification.
+checkpoint](verification-ledger.md#50-gate-foundation-checkpoint) retains its exact original verification.
 
 ```sh
 python3 scripts/delivery_matrix.py --check

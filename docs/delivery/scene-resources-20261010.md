@@ -1,5 +1,7 @@
 # Whole-scene resources and PNG recovery — verified local checkpoint
 
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+
 **80/80 frozen gates pass**, finished `2026-10-10T02:54:09.715007+00:00`, with clean unchanged source revisions:
 
 - Main: `2928fecb551b15fda133fbc356d90b47b2232cf5`

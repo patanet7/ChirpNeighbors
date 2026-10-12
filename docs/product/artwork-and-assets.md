@@ -82,6 +82,20 @@ The photo-conditioned species-art acceptance in PB-021 excludes a plain downsamp
 
 **Current local work (E-REF; local integrated checkpoint):** Exact private reference bytes → explicit rights/species/pose owner reviews → immutable reference pin → registered local diagnostic provider is connected through the existing runner and private workbench. ENG-01 exposed missing viewpoint enforcement in UI 033c0ce; UI 53e4140 now requires an explicit left/right view for every current mirrorable side-view plan at server admission and UI readiness. Front-only approval remains valid history but cannot queue; six new unit cases and the clean 72-check browser flow cover the correction. The one-frame 4×4 output is a deterministic digest grid marked fixture/non-renderable, with zero external/model calls; it is not bird art and cannot pin into the renderer, even after candidate approval. Nine clips / 60 frames remain production proposals with zero species-art frames generated. The current Commons diagnostic records DNS failure and ordinary HTTPS proxy 403 denial without bypass; live source acquisition, approved actual-species/concept material and a reviewed model bundle/provider remain later dependencies. [Local bridge](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/asset-pipeline/reference-generation.ts), [acquisition authority](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/reference-acquisition.ts).
 
+#### PB-021-A — Stop discovery at cancelled request boundaries
+
+**Status / priority:** In progress; confirmed P2 defect, acceptance pending. **Review:** JA-01. **Dependencies:** existing runner/discovery interfaces and EN-001 semantics. This bounded fix does not depend on obtaining EN-006's original worker, approved art, providers or GPU selection.
+
+**Work:** Propagate persisted cooperative cancellation into every discovery page/retry dispatch boundary while preserving per-job isolation, deadlines, lease fencing and late-output rejection. Cancellation cannot undo a request already sent; do not promise in-flight abort without testing it.
+
+**Acceptance tests:** Pause page one, cancel the job, then release the page with a next cursor; no next page/retry may dispatch and no output may commit. Cover simultaneous independent owners/jobs, cancellation after completion, deadline abort, ordinary multiple-page success and late completion fencing. [Two-call stub reproduction and source locations](../architecture/architecture-review-20261012.md#jobs-providers-and-asset-lifecycle).
+
+#### PB-021-B — Review actual species art and action clips
+
+**Status / priority:** Blocked on approved inputs and fidelity review; P2 product acceptance, not a new routine-engine regression. **Review:** RG-003 and retained jobs/assets input gaps. **Dependencies:** PB-014/020 rights/provenance, authorized actual-species/concept material, a separately selected compatible execution adapter and named biological/art review. GPU choice remains pending; no purchase or generation is authorized by this subtask.
+
+**Acceptance tests:** Deliver an immutable reviewed species manifest with the approved action/clip scope; verify every frame/pose bound, timing/contact/geometry, license/provenance and version fallback. Review actual normal/reduced-motion/Pixi/SVG output for anatomy, plumage, silhouette and temporal consistency against approved references. Nine engine states or sixty proposed frames are not delivered authored clips. Plain photo downsampling and diagnostic grids do not satisfy this acceptance. Keep PB-003 production promotion default-deny until its rights/release authority is met. [Observed fixture limits](../architecture/architecture-review-20261012.md#renderer-simulation-and-game-behavior).
+
 ### PB-022 — Owners can reversibly archive private uploads/packages and unpin or restore resident artwork, with explicit retention reasons.
 
 **Source / decision:** user decision; Agreed. **Implementation:** Reversible lifecycle implemented. **Integration:** Local integrated checkpoint. **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.
@@ -92,4 +106,12 @@ The photo-conditioned species-art acceptance in PB-021 excludes a plain downsamp
 
 **Tests and evidence:** [U:src/lib/server/assets/lifecycle.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/assets/lifecycle.test.ts); [U:scripts/asset-retention-browser-checks.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/asset-retention-browser-checks.py). [E-CAT:asset-retention/asset-retention-browser-results.json](../delivery/LOCAL-EVIDENCE.md); [E-CAT:ui-unit.log](../delivery/LOCAL-EVIDENCE.md).
 
-**Dependencies:** PB-013, PB-014, PB-020. **Remaining gap:** No live purge, expiry job, account-wide erasure or authorization to destroy retained evidence; shared catalog read-only. **Next action:** Specify retention/erasure separately under EN-011; preserve archive semantics.
+**Dependencies:** PB-013, PB-014, PB-020. **Remaining gap:** No live purge, expiry job, account-wide erasure or authorization to destroy retained evidence; shared catalog read-only. Older archived packages can disappear from bounded lifecycle controls (PB-022-A). **Next action:** Repair history reachability without weakening conservative dependency scans; specify retention/erasure separately under EN-011.
+
+#### PB-022-A — Keep archived history reachable
+
+**Status / priority:** Open, confirmed P2 owner-workflow defect. **Review:** JA-02. **Dependencies:** EN-001 versioned response/consumer compatibility and the existing owner-bound keyset pagination pattern. No provider/art input is required.
+
+**Work:** Separate bounded visible lifecycle history from conservative whole-graph reference completeness. Provide versioned cursor pagination or exact-target retrieval, preserving archive/restore CAS, existing pins and old-reader compatibility. Raising the full-graph limit is not the repair.
+
+**Acceptance tests:** With at least 513 valid jobs, restore the oldest archived package through the UI; exercise source metadata beyond the 32 MB graph budget as well. Cover tampered/cross-owner/stale-restart cursors, concurrent insertion, missing/corrupt dependencies, idempotent retry and account switching. An incomplete graph must never authorize purge or discard resident pins. [513-job reproduction and unexecuted overflow distinction](../architecture/architecture-review-20261012.md#jobs-providers-and-asset-lifecycle).

@@ -2,6 +2,8 @@
 
 Canonical requirements and acceptance for this topic. Stable IDs, decisions, dependencies and named evidence are retained from the [task index](../delivery/product-behavior-and-ideas.md). U: paths refer to the UI repository; M: paths refer to ChirpNeighbors. Evidence labels resolve through the [verification ledger](../delivery/verification-ledger.md). Current GitHub publication is tracked separately in the [release record](../publication/20261011/README.md).
 
+Lettered IDs below are implementation subtasks of the existing requirement, not new competing requirements. Their status is recorded as of the 2026-10-12 [architecture review](../architecture/architecture-review-20261012.md). “In progress” does not claim a completed fix, integrated verification, hosted pass or deployment. Update status here after the exact candidate's acceptance is established; dated review/checkpoint documents remain evidence.
+
 ### EN-001 — Single contract authority, generated consumers and strict compatibility gates
 
 **Source / decision:** Architecture/delivery record; not new user authorization; Established architecture constraint. **Implementation:** Implemented. **Integration:** Local integrated checkpoint including four additive ontology authorities (E-INT). **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.
@@ -47,6 +49,38 @@ Canonical requirements and acceptance for this topic. Stable IDs, decisions, dep
 **Dependencies:** EN-001, EN-002, EN-011. **Remaining gap:** Docker image execution previously blocked by registry network/DNS; no fresh container success claimed. Hosting, encryption and real restore/rollback remain unperformed. E-REF deliberately refuses cold restore of initialized/partial reference authority or retained reference files before mutation; ordinary no-reference media recovery remains supported. **Next action:** Establish independently retained latest-receipt custody and offline-writer procedure for the bounded E-REC path; verify built containers/US infrastructure only in separately scoped work.
 
 **Current recovery work (E-REC; local integrated checkpoint):** `export-references SOURCE DEST --offline` and explicit `restore --references FILE --expected-reference-sha256 DIGEST` now extend the existing CLI. The digest must be independently retained as the latest receipt. All writers must be stopped, source/backup admissions must match exactly, and all bytes/rows/tombstones must validate before atomic no-clobber directory publication. Missing/invalid authority, post-backup admissions and destination conflicts must preserve the source and existing destination unchanged. E-REF refusal remains the historical default; production recovery and dishonest-receipt rollback remain unproven.
+
+#### EN-003-A — Reject served private data roots
+
+**Status / priority:** In progress; confirmed high-severity configuration defect, acceptance pending. **Review:** CSA-01. **Dependencies:** PB-013; existing private-root and build/startup boundaries. No provider or artwork input is needed.
+
+**Work:** Reject application data paths within source/generated served roots, including prospective paths and symlink aliases, before creation/chmod/open and before a built server listens. Retained files are served ahead of lazy application hooks; do not move/delete operator data to repair configuration.
+
+**Acceptance tests:** Fresh and retained `public`/`build/client` roots fail without byte/permission changes; symlink/nonexistent ancestors cannot bypass validation; sibling private roots remain valid. Built-server unauthenticated requests after restart cannot download DB/WAL/SHM/journal or private media. Ordinary private startup, owner isolation and restore still work. [Reproduction evidence](../architecture/architecture-review-20261012.md#contracts-storage-authentication-and-privacy).
+
+#### EN-003-B — Repeatable loopback development lifecycle
+
+**Status / priority:** In progress; high-priority fixture exposure repair plus bounded developer experience. **Reviews:** CSA-02, RDX-001, RDX-002, RDX-005. **Dependencies:** EN-003-A for safe storage validation; existing Node/SvelteKit app. Node-only yard startup does not depend on Python services, the original worker, providers or approved art.
+
+**Work:** Pin supported mise tools and compose bootstrap/check/test/build/dev/status/stop around existing authorities. Default to loopback and explicit fixture identity, validate ports and report the actual origin, separate optional receiver/service tasks, and preserve local data. Dynamic allocation must use the actual bound address. Use a live owned controller for shutdown; no kill-by-port, stale-PID targeting, automatic tunnel or OS service. The [UI setup guide](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/runtime-safety-20261012/docs/setup.md) owns executable startup instructions.
+
+**Acceptance tests:** Fresh and warm bootstrap; normal fixture sign-in/sample yard; persistence and session re-selection after restart; simultaneous same-checkout launch admits only one controller; isolated dynamic instances have distinct working origins. Occupied/invalid ports leave unrelated listeners intact. Missing dependencies, bad storage and readiness timeout fail with bounded owned cleanup. Ctrl-C/SIGTERM/stop release HTTP/HMR and are idempotent. Private state is excluded from Git/static serving; forms/session binding use the actual origin; production fixture login remains closed. Check/test/build failures propagate. State clearly which operating systems were executed and whether a preview is user-accessible. [Review basis](../architecture/architecture-review-20261012.md#runtime-developer-experience-and-ci).
+
+#### EN-003-C — Hold read admission through stream completion
+
+**Status / priority:** Open, confirmed medium-severity resource-budget defect. **Review:** CSA-03. **Dependencies:** PB-012; existing request budget and recording blob cleanup; no external input.
+
+**Work:** Retain read admission for the response body's lifetime, or add an equivalent bounded playback lease. Release exactly once on completion/error/cancel and propagate cancellation to the original body. Preserve immediate cleanup for HEAD/no-body failures.
+
+**Acceptance tests:** Hold 16 owner streams and reject the 17th until release; exercise 64 global streams across owners. Finish, cancel, disconnect, read failure and deletion-midstream close the blob and release one permit. HEAD/error responses cannot leak capacity. Include a built-server slow-reader test, not only a counter unit test. [20-open-stream reproduction](../architecture/architecture-review-20261012.md#contracts-storage-authentication-and-privacy).
+
+#### EN-003-D — Reproduce verification from explicit environments
+
+**Status / priority:** Documentation corrected here; clean-install/runtime acceptance remains open, P2. **Review:** RDX-003. **Dependencies:** exact declared tool/dependency pins, supported browser libraries; EN-003-B for optional task wrappers.
+
+**Work:** [Aggregate setup](../delivery/quality.md) separates core, browser, ONNX and intake interpreters, installs complete browser requirements including Pillow, and passes all interpreter paths. Preserve core/model isolation and explicit browser OS prerequisites. Keep ordinary UI startup lightweight.
+
+**Acceptance tests:** A clean supported machine follows the documented commands without inherited packages; imports/version checks confirm the intended packages in each environment and NumPy/ONNX remain absent from core. Warm bootstrap is idempotent; failed installs create no success marker. `verify_system.py --list` resolves the same commands/interpreters, then a committed frozen run records its actual result. Syntax/command inspection alone does not close clean-platform acceptance.
 
 ### EN-004 — Real audio model accuracy, taxonomy calibration and independent ML execution
 
@@ -128,17 +162,35 @@ Canonical requirements and acceptance for this topic. Stable IDs, decisions, dep
 
 ### EN-010 — Publication/PR and production checkpoint
 
-**Source / decision:** Architecture/delivery record; not new user authorization; Explicitly excluded from this delegated local task. **Implementation:** Local commits only. **Integration:** Current changes not published or deployed. **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.
+**Source / decision:** The original local task excluded publication; subsequent user instructions authorized engine PRs/merges and later the separately reviewed documentation PRs/merges. **Implementation:** Engine review branches published. **Integration:** Both engine PRs merged; subsequent documentation/runtime candidates require their own exact source/check review. **Release / production:** See [current release status](../publication/20261011/README.md); no deployment is established by a Git merge.
 
 **Architecture:** Git/review/release boundary; source user delegation, historical publication log.
 
-**Behavioral acceptance:** If the owning publication task later resumes, verify exact local reviewed/tested heads, remote ancestry and required review/CI before any separately authorized release; local commit is never reported as pushed, remotely merged or production validated. Authorized local ESP32 Git integration after the environment checkpoint commit is a separate operation under EN-007.
+**Behavioral acceptance:** Verify exact reviewed/tested heads, remote ancestry and applicable required reviews/checks before each authorized merge; preserve actual hosted failures even where policy does not require the check. A local commit is never reported as pushed/merged, and a merge is not production validation. Authorized local ESP32 integration is separately recorded under EN-007.
 
-**Tests and evidence:** No executable acceptance test for this requested outcome. [E-PUBLICATION](../agents/20261007_183500_publication-checks.md).
+**Tests and evidence:** [Current engine PR URLs, merge SHAs and hosted outcomes](../publication/20261011/README.md); [E-PUBLICATION](../agents/20261007_183500_publication-checks.md) retains the earlier blocked attempt. Publication acceptance is repository/CI/source evidence, not an application unit-test result.
 
-**Dependencies:** Current complete frozen verification, repository checks/reviews and explicit merge/deployment authority. **Remaining gap:** Both engine PRs are merged. Main PR #3 passed five hosted checks. UI PR #1 merged normally on the complete 97/97 local proof and exact source binding; no checks or reviews were required by its branch policy. Its non-required hosted job failed at startup twice without recorded steps, and the cause remains unestablished. The local proof does not turn that hosted failure into a pass. **Next action:** Diagnose the hosted startup failure when runner evidence is available. Documentation cleanup is on a separate review branch and is not covered by the existing merge instruction. Production deployment remains separate; no deployment was performed. See the [current release record](../publication/20261011/README.md) for exact SHAs and URLs.
+**Dependencies:** Exact candidate verification, repository checks/reviews and the user's action-specific authority. **Remaining gap:** The UI engine job failed twice at startup without recorded steps; the cause remains unestablished in the retained evidence. Local proof does not turn it into a hosted pass. Documentation merges are now authorized but this documentation change does not attest their execution. Deployment remains separate and unperformed. **Next action:** EN-010-A establishes hosted outcome, EN-010-B reconciles coverage, EN-010-C keeps task status singular; record each actual merge in the [release record](../publication/20261011/README.md).
 
 **Subsequent local integration (E-ESP; separate from E-ENV):** The actual fetched ESP32 branch is now locally merged and scoped verification is retained. This does not publish the environment/ontology workstream or establish remote CI, a PR, remote merge, deployment or flashing. No publication retry or Library workaround occurred.
+
+#### EN-010-A — Establish the hosted UI job outcome
+
+**Status / priority:** Open external diagnosis; no established code or account cause. **Dependencies:** permitted exact-run/head/workflow/job metadata or logs. No spending, credential, permission or deployment change is implied.
+
+**Acceptance:** Identify the actual runner/platform/account or executed-step failure from permitted evidence; make only the supported in-scope repair and retain original failures. A verified success requires completed checks on the exact candidate. If evidence confirms an account/access blocker, record its precise message and smallest user action; do not repeat blind retries or bypass a denied endpoint. [Retained failure scope](../architecture/architecture-review-20261012.md#runtime-developer-experience-and-ci).
+
+#### EN-010-B — Reconcile hosted and local suite coverage
+
+**Status / priority:** Open, P2 coverage drift; no hosted pass claimed. **Review:** RDX-004. **Dependencies:** EN-003-D environments; classify UI-only versus paired-service scripts before workflow changes. Hosted execution additionally depends on EN-010-A.
+
+**Acceptance tests:** A checked inventory classifies every intended browser suite as included or deliberately excluded with a reason. Cover the reviewed ontology/retention/catalog/environment omissions; explicitly scope animation-planning/reference-admission/reference-recovery/audio-lifecycle prerequisites. Build failure blocks browser execution; shared-port/GPU suites stay sequential. Local wrappers and CI use one suite authority or a checked mapping. Separate per-repository CI from cross-repository agreement in reports.
+
+#### EN-010-C — Maintain one current task authority
+
+**Status / priority:** In progress, P2; main review findings/status links consolidated here, paired UI historical-label reconciliation and integrated review pending. **Review:** RDX-006. **Dependencies:** actual reviewed code/CI evidence from each implementation owner.
+
+**Acceptance:** Every review finding maps to one PB/EN requirement/subtask with current status, dependencies and observable acceptance. Historical task tables remain dated evidence, preserving unique requirements/provenance and failed attempts, with links to the canonical index. Main/UI setup links resolve; stale ESP32/publication checkboxes do not masquerade as current blockers. Do not mark another branch's planned fix complete before receiving its commit and verification evidence.
 
 ### EN-011 — Account-wide erasure, offline retention and deletion-history operating policy
 

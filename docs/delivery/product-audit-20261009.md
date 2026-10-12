@@ -1,5 +1,7 @@
 # Product, architecture and connection audit — 2026-10-09
 
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+
 This retained checkpoint is followed by the [bounded transport and static-check slice](external-transport-20261009.md). Its transport timeout/cache gaps are baseline findings, with current fixes and remaining scope tracked in the [consolidated findings register](audit-findings-20261009.json). The original evidence and unsuccessful attempts below remain unchanged.
 
 Four bounded defects are corrected in local commits: supported-origin normalization at the Python admission boundary, signed Google authorized-party validation, cancellable recording uploads with safe page lifetimes, and turning clearance for asymmetric bird bodies. Independent source review and focused checks pass. **The complete frozen suite passed 75/75 gates** at main `22c405092f6fdeac7a42f5d3d8e840a2c7a1829b` / UI `65d5776eea463d9521b1fb4f29c40481539ae20b`. Historical environment and ESP32 results remain separately retained.

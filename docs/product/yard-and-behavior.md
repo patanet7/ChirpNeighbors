@@ -98,6 +98,20 @@ Canonical requirements and acceptance for this topic. Stable IDs, decisions, dep
 
 **Scene/theme extension evidence (E-PLAN):** Exact-version scene variants can reassign existing palette roles and pass the current resolver, placement and simulation consumers. New palette IDs, new scene/world/region types and inherited region defaults remain explicit future authorities; this work does not infer location or add a generalized hierarchy.
 
+#### PB-011-A — Dispose every owned renderer context
+
+**Status / priority:** In progress; confirmed P2 teardown defect, acceptance pending. **Review:** RG-001. **Dependencies:** existing Pixi ownership/geometry leases; no artwork, hardware purchase or provider.
+
+**Work:** Dispose remaining renderer-owned GraphicsContexts after shared bird views detach, keeping global resource release disabled and preserving other live renderers. Diagnostic zero counters alone do not establish disposal.
+
+**Acceptance tests:** Capture actual installed-Pixi contexts before teardown and verify owned contexts clear instructions/GPU data and destroy exactly once. A second renderer must still draw and change palette/assets. Cover normal teardown, WebGL loss, idempotent destruction and at least three mount/destroy cycles, plus focused resource/cache and actual browser regressions. [15-surviving-context reproduction](../architecture/architecture-review-20261012.md#renderer-simulation-and-game-behavior).
+
+#### PB-011-B — Measure production and device performance
+
+**Status / priority:** Open production measurement; physical-device acceptance blocked on selected hardware, P2 release acceptance. **Review:** RG-002; retains historical GAP-03/PERF scope. **Dependencies:** declared representative workloads/budgets and pending GPU/device choice. A purchase or paid GPU service is not implied.
+
+**Acceptance tests:** Add a production-bundle measurement path with consistent warmup/sample counts and source fingerprints. Record actual simulation ticks, visible/waiting/deferred actors, backing dimensions and CPU work separately from frame pacing. Retain fixed-ticker pixel/behavior parity and current admission/quality limits; later repeat on the selected physical devices. Existing development-mode SwiftShader results and geometry-work reductions do not satisfy this acceptance. Optimize measured bottlenecks only; no blanket batching/reactivity rewrite is selected. [Historical measurements and limits](../architecture/architecture-review-20261012.md#renderer-simulation-and-game-behavior).
+
 ### PB-023 — Animate the illustrative yard environment, with continuous daylight/weather, deterministic replay and accessible owner preview controls.
 
 **Source / decision:** user decision; Agreed. **Implementation:** Bounded environment contracts/resolver, renderer playback and owner controls implemented. **Integration:** Local integrated bounded fixture checkpoint (E-ENV). **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.
@@ -109,6 +123,12 @@ Canonical requirements and acceptance for this topic. Stable IDs, decisions, dep
 **Tests and evidence:** [Environment contract/resolver tests](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/weather/environment.test.ts) (16) and [visual/playback tests](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/engine/environment-visuals.test.ts) (10) pass in the [E-ENV unit log](../delivery/LOCAL-EVIDENCE.md). Named assertions include “replays exactly without ambient time, randomness, settings mutation or shared presets”, “uses continuous lighting and solar position through every phase boundary and midnight” and “retargets from the visible blend and preserves held samples without clock catch-up”. The implemented [browser gate](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/environment-browser-checks.py) passes [47/47 assertions at the E-ENV UI revision](../delivery/LOCAL-EVIDENCE.md): actual changed pixels, interrupted transitions, clock/seed replay, pause/reduced motion, held GPU fallback, keyboard/320px controls and unchanged saved/public/account state. [Visual audit](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/docs/environment-visual-audit-20261009.md) records dedicated r4 pixels/video and limits; [full report](../delivery/LOCAL-EVIDENCE.md) establishes the complete frozen integration separately.
 
 **Dependencies:** PB-011, PB-013, PB-024, EN-001, EN-009. **Remaining gap:** Fixed solar motion/weather remain illustrative; real astronomy/weather providers, approved species art and biological validity are unverified. Software-rendered Chromium and 320px layout checks do not validate physical mobile hardware; native OS occlusion remains unverified despite tested visibility-handler suspension. SVG holds a captured static environment, not arbitrary moving actor-state recovery. **Next action:** Preserve deterministic replay, transient previews, fallback and privacy regressions during later integrations; validate real providers and approved art separately under EN-009/PB-021.
+
+#### PB-023-A — Decide whether live context recovery is required
+
+**Status / priority:** Decision pending, P3; current static reconstruction is supported behavior, not a confirmed new defect. **Review:** RG-004. **Dependencies:** an explicit product decision before implementation.
+
+**Acceptance:** Preserve honest static/reduced-motion captions and the captured environment/time under the current fallback. If exact live recovery is selected, specify and test actor positions/routes/claims, one renderer/listener owner, cleanup and repeated loss/remount; do not promise seamless recovery from static SVG reconstruction. [Observed fallback boundary](../architecture/architecture-review-20261012.md#renderer-simulation-and-game-behavior).
 
 ### PB-024 — Map the illustrative environment explicitly to bird activity and safe shelter choices.
 

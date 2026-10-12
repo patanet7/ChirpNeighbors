@@ -1,27 +1,60 @@
 # Reproducible local system gate
 
-Both repositories must be adjacent, or pass `--ui-repo`. Node 24, Python 3.12,
-Chromium and the pinned dependency locks are required. The checks create only
-synthetic accounts, recordings and technical pixels in temporary directories.
-They do not use real provider credentials, user media, model downloads or hosting.
+For ordinary app startup, use the [UI setup guide](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/runtime-safety-20261012/docs/setup.md). This page runs the larger two-repository verification suite; it is not required to see the fixture yard.
+
+Use Node 24.x, Python 3.12, Git, Chromium and the declared dependencies. The retained Linux runs used Node 24.19.0 and Python 3.12.14. The commands below use a POSIX shell from the **ChirpNeighbors repository root**, with the UI adjacent unless `CHIRP_UI_REPO` points to its absolute path. This documentation repair was checked against the actual runner/declarations; it is not a fresh macOS, Windows, container or hosted-CI execution claim.
+
+The suite creates synthetic accounts, recordings and technical pixels in temporary directories. Start from clean committed worktrees and an environment without real account/provider credentials. Do not run against owner data. Core, browser, optional ONNX and intake environments stay separate: core-model isolation deliberately rejects NumPy/ONNX in the core interpreter. The browser file includes **Playwright and Pillow**; intake needs its own NumPy/websockets/coverage pins.
+
+## Prepare explicit environments
+
+Run these in the same shell. The temporary tooling directory is unique and may be retained for warm reruns; nothing is installed into the system Python.
 
 ```sh
-python3 -m venv /tmp/chirp-system-venv
-/tmp/chirp-system-venv/bin/python -m pip install -r backend-inference/requirements-quality.lock
-python3 -m venv /tmp/chirp-onnx-venv
-/tmp/chirp-onnx-venv/bin/python -m pip install -r backend-inference/requirements-onnx-quality.lock
-cd ../birdsong-yard-sprites
-npm ci
-npm run tooling:install
-python3 -m pip install playwright==1.62.0
-python3 -m playwright install chromium
-cd ../ChirpNeighbors
-CHIRP_CHROMIUM=/path/to/chromium /tmp/chirp-system-venv/bin/python scripts/verify_system.py \
-  --ui-repo ../birdsong-yard-sprites \
-  --python /tmp/chirp-system-venv/bin/python \
-  --browser-python python3 \
-  --onnx-python /tmp/chirp-onnx-venv/bin/python \
-  --output-dir /tmp/chirp-system-verification
+set -eu
+chirp_main="$(pwd -P)"
+chirp_ui="${CHIRP_UI_REPO:-$chirp_main/../birdsong-yard-sprites}"
+chirp_ui="$(cd "$chirp_ui" && pwd -P)"
+chirp_tools="$(mktemp -d "${TMPDIR:-/tmp}/chirp-verify-tools.XXXXXX")"
+
+python3.12 -m venv "$chirp_tools/core"
+"$chirp_tools/core/bin/python" -m pip install -r "$chirp_main/backend-inference/requirements-quality.lock"
+python3.12 -m venv "$chirp_tools/browser"
+"$chirp_tools/browser/bin/python" -m pip install -r "$chirp_ui/requirements-browser.txt"
+python3.12 -m venv "$chirp_tools/onnx"
+"$chirp_tools/onnx/bin/python" -m pip install -r "$chirp_main/backend-inference/requirements-onnx-quality.lock"
+python3.12 -m venv "$chirp_tools/intake"
+"$chirp_tools/intake/bin/python" -m pip install -r "$chirp_main/backend-inference/requirements-intake-dev.txt"
+
+npm --prefix "$chirp_ui" ci
+npm --prefix "$chirp_ui" run tooling:install
+"$chirp_tools/browser/bin/python" -m playwright install chromium
+for chirp_scope in core browser onnx intake; do
+  "$chirp_tools/$chirp_scope/bin/python" -m pip check
+done
+```
+
+Stop on any failed command; do not continue with a partial environment. Playwright's browser download does not by itself supply every Linux browser system library. Satisfy the selected platform's documented prerequisites separately through its supported package source; no privileged package installation is hidden in these commands. Installing the ONNX packages is for synthetic technical tests, not a model-weight download or bird-classification validation.
+
+## Run the frozen suite
+
+Use the browser interpreter to locate the actual installed Chromium executable; the runner preserves `CHIRP_CHROMIUM`. All four Python paths are explicit, including `--intake-python`. Keep Node 24 on `PATH` for npm and native TypeScript scripts.
+
+```sh
+CHIRP_CHROMIUM="$("$chirp_tools/browser/bin/python" - <<'PY_BROWSER'
+from playwright.sync_api import sync_playwright
+with sync_playwright() as browser:
+    print(browser.chromium.executable_path)
+PY_BROWSER
+)"
+export CHIRP_CHROMIUM
+"$chirp_tools/core/bin/python" "$chirp_main/scripts/verify_system.py" \
+  --ui-repo "$chirp_ui" \
+  --python "$chirp_tools/core/bin/python" \
+  --browser-python "$chirp_tools/browser/bin/python" \
+  --onnx-python "$chirp_tools/onnx/bin/python" \
+  --intake-python "$chirp_tools/intake/bin/python" \
+  --output-dir "$chirp_tools/evidence"
 ```
 
 Use an unused output directory for each run. `--list` prints the exact gate
@@ -40,11 +73,16 @@ only from source-style ESLint; deterministic regeneration, runtime cases, genera
 declarations and formatting still check it. Existing prototype inference/hardware
 code is not claimed as part of the checked request service.
 
-The UI CI workflow independently runs its full quality and browser checks. The
-companion CI checks its pinned Python service and contracts. The aggregate command
-also verifies that the two repositories agree; independent single-repository CI
-does not establish that cross-repository fact. These workflow changes are local
-and have not been run by GitHub Actions or published.
+Per-repository CI and this aggregate are different evidence. The reviewed UI
+workflow declared a quality/browser list that omitted several existing suites;
+[EN-010-B](../engineering/roadmap.md#en-010-b--reconcile-hosted-and-local-suite-coverage)
+owns that inventory repair. The companion CI checks its pinned Python service,
+contracts and firmware scopes. Only the aggregate also establishes the paired
+repository agreement it actually executes. The [release record](../publication/20261011/README.md)
+retains the engine merge results: main's hosted checks passed, while the UI hosted
+job failed before recorded steps and remains unestablished by local proof. Consult
+[EN-010-A](../engineering/roadmap.md#en-010-a--establish-the-hosted-ui-job-outcome)
+for that separate diagnosis; do not infer a hosted pass from this document.
 
 The optional ONNX adapter has a separate dependency/test gate. Core service checks
 must continue to pass without NumPy, ONNX or trained model weights installed.
@@ -53,6 +91,15 @@ Synthetic evaluation measures technical pipeline behavior, never bird accuracy.
 Container configuration can be inspected with `docker compose config`. Container
 image execution remains a separate gate: this workspace's Docker build could not
 resolve the public package registry, although host installation/builds succeeded.
+
+## Historical suite evolution
+
+The paragraphs below retain earlier command/gate-count provenance. Their words
+“current”, “now” and “remaining” describe those dated checkpoints, not today's
+task state. The [PB/EN index](product-behavior-and-ideas.md) owns current work;
+`verify_system.py --list` owns the executable gate inventory for your checkout.
+The [97-gate source binding](../publication/20261011/README.md) applies only to its
+recorded revisions, and later architecture repairs need new candidate evidence.
 
 The lifecycle wave adds five gates to the retained 50: actual app/email/Google
 mock integration, lifecycle recovery HTTP, actual generated ONNX-to-confirmation
