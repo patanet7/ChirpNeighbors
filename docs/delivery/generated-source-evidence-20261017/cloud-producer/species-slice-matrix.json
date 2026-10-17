@@ -6684,5 +6684,83 @@
     "samplerVerification": "experiments/house-finch-male-blink-reuse-v1/quiet-sampler-verification.json",
     "canonicalSourceFrameBankSha256": "c0167544439669471ffa181b43c5c27a384ffdf2989baac038f1762af7f980dd",
     "actualRunningGenerationCalls": 0
-  }
+  },
+  "runtimeAcceptanceAudit": {
+    "experiment": "experiments/house-finch-male-blink-runtime-assessment-v2",
+    "state": "reviewed",
+    "nextState": "staged only after actual Mac intake",
+    "candidate": {
+      "id": "house-finch-male-blink-runtime-assessment-v2",
+      "species": "house_finch",
+      "variant": "adult-male",
+      "action": "idle-blink",
+      "recommendation": "one candidate for existing opt-in normal-yard review",
+      "sourceFrameIds": [
+        "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+        "frame.sha256.0fa7914a68b7afd39fa82d86e6b9d0b83ffc78051f65299d33e723dbbee43ee8",
+        "frame.sha256.a6638bd1e72d859bff1c3c7844d2092addc0fbcc36eced5bfc96a2085dff4732"
+      ],
+      "atlas": "blink-atlas96.png",
+      "manifest": "texture-review-manifest.json",
+      "profile": "chirp-texture-review-v1",
+      "placement": {
+        "x": 400,
+        "y": 300
+      },
+      "canonicalUIRef": "2e2f724f7b952179495e91f06f0d2d4575569595",
+      "canonicalIntake": "POST /api/texture-review using existing /candidate-yard supplied manifest/PNG controls",
+      "canonicalDecoderReceiptCreated": false,
+      "MacIntegrationPerformed": false,
+      "ownerApproval": false,
+      "artAccepted": false,
+      "newGeneratedDrawings": 0,
+      "newProductionClipsCounted": 0,
+      "nextQueuedAction": "Mac existing Sharp intake, verified opt-in yard playback, owner visual decision",
+      "generationRunning": false,
+      "fixedBodyExactEqualityRequiredForNaturalDrawnBlink": false,
+      "measurementLimits": {
+        "maxProjectedFromOpenOutputPx": 0.2096313728906053,
+        "maxProjectedPairwiseOutputPx": 0.29646353064078557,
+        "rasterCentroidMaxPx": 0.3121890109867074,
+        "rasterHausdorffMaxPx": 1.4142135623730951,
+        "rawRasterMedianMaxPx": 2,
+        "perFootGroundRowChangePx": 0,
+        "biologicalScaleApproved": false,
+        "anatomicalContactUncertainty": null
+      },
+      "ownerVisualReview": {
+        "status": "provisional-visual-acceptance-for-continued-use-at-normal-runtime-size",
+        "scope": "recent candidates owner reviewed, including current reassessment context; not blanket final acceptance of36slots",
+        "ownerWords": "[private wording omitted; provisional normal-size visual acceptance recorded]",
+        "relayedViaParent": "[private thread handle omitted]",
+        "receivedAt": "2026-10-17T17:47:43.429749+00:00",
+        "remainingRevisionTriggers": [
+          "obvious foot sliding",
+          "anatomy errors",
+          "distracting flicker"
+        ],
+        "minorZoomOnlySeams": "may remain documented",
+        "finalProductionApproval": false,
+        "MacIntegrationConfirmed": false
+      },
+      "ownerApprovalMeaning": "final production approval remains false; provisional normal-size visual acceptance recorded separately"
+    },
+    "independentReview": "experiments/house-finch-male-blink-runtime-assessment-v2/independent-review.json",
+    "ownerProvisionalReview": {
+      "status": "provisional-visual-acceptance-for-continued-use-at-normal-runtime-size",
+      "scope": "recent candidates owner reviewed, including current reassessment context; not blanket final acceptance of36slots",
+      "ownerWords": "[private wording omitted; provisional normal-size visual acceptance recorded]",
+      "relayedViaParent": "[private thread handle omitted]",
+      "receivedAt": "2026-10-17T17:47:43.429749+00:00",
+      "remainingRevisionTriggers": [
+        "obvious foot sliding",
+        "anatomy errors",
+        "distracting flicker"
+      ],
+      "minorZoomOnlySeams": "may remain documented",
+      "finalProductionApproval": false,
+      "MacIntegrationConfirmed": false
+    }
+  },
+  "naturalAnimationCriteriaCorrection": "ExactRGBA fixedbody equality only gates promised rig invariance. Natural drawn animation is reviewed at output scale/speed for identity, plausible motion, measuredcontact, scale, loop and artifacts; source hashes and runtime contracts remain strict."
 }

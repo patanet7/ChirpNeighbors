@@ -4,7 +4,9 @@ This checks **three already-retained drawings** from canonical House Finch male 
 
 **No new image call, drawing, pixel assembly or production clip.** Proposed timing has five phases but only three distinct existing frame IDs; repeated half/open references are timing/reuse, not new images. Global frame bank stays64drawings and verified production reuse stays0. All36matrix slots remain unaccepted.
 
-## Feasibility result
+**Criteria correction:** The natural-blink interpretation and next action below are superseded by [runtime-scale assessment](../house-finch-male-blink-runtime-assessment-v2/README.md). Exact body equality applies only to fixed-body rig promises; changed source pixels do not establish perceptual rejection. Historical source measurements are preserved. The new packet provides a96px straightRGBA30Hz opt-in candidate and independent review.
+
+## Historical feasibility result
 
 An unchanged male neutral is technically suitable as an **idle reduced-motion still fallback**, conditional on source and Mac admission. It preserves its own body/feet exactly and adds no animation. The actual canonical UI2e2f724f `sampleClip` function was read and its TypeScript syntax erased for a dependency-free source-function test: six reduced-motion samples stay on the first neutral; two normal-mode controls select other poses. This is a logical test carrier, not an admitted manifest or actual renderer run. No alternate sampler/engine is added.
 
@@ -16,7 +18,7 @@ The blink drawings are useful reference candidates. They visibly supply differen
 |Half|1.00|2.10%|0.94685|51,975|
 |Closed|2.24|2.31%|0.95031|51,257|
 
-These are retained registered1024px coordinates, not raw generator-layout compliance or anatomical foot tracking. The source pack previously applied integer translations to place silhouettes; no rescale/fitting was applied in this check. Pixel equality among visible protected body areas is only about0.0092%/0.0046% for half/closed. Body/foot gates were not relaxed. Source body/feather/plumage drift remains visible.
+These are retained registered1024px coordinates, not raw generator-layout compliance or anatomical foot tracking. The source pack previously applied integer translations to place silhouettes; no rescale/fitting was applied in this check. Pixel equality among visible protected body areas is only about0.0092%/0.0046% for half/closed. The exact rig equality test remains unchanged. Its source pixel counts are not semantic animation-quality scores; runtime-scale visual assessment is separate.
 
 `review.html` is self-contained with96px whole-canvas references, source eye-detail crops and proposed1400/80/90/80/650ms timing. The GIF demonstrates reference ordering only; it is not a newly produced or admitted blink clip. Seven evidence checks pass, including source identities, canonical blob agreement, count honesty and retention of the reuse failure.
 
@@ -34,4 +36,4 @@ python3 verify_reference_set.py
 
 The canonical cloud checkout is consulted for an additional committed-byte check when available; other environments report that optional verification as skipped rather than inventing a success. No model/runtime dependency install occurs.
 
-Next queued: owner review of existing male eye/head references and unchanged neutral still; parent/Mac admission of the still, or an explicit eyelid-mask decision before any animated reuse. The separate female phase1 jaw/phase3 overlap remains pending owner review; no further seam edit or generation occurred in this slice.
+Current next action: existing Mac RGBA intake and opt-in yard review of the actual three-drawing blink in runtime-assessment-v2. The separate female phase1 jaw/phase3 overlap remains pending owner review; no further seam edit or generation occurred in this slice.
