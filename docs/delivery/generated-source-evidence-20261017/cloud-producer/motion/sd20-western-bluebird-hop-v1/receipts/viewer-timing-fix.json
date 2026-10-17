@@ -1,0 +1,26 @@
+{
+  "batchId": "sd20-western-bluebird-hop-v1",
+  "fixedAt": "2026-10-17T21:53:06.604426+00:00",
+  "file": "review.html",
+  "oldHTMLSHA256": "4235c21a4013654dc0d6f7b4d0958d3a110abf8a8c1e09e0e2f7cfff5932b526",
+  "newHTMLSHA256": "6c97e4668039bb3fdb6eb6b3e7427eb8b24e65f14686025b2a2f60a6b4784d87",
+  "failure": "First requestAnimationFrame callback timestamp can precede the fresh performance.now start set by image onload, especially when loaded through page.set_content. A negative tick then selected undefined and threw reading pose.",
+  "fix": "Clamp elapsed to[0,end/tickRate] and tick index to[0,end]. Keep labeled manual Replay reset and one-shot stop at end.",
+  "scope": "Viewer only. Source PNGs, primary IDs, exact prompt, trajectory, intake and primary manifests unchanged. Historical build_batch.py template is frozen, not rerun; this explicit viewer patch is part of sealed deliverable.",
+  "immutableInputSHA256": {
+    "prompt.txt": "4582228e569f65c5ad450828a0d17b225bd5548886e965d4512e22c45293d52d",
+    "intake-manifest.json": "71060d1df852a7286c1798b88e4c4f4b071e6498b4718849f06e78ad49c2dd73",
+    "motion-manifest.json": "b4e3594d95fe5b14afd6ada639a9f0d1278ade72d22841ea598e2a30d2b6792a",
+    "PRIMARY-SOURCE-MANIFEST.json": "34d9fccb7c0c5b7a26727bf9ef42075ac47c30d8c721fbd5533527d89cdb96aa",
+    "original.png": "590c404ac1dc2368ac244125442823209f1d984b6aec342e2b05ce89b9866dd2",
+    "frames/02-airborne-tuck192.png": "525fca50e2a6f8789d455e953e21ee272d6a8eece0198f7eabf4e6be61e15392",
+    "frames/03-descending-extension-source1024.png": "39680cf9297d7fe3b52ed49aaead5ef34aa68fb1ca50cc3512245931403aef13",
+    "frames/02-airborne-tuck-source1024.png": "e11a6c150eae1cb686b9fc6f9c0b52955bf0b8f9de3762aca78d4128a7ab7390",
+    "frames/04-supported-settle192.png": "a1d8e5bf5bb228edb564193c3fa3ef3ef4ab0d333f6dce6c1e187d28762a6dbe",
+    "frames/03-descending-extension192.png": "34031e03a7a63e93ba75e1d0fcc9830c7005bfed151703b56fc47c5dedcf9d03",
+    "frames/01-crouch192.png": "35b44a4c68cd443a9f62dabe7b3afa8277fee3e9269d33f980d875a56a9ce773",
+    "frames/01-crouch-source1024.png": "d91108a497436c693bc37fe7c241485f32445bd55b69acb3f067f473a6dd227d",
+    "frames/04-supported-settle-source1024.png": "925c38d92f1497b9271086af617014d993d3ec1cfce6f228723a8c84ebb7c006"
+  },
+  "allFrozenInputsUnchanged": true
+}

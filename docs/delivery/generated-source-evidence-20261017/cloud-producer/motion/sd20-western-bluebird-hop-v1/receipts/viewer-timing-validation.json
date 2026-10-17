@@ -1,0 +1,65 @@
+{
+  "status": "passed",
+  "method": "Real Chromium page.setContent with controlled requestAnimationFrame callback timestamps, negative/stale timestamp and far-future terminal timestamp; old-code in-memory control reproduces defect. No source files altered.",
+  "testedAt": "2026-10-17T21:53:27.176Z",
+  "htmlSHA256": "6c97e4668039bb3fdb6eb6b3e7427eb8b24e65f14686025b2a2f60a6b4784d87",
+  "results": [
+    {
+      "variant": "old-control",
+      "staleCallback": {
+        "error": "Cannot read properties of undefined (reading 'pose')",
+        "state": {
+          "tick": 0,
+          "pose": "supported-settle",
+          "root": [
+            0,
+            0
+          ],
+          "grounded": true,
+          "playing": true
+        }
+      },
+      "terminalCallback": null,
+      "manualReplayStaleCallback": null,
+      "pageErrors": []
+    },
+    {
+      "variant": "fixed",
+      "staleCallback": {
+        "error": null,
+        "state": {
+          "tick": 0,
+          "pose": "supported-settle",
+          "root": [
+            0,
+            0
+          ],
+          "grounded": true,
+          "playing": true
+        }
+      },
+      "terminalCallback": {
+        "tick": 60,
+        "pose": "supported-settle",
+        "root": [
+          20,
+          0
+        ],
+        "grounded": true,
+        "playing": false
+      },
+      "manualReplayStaleCallback": {
+        "tick": 0,
+        "pose": "supported-settle",
+        "root": [
+          0,
+          0
+        ],
+        "grounded": true,
+        "playing": true
+      },
+      "pageErrors": []
+    }
+  ],
+  "noCaptureImagesCreated": true
+}
