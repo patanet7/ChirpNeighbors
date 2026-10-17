@@ -1,0 +1,15 @@
+# Four seasons for every current San Diego yard
+
+This increment provides 20 actual reference-guided imagegen foundations: spring, summer, autumn and winter for each of the five existing yard families (coastal, oak clearing, Mediterranean courtyard, inland canyon and managed patio). Existing canonical scene IDs are reused with explicit season variant IDs. The four-season requirement also applies to future yards; the two unmade compositions remain planned, rather than counted as generated art.
+
+Start with `seasonal-catalog.json`. All `source_original` and `source_manifest` paths are relative to the repository root and resolve to preserved canonical files. `manifest.json` reconciles 185 source/evidence records, reusing seven earlier canonical records by hash. Original image and exact prompt bytes are unchanged. No ZIP wrappers or private Library locators are committed. Per-yard source metadata retains anchors, footprints, geometry diagnostics, input ownership, review notes and state/wind needs.
+
+Each new original is an opaque 1536×1024 whole background. New seasonal outputs are flattened; they do not recover separate sky/ground/plant layers. Earlier independently generated plates remain preserved. The foreground stays clear of removable plants, pots and furniture; place shared independent sprites separately. Distant vegetation and painted turf/soil/stone remain fixed scenery.
+
+Regional changes are intentionally subtle. Native evergreen cover is not given blanket orange autumn color, and low-elevation winter has no default snow. Representative seasonal light and moisture do not implement real weather. Placed plants retain independent species, irrigation, healthy/dry and phenology choices; missing plant states remain pending. Factual text references: [Cabrillo plant communities](https://www.nps.gov/cabr/learn/nature/plant-communities.htm) and [chaparral climate](https://www.nps.gov/subjects/nnlandmarks/chaparral.htm); no external reference-image pixels were used.
+
+Review views crop `[0,160,1536,1024]` and use nearest scaling to 960×540/384×216. Actual 20-cell contact, per-yard normal/mobile sheets and geometry proxies were inspected. Sampled architecture/border shifts are small; these are estimates, not pixel-lock or runtime contact proof. Inland gravel is comparatively detailed and autumn distant foliage more golden than intended; oak summer has a fine fixed straw fringe. These remain disclosed provisional imperfections at normal small display size.
+
+All 26 frozen source/review ZIPs were verified independently and are below 8 MB, with actual originals and exact prompts present. Source Git storage is separate from application staging, integration and art acceptance. Automatic seasonal switching, full wind/physics and actual Mac scene fitting remain pending. No application code, saved yard or active runtime catalog changed.
+
+Run `python3 assets/generated/2026-10-17/regional-yard-packs/seasons-01/verify_seasons.py` from a checkout. The parent publication validator can also check the combined source tree.

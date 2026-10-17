@@ -1,0 +1,38 @@
+{
+  "status": "practical_static_candidates_with_minor_regeneration_differences",
+  "accepted": false,
+  "new_generation_calls": 4,
+  "completed_calls": 4,
+  "active_calls": 0,
+  "uncertain_calls": 0,
+  "retries": 0,
+  "actual_worker_views": [
+    "previews/four-seasons-normal-contact.jpg",
+    "previews/four-seasons-mobile-contact.jpg",
+    "previews/stone-border-source-vs-seasons.jpg",
+    "previews/source-contact-landmarks.jpg"
+  ],
+  "findings": [
+    "Four distinct actual seasonal imagegen originals, same 1536x1024 camera and border layout.",
+    "Open pale stage retained with no near oak, pots, furniture, birds or separate planted clumps.",
+    "Spring fresh/pale; summer warm dry; autumn muted olive/tan with peripheral litter; winter cool cloudy/moist, no snow.",
+    "Stone-border pattern shifts 0..sqrt(2) source pixels across five inspected patches; less than 0.36 mobile pixels. Texture changes prevent a pixel-identity claim.",
+    "Summer fine straw-like margin strokes remain baked/static; no new separability implied."
+  ],
+  "geometry_method_limit": "Highpass image-pattern correlation is not independently labeled semantic stone/contact ground truth. Five inspected local patches do not certify every source pixel or saved-layout collision.",
+  "minor_imperfection_policy": "Evaluate practical normal/mobile appearance; no blind retries for small texture/geometry variations.",
+  "parent_scoped_review": {
+    "status": "practical_static_candidate_pass",
+    "actual_views": [
+      "previews/four-seasons-mobile-contact.jpg"
+    ],
+    "findings": "Subtle region-appropriate seasons and clean stage. Baked straw fringe and estimated subpixel mobile border drift acceptable provisionally. No pixel-lock, full wind or runtime acceptance inferred."
+  },
+  "pending": [
+    "owner acceptance",
+    "actual saved-yard/Mac runtime placement"
+  ],
+  "wind_or_physics_implemented": false,
+  "flexible_groups_wind_enabled": false,
+  "old_sources_and_holds_preserved": true
+}
