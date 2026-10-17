@@ -1,6 +1,6 @@
 # Surface water and snow: reviewed-core design proposal
 
-**Status:** Independently reviewed specification and bounded fixed-domain pure-core experiment, 2026-10-17. That checkpoint passed 33 focused tests and received code-review approval for its exact isolated source hashes. A separately authorized bounded opt-in renderer/local-interaction extension is now in progress; its fresh tests/review/browser acceptance are pending below. The last verified live `/art-lab` receipt covers the exploratory dimensionless prototype, not that extension. The full architecture, physical calibration and production acceptance remain unimplemented/unearned. [PB-023-B](../product/yard-and-behavior.md#pb-023-b--exercise-opt-in-basin-water-and-exposed-surface-snow-in-the-existing-yard-renderer) owns task status. No provider, production artwork or persisted yard migration is included. `U:` paths refer to the paired UI repository. Keep the established yard/sidebar available and shared component defaults opt-in.
+**Status:** Independently reviewed specification and bounded fixed-domain pure-core experiment, 2026-10-17. That checkpoint passed 33 focused tests and received code-review approval for its exact isolated source hashes. A separately authorized bounded opt-in renderer/local-interaction extension is now in progress; a fresh focused checkpoint is reported, while its current independent review and browser acceptance remain pending. The last verified live `/art-lab` receipt covers the exploratory dimensionless prototype, not that extension. The full architecture, physical calibration and production acceptance remain unimplemented/unearned. The [single current task index](../delivery/product-behavior-and-ideas.md#current-work-and-evidence--2026-10-17) owns PB-023-B delivery status; its [topic entry](../product/yard-and-behavior.md#pb-023-b--exercise-opt-in-basin-water-and-exposed-surface-snow-in-the-existing-yard-renderer) retains detailed requirements. No provider, production artwork or persisted yard migration is included. `U:` paths refer to the paired UI repository. Keep the established yard/sidebar available and shared component defaults opt-in.
 
 The [checkpoint receipt](../delivery/surface-workbench-20261017/README.md) separates prototype tests/browser labels from the new pure experiment. The [SI-core benchmark data](../delivery/surface-workbench-20261017/si-core-benchmark.json) measures fixed-domain CPU work only, not Pixi, gameplay, GPU or physical mobile hardware.
 
@@ -169,7 +169,8 @@ physical mode is opt-in and must be mutually clear with the old illustrative
 water/snow overlay so the same input is not counted or drawn twice.
 
 The [integration acceptance checklist](../delivery/surface-workbench-20261017/renderer-integration-checklist.md)
-owns the concrete pending scenarios and evidence boundary for this extension.
+records the supporting scenarios and evidence boundary for this extension under the
+[single current task index](../delivery/product-behavior-and-ideas.md#current-work-and-evidence--2026-10-17), which owns PB-023-B delivery status.
 No full fluid/momentum, freezing, sloshing, thermal/biological calibration,
 production artwork or real provider claim is authorized by this slice.
 
