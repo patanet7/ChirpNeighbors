@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "speciesId": "anna_s_hummingbird",
+  "status": "staged-provisional-source-candidate",
+  "newDrawings": 4,
+  "newCanonSpecies": 0,
+  "relativeScale": {
+    "presentationDensity": 1.5,
+    "worldCanvas": [
+      64,
+      64
+    ],
+    "perchedTargetVisibleLengthWorld": 34,
+    "measuredPerchedVisibleLengthsWorld": [
+      32.666666666666664,
+      32.666666666666664
+    ],
+    "sourceCanvas": [
+      1024,
+      1024
+    ],
+    "outputCanvas": [
+      96,
+      96
+    ],
+    "sourceToOutputScale": 0.09375,
+    "noPerFrameFit": true,
+    "scaleBiologicallyApproved": false,
+    "note": "One shared density for all4frames; retains native differences in drawn silhouette. Canon reference is34world units; this batch approximates that size."
+  },
+  "minimumCoverage": [
+    {
+      "action": "perched idle/look/blink",
+      "priority": 1,
+      "basis": "product screen-time priority, not measured natural-history frequency",
+      "generated": true,
+      "drawings": 2,
+      "rigged": false,
+      "packetBound": true,
+      "appBound": false,
+      "visuallyVerified": "Source poses and normal-world-size stills inspected; actual Chromium native APNG sampled11times,2distinctstates. Continuous human playback and actual yard review pending.",
+      "intake": [
+        "idle-atlas96.png",
+        "texture-review-manifest.json"
+      ],
+      "timingTicks": [
+        66,
+        3,
+        24
+      ],
+      "tickRate": 30,
+      "notes": "100ms closed hold; look pose is the repeated open hold. Allbody changes are drawn, not bobbing."
+    },
+    {
+      "action": "hover",
+      "priority": 1,
+      "basis": "species-specific product override; no universal behavioral frequency claim",
+      "generated": true,
+      "drawings": 2,
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "visuallyVerified": "Source wing poses and normal-world-size stills inspected; Chromium sampled11times,2distinctstates. Continuous human review and actual yard review pending.",
+      "isolationPreview": "hover-study.apng",
+      "timingTicks": [
+        1,
+        1
+      ],
+      "tickRate": 30,
+      "notes": "Two actual wing drawings;15visual cycles/s is a stylized sample, not a biological wingbeat claim. Keep fixed airbornebody, no feet-ground contract. RequiresMac actor/flight binding; not admitted asidle."
+    },
+    {
+      "action": "short airborne reposition",
+      "priority": 2,
+      "generated": false,
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "visuallyVerified": false,
+      "proposedRuntimeBinding": "reuse hover sprites, interpolate actorflight path; never label translation new wing drawing"
+    },
+    {
+      "action": "nectar feeding",
+      "priority": 3,
+      "generated": false,
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "visuallyVerified": false,
+      "proposedRuntimeBinding": "hold stable hover at authored flower target; reference beak-tip aboutoutput(76,52), measureexact perframe before binding",
+      "missing": "flower anchor collision/offset and neck/tongue feeding drawing"
+    },
+    {
+      "action": "preen/takeoff/landing/rest",
+      "priority": 4,
+      "generated": false,
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "visuallyVerified": false,
+      "missing": "no dedicated generated action poses"
+    }
+  ],
+  "contacts": {
+    "perched": [
+      {
+        "id": "foot-1",
+        "x": 53,
+        "y": 74
+      },
+      {
+        "id": "foot-2",
+        "x": 59,
+        "y": 73
+      }
+    ],
+    "perchAnchorOutput": [
+      55,
+      75
+    ],
+    "hoverGroundContact": null,
+    "hoverBeakTipOutputApproximate": [
+      76,
+      52
+    ],
+    "physicalSupportApproved": false,
+    "note": "Declared commonpositivealpha foot pixels satisfy data registration; anatomicalfeet/root contact still normal-size review. Hover has no ground contacts; do not reuse perchedfeet contract."
+  },
+  "macIntake": {
+    "path": "existing /candidate-yard reviewTexture intake",
+    "serverCanonicalReceipt": "pending actual Sharp build; never fabricated",
+    "yardPlayback": "pending",
+    "profile": "chirp-texture-review-v1"
+  },
+  "issues": [
+    "Nativeatlas1254\u00b2 differed fromrequested1536\u00b2; documented extraction split atglobaly600 avoids upperhoverwing spill.",
+    "Perched source silhouette widths differ by about4percent; both visible output widths are49pixels,32.67world units at density1.5. No per-frame fitting or source-pixel equality gate applied.",
+    "Fast two-pose hover may strobe; keep isolated until normal-size continuous playback review.",
+    "Noactor/physicsbinding or canonicalSharpadmission performed here."
+  ]
+}
