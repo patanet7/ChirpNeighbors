@@ -165,3 +165,7 @@ FirstbatchSD20-reuse-01 is the existingmale96pxblink handoff fromPR17 (mergedae9
 ## Action priorities and concrete motion handoff
 
 `release/san-diego-20-v1/action-priority-matrix.json` ranks20species/140productslots byintendedscreenuse, explicitlynotbiologicalfrequency. Generated/rigged/packetbound/appbound/verifiedstatesareseparate; nofixedframecounts. `motion/sd20-anna-phoebe-towhee-v1` retainsfreshUIa8d366contracts, unchangedstaticintake, exacttargetgeometry andboundedPhoebe/Towheehoptransformproofs (0plantedrootdrift,11airborneticks,exactlanding). Notcurrentyardimplementation. UprightTowheegroundseedisoutofrange; inspectiononly,nofabricatedpeck/ingestion. SeparateAnna/Phoebe/Towheeactionworkersandthree missingcanonsaredisjoint; pendingdrawingsnotcountedasadmittedmotion.
+
+## Completed source batch: sd20-next-three-canon-v1
+
+`new-species/sd20-next-three-canon-v1` retainsonecompletednativecall/6newdrawings with exactprompt/nativeoriginal/immutableIDs, PNGexports, manifestsandnormal-sizepreviews. Prior67drawingIDsunchanged; sourcebanknow73, original/promptpairs15. Naturalposequalityisreviewedatoutputsize; sourcepixelidentityremainsstrict. Appbinding/canonicalSharpreceipt/actualyardverificationpending; no fullactionsetor20completeclaim. Per-speciesprioritycoverageupdatedwithsourceandpacketstatesseparatefromappauthority.
