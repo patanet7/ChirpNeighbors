@@ -1,0 +1,117 @@
+{
+  "policy": {
+    "status": "PROPOSED_ARTIST_POLICY_NOT_IMPLEMENTED",
+    "physics_calibrated": false,
+    "stiffness_definition": "Dimensionless artist resistance parameter0..1, larger meansless motion; not spring constant or measured physical stiffness.",
+    "caps_definition": "Maximum absolute proposed rotation from rest and tip displacement at1536x1024 scene; both caps apply, choose more restrictive. No displacement of roots/contact pivots.",
+    "classes": {
+      "rigid": {
+        "stiffness": 1.0,
+        "mild_rotation_deg": 0,
+        "strong_rotation_deg": 0,
+        "mild_tip_displacement_px": 0,
+        "strong_tip_displacement_px": 0,
+        "root_translation_px": 0,
+        "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+      },
+      "flexible_branch": {
+        "stiffness": 0.85,
+        "mild_rotation_deg": 0.6,
+        "strong_rotation_deg": 1.8,
+        "mild_tip_displacement_px": 2,
+        "strong_tip_displacement_px": 5,
+        "root_translation_px": 0,
+        "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+      },
+      "foliage_mass": {
+        "stiffness": 0.65,
+        "mild_rotation_deg": 0.8,
+        "strong_rotation_deg": 2.2,
+        "mild_tip_displacement_px": 3,
+        "strong_tip_displacement_px": 7,
+        "root_translation_px": 0,
+        "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+      },
+      "grass_tip": {
+        "stiffness": 0.45,
+        "mild_rotation_deg": 1.0,
+        "strong_rotation_deg": 3.0,
+        "mild_tip_displacement_px": 1,
+        "strong_tip_displacement_px": 3,
+        "root_translation_px": 0,
+        "pivot_rule": "Base of isolated blade/tipgroup; lawnpaint/soil/rootline remainrigid. No whole-groundwarp."
+      }
+    },
+    "art_safety_limits": {
+      "ground_warp": false,
+      "root_sliding": false,
+      "pot_or_trunk_sway": false,
+      "scale_stretch_allowed": false,
+      "leaf_scale_range": [
+        1,
+        1
+      ],
+      "alpha_or_lightness_flicker": "No procedural opacity/color pulsation; nearest resampling or subpixel treatment must be reviewed for pixel shimmer.",
+      "occlusion": "Motion mustrespectstaticfrontpotrim/branchjunction; masksnotyetavailable.",
+      "review": "Mild/strong areartistlabels only, no weather-speed conversion. Reject visible jointgaps, leafstretch, clippedtips or groundcontactdrift."
+    },
+    "optional_loose_leaves": {
+      "status": "missing_not_implemented",
+      "stiffness": null,
+      "pivot": null,
+      "amplitude_caps": null,
+      "reason": "Detachedparticleart/path/emissionrulesnotdesigned; no blanketautumnemission."
+    }
+  },
+  "full_wind_implementation": false,
+  "actual_static_layers": [
+    "distance.r2",
+    "ground.r1",
+    "oak_wood.r1"
+  ],
+  "intended_flexible_file": "oak_foliage.r1",
+  "actual_flexible_leaf_only_separation": false,
+  "actual_file_contains_majorwood": true,
+  "actual_optional_compound_motion_allowed": false,
+  "global_foliage_pivot": null,
+  "pivot_unresolved_reason": "Generatedfoliagecontainsmajorbranches; no anatomicalleaf/branchmask. Oneglobalpivotwouldmovefixedwoodand unrelatedleafmasses.",
+  "group_records": [
+    {
+      "id": "main_oak_root",
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/oak-wave05/originals/oak-wood-r1.png",
+      "source_visible_alpha_bounds": [
+        0,
+        0,
+        672,
+        1024
+      ],
+      "pivot_scene_px": [
+        95,
+        1015
+      ],
+      "basis": "artistrootestimate, staticcontact",
+      "motion_class": "rigid",
+      "actual_rotation_deg": 0
+    },
+    {
+      "id": "compound_leaf_branch_overlay",
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/oak-wave05/originals/oak-foliage-r1.png",
+      "source_visible_alpha_bounds": [
+        13,
+        3,
+        880,
+        690
+      ],
+      "pivot_scene_px": null,
+      "reason": "Leaf-onlygroups/jointsnotseparated; majorwoodpresent, motionHOLD",
+      "required_motion_classes": [
+        "flexible_branch",
+        "foliage_mass"
+      ],
+      "implemented": false
+    }
+  ],
+  "per_group_masks": "missing",
+  "optional_loose_leaves": "missing",
+  "grass_tips": "none_as_independent_art; soil/litterstatic"
+}

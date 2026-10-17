@@ -1,0 +1,19 @@
+# ChirpNeighbors — OBJECT THEME PACKS
+
+This track delivers 20 static production entries: 19 new object families plus the `blue_white_glazed` variant of existing canonical `object.pedestal_birdbath`. The first 12 object assets are preserved. Together they form 32 production entries in 31 canonical families.
+
+Five actual imagegen sheets produced four entries each: weathered cedar utility props; terracotta/ceramic garden props; Spanish/Mediterranean seating, bath variant, lighting and decor; compact balcony planter, chair, feeder and privacy trellis; coastal/balcony lighting and decor. Original images, exact prompts and actual supplied reference hashes are retained. Imagegen model/seed/license remain unknown where not exposed. No Blender or code-painted art was used.
+
+`track-intake.json` is a delta for the parent shared canonical inventory. `themed-collections.json` is a derived seven-collection mapping/queue feed, not a competing ledger. Theme, material, color, size, weathering, functional affordance, region and seasonal/holiday state are separate dimensions. Mediterranean courtyard, coastal cottage and compact balcony each now have generated/reused candidate coverage for planter, seating, feeder/bath, fence/trellis, lighting and decor. The other four collections retain specific family gaps in the parent queue feed.
+
+The canonical bath identity is `asset_id=object.pedestal_birdbath`, `family_id=object.pedestal_birdbath`, `variant_id=blue_white_glazed`. An earlier proposed dotted planning label may appear in frozen first-material archive metadata snapshots; it is not a new canonical family. `canonical-identity-addendum.json` corrects that planning label. Import actual manifest asset/variant records and the latest derived mapping.
+
+All art is flattened. Body/contact shadow, water, lids, grouped logs/saucers, light bulbs and chime parts are not independent production layers. Geometry includes provisional physical dimensions, root pivots, ground-contact polygons, perch/feeding/water points and mounting anchors. Rig attachments, wind, wet/dry, lit/unlit, optional snowcaps and holiday slots are metadata or missing variants, not animation, physics, ecological behavior, water simulation, emitted light, irrigation or runtime alignment. San Diego has no default orange-fall or snow overlay.
+
+Native alpha, full silhouettes, crop separation and light/dark/checker composites were reviewed. Scope does not include owner style acceptance or runtime validation. Source chair and privacy trellis crossed a grid boundary; narrowly documented sibling-region exclusions remove only neighboring object fragments during extraction. No art was repainted or color-keyed. Strict logical pixel-grid conformity remains pending because texture and edge shading are dense. Sources, exact extraction rectangles and derivative hashes are preserved.
+
+Themes 3–5 actually used inspected local generated reference sheets (recorded in `actual-generation-references.json` and exact `tool-call-records.json`). Historical Library reference ZIP pixels were inaccessible through HTTP 403 and were not supplied to these calls. Source rights are not invented.
+
+Each independently usable theme ZIP is below 8 decimal MB and contains its original PNG, exact prompt, four exact sprite files, filtered intake/provenance/placement/state contracts, previews and member hashes. `delivery/` contains ZIP CRC/hash/source-byte verification receipts. The final metadata package includes the complete corrected intake, seven-collection mapping, identity addendum, all-20 contact and retained source scripts.
+
+Generated/scoped-reviewed candidates only; not staged, integrated or accepted. Canonical intake is `pending_mac_verification`; commit, remote SHA and PR are null. No Git or Mac application edit occurred. Generation is stopped after the explicit first-priority collection-coverage increment, pending parent/Mac review and canonical relay.

@@ -1,0 +1,129 @@
+{
+  "asset_id": "scene.san_diego_compact_marine_courtyard",
+  "variant_id": "analyst_reference_guided_proof01_v1",
+  "baseline": {
+    "asset_id": "scene.san_diego_managed_patio",
+    "path": "prior_project_yard_baseline",
+    "sha256": "0a4de124042a7820837bf60b73b82596ffdec95e845c76f0fb06b03a626689ab",
+    "alignment": "Different yard layout/material/lighting. Equal normalized screen-region comparison only; no physical alignment or same-world-contact claim."
+  },
+  "method": "Linear sRGB Rec.709 luminance; normalized lower-middle stage ROI [350,700,1220,980] on 1536x1024. Resize whole scene with Lanczos for stated review sizes. Texture proxy is mean adjacent-pixel luminance difference. Flat luminance .05 and .8 are hypothetical test values only, not real birds.",
+  "before": {
+    "1536": {
+      "render_dimensions_px": [
+        1536,
+        1024
+      ],
+      "stage_roi_px": [
+        350,
+        700,
+        1220,
+        980
+      ],
+      "stage_median_linear_luminance": 0.49949,
+      "stage_luminance_std": 0.13902,
+      "stage_p90_minus_p10": 0.34983,
+      "mean_adjacent_pixel_luminance_step": 0.02235,
+      "flat_dark_proxy_contrast_ratio": 5.495,
+      "flat_light_proxy_contrast_ratio": 1.547
+    },
+    "768": {
+      "render_dimensions_px": [
+        768,
+        512
+      ],
+      "stage_roi_px": [
+        175,
+        350,
+        610,
+        490
+      ],
+      "stage_median_linear_luminance": 0.49849,
+      "stage_luminance_std": 0.13692,
+      "stage_p90_minus_p10": 0.34789,
+      "mean_adjacent_pixel_luminance_step": 0.02843,
+      "flat_dark_proxy_contrast_ratio": 5.485,
+      "flat_light_proxy_contrast_ratio": 1.55
+    },
+    "360": {
+      "render_dimensions_px": [
+        360,
+        240
+      ],
+      "stage_roi_px": [
+        82,
+        164,
+        286,
+        230
+      ],
+      "stage_median_linear_luminance": 0.4973,
+      "stage_luminance_std": 0.13248,
+      "stage_p90_minus_p10": 0.3436,
+      "mean_adjacent_pixel_luminance_step": 0.03144,
+      "flat_dark_proxy_contrast_ratio": 5.473,
+      "flat_light_proxy_contrast_ratio": 1.553
+    }
+  },
+  "after": {
+    "1536": {
+      "render_dimensions_px": [
+        1536,
+        1024
+      ],
+      "stage_roi_px": [
+        350,
+        700,
+        1220,
+        980
+      ],
+      "stage_median_linear_luminance": 0.18184,
+      "stage_luminance_std": 0.04477,
+      "stage_p90_minus_p10": 0.10095,
+      "mean_adjacent_pixel_luminance_step": 0.01168,
+      "flat_dark_proxy_contrast_ratio": 2.318,
+      "flat_light_proxy_contrast_ratio": 3.666
+    },
+    "768": {
+      "render_dimensions_px": [
+        768,
+        512
+      ],
+      "stage_roi_px": [
+        175,
+        350,
+        610,
+        490
+      ],
+      "stage_median_linear_luminance": 0.18192,
+      "stage_luminance_std": 0.04395,
+      "stage_p90_minus_p10": 0.09909,
+      "mean_adjacent_pixel_luminance_step": 0.01559,
+      "flat_dark_proxy_contrast_ratio": 2.319,
+      "flat_light_proxy_contrast_ratio": 3.665
+    },
+    "360": {
+      "render_dimensions_px": [
+        360,
+        240
+      ],
+      "stage_roi_px": [
+        82,
+        164,
+        286,
+        230
+      ],
+      "stage_median_linear_luminance": 0.18159,
+      "stage_luminance_std": 0.04124,
+      "stage_p90_minus_p10": 0.09786,
+      "mean_adjacent_pixel_luminance_step": 0.01857,
+      "flat_dark_proxy_contrast_ratio": 2.316,
+      "flat_light_proxy_contrast_ratio": 3.67
+    }
+  },
+  "caveats": [
+    "Proxy metrics do not measure bird recognition, species color, motion, occlusion, runtime scale, accessibility compliance or actual contact readability.",
+    "A lower luminance variance/gradient can indicate a quieter stage, but darker lawn may reduce dark-bird contrast.",
+    "Different layouts/materials mean this is a value/composition comparison, not controlled A/B or registered physical alignment.",
+    "No artificial bird markers or fake bird canon were added."
+  ]
+}

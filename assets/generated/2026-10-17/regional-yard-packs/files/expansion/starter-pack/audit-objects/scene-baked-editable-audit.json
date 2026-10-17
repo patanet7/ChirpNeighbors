@@ -1,0 +1,4814 @@
+{
+  "schema_version": "1.0.0",
+  "report_type": "read_only_scene_baked_editable_audit",
+  "created_at": "2026-10-17T17:59:15.383002+00:00",
+  "writes_confined_to": "source-unpublished/expansion/starter-pack/audit-objects",
+  "scope": "Five scene variants in three requested source directories; sources unchanged; derived evidence only, not a competing canonical inventory",
+  "inspection_method": "Actual original scene layers and composites inspected; manifest identity and functional fields read from authoritative production manifests; exact source-over reconstruction verified against current full previews",
+  "scenes": [
+    {
+      "asset_id": "scene.san_diego_coastal_urban",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/yards/manifest.json",
+      "baked_contents": [
+        "sky, coast/distant hills/roofs/palms and canopy",
+        "stucco wall",
+        "large left tree trunk/canopy and shadows",
+        "border shrubs/flowers/succulents, stones and foreground planting",
+        "central decomposed-granite ground and right pavers"
+      ],
+      "layers": [
+        {
+          "id": "flattened_base",
+          "status": "generated",
+          "separable": false,
+          "contents": "sky, distant landscape, boundaries, ground and edge plants baked into one RGB file",
+          "path": "originals/coastal_urban_base_original.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/originals/coastal_urban_base_original.png",
+            "bytes": 2943523,
+            "sha256": "16e33213663e41cb627d3de87834da9bd34fc0c64b6352d3d27e684dec5f084f",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGB",
+            "alpha_extrema": [
+              255,
+              255
+            ]
+          },
+          "classification": "fixed_flattened_scenery"
+        },
+        {
+          "id": "foreground_overlay",
+          "status": "generated",
+          "separable": true,
+          "contents": "independently generated corner accents; not segmentation of base",
+          "path": "originals/coastal_urban_overlay_original.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/originals/coastal_urban_overlay_original.png",
+            "bytes": 985675,
+            "sha256": "7086f9beb19d50d4c20a83959254071b061795d452fa8717aafbde60cfc3f672",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              253
+            ]
+          },
+          "classification": "optional_compound_render_accent_not_independent_canonical_plant_or_prop"
+        },
+        {
+          "id": "foreground_left",
+          "status": "extracted",
+          "path": "sprites/scene.san_diego_coastal_urban.foreground_left.candidate_v1.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/sprites/scene.san_diego_coastal_urban.foreground_left.candidate_v1.png",
+            "bytes": 322189,
+            "sha256": "dcc4b1bfecceff042a7b64972332f03f8c1d0cafdeadf72cbe025e2a3524bc16",
+            "dimensions_px": [
+              483,
+              427
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              253
+            ]
+          },
+          "classification": "optional_compound_render_accent_not_independent_canonical_plant_or_prop"
+        },
+        {
+          "id": "foreground_right",
+          "status": "extracted",
+          "path": "sprites/scene.san_diego_coastal_urban.foreground_right.candidate_v1.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/sprites/scene.san_diego_coastal_urban.foreground_right.candidate_v1.png",
+            "bytes": 124152,
+            "sha256": "e8f71c6ca485490a86ee1154453e26b75a5398a9d9f1b8e77f85b5e3c261076a",
+            "dimensions_px": [
+              339,
+              230
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              253
+            ]
+          },
+          "classification": "optional_compound_render_accent_not_independent_canonical_plant_or_prop"
+        },
+        {
+          "id": "independent_sky_clouds_ground_foliage",
+          "status": "missing",
+          "contents": "No claim that flattened base contains separable semantic layers.",
+          "classification": "missing"
+        }
+      ],
+      "canonical_independent_plant_or_object_ids_embedded_in_scene": [],
+      "clean_ground_now": {
+        "status": "open_central_stage_exists_but_local_vegetation_and_props_remain_baked",
+        "existing_base": {
+          "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/originals/coastal_urban_base_original.png",
+          "bytes": 2943523,
+          "sha256": "16e33213663e41cb627d3de87834da9bd34fc0c64b6352d3d27e684dec5f084f",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGB",
+          "alpha_extrema": [
+            255,
+            255
+          ]
+        },
+        "fully_editable_local_vegetation_foundation_exists": false,
+        "requires_regeneration_for_local_plant_prop_removal": true,
+        "reason": "Omitting independently generated overlays cannot remove painted content from the opaque base; cropped corner accents are not semantic extraction of the base."
+      },
+      "render_order_proposal": {
+        "base": 0,
+        "bird_and_object_stage": 20,
+        "optional_foreground": 30
+      },
+      "scale_source": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": {
+          "base": [
+            0,
+            0,
+            1536,
+            1024
+          ],
+          "overlay": [
+            0,
+            67,
+            1536,
+            1024
+          ],
+          "overlay_alpha_ge_8_bounds": [
+            0,
+            597,
+            1536,
+            1024
+          ]
+        },
+        "trim_offset": [
+          0,
+          0
+        ],
+        "world_units": "meters",
+        "physical_measurement_basis": "Uncalibrated art-direction scene scale; perspective prevents one exact pixels-per-meter value.",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "approximate_ground_width_m": 10
+        },
+        "pixels_per_world_unit": null,
+        "root_pivot": [
+          768,
+          1024
+        ],
+        "feet_contact_points": [],
+        "beak_anchor": null,
+        "perches": [],
+        "collision_shapes": [],
+        "occluders": [
+          {
+            "layer": "independent_foreground_overlay",
+            "source": "originals/coastal_urban_overlay_original.png",
+            "z_order": 30,
+            "status": "static_alpha_only"
+          }
+        ],
+        "layer_depth": {
+          "flattened_base": 0,
+          "bird_stage_reserved": 20,
+          "foreground_overlay": 30
+        },
+        "material_surface": [
+          "decomposed_granite",
+          "paver"
+        ]
+      },
+      "placement_runtime_status": "art_catalog_only_not_saved_yard_import"
+    },
+    {
+      "asset_id": "scene.san_diego_inland_canyon",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/yards/manifest.json",
+      "baked_contents": [
+        "sky, canyon hills and distant trees",
+        "fence",
+        "large left tree and right tree with cast shadows",
+        "rear/side shrubs/flowers/rocks and lower-left planting",
+        "central decomposed-granite ground and right stone-edged planted/lawn pocket"
+      ],
+      "layers": [
+        {
+          "id": "flattened_base",
+          "status": "generated",
+          "separable": false,
+          "contents": "sky, distant landscape, boundaries, ground and edge plants baked into one RGB file",
+          "path": "originals/inland_canyon_base_original.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/originals/inland_canyon_base_original.png",
+            "bytes": 3106364,
+            "sha256": "8fa5e0d4e5c697ed7a54c4746b2b26dfeaf0d0441e80a16d66f04e436d6e51c9",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGB",
+            "alpha_extrema": [
+              255,
+              255
+            ]
+          },
+          "classification": "fixed_flattened_scenery"
+        },
+        {
+          "id": "foreground_overlay",
+          "status": "generated",
+          "separable": true,
+          "contents": "independently generated corner accents; not segmentation of base",
+          "path": "originals/inland_canyon_overlay_original.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/originals/inland_canyon_overlay_original.png",
+            "bytes": 1064824,
+            "sha256": "7c97abab7898097e6da1f3949e4659a72a26187925d50346caab1f6f1a57e400",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "optional_compound_render_accent_not_independent_canonical_plant_or_prop"
+        },
+        {
+          "id": "foreground_left",
+          "status": "extracted",
+          "path": "sprites/scene.san_diego_inland_canyon.foreground_left.candidate_v1.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/sprites/scene.san_diego_inland_canyon.foreground_left.candidate_v1.png",
+            "bytes": 325965,
+            "sha256": "4d3a9723b1d29cb8f6e4c201a227a3506ef111e632f019a1271ee218ab1b8d9a",
+            "dimensions_px": [
+              544,
+              376
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "optional_compound_render_accent_not_independent_canonical_plant_or_prop"
+        },
+        {
+          "id": "foreground_right",
+          "status": "extracted",
+          "path": "sprites/scene.san_diego_inland_canyon.foreground_right.candidate_v1.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/sprites/scene.san_diego_inland_canyon.foreground_right.candidate_v1.png",
+            "bytes": 216424,
+            "sha256": "d1a8c823aceb82f6641efe928dbe90fe4854d5b6105e92dbb57daeff0b65ad05",
+            "dimensions_px": [
+              420,
+              303
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              253
+            ]
+          },
+          "classification": "optional_compound_render_accent_not_independent_canonical_plant_or_prop"
+        },
+        {
+          "id": "independent_sky_clouds_ground_foliage",
+          "status": "missing",
+          "contents": "No claim that flattened base contains separable semantic layers.",
+          "classification": "missing"
+        }
+      ],
+      "canonical_independent_plant_or_object_ids_embedded_in_scene": [],
+      "clean_ground_now": {
+        "status": "open_central_stage_exists_but_local_vegetation_and_props_remain_baked",
+        "existing_base": {
+          "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/originals/inland_canyon_base_original.png",
+          "bytes": 3106364,
+          "sha256": "8fa5e0d4e5c697ed7a54c4746b2b26dfeaf0d0441e80a16d66f04e436d6e51c9",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGB",
+          "alpha_extrema": [
+            255,
+            255
+          ]
+        },
+        "fully_editable_local_vegetation_foundation_exists": false,
+        "requires_regeneration_for_local_plant_prop_removal": true,
+        "reason": "Omitting independently generated overlays cannot remove painted content from the opaque base; cropped corner accents are not semantic extraction of the base."
+      },
+      "render_order_proposal": {
+        "base": 0,
+        "bird_and_object_stage": 20,
+        "optional_foreground": 30
+      },
+      "scale_source": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": {
+          "base": [
+            0,
+            0,
+            1536,
+            1024
+          ],
+          "overlay": [
+            0,
+            53,
+            1536,
+            1024
+          ],
+          "overlay_alpha_ge_8_bounds": [
+            0,
+            648,
+            1536,
+            1024
+          ]
+        },
+        "trim_offset": [
+          0,
+          0
+        ],
+        "world_units": "meters",
+        "physical_measurement_basis": "Uncalibrated art-direction scene scale; perspective prevents one exact pixels-per-meter value.",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "approximate_ground_width_m": 14
+        },
+        "pixels_per_world_unit": null,
+        "root_pivot": [
+          768,
+          1024
+        ],
+        "feet_contact_points": [],
+        "beak_anchor": null,
+        "perches": [],
+        "collision_shapes": [],
+        "occluders": [
+          {
+            "layer": "independent_foreground_overlay",
+            "source": "originals/inland_canyon_overlay_original.png",
+            "z_order": 30,
+            "status": "static_alpha_only"
+          }
+        ],
+        "layer_depth": {
+          "flattened_base": 0,
+          "bird_stage_reserved": 20,
+          "foreground_overlay": 30
+        },
+        "material_surface": [
+          "dry_soil",
+          "decomposed_granite"
+        ]
+      },
+      "placement_runtime_status": "art_catalog_only_not_saved_yard_import"
+    },
+    {
+      "asset_id": "scene.san_diego_managed_patio",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/yards/manifest.json",
+      "baked_contents": [
+        "sky/distant trees and coastal/cliff skyline",
+        "pergola beams/posts and vines",
+        "left potted tree and container",
+        "right potted flowering shrub and succulent container",
+        "side shrubs, walls, steps/pavers and cast shadows"
+      ],
+      "layers": [
+        {
+          "id": "flattened_base",
+          "status": "generated",
+          "separable": false,
+          "contents": "sky, distant landscape, boundaries, ground and edge plants baked into one RGB file",
+          "path": "originals/managed_patio_base_original.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/originals/managed_patio_base_original.png",
+            "bytes": 2531447,
+            "sha256": "0a4de124042a7820837bf60b73b82596ffdec95e845c76f0fb06b03a626689ab",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGB",
+            "alpha_extrema": [
+              255,
+              255
+            ]
+          },
+          "classification": "fixed_flattened_scenery"
+        },
+        {
+          "id": "foreground_overlay",
+          "status": "generated",
+          "separable": true,
+          "contents": "independently generated corner accents; not segmentation of base",
+          "path": "originals/managed_patio_overlay_original.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/originals/managed_patio_overlay_original.png",
+            "bytes": 871011,
+            "sha256": "80b5040456c66b203402c52051e68d10af65281817575de62cd09d6d20325dd9",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "optional_compound_render_accent_not_independent_canonical_plant_or_prop"
+        },
+        {
+          "id": "foreground_left",
+          "status": "extracted",
+          "path": "sprites/scene.san_diego_managed_patio.foreground_left.candidate_v1.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/sprites/scene.san_diego_managed_patio.foreground_left.candidate_v1.png",
+            "bytes": 85371,
+            "sha256": "1818db57d21c8f15d771f91c150a00f8e0a170a20f6eeafbaf496973183399b3",
+            "dimensions_px": [
+              228,
+              263
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "optional_compound_render_accent_not_independent_canonical_plant_or_prop"
+        },
+        {
+          "id": "foreground_right",
+          "status": "extracted",
+          "path": "sprites/scene.san_diego_managed_patio.foreground_right.candidate_v1.png",
+          "file": {
+            "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/sprites/scene.san_diego_managed_patio.foreground_right.candidate_v1.png",
+            "bytes": 178365,
+            "sha256": "d358c411023267fe336c539e6a1c2b09bc6b86f477576e35fcc5a1680f37e269",
+            "dimensions_px": [
+              420,
+              306
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "optional_compound_render_accent_not_independent_canonical_plant_or_prop"
+        },
+        {
+          "id": "independent_sky_clouds_ground_foliage",
+          "status": "missing",
+          "contents": "No claim that flattened base contains separable semantic layers.",
+          "classification": "missing"
+        }
+      ],
+      "canonical_independent_plant_or_object_ids_embedded_in_scene": [],
+      "clean_ground_now": {
+        "status": "open_central_stage_exists_but_local_vegetation_and_props_remain_baked",
+        "existing_base": {
+          "path": "assets/generated/2026-10-17/packs/chirpneighbors-san-diego-yards-candidate-intake/originals/managed_patio_base_original.png",
+          "bytes": 2531447,
+          "sha256": "0a4de124042a7820837bf60b73b82596ffdec95e845c76f0fb06b03a626689ab",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGB",
+          "alpha_extrema": [
+            255,
+            255
+          ]
+        },
+        "fully_editable_local_vegetation_foundation_exists": false,
+        "requires_regeneration_for_local_plant_prop_removal": true,
+        "reason": "Omitting independently generated overlays cannot remove painted content from the opaque base; cropped corner accents are not semantic extraction of the base."
+      },
+      "render_order_proposal": {
+        "base": 0,
+        "bird_and_object_stage": 20,
+        "optional_foreground": 30
+      },
+      "scale_source": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": {
+          "base": [
+            0,
+            0,
+            1536,
+            1024
+          ],
+          "overlay": [
+            11,
+            49,
+            1536,
+            996
+          ],
+          "overlay_alpha_ge_8_bounds": [
+            19,
+            684,
+            1532,
+            991
+          ]
+        },
+        "trim_offset": [
+          0,
+          0
+        ],
+        "world_units": "meters",
+        "physical_measurement_basis": "Uncalibrated art-direction scene scale; perspective prevents one exact pixels-per-meter value.",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "approximate_ground_width_m": 7
+        },
+        "pixels_per_world_unit": null,
+        "root_pivot": [
+          768,
+          1024
+        ],
+        "feet_contact_points": [],
+        "beak_anchor": null,
+        "perches": [],
+        "collision_shapes": [],
+        "occluders": [
+          {
+            "layer": "independent_foreground_overlay",
+            "source": "originals/managed_patio_overlay_original.png",
+            "z_order": 30,
+            "status": "static_alpha_only"
+          }
+        ],
+        "layer_depth": {
+          "flattened_base": 0,
+          "bird_stage_reserved": 20,
+          "foreground_overlay": 30
+        },
+        "material_surface": [
+          "terracotta_paver",
+          "stone_paver"
+        ]
+      },
+      "placement_runtime_status": "art_catalog_only_not_saved_yard_import"
+    },
+    {
+      "asset_id": "scene.san_diego_compact_marine_courtyard",
+      "variant_id": "analyst_reference_guided_proof01_v1",
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/proof-manifest.json",
+      "baked_contents": [
+        "distance: sky/roofs/distant canopy/underpaint",
+        "ground: wall/gate, rear and side planted border/shrubs/flowers, lawn/grass clusters",
+        "optional foreground: top-left branch, lower-left pot+shrub+shadow and lower-right stone+foliage"
+      ],
+      "layers": [
+        {
+          "layer_revision": "distance.r1",
+          "path": "originals/distance-r1.png",
+          "generated": true,
+          "independently_generated": true,
+          "actual_alpha": false,
+          "semantic_decomposition": false,
+          "sha256": "d7dff3aebc0d80b765e47f7c2ce937476fffa211dd8d119c435285bff7b95da5",
+          "flattened_contents": [
+            "sky",
+            "distant_roofs",
+            "distant_canopy",
+            "underpaint"
+          ],
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/distance-r1.png",
+            "bytes": 1314327,
+            "sha256": "d7dff3aebc0d80b765e47f7c2ce937476fffa211dd8d119c435285bff7b95da5",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGB",
+            "alpha_extrema": [
+              255,
+              255
+            ]
+          },
+          "classification": "compound_render_layer_not_canonical_individual_plant_or_object"
+        },
+        {
+          "layer_revision": "ground.r1",
+          "path": "originals/ground-r1.png",
+          "generated": true,
+          "independently_generated": true,
+          "actual_alpha": true,
+          "semantic_decomposition": false,
+          "sha256": "d66d030867423a7d9b9e1d9f3d56648c0df3e167175c00943c344ce407c2df46",
+          "flattened_contents": [
+            "boundary",
+            "gate",
+            "garden_border",
+            "lawn"
+          ],
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/ground-r1.png",
+            "bytes": 2158490,
+            "sha256": "d66d030867423a7d9b9e1d9f3d56648c0df3e167175c00943c344ce407c2df46",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "compound_render_layer_not_canonical_individual_plant_or_object"
+        },
+        {
+          "layer_revision": "foreground.r1",
+          "path": "originals/foreground-r1.png",
+          "generated": true,
+          "independently_generated": true,
+          "actual_alpha": true,
+          "semantic_decomposition": false,
+          "sha256": "78e87fbe0813e147eb29330516e5a534b87373391ce1a52568558d3c46b036fe",
+          "flattened_contents": [
+            "container",
+            "foliage",
+            "stone",
+            "tight_contact_shadows"
+          ],
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/foreground-r1.png",
+            "bytes": 1044674,
+            "sha256": "78e87fbe0813e147eb29330516e5a534b87373391ce1a52568558d3c46b036fe",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "compound_render_layer_not_canonical_individual_plant_or_object"
+        }
+      ],
+      "canonical_independent_plant_or_object_ids_embedded_in_scene": [],
+      "clean_ground_now": {
+        "status": "no_optional_foreground_stage_exists_but_planted_border_baked_in_ground",
+        "fully_editable_local_vegetation_foundation_exists": false,
+        "requires_regeneration_for_local_plant_prop_removal": true,
+        "draw_contract_id": "proof-no-optional-foreground-baked-border-remains",
+        "preview": {
+          "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/proof-no-optional-foreground-baked-border-remains.png",
+          "bytes": 2180060,
+          "sha256": "345c73bee8d5cc7fec911b57731019b8ef45cee3ab410a90167a31fcc0578c5f",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            255,
+            255
+          ]
+        },
+        "remaining_baked": [
+          "rear and side border shrubs/flowers",
+          "lawn grass clusters",
+          "wall/gate",
+          "distant canopy"
+        ],
+        "qualification": "This is foreground-free only. Rear/side shrubs and flowers remain fused to ground; removing them requires new ground art."
+      },
+      "render_order_proposal": {
+        "distance.r1": 0,
+        "ground.r1": 10,
+        "bird_and_object_stage": 20,
+        "foreground.r1": 30
+      },
+      "scale_source": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": {
+          "distance.r1": [
+            0,
+            0,
+            1536,
+            1024
+          ],
+          "ground.r1": [
+            0,
+            9,
+            1536,
+            1024
+          ],
+          "foreground.r1": [
+            0,
+            0,
+            1536,
+            1024
+          ]
+        },
+        "trim_offset": [
+          0,
+          0
+        ],
+        "world_units": "meters",
+        "physical_measurement_basis": "Provisional art direction, no measured site or physical projection calibration.",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "approximate_visible_ground_width_m": 6
+        },
+        "pixels_per_world_unit": null,
+        "root_pivot": [
+          768,
+          1024
+        ],
+        "feet_contact_points": [],
+        "beak_anchor": null,
+        "perches": [],
+        "collision_shapes": [],
+        "occluders": [
+          {
+            "layer_revision": "foreground.r1",
+            "z_order": 30,
+            "status": "static alpha only"
+          }
+        ],
+        "layer_depth": {
+          "distance.r1": 0,
+          "ground.r1": 10,
+          "bird_and_object_stage": 20,
+          "foreground.r1": 30
+        },
+        "material_surface": [
+          "managed_short_lawn",
+          "stucco",
+          "shallow_garden_border"
+        ]
+      },
+      "placement_runtime_status": "art_catalog_only_not_saved_yard_import"
+    },
+    {
+      "asset_id": "scene.san_diego_coastal_urban",
+      "variant_id": "wave04_coastal_garden_v1",
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/coastal-manifest.json",
+      "baked_contents": [
+        "distance: sky/roofs/distant canopy/palms/coastal horizon/underpaint",
+        "ground-boundary: wall/gate, empty rear soil/stone bed and quiet turf/grass texture",
+        "optional rigid: empty left pot and right trunk/major branches/contact shadows",
+        "optional flexible: left pot foliage, right twiglets/leaves and rear border plant groups"
+      ],
+      "layers": [
+        {
+          "layer_revision": "distance.r1",
+          "source": "originals/distance-r1.png",
+          "sha256": "bb786b14ac66fc4a4a4e0d8c0ca28b67a0ebbb608e5671a71ff3975edcb4c463",
+          "generated": true,
+          "actual_alpha": false,
+          "independently_generated": true,
+          "flattened_contents": [
+            "sky",
+            "distant_roofs_canopy",
+            "coastal_horizon",
+            "underpaint"
+          ],
+          "semantic_decomposition": false,
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/distance-r1.png",
+            "bytes": 1395496,
+            "sha256": "bb786b14ac66fc4a4a4e0d8c0ca28b67a0ebbb608e5671a71ff3975edcb4c463",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGB",
+            "alpha_extrema": [
+              255,
+              255
+            ]
+          },
+          "classification": "compound_render_layer_not_canonical_individual_plant_or_object"
+        },
+        {
+          "layer_revision": "ground_boundary.r1",
+          "source": "originals/ground-boundary-r1.png",
+          "sha256": "f4011d45977066e6152e9ad1f9c54834e8cb4648ceddacb80c1df2373692e70d",
+          "generated": true,
+          "actual_alpha": true,
+          "independently_generated": true,
+          "flattened_contents": [
+            "wall",
+            "gate",
+            "soil_bed",
+            "quiet_turf"
+          ],
+          "semantic_decomposition": false,
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/ground-boundary-r1.png",
+            "bytes": 2275841,
+            "sha256": "f4011d45977066e6152e9ad1f9c54834e8cb4648ceddacb80c1df2373692e70d",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "compound_render_layer_not_canonical_individual_plant_or_object"
+        },
+        {
+          "layer_revision": "rigid_edges.r1",
+          "source": "originals/rigid-edges-r1.png",
+          "sha256": "be06e2058d160fa8deb4b6a681836f382024821f315e4f6d39bf29143a825ed5",
+          "generated": true,
+          "actual_alpha": true,
+          "independently_generated": true,
+          "flattened_contents": [
+            "pot",
+            "main_trunk",
+            "major_branches",
+            "contact_shadows"
+          ],
+          "semantic_decomposition": false,
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/rigid-edges-r1.png",
+            "bytes": 1082903,
+            "sha256": "be06e2058d160fa8deb4b6a681836f382024821f315e4f6d39bf29143a825ed5",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "compound_render_layer_not_canonical_individual_plant_or_object"
+        },
+        {
+          "layer_revision": "flexible_foliage.r1",
+          "source": "originals/flexible-foliage-r1.png",
+          "sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+          "generated": true,
+          "actual_alpha": true,
+          "independently_generated": true,
+          "flattened_contents": [
+            "leaves",
+            "fine_flexible_twiglets",
+            "sparse_border_plant_groups"
+          ],
+          "semantic_decomposition": false,
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/flexible-foliage-r1.png",
+            "bytes": 1243038,
+            "sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          },
+          "classification": "compound_render_layer_not_canonical_individual_plant_or_object"
+        }
+      ],
+      "canonical_independent_plant_or_object_ids_embedded_in_scene": [],
+      "clean_ground_now": {
+        "status": "usable_local_foreground_free_foundation_exists_now",
+        "fully_editable_local_vegetation_foundation_exists": true,
+        "requires_regeneration_for_local_plant_prop_removal": false,
+        "draw_contract_id": "coastal-foundation-no-local-foreground",
+        "preview": {
+          "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/coastal-foundation-no-local-foreground.png",
+          "bytes": 2450474,
+          "sha256": "fa59961eb54d3eb9898757f9795a73eec415c4a3b7fa9bcf37ae413078849e51",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            255,
+            255
+          ]
+        },
+        "remaining_baked": [
+          "distant trees/palms/canopy",
+          "turf and grass texture",
+          "rear soil/stone bed",
+          "wall/gate"
+        ],
+        "qualification": "Clean means no local pot/trunk/border shrubs after both optional files are omitted; distant vegetation and painted turf remain fixed."
+      },
+      "render_order_proposal": {
+        "distance_source": 0,
+        "ground_boundary.r1": 10,
+        "bird_object_stage": 20,
+        "rigid_edges.r1": 25,
+        "flexible_foliage.r1": 30
+      },
+      "scale_source": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": {
+          "distance.r1": [
+            0,
+            0,
+            1536,
+            1024
+          ],
+          "ground_boundary.r1": [
+            0,
+            47,
+            1536,
+            1024
+          ],
+          "rigid_edges.r1": [
+            0,
+            0,
+            1536,
+            1024
+          ],
+          "flexible_foliage.r1": [
+            0,
+            0,
+            1536,
+            944
+          ]
+        },
+        "trim_offset": [
+          0,
+          0
+        ],
+        "world_units": "meters",
+        "physical_measurement_basis": "Provisional art direction, no measured site or physical projection calibration.",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "approximate_visible_ground_width_m": 9
+        },
+        "pixels_per_world_unit": null,
+        "root_pivot": [
+          768,
+          1024
+        ],
+        "feet_contact_points": [],
+        "beak_anchor": null,
+        "perches": [],
+        "collision_shapes": [],
+        "occluders": [
+          {
+            "layer_revision": "rigid_edges.r1",
+            "z_order": 25
+          },
+          {
+            "layer_revision": "flexible_foliage.r1",
+            "z_order": 30
+          }
+        ],
+        "layer_depth": {
+          "distance_source": 0,
+          "ground_boundary.r1": 10,
+          "bird_object_stage": 20,
+          "rigid_edges.r1": 25,
+          "flexible_foliage.r1": 30
+        },
+        "material_surface": [
+          "managed_short_turf",
+          "stucco",
+          "bare_shallow_planting_bed",
+          "terracotta",
+          "woody_tree_support"
+        ]
+      },
+      "placement_runtime_status": "art_catalog_only_not_saved_yard_import",
+      "wind_group_source": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/wind-policy-and-groups.json",
+        "bytes": 16397,
+        "sha256": "337a84f2590d0ff7bb62d09ce093ca9d68e8591a259a32274cffa0513be4a3e1"
+      },
+      "wind_group_metadata": {
+        "policy": {
+          "status": "PROPOSED_ARTIST_POLICY_NOT_IMPLEMENTED",
+          "physics_calibrated": false,
+          "stiffness_definition": "Dimensionless artist resistance parameter0..1, larger meansless motion; not spring constant or measured physical stiffness.",
+          "caps_definition": "Maximum absolute proposed rotation from rest and tip displacement at1536x1024 scene; both caps apply, choose more restrictive. No displacement of roots/contact pivots.",
+          "classes": {
+            "rigid": {
+              "stiffness": 1.0,
+              "mild_rotation_deg": 0,
+              "strong_rotation_deg": 0,
+              "mild_tip_displacement_px": 0,
+              "strong_tip_displacement_px": 0,
+              "root_translation_px": 0,
+              "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+            },
+            "flexible_branch": {
+              "stiffness": 0.85,
+              "mild_rotation_deg": 0.6,
+              "strong_rotation_deg": 1.8,
+              "mild_tip_displacement_px": 2,
+              "strong_tip_displacement_px": 5,
+              "root_translation_px": 0,
+              "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+            },
+            "foliage_mass": {
+              "stiffness": 0.65,
+              "mild_rotation_deg": 0.8,
+              "strong_rotation_deg": 2.2,
+              "mild_tip_displacement_px": 3,
+              "strong_tip_displacement_px": 7,
+              "root_translation_px": 0,
+              "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+            },
+            "grass_tip": {
+              "stiffness": 0.45,
+              "mild_rotation_deg": 1.0,
+              "strong_rotation_deg": 3.0,
+              "mild_tip_displacement_px": 1,
+              "strong_tip_displacement_px": 3,
+              "root_translation_px": 0,
+              "pivot_rule": "Base of isolated blade/tipgroup; lawnpaint/soil/rootline remainrigid. No whole-groundwarp."
+            }
+          },
+          "art_safety_limits": {
+            "ground_warp": false,
+            "root_sliding": false,
+            "pot_or_trunk_sway": false,
+            "scale_stretch_allowed": false,
+            "leaf_scale_range": [
+              1,
+              1
+            ],
+            "alpha_or_lightness_flicker": "No procedural opacity/color pulsation; nearest resampling or subpixel treatment must be reviewed for pixel shimmer.",
+            "occlusion": "Motion mustrespectstaticfrontpotrim/branchjunction; masksnotyetavailable.",
+            "review": "Mild/strong areartistlabels only, no weather-speed conversion. Reject visible jointgaps, leafstretch, clippedtips or groundcontactdrift."
+          },
+          "optional_loose_leaves": {
+            "status": "missing_not_implemented",
+            "stiffness": null,
+            "pivot": null,
+            "amplitude_caps": null,
+            "reason": "Detachedparticleart/path/emissionrulesnotdesigned; no blanketautumnemission."
+          }
+        },
+        "actual_source_layer_count": 4,
+        "actual_flexible_source_file_count": 1,
+        "global_foliage_pivot": null,
+        "global_pivot_reason": "Unrelatedpot/branch/bordergroupscannotsharesinglepivot. Fullflexiblesourceremainscompound; now6spatialcropsavailable asprovisionalgroups.",
+        "actual_per_leaf_separation": false,
+        "actual_per_twig_separation": false,
+        "actual_rig_implemented": false,
+        "actual_deformation_implemented": false,
+        "static_pivots": [
+          {
+            "id": "pot_contact",
+            "pivot_scene_px": [
+              130,
+              1000
+            ],
+            "status": "artistcontactestimate",
+            "caps": {
+              "stiffness": 1.0,
+              "mild_rotation_deg": 0,
+              "strong_rotation_deg": 0,
+              "mild_tip_displacement_px": 0,
+              "strong_tip_displacement_px": 0,
+              "root_translation_px": 0,
+              "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+            }
+          },
+          {
+            "id": "trunk_root",
+            "pivot_scene_px": [
+              1480,
+              1015
+            ],
+            "status": "artistcontactestimate",
+            "caps": {
+              "stiffness": 1.0,
+              "mild_rotation_deg": 0,
+              "strong_rotation_deg": 0,
+              "mild_tip_displacement_px": 0,
+              "strong_tip_displacement_px": 0,
+              "root_translation_px": 0,
+              "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+            }
+          }
+        ],
+        "groups": [
+          {
+            "id": "left_pot_mass",
+            "source": "originals/flexible-foliage-r1.png",
+            "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+            "source_roi_px": [
+              0,
+              540,
+              300,
+              810
+            ],
+            "actual_visible_alpha_bounds_px": [
+              1,
+              540,
+              273,
+              770
+            ],
+            "bounds_threshold": "alpha>=128",
+            "pivot_scene_px": [
+              130,
+              767
+            ],
+            "pivot_basis": "Visiblealpha pixelnearestprovisionaljoint; artistanchor, notcertifiedanatomicaljoint. Needsstatic-supportocclusionreview.",
+            "root_contact_fixed": true,
+            "motion_class": "foliage_mass",
+            "proposed_caps": {
+              "stiffness": 0.65,
+              "mild_rotation_deg": 0.8,
+              "strong_rotation_deg": 2.2,
+              "mild_tip_displacement_px": 3,
+              "strong_tip_displacement_px": 7,
+              "root_translation_px": 0,
+              "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+            },
+            "derivative": {
+              "path": "derivatives/flexible-left_pot_mass.png",
+              "crop_box_px": [
+                0,
+                540,
+                277,
+                774
+              ],
+              "dimensions_px": [
+                277,
+                234
+              ],
+              "trim_offset_px": [
+                0,
+                540
+              ],
+              "local_pivot_px": [
+                130,
+                227
+              ],
+              "sha256": "a0923ed73bd2275f0808cb4dc514594538a9030a8611b6cb28571f02cceeae2c",
+              "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+            },
+            "actual_group_crop_available": true,
+            "actual_motion_or_rig_implemented": false,
+            "occlusion_mask_available": false,
+            "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+          },
+          {
+            "id": "right_upper_branch",
+            "source": "originals/flexible-foliage-r1.png",
+            "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+            "source_roi_px": [
+              1080,
+              0,
+              1536,
+              240
+            ],
+            "actual_visible_alpha_bounds_px": [
+              1108,
+              0,
+              1536,
+              240
+            ],
+            "bounds_threshold": "alpha>=128",
+            "pivot_scene_px": [
+              1220,
+              125
+            ],
+            "pivot_basis": "Visiblealpha pixelnearestprovisionaljoint; artistanchor, notcertifiedanatomicaljoint. Needsstatic-supportocclusionreview.",
+            "root_contact_fixed": true,
+            "motion_class": "flexible_branch",
+            "proposed_caps": {
+              "stiffness": 0.85,
+              "mild_rotation_deg": 0.6,
+              "strong_rotation_deg": 1.8,
+              "mild_tip_displacement_px": 2,
+              "strong_tip_displacement_px": 5,
+              "root_translation_px": 0,
+              "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+            },
+            "derivative": {
+              "path": "derivatives/flexible-right_upper_branch.png",
+              "crop_box_px": [
+                1104,
+                0,
+                1536,
+                240
+              ],
+              "dimensions_px": [
+                432,
+                240
+              ],
+              "trim_offset_px": [
+                1104,
+                0
+              ],
+              "local_pivot_px": [
+                116,
+                125
+              ],
+              "sha256": "25413075fd213235c489c7ecfe06738e1b5a287408b570e8e07d5cdbd58b81d4",
+              "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+            },
+            "actual_group_crop_available": true,
+            "actual_motion_or_rig_implemented": false,
+            "occlusion_mask_available": false,
+            "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+          },
+          {
+            "id": "right_lower_branch",
+            "source": "originals/flexible-foliage-r1.png",
+            "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+            "source_roi_px": [
+              1180,
+              240,
+              1536,
+              470
+            ],
+            "actual_visible_alpha_bounds_px": [
+              1213,
+              240,
+              1536,
+              443
+            ],
+            "bounds_threshold": "alpha>=128",
+            "pivot_scene_px": [
+              1299,
+              353
+            ],
+            "pivot_basis": "Visiblealpha pixelnearestprovisionaljoint; artistanchor, notcertifiedanatomicaljoint. Needsstatic-supportocclusionreview.",
+            "root_contact_fixed": true,
+            "motion_class": "flexible_branch",
+            "proposed_caps": {
+              "stiffness": 0.85,
+              "mild_rotation_deg": 0.6,
+              "strong_rotation_deg": 1.8,
+              "mild_tip_displacement_px": 2,
+              "strong_tip_displacement_px": 5,
+              "root_translation_px": 0,
+              "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+            },
+            "derivative": {
+              "path": "derivatives/flexible-right_lower_branch.png",
+              "crop_box_px": [
+                1209,
+                240,
+                1536,
+                447
+              ],
+              "dimensions_px": [
+                327,
+                207
+              ],
+              "trim_offset_px": [
+                1209,
+                240
+              ],
+              "local_pivot_px": [
+                90,
+                113
+              ],
+              "sha256": "370c62e78d230a9a39ca7d3bc8e83d681438869b8075d5f90c4224e9f2d49508",
+              "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+            },
+            "actual_group_crop_available": true,
+            "actual_motion_or_rig_implemented": false,
+            "occlusion_mask_available": false,
+            "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+          },
+          {
+            "id": "back_border_left",
+            "source": "originals/flexible-foliage-r1.png",
+            "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+            "source_roi_px": [
+              280,
+              430,
+              640,
+              550
+            ],
+            "actual_visible_alpha_bounds_px": [
+              312,
+              451,
+              597,
+              536
+            ],
+            "bounds_threshold": "alpha>=128",
+            "pivot_scene_px": [
+              535,
+              535
+            ],
+            "pivot_basis": "Medianvisiblepixelatbottomrootband; artistrootestimate, notphysicallycalibrated.",
+            "root_contact_fixed": true,
+            "motion_class": "foliage_mass",
+            "proposed_caps": {
+              "stiffness": 0.65,
+              "mild_rotation_deg": 0.8,
+              "strong_rotation_deg": 2.2,
+              "mild_tip_displacement_px": 3,
+              "strong_tip_displacement_px": 7,
+              "root_translation_px": 0,
+              "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+            },
+            "derivative": {
+              "path": "derivatives/flexible-back_border_left.png",
+              "crop_box_px": [
+                308,
+                447,
+                601,
+                540
+              ],
+              "dimensions_px": [
+                293,
+                93
+              ],
+              "trim_offset_px": [
+                308,
+                447
+              ],
+              "local_pivot_px": [
+                227,
+                88
+              ],
+              "sha256": "111d315674756a67b6cdbb99d64410a68ce6dcbaacd627fbc6f5365ec1babe6c",
+              "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+            },
+            "actual_group_crop_available": true,
+            "actual_motion_or_rig_implemented": false,
+            "occlusion_mask_available": false,
+            "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+          },
+          {
+            "id": "back_border_middle",
+            "source": "originals/flexible-foliage-r1.png",
+            "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+            "source_roi_px": [
+              780,
+              430,
+              1180,
+              550
+            ],
+            "actual_visible_alpha_bounds_px": [
+              827,
+              455,
+              1166,
+              538
+            ],
+            "bounds_threshold": "alpha>=128",
+            "pivot_scene_px": [
+              997,
+              537
+            ],
+            "pivot_basis": "Medianvisiblepixelatbottomrootband; artistrootestimate, notphysicallycalibrated.",
+            "root_contact_fixed": true,
+            "motion_class": "foliage_mass",
+            "proposed_caps": {
+              "stiffness": 0.65,
+              "mild_rotation_deg": 0.8,
+              "strong_rotation_deg": 2.2,
+              "mild_tip_displacement_px": 3,
+              "strong_tip_displacement_px": 7,
+              "root_translation_px": 0,
+              "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+            },
+            "derivative": {
+              "path": "derivatives/flexible-back_border_middle.png",
+              "crop_box_px": [
+                823,
+                451,
+                1170,
+                542
+              ],
+              "dimensions_px": [
+                347,
+                91
+              ],
+              "trim_offset_px": [
+                823,
+                451
+              ],
+              "local_pivot_px": [
+                174,
+                86
+              ],
+              "sha256": "e753fd198abce10ee3ae58d6dc160b6b6c684ff23af77dfc1347da358272733b",
+              "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+            },
+            "actual_group_crop_available": true,
+            "actual_motion_or_rig_implemented": false,
+            "occlusion_mask_available": false,
+            "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+          },
+          {
+            "id": "back_border_right",
+            "source": "originals/flexible-foliage-r1.png",
+            "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+            "source_roi_px": [
+              1360,
+              470,
+              1536,
+              550
+            ],
+            "actual_visible_alpha_bounds_px": [
+              1406,
+              474,
+              1536,
+              537
+            ],
+            "bounds_threshold": "alpha>=128",
+            "pivot_scene_px": [
+              1446,
+              536
+            ],
+            "pivot_basis": "Medianvisiblepixelatbottomrootband; artistrootestimate, notphysicallycalibrated.",
+            "root_contact_fixed": true,
+            "motion_class": "foliage_mass",
+            "proposed_caps": {
+              "stiffness": 0.65,
+              "mild_rotation_deg": 0.8,
+              "strong_rotation_deg": 2.2,
+              "mild_tip_displacement_px": 3,
+              "strong_tip_displacement_px": 7,
+              "root_translation_px": 0,
+              "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+            },
+            "derivative": {
+              "path": "derivatives/flexible-back_border_right.png",
+              "crop_box_px": [
+                1402,
+                470,
+                1536,
+                541
+              ],
+              "dimensions_px": [
+                134,
+                71
+              ],
+              "trim_offset_px": [
+                1402,
+                470
+              ],
+              "local_pivot_px": [
+                44,
+                66
+              ],
+              "sha256": "f727a476c50dd71a68932907168c7f5e590c3da80f39134e1c4e5a71481aa56c",
+              "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+            },
+            "actual_group_crop_available": true,
+            "actual_motion_or_rig_implemented": false,
+            "occlusion_mask_available": false,
+            "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+          }
+        ],
+        "unresolved": [
+          "Actual twig/leaf anatomicaljoints and overlapmasks not independentlysegmented.",
+          "Per-groupcropcaps areproposed; no motionframes/rigtested.",
+          "Ground turf paintedgrasstips arebaked into staticground andcannotmovesingly.",
+          "No looseleafparticleart or occlusionmasks."
+        ]
+      },
+      "wind_groups_limitation": "Six spatial foliage crops remain compound groups; no semantic per-plant identity, anatomical rig, deformation or approved motion. Rigid pot/trunk does not sway.",
+      "existing_pre_foliage_preview_is_not_clean": "previews/pre-foliage-registered.png includes rigid pot and trunk; omit both rigid and flexible instead."
+    }
+  ],
+  "foundation_draw_contracts": [
+    {
+      "id": "proof-no-optional-foreground-baked-border-remains",
+      "source_root": "source-unpublished/expansion/backgrounds/proof-01",
+      "canvas_px": [
+        1536,
+        1024
+      ],
+      "operation": "Pillow straight-alpha source-over compositing of unmodified native-size source PNGs in listed order; no painting, erasing, semantic segmentation, recoloring or rescaling",
+      "draw_passes": [
+        {
+          "source": "originals/distance-r1.png",
+          "offset_px": [
+            0,
+            0
+          ],
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/distance-r1.png",
+            "bytes": 1314327,
+            "sha256": "d7dff3aebc0d80b765e47f7c2ce937476fffa211dd8d119c435285bff7b95da5",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGB",
+            "alpha_extrema": [
+              255,
+              255
+            ]
+          }
+        },
+        {
+          "source": "originals/ground-r1.png",
+          "offset_px": [
+            0,
+            0
+          ],
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/ground-r1.png",
+            "bytes": 2158490,
+            "sha256": "d66d030867423a7d9b9e1d9f3d56648c0df3e167175c00943c344ce407c2df46",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "omitted_optional_layers": [
+        {
+          "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/foreground-r1.png",
+          "bytes": 1044674,
+          "sha256": "78e87fbe0813e147eb29330516e5a534b87373391ce1a52568558d3c46b036fe",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            254
+          ]
+        }
+      ],
+      "baked_contents_remaining": [
+        "rear and side border shrubs/flowers",
+        "lawn grass clusters",
+        "wall/gate",
+        "distant canopy"
+      ],
+      "output": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/proof-no-optional-foreground-baked-border-remains.png",
+        "bytes": 2180060,
+        "sha256": "345c73bee8d5cc7fec911b57731019b8ef45cee3ab410a90167a31fcc0578c5f",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          255,
+          255
+        ]
+      },
+      "output_alpha_extrema": [
+        255,
+        255
+      ],
+      "source_contract_full_reconstruction": {
+        "existing_preview": {
+          "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/mediterranean-wave05/references/inspected-prior-coastal-yard.png",
+          "bytes": 1967393,
+          "sha256": "b783c87cd4f01defb1d1ae25b98108a6a333c7a4aefdd464af4831c3914c989f",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGB",
+          "alpha_extrema": [
+            255,
+            255
+          ]
+        },
+        "rgba_pixel_identical": true,
+        "reconstructed_rgba_sha256": "0f8870d1169733be18db33f032afe7f726cf51c836b43ccc9b4205e2cd7f232f",
+        "existing_rgba_sha256": "0f8870d1169733be18db33f032afe7f726cf51c836b43ccc9b4205e2cd7f232f"
+      },
+      "runtime_integrated": false
+    },
+    {
+      "id": "coastal-foundation-no-local-foreground",
+      "source_root": "source-unpublished/expansion/backgrounds/expansion-wave04/coastal-01",
+      "canvas_px": [
+        1536,
+        1024
+      ],
+      "operation": "Pillow straight-alpha source-over compositing of unmodified native-size source PNGs in listed order; no painting, erasing, semantic segmentation, recoloring or rescaling",
+      "draw_passes": [
+        {
+          "source": "originals/distance-r1.png",
+          "offset_px": [
+            0,
+            0
+          ],
+          "purpose": "opaque coverage from original unchanged distance source",
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/distance-r1.png",
+            "bytes": 1395496,
+            "sha256": "bb786b14ac66fc4a4a4e0d8c0ca28b67a0ebbb608e5671a71ff3975edcb4c463",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGB",
+            "alpha_extrema": [
+              255,
+              255
+            ]
+          }
+        },
+        {
+          "source": "originals/distance-r1.png",
+          "offset_px": [
+            0,
+            -140
+          ],
+          "purpose": "expose distant canopy above generated wall",
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/distance-r1.png",
+            "bytes": 1395496,
+            "sha256": "bb786b14ac66fc4a4a4e0d8c0ca28b67a0ebbb608e5671a71ff3975edcb4c463",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGB",
+            "alpha_extrema": [
+              255,
+              255
+            ]
+          }
+        },
+        {
+          "source": "originals/ground-boundary-r1.png",
+          "offset_px": [
+            0,
+            0
+          ],
+          "file": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/ground-boundary-r1.png",
+            "bytes": 2275841,
+            "sha256": "f4011d45977066e6152e9ad1f9c54834e8cb4648ceddacb80c1df2373692e70d",
+            "dimensions_px": [
+              1536,
+              1024
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "omitted_optional_layers": [
+        {
+          "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/rigid-edges-r1.png",
+          "bytes": 1082903,
+          "sha256": "be06e2058d160fa8deb4b6a681836f382024821f315e4f6d39bf29143a825ed5",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            254
+          ]
+        },
+        {
+          "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/flexible-foliage-r1.png",
+          "bytes": 1243038,
+          "sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            254
+          ]
+        }
+      ],
+      "baked_contents_remaining": [
+        "distant trees/palms/canopy",
+        "turf and grass texture",
+        "rear soil/stone bed",
+        "wall/gate"
+      ],
+      "output": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/coastal-foundation-no-local-foreground.png",
+        "bytes": 2450474,
+        "sha256": "fa59961eb54d3eb9898757f9795a73eec415c4a3b7fa9bcf37ae413078849e51",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA",
+        "alpha_extrema": [
+          255,
+          255
+        ]
+      },
+      "output_alpha_extrema": [
+        255,
+        255
+      ],
+      "source_contract_full_reconstruction": {
+        "existing_preview": {
+          "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/previews/composite-registered-r1.png",
+          "bytes": 2565435,
+          "sha256": "3b894d066cbc4bd0efc2b47133e9269078b92b403b36f10af32ddd7884dddac9",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            255,
+            255
+          ]
+        },
+        "rgba_pixel_identical": true,
+        "reconstructed_rgba_sha256": "248bd26b1987a001e537764a4563bfd64efe848614b47013dbb04a9fea22baa7",
+        "existing_rgba_sha256": "248bd26b1987a001e537764a4563bfd64efe848614b47013dbb04a9fea22baa7"
+      },
+      "runtime_integrated": false
+    }
+  ],
+  "external_independent_object_candidates": [
+    {
+      "asset_id": "object.pedestal_birdbath",
+      "family_id": "object.pedestal_birdbath",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Weathered stone pedestal birdbath",
+      "geometry": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          612,
+          487
+        ],
+        "alpha_bounds": [
+          8,
+          8,
+          604,
+          479
+        ],
+        "trim_offset": [
+          104,
+          29
+        ],
+        "world_units": "meter_proposed",
+        "physical_measurement_basis": "art direction approximate; no measured product",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "height_m_approximate": 0.72,
+          "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+        },
+        "pixels_per_world_unit": 676.39,
+        "root_pivot": [
+          289,
+          450
+        ],
+        "feet_contact_points": [
+          [
+            197,
+            446
+          ],
+          [
+            389,
+            446
+          ]
+        ],
+        "beak_anchor": null,
+        "perches": [
+          {
+            "id": "rim_front_perch",
+            "position_px": [
+              284,
+              185
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "rim_left_perch",
+            "position_px": [
+              52,
+              110
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ],
+        "collision_shapes": [],
+        "occluders": [],
+        "layer_depth": "placeable_yard_prop; instance depth supplied by future scene",
+        "material_surface": "stone; shallow blue-green water"
+      },
+      "pivot": [
+        289,
+        450
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            179,
+            426
+          ],
+          [
+            289,
+            408
+          ],
+          [
+            405,
+            433
+          ],
+          [
+            389,
+            459
+          ],
+          [
+            214,
+            464
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "intended_scale": {
+        "height_m_approximate": 0.72,
+        "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+      },
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "rim_front_perch",
+            "position_px": [
+              284,
+              185
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "rim_left_perch",
+            "position_px": [
+              52,
+              110
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "drink_water",
+            "position_px": [
+              282,
+              109
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "bathe_center",
+            "position_px": [
+              304,
+              124
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "interaction": {
+        "affordances": [
+          "rim_front_perch",
+          "rim_left_perch",
+          "drink_water",
+          "bathe_center"
+        ],
+        "diet_compatibility": [],
+        "plant_habitat": null,
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": {
+          "points": [],
+          "capacity_and_flow_unimplemented": true
+        },
+        "wetness": {
+          "state_slots": [
+            {
+              "id": "full",
+              "status": "missing"
+            },
+            {
+              "id": "low_water",
+              "status": "missing"
+            },
+            {
+              "id": "empty_dry",
+              "status": "missing"
+            },
+            {
+              "id": "ripple",
+              "status": "missing"
+            },
+            {
+              "id": "splash",
+              "status": "missing"
+            }
+          ],
+          "implemented": false
+        },
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "status": "metadata_only_not_implemented",
+          "type": "rigid",
+          "attachment_point_px": null,
+          "separate_rigged_parts": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": null,
+        "season_applicability": {
+          "region": "San Diego/Southern California",
+          "no_default_snow_ice_or_autumn_orange": true,
+          "weathering_or_water_state_needs_only": true
+        }
+      },
+      "state_slots": [
+        {
+          "id": "full",
+          "status": "missing"
+        },
+        {
+          "id": "low_water",
+          "status": "missing"
+        },
+        {
+          "id": "empty_dry",
+          "status": "missing"
+        },
+        {
+          "id": "ripple",
+          "status": "missing"
+        },
+        {
+          "id": "splash",
+          "status": "missing"
+        }
+      ],
+      "wind_rig": {
+        "status": "metadata_only_not_implemented",
+        "type": "rigid",
+        "attachment_point_px": null,
+        "separate_rigged_parts": []
+      },
+      "generated_state": "full_with_static_water",
+      "review_status": "reviewed_candidate_owner_acceptance_pending",
+      "source_and_rights": {
+        "reference_id": [],
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation service",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors. No third-party reference pixels were supplied.",
+        "modification_notice": "Derivative is crop and transparent padding only.",
+        "share_alike_obligations": "unknown_not_asserted",
+        "commercial_use_status": "not_independently_reviewed",
+        "original_file_hash": "b024926f8547494cefe457184f846030cc09ae2c14cd924671846db3eee5cbf0"
+      },
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "placement_anchor_source_fallback": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          289,
+          450
+        ],
+        "source_field": "geometry.root_pivot",
+        "note": "Copied anchor, no new measurement"
+      },
+      "source_manifest": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+        "bytes": 231944,
+        "sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19"
+      },
+      "sprite_files": [
+        {
+          "asset_id": "object.pedestal_birdbath",
+          "source": "originals/sheet-1.png",
+          "source_sha256": "b024926f8547494cefe457184f846030cc09ae2c14cd924671846db3eee5cbf0",
+          "source_dimensions_px": [
+            1536,
+            1024
+          ],
+          "quadrant": "top_left",
+          "manually_reviewed_source_rect_px": [
+            90,
+            20,
+            700,
+            500
+          ],
+          "alpha_crop_rect_in_source_rect_px": [
+            14,
+            9,
+            610,
+            480
+          ],
+          "source_crop_rect_px": [
+            104,
+            29,
+            700,
+            500
+          ],
+          "transparent_padding_px": 8,
+          "file": "sprites/object.pedestal_birdbath.san_diego_20261017_candidate_v1.png",
+          "sha256": "b8797ac73e88faabd4b3f74882eb5836646b288aaf6f2ddc7a4d9a28839e3425",
+          "dimensions_px": [
+            612,
+            487
+          ],
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha_zero_pixels": 150984,
+          "alpha_partial_pixels": 147060,
+          "operation": "lossless manually reviewed object-rectangle crop, alpha-bound trim and 8px transparent padding; no repainting",
+          "file_record": {
+            "path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-1-20261017/sprites/object.pedestal_birdbath.san_diego_20261017_candidate_v1.png",
+            "bytes": 335954,
+            "sha256": "b8797ac73e88faabd4b3f74882eb5836646b288aaf6f2ddc7a4d9a28839e3425",
+            "dimensions_px": [
+              612,
+              487
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "recommended_stage": {
+        "z_order": 20,
+        "source": "scene manifest bird_and_object_stage; proposed instance placement, not application integration",
+        "depth_sort_and_occlusion_calibrated": false
+      },
+      "functional_metadata_status": "authoritative manifest copied verbatim; provisional manual sprite-pixel points; no runtime behavior or contact calibration",
+      "compatibility": "Region-tagged San Diego catalog candidate. Palette/perspective broadly compatible; physical scale, bird foot/beak alignment, depth and occlusion need designer/Mac validation.",
+      "starter_role": "optional_alternative_or_decor"
+    },
+    {
+      "asset_id": "object.ground_birdbath",
+      "family_id": "object.ground_birdbath",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Shallow terracotta ground bath",
+      "geometry": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          665,
+          321
+        ],
+        "alpha_bounds": [
+          8,
+          8,
+          657,
+          313
+        ],
+        "trim_offset": [
+          831,
+          175
+        ],
+        "world_units": "meter_proposed",
+        "physical_measurement_basis": "art direction approximate; no measured product",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "height_m_approximate": 0.48,
+          "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+        },
+        "pixels_per_world_unit": 668.75,
+        "root_pivot": [
+          313,
+          280
+        ],
+        "feet_contact_points": [
+          [
+            172,
+            281
+          ],
+          [
+            465,
+            281
+          ]
+        ],
+        "beak_anchor": null,
+        "perches": [
+          {
+            "id": "rim_front_perch",
+            "position_px": [
+              311,
+              203
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ],
+        "collision_shapes": [],
+        "occluders": [],
+        "layer_depth": "placeable_yard_prop; instance depth supplied by future scene",
+        "material_surface": "terracotta; shallow blue-green water"
+      },
+      "pivot": [
+        313,
+        280
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            112,
+            240
+          ],
+          [
+            297,
+            222
+          ],
+          [
+            538,
+            253
+          ],
+          [
+            455,
+            292
+          ],
+          [
+            187,
+            294
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "intended_scale": {
+        "height_m_approximate": 0.48,
+        "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+      },
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "rim_front_perch",
+            "position_px": [
+              311,
+              203
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "landing_stone",
+            "position_px": [
+              527,
+              140
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "drink_water",
+            "position_px": [
+              347,
+              144
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "bathe_center",
+            "position_px": [
+              317,
+              140
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "interaction": {
+        "affordances": [
+          "rim_front_perch",
+          "landing_stone",
+          "drink_water",
+          "bathe_center"
+        ],
+        "diet_compatibility": [],
+        "plant_habitat": null,
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": {
+          "points": [],
+          "capacity_and_flow_unimplemented": true
+        },
+        "wetness": {
+          "state_slots": [
+            {
+              "id": "full",
+              "status": "missing"
+            },
+            {
+              "id": "low_water",
+              "status": "missing"
+            },
+            {
+              "id": "empty_dry",
+              "status": "missing"
+            },
+            {
+              "id": "ripple",
+              "status": "missing"
+            },
+            {
+              "id": "splash",
+              "status": "missing"
+            }
+          ],
+          "implemented": false
+        },
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "status": "metadata_only_not_implemented",
+          "type": "rigid",
+          "attachment_point_px": null,
+          "separate_rigged_parts": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": null,
+        "season_applicability": {
+          "region": "San Diego/Southern California",
+          "no_default_snow_ice_or_autumn_orange": true,
+          "weathering_or_water_state_needs_only": true
+        }
+      },
+      "state_slots": [
+        {
+          "id": "full",
+          "status": "missing"
+        },
+        {
+          "id": "low_water",
+          "status": "missing"
+        },
+        {
+          "id": "empty_dry",
+          "status": "missing"
+        },
+        {
+          "id": "ripple",
+          "status": "missing"
+        },
+        {
+          "id": "splash",
+          "status": "missing"
+        }
+      ],
+      "wind_rig": {
+        "status": "metadata_only_not_implemented",
+        "type": "rigid",
+        "attachment_point_px": null,
+        "separate_rigged_parts": []
+      },
+      "generated_state": "full_with_static_water",
+      "review_status": "reviewed_candidate_owner_acceptance_pending",
+      "source_and_rights": {
+        "reference_id": [],
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation service",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors. No third-party reference pixels were supplied.",
+        "modification_notice": "Derivative is crop and transparent padding only.",
+        "share_alike_obligations": "unknown_not_asserted",
+        "commercial_use_status": "not_independently_reviewed",
+        "original_file_hash": "b024926f8547494cefe457184f846030cc09ae2c14cd924671846db3eee5cbf0"
+      },
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "placement_anchor_source_fallback": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          313,
+          280
+        ],
+        "source_field": "geometry.root_pivot",
+        "note": "Copied anchor, no new measurement"
+      },
+      "source_manifest": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+        "bytes": 231944,
+        "sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19"
+      },
+      "sprite_files": [
+        {
+          "asset_id": "object.ground_birdbath",
+          "source": "originals/sheet-1.png",
+          "source_sha256": "b024926f8547494cefe457184f846030cc09ae2c14cd924671846db3eee5cbf0",
+          "source_dimensions_px": [
+            1536,
+            1024
+          ],
+          "quadrant": "top_right",
+          "manually_reviewed_source_rect_px": [
+            825,
+            175,
+            1480,
+            480
+          ],
+          "alpha_crop_rect_in_source_rect_px": [
+            6,
+            0,
+            655,
+            305
+          ],
+          "source_crop_rect_px": [
+            831,
+            175,
+            1480,
+            480
+          ],
+          "transparent_padding_px": 8,
+          "file": "sprites/object.ground_birdbath.san_diego_20261017_candidate_v1.png",
+          "sha256": "79742aa540a27c51b8981f471e0b49e34ecf2d4ce51971890b862da33ac00977",
+          "dimensions_px": [
+            665,
+            321
+          ],
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha_zero_pixels": 61282,
+          "alpha_partial_pixels": 152183,
+          "operation": "lossless manually reviewed object-rectangle crop, alpha-bound trim and 8px transparent padding; no repainting",
+          "file_record": {
+            "path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-1-20261017/sprites/object.ground_birdbath.san_diego_20261017_candidate_v1.png",
+            "bytes": 309220,
+            "sha256": "79742aa540a27c51b8981f471e0b49e34ecf2d4ce51971890b862da33ac00977",
+            "dimensions_px": [
+              665,
+              321
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "recommended_stage": {
+        "z_order": 20,
+        "source": "scene manifest bird_and_object_stage; proposed instance placement, not application integration",
+        "depth_sort_and_occlusion_calibrated": false
+      },
+      "functional_metadata_status": "authoritative manifest copied verbatim; provisional manual sprite-pixel points; no runtime behavior or contact calibration",
+      "compatibility": "Region-tagged San Diego catalog candidate. Palette/perspective broadly compatible; physical scale, bird foot/beak alignment, depth and occlusion need designer/Mac validation.",
+      "starter_role": "optional_alternative_or_decor"
+    },
+    {
+      "asset_id": "object.solar_bubbler_fountain",
+      "family_id": "object.solar_bubbler_fountain",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Low ceramic solar bubbler fountain",
+      "geometry": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          558,
+          431
+        ],
+        "alpha_bounds": [
+          8,
+          8,
+          550,
+          423
+        ],
+        "trim_offset": [
+          123,
+          585
+        ],
+        "world_units": "meter_proposed",
+        "physical_measurement_basis": "art direction approximate; no measured product",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "height_m_approximate": 0.66,
+          "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+        },
+        "pixels_per_world_unit": 653.03,
+        "root_pivot": [
+          276,
+          389
+        ],
+        "feet_contact_points": [
+          [
+            142,
+            385
+          ],
+          [
+            408,
+            385
+          ]
+        ],
+        "beak_anchor": null,
+        "perches": [
+          {
+            "id": "rim_front_perch",
+            "position_px": [
+              277,
+              234
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ],
+        "collision_shapes": [],
+        "occluders": [],
+        "layer_depth": "placeable_yard_prop; instance depth supplied by future scene",
+        "material_surface": "glazed ceramic; stones; water"
+      },
+      "pivot": [
+        276,
+        389
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            126,
+            357
+          ],
+          [
+            270,
+            332
+          ],
+          [
+            433,
+            366
+          ],
+          [
+            387,
+            401
+          ],
+          [
+            172,
+            402
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "intended_scale": {
+        "height_m_approximate": 0.66,
+        "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+      },
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "rim_front_perch",
+            "position_px": [
+              277,
+              234
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "drink_water",
+            "position_px": [
+              185,
+              154
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "bathe_edge",
+            "position_px": [
+              140,
+              162
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "water_emitter",
+            "position_px": [
+              272,
+              39
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "water_return",
+            "position_px": [
+              280,
+              172
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "interaction": {
+        "affordances": [
+          "rim_front_perch",
+          "drink_water",
+          "bathe_edge",
+          "water_emitter",
+          "water_return"
+        ],
+        "diet_compatibility": [],
+        "plant_habitat": null,
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": {
+          "points": [
+            {
+              "id": "water_emitter",
+              "position_px": [
+                272,
+                39
+              ],
+              "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+              "implemented": false
+            },
+            {
+              "id": "water_return",
+              "position_px": [
+                280,
+                172
+              ],
+              "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+              "implemented": false
+            }
+          ],
+          "capacity_and_flow_unimplemented": true
+        },
+        "wetness": {
+          "state_slots": [
+            {
+              "id": "pump_off",
+              "status": "missing"
+            },
+            {
+              "id": "pump_on",
+              "status": "missing"
+            },
+            {
+              "id": "low_water",
+              "status": "missing"
+            },
+            {
+              "id": "empty_dry",
+              "status": "missing"
+            },
+            {
+              "id": "splash",
+              "status": "missing"
+            }
+          ],
+          "implemented": false
+        },
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "status": "metadata_only_not_implemented",
+          "type": "rigid",
+          "attachment_point_px": null,
+          "separate_rigged_parts": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": null,
+        "season_applicability": {
+          "region": "San Diego/Southern California",
+          "no_default_snow_ice_or_autumn_orange": true,
+          "weathering_or_water_state_needs_only": true
+        }
+      },
+      "state_slots": [
+        {
+          "id": "pump_off",
+          "status": "missing"
+        },
+        {
+          "id": "pump_on",
+          "status": "missing"
+        },
+        {
+          "id": "low_water",
+          "status": "missing"
+        },
+        {
+          "id": "empty_dry",
+          "status": "missing"
+        },
+        {
+          "id": "splash",
+          "status": "missing"
+        }
+      ],
+      "wind_rig": {
+        "status": "metadata_only_not_implemented",
+        "type": "rigid",
+        "attachment_point_px": null,
+        "separate_rigged_parts": []
+      },
+      "generated_state": "full_with_static_water",
+      "review_status": "reviewed_candidate_owner_acceptance_pending",
+      "source_and_rights": {
+        "reference_id": [],
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation service",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors. No third-party reference pixels were supplied.",
+        "modification_notice": "Derivative is crop and transparent padding only.",
+        "share_alike_obligations": "unknown_not_asserted",
+        "commercial_use_status": "not_independently_reviewed",
+        "original_file_hash": "b024926f8547494cefe457184f846030cc09ae2c14cd924671846db3eee5cbf0"
+      },
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "placement_anchor_source_fallback": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          276,
+          389
+        ],
+        "source_field": "geometry.root_pivot",
+        "note": "Copied anchor, no new measurement"
+      },
+      "source_manifest": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+        "bytes": 231944,
+        "sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19"
+      },
+      "sprite_files": [
+        {
+          "asset_id": "object.solar_bubbler_fountain",
+          "source": "originals/sheet-1.png",
+          "source_sha256": "b024926f8547494cefe457184f846030cc09ae2c14cd924671846db3eee5cbf0",
+          "source_dimensions_px": [
+            1536,
+            1024
+          ],
+          "quadrant": "bottom_left",
+          "manually_reviewed_source_rect_px": [
+            120,
+            585,
+            665,
+            1010
+          ],
+          "alpha_crop_rect_in_source_rect_px": [
+            3,
+            0,
+            545,
+            415
+          ],
+          "source_crop_rect_px": [
+            123,
+            585,
+            665,
+            1000
+          ],
+          "transparent_padding_px": 8,
+          "file": "sprites/object.solar_bubbler_fountain.san_diego_20261017_candidate_v1.png",
+          "sha256": "1a8d5dacaccdb75a109331a48698cbfdb71ebd74f1db05d40661940b54f4f5de",
+          "dimensions_px": [
+            558,
+            431
+          ],
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha_zero_pixels": 87615,
+          "alpha_partial_pixels": 152883,
+          "operation": "lossless manually reviewed object-rectangle crop, alpha-bound trim and 8px transparent padding; no repainting",
+          "file_record": {
+            "path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-1-20261017/sprites/object.solar_bubbler_fountain.san_diego_20261017_candidate_v1.png",
+            "bytes": 325711,
+            "sha256": "1a8d5dacaccdb75a109331a48698cbfdb71ebd74f1db05d40661940b54f4f5de",
+            "dimensions_px": [
+              558,
+              431
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "recommended_stage": {
+        "z_order": 20,
+        "source": "scene manifest bird_and_object_stage; proposed instance placement, not application integration",
+        "depth_sort_and_occlusion_calibrated": false
+      },
+      "functional_metadata_status": "authoritative manifest copied verbatim; provisional manual sprite-pixel points; no runtime behavior or contact calibration",
+      "compatibility": "Region-tagged San Diego catalog candidate. Palette/perspective broadly compatible; physical scale, bird foot/beak alignment, depth and occlusion need designer/Mac validation.",
+      "starter_role": "optional_alternative_or_decor"
+    },
+    {
+      "asset_id": "object.seed_tube_feeder",
+      "family_id": "object.seed_tube_feeder",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Hanging metal mesh seed tube feeder",
+      "geometry": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          319,
+          531
+        ],
+        "alpha_bounds": [
+          8,
+          8,
+          311,
+          523
+        ],
+        "trim_offset": [
+          1001,
+          482
+        ],
+        "world_units": "meter_proposed",
+        "physical_measurement_basis": "art direction approximate; no measured product",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "height_m_approximate": 0.43,
+          "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+        },
+        "pixels_per_world_unit": 1234.88,
+        "root_pivot": [
+          158,
+          20
+        ],
+        "feet_contact_points": [],
+        "beak_anchor": null,
+        "perches": [
+          {
+            "id": "perch_left",
+            "position_px": [
+              68,
+              389
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "perch_right",
+            "position_px": [
+              244,
+              389
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ],
+        "collision_shapes": [],
+        "occluders": [],
+        "layer_depth": "placeable_yard_prop; instance depth supplied by future scene",
+        "material_surface": "metal mesh; dry seed; green metal"
+      },
+      "pivot": [
+        158,
+        20
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": true
+      },
+      "intended_scale": {
+        "height_m_approximate": 0.43,
+        "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+      },
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "suspension",
+            "position_px": [
+              158,
+              20
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "perch_left",
+            "position_px": [
+              68,
+              389
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "perch_right",
+            "position_px": [
+              244,
+              389
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "mesh_feed_left",
+            "position_px": [
+              106,
+              358
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "mesh_feed_right",
+            "position_px": [
+              213,
+              358
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "interaction": {
+        "affordances": [
+          "suspension",
+          "perch_left",
+          "perch_right",
+          "mesh_feed_left",
+          "mesh_feed_right"
+        ],
+        "diet_compatibility": [
+          "seed"
+        ],
+        "plant_habitat": null,
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": {
+          "points": [],
+          "capacity_and_flow_unimplemented": true
+        },
+        "wetness": {
+          "state_slots": [
+            {
+              "id": "seed_full",
+              "status": "missing"
+            },
+            {
+              "id": "seed_low",
+              "status": "missing"
+            },
+            {
+              "id": "seed_empty",
+              "status": "missing"
+            },
+            {
+              "id": "sway",
+              "status": "missing"
+            }
+          ],
+          "implemented": false
+        },
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "status": "metadata_only_not_implemented",
+          "type": "suspended_pendulum",
+          "attachment_point_px": [
+            158,
+            20
+          ],
+          "separate_rigged_parts": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": null,
+        "season_applicability": {
+          "region": "San Diego/Southern California",
+          "no_default_snow_ice_or_autumn_orange": true,
+          "weathering_or_water_state_needs_only": true
+        }
+      },
+      "state_slots": [
+        {
+          "id": "seed_full",
+          "status": "missing"
+        },
+        {
+          "id": "seed_low",
+          "status": "missing"
+        },
+        {
+          "id": "seed_empty",
+          "status": "missing"
+        },
+        {
+          "id": "sway",
+          "status": "missing"
+        }
+      ],
+      "wind_rig": {
+        "status": "metadata_only_not_implemented",
+        "type": "suspended_pendulum",
+        "attachment_point_px": [
+          158,
+          20
+        ],
+        "separate_rigged_parts": []
+      },
+      "generated_state": "filled_static",
+      "review_status": "reviewed_candidate_owner_acceptance_pending",
+      "source_and_rights": {
+        "reference_id": [],
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation service",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors. No third-party reference pixels were supplied.",
+        "modification_notice": "Derivative is crop and transparent padding only.",
+        "share_alike_obligations": "unknown_not_asserted",
+        "commercial_use_status": "not_independently_reviewed",
+        "original_file_hash": "b024926f8547494cefe457184f846030cc09ae2c14cd924671846db3eee5cbf0"
+      },
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "placement_anchor_source_fallback": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          158,
+          20
+        ],
+        "source_field": "geometry.root_pivot",
+        "note": "Copied anchor, no new measurement"
+      },
+      "source_manifest": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+        "bytes": 231944,
+        "sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19"
+      },
+      "sprite_files": [
+        {
+          "asset_id": "object.seed_tube_feeder",
+          "source": "originals/sheet-1.png",
+          "source_sha256": "b024926f8547494cefe457184f846030cc09ae2c14cd924671846db3eee5cbf0",
+          "source_dimensions_px": [
+            1536,
+            1024
+          ],
+          "quadrant": "bottom_right",
+          "manually_reviewed_source_rect_px": [
+            995,
+            482,
+            1305,
+            1000
+          ],
+          "alpha_crop_rect_in_source_rect_px": [
+            6,
+            0,
+            309,
+            515
+          ],
+          "source_crop_rect_px": [
+            1001,
+            482,
+            1304,
+            997
+          ],
+          "transparent_padding_px": 8,
+          "file": "sprites/object.seed_tube_feeder.san_diego_20261017_candidate_v1.png",
+          "sha256": "445f5be88ef70756c07a5fb803d7074ba14c12027ab566efff690262533bd886",
+          "dimensions_px": [
+            319,
+            531
+          ],
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha_zero_pixels": 90936,
+          "alpha_partial_pixels": 78453,
+          "operation": "lossless manually reviewed object-rectangle crop, alpha-bound trim and 8px transparent padding; no repainting",
+          "file_record": {
+            "path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-1-20261017/sprites/object.seed_tube_feeder.san_diego_20261017_candidate_v1.png",
+            "bytes": 183991,
+            "sha256": "445f5be88ef70756c07a5fb803d7074ba14c12027ab566efff690262533bd886",
+            "dimensions_px": [
+              319,
+              531
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "recommended_stage": {
+        "z_order": 20,
+        "source": "scene manifest bird_and_object_stage; proposed instance placement, not application integration",
+        "depth_sort_and_occlusion_calibrated": false
+      },
+      "functional_metadata_status": "authoritative manifest copied verbatim; provisional manual sprite-pixel points; no runtime behavior or contact calibration",
+      "compatibility": "Region-tagged San Diego catalog candidate. Palette/perspective broadly compatible; physical scale, bird foot/beak alignment, depth and occlusion need designer/Mac validation.",
+      "starter_role": "optional_alternative_or_decor"
+    },
+    {
+      "asset_id": "object.cedar_feeder",
+      "family_id": "object.cedar_feeder",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Cedar hopper feeder on post",
+      "geometry": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          449,
+          528
+        ],
+        "alpha_bounds": [
+          8,
+          8,
+          441,
+          520
+        ],
+        "trim_offset": [
+          207,
+          0
+        ],
+        "world_units": "meter_proposed",
+        "physical_measurement_basis": "art direction approximate; no measured product",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "height_m_approximate": 1.55,
+          "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+        },
+        "pixels_per_world_unit": 340.65,
+        "root_pivot": [
+          196,
+          494
+        ],
+        "feet_contact_points": [
+          [
+            136,
+            483
+          ],
+          [
+            258,
+            484
+          ]
+        ],
+        "beak_anchor": null,
+        "perches": [
+          {
+            "id": "tray_front_perch",
+            "position_px": [
+              175,
+              284
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "tray_side_perch",
+            "position_px": [
+              348,
+              264
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "roof_perch",
+            "position_px": [
+              226,
+              35
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ],
+        "collision_shapes": [],
+        "occluders": [],
+        "layer_depth": "placeable_yard_prop; instance depth supplied by future scene",
+        "material_surface": "cedar; glass hopper; dry seed"
+      },
+      "pivot": [
+        196,
+        494
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            125,
+            469
+          ],
+          [
+            198,
+            453
+          ],
+          [
+            274,
+            477
+          ],
+          [
+            256,
+            501
+          ],
+          [
+            178,
+            510
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "intended_scale": {
+        "height_m_approximate": 1.55,
+        "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+      },
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "tray_front_perch",
+            "position_px": [
+              175,
+              284
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "tray_side_perch",
+            "position_px": [
+              348,
+              264
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "seed_peck_front",
+            "position_px": [
+              186,
+              260
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "seed_peck_side",
+            "position_px": [
+              311,
+              249
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "roof_perch",
+            "position_px": [
+              226,
+              35
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "interaction": {
+        "affordances": [
+          "tray_front_perch",
+          "tray_side_perch",
+          "seed_peck_front",
+          "seed_peck_side",
+          "roof_perch"
+        ],
+        "diet_compatibility": [
+          "seed"
+        ],
+        "plant_habitat": null,
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": {
+          "points": [],
+          "capacity_and_flow_unimplemented": true
+        },
+        "wetness": {
+          "state_slots": [
+            {
+              "id": "seed_full",
+              "status": "missing"
+            },
+            {
+              "id": "seed_low",
+              "status": "missing"
+            },
+            {
+              "id": "seed_empty",
+              "status": "missing"
+            },
+            {
+              "id": "roof_wet",
+              "status": "missing"
+            }
+          ],
+          "implemented": false
+        },
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "status": "metadata_only_not_implemented",
+          "type": "rigid",
+          "attachment_point_px": null,
+          "separate_rigged_parts": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": null,
+        "season_applicability": {
+          "region": "San Diego/Southern California",
+          "no_default_snow_ice_or_autumn_orange": true,
+          "weathering_or_water_state_needs_only": true
+        }
+      },
+      "state_slots": [
+        {
+          "id": "seed_full",
+          "status": "missing"
+        },
+        {
+          "id": "seed_low",
+          "status": "missing"
+        },
+        {
+          "id": "seed_empty",
+          "status": "missing"
+        },
+        {
+          "id": "roof_wet",
+          "status": "missing"
+        }
+      ],
+      "wind_rig": {
+        "status": "metadata_only_not_implemented",
+        "type": "rigid",
+        "attachment_point_px": null,
+        "separate_rigged_parts": []
+      },
+      "generated_state": "filled_static",
+      "review_status": "reviewed_candidate_owner_acceptance_pending",
+      "source_and_rights": {
+        "reference_id": [],
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation service",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors. No third-party reference pixels were supplied.",
+        "modification_notice": "Derivative is crop and transparent padding only.",
+        "share_alike_obligations": "unknown_not_asserted",
+        "commercial_use_status": "not_independently_reviewed",
+        "original_file_hash": "52debb1c478b847d02f34c554626fb442ee409285f36e4967f2029b6ca29b661"
+      },
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "placement_anchor_source_fallback": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          196,
+          494
+        ],
+        "source_field": "geometry.root_pivot",
+        "note": "Copied anchor, no new measurement"
+      },
+      "source_manifest": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+        "bytes": 231944,
+        "sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19"
+      },
+      "sprite_files": [
+        {
+          "asset_id": "object.cedar_feeder",
+          "source": "originals/sheet-2.png",
+          "source_sha256": "52debb1c478b847d02f34c554626fb442ee409285f36e4967f2029b6ca29b661",
+          "source_dimensions_px": [
+            1536,
+            1024
+          ],
+          "quadrant": "top_left",
+          "manually_reviewed_source_rect_px": [
+            200,
+            0,
+            640,
+            512
+          ],
+          "alpha_crop_rect_in_source_rect_px": [
+            7,
+            0,
+            440,
+            512
+          ],
+          "source_crop_rect_px": [
+            207,
+            0,
+            640,
+            512
+          ],
+          "transparent_padding_px": 8,
+          "file": "sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+          "sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+          "dimensions_px": [
+            449,
+            528
+          ],
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha_zero_pixels": 124799,
+          "alpha_partial_pixels": 112273,
+          "operation": "lossless manually reviewed object-rectangle crop, alpha-bound trim and 8px transparent padding; no repainting",
+          "file_record": {
+            "path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+            "bytes": 285605,
+            "sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+            "dimensions_px": [
+              449,
+              528
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "recommended_stage": {
+        "z_order": 20,
+        "source": "scene manifest bird_and_object_stage; proposed instance placement, not application integration",
+        "depth_sort_and_occlusion_calibrated": false
+      },
+      "functional_metadata_status": "authoritative manifest copied verbatim; provisional manual sprite-pixel points; no runtime behavior or contact calibration",
+      "compatibility": "Region-tagged San Diego catalog candidate. Palette/perspective broadly compatible; physical scale, bird foot/beak alignment, depth and occlusion need designer/Mac validation.",
+      "starter_role": "core_feeder_candidate"
+    },
+    {
+      "asset_id": "object.platform_feeder",
+      "family_id": "object.platform_feeder",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Low cedar platform feeder",
+      "geometry": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          646,
+          334
+        ],
+        "alpha_bounds": [
+          8,
+          8,
+          638,
+          326
+        ],
+        "trim_offset": [
+          829,
+          129
+        ],
+        "world_units": "meter_proposed",
+        "physical_measurement_basis": "art direction approximate; no measured product",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "height_m_approximate": 0.34,
+          "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+        },
+        "pixels_per_world_unit": 982.35,
+        "root_pivot": [
+          336,
+          283
+        ],
+        "feet_contact_points": [
+          [
+            60,
+            208
+          ],
+          [
+            362,
+            292
+          ],
+          [
+            586,
+            189
+          ]
+        ],
+        "beak_anchor": null,
+        "perches": [
+          {
+            "id": "front_lip_perch",
+            "position_px": [
+              345,
+              228
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "left_lip_perch",
+            "position_px": [
+              71,
+              132
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ],
+        "collision_shapes": [],
+        "occluders": [],
+        "layer_depth": "placeable_yard_prop; instance depth supplied by future scene",
+        "material_surface": "cedar slats; dry seed"
+      },
+      "pivot": [
+        336,
+        283
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            37,
+            198
+          ],
+          [
+            262,
+            165
+          ],
+          [
+            607,
+            199
+          ],
+          [
+            368,
+            305
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "intended_scale": {
+        "height_m_approximate": 0.34,
+        "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+      },
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "front_lip_perch",
+            "position_px": [
+              345,
+              228
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "left_lip_perch",
+            "position_px": [
+              71,
+              132
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "seed_peck",
+            "position_px": [
+              315,
+              137
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "interaction": {
+        "affordances": [
+          "front_lip_perch",
+          "left_lip_perch",
+          "seed_peck"
+        ],
+        "diet_compatibility": [
+          "seed"
+        ],
+        "plant_habitat": null,
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": {
+          "points": [],
+          "capacity_and_flow_unimplemented": true
+        },
+        "wetness": {
+          "state_slots": [
+            {
+              "id": "seed_full",
+              "status": "missing"
+            },
+            {
+              "id": "seed_low",
+              "status": "missing"
+            },
+            {
+              "id": "seed_empty",
+              "status": "missing"
+            },
+            {
+              "id": "clean",
+              "status": "missing"
+            }
+          ],
+          "implemented": false
+        },
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "status": "metadata_only_not_implemented",
+          "type": "rigid",
+          "attachment_point_px": null,
+          "separate_rigged_parts": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": null,
+        "season_applicability": {
+          "region": "San Diego/Southern California",
+          "no_default_snow_ice_or_autumn_orange": true,
+          "weathering_or_water_state_needs_only": true
+        }
+      },
+      "state_slots": [
+        {
+          "id": "seed_full",
+          "status": "missing"
+        },
+        {
+          "id": "seed_low",
+          "status": "missing"
+        },
+        {
+          "id": "seed_empty",
+          "status": "missing"
+        },
+        {
+          "id": "clean",
+          "status": "missing"
+        }
+      ],
+      "wind_rig": {
+        "status": "metadata_only_not_implemented",
+        "type": "rigid",
+        "attachment_point_px": null,
+        "separate_rigged_parts": []
+      },
+      "generated_state": "filled_static",
+      "review_status": "reviewed_candidate_owner_acceptance_pending",
+      "source_and_rights": {
+        "reference_id": [],
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation service",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors. No third-party reference pixels were supplied.",
+        "modification_notice": "Derivative is crop and transparent padding only.",
+        "share_alike_obligations": "unknown_not_asserted",
+        "commercial_use_status": "not_independently_reviewed",
+        "original_file_hash": "52debb1c478b847d02f34c554626fb442ee409285f36e4967f2029b6ca29b661"
+      },
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "placement_anchor_source_fallback": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          336,
+          283
+        ],
+        "source_field": "geometry.root_pivot",
+        "note": "Copied anchor, no new measurement"
+      },
+      "source_manifest": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+        "bytes": 231944,
+        "sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19"
+      },
+      "sprite_files": [
+        {
+          "asset_id": "object.platform_feeder",
+          "source": "originals/sheet-2.png",
+          "source_sha256": "52debb1c478b847d02f34c554626fb442ee409285f36e4967f2029b6ca29b661",
+          "source_dimensions_px": [
+            1536,
+            1024
+          ],
+          "quadrant": "top_right",
+          "manually_reviewed_source_rect_px": [
+            820,
+            125,
+            1470,
+            455
+          ],
+          "alpha_crop_rect_in_source_rect_px": [
+            9,
+            4,
+            639,
+            322
+          ],
+          "source_crop_rect_px": [
+            829,
+            129,
+            1459,
+            447
+          ],
+          "transparent_padding_px": 8,
+          "file": "sprites/object.platform_feeder.san_diego_20261017_candidate_v1.png",
+          "sha256": "84cc65bf86a705172d0ac383359f5217c86c22918202a37c557af7dcbe7ed52b",
+          "dimensions_px": [
+            646,
+            334
+          ],
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha_zero_pixels": 83261,
+          "alpha_partial_pixels": 132503,
+          "operation": "lossless manually reviewed object-rectangle crop, alpha-bound trim and 8px transparent padding; no repainting",
+          "file_record": {
+            "path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.platform_feeder.san_diego_20261017_candidate_v1.png",
+            "bytes": 306776,
+            "sha256": "84cc65bf86a705172d0ac383359f5217c86c22918202a37c557af7dcbe7ed52b",
+            "dimensions_px": [
+              646,
+              334
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "recommended_stage": {
+        "z_order": 20,
+        "source": "scene manifest bird_and_object_stage; proposed instance placement, not application integration",
+        "depth_sort_and_occlusion_calibrated": false
+      },
+      "functional_metadata_status": "authoritative manifest copied verbatim; provisional manual sprite-pixel points; no runtime behavior or contact calibration",
+      "compatibility": "Region-tagged San Diego catalog candidate. Palette/perspective broadly compatible; physical scale, bird foot/beak alignment, depth and occlusion need designer/Mac validation.",
+      "starter_role": "optional_alternative_or_decor"
+    },
+    {
+      "asset_id": "object.bench",
+      "family_id": "object.bench",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Weathered cedar garden bench",
+      "geometry": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          761,
+          511
+        ],
+        "alpha_bounds": [
+          8,
+          8,
+          753,
+          503
+        ],
+        "trim_offset": [
+          735,
+          515
+        ],
+        "world_units": "meter_proposed",
+        "physical_measurement_basis": "art direction approximate; no measured product",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "height_m_approximate": 0.9,
+          "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+        },
+        "pixels_per_world_unit": 567.78,
+        "root_pivot": [
+          378,
+          429
+        ],
+        "feet_contact_points": [
+          [
+            68,
+            381
+          ],
+          [
+            172,
+            334
+          ],
+          [
+            620,
+            467
+          ],
+          [
+            708,
+            394
+          ]
+        ],
+        "beak_anchor": null,
+        "perches": [
+          {
+            "id": "back_perch",
+            "position_px": [
+              396,
+              45
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "armrest_left_perch",
+            "position_px": [
+              100,
+              151
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ],
+        "collision_shapes": [],
+        "occluders": [],
+        "layer_depth": "placeable_yard_prop; instance depth supplied by future scene",
+        "material_surface": "weathered cedar"
+      },
+      "pivot": [
+        378,
+        429
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            58,
+            373
+          ],
+          [
+            186,
+            330
+          ],
+          [
+            713,
+            394
+          ],
+          [
+            633,
+            478
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "intended_scale": {
+        "height_m_approximate": 0.9,
+        "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+      },
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "back_perch",
+            "position_px": [
+              396,
+              45
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "armrest_left_perch",
+            "position_px": [
+              100,
+              151
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "seat_surface",
+            "position_px": [
+              396,
+              251
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "interaction": {
+        "affordances": [
+          "back_perch",
+          "armrest_left_perch",
+          "seat_surface"
+        ],
+        "diet_compatibility": [],
+        "plant_habitat": null,
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": {
+          "points": [],
+          "capacity_and_flow_unimplemented": true
+        },
+        "wetness": {
+          "state_slots": [
+            {
+              "id": "dry",
+              "status": "missing"
+            },
+            {
+              "id": "wet",
+              "status": "missing"
+            },
+            {
+              "id": "weathered",
+              "status": "missing"
+            }
+          ],
+          "implemented": false
+        },
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "status": "metadata_only_not_implemented",
+          "type": "rigid",
+          "attachment_point_px": null,
+          "separate_rigged_parts": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": null,
+        "season_applicability": {
+          "region": "San Diego/Southern California",
+          "no_default_snow_ice_or_autumn_orange": true,
+          "weathering_or_water_state_needs_only": true
+        }
+      },
+      "state_slots": [
+        {
+          "id": "dry",
+          "status": "missing"
+        },
+        {
+          "id": "wet",
+          "status": "missing"
+        },
+        {
+          "id": "weathered",
+          "status": "missing"
+        }
+      ],
+      "wind_rig": {
+        "status": "metadata_only_not_implemented",
+        "type": "rigid",
+        "attachment_point_px": null,
+        "separate_rigged_parts": []
+      },
+      "generated_state": "dry_static",
+      "review_status": "reviewed_candidate_owner_acceptance_pending",
+      "source_and_rights": {
+        "reference_id": [],
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation service",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors. No third-party reference pixels were supplied.",
+        "modification_notice": "Derivative is crop and transparent padding only.",
+        "share_alike_obligations": "unknown_not_asserted",
+        "commercial_use_status": "not_independently_reviewed",
+        "original_file_hash": "52debb1c478b847d02f34c554626fb442ee409285f36e4967f2029b6ca29b661"
+      },
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "placement_anchor_source_fallback": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          378,
+          429
+        ],
+        "source_field": "geometry.root_pivot",
+        "note": "Copied anchor, no new measurement"
+      },
+      "source_manifest": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+        "bytes": 231944,
+        "sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19"
+      },
+      "sprite_files": [
+        {
+          "asset_id": "object.bench",
+          "source": "originals/sheet-2.png",
+          "source_sha256": "52debb1c478b847d02f34c554626fb442ee409285f36e4967f2029b6ca29b661",
+          "source_dimensions_px": [
+            1536,
+            1024
+          ],
+          "quadrant": "bottom_right",
+          "manually_reviewed_source_rect_px": [
+            735,
+            515,
+            1480,
+            1010
+          ],
+          "alpha_crop_rect_in_source_rect_px": [
+            0,
+            0,
+            745,
+            495
+          ],
+          "source_crop_rect_px": [
+            735,
+            515,
+            1480,
+            1010
+          ],
+          "transparent_padding_px": 8,
+          "file": "sprites/object.bench.san_diego_20261017_candidate_v1.png",
+          "sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+          "dimensions_px": [
+            761,
+            511
+          ],
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha_zero_pixels": 156899,
+          "alpha_partial_pixels": 231972,
+          "operation": "lossless manually reviewed object-rectangle crop, alpha-bound trim and 8px transparent padding; no repainting",
+          "file_record": {
+            "path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+            "bytes": 515507,
+            "sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+            "dimensions_px": [
+              761,
+              511
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "recommended_stage": {
+        "z_order": 20,
+        "source": "scene manifest bird_and_object_stage; proposed instance placement, not application integration",
+        "depth_sort_and_occlusion_calibrated": false
+      },
+      "functional_metadata_status": "authoritative manifest copied verbatim; provisional manual sprite-pixel points; no runtime behavior or contact calibration",
+      "compatibility": "Region-tagged San Diego catalog candidate. Palette/perspective broadly compatible; physical scale, bird foot/beak alignment, depth and occlusion need designer/Mac validation.",
+      "starter_role": "optional_alternative_or_decor"
+    },
+    {
+      "asset_id": "object.terracotta_pot",
+      "family_id": "object.terracotta_pot",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Large empty terracotta pot",
+      "geometry": {
+        "source_dimensions_px": [
+          1362,
+          1155
+        ],
+        "frame_canvas_dimensions_px": [
+          517,
+          474
+        ],
+        "alpha_bounds": [
+          8,
+          8,
+          509,
+          466
+        ],
+        "trim_offset": [
+          63,
+          26
+        ],
+        "world_units": "meter_proposed",
+        "physical_measurement_basis": "art direction approximate; no measured product",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "height_m_approximate": 0.42,
+          "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+        },
+        "pixels_per_world_unit": 1128.57,
+        "root_pivot": [
+          268,
+          443
+        ],
+        "feet_contact_points": [
+          [
+            172,
+            441
+          ],
+          [
+            345,
+            441
+          ]
+        ],
+        "beak_anchor": null,
+        "perches": [
+          {
+            "id": "rim_perch",
+            "position_px": [
+              253,
+              122
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ],
+        "collision_shapes": [],
+        "occluders": [],
+        "layer_depth": "placeable_yard_prop; instance depth supplied by future scene",
+        "material_surface": "weathered terracotta; empty hollow"
+      },
+      "pivot": [
+        268,
+        443
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            141,
+            422
+          ],
+          [
+            258,
+            407
+          ],
+          [
+            385,
+            428
+          ],
+          [
+            340,
+            459
+          ],
+          [
+            190,
+            459
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "intended_scale": {
+        "height_m_approximate": 0.42,
+        "relative_bird_scale": "preserve species physical scale; do not normalize birds to object bounding box"
+      },
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "rim_perch",
+            "position_px": [
+              253,
+              122
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "plant_attachment",
+            "position_px": [
+              262,
+              106
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "interaction": {
+        "affordances": [
+          "rim_perch",
+          "plant_attachment"
+        ],
+        "diet_compatibility": [],
+        "plant_habitat": null,
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": {
+          "points": [],
+          "capacity_and_flow_unimplemented": true
+        },
+        "wetness": {
+          "state_slots": [
+            {
+              "id": "empty_dry",
+              "status": "missing"
+            },
+            {
+              "id": "soil_dry",
+              "status": "missing"
+            },
+            {
+              "id": "soil_watered",
+              "status": "missing"
+            },
+            {
+              "id": "occupied_plant_slot",
+              "status": "missing"
+            }
+          ],
+          "implemented": false
+        },
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "status": "metadata_only_not_implemented",
+          "type": "rigid",
+          "attachment_point_px": null,
+          "separate_rigged_parts": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": null,
+        "season_applicability": {
+          "region": "San Diego/Southern California",
+          "no_default_snow_ice_or_autumn_orange": true,
+          "weathering_or_water_state_needs_only": true
+        }
+      },
+      "state_slots": [
+        {
+          "id": "empty_dry",
+          "status": "missing"
+        },
+        {
+          "id": "soil_dry",
+          "status": "missing"
+        },
+        {
+          "id": "soil_watered",
+          "status": "missing"
+        },
+        {
+          "id": "occupied_plant_slot",
+          "status": "missing"
+        }
+      ],
+      "wind_rig": {
+        "status": "metadata_only_not_implemented",
+        "type": "rigid",
+        "attachment_point_px": null,
+        "separate_rigged_parts": []
+      },
+      "generated_state": "empty_or_bare_soil_static",
+      "review_status": "reviewed_candidate_owner_acceptance_pending",
+      "source_and_rights": {
+        "reference_id": [],
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation service",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors. No third-party reference pixels were supplied.",
+        "modification_notice": "Derivative is crop and transparent padding only.",
+        "share_alike_obligations": "unknown_not_asserted",
+        "commercial_use_status": "not_independently_reviewed",
+        "original_file_hash": "61cc858c2dd91f061d1902903afbea2bda3dda1c726f6fefe58e91705edfa9c0"
+      },
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "placement_anchor_source_fallback": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          268,
+          443
+        ],
+        "source_field": "geometry.root_pivot",
+        "note": "Copied anchor, no new measurement"
+      },
+      "source_manifest": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+        "bytes": 231944,
+        "sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19"
+      },
+      "sprite_files": [
+        {
+          "asset_id": "object.terracotta_pot",
+          "source": "originals/sheet-3.png",
+          "source_sha256": "61cc858c2dd91f061d1902903afbea2bda3dda1c726f6fefe58e91705edfa9c0",
+          "source_dimensions_px": [
+            1362,
+            1155
+          ],
+          "quadrant": "top_left",
+          "manually_reviewed_source_rect_px": [
+            60,
+            20,
+            580,
+            490
+          ],
+          "alpha_crop_rect_in_source_rect_px": [
+            3,
+            6,
+            504,
+            464
+          ],
+          "source_crop_rect_px": [
+            63,
+            26,
+            564,
+            484
+          ],
+          "transparent_padding_px": 8,
+          "file": "sprites/object.terracotta_pot.san_diego_20261017_candidate_v1.png",
+          "sha256": "3d757af6f0caa3d6a3bd508c285a66417a607cde094c0fd4b8395db14e95a6c2",
+          "dimensions_px": [
+            517,
+            474
+          ],
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha_zero_pixels": 66659,
+          "alpha_partial_pixels": 178398,
+          "operation": "lossless manually reviewed object-rectangle crop, alpha-bound trim and 8px transparent padding; no repainting",
+          "file_record": {
+            "path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-3-20261017/sprites/object.terracotta_pot.san_diego_20261017_candidate_v1.png",
+            "bytes": 374732,
+            "sha256": "3d757af6f0caa3d6a3bd508c285a66417a607cde094c0fd4b8395db14e95a6c2",
+            "dimensions_px": [
+              517,
+              474
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              255
+            ]
+          }
+        }
+      ],
+      "recommended_stage": {
+        "z_order": 20,
+        "source": "scene manifest bird_and_object_stage; proposed instance placement, not application integration",
+        "depth_sort_and_occlusion_calibrated": false
+      },
+      "functional_metadata_status": "authoritative manifest copied verbatim; provisional manual sprite-pixel points; no runtime behavior or contact calibration",
+      "compatibility": "Region-tagged San Diego catalog candidate. Palette/perspective broadly compatible; physical scale, bird foot/beak alignment, depth and occlusion need designer/Mac validation.",
+      "starter_role": "optional_alternative_or_decor"
+    },
+    {
+      "asset_id": "object.ground_birdbath",
+      "family_id": "object.ground_birdbath",
+      "variant_id": "rectangular_concrete",
+      "label": "Rectangular concrete ground birdbath",
+      "geometry": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          741,
+          347
+        ],
+        "alpha_bounds": [
+          8,
+          8,
+          733,
+          339
+        ],
+        "trim_offset": [
+          57,
+          597
+        ],
+        "world_units": "meter_proposed",
+        "physical_measurement_basis": "art_direction_approximate; projected 2D registration unverified",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "height_m_proposed": 0.085,
+          "width_m_proposed": 0.55,
+          "depth_m_proposed": 0.38,
+          "measurement_basis": "art_direction_approximate_not_a_measured_product",
+          "relative_bird_scale": "Preserve canonical bird physical scale; never normalize birds to each object bbox"
+        },
+        "pixels_per_world_unit": 4082.353,
+        "root_pivot": [
+          368,
+          296
+        ],
+        "feet_contact_points": [
+          [
+            97,
+            226
+          ],
+          [
+            509,
+            321
+          ]
+        ],
+        "beak_anchor": null,
+        "perches": [
+          {
+            "id": "rim_front_perch",
+            "position_px": [
+              350,
+              235
+            ],
+            "coordinate_status": "provisional_manual_image_observation",
+            "implemented": false
+          },
+          {
+            "id": "landing_stone",
+            "position_px": [
+              585,
+              141
+            ],
+            "coordinate_status": "provisional_manual_image_observation",
+            "implemented": false
+          }
+        ],
+        "collision_shapes": [],
+        "occluders": [],
+        "layer_depth": "placeable_prop_instance_depth_pending",
+        "material_surface": "warm pale-gray concrete; static blue-green water; small landing stone",
+        "render_scale_rule": "Proposed source registration only. Renderer selects shared scene pixels/meter and validates perspective/physical height. No runtime scale acceptance claimed."
+      },
+      "placement_anchor": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          368,
+          296
+        ],
+        "mode": "ground_root"
+      },
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygons": [
+          [
+            [
+              39,
+              209
+            ],
+            [
+              202,
+              144
+            ],
+            [
+              702,
+              242
+            ],
+            [
+              530,
+              332
+            ]
+          ]
+        ],
+        "status": "proposed_metadata_not_collision",
+        "no_ground_contact": false
+      },
+      "functional_anchors": {
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "rim_front_perch",
+            "position_px": [
+              350,
+              235
+            ],
+            "coordinate_status": "provisional_manual_image_observation",
+            "implemented": false
+          },
+          {
+            "id": "drink_water",
+            "position_px": [
+              357,
+              172
+            ],
+            "coordinate_status": "provisional_manual_image_observation",
+            "implemented": false
+          },
+          {
+            "id": "bathe_center",
+            "position_px": [
+              380,
+              171
+            ],
+            "coordinate_status": "provisional_manual_image_observation",
+            "implemented": false
+          },
+          {
+            "id": "landing_stone",
+            "position_px": [
+              585,
+              141
+            ],
+            "coordinate_status": "provisional_manual_image_observation",
+            "implemented": false
+          }
+        ],
+        "implemented": false
+      },
+      "interaction": {
+        "affordances": [
+          "rim_front_perch",
+          "drink_water",
+          "bathe_center",
+          "landing_stone"
+        ],
+        "diet_compatibility": [],
+        "plant_habitat": null,
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": {
+          "implemented": false,
+          "flow_model": null
+        },
+        "wetness": {
+          "variant_slots": [
+            "wet"
+          ],
+          "implemented": false
+        },
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "type": "rigid",
+          "implemented": false,
+          "separate_rig_parts": [],
+          "attachments_px": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": {
+          "status": "optional_planned_only",
+          "slots": []
+        },
+        "season_applicability": {
+          "region": "San Diego/Southern California",
+          "vegetative_health": "not_applicable_to_rigid_object",
+          "default_snow_ice_or_orange_fall": false,
+          "optional_snowcap_policy": "Missing optional overlay for other-climate/owner-selected use only; no snowy San Diego default"
+        },
+        "ecological_behavior_claims": []
+      },
+      "state_slots": [
+        {
+          "id": "full",
+          "status": "missing_as_independent_variant",
+          "applicability": "proposed_slot"
+        },
+        {
+          "id": "low_water",
+          "status": "missing_as_independent_variant",
+          "applicability": "proposed_slot"
+        },
+        {
+          "id": "empty_dry",
+          "status": "missing_as_independent_variant",
+          "applicability": "proposed_slot"
+        },
+        {
+          "id": "wet",
+          "status": "missing_as_independent_variant",
+          "applicability": "proposed_slot"
+        },
+        {
+          "id": "ripple_slot",
+          "status": "missing_as_independent_variant",
+          "applicability": "proposed_slot"
+        },
+        {
+          "id": "splash_slot",
+          "status": "missing_as_independent_variant",
+          "applicability": "proposed_slot"
+        },
+        {
+          "id": "optional_snowcap_slot",
+          "status": "missing_as_independent_variant",
+          "applicability": "optional_owner_selected_overlay_not_SD_default"
+        }
+      ],
+      "current_state": "full_static_water",
+      "review_status": "scoped_technical_visual_candidate_owner_style_acceptance_pending",
+      "source_and_rights": {
+        "reference_id": [
+          "original_ground_bath_family_sheet",
+          "cedar_material_reference_sheet"
+        ],
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation service",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors using inspected internally generated references, retained unmodified by exact hash. No third-party reference pixels supplied.",
+        "modification_notice": "reviewed rectangular native-pixel crop, alpha-bound trim and transparent padding only; no repaint/recolor/color-key",
+        "share_alike_obligations": "not_established",
+        "commercial_use_status": "not_independently_reviewed",
+        "original_file_hash": "357380feaf9777e1ed086e2d0bbb6746f454ba88a8d5d9e1503e0308f6e285ee"
+      },
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null,
+        "pull_request": null
+      },
+      "source_manifest": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/objects/wave03/track-intake.json",
+        "bytes": 196525,
+        "sha256": "fd35a7c1994d9b40508819808d1a86b86f7ef0e5da32e01497c275015acf6a1f"
+      },
+      "sprite_files": [
+        {
+          "asset_id": "object.ground_birdbath",
+          "variant_id": "rectangular_concrete",
+          "source": "originals/sheet-1.png",
+          "source_sha256": "357380feaf9777e1ed086e2d0bbb6746f454ba88a8d5d9e1503e0308f6e285ee",
+          "source_dimensions_px": [
+            1536,
+            1024
+          ],
+          "reviewed_source_rect_px": [
+            55,
+            595,
+            790,
+            940
+          ],
+          "source_crop_rect_px": [
+            57,
+            597,
+            782,
+            928
+          ],
+          "trim_offset_px": [
+            57,
+            597
+          ],
+          "transparent_padding_px": 8,
+          "file": "sprites/object.ground_birdbath.rectangular_concrete.png",
+          "sha256": "4ac78428502ec95c480b2114d66f7f5cf3e9015bb387058fbac6d1f0268da0c7",
+          "dimensions_px": [
+            741,
+            347
+          ],
+          "alpha_bounds": [
+            8,
+            8,
+            733,
+            339
+          ],
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha_zero_pixels": 100082,
+          "operation": "reviewed rectangular native-pixel crop, alpha-bound trim and transparent padding only; no repaint/recolor/color-key",
+          "file_record": {
+            "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/mediterranean-wave05/references/groundbath-landmark-source.png",
+            "bytes": 369414,
+            "sha256": "4ac78428502ec95c480b2114d66f7f5cf3e9015bb387058fbac6d1f0268da0c7",
+            "dimensions_px": [
+              741,
+              347
+            ],
+            "mode": "RGBA",
+            "alpha_extrema": [
+              0,
+              254
+            ]
+          }
+        }
+      ],
+      "recommended_stage": {
+        "z_order": 20,
+        "source": "scene manifest bird_and_object_stage; proposed instance placement, not application integration",
+        "depth_sort_and_occlusion_calibrated": false
+      },
+      "functional_metadata_status": "authoritative manifest copied verbatim; provisional manual sprite-pixel points; no runtime behavior or contact calibration",
+      "compatibility": "Region-tagged San Diego catalog candidate. Palette/perspective broadly compatible; physical scale, bird foot/beak alignment, depth and occlusion need designer/Mac validation.",
+      "starter_role": "core_water_candidate"
+    }
+  ],
+  "starter_recommendation": {
+    "scene_asset_id": "scene.san_diego_coastal_urban",
+    "scene_variant_id": "wave04_coastal_garden_v1",
+    "foundation_draw_contract_id": "coastal-foundation-no-local-foreground",
+    "core_objects": [
+      {
+        "asset_id": "object.cedar_feeder",
+        "variant_id": "san_diego_20261017_candidate_v1"
+      },
+      {
+        "asset_id": "object.ground_birdbath",
+        "variant_id": "rectangular_concrete"
+      }
+    ],
+    "optional_fountain": "object.solar_bubbler_fountain art only; painted water emitter/return are points, not flow implementation",
+    "plants": "Scene layer foliage has no canonical species identity. Separate plant catalog instances can be mapped later; this audit does not assert saved-yard movable plant support.",
+    "saved_layout_created": false,
+    "runtime_integrated": false,
+    "owner_accepted": false
+  },
+  "runtime_boundary": {
+    "evidence": [
+      {
+        "path": "[machine path omitted]",
+        "bytes": 10691,
+        "sha256": "13350947f9aba91d103b386a13388121ccea81e40929b1a69d286b39d64dc351"
+      },
+      {
+        "path": "[machine path omitted]",
+        "bytes": 6581,
+        "sha256": "dde8042d548b7d766ab361c6becf735881f5f81eebae595ab892c79887d41f2c"
+      }
+    ],
+    "evidence_scope": "stale cloud source only; current Mac application not inspected",
+    "object_kinds": [
+      "perch",
+      "feeder",
+      "bath",
+      "nest"
+    ],
+    "saved_object_fields": [
+      "id",
+      "kind",
+      "x",
+      "y"
+    ],
+    "world_dimensions": [
+      960,
+      540
+    ],
+    "no_arbitrary_plant_asset_ids_or_asset_skin_fields": true,
+    "art_canvas_dimensions": [
+      1536,
+      1024
+    ],
+    "missing_mapping": [
+      "1536x1024 3:2 art to960x540 16:9 camera/crop/letterbox transform",
+      "canonical asset/variant to runtime catalog mapping",
+      "scene pixels-per-meter/perspective calibration",
+      "sprite root-to-world registration",
+      "bird feet/beak to perch/drink/peck alignment",
+      "depth sorting and contact/occlusion validation",
+      "Mac canonical intake commit/push/PR receipt"
+    ],
+    "notes": [
+      "Source perches/feeder/bath use generic catalog slots, not the detailed art sprite anchors. No claim that these slots already align.",
+      "No claim arbitrary movable plants, art skin switching or direct manifest import is currently supported.",
+      "The manifest pixels_per_world_unit values on props are provisional art direction; they do not calibrate this yard perspective.",
+      "No collisions/water flow/pump behavior/wind animation are implemented by this audit."
+    ]
+  },
+  "canonical_intake": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null
+  },
+  "limitations": [
+    "Detailed pixel style and owner acceptance not established by this structural audit.",
+    "Common starter arrangement, instance positions and scale calibration are not supplied or invented.",
+    "All compound layers remain flattened internally; optional layer omission does not imply semantic per-object editability.",
+    "Generated scene vegetation has no inferred plant taxon; canonical IDs are not assigned from visual resemblance.",
+    "San Diego default excludes snowy/autumn-orange overlays; planned state metadata is not generated variant art."
+  ]
+}

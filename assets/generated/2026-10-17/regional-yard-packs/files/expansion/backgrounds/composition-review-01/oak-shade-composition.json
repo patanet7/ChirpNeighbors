@@ -1,0 +1,266 @@
+{
+  "canvas_dimensions_px": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "x right, y down; all full-canvas production layers share origin [0,0]",
+  "direct_reference_pixel_inspection_by_this_worker": false,
+  "reference_state": "Mac observation brief received; actual pixel transfer pending",
+  "generation_state": "not_submitted",
+  "scope": "Original composition/layer plan only; no source layout copying, no new image assets or runtime implementation",
+  "render_contract": {
+    "style": "Detailed naturalistic square-pixel clusters, connected organic shape groups, stepped silhouettes, restrained hue ramps; calm broad atmosphere with selective foreground detail.",
+    "light": "Soft upper-left light, consistent cast-shadow direction toward lower-right.",
+    "depth": "Far planes lower contrast and cooler; nearby forms darker with selective restrained warm highlights.",
+    "bird_focus": "Keep a broad continuous open ground stage. No birds, feeders, baths, furniture, text or UI baked into these layers."
+  },
+  "canonical_receipt": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null,
+    "pull_request": null
+  },
+  "asset_id": "scene.san_diego_oak_riparian_shade_pocket",
+  "family_id": "scene.san_diego_oak_riparian_shade_pocket",
+  "composition_id": "composition-review-01.oak_shade",
+  "name": "Oak shade pocket with an off-center garden opening",
+  "regional_fit": "Conditional San Diego oak/riparian-influenced yard edge with shade and moisture access. Evergreen oak plus dry-to-damp managed garden ground; no tropical understory or universal stream assumption.",
+  "original_design_choices": [
+    "An intimate domestic clearing seen toward an understated low stone boundary; no lake, boat, mountain-valley or waterfall composition.",
+    "One near oak trunk cropped at far left, a smaller offset right canopy fragment, and a pale irregular opening displaced slightly right of center.",
+    "Broad central buff-gray shaded ground with fine texture reserved for contact readability; scattered oak litter remains peripheral.",
+    "Vegetation varies in height with visible branching gaps; no uniform hedge band or symmetric arch."
+  ],
+  "composition_regions": [
+    {
+      "id": "pale_opening",
+      "polygon_px": [
+        [
+          390,
+          90
+        ],
+        [
+          1120,
+          80
+        ],
+        [
+          1280,
+          410
+        ],
+        [
+          1000,
+          560
+        ],
+        [
+          420,
+          520
+        ],
+        [
+          270,
+          310
+        ]
+      ],
+      "role": "Low-contrast luminous distance, with no bright center focal object."
+    },
+    {
+      "id": "quiet_bird_stage",
+      "polygon_px": [
+        [
+          380,
+          640
+        ],
+        [
+          1180,
+          630
+        ],
+        [
+          1260,
+          980
+        ],
+        [
+          300,
+          980
+        ]
+      ],
+      "role": "Clear continuous ground; provisional placement area, not collision geometry."
+    },
+    {
+      "id": "near_trunk",
+      "bounds_px": [
+        0,
+        0,
+        190,
+        1024
+      ],
+      "role": "Dark edge frame restricted to extreme left."
+    },
+    {
+      "id": "right_foreground_fringe",
+      "bounds_px": [
+        1310,
+        850,
+        1536,
+        1024
+      ],
+      "role": "Sparse low near accent, central ground remains open."
+    }
+  ],
+  "layers": [
+    {
+      "id": "distance_base",
+      "order": 0,
+      "requested_alpha": false,
+      "extent": "full canvas",
+      "generated": false,
+      "contents": "Pale sky glimpses and broad cool desaturated distant canopy masses; lower half simple quiet underpaint to be covered by ground plate.",
+      "flattened_within_layer": [
+        "sky",
+        "distant_tree_masses"
+      ],
+      "exclusions": [
+        "near_trunks",
+        "close_boundary",
+        "ground_stage",
+        "birds",
+        "objects"
+      ],
+      "motion_metadata_only": "Whole distant layer could receive future parallax; no separate cloud or canopy animation asserted."
+    },
+    {
+      "id": "ground_midground",
+      "order": 10,
+      "requested_alpha": true,
+      "generated": false,
+      "opaque_region_target_px": [
+        0,
+        590,
+        1536,
+        1024
+      ],
+      "transparent_region_target_px": [
+        0,
+        0,
+        1536,
+        480
+      ],
+      "transition_region_target_px": [
+        0,
+        480,
+        1536,
+        590
+      ],
+      "contents": "Low stone edge with broken peripheral planting, continuous shaded soil/decomposed-granite ground, peripheral oak litter, subtle damp margin only at one side.",
+      "flattened_within_layer": [
+        "low_boundary",
+        "ground",
+        "peripheral_litter"
+      ],
+      "integration_rule": "Align untrimmed canvas origin; inspect alpha holes and edge seam before acceptance.",
+      "ground_anchor_px": [
+        768,
+        1024
+      ],
+      "contact_footprint_px": [
+        [
+          300,
+          650
+        ],
+        [
+          1200,
+          650
+        ],
+        [
+          1260,
+          1000
+        ],
+        [
+          260,
+          1000
+        ]
+      ]
+    },
+    {
+      "id": "foreground_frame",
+      "order": 30,
+      "requested_alpha": true,
+      "generated": false,
+      "contents": "Left rooted oak trunk with modest upper-left branch, sparse bottom-left litter/stone edge and smaller bottom-right understory fringe.",
+      "center_transparency_target_px": [
+        420,
+        200,
+        1280,
+        1024
+      ],
+      "flattened_within_layer": [
+        "wood",
+        "foliage",
+        "litter_or_stones"
+      ],
+      "wind_attachment_metadata": [
+        {
+          "id": "left_root_pin",
+          "position_px": [
+            90,
+            1020
+          ],
+          "status": "provisional_artist_estimate_not_rigged"
+        },
+        {
+          "id": "right_understory_root_pin",
+          "position_px": [
+            1440,
+            1015
+          ],
+          "status": "provisional_artist_estimate_not_rigged"
+        }
+      ],
+      "limitations": "Whole foliage/wood frame remains flattened unless future generation separates them."
+    }
+  ],
+  "approximate_world_scale": {
+    "ground_width_m": 12,
+    "status": "art_direction_proposal_not_calibrated",
+    "pixels_per_meter": null
+  },
+  "state_slots": [
+    {
+      "id": "healthy_shade_day",
+      "status": "planned"
+    },
+    {
+      "id": "dry_litter",
+      "status": "missing"
+    },
+    {
+      "id": "cool_season_damp_margin",
+      "status": "missing"
+    },
+    {
+      "id": "warm_season_dappled_shade",
+      "status": "missing"
+    }
+  ],
+  "seasonal_constraints": [
+    "Evergreen oak does not become a full orange fall canopy.",
+    "Dampness is conditional on recent moisture/access, not generic riparian scenery across dry slopes.",
+    "No snow default."
+  ],
+  "cross_track_slots": [
+    {
+      "id": "ground_feeder_slot",
+      "position_px": [
+        650,
+        810
+      ],
+      "status": "reserved_empty_not_functional"
+    },
+    {
+      "id": "bath_slot",
+      "position_px": [
+        1000,
+        790
+      ],
+      "status": "reserved_empty_not_functional"
+    }
+  ]
+}

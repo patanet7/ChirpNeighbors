@@ -1,0 +1,352 @@
+{
+  "title": "ChirpNeighbors PLANTS review-pass01 needlegrass candidate revision",
+  "track": "PLANTS",
+  "schema_version": "chirp.canonical-intake.extension.v1",
+  "role": "revision evidence feed to parent shared inventory, no new primary inventory entry",
+  "assets": [
+    {
+      "asset_id": "plant.purple_needlegrass",
+      "family_id": "plant.purple_needlegrass",
+      "variant_id": "healthy.seed_morphology_r01",
+      "label": "Purple needlegrass",
+      "taxon": "Stipa pulchra",
+      "species_or_plant_taxon": "Stipa pulchra",
+      "cultivar_name": null,
+      "cultivar_status": "unnamed_and_unverified",
+      "track": "PLANTS",
+      "batch_id": "plants.wave03.20261017",
+      "category": "regional",
+      "native_tags": [
+        "California_native",
+        "local_seed_accession_unknown"
+      ],
+      "taxonomy_note": "Jepson currently uses Stipa pulchra; Nassella pulchra is a widely used alternate combination. No cultivar/local accession asserted.",
+      "reference_sources": [
+        {
+          "reference_id": "jepson.stipa_pulchra.45644",
+          "url": "https://herbariadb.berkeley.edu/eflora/eflora_display.php?tid=45644",
+          "retrieved_at": "2026-10-17",
+          "image_pixels_inspected": false,
+          "image_used_as_input": false
+        },
+        {
+          "reference_id": "usda.nrcs.capmcpg14191",
+          "url": "https://www.nrcs.usda.gov/plantmaterials/capmcpg14191.pdf",
+          "retrieved_at": "2026-10-17",
+          "image_pixels_inspected": false,
+          "image_used_as_input": false
+        },
+        {
+          "reference_id": "usda.forestservice.36982",
+          "url": "https://research.fs.usda.gov/download/treesearch/36982.pdf",
+          "retrieved_at": "2026-10-17",
+          "image_pixels_inspected": false,
+          "image_used_as_input": false
+        },
+        {
+          "reference_id": "cnga.stipa_pulchra.photo",
+          "url": "https://cnga.org/Stipa-pulchra",
+          "retrieved_at": "2026-10-17",
+          "image_pixels_inspected": false,
+          "image_used_as_input": false
+        }
+      ],
+      "seasonal_behavior": "Cool/wet-season green bunchgrass; flowering fine purple-tinged awns, then straw dry-season blades/seedheads. Moisture alters dormancy and greenness; no generic tree leaf fall.",
+      "world_scale": {
+        "unit": "m",
+        "chosen_instance_height": 0.8,
+        "chosen_instance_canopy_width": 0.55,
+        "basis": "illustrative small specimen, not a measured accession; designer approval pending"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "tested": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false
+      },
+      "state_slots": [
+        {
+          "id": "healthy",
+          "status": "generated_static"
+        },
+        {
+          "id": "dry_or_water_stress",
+          "status": "needed_not_generated"
+        },
+        {
+          "id": "seasonal_spent_or_regrowth",
+          "status": "needed_not_generated"
+        }
+      ],
+      "layer_slots": [
+        {
+          "id": "whole_flattened_sprite",
+          "status": "generated_flattened"
+        },
+        {
+          "id": "foliage_wind_groups",
+          "status": "needed_not_separated"
+        },
+        {
+          "id": "seasonal_overlay",
+          "status": "needed_not_generated"
+        }
+      ],
+      "wind_attachment_metadata": {
+        "implemented": false,
+        "root_anchor_px": [
+          540,
+          1252
+        ],
+        "upper_culms_px": [
+          540,
+          310
+        ],
+        "outer_left_awn_px": [
+          173,
+          440
+        ],
+        "outer_right_awn_px": [
+          907,
+          543
+        ],
+        "constraint": "Root fixed; culms/blades may sway, seed awns stay attached. Flattened sprite: no independently separated rig groups or physics."
+      },
+      "generation": {
+        "job_id": "exec-ecc07916-7b73-46b7-872e-20cecb1c0d35",
+        "tool": "image_gen.imagegen",
+        "prompt_exact": "Generate ONE isolated botanically specific Stipa pulchra (synonym Nassella pulchra), California purple needlegrass, as a detailed naturalistic pixel-art game sprite on TRUE TRANSPARENT ALPHA. This is a morphology correction, not a generic ornamental grass. It must look like a sparse needle-awned bunchgrass, never like a fountain grass with purple feather plumes.\n\nBuild the plant from the following botanical structure, grounded in primary flora/USDA text. A compact dense basal tussock of VERY NARROW olive-green blades with a little straw-colored old foliage; above it stand six to eight slender nearly upright or gently nodding green/tan culms. Upper flowering structures are OPEN BRANCHED PANICLES. On each thin open branch show only a few individually separated tiny narrow purple-brown seed bodies. Each seed body has ONE LONG STIFF HAIRLIKE AWN, slender and smooth, with TWO DISTINCT ANGULAR BENDS followed by a STRAIGHT needlelike terminal segment. Some awns point outward, some nod downward. Awns are 38–100 mm in a real 0.7–1.0m plant, so visibly long, but extremely THIN and not fuzzy. Include abundant empty see-through air between seed bodies and awns. The fine upper half should read as a few delicate articulated angular threads on thin open branches, not grouped feathers. Purple is only a faint localized tint on the small seed bodies, not a purple wash over an inflorescence.\n\nSTRICT botanical exclusions: NO continuous purple plume shapes. NO fuzzy bottlebrushes, feather fans, pampas heads, soft dense bristled foxtails, wheat ears, or repeated curved comb teeth. NO ornamental Pennisetum/Cenchrus fountain-grass shape. Do not connect the individual awns with a filled purple mass. No flowering purple petals. No broad leaves, huge decorative ground rocks, ground tile, pot, text, UI, animals, birds, frame, checkerboard, painted backdrop or large shadow.\n\nMatch refined ChirpNeighbors environmental pixel art: crisp visible small square pixel clusters, carefully stepped edges, restrained rich olive/tan organic shading, warm upper-left light and subtle selective dark contour. Three-quarter side garden view with slight top visibility of basal tuft. Naturalistic anatomy and calm readability, not cartoon or chibi, painterly blur, vector icon, photo or 3D render. All artwork in precise deliberate pixels; use fine lines for the seed awns.\n\nOne complete rooted plant centered with visible small natural root/contact collar and only a few tiny contact pebbles. Occupy at most 70 percent image width and 78 percent image height, with at least ten percent transparent padding on EVERY side; no awn tip cropped. Flattened whole plant sprite only. Healthy green early seed state, not dead brown summer state. No exact animation-frame alignment or separable foliage layers claimed.\n",
+        "prompt_path": "prompts/needlegrass-morphology-r01.txt",
+        "reference_mode": "primary_botanical_text_only_no_botanical_photo_pixels_inspected",
+        "reference_asset_ids": [
+          "jepson.stipa_pulchra.45644",
+          "usda.nrcs.capmcpg14191",
+          "usda.forestservice.36982"
+        ],
+        "referenced_image_paths": [],
+        "model_if_exposed": null,
+        "seed_if_exposed": null,
+        "settings_if_exposed": {
+          "transparent_background": true
+        },
+        "generation_timestamp": null,
+        "recorded_at": "2026-10-17T17:07:52.231293+00:00",
+        "original_output_paths": [
+          "originals/purple-needlegrass-morphology-r01.png"
+        ],
+        "provider_original_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/review-pass-01/originals/purple-needlegrass-morphology-r01.png",
+        "original_hashes": [
+          "5194416ad67320f360128f85789893f4bf702b3aa54fe858932070e9ac8c368d"
+        ],
+        "edit_history": [
+          "Materially changed structural prompt grounded in primary botanical text. Single isolated sprite; held art not supplied as image input to avoid propagating plume silhouette."
+        ],
+        "failed_attempts": [],
+        "bounded_call_count": 1,
+        "tool_receipt": "tool-receipt.json"
+      },
+      "derivatives": [
+        {
+          "path": "sprites/purple_needlegrass__healthy_seed_morphology_r01.png",
+          "sha256": "ad9634f39e911fbe70389b91c6f867d16bb7cd5e3fc9be60bb73331c81e5ed73",
+          "dimensions_px": [
+            1080,
+            1293
+          ],
+          "source_crop_box": [
+            59,
+            22,
+            1139,
+            1315
+          ],
+          "operation": "Rectangular padded crop only; source RGBA pixel values unchanged."
+        }
+      ],
+      "geometry": {
+        "source_dimensions_px": [
+          1155,
+          1362
+        ],
+        "frame_canvas_dimensions_px": [
+          1080,
+          1293
+        ],
+        "source_crop_box": [
+          59,
+          22,
+          1139,
+          1315
+        ],
+        "trim_offset": [
+          59,
+          22
+        ],
+        "alpha_bounds": [
+          0,
+          0,
+          1074,
+          1293
+        ],
+        "visible_alpha_bounds_threshold_8": [
+          16,
+          16,
+          1064,
+          1277
+        ],
+        "root_pivot_px": [
+          540,
+          1252
+        ],
+        "placement_pivot_px": [
+          540,
+          1252
+        ],
+        "placement_pivot_normalized": [
+          0.5,
+          0.96829
+        ],
+        "ground_contact_footprint": {
+          "shape": "ellipse",
+          "center_px": [
+            540,
+            1252
+          ],
+          "radii_px": [
+            151,
+            22
+          ],
+          "basis": "manual provisional root/contact estimate, designer validation pending"
+        },
+        "world_units": "m",
+        "chosen_instance_size": {
+          "unit": "m",
+          "chosen_instance_height": 0.8,
+          "chosen_instance_canopy_width": 0.55,
+          "basis": "illustrative small specimen, not a measured accession; designer approval pending"
+        },
+        "pixels_per_world_unit": 1616.25,
+        "physical_measurement_basis": "Illustrative existing chosen specimen size, not a measured botanical accession; some awns/seed bodies emphasized for visibility",
+        "alpha_validation": {
+          "mode": "RGBA",
+          "real_alpha": true,
+          "zero_alpha_pixels": 868372,
+          "partial_alpha_pixels": 528000,
+          "max_alpha": 255,
+          "edge_pixels_alpha_gt8": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          }
+        },
+        "layer_depth": "placement_y_sort",
+        "material_surface": "organic_vegetation",
+        "perches": [],
+        "collision_shapes": [
+          "root_contact_ellipse"
+        ],
+        "runtime_scale_review": {
+          "implemented": false,
+          "risk": "Fine angular awns may disappear at small display heights; LOD/readability preview included, no runtime implementation."
+        }
+      },
+      "review_status": "morphology_improved_provisional_candidate_expert_owner_style_review_pending",
+      "rejection_reason": null,
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "content_version": "20261017.review-pass01.1",
+      "semantic_role": "placeable_regional_vegetation",
+      "source_license": {
+        "creator": "OpenAI image_gen output",
+        "license_id": null,
+        "license_url": null,
+        "commercial_use_status": "Project review under applicable generation service terms; no CC/public-domain assertion.",
+        "reference_images_used": false,
+        "reference_register": "references/reference-register.json",
+        "botanical_photo_pixels_inspected": false,
+        "reference_rights": "Short factual primary-text constraints and brief source quotes; no downloaded photo bytes available or copied.",
+        "modification_notice": "PNG crop only; no code-painted art or alpha/color retouch."
+      },
+      "evidence": {
+        "state": "generated_reviewed_morphology_improved_provisional",
+        "owner": "PLANTS review-pass agent",
+        "visual_review_receipt": "reviews/review-and-lessons.md",
+        "metrics": "reviews/morphology-metrics.json",
+        "expert_taxonomy_acceptance": false,
+        "owner_acceptance": false,
+        "style_acceptance": false
+      },
+      "runtime": {
+        "package_manifest": "track-intake.json",
+        "application_route": null,
+        "build_commit": null,
+        "served_asset_hash": null,
+        "animation_or_physics_implemented": false
+      },
+      "revision_relation": {
+        "same_primary_asset_id": "plant.purple_needlegrass",
+        "new_primary_entry": false,
+        "candidate_revision_of": {
+          "variant_id": "healthy",
+          "content_version": "20261017.wave03.1",
+          "derivative_sha256": "ba770fd70f20d81757a59556635e67d21194917e66c5b8213ad0729ae44cd5d0"
+        },
+        "supersedes_for_candidate_review_only": true,
+        "canonical_supersession_or_acceptance": false,
+        "original_wave03_hold_record_unchanged": true
+      }
+    }
+  ],
+  "counts": {
+    "new_primary_entries": 0,
+    "candidate_revision_sprites": 1,
+    "new_generated_originals": 1,
+    "reused_held_sprite": 1,
+    "reused_prior_original_sheet": 1,
+    "accepted": 0,
+    "staged": 0,
+    "integrated": 0
+  },
+  "tool_status": {
+    "asset_id": "plant.purple_needlegrass",
+    "variant_id": "healthy.seed_morphology_r01",
+    "submitted": 1,
+    "running": 0,
+    "completed": 1,
+    "failed": 0,
+    "call_limit": 1,
+    "reference_mode": "primary_botanical_text_only; actual photos not inspected",
+    "reference_image_inputs": [],
+    "frozen_wave03_untouched": true,
+    "job_id": "exec-ecc07916-7b73-46b7-872e-20cecb1c0d35"
+  },
+  "before_artifact": {
+    "path": "references/wave03-held-purple-needlegrass.png",
+    "sha256": "ba770fd70f20d81757a59556635e67d21194917e66c5b8213ad0729ae44cd5d0",
+    "role": "held_before_derivative_not_new_generation",
+    "prior_original_source_path": "references/wave03-held-source-regional-03.png",
+    "prior_original_sha256": "cce427368a03da59b7889a2d9670d0ae12fcf0a987a847af7d134ce65a066eec",
+    "prior_exact_prompt": "references/wave03-original-regional-prompt.txt",
+    "prior_record": "references/prior-held-record.json"
+  },
+  "reference_register": "references/reference-register.json",
+  "remaining_blockers": [
+    "Actual botanical photo pixels unavailable: exact targets/errors in reference register.",
+    "Expert taxonomy/awn-scale and strict style/owner acceptance pending.",
+    "Fine-awn small-runtime-scale readability/LOD pending; no implementation.",
+    "Mac canonical verification/commit/remote SHA and app integration pending."
+  ],
+  "canonical_intake": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null
+  }
+}

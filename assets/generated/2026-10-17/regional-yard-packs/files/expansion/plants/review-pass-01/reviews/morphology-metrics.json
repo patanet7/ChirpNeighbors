@@ -1,0 +1,86 @@
+{
+  "definitions": "Visible bounds use alpha>8. Upper40 is the top40% of each visible bounding box, independently normalized. Purple mask R>1.08G and B>1.08G,abs(R-B)<70,alpha>128. These are composition/color proxies, not botanical accuracy scores. Different illustrations are not pixel-aligned.",
+  "before": {
+    "canvas_dimensions_px": [
+      744,
+      571
+    ],
+    "visible_alpha_bounds_threshold8": [
+      12,
+      12,
+      738,
+      559
+    ],
+    "visible_bbox_dimensions_px": [
+      726,
+      547
+    ],
+    "bbox_width_to_height": 1.3272,
+    "upper40_alpha_gt8_coverage_fraction": 0.3476,
+    "upper40_alpha_gt128_coverage_fraction": 0.15657,
+    "upper40_alpha_weighted_coverage_fraction": 0.15955,
+    "upper40_purple_pixels_alpha_gt128": 12447,
+    "upper40_purple_fraction_of_region": 0.078286,
+    "upper40_purple_fraction_of_visible_pixels": 0.50002,
+    "zero_alpha_pixels": 123468,
+    "partial_alpha_pixels": 301332,
+    "max_alpha": 255,
+    "edge_pixels_alpha_gt8": {
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
+    }
+  },
+  "after": {
+    "canvas_dimensions_px": [
+      1080,
+      1293
+    ],
+    "visible_alpha_bounds_threshold8": [
+      16,
+      16,
+      1064,
+      1277
+    ],
+    "visible_bbox_dimensions_px": [
+      1048,
+      1261
+    ],
+    "bbox_width_to_height": 0.8311,
+    "upper40_alpha_gt8_coverage_fraction": 0.06385,
+    "upper40_alpha_gt128_coverage_fraction": 0.03224,
+    "upper40_alpha_weighted_coverage_fraction": 0.0334,
+    "upper40_purple_pixels_alpha_gt128": 988,
+    "upper40_purple_fraction_of_region": 0.001871,
+    "upper40_purple_fraction_of_visible_pixels": 0.058012,
+    "zero_alpha_pixels": 868372,
+    "partial_alpha_pixels": 528000,
+    "max_alpha": 255,
+    "edge_pixels_alpha_gt8": {
+      "top": 0,
+      "bottom": 0,
+      "left": 0,
+      "right": 0
+    }
+  },
+  "visual_criteria": {
+    "continuous_soft_purple_plumes": {
+      "before": "present; morphology hold",
+      "after": "absent in visual review"
+    },
+    "separate_seed_bodies_and_open_air": {
+      "before": "seed bodies/awns not individually legible in plume groups",
+      "after": "separate narrow purple-brown seed bodies and substantial open space visible"
+    },
+    "angular_twice_bent_awns": {
+      "before": "not clearly represented",
+      "after": "multiple visible long angular awns with two bends and straight final segments"
+    },
+    "basal_narrow_leaf_tuft": {
+      "before": "present",
+      "after": "present"
+    },
+    "remaining_review": "Text-only botanical reference; species expert still pending. Some drawn awns/seed bodies are deliberately enlarged for readability and may need scale adjustment. Fine awns may disappear at small runtime sizes; LOD/readability work remains a requirement, not implemented."
+  }
+}

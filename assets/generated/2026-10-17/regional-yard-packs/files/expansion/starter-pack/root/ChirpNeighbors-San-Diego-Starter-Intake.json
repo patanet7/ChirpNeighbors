@@ -1,0 +1,2431 @@
+{
+  "schema_version": "1.0.0",
+  "role": "Derived San Diego starter intake selection referencing established canonical IDs; not a competing asset inventory or app-save schema.",
+  "created_at": "2026-10-17T18:05:08.247915+00:00",
+  "canonical_authority": {},
+  "scope": "First-customer San Diego saved-yard asset milestone. Other regions/themes remain queued. Bird canon/20-bird target owned by separate workstream; no completion count inferred here.",
+  "status": {
+    "generated": true,
+    "reviewed": true,
+    "staged": false,
+    "integrated": false,
+    "accepted": false,
+    "canonical_intake": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null,
+    "pull_request": null
+  },
+  "common_art_contract": {
+    "source_canvas_px": [
+      1536,
+      1024
+    ],
+    "review_world_canvas_px": [
+      960,
+      540
+    ],
+    "review_crop_px": [
+      0,
+      160,
+      1536,
+      1024
+    ],
+    "mobile_canvas_px": [
+      384,
+      216
+    ],
+    "perspective": "Gently elevated contact plane, upright supports, soft upper-left daylight. Common crop and common diagnostic sprite scale; no actual Mac camera calibration.",
+    "provisional_world_pixels_per_metre": 120,
+    "stage_policy": "Keep center/lower middle quiet for birds. Ground objects within center stage; plant margin/raised-ledge slots separate. These are proposed intake zones, not runtime placement validation.",
+    "proposed_center_object_zone_review_px": [
+      220,
+      305,
+      745,
+      510
+    ],
+    "ground_roots_static": true,
+    "individual_plant_editability": "Only independent catalog sprites have canonical movable identities. Alpha render layers remain compound scenery unless explicitly mapped.",
+    "minor_imperfections": "Allowed provisionally at normal small display; obvious contact/readability failures stay holds."
+  },
+  "background_choices": [
+    {
+      "asset_id": "scene.san_diego_coastal_urban",
+      "variant_id": "wave04_coastal_garden_v1",
+      "presentation_mode": "clean-foundation",
+      "label": "Coastal garden",
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/wave-intake.json",
+      "source_manifest_sha256": "c79ac380d646179849ec31a3bb219ebd63998a2fc06ef7081aa231eef3ba9c93",
+      "clean_foreground_available_now": true,
+      "review_image": {
+        "package": "san-diego-starter-background-views.zip",
+        "path": "backgrounds/coastal.png",
+        "sha256": "6ebe8fc8a0163cbde5d0523c366e6e4275550933126864040a33543adbb9b499",
+        "dimensions_px": [
+          960,
+          540
+        ],
+        "source_composite_sha256": "fa59961eb54d3eb9898757f9795a73eec415c4a3b7fa9bcf37ae413078849e51"
+      },
+      "source_canvas_px": [
+        1536,
+        1024
+      ],
+      "review_crop_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "review_world_px": [
+        960,
+        540
+      ],
+      "review_mapping": "Crop source before uniform nearest scaling; full originals preserved. Actual Mac fitting unverified.",
+      "baked_vs_editable_inventory": {
+        "fixed_background": [
+          "sky/coast/distant trees and palms",
+          "wall/gate and painted turf/ground texture"
+        ],
+        "omitted_optional": [
+          "rigid edges: local pot/main trunk",
+          "flexible foliage: local foliage masses and margin plants"
+        ],
+        "individually_editable_vegetation_from_background": false,
+        "independent_plants": "Only separately instantiated canonical PNG sprites in shared catalog."
+      },
+      "source_layers": [
+        {
+          "layer_revision": "distance.r1",
+          "source": "originals/distance-r1.png",
+          "sha256": "bb786b14ac66fc4a4a4e0d8c0ca28b67a0ebbb608e5671a71ff3975edcb4c463",
+          "generated": true,
+          "actual_alpha": false,
+          "independently_generated": true,
+          "flattened_contents": [
+            "sky",
+            "distant_roofs_canopy",
+            "coastal_horizon",
+            "underpaint"
+          ],
+          "semantic_decomposition": false
+        },
+        {
+          "layer_revision": "ground_boundary.r1",
+          "source": "originals/ground-boundary-r1.png",
+          "sha256": "f4011d45977066e6152e9ad1f9c54834e8cb4648ceddacb80c1df2373692e70d",
+          "generated": true,
+          "actual_alpha": true,
+          "independently_generated": true,
+          "flattened_contents": [
+            "wall",
+            "gate",
+            "soil_bed",
+            "quiet_turf"
+          ],
+          "semantic_decomposition": false
+        },
+        {
+          "layer_revision": "rigid_edges.r1",
+          "source": "originals/rigid-edges-r1.png",
+          "sha256": "be06e2058d160fa8deb4b6a681836f382024821f315e4f6d39bf29143a825ed5",
+          "generated": true,
+          "actual_alpha": true,
+          "independently_generated": true,
+          "flattened_contents": [
+            "pot",
+            "main_trunk",
+            "major_branches",
+            "contact_shadows"
+          ],
+          "semantic_decomposition": false
+        },
+        {
+          "layer_revision": "flexible_foliage.r1",
+          "source": "originals/flexible-foliage-r1.png",
+          "sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+          "generated": true,
+          "actual_alpha": true,
+          "independently_generated": true,
+          "flattened_contents": [
+            "leaves",
+            "fine_flexible_twiglets",
+            "sparse_border_plant_groups"
+          ],
+          "semantic_decomposition": false
+        }
+      ],
+      "wind_contract": {
+        "implemented": false,
+        "actual_separation": "Rigid pot/trunk/majorbranches and flexible foliage/fine twiglets are separate true-alpha generated files.",
+        "rigid_layers": [
+          "distance.r1",
+          "ground_boundary.r1",
+          "rigid_edges.r1"
+        ],
+        "flexible_layer": "flexible_foliage.r1",
+        "compound_motion_only": "Flexible file has multiple plant masses plusfine twiglets; per-leaf/per-branch separation, masks and rig not supplied. Whole-file transforms would affect unrelated groups; spatial group crops/masks require later explicit extraction/alignment.",
+        "attachments": [
+          {
+            "id": "pot_soil",
+            "position_px": [
+              135,
+              775
+            ]
+          },
+          {
+            "id": "upper_branch_tip",
+            "position_px": [
+              1220,
+              125
+            ]
+          },
+          {
+            "id": "lower_branch_tip",
+            "position_px": [
+              1300,
+              355
+            ]
+          },
+          {
+            "id": "back_border_rootline",
+            "position_px": [
+              760,
+              535
+            ]
+          }
+        ],
+        "attachment_status": "Approximate visual roots/joints, not calibrated rig",
+        "optional_loose_leaves": "missing",
+        "occlusion_masks": "missing",
+        "proposed_artist_policy": {
+          "status": "PROPOSED_ARTIST_POLICY_NOT_IMPLEMENTED",
+          "physics_calibrated": false,
+          "stiffness_definition": "Dimensionless artist resistance parameter0..1, larger meansless motion; not spring constant or measured physical stiffness.",
+          "caps_definition": "Maximum absolute proposed rotation from rest and tip displacement at1536x1024 scene; both caps apply, choose more restrictive. No displacement of roots/contact pivots.",
+          "classes": {
+            "rigid": {
+              "stiffness": 1.0,
+              "mild_rotation_deg": 0,
+              "strong_rotation_deg": 0,
+              "mild_tip_displacement_px": 0,
+              "strong_tip_displacement_px": 0,
+              "root_translation_px": 0,
+              "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+            },
+            "flexible_branch": {
+              "stiffness": 0.85,
+              "mild_rotation_deg": 0.6,
+              "strong_rotation_deg": 1.8,
+              "mild_tip_displacement_px": 2,
+              "strong_tip_displacement_px": 5,
+              "root_translation_px": 0,
+              "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+            },
+            "foliage_mass": {
+              "stiffness": 0.65,
+              "mild_rotation_deg": 0.8,
+              "strong_rotation_deg": 2.2,
+              "mild_tip_displacement_px": 3,
+              "strong_tip_displacement_px": 7,
+              "root_translation_px": 0,
+              "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+            },
+            "grass_tip": {
+              "stiffness": 0.45,
+              "mild_rotation_deg": 1.0,
+              "strong_rotation_deg": 3.0,
+              "mild_tip_displacement_px": 1,
+              "strong_tip_displacement_px": 3,
+              "root_translation_px": 0,
+              "pivot_rule": "Base of isolated blade/tipgroup; lawnpaint/soil/rootline remainrigid. No whole-groundwarp."
+            }
+          },
+          "art_safety_limits": {
+            "ground_warp": false,
+            "root_sliding": false,
+            "pot_or_trunk_sway": false,
+            "scale_stretch_allowed": false,
+            "leaf_scale_range": [
+              1,
+              1
+            ],
+            "alpha_or_lightness_flicker": "No procedural opacity/color pulsation; nearest resampling or subpixel treatment must be reviewed for pixel shimmer.",
+            "occlusion": "Motion mustrespectstaticfrontpotrim/branchjunction; masksnotyetavailable.",
+            "review": "Mild/strong areartistlabels only, no weather-speed conversion. Reject visible jointgaps, leafstretch, clippedtips or groundcontactdrift."
+          },
+          "optional_loose_leaves": {
+            "status": "missing_not_implemented",
+            "stiffness": null,
+            "pivot": null,
+            "amplitude_caps": null,
+            "reason": "Detachedparticleart/path/emissionrulesnotdesigned; no blanketautumnemission."
+          }
+        },
+        "per_group_geometry": "wind-policy-and-groups.json",
+        "actual_spatial_group_crop_count": 6,
+        "global_foliage_pivot": null,
+        "global_pivot_unresolved_reason": "Unrelatedpot/branch/bordergroupscannotsharesinglepivot. Fullflexiblesourceremainscompound; now6spatialcropsavailable asprovisionalgroups."
+      },
+      "states": {
+        "generated": true,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "runtime_tested": false
+      },
+      "practical_review": "Provisional normal/mobile art pass. Minor imperfections do not block candidate intake; no owner approval or tiny contact validation inferred."
+    },
+    {
+      "asset_id": "scene.san_diego_oak_riparian_shade_pocket",
+      "variant_id": "wave04_shaded_oak_garden_v1",
+      "presentation_mode": "clean-foundation",
+      "label": "Oak-country clearing",
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/oak-wave05/track-intake.json",
+      "source_manifest_sha256": "e7927cb47cb5403477c1bf0b053eac65ea2c242274f0ad7004784a1f796708ba",
+      "clean_foreground_available_now": true,
+      "review_image": {
+        "package": "san-diego-starter-background-views.zip",
+        "path": "backgrounds/oak.png",
+        "sha256": "a70a007c6a516599c3a724d0baa06cc1a2928a038c3e2af78add6d373b9b550f",
+        "dimensions_px": [
+          960,
+          540
+        ],
+        "source_composite_sha256": "fdb5ce8a433f1f506841b1a8f0f0f1ab9d4ff7de502656433df6132823154dfd"
+      },
+      "source_canvas_px": [
+        1536,
+        1024
+      ],
+      "review_crop_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "review_world_px": [
+        960,
+        540
+      ],
+      "review_mapping": "Crop source before uniform nearest scaling; full originals preserved. Actual Mac fitting unverified.",
+      "baked_vs_editable_inventory": {
+        "categories": [
+          {
+            "category": "distant_baked_scenery",
+            "files": [
+              "originals/distance-r2.png"
+            ],
+            "contents": "Low/pale distant tree/shrub canopy line, speciesnotasserted; also regenerated soil/stone background despite requested underpaint.",
+            "individually_editable": false,
+            "canonical_movable_plant_ids": [],
+            "purpose": "staticbackground"
+          },
+          {
+            "category": "held_near_baked_scenery",
+            "files": [
+              "originals/distance-r1.png"
+            ],
+            "contents": "Large near-looking lefttrunk/canopy and backgroundmasses bakedtogether.",
+            "individually_editable": false,
+            "status": "rejected_for_clean_foreground_requirement",
+            "preferred_use": false
+          },
+          {
+            "category": "optional_compound_scene_dressing",
+            "files": [
+              "originals/oak-wood-r1.png",
+              "originals/oak-foliage-r1.png"
+            ],
+            "contents": "Near oakwood/root plus generatedbranches/leaves; foliagefile redrawsmajorwood.",
+            "individually_editable": false,
+            "canonical_movable_plant_ids": [],
+            "optional_whole_layer_toggle": true,
+            "status": "staticvisualcandidate; HOLD_for_flexible_leaf_only_separation",
+            "wind_disabled": true
+          },
+          {
+            "category": "existing_independent_placeable_plant_sprites",
+            "files": [
+              "references/editable-demo/california_sagebrush.png",
+              "references/editable-demo/hollyleaf_cherry.png",
+              "references/editable-demo/showy_penstemon.png"
+            ],
+            "canonical_asset_variant_pairs": [
+              [
+                "plant.california_sagebrush",
+                "healthy"
+              ],
+              [
+                "plant.hollyleaf_cherry",
+                "healthy.flowering"
+              ],
+              [
+                "plant.showy_penstemon",
+                "healthy.flowering"
+              ]
+            ],
+            "individually_editable": "separateplacementinstances; noeditorUIimplemented",
+            "new_asset_or_species_count": 0
+          },
+          {
+            "category": "ground_fixed_litter",
+            "files": [
+              "originals/ground-r1.png"
+            ],
+            "contents": "Peripheralscatteredleaflitter, soil, smallstones and lowstoneedge. No shrubs/removableforegroundplants.",
+            "individually_editable": false,
+            "purpose": "staticgroundtexture"
+          }
+        ],
+        "separated_layer_does_not_mean_each_plant_editable": true,
+        "Engelmann_tree_hold_resolved": false
+      },
+      "source_layers": [
+        {
+          "key": "distance.r2",
+          "source": "originals/distance-r2.png",
+          "role": "preferredstaticbackground",
+          "actual_alpha": false,
+          "flattened_contents": [
+            "sky",
+            "distant_canopy",
+            "regeneratedsoil_stonebackground"
+          ],
+          "plant_editability": false
+        },
+        {
+          "key": "ground.r1",
+          "source": "originals/ground-r1.png",
+          "role": "preferredstaticgroundoverlay",
+          "actual_alpha": true,
+          "flattened_contents": [
+            "soil",
+            "stoneedge",
+            "peripherallitter"
+          ],
+          "foreground_shrubs_baked": false
+        },
+        {
+          "key": "oak_wood.r1",
+          "source": "originals/oak-wood-r1.png",
+          "role": "optionalnonplaceablescenedressing",
+          "actual_alpha": true,
+          "mapped_to_canonical_movable_plant_id": null,
+          "enabled_by_default": false
+        },
+        {
+          "key": "oak_foliage.r1",
+          "source": "originals/oak-foliage-r1.png",
+          "role": "optionalcompoundstaticdressing_HOLDforflexseparation",
+          "actual_alpha": true,
+          "contains_majorwood": true,
+          "mapped_to_canonical_movable_plant_id": null,
+          "enabled_by_default": false
+        },
+        {
+          "key": "distance.r1",
+          "source": "originals/distance-r1.png",
+          "role": "rejected_for_cleanforeground_historical",
+          "preferred": false
+        }
+      ],
+      "wind_contract": {
+        "policy": {
+          "status": "PROPOSED_ARTIST_POLICY_NOT_IMPLEMENTED",
+          "physics_calibrated": false,
+          "stiffness_definition": "Dimensionless artist resistance parameter0..1, larger meansless motion; not spring constant or measured physical stiffness.",
+          "caps_definition": "Maximum absolute proposed rotation from rest and tip displacement at1536x1024 scene; both caps apply, choose more restrictive. No displacement of roots/contact pivots.",
+          "classes": {
+            "rigid": {
+              "stiffness": 1.0,
+              "mild_rotation_deg": 0,
+              "strong_rotation_deg": 0,
+              "mild_tip_displacement_px": 0,
+              "strong_tip_displacement_px": 0,
+              "root_translation_px": 0,
+              "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+            },
+            "flexible_branch": {
+              "stiffness": 0.85,
+              "mild_rotation_deg": 0.6,
+              "strong_rotation_deg": 1.8,
+              "mild_tip_displacement_px": 2,
+              "strong_tip_displacement_px": 5,
+              "root_translation_px": 0,
+              "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+            },
+            "foliage_mass": {
+              "stiffness": 0.65,
+              "mild_rotation_deg": 0.8,
+              "strong_rotation_deg": 2.2,
+              "mild_tip_displacement_px": 3,
+              "strong_tip_displacement_px": 7,
+              "root_translation_px": 0,
+              "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+            },
+            "grass_tip": {
+              "stiffness": 0.45,
+              "mild_rotation_deg": 1.0,
+              "strong_rotation_deg": 3.0,
+              "mild_tip_displacement_px": 1,
+              "strong_tip_displacement_px": 3,
+              "root_translation_px": 0,
+              "pivot_rule": "Base of isolated blade/tipgroup; lawnpaint/soil/rootline remainrigid. No whole-groundwarp."
+            }
+          },
+          "art_safety_limits": {
+            "ground_warp": false,
+            "root_sliding": false,
+            "pot_or_trunk_sway": false,
+            "scale_stretch_allowed": false,
+            "leaf_scale_range": [
+              1,
+              1
+            ],
+            "alpha_or_lightness_flicker": "No procedural opacity/color pulsation; nearest resampling or subpixel treatment must be reviewed for pixel shimmer.",
+            "occlusion": "Motion mustrespectstaticfrontpotrim/branchjunction; masksnotyetavailable.",
+            "review": "Mild/strong areartistlabels only, no weather-speed conversion. Reject visible jointgaps, leafstretch, clippedtips or groundcontactdrift."
+          },
+          "optional_loose_leaves": {
+            "status": "missing_not_implemented",
+            "stiffness": null,
+            "pivot": null,
+            "amplitude_caps": null,
+            "reason": "Detachedparticleart/path/emissionrulesnotdesigned; no blanketautumnemission."
+          }
+        },
+        "full_wind_implementation": false,
+        "actual_static_layers": [
+          "distance.r2",
+          "ground.r1",
+          "oak_wood.r1"
+        ],
+        "intended_flexible_file": "oak_foliage.r1",
+        "actual_flexible_leaf_only_separation": false,
+        "actual_file_contains_majorwood": true,
+        "actual_optional_compound_motion_allowed": false,
+        "global_foliage_pivot": null,
+        "pivot_unresolved_reason": "Generatedfoliagecontainsmajorbranches; no anatomicalleaf/branchmask. Oneglobalpivotwouldmovefixedwoodand unrelatedleafmasses.",
+        "group_records": [
+          {
+            "id": "main_oak_root",
+            "source": "originals/oak-wood-r1.png",
+            "source_visible_alpha_bounds": [
+              0,
+              0,
+              672,
+              1024
+            ],
+            "pivot_scene_px": [
+              95,
+              1015
+            ],
+            "basis": "artistrootestimate, staticcontact",
+            "motion_class": "rigid",
+            "actual_rotation_deg": 0
+          },
+          {
+            "id": "compound_leaf_branch_overlay",
+            "source": "originals/oak-foliage-r1.png",
+            "source_visible_alpha_bounds": [
+              13,
+              3,
+              880,
+              690
+            ],
+            "pivot_scene_px": null,
+            "reason": "Leaf-onlygroups/jointsnotseparated; majorwoodpresent, motionHOLD",
+            "required_motion_classes": [
+              "flexible_branch",
+              "foliage_mass"
+            ],
+            "implemented": false
+          }
+        ],
+        "per_group_masks": "missing",
+        "optional_loose_leaves": "missing",
+        "grass_tips": "none_as_independent_art; soil/litterstatic"
+      },
+      "states": {
+        "generated": true,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "runtime_tested": false
+      },
+      "practical_review": "Provisional normal/mobile art pass. Minor imperfections do not block candidate intake; no owner approval or tiny contact validation inferred."
+    },
+    {
+      "asset_id": "scene.san_diego_compact_marine_courtyard",
+      "variant_id": "wave04_mediterranean_courtyard_v1",
+      "presentation_mode": "clean-foundation",
+      "label": "Mediterranean courtyard",
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/mediterranean-wave05/track-intake.json",
+      "source_manifest_sha256": "9d8c0b73dce69e55fd7757b4585013a5f9ecd1c4b788ee28f4aed3405469af63",
+      "clean_foreground_available_now": true,
+      "review_image": {
+        "package": "san-diego-starter-background-views.zip",
+        "path": "backgrounds/courtyard.png",
+        "sha256": "3d439367f04f3e8670c5c22809fe6591efbcd1373c3903f8d20034831ccf22ab",
+        "dimensions_px": [
+          960,
+          540
+        ],
+        "source_composite_sha256": "a65ca30d0ff12d73c5b42e4008ff5d7a65db3c7514f5160005f5833bdccd427c"
+      },
+      "source_canvas_px": [
+        1536,
+        1024
+      ],
+      "review_crop_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "review_world_px": [
+        960,
+        540
+      ],
+      "review_mapping": "Crop source before uniform nearest scaling; full originals preserved. Actual Mac fitting unverified.",
+      "baked_vs_editable_inventory": {
+        "distant_baked": [],
+        "optional_compound_dressing": [],
+        "independent_shared_placeables": [
+          "plant.blue_eyed_grass",
+          "plant.crassula_ovata"
+        ]
+      },
+      "source_layers": [
+        {
+          "key": "distance.r1",
+          "depth": 0,
+          "file": "originals/distance.png",
+          "sha256": "f91c085abb6dafda6cfeec2444bd20081ab42c5dbfc6d156be51aa9d178fae4f",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "source_original": "originals/distance.png",
+          "alpha_requested": false,
+          "alpha_verified": false,
+          "contents": [
+            "sky",
+            "subdued distant roof glimpse"
+          ],
+          "within_file_separated": false,
+          "pivot_px": null,
+          "motion": "rigid_static",
+          "generation": {
+            "tool": "image_gen.imagegen",
+            "job_id": "exec-7c34d2da-e9f4-42db-970e-a4c27bcb4c45",
+            "prompt_path": "prompts/distance.txt",
+            "prompt_exact": "Create actual production pixel art for a quiet Southern California managed Mediterranean courtyard background. Output exactly 1536x1024 landscape, fully opaque. This is ONLY the farthest sky and very subdued distant neighboring roof glimpse plate. No courtyard ground, walls, foreground architecture, vegetation, trees, birds, pots, furniture, functional objects, text or border. Small calm cool pale blue marine sky with restrained off-white soft cloud clusters, simple and quiet; a barely visible low warm-gray neighboring tile roof silhouette near the bottom 15 percent. The middle and top are predominantly sky. Detailed naturalistic pixel art with deliberately stepped edges, connected pixel clusters and restrained organic value ramps; retain visible pixel discipline rather than painted blur, no uniform noise, no vector look, no cartoon outlines. Soft upper-left diffuse daylight. This plate will be mostly occluded by separate warm buff plaster architecture and pale paving. Birds and independently placeable sprites will be the focal subjects; keep visual contrast low. Original scene, no borrowed layout.",
+            "referenced_image_paths": [],
+            "transparent_background": false,
+            "model_if_exposed": null,
+            "seed_if_exposed": null,
+            "generation_timestamp": null,
+            "recorded_at": "2026-10-17T18:00:33.565109+00:00",
+            "original_output_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/mediterranean-wave05/layers/distance.r1.png",
+            "original_sha256": "f91c085abb6dafda6cfeec2444bd20081ab42c5dbfc6d156be51aa9d178fae4f",
+            "original_dimensions_px": [
+              1536,
+              1024
+            ],
+            "tool_return_metadata": "metadata/distance-tool-return.json"
+          }
+        },
+        {
+          "key": "courtyard_structure.r1",
+          "depth": 10,
+          "file": "originals/courtyard_structure.png",
+          "sha256": "4f78d92a2e031a47a477ee3670277cb4f93462eee42a54cdb9f5501ec87e30f0",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "source_original": "originals/courtyard_structure.png",
+          "alpha_requested": true,
+          "alpha_verified": true,
+          "contents": [
+            "warm buff plaster enclosure",
+            "narrow closed gate",
+            "shallow left step",
+            "pale paving",
+            "empty left soil strip",
+            "empty side niches"
+          ],
+          "within_file_separated": false,
+          "pivot_px": [
+            768,
+            1024
+          ],
+          "motion": "rigid_static",
+          "generation": {
+            "tool": "image_gen.imagegen",
+            "job_id": "exec-6061b13d-b65f-41d0-a29f-15f49842b002",
+            "prompt_path": "prompts/structure.txt",
+            "prompt_exact": "Create actual production pixel art, exactly 1536x1024 landscape, transparent RGBA background with real alpha. A CLEAN EMPTY compact Mediterranean-style San Diego courtyard architecture and ground plate. Side-on yard stage with slight elevated visibility of the contact plane, upright architecture, no extreme perspective. Warm buff plaster enclosure with shallow left/right returns; plaster back wall top around y380, base around y650. Narrow asymmetrical closed dark weathered wood gate near the right side around x1240..1380, set into plaster, not central. One shallow pale stone side step at far left. Warm pale gray stone paving covers the entire lower canvas from wall contact around y650 down to the bottom edge y1024, edge to edge. Keep the full middle x300..1250,y650..980 open and quiet, reserved for separately editable birds and iron/wood/terracotta placeables. Very few sparse low-contrast paving seams, no strong stripes or busy texture. Small EMPTY recessed soil planting strip only at extreme left edge x0..170,y780..1024; no plant imagery. Tiny empty plaster wall niches at side edges are okay, but absolutely NO pots, planters, removable supports, furniture, decorative objects, plants, leaves, vines, grass, trees, distant vegetation, birds, feeders, baths, fountains or shadows of nonexistent objects anywhere. Above the wall silhouette is truly transparent sky; DO NOT render sky or checkerboard. Architecture, gate, step and paving are one flattened rigid compound plate; do not pretend they are separate parts. Naturalistic detailed pixel art with deliberate connected clusters, stepped contour edges, restrained stone/plaster wear and calm surfaces, coherent with finely shaded small garden object sprites; no blur, no photorealism, no thick cartoon outline or UI. Soft upper-left diffuse warm daylight, tight low-contrast structure contact shade to lower right. Make this a believable enclosed small courtyard, no broad vista, pergola, water or grand architecture.",
+            "referenced_image_paths": [],
+            "transparent_background": true,
+            "model_if_exposed": null,
+            "seed_if_exposed": null,
+            "generation_timestamp": null,
+            "recorded_at": "2026-10-17T18:00:33.565109+00:00",
+            "original_output_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/mediterranean-wave05/layers/courtyard_structure.r1.png",
+            "original_sha256": "4f78d92a2e031a47a477ee3670277cb4f93462eee42a54cdb9f5501ec87e30f0",
+            "original_dimensions_px": [
+              1536,
+              1024
+            ],
+            "tool_return_metadata": "metadata/structure-tool-return.json"
+          }
+        }
+      ],
+      "wind_contract": {
+        "implemented": false,
+        "rigid": {
+          "stiffness": 1,
+          "mild_rotation_cap_deg": 0,
+          "strong_rotation_cap_deg": 0,
+          "mild_tip_cap_px": 0,
+          "strong_tip_cap_px": 0,
+          "root_translation_px": 0
+        },
+        "flexible_parts": [],
+        "flexible_pivots": null,
+        "flexible_amplitudes": null,
+        "reason": "No vegetation baked into either background plate. Shared compound plant sprites have no separately riggable tips/stems, so whole-plant motion disabled; pots and contacts rigid. Existing species-specific future needs remain in shared source intake."
+      },
+      "states": {
+        "generated": true,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "runtime_tested": false
+      },
+      "practical_review": "Provisional normal/mobile art pass. Minor imperfections do not block candidate intake; no owner approval or tiny contact validation inferred."
+    }
+  ],
+  "shared_sprite_selection": [
+    {
+      "key": "california_bush_sunflower",
+      "asset_id": "plant.california_bush_sunflower",
+      "variant_id": "healthy.flowering",
+      "label": "California bush sunflower",
+      "source_file": "assets/generated/2026-10-17/packs/plants-flowering-sheet/sprites/california_bush_sunflower.png",
+      "placement_anchor_px": [
+        334,
+        578
+      ],
+      "ground_contact_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          334,
+          578
+        ],
+        "radii_px": [
+          153,
+          15
+        ],
+        "basis": "manual visual provisional; placement validation pending",
+        "blocks_foot_traffic": false
+      },
+      "preview_scale": 0.19933554817275748,
+      "scale_basis": {
+        "source_proposed_height_m": 1.0,
+        "canvas_axis": "height"
+      },
+      "z_order": 20,
+      "mounting_surface": "floor_or_ground",
+      "x": 0,
+      "y": 0,
+      "compatible_groups": [
+        {
+          "group_id": "coastal_garden",
+          "tier": "default",
+          "condition": "Torrey pine and Shaw's agave have restricted native contexts; planted regional options, not universal county defaults. Choose one sunflower identity deliberately. Keep flowering/water states coherent."
+        }
+      ],
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/plants/plants-intake.json",
+      "source_manifest_sha256": "c431ddeb6b25aea89cedbbd25c74ef8e3922b4f579fa701ae23f8925ffd4f08d",
+      "wind": {
+        "implemented": false,
+        "metadata_status": "provisional attachment points recorded; no rig mesh/deformation/runtime implementation",
+        "fixed_base": [
+          0.5,
+          0.96
+        ],
+        "attachment_groups": [
+          "stem_forks",
+          "outer_foliage",
+          "flower_tips"
+        ],
+        "deformation_constraints": "Keep root/base fixed. Woody trunk minimal movement; outer foliage subtle motion. No cutout layers or runtime physics claimed."
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "tested": true,
+        "accepted": false
+      },
+      "source_sha256": "d34c8f8d2f995002409f7448700e4f4ba9cec87dc4d7cab38271af32a55f0d81",
+      "source_dimensions": [
+        667,
+        602
+      ],
+      "review_derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/root/derivatives/california_bush_sunflower.png",
+        "sha256": "cb27e808cdd19aad996ef929fd7c08603c7fd3b41fe4907af56d1614fb6f0b71",
+        "dimensions": [
+          133,
+          120
+        ],
+        "method": "Declared crop, if background; uniform nearest scaling only. Original source unchanged."
+      },
+      "width": 133,
+      "height": 120,
+      "preview_anchor_px": [
+        67,
+        115
+      ],
+      "portable_file": {
+        "package": "san-diego-starter-shared-sprites.zip",
+        "path": "sprites/california_bush_sunflower.png",
+        "sha256": "d34c8f8d2f995002409f7448700e4f4ba9cec87dc4d7cab38271af32a55f0d81",
+        "dimensions_px": [
+          667,
+          602
+        ]
+      }
+    },
+    {
+      "key": "san_diego_monkeyflower",
+      "asset_id": "plant.san_diego_monkeyflower",
+      "variant_id": "healthy",
+      "label": "San Diego monkeyflower",
+      "source_file": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/sprites/san_diego_monkeyflower.png",
+      "placement_anchor_px": [
+        308,
+        461
+      ],
+      "ground_contact_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          308,
+          461
+        ],
+        "radii_px": [
+          115,
+          10
+        ],
+        "basis": "manual visual provisional; designer validation pending"
+      },
+      "preview_scale": 0.17355371900826447,
+      "scale_basis": {
+        "source_proposed_height_m": 0.7,
+        "canvas_axis": "height"
+      },
+      "z_order": 20,
+      "mounting_surface": "floor_or_ground",
+      "x": 0,
+      "y": 0,
+      "compatible_groups": [
+        {
+          "group_id": "coastal_garden",
+          "tier": "default",
+          "condition": "Torrey pine and Shaw's agave have restricted native contexts; planted regional options, not universal county defaults. Choose one sunflower identity deliberately. Keep flowering/water states coherent."
+        },
+        {
+          "group_id": "mediterranean_courtyard",
+          "tier": "option",
+          "condition": "Two default pots are cultivated, not native. Ivy geranium needs an elevated ledge/table anchor and visible trailing foliage. Optional regional plants are independent planted beds/rosettes; do not invent a separate pot for flattened rooted sprites."
+        },
+        {
+          "group_id": "existing_inland",
+          "tier": "option",
+          "condition": "Sycamore is a large moist-pocket/riparian/irrigated option, not the default dry hill tree. Other plants retain source moisture/season needs. Revised needlegrass remains provisional, with fine-awn readability pending."
+        }
+      ],
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/track-intake.json",
+      "source_manifest_sha256": "1465b477380d2b416961b95c628dc09de8957e427c4874d71d1961e3b5cd23bd",
+      "wind": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          308,
+          461
+        ],
+        "pot_or_ground_fixed_px": [
+          308,
+          461
+        ],
+        "outer_left_px": [
+          127,
+          194
+        ],
+        "outer_right_px": [
+          507,
+          194
+        ],
+        "upper_crown_px": [
+          317,
+          87
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "source_sha256": "490b93238b786224c0212b084c58ff33d71034727baedd621f12cde319415532",
+      "source_dimensions": [
+        634,
+        484
+      ],
+      "review_derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/root/derivatives/san_diego_monkeyflower.png",
+        "sha256": "c98fab2dd5b82bce799d50b67a6c91f2d08f88df4d20cf3c4571e943ae6c10d4",
+        "dimensions": [
+          110,
+          84
+        ],
+        "method": "Declared crop, if background; uniform nearest scaling only. Original source unchanged."
+      },
+      "width": 110,
+      "height": 84,
+      "preview_anchor_px": [
+        53,
+        80
+      ],
+      "portable_file": {
+        "package": "san-diego-starter-shared-sprites.zip",
+        "path": "sprites/san_diego_monkeyflower.png",
+        "sha256": "490b93238b786224c0212b084c58ff33d71034727baedd621f12cde319415532",
+        "dimensions_px": [
+          634,
+          484
+        ]
+      }
+    },
+    {
+      "key": "hollyleaf_cherry",
+      "asset_id": "plant.hollyleaf_cherry",
+      "variant_id": "healthy.flowering",
+      "label": "Hollyleaf cherry",
+      "source_file": "assets/generated/2026-10-17/packs/plants-woody-sheet/sprites/hollyleaf_cherry.png",
+      "placement_anchor_px": [
+        312,
+        566
+      ],
+      "ground_contact_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          312,
+          566
+        ],
+        "radii_px": [
+          141,
+          15
+        ],
+        "basis": "manual visual provisional; placement validation pending",
+        "blocks_foot_traffic": false
+      },
+      "preview_scale": 0.6101694915254238,
+      "scale_basis": {
+        "source_proposed_height_m": 3.0,
+        "canvas_axis": "height"
+      },
+      "z_order": 20,
+      "mounting_surface": "floor_or_ground",
+      "x": 0,
+      "y": 0,
+      "compatible_groups": [
+        {
+          "group_id": "shaded_oak",
+          "tier": "option",
+          "condition": "Bright-edge/managed-moisture composition candidates only; no claim these are all deep-shade plants. Source backgrounds may contain baked oak. No independent usable oak tree from these local sources: Engelmann wood/canopy attachment HOLD; coast live oak exists only in earlier external references, not an audited local sprite."
+        },
+        {
+          "group_id": "existing_inland",
+          "tier": "option",
+          "condition": "Sycamore is a large moist-pocket/riparian/irrigated option, not the default dry hill tree. Other plants retain source moisture/season needs. Revised needlegrass remains provisional, with fine-awn readability pending."
+        }
+      ],
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/plants/plants-intake.json",
+      "source_manifest_sha256": "c431ddeb6b25aea89cedbbd25c74ef8e3922b4f579fa701ae23f8925ffd4f08d",
+      "wind": {
+        "implemented": false,
+        "metadata_status": "provisional attachment points recorded; no rig mesh/deformation/runtime implementation",
+        "fixed_base": [
+          0.51,
+          0.96
+        ],
+        "attachment_groups": [
+          "stem_forks",
+          "outer_foliage",
+          "flower_tips"
+        ],
+        "deformation_constraints": "Keep root/base fixed. Woody trunk minimal movement; outer foliage subtle motion. No cutout layers or runtime physics claimed."
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "tested": true,
+        "accepted": false
+      },
+      "source_sha256": "c5e4fb66496d8fb7dbd5a0ef9ef629ae0b11bdf3385b1ded888bc13f9d604e4c",
+      "source_dimensions": [
+        611,
+        590
+      ],
+      "review_derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/root/derivatives/hollyleaf_cherry.png",
+        "sha256": "7bf58fc94b6c91f63fb21ad3052b1d67b754bd389940df7496218854d4696f1f",
+        "dimensions": [
+          373,
+          360
+        ],
+        "method": "Declared crop, if background; uniform nearest scaling only. Original source unchanged."
+      },
+      "width": 373,
+      "height": 360,
+      "preview_anchor_px": [
+        190,
+        345
+      ],
+      "portable_file": {
+        "package": "san-diego-starter-shared-sprites.zip",
+        "path": "sprites/hollyleaf_cherry.png",
+        "sha256": "c5e4fb66496d8fb7dbd5a0ef9ef629ae0b11bdf3385b1ded888bc13f9d604e4c",
+        "dimensions_px": [
+          611,
+          590
+        ]
+      }
+    },
+    {
+      "key": "blue_eyed_grass",
+      "asset_id": "plant.blue_eyed_grass",
+      "variant_id": "healthy",
+      "label": "Blue-eyed grass",
+      "source_file": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/mediterranean-wave05/references/blue_eyed_grass.png",
+      "placement_anchor_px": [
+        275,
+        470
+      ],
+      "ground_contact_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          275,
+          470
+        ],
+        "radii_px": [
+          110,
+          11
+        ],
+        "basis": "manual visual provisional, designer to verify"
+      },
+      "preview_scale": 0.084,
+      "scale_basis": {
+        "source_proposed_height_m": 0.35,
+        "canvas_axis": "height"
+      },
+      "z_order": 20,
+      "mounting_surface": "floor_or_ground",
+      "x": 0,
+      "y": 0,
+      "compatible_groups": [
+        {
+          "group_id": "shaded_oak",
+          "tier": "option",
+          "condition": "Bright-edge/managed-moisture composition candidates only; no claim these are all deep-shade plants. Source backgrounds may contain baked oak. No independent usable oak tree from these local sources: Engelmann wood/canopy attachment HOLD; coast live oak exists only in earlier external references, not an audited local sprite."
+        }
+      ],
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/wave03/track-intake.json",
+      "source_manifest_sha256": "8e4316eddd0189d4c7e5b8827da1358016de7f5f079e2c80cbdab0f210d7c388",
+      "wind": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/base fixed; subtle outer blade or leaf motion only. Pot fixed. Metadata is not mesh, rig, animation or physics.",
+        "root_anchor_px": [
+          275,
+          470
+        ],
+        "pot_or_ground_fixed_px": [
+          275,
+          470
+        ],
+        "outer_left_px": [
+          110,
+          200
+        ],
+        "outer_right_px": [
+          440,
+          200
+        ],
+        "upper_crown_px": [
+          275,
+          90
+        ],
+        "mesh_or_separated_groups_exist": false
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "source_sha256": "636bb467aa0fc19f8ee86e3967803a530eb9ecc7c126136170bc88f6b172de03",
+      "source_dimensions": [
+        550,
+        500
+      ],
+      "review_derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/root/derivatives/blue_eyed_grass.png",
+        "sha256": "879dfd5be69efe711796cc65df1155d7189a033f92bbf5bd6406798c6f6a715c",
+        "dimensions": [
+          46,
+          42
+        ],
+        "method": "Declared crop, if background; uniform nearest scaling only. Original source unchanged."
+      },
+      "width": 46,
+      "height": 42,
+      "preview_anchor_px": [
+        23,
+        39
+      ],
+      "portable_file": {
+        "package": "san-diego-starter-shared-sprites.zip",
+        "path": "sprites/blue_eyed_grass.png",
+        "sha256": "636bb467aa0fc19f8ee86e3967803a530eb9ecc7c126136170bc88f6b172de03",
+        "dimensions_px": [
+          550,
+          500
+        ]
+      }
+    },
+    {
+      "key": "crassula_ovata",
+      "asset_id": "plant.crassula_ovata",
+      "variant_id": "healthy",
+      "label": "Jade plant",
+      "source_file": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/mediterranean-wave05/references/crassula_ovata.png",
+      "placement_anchor_px": [
+        291,
+        501
+      ],
+      "ground_contact_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          291,
+          501
+        ],
+        "radii_px": [
+          145,
+          16
+        ],
+        "basis": "manual visual provisional; designer validation pending"
+      },
+      "preview_scale": 0.1491395793499044,
+      "scale_basis": {
+        "source_proposed_height_m": 0.65,
+        "canvas_axis": "height"
+      },
+      "z_order": 20,
+      "mounting_surface": "floor_or_ground",
+      "x": 0,
+      "y": 0,
+      "compatible_groups": [
+        {
+          "group_id": "mediterranean_courtyard",
+          "tier": "default",
+          "condition": "Two default pots are cultivated, not native. Ivy geranium needs an elevated ledge/table anchor and visible trailing foliage. Optional regional plants are independent planted beds/rosettes; do not invent a separate pot for flattened rooted sprites."
+        },
+        {
+          "group_id": "existing_patio",
+          "tier": "default",
+          "condition": "Indoor-tagged stock is not an automatic outdoor patio option; show only in a deliberately sheltered/interior placement mode. Outdoor wind/weather default disabled. Pothos and spider plant require elevated shelf/table placement."
+        }
+      ],
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/track-intake.json",
+      "source_manifest_sha256": "1465b477380d2b416961b95c628dc09de8957e427c4874d71d1961e3b5cd23bd",
+      "wind": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          294,
+          358
+        ],
+        "pot_or_ground_fixed_px": [
+          291,
+          501
+        ],
+        "outer_left_px": [
+          110,
+          209
+        ],
+        "outer_right_px": [
+          442,
+          209
+        ],
+        "upper_crown_px": [
+          276,
+          94
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "source_sha256": "4dcebf1988c6c649bf2d4f2b9f0cd0c13b6363f6c80e2fb6a03f6e60b4f80d63",
+      "source_dimensions": [
+        552,
+        523
+      ],
+      "review_derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/root/derivatives/crassula_ovata.png",
+        "sha256": "cdfd14509aa6db3a6561f04f53e0013bc107d27ed3d7bc6f1549ae936ba4bf73",
+        "dimensions": [
+          82,
+          78
+        ],
+        "method": "Declared crop, if background; uniform nearest scaling only. Original source unchanged."
+      },
+      "width": 82,
+      "height": 78,
+      "preview_anchor_px": [
+        43,
+        75
+      ],
+      "portable_file": {
+        "package": "san-diego-starter-shared-sprites.zip",
+        "path": "sprites/crassula_ovata.png",
+        "sha256": "4dcebf1988c6c649bf2d4f2b9f0cd0c13b6363f6c80e2fb6a03f6e60b4f80d63",
+        "dimensions_px": [
+          552,
+          523
+        ]
+      }
+    },
+    {
+      "key": "ivy_geranium_cultivar_group",
+      "asset_id": "plant.ivy_geranium_cultivar_group",
+      "variant_id": "healthy",
+      "label": "Ivy geranium nursery group",
+      "source_file": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/sprites/ivy_geranium_cultivar_group.png",
+      "placement_anchor_px": [
+        307,
+        428
+      ],
+      "ground_contact_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          307,
+          428
+        ],
+        "radii_px": [
+          118,
+          15
+        ],
+        "basis": "manual visual provisional; designer validation pending"
+      },
+      "preview_scale": 0.12571428571428572,
+      "scale_basis": {
+        "source_proposed_height_m": 0.55,
+        "canvas_axis": "height"
+      },
+      "z_order": 20,
+      "mounting_surface": "elevated_patio_ledge_or_table",
+      "x": 0,
+      "y": 0,
+      "compatible_groups": [
+        {
+          "group_id": "mediterranean_courtyard",
+          "tier": "default",
+          "condition": "Two default pots are cultivated, not native. Ivy geranium needs an elevated ledge/table anchor and visible trailing foliage. Optional regional plants are independent planted beds/rosettes; do not invent a separate pot for flattened rooted sprites."
+        },
+        {
+          "group_id": "existing_patio",
+          "tier": "default",
+          "condition": "Indoor-tagged stock is not an automatic outdoor patio option; show only in a deliberately sheltered/interior placement mode. Outdoor wind/weather default disabled. Pothos and spider plant require elevated shelf/table placement."
+        }
+      ],
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/track-intake.json",
+      "source_manifest_sha256": "1465b477380d2b416961b95c628dc09de8957e427c4874d71d1961e3b5cd23bd",
+      "wind": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          300,
+          275
+        ],
+        "pot_or_ground_fixed_px": [
+          307,
+          428
+        ],
+        "outer_left_px": [
+          129,
+          210
+        ],
+        "outer_right_px": [
+          518,
+          210
+        ],
+        "upper_crown_px": [
+          324,
+          94
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "source_sha256": "cc9f6c32e9b98b92eb17dca066349c1c029dc0342abebd0c8132265778d1a1df",
+      "source_dimensions": [
+        647,
+        525
+      ],
+      "review_derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/root/derivatives/ivy_geranium_cultivar_group.png",
+        "sha256": "0521f4500cb7b94b576939f53fd3d4cc78d7fe98f95fc349a65d421fc4bb24b3",
+        "dimensions": [
+          81,
+          66
+        ],
+        "method": "Declared crop, if background; uniform nearest scaling only. Original source unchanged."
+      },
+      "width": 81,
+      "height": 66,
+      "preview_anchor_px": [
+        39,
+        54
+      ],
+      "portable_file": {
+        "package": "san-diego-starter-shared-sprites.zip",
+        "path": "sprites/ivy_geranium_cultivar_group.png",
+        "sha256": "cc9f6c32e9b98b92eb17dca066349c1c029dc0342abebd0c8132265778d1a1df",
+        "dimensions_px": [
+          647,
+          525
+        ]
+      }
+    },
+    {
+      "key": "cedar_feeder",
+      "asset_id": "object.cedar_feeder",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Cedar hopper feeder on post",
+      "source_file": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "placement_anchor_px": [
+        196,
+        494
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            125,
+            469
+          ],
+          [
+            198,
+            453
+          ],
+          [
+            274,
+            477
+          ],
+          [
+            256,
+            501
+          ],
+          [
+            178,
+            510
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "preview_scale": 0.3522727272727273,
+      "scale_basis": {
+        "source_proposed_height_m": 1.55,
+        "canvas_axis": "height"
+      },
+      "z_order": 20,
+      "mounting_surface": "floor_or_ground",
+      "x": 0,
+      "y": 0,
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+      "source_manifest_sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19",
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "tray_front_perch",
+            "position_px": [
+              175,
+              284
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "tray_side_perch",
+            "position_px": [
+              348,
+              264
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "seed_peck_front",
+            "position_px": [
+              186,
+              260
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "seed_peck_side",
+            "position_px": [
+              311,
+              249
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "roof_perch",
+            "position_px": [
+              226,
+              35
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "wind": {
+        "status": "metadata_only_not_implemented",
+        "type": "rigid",
+        "attachment_point_px": null,
+        "separate_rigged_parts": []
+      },
+      "states": {
+        "generated": true,
+        "reviewed": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "source_dimensions": [
+        449,
+        528
+      ],
+      "review_derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/root/derivatives/cedar_feeder.png",
+        "sha256": "ddb381a89b2e0d3ff49a68326c3db48f9ffc1c60f6242842c8c64a524c0ec3ee",
+        "dimensions": [
+          158,
+          186
+        ],
+        "method": "Declared crop, if background; uniform nearest scaling only. Original source unchanged."
+      },
+      "width": 158,
+      "height": 186,
+      "preview_anchor_px": [
+        69,
+        174
+      ],
+      "portable_file": {
+        "package": "san-diego-starter-shared-sprites.zip",
+        "path": "sprites/cedar_feeder.png",
+        "sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+        "dimensions_px": [
+          449,
+          528
+        ]
+      }
+    },
+    {
+      "key": "bench",
+      "asset_id": "object.bench",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Weathered cedar garden bench",
+      "source_file": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "placement_anchor_px": [
+        378,
+        429
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            58,
+            373
+          ],
+          [
+            186,
+            330
+          ],
+          [
+            713,
+            394
+          ],
+          [
+            633,
+            478
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "preview_scale": 0.21135029354207435,
+      "scale_basis": {
+        "source_proposed_height_m": 0.9,
+        "canvas_axis": "height"
+      },
+      "z_order": 20,
+      "mounting_surface": "floor_or_ground",
+      "x": 0,
+      "y": 0,
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/objects/manifest.json",
+      "source_manifest_sha256": "9ecfdef1da43984b57b62a64558b2ab4dd8e51d8db0a15a0bfddb7518832da19",
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "coordinate_system": "sprite_canvas_px",
+        "points": [
+          {
+            "id": "back_perch",
+            "position_px": [
+              396,
+              45
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "armrest_left_perch",
+            "position_px": [
+              100,
+              151
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          },
+          {
+            "id": "seat_surface",
+            "position_px": [
+              396,
+              251
+            ],
+            "coordinate_status": "approximate_manual_image_observation_requires_runtime_alignment",
+            "implemented": false
+          }
+        ]
+      },
+      "wind": {
+        "status": "metadata_only_not_implemented",
+        "type": "rigid",
+        "attachment_point_px": null,
+        "separate_rigged_parts": []
+      },
+      "states": {
+        "generated": true,
+        "reviewed": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "source_dimensions": [
+        761,
+        511
+      ],
+      "review_derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/root/derivatives/bench.png",
+        "sha256": "8dc1757c8bf528de48b0f252a1e178e92954808d80515a19edf4f6a57fb0d933",
+        "dimensions": [
+          161,
+          108
+        ],
+        "method": "Declared crop, if background; uniform nearest scaling only. Original source unchanged."
+      },
+      "width": 161,
+      "height": 108,
+      "preview_anchor_px": [
+        80,
+        91
+      ],
+      "portable_file": {
+        "package": "san-diego-starter-shared-sprites.zip",
+        "path": "sprites/bench.png",
+        "sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+        "dimensions_px": [
+          761,
+          511
+        ]
+      }
+    },
+    {
+      "key": "ground_birdbath",
+      "asset_id": "object.ground_birdbath",
+      "variant_id": "rectangular_concrete",
+      "label": "Rectangular concrete ground birdbath",
+      "source_file": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/mediterranean-wave05/references/groundbath-landmark-source.png",
+      "placement_anchor_px": [
+        368,
+        296
+      ],
+      "ground_contact_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygons": [
+          [
+            [
+              39,
+              209
+            ],
+            [
+              202,
+              144
+            ],
+            [
+              702,
+              242
+            ],
+            [
+              530,
+              332
+            ]
+          ]
+        ],
+        "status": "proposed_metadata_not_collision",
+        "no_ground_contact": false
+      },
+      "preview_scale": 0.08906882591093117,
+      "scale_basis": {
+        "source_proposed_width_m": 0.55,
+        "canvas_axis": "width"
+      },
+      "z_order": 20,
+      "mounting_surface": "floor_or_ground",
+      "x": 0,
+      "y": 0,
+      "source_manifest": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/objects/wave03/track-intake.json",
+      "source_manifest_sha256": "fd35a7c1994d9b40508819808d1a86b86f7ef0e5da32e01497c275015acf6a1f",
+      "functional_interactions": null,
+      "wind": null,
+      "states": {
+        "generated": true,
+        "reviewed": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "source_sha256": "4ac78428502ec95c480b2114d66f7f5cf3e9015bb387058fbac6d1f0268da0c7",
+      "source_dimensions": [
+        741,
+        347
+      ],
+      "review_derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/root/derivatives/ground_birdbath.png",
+        "sha256": "e1469bb3c88cb8c64ba751f3d81af187e96bb9a95a55667d3acde1b7ec29d565",
+        "dimensions": [
+          66,
+          31
+        ],
+        "method": "Declared crop, if background; uniform nearest scaling only. Original source unchanged."
+      },
+      "width": 66,
+      "height": 31,
+      "preview_anchor_px": [
+        33,
+        26
+      ],
+      "portable_file": {
+        "package": "san-diego-starter-shared-sprites.zip",
+        "path": "sprites/ground_birdbath.png",
+        "sha256": "4ac78428502ec95c480b2114d66f7f5cf3e9015bb387058fbac6d1f0268da0c7",
+        "dimensions_px": [
+          741,
+          347
+        ]
+      }
+    }
+  ],
+  "starter_instance_layouts": [
+    {
+      "key": "california_bush_sunflower",
+      "instance_id": "starter.coastal.california_bush_sunflower",
+      "x": 58,
+      "y": 340,
+      "target_anchor_world_px": [
+        125,
+        455
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "coastal",
+      "asset_id": "plant.california_bush_sunflower",
+      "variant_id": "healthy.flowering",
+      "source_to_review_affine": [
+        0.19933554817275748,
+        0,
+        0,
+        0.19933554817275748,
+        58,
+        340
+      ],
+      "source_anchor_px": [
+        334,
+        578
+      ],
+      "source_ground_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          334,
+          578
+        ],
+        "radii_px": [
+          153,
+          15
+        ],
+        "basis": "manual visual provisional; placement validation pending",
+        "blocks_foot_traffic": false
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "san_diego_monkeyflower",
+      "instance_id": "starter.coastal.san_diego_monkeyflower",
+      "x": 777,
+      "y": 370,
+      "target_anchor_world_px": [
+        830,
+        450
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "coastal",
+      "asset_id": "plant.san_diego_monkeyflower",
+      "variant_id": "healthy",
+      "source_to_review_affine": [
+        0.17355371900826447,
+        0,
+        0,
+        0.17355371900826447,
+        777,
+        370
+      ],
+      "source_anchor_px": [
+        308,
+        461
+      ],
+      "source_ground_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          308,
+          461
+        ],
+        "radii_px": [
+          115,
+          10
+        ],
+        "basis": "manual visual provisional; designer validation pending"
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "cedar_feeder",
+      "instance_id": "starter.coastal.cedar_feeder",
+      "x": 301,
+      "y": 271,
+      "target_anchor_world_px": [
+        370,
+        445
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "coastal",
+      "asset_id": "object.cedar_feeder",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "source_to_review_affine": [
+        0.3522727272727273,
+        0,
+        0,
+        0.3522727272727273,
+        301,
+        271
+      ],
+      "source_anchor_px": [
+        196,
+        494
+      ],
+      "source_ground_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            125,
+            469
+          ],
+          [
+            198,
+            453
+          ],
+          [
+            274,
+            477
+          ],
+          [
+            256,
+            501
+          ],
+          [
+            178,
+            510
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "ground_birdbath",
+      "instance_id": "starter.coastal.ground_birdbath",
+      "x": 602,
+      "y": 449,
+      "target_anchor_world_px": [
+        635,
+        475
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "coastal",
+      "asset_id": "object.ground_birdbath",
+      "variant_id": "rectangular_concrete",
+      "source_to_review_affine": [
+        0.08906882591093117,
+        0,
+        0,
+        0.08906882591093117,
+        602,
+        449
+      ],
+      "source_anchor_px": [
+        368,
+        296
+      ],
+      "source_ground_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygons": [
+          [
+            [
+              39,
+              209
+            ],
+            [
+              202,
+              144
+            ],
+            [
+              702,
+              242
+            ],
+            [
+              530,
+              332
+            ]
+          ]
+        ],
+        "status": "proposed_metadata_not_collision",
+        "no_ground_contact": false
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "hollyleaf_cherry",
+      "instance_id": "starter.oak.hollyleaf_cherry",
+      "x": -20,
+      "y": 120,
+      "target_anchor_world_px": [
+        170,
+        465
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "oak",
+      "asset_id": "plant.hollyleaf_cherry",
+      "variant_id": "healthy.flowering",
+      "source_to_review_affine": [
+        0.6101694915254238,
+        0,
+        0,
+        0.6101694915254238,
+        -20,
+        120
+      ],
+      "source_anchor_px": [
+        312,
+        566
+      ],
+      "source_ground_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          312,
+          566
+        ],
+        "radii_px": [
+          141,
+          15
+        ],
+        "basis": "manual visual provisional; placement validation pending",
+        "blocks_foot_traffic": false
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "blue_eyed_grass",
+      "instance_id": "starter.oak.blue_eyed_grass",
+      "x": 792,
+      "y": 436,
+      "target_anchor_world_px": [
+        815,
+        475
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "oak",
+      "asset_id": "plant.blue_eyed_grass",
+      "variant_id": "healthy",
+      "source_to_review_affine": [
+        0.084,
+        0,
+        0,
+        0.084,
+        792,
+        436
+      ],
+      "source_anchor_px": [
+        275,
+        470
+      ],
+      "source_ground_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          275,
+          470
+        ],
+        "radii_px": [
+          110,
+          11
+        ],
+        "basis": "manual visual provisional, designer to verify"
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "cedar_feeder",
+      "instance_id": "starter.oak.cedar_feeder",
+      "x": 336,
+      "y": 256,
+      "target_anchor_world_px": [
+        405,
+        430
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "oak",
+      "asset_id": "object.cedar_feeder",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "source_to_review_affine": [
+        0.3522727272727273,
+        0,
+        0,
+        0.3522727272727273,
+        336,
+        256
+      ],
+      "source_anchor_px": [
+        196,
+        494
+      ],
+      "source_ground_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            125,
+            469
+          ],
+          [
+            198,
+            453
+          ],
+          [
+            274,
+            477
+          ],
+          [
+            256,
+            501
+          ],
+          [
+            178,
+            510
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "ground_birdbath",
+      "instance_id": "starter.oak.ground_birdbath",
+      "x": 587,
+      "y": 444,
+      "target_anchor_world_px": [
+        620,
+        470
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "oak",
+      "asset_id": "object.ground_birdbath",
+      "variant_id": "rectangular_concrete",
+      "source_to_review_affine": [
+        0.08906882591093117,
+        0,
+        0,
+        0.08906882591093117,
+        587,
+        444
+      ],
+      "source_anchor_px": [
+        368,
+        296
+      ],
+      "source_ground_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygons": [
+          [
+            [
+              39,
+              209
+            ],
+            [
+              202,
+              144
+            ],
+            [
+              702,
+              242
+            ],
+            [
+              530,
+              332
+            ]
+          ]
+        ],
+        "status": "proposed_metadata_not_collision",
+        "no_ground_contact": false
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "crassula_ovata",
+      "instance_id": "starter.courtyard.crassula_ovata",
+      "x": 747,
+      "y": 380,
+      "target_anchor_world_px": [
+        790,
+        455
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "courtyard",
+      "asset_id": "plant.crassula_ovata",
+      "variant_id": "healthy",
+      "source_to_review_affine": [
+        0.1491395793499044,
+        0,
+        0,
+        0.1491395793499044,
+        747,
+        380
+      ],
+      "source_anchor_px": [
+        291,
+        501
+      ],
+      "source_ground_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          291,
+          501
+        ],
+        "radii_px": [
+          145,
+          16
+        ],
+        "basis": "manual visual provisional; designer validation pending"
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "ivy_geranium_cultivar_group",
+      "instance_id": "starter.courtyard.ivy_geranium_cultivar_group",
+      "x": 46,
+      "y": 264,
+      "target_anchor_world_px": [
+        85,
+        318
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "courtyard",
+      "asset_id": "plant.ivy_geranium_cultivar_group",
+      "variant_id": "healthy",
+      "source_to_review_affine": [
+        0.12571428571428572,
+        0,
+        0,
+        0.12571428571428572,
+        46,
+        264
+      ],
+      "source_anchor_px": [
+        307,
+        428
+      ],
+      "source_ground_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          307,
+          428
+        ],
+        "radii_px": [
+          118,
+          15
+        ],
+        "basis": "manual visual provisional; designer validation pending"
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "blue_eyed_grass",
+      "instance_id": "starter.courtyard.blue_eyed_grass",
+      "x": 1,
+      "y": 388,
+      "target_anchor_world_px": [
+        24,
+        427
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "courtyard",
+      "asset_id": "plant.blue_eyed_grass",
+      "variant_id": "healthy",
+      "source_to_review_affine": [
+        0.084,
+        0,
+        0,
+        0.084,
+        1,
+        388
+      ],
+      "source_anchor_px": [
+        275,
+        470
+      ],
+      "source_ground_footprint": {
+        "shape": "ellipse",
+        "center_px": [
+          275,
+          470
+        ],
+        "radii_px": [
+          110,
+          11
+        ],
+        "basis": "manual visual provisional, designer to verify"
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "bench",
+      "instance_id": "starter.courtyard.bench",
+      "x": 425,
+      "y": 369,
+      "target_anchor_world_px": [
+        505,
+        460
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "courtyard",
+      "asset_id": "object.bench",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "source_to_review_affine": [
+        0.21135029354207435,
+        0,
+        0,
+        0.21135029354207435,
+        425,
+        369
+      ],
+      "source_anchor_px": [
+        378,
+        429
+      ],
+      "source_ground_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygon_px": [
+          [
+            58,
+            373
+          ],
+          [
+            186,
+            330
+          ],
+          [
+            713,
+            394
+          ],
+          [
+            633,
+            478
+          ]
+        ],
+        "status": "proposed_contact_geometry_not_physics",
+        "suspended_no_ground_contact": false
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    },
+    {
+      "key": "ground_birdbath",
+      "instance_id": "starter.courtyard.ground_birdbath",
+      "x": 632,
+      "y": 469,
+      "target_anchor_world_px": [
+        665,
+        495
+      ],
+      "z_order": "sort by transformed placement anchor y; ties source z_order",
+      "ground_contact_calibration": "provisional diagnostic layout; footprint preserved from source",
+      "background_key": "courtyard",
+      "asset_id": "object.ground_birdbath",
+      "variant_id": "rectangular_concrete",
+      "source_to_review_affine": [
+        0.08906882591093117,
+        0,
+        0,
+        0.08906882591093117,
+        632,
+        469
+      ],
+      "source_anchor_px": [
+        368,
+        296
+      ],
+      "source_ground_footprint": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygons": [
+          [
+            [
+              39,
+              209
+            ],
+            [
+              202,
+              144
+            ],
+            [
+              702,
+              242
+            ],
+            [
+              530,
+              332
+            ]
+          ]
+        ],
+        "status": "proposed_metadata_not_collision",
+        "no_ground_contact": false
+      },
+      "raster_rounding": "Nominal uniform scale rounded to whole derivative dimensions; source anchor rounded to whole review pixels. Canonical geometric calibration remains pending."
+    }
+  ],
+  "catalogs": {
+    "plants": "catalogs/plants.json",
+    "objects": "catalogs/objects.json",
+    "plant_compatibility_groups": "catalogs/plant-compatibility-groups.json",
+    "prior_scene_baked_editable_audit": "catalogs/prior-scene-editability.json"
+  },
+  "catalog_counts": {
+    "all_production_variant_records": 52,
+    "distinct_canonical_families": 26,
+    "provisional_whole_placeable_variants": 29,
+    "provisional_whole_placeable_families": 25,
+    "accepted_variants": 0,
+    "generation_calls": 0,
+    "outdoor_or_patio_whole_placeable_families": 19,
+    "interior_only_whole_placeable_families": 6,
+    "dispositions": {
+      "accessory_only_not_whole_plant": 11,
+      "component_only_registration_provisional": 5,
+      "excluded_layer_attachment_hold": 2,
+      "excluded_scoped_hold": 1,
+      "optional_ground_detail_candidate": 4,
+      "provisional_independent_placeable": 29
+    }
+  },
+  "object_option_variants": 9,
+  "state_selection_policy": {
+    "per_instance": "One state variant at a time. Healthy and dry/spent alternatives are not additional simultaneously spawned plants.",
+    "season": "Use species and irrigation context. No blanket snow/orange autumn default. Indoor-only nursery stock excluded from outdoor defaults.",
+    "pending_states": "Unmade state slots remain pending; static metadata does not implement animation."
+  },
+  "wind_contract": {
+    "implemented": false,
+    "fixed": [
+      "ground",
+      "architecture",
+      "containers",
+      "main trunks",
+      "major rigid supports",
+      "roots/contact shadows"
+    ],
+    "flexible_required_but_not_implemented": [
+      "separate flexible-branch joints",
+      "foliage groups",
+      "grass tips"
+    ],
+    "flattened_placeables": "Whole source sprites remain static until actual masks/cutout parts and attachment review exist. Never rotate an entire pot/trunk/ground as foliage wind.",
+    "oak_optional_dressing": "Contains major wood in foliage output; static compound only, leaf-only separation HOLD, omitted from starter defaults.",
+    "coastal_foliage_crops": "Provisional spatial crops, not anatomical masks or a working rig.",
+    "prior_wind_preview": "One offline compound branch preview only; not full wind system or native runtime integration.",
+    "loose_leaves": "Optional, unimplemented, no default regional autumn emission."
+  },
+  "known_intake_gaps": [
+    "No locally audited usable independent oak sprite; Engelmann canopy attachment remains held. Other regional independent tree options are in the plant catalog.",
+    "Mac scene fitting, arbitrary plant placement/save schema mapping, functional bird contacts, depth/occlusion and canonical receipts remain pending.",
+    "Offline preview JavaScript syntax checked and static rasters inspected; interactive browser execution unavailable in cloud sandbox."
+  ],
+  "source_packages": [
+    {
+      "file_name": "background-sources.zip",
+      "bytes": 4967772,
+      "sha256": "499e10ef936d8075ffc1e00c477afc20a126c0b07f8e93847aef821674cd2884"
+    },
+    {
+      "file_name": "shared-editable-evidence.zip",
+      "bytes": 6769426,
+      "sha256": "950218b3474a1de172baf2f6ead190ecd1885b6a33e13700faca1281c6c2140c"
+    },
+    {
+      "file_name": "full-review-rasters.zip",
+      "bytes": 6317852,
+      "sha256": "5918c48a157520e6fbcc2a522cedcd41dea74af058a09094f1240037669b5ff1"
+    },
+    {
+      "file_name": "oak-wave05-clean-production.zip",
+      "bytes": 4701155,
+      "sha256": "7d1c45f0f1309a291db5f3c96faf5fac20740634c215ca7ecc2e0e5c4f13c9cb"
+    },
+    {
+      "file_name": "oak-wave05-optional-dressing-and-placement-demo.zip",
+      "bytes": 7908556,
+      "sha256": "9c1d8a8d65bd56a2791437eb17f5c1fe5997999950e9757e5e55ddd0503aa79d"
+    },
+    {
+      "file_name": "oak-wave05-source-history.zip",
+      "bytes": 6306414,
+      "sha256": "cfffff390f0c2101011d957badef6aceeabc85eda046411b54d6eb179187a364"
+    },
+    {
+      "file_name": "oak-wave05-display-review.zip",
+      "bytes": 6793814,
+      "sha256": "d33136a5637cd658ab3fd8dc5720a97bc1e602ebe0f0fc76e3bd089deb2e5066"
+    },
+    {
+      "file_name": "san-diego-starter-plant-compatibility-audit.zip",
+      "bytes": 791039,
+      "sha256": "a50fedb2351c6f692241812320175f74ed8e581bb876b60bf8c1b393d8bf4a8b"
+    },
+    {
+      "file_name": "coastal-wave04-production-v2.zip",
+      "role": "Original coastal4-plate sources, exact prompts and metadata; separate source package."
+    },
+    {
+      "file_name": "coastal-wave04-alignment-v2.zip",
+      "role": "Preserved own-art conditioning input and alignment source."
+    },
+    {
+      "file_name": "first-batch-handoff",
+      "role": "Original12 objects,9 plants,3 yards with source package IDs/hashes; retained original prompt/source provenance."
+    }
+  ],
+  "original_source_package_catalog": "catalogs/existing-library-deliveries.json",
+  "new_production_this_increment": {
+    "imagegen_calls_completed": 7,
+    "active_or_uncertain_calls": 0,
+    "new_generated_originals": 7,
+    "realized_existing_planned_scene_variants": 2,
+    "starter_clean_background_choices": 3,
+    "new_placeable_primary_ids": 0,
+    "reused_whole_sprite_instances_available_in_starter_bundle": 9,
+    "held_originals_preserved": true
+  },
+  "no_app_or_git_mutations": true
+}

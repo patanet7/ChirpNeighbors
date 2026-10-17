@@ -1,0 +1,248 @@
+{
+  "schema_version": "1.0.0",
+  "title": "ChirpNeighbors courtyard offline wind rig preview01",
+  "existing_asset_id": "scene.san_diego_compact_marine_courtyard",
+  "variant_id": "offline_wind_preview01",
+  "new_primary_asset_id": false,
+  "source_proof_variant": "analyst_reference_guided_proof01_v1",
+  "sources": {
+    "distance-r1.png": {
+      "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/distance-r1.png",
+      "sha256": "d7dff3aebc0d80b765e47f7c2ce937476fffa211dd8d119c435285bff7b95da5",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "role": "existing_generated_source_not_new_art"
+    },
+    "ground-r1.png": {
+      "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/ground-r1.png",
+      "sha256": "d66d030867423a7d9b9e1d9f3d56648c0df3e167175c00943c344ce407c2df46",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "role": "existing_generated_source_not_new_art"
+    },
+    "foreground-r1.png": {
+      "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/foreground-r1.png",
+      "sha256": "78e87fbe0813e147eb29330516e5a534b87373391ce1a52568558d3c46b036fe",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "role": "existing_generated_source_not_new_art"
+    }
+  },
+  "derived_parts": [
+    {
+      "id": "upperleft_compound_branch_foliage",
+      "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/wind-preview-01/derived/branch-upperleft.png",
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/proof-01/originals/foreground-r1.png",
+      "source_crop_px": [
+        0,
+        0,
+        260,
+        220
+      ],
+      "sha256": "21b9809a1969ebbd8ce2ead014aed9368a76c9cc2ffe5eec7b434de474430773",
+      "actual_visible_alpha_gt8_bounds_source": [
+        0,
+        0,
+        230,
+        193
+      ],
+      "separation_basis": "Spatially isolated upper-left alpha cluster, broad canvas gap before lower objects. Low-alpha source pixels inside ownership rectangle are retained.",
+      "contents_baked_together": [
+        "wood/twigs",
+        "leaves"
+      ],
+      "independent_leaf_or_wood_hierarchy": false
+    },
+    {
+      "id": "static_complement_foreground",
+      "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/wind-preview-01/derived/foreground-static.png",
+      "sha256": "3941aaf37eaff190b50533d9c15f41a3b5b1fcabfb44b68b882ef83efe51f18f",
+      "contents": [
+        "container",
+        "container_foliage",
+        "stone",
+        "right_shrub",
+        "contact_shadows",
+        "all_foreground_outside_upperleft_ownership_rectangle"
+      ],
+      "transform": "identity"
+    }
+  ],
+  "rig": {
+    "implemented_scope": "offline prototype deterministic rigid affine rotation only",
+    "actual_moving_parts": 1,
+    "pivot_source_px": [
+      0.0,
+      0.0
+    ],
+    "degrees_limits": {
+      "calm": 0.0,
+      "mild": 0.9,
+      "strong": 3.0
+    },
+    "translation_px": [
+      0,
+      0
+    ],
+    "stiffness": "One rigid baked assembly, no branch bending/leaf hinge springs; amplitudes artist tuned, not calibrated material physics.",
+    "period_seconds": 8.0,
+    "formula": "p=2π(t mod8)/8;g=((1-cos(p))/2)^4; carrier=.65sin(3p+.35)+.35sin(7p-.8); mild=.9(.35+.65g)carrier; strong=3(.12+.88g)carrier; calm=0",
+    "resampling": "nearest-neighbor",
+    "occlusion": "Moving part uses original extracted alpha. Static foreground retains original alpha for static object occlusion. No fabricated leaf masks or hidden trunk reconstruction.",
+    "source_entry_assumption": "Cluster enters from top/left frame; pivot[0,0] is offscreen/edge attachment assumption. Source-edge clipping under small rotation is intentional and not a simulated physical branch attachment.",
+    "art_safe_bound": "Animated part stays at extreme upper left; all contacts/wall/stage belowy260 invariant. ±3deg cap; no whole ground/sky/object motion."
+  },
+  "preview": {
+    "type": "offline derived transform animation; no authored drawn frames",
+    "gif": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/wind-preview-01/previews/calm-mild-strong-mobile.gif",
+    "rendered_samples": 48,
+    "encoded_gif_frames": 42,
+    "encoded_gif_durations_ms": [
+      170,
+      160,
+      170,
+      170,
+      160,
+      1000,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      340,
+      160,
+      170
+    ],
+    "nominal_fps": 6,
+    "durations_ms": [
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170,
+      170,
+      160,
+      170
+    ],
+    "total_loop_ms": 8000,
+    "panel_dimensions_px": [
+      384,
+      256
+    ],
+    "gif_dimensions_px": [
+      1152,
+      286
+    ],
+    "gif_palette_limit": "256-color GIF quantization may alter source colors; primary contact invariance also tested on unquantizedRGBA renders.",
+    "html": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/wind-preview-01/index.html",
+    "html_runtime_status": "prototype not executed in browser; no sandbox bypass attempted",
+    "canonical_bird_present": false,
+    "bird_readability": "Empty stage assessed geometrically only; no canonical bird recognition/occlusion/coupling test."
+  },
+  "requirements_not_implemented": [
+    "individual leaf hinges",
+    "separate wood/leaf art",
+    "flexible branch mesh",
+    "ground-border grass wind",
+    "potted foliage separation",
+    "calibrated wind physics",
+    "bird/contact coupling",
+    "app integration",
+    "weather overlays"
+  ],
+  "canonical_intake": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null
+  },
+  "states": {
+    "generated_new_art": false,
+    "animated_offline_transform_preview": true,
+    "reviewed": true,
+    "staged_in_app": false,
+    "integrated": false,
+    "accepted": false
+  },
+  "source_rights": {
+    "creator": "Existing OpenAI-generated project proof art",
+    "license_id": null,
+    "license_url": null,
+    "open_license_asserted": false,
+    "no_third_party_reference_pixels_used": true
+  },
+  "status": "rendered_validated_offline_preview_not_app_runtime_or_physics"
+}

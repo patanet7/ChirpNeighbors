@@ -1,0 +1,48 @@
+{
+  "asset_id": "scene.san_diego_coastal_urban",
+  "variant_id": "wave04_coastal_garden_v1",
+  "gate_receipt_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/readability-check-01/root-gate-receipt.json",
+  "gate_receipt_sha256": "c64809ce858577f1acbb93574b837d8b86e6684d3508663922688254cff3118f",
+  "gate_scope": "Small representative check authorizes next composition with refinements; no blanket readability acceptance.",
+  "guidance": "analyst-text-guided plus directly inspected project style; no external image conditioning",
+  "calls": [
+    {
+      "order": 1,
+      "layer_revision": "distance.r1",
+      "prompt": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/prompts/distance-r1.txt",
+      "transparent_background": false,
+      "status": "completed_original_preserved"
+    },
+    {
+      "order": 2,
+      "layer_revision": "ground-boundary.r1",
+      "prompt": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/prompts/ground-boundary-r1.txt",
+      "transparent_background": true,
+      "status": "completed_original_preserved"
+    },
+    {
+      "order": 3,
+      "layer_revision": "rigid-edges.r1",
+      "prompt": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/prompts/rigid-edges-r1.txt",
+      "transparent_background": true,
+      "status": "completed_original_preserved"
+    },
+    {
+      "order": 4,
+      "layer_revision": "flexible_foliage.r1",
+      "status": "completed_original_preserved",
+      "prompt": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/prompts/flexible-foliage-r1.txt",
+      "transparent_background": true,
+      "reference_conditioning": "own three-layer project assembly for placement only",
+      "reference_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/previews/pre-foliage-registered.png",
+      "reference_sha256": "ab4bbf087af80e4e867151f40aad8ca1dab81cb3e5ae1ed283c1d82a64649040"
+    }
+  ],
+  "bounded_max_calls": 4,
+  "canonical_intake": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null,
+    "pull_request": null
+  }
+}

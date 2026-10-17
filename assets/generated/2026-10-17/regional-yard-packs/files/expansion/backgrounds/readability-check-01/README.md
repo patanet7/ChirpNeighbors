@@ -1,0 +1,17 @@
+# Yard proof readability check01 — review evidence only
+
+This is a small ground-bird/contact readability review before the next coastal background composition. No imagegen, bird canon creation/editing, app integration, Git change or functional/perching implementation occurred. The proof and existing object/bird source files remain unchanged.
+
+The actual colored female neutral frame is a384×384 decoded review PNG from complete native Library HTML, `[private locator omitted]`. Its recorded source frame ID is `frame.sha256.7c12c45d8a8a6e64824669c595f4f58630aaa7a2eb6854ca76f5cd2311d2e6fe`; decoded review PNG SHA256 is `99ad118737a8381bcacf55c19c7ce56025d045c7a14259cef22cdb7b4ad500de`. These are different byte identities. Original1024-master byte identity, owner/species/runtime approval and perch suitability are not inferred. The unused male PNG and source-extraction metadata remain contextual provenance.
+
+The dark silhouette is REVIEW ONLY: constant RGB22,24,25 with the exact original female alpha channel. It represents existing canonical-derived geometry and is not a new bird asset or approved canon appearance. The actual colored frame's pixels are retained unchanged; only rendering scale/placement changes in review composites.
+
+Source1024 foot anchors[482,793]/[538,800] map by0.375 to384 coordinates[180.75,297.375]/[201.75,300]. These provisional review contacts are translated/scaled into the lawn, not used as runtime physics. The flat-ground pose has no round-perch reuse claim. Existing `object.ground_birdbath::rectangular_concrete` is a separate nearby static landmark using its manual root[368,296] and designer scale0.25. This is not biological/physical calibration, collision, feeding or bird/bath contact behavior.
+
+Three designer-controlled body-height/position cases are A64px at[650,740], B48px at[900,825], C32px at[1150,920] in the1536×1024 proof. Bird/prop scaling uses nearest neighbor. Full-yard mobile review is384×256 via Lanczos, with nominal body heights16/12/8px; the smallest alpha128 mask measures7px after resampling. Positions AND sizes vary together, so this is not a factorial/isolated causal A/B. Results cannot isolate size versus grass texture or resampling effects.
+
+Actual normal/mobile views and an alpha-matched dark comparison are included. Local luma-change, background-gradient and boundary-signal proxies describe these rendered pixels. Luma is an8-bit code-value weighted sum, not WCAG linearized luminance. No WCAG, species recognition, accessibility, runtime readability or universal contrast pass is claimed.
+
+Visual judgment: dark geometry separates from sampled lawn. Larger actual-color cases are discernible; the nominal8px mobile case is a tiny low-detail mark. Feet/contact/species detail is not established there. Root inspected the quick comparison and marked CHECK_COMPLETE, authorizing the next coastal composition with calmer/lighter low-contrast turf and sparse edge planting. That is a bounded next-step gate, not blanket readability or owner acceptance. See `root-gate-receipt.json` and the full metric/transform receipt.
+
+Exact yard proof, object sprite, decoded bird references, extraction metadata, alpha-preserving review derivative, normal/mobile composites, scripts and hashes are retained. Source creator/license fields remain unknown where not established; access to a Library file is not a new license or approval. The standalone scripts use retained local source copies for reproduction. No future generation runs invisibly from this package.

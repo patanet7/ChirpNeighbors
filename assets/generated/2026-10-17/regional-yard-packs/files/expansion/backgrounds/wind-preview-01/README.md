@@ -1,0 +1,11 @@
+# Courtyard bounded wind preview01
+
+Actual executed offline animation preview using existing proof01 generated pixels. No imagegen or new drawn frames. Forty-eight deterministic transform/composite samples over eight seconds produce a looping calm/mild/strong comparison GIF. Standalone HTML provides pause/reset/time scrubbing and synchronized views; its browser runtime is unexecuted in this environment and no sandbox bypass was attempted.
+
+Only one genuinely isolated upper-left compound branch/foliage region can move. It is partitioned from foreground alpha within [0,0,260,220]; visible source bounds are [0,0,230,193]. Branches/wood/leaves remain baked together, so this is rigid rotation around the assumed source frame-entry pivot [0,0], not separate leaf/branch mechanics. Distance, ground/wall/border and the complementary foreground—including container, plant, stone, right shrub and all ground contacts—remain static. No fabricated masks, concealed artwork or painted ground.
+
+Exact source hashes, RGBA ownership reconstruction, alpha-sum equality, zero-angle full-composite equality, protected-contact/stage/wall pixel invariance over144 rendered samples and decoded-GIF static checks are recorded. Moving alpha stays above the protected surfaces. Original alpha provides the moving cutout and static occlusion. Low-alpha noise is retained within ownership pieces; no color key/alpha retouch. GIF is palette quantized; unquantizedRGBA frames supplied the stronger contact tests.
+
+At mobile size mild motion is intentionally subtle; strong gust increases the upper-left tip movement without displacing pots or ground. No canonical bird is included in this rig preview, so stage invariance is verified geometrically; bird recognition, contrast, occlusion or contact coupling is not tested. Required future hierarchy: independent leaves/twigs/trunks, flexible meshes and stationary container/root anchors. Those art parts are absent here and are not claimed implemented. No calibrated wind physics, Mac app integration, staging or owner acceptance.
+
+Source proof originals and frozen ZIPs remain unchanged. This is evidence for the existing scene.san_diego_compact_marine_courtyard, not a new primary asset. Run python build_wind_preview.py to reconstruct derived parts and previews from sources/.

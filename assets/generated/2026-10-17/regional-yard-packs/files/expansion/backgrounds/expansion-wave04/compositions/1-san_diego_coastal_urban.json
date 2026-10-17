@@ -1,0 +1,304 @@
+{
+  "schema_version": "1.0.0",
+  "canvas_px": [
+    1536,
+    1024
+  ],
+  "coordinate_contract": "Full canvas, origin [0,0], x right/y down; keep source files and record trim offsets on any later crop.",
+  "generation_status": "planned_not_submitted",
+  "new_art_bytes": 0,
+  "reference_guidance": {
+    "type": "verified_mac_analyst_brief_plus_directly_inspected_project_prop_candidates",
+    "direct_external_reference_pixels_inspected_by_this_worker": false,
+    "external_screenshot_supplied": false,
+    "exact_named_source_evidence": "Private analysis excluded from production packages.",
+    "project_prop_inspection": "style-reference-review/project-prop-inspection.json"
+  },
+  "perspective": {
+    "camera": "Side-on yard stage with gently elevated top/contact-plane visibility, compatible with inspected props. No extreme isometric or wide-angle lens.",
+    "scale": "World scale remains provisional; scene pixels do not define canonical bird size.",
+    "verticals": "Architecture and posts remain visually upright; repeated ground seams recede consistently."
+  },
+  "lighting": {
+    "key": "Soft upper-left daylight, environment-specific diffusion.",
+    "shadow": "Lower-right; attached tight contact shadows and broader low-contrast environment shade.",
+    "priority": "Bird/contact readability must exceed decorative texture salience. No false claim before actual canonical bird check."
+  },
+  "render_style": {
+    "clusters": "Connected naturalistic clusters, deliberate edge steps and restrained value ramps.",
+    "detail": "Concentrate fine wear/material accents in placeable props and nearest edges; calm ground/distant masses.",
+    "distance": "Cooler, paler, lower contrast and simpler than near framing.",
+    "avoid": "Uniform pixel noise, smooth vector forms, thick framing border, copied scene layouts."
+  },
+  "separation_evidence": {
+    "this_revision_actual_generated_layers": 0,
+    "status": "required_only_not_generated",
+    "existing_project_layer_count_is_not_this_revision_evidence": true
+  },
+  "wind_hierarchy": {
+    "static": [
+      "architecture",
+      "ground",
+      "pots",
+      "main_trunks",
+      "major_rigid_supports"
+    ],
+    "flexible_required": [
+      "small_branches",
+      "foliage_masses",
+      "grass_tips"
+    ],
+    "optional": [
+      "loose_leaf_particles",
+      "separate_occlusion_masks"
+    ],
+    "implemented": false,
+    "constraint": "Leaves may move with flexible branch groups; containers/trunks remain anchored. A single flattened canopy cannot supply per-leaf articulation.",
+    "root_anchors_status": "Proposed image geometry; no rig or physics implemented.",
+    "seasonal_behavior": "No blanket orange fall or snow default. Evergreen/cultivated/native state needs are per species and irrigation context.",
+    "proposed_artist_policy": {
+      "status": "PROPOSED_ARTIST_POLICY_NOT_IMPLEMENTED",
+      "physics_calibrated": false,
+      "stiffness_definition": "Dimensionless artist resistance parameter0..1, larger meansless motion; not spring constant or measured physical stiffness.",
+      "caps_definition": "Maximum absolute proposed rotation from rest and tip displacement at1536x1024 scene; both caps apply, choose more restrictive. No displacement of roots/contact pivots.",
+      "classes": {
+        "rigid": {
+          "stiffness": 1.0,
+          "mild_rotation_deg": 0,
+          "strong_rotation_deg": 0,
+          "mild_tip_displacement_px": 0,
+          "strong_tip_displacement_px": 0,
+          "root_translation_px": 0,
+          "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+        },
+        "flexible_branch": {
+          "stiffness": 0.85,
+          "mild_rotation_deg": 0.6,
+          "strong_rotation_deg": 1.8,
+          "mild_tip_displacement_px": 2,
+          "strong_tip_displacement_px": 5,
+          "root_translation_px": 0,
+          "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+        },
+        "foliage_mass": {
+          "stiffness": 0.65,
+          "mild_rotation_deg": 0.8,
+          "strong_rotation_deg": 2.2,
+          "mild_tip_displacement_px": 3,
+          "strong_tip_displacement_px": 7,
+          "root_translation_px": 0,
+          "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+        },
+        "grass_tip": {
+          "stiffness": 0.45,
+          "mild_rotation_deg": 1.0,
+          "strong_rotation_deg": 3.0,
+          "mild_tip_displacement_px": 1,
+          "strong_tip_displacement_px": 3,
+          "root_translation_px": 0,
+          "pivot_rule": "Base of isolated blade/tipgroup; lawnpaint/soil/rootline remainrigid. No whole-groundwarp."
+        }
+      },
+      "art_safety_limits": {
+        "ground_warp": false,
+        "root_sliding": false,
+        "pot_or_trunk_sway": false,
+        "scale_stretch_allowed": false,
+        "leaf_scale_range": [
+          1,
+          1
+        ],
+        "alpha_or_lightness_flicker": "No procedural opacity/color pulsation; nearest resampling or subpixel treatment must be reviewed for pixel shimmer.",
+        "occlusion": "Motion mustrespectstaticfrontpotrim/branchjunction; masksnotyetavailable.",
+        "review": "Mild/strong areartistlabels only, no weather-speed conversion. Reject visible jointgaps, leafstretch, clippedtips or groundcontactdrift."
+      },
+      "optional_loose_leaves": {
+        "status": "missing_not_implemented",
+        "stiffness": null,
+        "pivot": null,
+        "amplitude_caps": null,
+        "reason": "Detachedparticleart/path/emissionrulesnotdesigned; no blanketautumnemission."
+      }
+    },
+    "actual_rig_implemented": false,
+    "unmade_part_pivots": {
+      "status": "planned_rules_only",
+      "actual_coordinates_px": null,
+      "reason": "This composition revision wasnotgenerated whenplanned; do not invent actualalpha-basedpivots.",
+      "rules": {
+        "rigid": "groundcontact/structuralsupport",
+        "branch": "visiblewoodjoint",
+        "foliage": "localroot/branchattachment",
+        "grass": "fixedbladebase"
+      }
+    }
+  },
+  "canonical_receipt": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null,
+    "pull_request": null
+  },
+  "priority": 1,
+  "name": "Coastal garden — pale clearing and offset border",
+  "asset_id": "scene.san_diego_coastal_urban",
+  "variant_id": "wave04_coastal_garden_v1",
+  "identity_status": "reuse_existing_family",
+  "composition": "An off-center open garden clearing in pale decomposed-granite/short managed-ground tones, a shallow muted native border with varied gaps, low warm boundary, and pale neighborhood/canopy distance. A small rigid pot at far left and slim cropped woody support at far right frame asymmetrically; no broad pergola, ocean panorama or central feature.",
+  "region": "San Diego marine-influenced coastal urban garden; shallow planted border, limited irrigated patch if used.",
+  "stage_polygon_px": [
+    [
+      340,
+      650
+    ],
+    [
+      1240,
+      650
+    ],
+    [
+      1300,
+      980
+    ],
+    [
+      280,
+      980
+    ]
+  ],
+  "placement_slots": [
+    {
+      "id": "feeder_reserve",
+      "position_px": [
+        600,
+        780
+      ]
+    },
+    {
+      "id": "bath_reserve",
+      "position_px": [
+        1050,
+        800
+      ]
+    },
+    {
+      "id": "small_plant_reserve",
+      "position_px": [
+        450,
+        890
+      ]
+    }
+  ],
+  "value_plan": {
+    "stage": "Proposed pale warm mid-light neutral ground; exact value target deferred to pending canonical dark-bird check.",
+    "distance": "Pale cool blue-gray, simple low roof/canopy masses.",
+    "mid_border": "Muted ochre/olive with restrained flower accents; never a dense saturated band.",
+    "near_frame": "Sparse dark olive/brown shapes within outer15 percent; no thick enclosure."
+  },
+  "layer_plan": [
+    {
+      "key": "distance.r1",
+      "depth": 0,
+      "alpha_requested": false,
+      "contents": [
+        "sky",
+        "distant_rooftops",
+        "distant_canopy"
+      ],
+      "flattened_within_file": true,
+      "motion": "No wind implementation; whole-layer parallax candidate only.",
+      "generated": false,
+      "alpha_verified": false,
+      "independently_generated_requirement": true,
+      "contents_separated_within_file": false,
+      "actual_semantic_separability": "none_evidenced_for_this_revision"
+    },
+    {
+      "key": "ground_boundary.r1",
+      "depth": 10,
+      "alpha_requested": true,
+      "contents": [
+        "quiet_ground_stage",
+        "low_boundary",
+        "planting_bed_substrate"
+      ],
+      "flattened_within_file": true,
+      "motion": "static",
+      "exclude": [
+        "leafy_shrubs",
+        "foreground_pots",
+        "foreground_trunks"
+      ],
+      "generated": false,
+      "alpha_verified": false,
+      "independently_generated_requirement": true,
+      "contents_separated_within_file": false,
+      "actual_semantic_separability": "none_evidenced_for_this_revision"
+    },
+    {
+      "key": "rigid_edges.r1",
+      "depth": 25,
+      "alpha_requested": true,
+      "contents": [
+        "left_empty_pot",
+        "right_trunk_or_woody_support",
+        "tight_contact_shadows"
+      ],
+      "flattened_within_file": true,
+      "motion": "static",
+      "exclude": [
+        "foliage",
+        "flexible_branch_tips",
+        "grass_tips"
+      ],
+      "generated": false,
+      "alpha_verified": false,
+      "independently_generated_requirement": true,
+      "contents_separated_within_file": false,
+      "actual_semantic_separability": "none_evidenced_for_this_revision"
+    },
+    {
+      "key": "flexible_foliage.r1",
+      "depth": 30,
+      "alpha_requested": true,
+      "contents": [
+        "sparse_left_pot_foliage",
+        "right_fine_branch_foliage",
+        "shallow_back_border_foliage",
+        "grass_tip_accents"
+      ],
+      "flattened_within_file": true,
+      "motion": "flexible_candidate_only",
+      "planned_extractable_regions": [
+        "left_pot_mass",
+        "right_branch_mass",
+        "back_border_mass"
+      ],
+      "extractability_not_guaranteed": true,
+      "attachment_anchors_px": {
+        "left_pot_soil": [
+          130,
+          885
+        ],
+        "right_woody_branch": [
+          1475,
+          450
+        ],
+        "back_border_roots": [
+          760,
+          625
+        ]
+      },
+      "generated": false,
+      "alpha_verified": false,
+      "independently_generated_requirement": true,
+      "contents_separated_within_file": false,
+      "actual_semantic_separability": "none_evidenced_for_this_revision"
+    }
+  ],
+  "state_needs": [
+    "coastal_clear_day",
+    "marine_soft_light",
+    "dry_or_reduced_irrigation",
+    "cool_season_damp_ground"
+  ],
+  "next_action": "First actual composition after root canonical dark-bird/contact check receipt. Bound4calls; no submissions yet."
+}

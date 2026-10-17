@@ -1,0 +1,13 @@
+# PLANTS expansion review
+
+Eight new entries generated in two completed imagegen calls: four regional plants plus four managed nursery plants. All silhouettes were reviewed in proper light/dark alpha composites and pass provisional static candidate review; expert taxonomy, precise proportions, style-reference match and owner acceptance remain pending. No staged/integrated/accepted claim.
+
+Regional plants: red-orange flared monkeyflower tubes and narrow leaves; Bahiopsis narrow resinous leaves with small yellow daisies, distinct from prior Encelia; coyote-brush small green obovate foliage and woody branches with no sex-specific seed state; yarrow feathery foliage and white flat-topped flower clusters. Flower/leaf proportions remain illustrative. Yarrow is a variable native/nonlocal complex; art does not certify San Diego seed provenance.
+
+Nursery plants: Monstera displays juvenile and fenestrated leaves; pothos pointed heart leaves with modest yellow variegation; jade thick ordinary oval succulent leaves; ivy geranium lobed peltate foliage, pink clusters and trailing stems. Nursery genotypes/cultivars are not inferred visually. The ivy-geranium cultivar name and possible hybrid ancestry remain unresolved. All four containers are flattened into their plant sprites; independent pot swapping is not supported by these images. Pothos and ivy geranium have trailing foliage below the pot contact anchor, so intended placement is on an elevated shelf/table/ledge, not a floor contact inferred from the lowest vine tip.
+
+All eight derivative PNGs decode as RGBA and contain real zero-alpha pixels. Proper alpha-composited light and dark contacts were inspected; no conspicuous colored halo or baked checkerboard. Root anchors, contact ellipses and chosen physical scale are manual provisional metadata. Crops are rectangular only, preserving RGBA pixels; no code-painted art or alpha/color editing. Exact prompts and originals are retained with SHA256/dimensions.
+
+Only the healthy static state is generated. Dry/water-stress, spent/seasonal bloom states, wind attachment groups, rigs and physics remain requirements, not implemented animation or simulation. Indoor wind/rain/autumn state is disabled by default for indoor nursery entries. Regional moisture and management modify seasonal state.
+
+Original supplied style-reference image pixels were unavailable; written approved detailed naturalistic pixel direction used. Public primary botanical text confirmed targets; no reference photograph was used as generation input. Mac/application/repository untouched; canonical intake pending_mac_verification, commit and remote_sha null.
