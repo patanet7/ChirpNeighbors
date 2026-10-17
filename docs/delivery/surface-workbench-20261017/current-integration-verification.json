@@ -1,158 +1,162 @@
 {
-  "timestampUtc": "2026-10-17T03:42:28.596104+00:00",
+  "timestampUtc": "2026-10-17T04:04:39.492091+00:00",
   "uiBranch": "codex/archive-history-20261012",
-  "uiCommit": "b026a4bada5db5fd5c15557c2e65131cc7710c56",
-  "remoteShaVerified": true,
-  "scope": "Synthetic fixed-domain SI surface workbench and guarded review-only Raven study. No live browser/GPU, physical calibration or production-art acceptance.",
+  "uiBaseCommit": "b026a4bada5db5fd5c15557c2e65131cc7710c56",
+  "sourceState": "verified source committed and pushed on existing UI working branch; remote SHA confirmed",
+  "scope": "Synthetic SI surfaces, authored wind and local unapproved asset review; no GPU/browser or production-art acceptance",
   "gates": [
     {
-      "command": "targeted vitest suite with explicit local Raven source opt-in",
-      "exitCode": 0,
-      "tests": 148,
-      "files": 16
+      "command": "full Vitest suite, installed Node24.19/Python3.12.13, explicit Raven source opt-in",
+      "exitCode": 1,
+      "total": 2287,
+      "passed": 2255,
+      "failed": 32,
+      "baselineFailures": 32,
+      "introducedFailures": []
     },
     {
-      "command": "independent final-numerical-qa.mjs",
-      "exitCode": 0,
-      "checks": 19
+      "command": "changed-feature subset of final full-unit run",
+      "files": 24,
+      "passed": 234,
+      "failed": 0
     },
     {
-      "command": "npm run check",
-      "exitCode": 0,
-      "errors": 0,
-      "warnings": 0
+      "command": "independent numerical conservation runner",
+      "checks": 19,
+      "passed": 19
     },
     {
-      "command": "npm run check:typescript",
-      "exitCode": 0
-    },
-    {
-      "command": "npm run check:declarations",
-      "exitCode": 0
-    },
-    {
-      "command": "npm run lint",
-      "exitCode": 0
-    },
-    {
-      "command": "npm run format:check",
-      "exitCode": 0
-    },
-    {
-      "command": "npm run check:autofixer",
-      "exitCode": 0
-    },
-    {
-      "command": "npm run contracts:check -- --main-repo ../ChirpNeighbors",
-      "exitCode": 0
-    },
-    {
-      "command": "npm run build",
+      "command": "check, strict TypeScript, declarations, lint, format, Svelte/CSS analyzers, two-repository contracts, build",
       "exitCode": 0
     }
   ],
+  "rendererIndependentQA": {
+    "seamChecks": 7,
+    "pngMultipartChecks": 8,
+    "cadences": [
+      15,
+      30,
+      60
+    ],
+    "equalSeconds": 60,
+    "equalPhysicalTicks": 1200,
+    "replayRetainsPhysicalState": true
+  },
   "http": {
-    "developmentAnonymousStudyAndPng": 303,
-    "developmentBobStudyAndPng": 200,
-    "actualAtlasSha256": "405c84ec507cee5fc5e27da839e25e3e493875f7c1ef6302090c692f5d67c7aa",
-    "rawVitePrivateAssetAccess": 403,
-    "unmappedPrivateAssetPath": 404,
-    "productionStudyAndPng": 404,
-    "productionDevelopmentSignin": 503,
+    "fixturePagesReady": true,
+    "assetValidationBoundaryChecks": 8,
+    "ravenAnonymousRedirect": 303,
+    "ravenBobImage": 200,
+    "rawVitePrivateAsset": 403,
+    "productionRaven": 404,
+    "productionAssetPageAnonymous": 303,
+    "productionAssetPostWithoutAccount": 503,
+    "productionDevSignin": 503,
     "productionProbeStopped": true
   },
+  "artifacts": {
+    "cloudHandoff": "64 verified unapproved PNG studies, 61 dimetric and 3 front; all partial alpha, missing slot maps and conflicting pivot receipts; not activated",
+    "approvedProductionBirdClips": 0
+  },
   "manualBrowserPending": [
-    "Actual Pixi water/snow agrees with SI diagnostics",
-    "Dry bowl refuses drinking, completed drinking debits confirmed amount and releases slot",
-    "Move/removal invalidates contact while preserving mass; re-add restores bounded experiment",
-    "Pause, hidden document, reduced motion and disable retain/reset only documented state",
-    "Raven actual canvas/manual frames/playback/gaze/timing and hidden/reduced-motion holds",
-    "Default yard/sidebar, narrow/wide views and placement persistence"
+    "Actual Pixi water and snow versus SI diagnostics",
+    "Drink/dry/refill, exact confirmed debit and slot release",
+    "Move/remove/re-add contacts and retained mass",
+    "Wind cardinals/calm/gust shelter, pause/hidden/reduced-motion/replay visuals",
+    "Upload to actual yard, season switching, hit masks and clear/reload",
+    "Default yard/sidebar, narrow/wide layout and placement persistence"
   ],
   "sourceSha256": [
     {
-      "path": "README.md",
-      "sha256": "e413399d47c3b24cdb3a2aedb64d7c89979dbe57e2cd48eb6fd449b464fe2522"
+      "path": "docs/animation-production-inventory.md",
+      "sha256": "6321f8bdc342a8d29d33f0d84d92b768eec2f78530dd5d7ffbc3288b70e2b1ac"
     },
     {
-      "path": "src/lib/components/PhysicalSurfacePanel.svelte",
-      "sha256": "4a5c9eb0dfc5614e8374364557a6ff763c1903a99c1f452d70d1714aaee2dd0e"
+      "path": "docs/layered-yard.md",
+      "sha256": "ae52adcd9bc774433908479fb184ca0cbe26e6c5ba4fa2c6d1d7f863cb1bf6d8"
     },
     {
-      "path": "src/lib/components/RavenStudyPreview.svelte",
-      "sha256": "ac4b8086efbab6b97d8c5e747916a55d44f33ad4d516be72ba823f2aefff88d3"
+      "path": "src/lib/components/YardScene.svelte",
+      "sha256": "ed8cad4e7dc73b58916a529f7b0ebdda6b7394bcad0057ad3ea8e5382238acdd"
+    },
+    {
+      "path": "src/lib/engine/renderer-context-lifecycle.test.ts",
+      "sha256": "d32408910f0da56efc70fe91afb999179794789dcc4979efa746bf8d71d349b5"
     },
     {
       "path": "src/lib/engine/renderer-resources.test.ts",
-      "sha256": "7cb96f99410caa7eaf927726dc8246f8a9b0d5d96b791480c9981865cd9d5db6"
+      "sha256": "3e5234c8f4a906e4cc37f9290811a5ac7a5182da9558a96614d1075056ee2829"
     },
     {
       "path": "src/lib/engine/renderer.ts",
-      "sha256": "020af28d0458c6e424a2197885cdc9ca9a727b313eb8c503c75a4241a36ea18a"
+      "sha256": "a1712b3d558e824be3d0d207ca2d2419d94729b7b3335cd33ab5cda64bbc91b5"
     },
     {
-      "path": "src/lib/engine/surface-hydrology.test.ts",
-      "sha256": "d3a72c8440a1b450e4a7d9bedeb21d09f0531fb2aa150307705322c4ebbc4686"
+      "path": "src/lib/engine/review-art.test.ts",
+      "sha256": "7daf8c127174fb293a0fccbc6e55c046684af6a6058b4002453e83eab70db48f"
     },
     {
-      "path": "src/lib/engine/surface-hydrology.ts",
-      "sha256": "a134c69e165755cf9be44d12ac98b1d6a0e411359514a3bcfa343417bb9058c0"
+      "path": "src/lib/engine/review-art.ts",
+      "sha256": "f79ebd1f8ae5595d3e8e4eb90b3a3d1c6e2343f448a679705300111409abe38e"
     },
     {
-      "path": "src/lib/engine/surface-interactions.test.ts",
-      "sha256": "249d33d03b1f1db594ee061a390e750d09887a8aad06b1c41cf45eba1e20c3bf"
+      "path": "src/lib/engine/visuals-wind.test.ts",
+      "sha256": "935c00002e12d886759ec36cec636b77bed07a5dcd7d1bf749aa3ac03060fc20"
     },
     {
-      "path": "src/lib/engine/surface-interactions.ts",
-      "sha256": "e8a07951b0191e8833524c57a25f2e04e3657375f1d4673445e212e0a3da548b"
+      "path": "src/lib/engine/visuals.ts",
+      "sha256": "6eae102174030376942319a40e04384cad86d31df3e4708bac65fdb59e45f656"
     },
     {
-      "path": "src/lib/engine/surface-runtime.test.ts",
-      "sha256": "0c46c7d23a21621c2de53d33dfa7bf9a1ec716a9523bb11a5095e4fc4c1f291c"
+      "path": "src/lib/weather/index.ts",
+      "sha256": "d2265da29f822ae6247499e7d6fdabff24f75e429945a761e5852ce442cc1e99"
     },
     {
-      "path": "src/lib/engine/surface-runtime.ts",
-      "sha256": "796a20e4ce81f7af53339914775e027099b577707a1eb1a629b91dd06941edbe"
+      "path": "src/lib/weather/wind.test.ts",
+      "sha256": "896f250c730a025d37a84a1f7ed3a84f329f46d44a12de3db5a94abbfab3b3f1"
     },
     {
-      "path": "src/lib/server/raven-study-data.json",
-      "sha256": "4065d683c52ae965f25e5af1a0fb30f37cb693612738e4be5e592e3f0845d06c"
+      "path": "src/lib/weather/wind.ts",
+      "sha256": "a5f776d210d5b967610bb6cef69c1b41d5e8914fb4da7c4493440ae3395714cd"
     },
     {
-      "path": "src/lib/server/raven-study.test.ts",
-      "sha256": "53e41598624d43fa751558ebbb823d52a6cf0bf6e10de7f2ef7f8209747e8399"
+      "path": "src/lib/workbench/asset-package.server.ts",
+      "sha256": "e9d7813a64372f1068a93dc1d049a4ec3600a46b698151e1b250fc6bb6963ecd"
     },
     {
-      "path": "src/lib/server/raven-study.ts",
-      "sha256": "a5e6e2fbb6c883beef5e43eae70592662affd207aacb15a17b7430630f665775"
+      "path": "src/lib/workbench/asset-package.test.ts",
+      "sha256": "0b91e745c3febaea071946f850719b2ef3427010eaa7e2998706c13ef659d37c"
     },
     {
-      "path": "src/lib/workbench/raven-study.test.ts",
-      "sha256": "397a90b90f791a62c07dcd52077b6f05b218bb3048ea9f947f9fc0dea53e8ac8"
+      "path": "src/lib/workbench/asset-package.ts",
+      "sha256": "6dad8cb3665f37a83b20150fd1f7492e0fc5c3816455b9aa56cc3238e116c15c"
     },
     {
-      "path": "src/lib/workbench/raven-study.ts",
-      "sha256": "be0949aefd4b3abfe1004d4cf454530c2530f226a7cea659529909c75f520dfc"
+      "path": "src/routes/api/asset-review/+server.ts",
+      "sha256": "ce4e53a53b381d46df16df7d5866f99cf9df7e67f8b020073480e9dfc5a21038"
     },
     {
       "path": "src/routes/art-lab/+page.svelte",
-      "sha256": "7455406ced1c2015dd63b54fe3f297df878111d67e3a946cbefc46198b031c03"
+      "sha256": "d72bb4521f87353dffb2cdcac788126ab594aedeff411d042ab1de0642196535"
     },
     {
-      "path": "src/routes/raven-study/+page.server.ts",
-      "sha256": "f8349ba1cf39acabce1150acce65a67304efe8aea0d66fa5b0d3b0fccc5fc5f5"
+      "path": "src/routes/asset-review/+page.server.ts",
+      "sha256": "34c4cf84a00deb434522bd8c50aa083c17dc3aa87f1af19e8abd0db880baaee3"
     },
     {
-      "path": "src/routes/raven-study/+page.svelte",
-      "sha256": "eb63b3ce3b880b52966016e67bf625973c95ae58bed6090e19e98c6eabcba91a"
-    },
-    {
-      "path": "src/routes/raven-study/atlas.png/+server.ts",
-      "sha256": "213cb87fc93cda0a5037c932adba36a65df2377d5ab2e10e3af6252cba34478d"
+      "path": "src/routes/asset-review/+page.svelte",
+      "sha256": "50f4584b33c6df3ddd7d18465d6b6d3848c3258c2b4bbe6d427b34061ab1bdd4"
     },
     {
       "path": "tools/svelte-autofixer/reviewed-advisories.json",
-      "sha256": "26af78df175fb0eea3a80bf3c8b999a7b5ce1f495ee2d1718fe97d9dc0b1d335"
+      "sha256": "a8ae99e513a6ccce571ecabf466985b1119bf7aadc9b2c6ae415f845f05268bf"
     }
-  ]
+  ],
+  "uiCommit": "eb9d1cc6d300c2eb25bddebf934f5e59ac770d9a",
+  "remoteShaVerified": true,
+  "publishedAtUtc": "2026-10-17T04:08:14.003977+00:00",
+  "publicationAuthorization": "Direct owner checkpoint/push instruction supplied; original temporary restriction superseded; rejected command retried once and succeeded.",
+  "documentationBranch": "codex/archive-history-contracts-20261012",
+  "documentationBaseCommit": "8cf78efd610eea8df91015515f033cadfffff484",
+  "sourceDigest": "0ad789387cd554e4439e181818edea5ce3867e0d4b408f716a33b9486839caba"
 }
