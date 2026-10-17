@@ -1,0 +1,105 @@
+{
+  "batchId": "PREP-sd20-black-phoebe-look-v1",
+  "status": "conditioning selection only; awaiting root assignment after Anna checkpoint",
+  "nativeCalls": 0,
+  "newDrawings": 0,
+  "missingSlot": "look/headturn only",
+  "alreadyCovered": [
+    "awake neutral",
+    "blink"
+  ],
+  "primaryConditioning": {
+    "sourcePNG": "motion/sd20-phoebe-actions-v1/frames1024/neutral.png",
+    "sourcePNGsha256": "a676e33e96f18932c9d016b4888e04f31904b4dbfcf52bee9321d2e8bea7cb54",
+    "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+    "sourceCanvas": [
+      1024,
+      1024
+    ],
+    "sameCanonAlias": "new-species/sd20-three-canon-v1/black_phoebe/source1024.png",
+    "aliasByteIdentical": true,
+    "outputPNG": "motion/sd20-phoebe-actions-v1/frames96/neutral.png",
+    "outputPNGsha256": "5e2b4c68b082dc05f97a96f3c7f9930b0bce966251db8d96bae6f534b165a8ff",
+    "outputRGBAFrameId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1",
+    "outputDerivativeIsNewDrawing": false,
+    "renderFrameId": "black-phoebe-neutral-96",
+    "sourceVisibleBBoxAlpha128": [
+      195,
+      299,
+      805,
+      811
+    ],
+    "outputVisibleBBoxAlpha128": [
+      18,
+      28,
+      75,
+      75
+    ],
+    "density": 1.0555555555555556,
+    "world": {
+      "width": 90.94736842105263,
+      "height": 90.94736842105263
+    },
+    "pivot": {
+      "x": 57,
+      "y": 75
+    },
+    "contacts": [
+      {
+        "id": "foot-1",
+        "x": 53,
+        "y": 74
+      },
+      {
+        "id": "foot-2",
+        "x": 58,
+        "y": 74
+      }
+    ],
+    "visibleWidthWorld": 54.0,
+    "billTipSourceAlpha128": {
+      "pixel": [
+        804,
+        394
+      ],
+      "RGBA": [
+        19,
+        12,
+        12,
+        141
+      ],
+      "rule": "furthest alpha128pixel in sourceROI[700,365,850,420]",
+      "caveat": "raster terminal proxy, not anatomical billtip tracking"
+    },
+    "eyeSourceApproximate": [
+      663,
+      386
+    ],
+    "eyeApproximationCaveat": "visual conditioning location only; future output anchor must be measured from actualpixels"
+  },
+  "existingSourceAuthority": {
+    "lineageFile": "motion/sd20-phoebe-actions-v1/source-lineage.json",
+    "lineageSHA256": "c3fe1b2a5dd4d7e58195c4b9de561e5b72f6960c5b935ecb05c25396fdc9fb2b",
+    "blinkIntakeManifest": "motion/sd20-phoebe-actions-v1/blink-manifest.json",
+    "blinkManifestSHA256": "b1632e9764de57bc756f94300842ee4d94d1a53bf81662f21e850c0477172e39",
+    "coveredBlinkComparisonOnly": "motion/sd20-phoebe-actions-v1/frames1024/closed.png"
+  },
+  "futureBoundedSuggestion": {
+    "requestedNewSlot": "one open-eye head-look key, not a new neutral or blink",
+    "maximumNewKeys": 2,
+    "countDecision": "Prefer one clearly different head look; second only if a functional head-turn transition requires it. Root assigns count/call later.",
+    "direction": "modest upward/sideward head and bill turn, retaining calm supported torso, folded wings, tail, white belly and feet",
+    "sameIndividual": "preserve detailed warm-brown/pale-edged existing canon; existing packet explicitly records that it is not definitive adult-black plumage. Do not silently change plumage/canon during look generation.",
+    "invariants": "one shared sourcecanvas and callwide scale; existing output96/world90.947/density19/18/pivot57,75/positivefootreferences unchanged unless explicit wholecall density normalization needed",
+    "avoid": [
+      "regenerating covered neutral/blink",
+      "whole-body bob as look",
+      "rigged sprite/head rotation counted as new drawing",
+      "perpose body/alpha-envelope fitting",
+      "opaque matte or silentalpha erasure"
+    ],
+    "acceptance": "actual small-size head direction/readability and identity/foot stability determine provisional admission, not sourcebodypixel equality"
+  },
+  "authorization": "No native call until root explicitly assigns after Anna checkpoint.",
+  "globalMutations": false
+}

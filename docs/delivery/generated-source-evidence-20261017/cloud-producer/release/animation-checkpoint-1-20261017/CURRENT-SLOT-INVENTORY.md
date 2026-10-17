@@ -1,13 +1,13 @@
 # Current per-species source slots
 
-137 registered primary source IDs across 37 retained originals. Useful provisional idle semantic uses: 19 neutral, 15 blink, 10 look. These uses overlap drawings. Source studies do not complete species action sets.
+138 registered primary source IDs across 38 retained originals. Useful provisional idle semantic uses: 19 neutral, 15 blink, 11 look. These uses overlap drawings. Source studies do not complete species action sets.
 
 | Species | Neutral | Look | Blink | Locomotion | Feed / drink / preen | Flight |
 |---|---|---|---|---|---|---|
 | Anna's Hummingbird | provisional source | single-open-look-pose-no-matched-turn | provisional source | two-drawn-hover-wing-study-only | missing / missing / missing | missing |
 | House Finch | provisional source | older-drawn-look-study-drift | provisional source | missing | drawn-feed-candidate-object-contact-unaccepted / missing / drawn-preen-failed-review-plus-rig-proof | missing |
 | Lesser Goldfinch | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
-| Black Phoebe | provisional source | missing | provisional source | rig-only-static-translation-proof | missing / missing / missing | missing |
+| Black Phoebe | provisional source | provisional source | provisional source | rig-only-static-translation-proof | missing / missing / missing | missing |
 | California Towhee | provisional source | provisional source | provisional source | reviewed one-shot study | missing / missing / missing | missing |
 | Mourning Dove | provisional still | missing | missing | drawn-walk-candidate-contact-unbound | missing / drawn-drink-candidate-water-contact-unbound / missing | missing |
 | Northern Mockingbird | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
