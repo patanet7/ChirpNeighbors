@@ -1,0 +1,4 @@
+// Parent/Mac invokes the existing validator; this creates no alternate asset engine.
+import fs from 'node:fs';import path from 'node:path';import {pathToFileURL} from 'node:url';
+const uiRoot=process.argv[2];if(!uiRoot)throw Error('Provide canonical UI root: node validate_with_existing_app.mjs /absolute/UI/root');
+const modulePath=path.resolve(uiRoot,'src/lib/server/asset-pipeline/image-stage.ts');const {validateImageSequence}=await import(pathToFileURL(modulePath).href);const sequence=JSON.parse(fs.readFileSync(new URL('export96/image-stage-sequence.json',import.meta.url)));const parsed=validateImageSequence(sequence);console.log(JSON.stringify({passed:true,validator:modulePath,frames:parsed.frames.length,canvas:parsed.canvas,scope:'existing image-stage validation only; no rights/art/scale/normal-yard admission'}));

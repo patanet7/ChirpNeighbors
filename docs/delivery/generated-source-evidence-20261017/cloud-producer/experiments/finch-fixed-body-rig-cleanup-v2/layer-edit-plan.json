@@ -1,0 +1,72 @@
+{
+  "workflow": "explicit editable binary masks + source-clone underpaint + rigid source head cutout",
+  "sourceUnchanged": true,
+  "sourceSha256": "ed79704dca763d6ef32beb6ff6a7a9e0d7cf26e3069619e25f2c7539d14fb605",
+  "headMask": "head-mask.png",
+  "underpaintMask": "neck-underpaint-mask.png",
+  "sourceCloneMapping": "same sourceXY; no generated or painted colors",
+  "underpaintAllowedRectangle": [
+    445,
+    475,
+    635,
+    575
+  ],
+  "protectedRectangle": [
+    0,
+    600,
+    1024,
+    1024
+  ],
+  "hardOwnership": "prefer head alpha>=128 or uncovered background; retain originalRGBA tuples, no feather blend",
+  "layerOrder": [
+    "body-base-layer.png",
+    "neck-underpaint-layer.png",
+    "rigid head-layer.png"
+  ],
+  "anglesRadians": [
+    0,
+    -0.12,
+    0,
+    0.12,
+    0
+  ],
+  "pivot": [
+    560,
+    516
+  ],
+  "fixedFootPoints": [
+    [
+      483,
+      792
+    ],
+    [
+      535,
+      800
+    ]
+  ],
+  "root": [
+    512,
+    800
+  ],
+  "leftRightAnatomyAssigned": false,
+  "newGenerationCalls": 0,
+  "newDrawings": 0,
+  "forbidden": [
+    "protectedpixel changes",
+    "perphase body rescale/translation",
+    "newgeneratorcalls",
+    "loosen contact tolerances"
+  ],
+  "ownerReviewRegion": [
+    445,
+    465,
+    650,
+    580
+  ],
+  "limits": [
+    "fixed side view and small +/-0.12rad head pivot only",
+    "neck overlap clone may retain stale contour/doubled feather edge",
+    "no wing/body/depth occlusion switch",
+    "not actual preening/walking or full species clip"
+  ]
+}
