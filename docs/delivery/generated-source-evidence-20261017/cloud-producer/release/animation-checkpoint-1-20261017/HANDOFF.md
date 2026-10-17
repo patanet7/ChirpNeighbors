@@ -19,3 +19,6 @@ sd20-anna-transitions-v1: 4 new drawings, 5 existing source IDs reused. Four use
 
 
 Anna distinctive motion checkpoint:10newsource drawings/3nativecalls,with separatezero-callfasttiming andtransitionreuseevidence. Exact handoff `ANNA-DISTINCTIVE-MOTION-CHECKPOINT.json`; art/runtime/physical holds retained. No newneutraldrawings orMacbindingclaim.
+
+
+sd20-black-phoebe-look-v1: one actual new look drawing + exact existing awake reuse; no neutral or blink regeneration. Provisional useful toward-viewer look source: one new open-eye look plus exact old awake; minor feather/body/toe redraw, one output-pixel foot-row difference and inherited warm-plumage limitation retained. Two poses only, no smooth-turn or measured-yaw approval. Source mapping verified; named-look runtime admission unknown, canonical Zod/Sharp NOT_RUN; no app binding. Look clip `motion/sd20-black-phoebe-look-v1/texture-review-manifest.json#look`; exact map `motion/sd20-black-phoebe-look-v1/frame-to-action-map.json`. Existing resting primary/blink and Anna flight proposals retained.

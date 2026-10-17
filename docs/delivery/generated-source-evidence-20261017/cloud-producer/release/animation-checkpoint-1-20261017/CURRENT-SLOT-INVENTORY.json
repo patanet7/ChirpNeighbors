@@ -7819,7 +7819,7 @@
         "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
         "frame.sha256.10446a4ce450e999b4f0551d7017e30b0540f0b17424e99ecb3117dc1a14f6e0"
       ],
-      "nativeBankDrawings": 4,
+      "nativeBankDrawings": 5,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
@@ -8042,6 +8042,58 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b",
+          "file": "motion/sd20-black-phoebe-look-v1/look-native.png",
+          "fileSha256": "ef8c762f3f16169b3e5f23ab758e058d0d4f4a5745805341b629c1006b1f193d",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "black_phoebe",
+          "appearanceVersion": "sd20-black-phoebe-look-v1",
+          "poseTags": [
+            "toward-viewer head look, open eye and foreshortened bill",
+            "candidate-source",
+            "look-only"
+          ],
+          "sourceAtlas": "motion/sd20-black-phoebe-look-v1/original.png",
+          "sourceAtlasSha256": "ef8c762f3f16169b3e5f23ab758e058d0d4f4a5745805341b629c1006b1f193d",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "requestedReferenceCanvas": [
+              1024,
+              1024
+            ],
+            "wholeCallDensityNormalization": 0.8165869218500797,
+            "directNativeToOutputRatio": 0.07655502392344497,
+            "integerOriginTranslation": [
+              0,
+              0
+            ],
+            "perPoseBodyFit": false,
+            "headOrFootPaint": false,
+            "warp": false,
+            "alphaErasure": false
+          },
+          "sourcePrompt": "motion/sd20-black-phoebe-look-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-black-phoebe-look-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "look"
+          ],
+          "reuseStatus": "Independently reviewed look-only source candidate; Provisional useful toward-viewer look source: one new open-eye look plus exact old awake; minor feather/body/toe redraw, one output-pixel foot-row difference and inherited warm-plumage limitation retained. Two poses only, no smooth-turn or measured-yaw approval. Source mapping verified; named-look runtime admission unknown, canonical Zod/Sharp NOT_RUN; no app binding.",
+          "sourceReview": "motion/sd20-black-phoebe-look-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -8050,8 +8102,9 @@
         "motion/sd20-phoebe-actions-v1/README.md"
       ],
       "sourceIssues": [
-        "Blink-first neutral+closed available; expanded tailpump has2real newtaildrawings, excursion stronger thanrequested, baseline varies1outputpx≈.947world.",
-        "Short sally transform recipe is0newdrawings/11airborne ticks with exact rootlanding in proof, not drawnflight/insectcatch or currentappbinding."
+        "Baseline PR33: Blink-first neutral+closed available; expanded tailpump has2real newtaildrawings, excursion stronger thanrequested, baseline varies1outputpx≈.947world.",
+        "Baseline PR33: Short sally transform recipe is0newdrawings/11airborne ticks with exact rootlanding in proof, not drawnflight/insectcatch or currentappbinding.",
+        "Current checkpoint: Provisional useful toward-viewer look source: one new open-eye look plus exact old awake; minor feather/body/toe redraw, one output-pixel foot-row difference and inherited warm-plumage limitation retained. Two poses only, no smooth-turn or measured-yaw approval. Source mapping verified; named-look runtime admission unknown, canonical Zod/Sharp NOT_RUN; no app binding."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -8121,19 +8174,192 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "low-perch scan/tail pump; characteristic tail pump where available",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-look",
+          "sourceFrameIds": [
+            "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+            "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-black-phoebe-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-black-phoebe-look-v1/texture-review-manifest.json",
+            "motion/sd20-black-phoebe-look-v1/frame-to-action-map.json",
+            "motion/sd20-black-phoebe-look-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-black-phoebe-look-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Matched neutral→distinct head/bill look→return source poses."
+            "Provisional useful toward-viewer look source: one new open-eye look plus exact old awake; minor feather/body/toe redraw, one output-pixel foot-row difference and inherited warm-plumage limitation retained. Two poses only, no smooth-turn or measured-yaw approval. Source mapping verified; named-look runtime admission unknown, canonical Zod/Sharp NOT_RUN; no app binding.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "black-phoebe-neutral-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+            },
+            {
+              "frameId": "black-phoebe-look-viewer-96",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b",
+              "outputRGBAId": "frame.sha256.29c7ba82fee76a7918581fafffa047230d9b3337b4a55bc0150d70520ecd91dc"
+            },
+            {
+              "frameId": "black-phoebe-neutral-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-black-phoebe-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-black-phoebe-look-v1/look-atlas96.png",
+              "clipId": "look",
+              "tickRate": 30,
+              "loop": false,
+              "durationTicks": 72,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "black-phoebe-neutral-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+                  "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+                },
+                {
+                  "frameId": "black-phoebe-look-viewer-96",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b",
+                  "outputRGBAId": "frame.sha256.29c7ba82fee76a7918581fafffa047230d9b3337b4a55bc0150d70520ecd91dc"
+                },
+                {
+                  "frameId": "black-phoebe-neutral-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+                  "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "lookOnlyNewDrawing": true,
+          "selectedLookManifest": "motion/sd20-black-phoebe-look-v1/texture-review-manifest.json",
+          "selectedClipId": "look",
+          "newSourceFrameIds": [
+            "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f"
+          ],
+          "batchNewDrawings": 1,
+          "batchReusedDrawings": 1,
+          "newNeutralDrawings": 0,
+          "newBlinkDrawings": 0,
+          "packetBindingReady": false,
+          "lookOnlySourceReview": {
+            "batchId": "sd20-black-phoebe-look-v1",
+            "kind": "look-only-new-drawing-source-candidate",
+            "canonicalSchemaValidation": "NOT_RUN; explicit look clip needs current Mac contract confirmation",
+            "profileLabelIsRuntimeAdmission": false,
+            "primaryManifest": "motion/sd20-black-phoebe-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "manifest": "motion/sd20-black-phoebe-look-v1/texture-review-manifest.json",
+            "atlasPNG": "motion/sd20-black-phoebe-look-v1/look-atlas96.png",
+            "manifestSHA256": "a9ad8510f5027c966b6b6a49f6a9bd5d5c5170aee1757abc197c08f81801fdcf",
+            "atlasSHA256": "8ac5e16f45a358278e8ae97c62be49d6ed217da01674f8fbb6040ba9bab1a756",
+            "sourceFrameIds": [
+              "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b"
+            ],
+            "newSourceFrameIds": [
+              "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b"
+            ],
+            "reusedSourceFrameIds": [
+              "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f"
+            ],
+            "newDrawingCount": 1,
+            "reusedDrawingCount": 1,
+            "newNeutralDrawings": 0,
+            "newBlinkDrawings": 0,
+            "clipId": "look",
+            "orderedSourceFrameSequence": [
+              {
+                "frameId": "black-phoebe-neutral-96",
+                "durationTicks": 30,
+                "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+                "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+              },
+              {
+                "frameId": "black-phoebe-look-viewer-96",
+                "durationTicks": 12,
+                "sourceFrameId": "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b",
+                "outputRGBAId": "frame.sha256.29c7ba82fee76a7918581fafffa047230d9b3337b4a55bc0150d70520ecd91dc"
+              },
+              {
+                "frameId": "black-phoebe-neutral-96",
+                "durationTicks": 30,
+                "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+                "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+              }
+            ],
+            "renderBinding": {
+              "manifest": "motion/sd20-black-phoebe-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-black-phoebe-look-v1/look-atlas96.png",
+              "clipId": "look",
+              "tickRate": 30,
+              "loop": false,
+              "durationTicks": 72,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "black-phoebe-neutral-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+                  "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+                },
+                {
+                  "frameId": "black-phoebe-look-viewer-96",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b",
+                  "outputRGBAId": "frame.sha256.29c7ba82fee76a7918581fafffa047230d9b3337b4a55bc0150d70520ecd91dc"
+                },
+                {
+                  "frameId": "black-phoebe-neutral-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+                  "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            },
+            "evidencePaths": [
+              "motion/sd20-black-phoebe-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "motion/sd20-black-phoebe-look-v1/texture-review-manifest.json",
+              "motion/sd20-black-phoebe-look-v1/frame-to-action-map.json",
+              "motion/sd20-black-phoebe-look-v1/independent-review.json"
+            ],
+            "sourceHeld": false,
+            "sourceReviewState": "reviewed-source-look-with-qualifications",
+            "productionAccepted": false,
+            "runtimeAdmission": false,
+            "packetBindingReady": false,
+            "appBinding": "UNKNOWN",
+            "actualYardVerification": "UNKNOWN",
+            "reviewReceipt": {
+              "path": "motion/sd20-black-phoebe-look-v1/independent-review.json",
+              "sha256": "b8a73f5abcc3720bf84bf15c2d8b2813aa42fc336882255050de864d93872b41"
+            }
+          }
         },
         {
           "speciesId": "black_phoebe",
@@ -8368,7 +8594,12 @@
         "Blink-first neutral+closed available; expanded tailpump has2real newtaildrawings, excursion stronger thanrequested, baseline varies1outputpx≈.947world.",
         "Short sally transform recipe is0newdrawings/11airborne ticks with exact rootlanding in proof, not drawnflight/insectcatch or currentappbinding."
       ],
-      "currentSourceIssues": [],
+      "currentSourceIssues": [
+        "Provisional useful toward-viewer look source: one new open-eye look plus exact old awake; minor feather/body/toe redraw, one output-pixel foot-row difference and inherited warm-plumage limitation retained. Two poses only, no smooth-turn or measured-yaw approval. Source mapping verified; named-look runtime admission unknown, canonical Zod/Sharp NOT_RUN; no app binding."
+      ],
+      "overlayQualifications": [
+        "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings."
+      ],
       "primaryManifestSHA256": "b1632e9764de57bc756f94300842ee4d94d1a53bf81662f21e850c0477172e39",
       "primaryAtlasSHA256": "d47b595995abca00bcb07d58456584ff036d08e620c8f03862d9a1cdab146e8c",
       "primaryClipId": "idle",
@@ -8386,6 +8617,16 @@
               "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1",
               "evidence": "motion/sd20-phoebe-actions-v1/source-lineage.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "sourcePNG": "motion/sd20-black-phoebe-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-black-phoebe-look-v1/reused-awake96.png",
+              "outputPNGsha256": "5e2b4c68b082dc05f97a96f3c7f9930b0bce966251db8d96bae6f534b165a8ff",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1",
+              "evidence": "motion/sd20-black-phoebe-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -21361,6 +21602,16 @@
               "evidence": "motion/sd20-phoebe-actions-v1/source-lineage.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "sourcePNG": "motion/sd20-black-phoebe-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-black-phoebe-look-v1/reused-awake96.png",
+              "outputPNGsha256": "5e2b4c68b082dc05f97a96f3c7f9930b0bce966251db8d96bae6f534b165a8ff",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1",
+              "evidence": "motion/sd20-black-phoebe-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -24792,6 +25043,16 @@
               "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1",
               "evidence": "motion/sd20-phoebe-actions-v1/source-lineage.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "sourcePNG": "motion/sd20-black-phoebe-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-black-phoebe-look-v1/reused-awake96.png",
+              "outputPNGsha256": "5e2b4c68b082dc05f97a96f3c7f9930b0bce966251db8d96bae6f534b165a8ff",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1",
+              "evidence": "motion/sd20-black-phoebe-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -28729,6 +28990,234 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-black-phoebe-look-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-black-phoebe-look-v1/texture-review-manifest.json",
+      "manifestSHA256": "a9ad8510f5027c966b6b6a49f6a9bd5d5c5170aee1757abc197c08f81801fdcf",
+      "atlasPNG": "motion/sd20-black-phoebe-look-v1/look-atlas96.png",
+      "atlasSHA256": "8ac5e16f45a358278e8ae97c62be49d6ed217da01674f8fbb6040ba9bab1a756",
+      "atlasDimensions": [
+        192,
+        96
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "black-phoebe-neutral-96",
+          "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1",
+          "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "sourcePNG": "new-species/sd20-three-canon-v1/black_phoebe/source1024.png",
+              "outputPNG": "motion/sd20-phoebe-actions-v1/frames96/neutral.png",
+              "outputPNGsha256": "5e2b4c68b082dc05f97a96f3c7f9930b0bce966251db8d96bae6f534b165a8ff",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1",
+              "evidence": "motion/sd20-phoebe-actions-v1/source-lineage.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "sourcePNG": "motion/sd20-black-phoebe-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-black-phoebe-look-v1/reused-awake96.png",
+              "outputPNGsha256": "5e2b4c68b082dc05f97a96f3c7f9930b0bce966251db8d96bae6f534b165a8ff",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1",
+              "evidence": "motion/sd20-black-phoebe-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 90.94736842105263,
+            "height": 90.94736842105263
+          },
+          "sourcePixelsPerWorldUnit": 1.0555555555555556,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 53,
+              "y": 74
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 74
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 53,
+              "y": 74,
+              "sampledAlpha": 250,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 74,
+              "sampledAlpha": 171,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "black-phoebe-look-viewer-96",
+          "outputRGBAId": "frame.sha256.29c7ba82fee76a7918581fafffa047230d9b3337b4a55bc0150d70520ecd91dc",
+          "sourceFrameId": "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b",
+              "sourcePNG": "motion/sd20-black-phoebe-look-v1/look-native.png",
+              "outputPNG": "motion/sd20-black-phoebe-look-v1/look96.png",
+              "outputPNGsha256": "45f99b7f7f24bbb68e3fc384d283a17e76474dcf79b7d501a3682e8aa83e30c1",
+              "outputRGBAId": "frame.sha256.29c7ba82fee76a7918581fafffa047230d9b3337b4a55bc0150d70520ecd91dc",
+              "evidence": "motion/sd20-black-phoebe-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "toward-viewer head look, open eye and foreshortened bill",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 96,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 90.94736842105263,
+            "height": 90.94736842105263
+          },
+          "sourcePixelsPerWorldUnit": 1.0555555555555556,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 53,
+              "y": 74
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 74
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 53,
+              "y": 74,
+              "sampledAlpha": 253,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 74,
+              "sampledAlpha": 241,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "black-phoebe-neutral-96",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "black-phoebe-neutral-96",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f"
+          ]
+        },
+        {
+          "id": "look",
+          "tickRate": 30,
+          "loop": false,
+          "frames": [
+            {
+              "frameId": "black-phoebe-neutral-96",
+              "durationTicks": 30
+            },
+            {
+              "frameId": "black-phoebe-look-viewer-96",
+              "durationTicks": 12
+            },
+            {
+              "frameId": "black-phoebe-neutral-96",
+              "durationTicks": 30
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "black-phoebe-neutral-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+            },
+            {
+              "frameId": "black-phoebe-look-viewer-96",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b",
+              "outputRGBAId": "frame.sha256.29c7ba82fee76a7918581fafffa047230d9b3337b4a55bc0150d70520ecd91dc"
+            },
+            {
+              "frameId": "black-phoebe-neutral-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+              "outputRGBAId": "frame.sha256.c2c81785c44ccbad3d67ae89fafee45a7c06c17887cf67a00711445eda88bad1"
+            }
+          ],
+          "durationTicks": 72,
+          "durationSeconds": 2.4,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f",
+            "frame.sha256.7a9195b40f85229be462769920e8726be7f97fe33c7ddeb66b293144957e985b"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -30136,7 +30625,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/anna-ingest-build-g6l85ow_/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/phoebe-look-ingest-build-vgott1_q/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -30145,12 +30634,6 @@
       "priority": 2,
       "task": "Select bounded missing look source work, Phoebe first when its look slot remains missing, then actual study-only/missing roster slots",
       "candidates": [
-        {
-          "speciesId": "black_phoebe",
-          "actualSlotState": "missing",
-          "sourceFrameIds": [],
-          "existingStudyBeforeNewCall": false
-        },
         {
           "speciesId": "anna_s_hummingbird",
           "actualSlotState": "single-open-look-pose-no-matched-turn",
@@ -30240,18 +30723,18 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-17T23:05:51.783367+00:00",
+  "projectionAsOfUTC": "2026-10-17T23:26:23.729489+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 137,
-    "registeredNativeOriginals": 37,
-    "newNativeCalls": 16,
-    "newDrawings": 35,
+    "registeredPrimaryDrawingIDs": 138,
+    "registeredNativeOriginals": 38,
+    "newNativeCalls": 17,
+    "newDrawings": 36,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 44,
+    "usefulProvisionalIdleSemanticUses": 45,
     "usefulIdleUsesByAction": {
       "neutral": 19,
       "blink": 15,
-      "look": 10
+      "look": 11
     },
     "reviewedOneShotHopStudies": 2,
     "sourceAcceptedFullLocomotionSlots": 0,
@@ -30262,12 +30745,12 @@
       "single-open-look-pose-no-matched-turn": 1,
       "provisional-drawn-blink": 15,
       "two-drawn-hover-wing-study-only": 1,
-      "missing": 138,
+      "missing": 137,
       "older-drawn-look-study-drift": 1,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,
       "drawn-perch-candidate-failed-registration": 1,
-      "provisional-drawn-look": 10,
+      "provisional-drawn-look": 11,
       "rig-only-static-translation-proof": 1,
       "provisional-drawn-one-shot-hop-study-contact-unbound": 2,
       "provisional-held-static-fallback": 2,

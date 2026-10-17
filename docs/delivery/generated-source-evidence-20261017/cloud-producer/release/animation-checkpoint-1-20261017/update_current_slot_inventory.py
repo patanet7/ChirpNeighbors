@@ -160,6 +160,57 @@ for b in overlay['batches']:
   if b.get('flightMotionProposal') is True:
    proposal=validate_flight_motion_batch(root,b);attach_flight_motion_proposal(bird,b,proposal)
    continue
+  if b.get('lookOnlyNewDrawing') is True:
+   # A bounded new head-turn source belongs to look only. Existing neutral/blink
+   # and primary intake remain selected even though this packet also has an idle clip.
+   assert sid=='black_phoebe' and b.get('speciesIds')==['black_phoebe'],('Look-only scope must be explicit',sid)
+   assert b.get('runtimeAdmission') is False and b.get('renderClipId')=='look'
+   assert b.get('addedOrReplacedSourceSlots')==['look']
+   assert len(newIDs)==1 and len(primary['frames'])==1 and len(primary.get('reusedFrames',[]))==1
+   awakeID='frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f'
+   assert rows['neutral']['sourceFrameIds']==[awakeID]
+   assert primary['reusedFrames'][0]['sourceFrameId']==awakeID and newIDs[0]!=awakeID
+   assert newIDs[0] not in rows['blink']['sourceFrameIds'],('A new look may not relabel the old closure',newIDs[0])
+   for field in ['primaryManifest','renderManifest','frameToActionMap']:
+    assert b.get(field) and b.get(field+'SHA256'),('Exact look source/profile/map guards required',field)
+    assert sha(safe(b[field]).read_bytes())==b[field+'SHA256'],('Look-only input hash mismatch',field)
+   if b.get('review'):
+    assert b.get('reviewSHA256') and sha(safe(b['review']).read_bytes())==b['reviewSHA256'],('Exact independent look review guard required',b.get('review'))
+   protectedIdle=copy.deepcopy([rows['neutral'],rows['blink']]);protectedPrimary={k:copy.deepcopy(bird.get(k)) for k in ['primaryManifest','primaryAtlas','primaryClipId','selectedIdleSourceIDs']}
+   man=render_manifest(b,primary,parent);assert man==b['renderManifest'];pkg=package(man);assert pkg['profile']=='chirp-texture-review-v1'
+   c=clip(pkg,'look');idleClip=clip(pkg,'idle');assert idleClip['uniqueSourceFrameIds']==[awakeID],('Own idle must remain awake-only',idleClip)
+   assert pkg['approval']=='unreviewed' and pkg['activation']=='none'
+   if b.get('renderAtlas'):
+    assert b['renderAtlas']==pkg['atlasPNG'] and b.get('renderAtlasSHA256')==pkg['atlasSHA256'],('Look atlas/profile coupling mismatch',b.get('renderAtlas'))
+   oldPkg=package(bird['primaryManifest'],bird['primaryAtlas']);oldAwake=next(f for f in oldPkg['frames'] if f['sourceFrameId']==awakeID)
+   lookAwake=next(f for f in pkg['frames'] if f['sourceFrameId']==awakeID)
+   assert lookAwake['outputRGBAId']==oldAwake['outputRGBAId'],('Reused awake render pixels must remain unchanged',awakeID)
+   assert len(pkg['frames'])==2 and {f['sourceFrameId'] for f in pkg['frames']}=={awakeID,newIDs[0]}
+   for frame in pkg['frames']:
+    for geometry in ['canvas','world','sourcePixelsPerWorldUnit','pivot','contacts']:
+     assert frame[geometry]==oldAwake[geometry],('Look must retain actual Phoebe family geometry',frame['outputFrameId'],geometry)
+   seq=c['orderedSourceFrameSequence'];phases=[]
+   for step in seq:
+    if not phases or phases[-1]!=step['sourceFrameId']:phases.append(step['sourceFrameId'])
+   assert phases==[awakeID,newIDs[0],awakeID],('Look must map exact awake-to-new-turn-to-awake',phases)
+   assert set(c['uniqueSourceFrameIds'])=={awakeID,newIDs[0]}
+   paths=[b['primaryManifest'],man,b['frameToActionMap']]+([b['review']] if b.get('review') else [])
+   held=any(b.get(k) is True or primary.get(k) is True for k in ['sourceHeld','newSourceHeld'])
+   pendingReview=not b.get('review')
+   candidate={'batchId':b.get('batchId',primary.get('batchId')),'kind':'look-only-new-drawing-source-candidate','canonicalSchemaValidation':'NOT_RUN; explicit look clip needs current Mac contract confirmation','profileLabelIsRuntimeAdmission':False,'primaryManifest':b['primaryManifest'],'manifest':man,'atlasPNG':pkg['atlasPNG'],'manifestSHA256':pkg['manifestSHA256'],'atlasSHA256':pkg['atlasSHA256'],'sourceFrameIds':c['uniqueSourceFrameIds'],'newSourceFrameIds':newIDs,'reusedSourceFrameIds':[awakeID],'newDrawingCount':1,'reusedDrawingCount':1,'newNeutralDrawings':0,'newBlinkDrawings':0,'clipId':'look','orderedSourceFrameSequence':seq,'renderBinding':binding(pkg,c),'evidencePaths':paths,'sourceHeld':held,'sourceReviewState':'held' if held else 'pending-independent-source-review' if pendingReview else 'reviewed-source-look-with-qualifications','productionAccepted':False,'runtimeAdmission':False,'packetBindingReady':False,'appBinding':'UNKNOWN','actualYardVerification':'UNKNOWN'}
+   if b.get('review'):candidate['reviewReceipt']={'path':b['review'],'sha256':b['reviewSHA256']}
+   if held or pendingReview:
+    candidate['renderBinding'].update(held=True,useAsActiveSource=False)
+    rows['look'].setdefault('heldLookCandidates',[]).append(candidate)
+    # Preserve old look state/coverage/active bindings; do not invent a held blink.
+   else:
+    row=rows['look'];row['baselineState']=row['state'];assign(row,c['uniqueSourceFrameIds'],seq,paths,pkg,c)
+    row.update(state='provisional-drawn-look',provisionalUsefulSourceForThisSemanticSlot=True,lookOnlyNewDrawing=True,selectedLookManifest=man,selectedClipId='look',newSourceFrameIds=newIDs,reusedSourceFrameIds=[awakeID],batchNewDrawings=1,batchReusedDrawings=1,newNeutralDrawings=0,newBlinkDrawings=0,packetBindingReady=False,remainingPhasesOrReview=[b['scope'],'Canonical Mac admission, actor binding and actual-yard verification unknown here.'])
+    row['lookOnlySourceReview']=candidate
+   assert protectedIdle==[rows['neutral'],rows['blink']],('Look-only branch mutated Phoebe neutral/blink',sid)
+   assert protectedPrimary=={k:bird.get(k) for k in protectedPrimary},('Look-only branch replaced primary intake',sid)
+   bird.setdefault('overlayQualifications',[]).append('Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings.')
+   continue
   if b['slot']=='ordinary_locomotion':
    motionPath=str(parent/'motion-manifest.json');motion=read(motionPath);poses={f['pose']:f for f in primary['frames']+primary.get('reusedFrames',[]) if f.get('playbackRole','')!='immutable comparison only; excluded from hop due cross-original proportion discontinuity'}
    seq=[]
@@ -196,9 +247,9 @@ for bird in baseline['species']:
  # Preserve exact look-package references; no automatic splice into a new neutral/blinkpair.
  for row in bird['slots']:
   if row['slot']=='look' and row.get('sourceFrameIds'):
-   man=next((p for p in row['evidencePaths'] if p.endswith('.json') and 'texture-review-manifest' in p),None)
+   man=row.get('selectedLookManifest') or next((p for p in row['evidencePaths'] if p.endswith('.json') and 'texture-review-manifest' in p),None)
    if man:
-    lp=package(man);lc=clip(lp);seq=semantic_sequence(lc,'look',row['sourceFrameIds']);row['orderedSourceFrameSequence']=seq;row['renderBindings']=[binding(lp,lc)]
+    lp=package(man);lc=clip(lp,row.get('selectedClipId','idle'));seq=semantic_sequence(lc,'look',row['sourceFrameIds']);row['orderedSourceFrameSequence']=seq;row['renderBindings']=[binding(lp,lc)]
   if row['slot']=='blink' and row['state']=='provisional-drawn-blink' :
    bc=clip(pkg,row.get('selectedClipId','idle'));seq=semantic_sequence(bc,'blink',row['sourceFrameIds']);row['orderedSourceFrameSequence']=seq;row['renderBindings']=[binding(pkg,bc)]
   if row['slot'] not in ['neutral','look','blink'] and not row.get('renderBindings'):
@@ -220,6 +271,12 @@ slots=[s for b in baseline['species'] for s in b['slots']]
 for row in slots:
  if row['slot']=='blink' and row['state']=='provisional-drawn-blink':
   seq=row.get('orderedSourceFrameSequence',[]);assert len({x['sourceFrameId'] for x in seq})>=2 and seq[0]['sourceFrameId']==seq[-1]['sourceFrameId'],('blink schedule missing closure/return',row['speciesId'])
+for row in slots:
+ if row['slot']=='look' and row.get('lookOnlyNewDrawing') and row['state']=='provisional-drawn-look':
+  seq=row.get('orderedSourceFrameSequence',[]);assert len({x['sourceFrameId'] for x in seq})>=2 and seq[0]['sourceFrameId']==seq[-1]['sourceFrameId'],('look schedule missing distinct turn/return',row['speciesId'])
+  if row.get('lookOnlyNewDrawing'):
+   assert row['selectedClipId']=='look' and row['renderBindings'][0]['clipId']=='look'
+   assert row['renderBindings'][0]['manifest']==row['selectedLookManifest'] and row['renderBindings'][0]['orderedSourceFrameSequence']==seq,('look reattachment selected a different clip',row['speciesId'])
 idle=Counter(s['slot'] for s in slots if s['provisionalUsefulSourceForThisSemanticSlot'] and s['slot'] in ['neutral','look','blink']);baseline['kind']='Current source-only slot overlay with verified atlas/source sequence projections';baseline['currentOverlay']=release+'/intake-overlay.json';baseline['projectionAsOfUTC']=datetime.datetime.now(datetime.timezone.utc).isoformat();baseline['preparedPackages']=packages;baseline['currentCounts']={'registeredPrimaryDrawingIDs':overlay['registeredDrawings'],'registeredNativeOriginals':overlay['registeredOriginals'],'newNativeCalls':overlay['newNativeCalls'],'newDrawings':overlay['newDrawings'],'semanticQuestions':len(slots),'usefulProvisionalIdleSemanticUses':sum(idle.values()),'usefulIdleUsesByAction':dict(idle),'reviewedOneShotHopStudies':sum(s['state']=='provisional-drawn-one-shot-hop-study-contact-unbound' for s in slots),'sourceAcceptedFullLocomotionSlots':0,'appBindingsVerifiedHere':0,'appBindingCurrentState':'UNKNOWN','states':dict(Counter(s['state'] for s in slots))}
 baseline['currentCounts']['sourceOnlyFlightMotionStudies']=sum(len(b.get('sourceMotionProposals',[])) for b in baseline['species'])
 baseline['currentCounts']['flightStudyRuntimeAdmissions']=0
