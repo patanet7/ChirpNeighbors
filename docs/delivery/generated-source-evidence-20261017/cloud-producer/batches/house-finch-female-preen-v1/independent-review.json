@@ -1,0 +1,712 @@
+{
+  "format": "chirp-independent-source-review@0.1",
+  "batch": "house-finch-female-preen-v1",
+  "reviewer": "independent review subagent /root/preen_independent_review",
+  "reviewedAtUTC": "2026-10-17T16:17:16.159549+00:00",
+  "classification": "generated-candidate-reviewed-needs-revision",
+  "artAccepted": false,
+  "runtimeAccepted": false,
+  "appIntegrationObserved": false,
+  "reviewRecommendation": "Retain raw and registered diagnostic evidence of six genuine preening drawings. Raw geometry and registered foot/body/seam targets fail; do not admit as an accepted compatible clip.",
+  "scope": {
+    "inspected": "original RGBA sheet, existing female neutral RGBA PNG, exact prompt and production-plan.json; manual sheet view and in-memory alpha composite on blue-gray background at 768x512",
+    "originalModified": false,
+    "individualCropsFittedOrRescaled": false,
+    "measurementSpace": "native512x512 sheet cell; reference uniformly scaled0.5 nearest-neighbor from1024x1024, exactly as authored layout",
+    "sourceEvidenceKind": "actual local source bytes, manual visual interpretation and explicitly named pixel heuristics",
+    "playableClipReviewed": false,
+    "normalYardPlaybackReviewed": false,
+    "notEstablished": [
+      "biological toe or exact species anatomy validation",
+      "world scale calibration",
+      "automated foot landmark tracking",
+      "temporal stroke dynamics from playable preview",
+      "canonical runtime conformance"
+    ],
+    "additionalRegisteredReview": "Contact sheet and selected native registered PNGs inspected; four APNG/GIF files independently decoded for frame counts/timings, but live temporal playback not observed.",
+    "playableClipDecodeChecked": true
+  },
+  "inputs": {
+    "original": {
+      "path": "/workspace/asset-production/batches/house-finch-female-preen-v1/original.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "0425d2bafe2ace68393aa68c1c13c3cf255b506fdd15aed6b519f869f9065c15"
+    },
+    "reference": {
+      "path": "/workspace/asset-production/frames/7c12c45d8a8a6e64824669c595f4f58630aaa7a2eb6854ca76f5cd2311d2e6fe.png",
+      "frameId": "frame.sha256.7c12c45d8a8a6e64824669c595f4f58630aaa7a2eb6854ca76f5cd2311d2e6fe",
+      "sha256": "ed79704dca763d6ef32beb6ff6a7a9e0d7cf26e3069619e25f2c7539d14fb605",
+      "nativeSize": [
+        1024,
+        1024
+      ],
+      "comparisonSize": [
+        512,
+        512
+      ],
+      "alpha128BboxAtComparisonSize": [
+        88,
+        200,
+        326,
+        400
+      ]
+    },
+    "productionPlanSha256": "7ebac153ee467854e6d7f37e2eef6ccab3449789c69d9c8b4b3abff2e39e8735",
+    "promptSha256": "7283218548a7c3ad3876cd615d7a441889b62ef85bd5dbba0a10414e8efa2401"
+  },
+  "gates": [
+    {
+      "gate": "actual-drawn-head-neck-bill-changes",
+      "result": "pass-manual-source-evidence",
+      "evidence": "All six native RGBA cell hashes differ. Manual review shows backward/downward head changes in frames0\u20133, raised attached shoulder feathers particularly frame2, and different forward-profile neck/head silhouettes in frames4\u20135. This is visible drawing change; distinct hashes alone are not proof of animation quality."
+    },
+    {
+      "gate": "visible-bill-own-feather-contact",
+      "result": "pass-with-phase-issue-manual",
+      "evidence": "Frames0\u20133 show a closed or mostly closed bill reaching into the own upper near-wing/scapular feather region. Frame0 already appears to touch feathers, so the intended separate approach phase is missing. A complete nibble/stroke trajectory is not established from stills."
+    },
+    {
+      "gate": "female-identity-and-general-anatomy",
+      "result": "provisional-manual-only",
+      "evidence": "Warm brown/cream streaked female palette, conical bill, folded patterned wing, long tail and two pink legs remain recognizable. No obvious added limb or male-red patch is visible. Feather texture is smooth/fine-rendered rather than strongly pixel-defined; head/neck proportions change between poses. Exact toe count and anatomical correctness remain unaccepted."
+    },
+    {
+      "gate": "fixed-relative-scale",
+      "result": "fail",
+      "evidence": "Alpha>=128 full-silhouette width is419\u2013428 native cell pixels versus238 in the unchanged half-size reference:1.7605\u20131.7983 times reference. This is a silhouette scale proxy, not the exact lower-body-width target; visual inspection independently confirms large body/wing/tail enlargement."
+    },
+    {
+      "gate": "fixed-planted-contact-and-root",
+      "result": "fail",
+      "evidence": "Alpha>=128 lowest pixel y506 in each top-row cell and442 in each bottom-row cell; reference lowest y399. A64 native-pixel row-transition jump is visible in feet and lower body. The lowest-pixel statistic is a foot/claw-extent proxy, not an anatomical foot-center measurement. No fixed-root/contact admission is supportable against the4 source-equivalent-pixel target."
+    },
+    {
+      "gate": "neutral-entry-exit-continuity",
+      "result": "fail",
+      "evidence": "Final neutral-return mask IoU with unchanged half-reference is0.2639059261452561 at alpha>=32, far below proposed0.95. Final pose matches broad direction, but scale, feet, head and silhouette do not return to the existing neutral pixels/anchors."
+    },
+    {
+      "gate": "loop-continuity",
+      "result": "fail-static-registration-evidence",
+      "evidence": "Unregistered adjacent mask IoU drops to0.48087188128499214 across frame2\u21923 and0.4817435961670946 across frame5\u21920. Head motion contributes to masks, but the64px feet/body row jump is directly visible. These statistics diagnose registration discontinuity, not perceptual animation scoring."
+    },
+    {
+      "gate": "alpha-delivery",
+      "result": "rgba-present-review-scale-pass-full-scale-unaccepted",
+      "evidence": "Native alpha min0/max254,1,101,243 fully transparent pixels, no255 pixels. The brown RGB matte seen by a viewer ignoring transparency is not an opaque background. Proper alpha composite on blue-gray shows no conspicuous brown field/halo at half-sheet review size. Each cell still has8,324\u201310,033 pixels at alpha1\u201331, so full-scale contrasting-background edge review remains open; low alpha count alone is not a halo failure."
+    },
+    {
+      "gate": "storage-provenance",
+      "result": "source-hashes-recorded-only",
+      "evidence": "Local source/prompt/plan hashes recorded. This review does not establish remote storage, playable-clip packaging, PR merge, art acceptance or normal-yard playback."
+    }
+  ],
+  "measurements": {
+    "referenceAlpha128Width": 238,
+    "cellMeasurements": [
+      {
+        "frameIndex": 0,
+        "cellOrigin": [
+          0,
+          0
+        ],
+        "nativeCellRGBAByteSha256": "03f15acb3f4dc0da74e1654718f42cc0c16ff6976825e0412e55653cfdf991b2",
+        "alpha32Bbox": [
+          43,
+          127,
+          468,
+          508
+        ],
+        "alpha128Bbox": [
+          44,
+          128,
+          467,
+          507
+        ],
+        "silhouetteWidthRatioToHalfReference": 1.7773109243697478,
+        "lowestAlpha128PixelY": 506,
+        "lowestPixelYDeltaToHalfReference": 107,
+        "alpha1to31PixelCount": 8407,
+        "alpha32to127PixelCount": 1307,
+        "alpha128plusPixelCount": 71156,
+        "unregisteredAlpha32MaskIoUWithHalfReference": 0.17886965376782077
+      },
+      {
+        "frameIndex": 1,
+        "cellOrigin": [
+          512,
+          0
+        ],
+        "nativeCellRGBAByteSha256": "2d82d61bc29d171f6cc0494ae2bbf963b4e4a758096647d9f27822d02d8dae65",
+        "alpha32Bbox": [
+          39,
+          143,
+          460,
+          508
+        ],
+        "alpha128Bbox": [
+          40,
+          144,
+          459,
+          507
+        ],
+        "silhouetteWidthRatioToHalfReference": 1.7605042016806722,
+        "lowestAlpha128PixelY": 506,
+        "lowestPixelYDeltaToHalfReference": 107,
+        "alpha1to31PixelCount": 10033,
+        "alpha32to127PixelCount": 1336,
+        "alpha128plusPixelCount": 67039,
+        "unregisteredAlpha32MaskIoUWithHalfReference": 0.19965849493840712
+      },
+      {
+        "frameIndex": 2,
+        "cellOrigin": [
+          1024,
+          0
+        ],
+        "nativeCellRGBAByteSha256": "23dcf9ab76c4903a0bfe63cce2e7b46628dcdc68db6068014edf3715001bc08f",
+        "alpha32Bbox": [
+          42,
+          141,
+          463,
+          508
+        ],
+        "alpha128Bbox": [
+          42,
+          142,
+          462,
+          507
+        ],
+        "silhouetteWidthRatioToHalfReference": 1.7647058823529411,
+        "lowestAlpha128PixelY": 506,
+        "lowestPixelYDeltaToHalfReference": 107,
+        "alpha1to31PixelCount": 9822,
+        "alpha32to127PixelCount": 1318,
+        "alpha128plusPixelCount": 67286,
+        "unregisteredAlpha32MaskIoUWithHalfReference": 0.1816087975290233
+      },
+      {
+        "frameIndex": 3,
+        "cellOrigin": [
+          0,
+          512
+        ],
+        "nativeCellRGBAByteSha256": "e5b80e02cbbe0393544976724e1d48a5255e8bba670742c09c66f5d3124fe969",
+        "alpha32Bbox": [
+          47,
+          96,
+          467,
+          444
+        ],
+        "alpha128Bbox": [
+          47,
+          97,
+          467,
+          443
+        ],
+        "silhouetteWidthRatioToHalfReference": 1.7647058823529411,
+        "lowestAlpha128PixelY": 442,
+        "lowestPixelYDeltaToHalfReference": 43,
+        "alpha1to31PixelCount": 8324,
+        "alpha32to127PixelCount": 1262,
+        "alpha128plusPixelCount": 66352,
+        "unregisteredAlpha32MaskIoUWithHalfReference": 0.2707120725103524
+      },
+      {
+        "frameIndex": 4,
+        "cellOrigin": [
+          512,
+          512
+        ],
+        "nativeCellRGBAByteSha256": "f62bbbc8bc8973f6416c5a355bdd92351f31166740122c26e2120c22294c0ed6",
+        "alpha32Bbox": [
+          37,
+          67,
+          460,
+          444
+        ],
+        "alpha128Bbox": [
+          37,
+          68,
+          459,
+          443
+        ],
+        "silhouetteWidthRatioToHalfReference": 1.773109243697479,
+        "lowestAlpha128PixelY": 442,
+        "lowestPixelYDeltaToHalfReference": 43,
+        "alpha1to31PixelCount": 9194,
+        "alpha32to127PixelCount": 1318,
+        "alpha128plusPixelCount": 69627,
+        "unregisteredAlpha32MaskIoUWithHalfReference": 0.26144514914005595
+      },
+      {
+        "frameIndex": 5,
+        "cellOrigin": [
+          1024,
+          512
+        ],
+        "nativeCellRGBAByteSha256": "a32953a4b87e08c7b4972a999e66b395d42c023817d6e98bd92eb5cb9ecdcd1e",
+        "alpha32Bbox": [
+          38,
+          76,
+          467,
+          444
+        ],
+        "alpha128Bbox": [
+          39,
+          76,
+          467,
+          443
+        ],
+        "silhouetteWidthRatioToHalfReference": 1.7983193277310925,
+        "lowestAlpha128PixelY": 442,
+        "lowestPixelYDeltaToHalfReference": 43,
+        "alpha1to31PixelCount": 8349,
+        "alpha32to127PixelCount": 1209,
+        "alpha128plusPixelCount": 68282,
+        "unregisteredAlpha32MaskIoUWithHalfReference": 0.2639059261452561
+      }
+    ],
+    "alpha32AdjacentUnregisteredMaskIoUIncludingLoop": [
+      0.8618282768193536,
+      0.889574021961044,
+      0.48087188128499214,
+      0.8034961212058104,
+      0.9248882918939664,
+      0.4817435961670946
+    ],
+    "sheetAlpha": {
+      "minimum": 0,
+      "maximum": 254,
+      "zeroCount": 1101243,
+      "full255Count": 0
+    },
+    "manualLandmarkCoordinates": "not measured; do not substitute alpha extent for foot-center tolerance result",
+    "overallLowerBodyWidthRelativeDrift": "not independently measured; whole-silhouette width proxy and visual body enlargement are sufficient to reject exact-scale compatibility"
+  },
+  "failureIssues": [
+    {
+      "id": "PREEN-SCALE-01",
+      "severity": "admission-blocker",
+      "issue": "Generated birds enlarge to nearly fill cells, contrary to exact authored layout."
+    },
+    {
+      "id": "PREEN-CONTACT-02",
+      "severity": "admission-blocker",
+      "issue": "Bottom row lifts full lower body/feet64 native pixels relative to top row."
+    },
+    {
+      "id": "PREEN-SEAM-03",
+      "severity": "admission-blocker",
+      "issue": "Final neutral is not compatible with the existing neutral source or anchors."
+    },
+    {
+      "id": "PREEN-PHASE-04",
+      "severity": "review-issue",
+      "issue": "Approach begins with apparent contact; later release/neutral head changes are coarse rather than a demonstrated continuous stroke."
+    },
+    {
+      "id": "PREEN-EDGE-05",
+      "severity": "unresolved",
+      "issue": "Low-alpha edge residue and absence of fully opaque pixels require actual target-renderer compositing check; no blanket halo rejection."
+    }
+  ],
+  "nextStep": "Preserve one-call result, raw failures and explicitly transformed diagnostic. A controllable lower-body/identity-preserving approach is needed before another candidate; no same-prompt reroll. Correct the within-new-pose displacement label to distinguish3px from-first and5px pairwise. This review does not authorize or establish normal-yard acceptance.",
+  "registeredDiagnosticReview": {
+    "reviewedAtUTC": "2026-10-17T16:20:02.385062+00:00",
+    "classification": "registered-diagnostic-reviewed-still-needs-revision",
+    "accepted": false,
+    "inputsInspectedVisually": [
+      "contact-sheet.png",
+      "frames-registered1024/02.png",
+      "frames-registered1024/05.png"
+    ],
+    "inputHashes": {
+      "contact-sheet.png": "21efb38963521cc7cb969c37197b454b5e783f47c70ccf99092fbdde8fcfceb5",
+      "quality-review.json": "bfbd32ba744a267085f15464f4016f33007ccfb2df9d416c6b83bc92aa277683",
+      "manifest.json": "3de137fd52ecef5f1e9e0597b17cc517a317948953286e71e94aea2bf9153fdf"
+    },
+    "methodAssessment": "All six registered frames independently reconstruct pixel-exactly as a common512\u2192572 nearest-neighbor scale plus documented per-frame integer paste on1024 canvas. No part warping/repainting is detected by this reconstruction. Scale chosen against a neutral silhouette is a diagnostic normalization, and per-frame translation is registration correction. Neither is a new generated drawing or evidence that the model obeyed fixed camera/contacts. Existing raw template failures remain unchanged.",
+    "visualFindings": [
+      "Registered contact sheet removes the obvious top/bottom-row placement jump and broadly aligns the new birds with the old neutral scale. The six actual new head/bill drawings remain visible; this is not registration alone presented as new animation.",
+      "Bill-to-own-shoulder contacts remain visible in backward-facing frames. Frame0 already approaches/touches the wing rather than showing an unambiguous separate free approach phase.",
+      "Feet now lie near a common baseline, but toe shape/spread and horizontal positions still change. Exact anatomical contact points are not measured by lower-alpha medians.",
+      "Body/wing outlines and feather shapes vary; final new neutral has a rounder neck/head profile and different wing/tail/body contour than the old neutral. Uniform placement does not eliminate that identity/shape seam.",
+      "The repeated old neutral at both ends creates a trivial identical boundary, while the new neutral-return\u2192old-neutral transition remains visibly different. First/last identity is not transition acceptance."
+    ],
+    "recomputedMetrics": {
+      "frameEvidence": [
+        {
+          "index": 0,
+          "registeredPNG": "frames-registered1024/00.png",
+          "sha256": "4c14658a03a2072b4c1b84310b446495272e3716f889d466f8defe8f1d129d79",
+          "rawCropEqualsOriginalCellPixels": true,
+          "commonUniformNearestScale": 1.1171875,
+          "resizedNativeDimensions": [
+            572,
+            572
+          ],
+          "integerTranslation": [
+            113,
+            235
+          ],
+          "registeredPixelsExactlyMatchUniformResizeAndIntegerPaste": true,
+          "feetLowerAlpha28pxSplitHeuristic": [
+            [
+              484.0,
+              793
+            ],
+            [
+              542.0,
+              800
+            ]
+          ],
+          "lowerBodyY600to720BandWidth": 453
+        },
+        {
+          "index": 1,
+          "registeredPNG": "frames-registered1024/01.png",
+          "sha256": "bab59e43b60568d4565340365002db39f591762df30d4cfc7babe6154b2ba392",
+          "rawCropEqualsOriginalCellPixels": true,
+          "commonUniformNearestScale": 1.1171875,
+          "resizedNativeDimensions": [
+            572,
+            572
+          ],
+          "integerTranslation": [
+            120,
+            235
+          ],
+          "registeredPixelsExactlyMatchUniformResizeAndIntegerPaste": true,
+          "feetLowerAlpha28pxSplitHeuristic": [
+            [
+              484.0,
+              793
+            ],
+            [
+              545.0,
+              800
+            ]
+          ],
+          "lowerBodyY600to720BandWidth": 436
+        },
+        {
+          "index": 2,
+          "registeredPNG": "frames-registered1024/02.png",
+          "sha256": "3bc2142446a0632ef9fef2d570587bf1404a84ecfe4612e795d107f701d5cb2e",
+          "rawCropEqualsOriginalCellPixels": true,
+          "commonUniformNearestScale": 1.1171875,
+          "resizedNativeDimensions": [
+            572,
+            572
+          ],
+          "integerTranslation": [
+            119,
+            235
+          ],
+          "registeredPixelsExactlyMatchUniformResizeAndIntegerPaste": true,
+          "feetLowerAlpha28pxSplitHeuristic": [
+            [
+              483.0,
+              793
+            ],
+            [
+              544.0,
+              800
+            ]
+          ],
+          "lowerBodyY600to720BandWidth": 442
+        },
+        {
+          "index": 3,
+          "registeredPNG": "frames-registered1024/03.png",
+          "sha256": "84817b4e073db4c3f9f90c5b256395970cfc6c4221a08dab70f164d06008d298",
+          "rawCropEqualsOriginalCellPixels": true,
+          "commonUniformNearestScale": 1.1171875,
+          "resizedNativeDimensions": [
+            572,
+            572
+          ],
+          "integerTranslation": [
+            113,
+            306
+          ],
+          "registeredPixelsExactlyMatchUniformResizeAndIntegerPaste": true,
+          "feetLowerAlpha28pxSplitHeuristic": [
+            [
+              482.0,
+              792
+            ],
+            [
+              542.0,
+              800
+            ]
+          ],
+          "lowerBodyY600to720BandWidth": 448
+        },
+        {
+          "index": 4,
+          "registeredPNG": "frames-registered1024/04.png",
+          "sha256": "4d5b2ae5a3a49f491d0aba8ebcef9619ef2478cc9eadd1870f2fa1d9e972fcb0",
+          "rawCropEqualsOriginalCellPixels": true,
+          "commonUniformNearestScale": 1.1171875,
+          "resizedNativeDimensions": [
+            572,
+            572
+          ],
+          "integerTranslation": [
+            124,
+            306
+          ],
+          "registeredPixelsExactlyMatchUniformResizeAndIntegerPaste": true,
+          "feetLowerAlpha28pxSplitHeuristic": [
+            [
+              483.0,
+              791
+            ],
+            [
+              540.0,
+              800
+            ]
+          ],
+          "lowerBodyY600to720BandWidth": 440
+        },
+        {
+          "index": 5,
+          "registeredPNG": "frames-registered1024/05.png",
+          "sha256": "9bb358f69a6c522657ce40fc16938e02c072e205b711fb77f0ee4dc040858bba",
+          "rawCropEqualsOriginalCellPixels": true,
+          "commonUniformNearestScale": 1.1171875,
+          "resizedNativeDimensions": [
+            572,
+            572
+          ],
+          "integerTranslation": [
+            119,
+            306
+          ],
+          "registeredPixelsExactlyMatchUniformResizeAndIntegerPaste": true,
+          "feetLowerAlpha28pxSplitHeuristic": [
+            [
+              483.0,
+              792
+            ],
+            [
+              541.0,
+              800
+            ]
+          ],
+          "lowerBodyY600to720BandWidth": 440
+        }
+      ],
+      "referenceFeetLowerAlpha28pxSplitHeuristic": [
+        [
+          483.0,
+          792.0
+        ],
+        [
+          535.0,
+          800.0
+        ]
+      ],
+      "maximumFootHeuristicDifferenceToExistingNeutralPx": 10.0,
+      "maximumFootHeuristicDisplacementFromFirstNewPosePx": 3.0,
+      "maximumPairwiseFootHeuristicDisplacementPx": 5.0,
+      "maximumPairwiseFootHeuristicDisplacementAt": {
+        "poseA": 1,
+        "poseB": 4,
+        "screenFootIndex": 1
+      },
+      "lowerBodyY600to720BandWidths": [
+        453,
+        436,
+        442,
+        448,
+        440,
+        440
+      ],
+      "lowerBodyBandRelativeWidthRangeUsingMedianDenominator": 0.03854875283446712,
+      "newNeutralReturnToOldNeutralAlpha128MaskIoU": 0.8567319081730498,
+      "newNeutralReturnToOldNeutralAlpha32MaskIoU": 0.858265444293991,
+      "registeredAdjacentAlpha128MaskIoU": [
+        0.8932143288432193,
+        0.8980301537137096,
+        0.9222735813170726,
+        0.8720622602407514,
+        0.9332637462540826
+      ]
+    },
+    "metricCaveats": [
+      "quality-review.json field maximumFootDifferenceWithinNewPosesPx=3 measures maximum displacement from the first new pose, not maximum pairwise displacement. Independent maximum pairwise is5px, between poses1 and4 screen-foot1. Both are heuristic pixel metrics, not anatomical tracking.",
+      "The lower-body width is silhouette width over fixed y600..719, including changing wing/tail extent, not isolated torso anatomy. It is suitable only for the proposed local diagnostic and cannot prove world calibration.",
+      "Alpha128 maskIoU.8567 differs from alpha32 maskIoU.8583 because threshold is explicit; compare like thresholds.",
+      "Pixel reconstruction and hashes establish provenance/derivation, not art quality or runtime safety."
+    ],
+    "localTargetAssessment": {
+      "footDisplacementAtMost4pxVersusExistingNeutral": false,
+      "lowerBodyBandWidthDriftAtMost3percent": false,
+      "newNeutralReturnIoUAtLeastPoint95": false,
+      "actualNewHeadNeckDrawingPresent": true,
+      "manualBillOwnFeatherContactCandidatePresent": true,
+      "allLocalTargetsPass": false
+    },
+    "clipDecodeEvidence": [
+      {
+        "file": "preview.apng",
+        "sha256": "4fd410f5eb590974fd09ff0011a95404d35c22a3adefd3c56988df401a29e29b",
+        "canvas": [
+          1024,
+          1024
+        ],
+        "decodedFrames": 8,
+        "decodedDurationMs": [
+          800.0,
+          220.0,
+          260.0,
+          220.0,
+          240.0,
+          200.0,
+          420.0,
+          600.0
+        ],
+        "temporalVisualPlaybackObserved": false
+      },
+      {
+        "file": "preview.gif",
+        "sha256": "5f6851f89ab959c81205dac7dda6de286942c7f0f17a32e8c489737bbd44fd7b",
+        "canvas": [
+          384,
+          384
+        ],
+        "decodedFrames": 8,
+        "decodedDurationMs": [
+          800,
+          220,
+          260,
+          220,
+          240,
+          200,
+          420,
+          600
+        ],
+        "temporalVisualPlaybackObserved": false
+      },
+      {
+        "file": "raw-cell-preview.apng",
+        "sha256": "a6cd6ff58a66c4ec1a6112e2dbd9f6c1227b3e4560584412b066e5331bf1ada8",
+        "canvas": [
+          512,
+          512
+        ],
+        "decodedFrames": 6,
+        "decodedDurationMs": [
+          220.0,
+          260.0,
+          220.0,
+          240.0,
+          200.0,
+          420.0
+        ],
+        "temporalVisualPlaybackObserved": false
+      },
+      {
+        "file": "raw-cell-preview.gif",
+        "sha256": "28ba099baabbe4a6c0b889ebd7c185cb5de81bccacf143709d984879b38ab650",
+        "canvas": [
+          384,
+          384
+        ],
+        "decodedFrames": 6,
+        "decodedDurationMs": [
+          220,
+          260,
+          220,
+          240,
+          200,
+          420
+        ],
+        "temporalVisualPlaybackObserved": false
+      }
+    ],
+    "newDrawingsCount": 6,
+    "registeredClipFrameCount": 8,
+    "reusedExistingNeutralOccurrences": 2,
+    "newOriginalGenerationCalls": 1,
+    "normalYardPlaybackObserved": false,
+    "recommendation": "Keep this as a useful rejected/needs-revision preening source candidate with labeled registered preview. Do not promote neutral reuse, planted contact, art acceptance or species-slice completeness; retain separate storage/PR and normal-yard playback gates."
+  },
+  "manualBillFeatherAnnotations": {
+    "coordinateSpace": "raw native512x512 cell; x right, y down, integer visual estimates; not registered1024 coordinates",
+    "evidence": "Manual review of actual local RGBA alpha composites, coordinate-grid head crops and2x nearest-neighbor bill-region inspection. Authored only for this review; no source changes.",
+    "landmarkSemantics": "Bill-tip is the visible projected distal bill boundary near wing; shoulder-feather point is a nearby visible attached scapular/upper-wing feather boundary. Their image proximity is not proof of3D touch, depth, occlusion, feather insertion or physical force.",
+    "anatomicalSide": "visible near wing only; anatomical left/right unresolved",
+    "pixelCenterConvention": "approximately located image pixel positions; no subpixel precision claimed",
+    "annotations": [
+      {
+        "rawFrameIndex": 0,
+        "billTipXY": [
+          281,
+          246
+        ],
+        "billTipUncertaintyNativePx": 6,
+        "shoulderFeatherContactCandidateXY": [
+          281,
+          249
+        ],
+        "featherPointUncertaintyNativePx": 6,
+        "visualState": "bill appears already adjacent to/touching own upper-wing feather edge; intended free approach is unproven",
+        "physicalContactAccepted": false
+      },
+      {
+        "rawFrameIndex": 1,
+        "billTipXY": [
+          274,
+          267
+        ],
+        "billTipUncertaintyNativePx": 6,
+        "shoulderFeatherContactCandidateXY": [
+          275,
+          269
+        ],
+        "featherPointUncertaintyNativePx": 6,
+        "visualState": "bill points down/back into own upper-wing feather border; plausible projected contact",
+        "physicalContactAccepted": false
+      },
+      {
+        "rawFrameIndex": 2,
+        "billTipXY": [
+          299,
+          262
+        ],
+        "billTipUncertaintyNativePx": 6,
+        "shoulderFeatherContactCandidateXY": [
+          299,
+          266
+        ],
+        "featherPointUncertaintyNativePx": 6,
+        "visualState": "bill tip meets upper-wing edge below raised attached feather tips; stroke direction and depth unresolved",
+        "physicalContactAccepted": false
+      },
+      {
+        "rawFrameIndex": 3,
+        "billTipXY": [
+          291,
+          223
+        ],
+        "billTipUncertaintyNativePx": 6,
+        "shoulderFeatherContactCandidateXY": [
+          291,
+          226
+        ],
+        "featherPointUncertaintyNativePx": 6,
+        "visualState": "bill tip bends into upper near-wing feather edge; plausible second projected contact",
+        "physicalContactAccepted": false
+      }
+    ],
+    "frames4and5": "Release/neutral: bill is visibly clear of shoulder feathers. Exact tip anchors not annotated in this pass; do not infer contact points.",
+    "acceptance": "manual candidate annotations only; coordinates are not canonical anchors or verified contacts"
+  }
+}

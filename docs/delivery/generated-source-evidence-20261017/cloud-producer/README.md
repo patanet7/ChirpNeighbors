@@ -1,8 +1,8 @@
 # Cloud-produced source artwork — exact-byte preservation
 
 This directory retains actual project source bytes for the canonical repository.
-It contains 11 native generated originals and their exact prompts, 57 registered
-drawings, separate PNG frames, nine APNG/GIF review clips, atlases, contact sheets,
+It contains 12 native generated originals and their exact prompts, 63 registered
+drawings, separate PNG frames, ten APNG/GIF review clips, atlases, contact sheets,
 current candidate manifests, review findings and technical processing sources.
 These are source evidence: **zero local batches are admitted, integrated into the
 Mac app, or accepted as production artwork.** No catalog/default/pin, renderer,
@@ -28,8 +28,7 @@ python3 verify_source_files.py
 python3 verify_source_files.py --pixel-checks
 ```
 
-The verified source archive is 78 MB across small individual files (largest under
-2.5 MB). Rejected rain continuity and the failed perch registration are retained.
+The source archive uses individually hashed PNG/clip/document files. Rejected rain continuity and the failed perch registration are retained.
 Passing hashes/decoding proves recoverable source bytes, not anatomy, contact,
 scale, temporal quality or production acceptance. Original prompts do not expose
 a deterministic model/seed guarantee.
@@ -65,3 +64,30 @@ sources. The private complete checkpoint inventory separately rehashed all 244
 files from the earlier preservation checkpoint; this public folder deliberately
 contains generated project media and technical evidence, rather than personal
 research catalogs, Library identifiers, recordings, databases or credentials.
+
+
+## Female House Finch preening — bounded continuation
+
+One new native call produced six genuinely different head/neck/bill grooming
+drawings. Exact source, prompt,512px immutable crops, timings and manual
+bill/feather candidate landmarks are retained in
+`batches/house-finch-female-preen-v1/`. The raw6-frame sequence shows the
+model's template-scale and64native-pixel row-baseline failure. The separately
+labeled8-frame diagnostic applies one common572/512 nearest-neighbor scale
+and explicit integer placement offsets, with existing neutral entry/exit.
+That registration is not new generated anatomy or evidence of raw compliance.
+
+**Reviewed, needs revision; zero admission/normal-yard acceptance.** Independent
+review measured10sourcepx foot difference from the old neutral,5px maximum
+pairwise foot drift,3.86% lower-body width variation and0.8567 neutral-return
+mask IoU. Proposed local targets fail. Same neutral first/last does not accept
+the intervening transition. Four manual bill/feather pairs have±6native-pixel
+uncertainty and no physical-contact approval. Both GIF/APNGs decode, and the
+standalone HTML preview visibly animates; this is not app playback.
+
+`species-slice-matrix.json` is a redacted derived evidence view for House Finch
+(current focus), Mourning Dove and American Crow. It keeps12slots per species
+and separate source/art/contact/loop/transition/storage/normal-yard gates. It
+is not a catalog or a replacement task ledger; no slot is fully accepted.
+The crow retrieval/control blocker remains separate and caused no generation
+call or infrastructure dependency in this House Finch slice.
