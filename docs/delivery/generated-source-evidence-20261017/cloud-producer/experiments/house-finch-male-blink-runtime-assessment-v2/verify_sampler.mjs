@@ -1,0 +1,7 @@
+import fs from 'node:fs';import vm from 'node:vm';import crypto from 'node:crypto';
+const dir=new URL('.',import.meta.url),source=fs.readFileSync(new URL('contract-snapshot/texture-profile.ts',dir),'utf8');let fn=source.slice(source.indexOf('export function textureReviewFrameAt('),source.indexOf('\nconst digestSchema'));
+fn=fn.replace('export function','function').replace('manifest: TextureReviewManifest','manifest').replace('clipId: string','clipId').replace('elapsedMs: number','elapsedMs').replace('): TextureReviewFrame',')').replace(')!;',');');
+const sample=vm.runInNewContext('('+fn+')'),manifest=JSON.parse(fs.readFileSync(new URL('texture-review-manifest.json',dir),'utf8')),seq=[...Array(42).fill(0),...Array(2).fill(1),...Array(3).fill(2),...Array(2).fill(1),...Array(20).fill(0)];
+for(let k=0;k<seq.length*3;k++){const t=(k+.1)/30*1000;if(sample(manifest,'idle',t).id!==manifest.frames[seq[k%69]].id)throw Error('tick '+k);}
+for(const t of [-1,NaN,Infinity]){let rejected=false;try{sample(manifest,'idle',t)}catch{rejected=true}if(!rejected)throw Error('invalid time accepted');}
+const result={passed:true,sourceCommit:'2e2f724f7b952179495e91f06f0d2d4575569595',sourceSha256:crypto.createHash('sha256').update(source).digest('hex'),sampledTicks:207,invalidTimeControls:3,method:'exact canonical textureReviewFrameAt function after TypeScript type erasure',scope:'timing only, not Zod/Sharp admission or app rendering'};fs.writeFileSync(new URL('sampler-verification.json',dir),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result));

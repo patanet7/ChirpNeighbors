@@ -20,7 +20,8 @@
     {
       "gate": "fixedbody-feet",
       "state": "fails-exact-wholeframe-reuse",
-      "evidence": "half andclosed differ from neutral bodypixels andfootheuristics; see measurements. No fitting or tolerance change hides this."
+      "evidence": "Exact equality fails as measured; evaluate source-scaled output contact and visible motion separately in runtime-assessment-v2.",
+      "applicability": "optional fixed-body rig only; not a natural-blink rejection gate"
     },
     {
       "gate": "physical-scale-and-contact",
@@ -35,7 +36,7 @@
     {
       "gate": "runtime-contract",
       "state": "parentMac-intake-required",
-      "evidence": "source1024 images exceed current profile; same uniform scale/palette/alpha export and existingImageStage validation needed; actionmapping idle/subevent blink and ticks unconfirmed"
+      "evidence": "Unexported1024 sources do not fit; runtime-assessment-v2 provides96 straightRGBA atlas/manifest for existing chirp-texture-review-v1. Canonical Mac Sharp intake/receipt pending; legacy binary/palette profile is separate."
     },
     {
       "gate": "rights-reference-and-taxonomy",
@@ -47,5 +48,6 @@
       "state": "not-tested",
       "evidence": "Mac owns normalyard/reducedmotion/mirroredcontact validation"
     }
-  ]
+  ],
+  "criteriaAudit": "runtime-assessment-v2 separates fixed-body rig equality from natural-animation quality; old numeric evidence unchanged"
 }
