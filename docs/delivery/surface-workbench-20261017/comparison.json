@@ -1,0 +1,219 @@
+{
+  "commit": "d3fcadbaa5d4e646268ecdda4ce8514478776f8a",
+  "runtime": {
+    "node": "24.19.0",
+    "python": "3.12.12",
+    "TMPDIR": "/private/tmp",
+    "umask": "022"
+  },
+  "summary": {
+    "baseline": {
+      "failed": 32,
+      "passed": 59,
+      "total": 91
+    },
+    "current": {
+      "failed": 32,
+      "passed": 59,
+      "total": 91
+    }
+  },
+  "sameFailingCases": true,
+  "introducedFailures": [],
+  "files": [
+    {
+      "path": "src/lib/server/image-files/service.test.ts",
+      "total": 16,
+      "baseline": 1,
+      "current": 1,
+      "sha256": "f0426413cd8d28f0b8c10616ef6c6576c46bac2615cdfdb8a642f20a6a9110d5",
+      "matchesPublished": true
+    },
+    {
+      "path": "src/lib/server/auth/smtp-socket.test.ts",
+      "total": 1,
+      "baseline": 1,
+      "current": 1,
+      "sha256": "e0fc7f61c3c77b0832f59814f752c28fd1c3410a8c28fc5cb082be9ebbb6c5ef",
+      "matchesPublished": true
+    },
+    {
+      "path": "src/lib/server/operations/lifecycle-recovery.test.ts",
+      "total": 6,
+      "baseline": 6,
+      "current": 6,
+      "sha256": "cafe869eb63cc72469c91446e82fe4664ccdd8d865ae517b9dd14e91cd8074dd",
+      "matchesPublished": true
+    },
+    {
+      "path": "src/lib/server/operations/reference-recovery.test.ts",
+      "total": 20,
+      "baseline": 7,
+      "current": 7,
+      "sha256": "ebbe8e62cddd6d613b3f6f460c10607f0da996e0743e92a3a5eaa68d4bd84a6b",
+      "matchesPublished": true
+    },
+    {
+      "path": "src/lib/server/operations/restore-auth.test.ts",
+      "total": 1,
+      "baseline": 1,
+      "current": 1,
+      "sha256": "e14ed2bbc7ff975e54eef99d6e145ebd9d2e9e469c41b59eee6aee1a2f6c2b47",
+      "matchesPublished": true
+    },
+    {
+      "path": "src/lib/server/operations/restore-optional-state.test.ts",
+      "total": 2,
+      "baseline": 2,
+      "current": 2,
+      "sha256": "a4215384b7864a9894701e087666e533feee8e57fd6b854f965d046f7edfa16f",
+      "matchesPublished": true
+    },
+    {
+      "path": "src/lib/server/operations/restore-shares.test.ts",
+      "total": 3,
+      "baseline": 3,
+      "current": 3,
+      "sha256": "f08f031165ec568c689fab3dd1ee74a0497ce97085ff82fc715874eacef225b6",
+      "matchesPublished": true
+    },
+    {
+      "path": "src/lib/server/reference-admission/recovery.test.ts",
+      "total": 42,
+      "baseline": 11,
+      "current": 11,
+      "sha256": "cc81d4969c2e72630e44d0ec592b19db746cb30e365f5ba623f3e975df070d5d",
+      "matchesPublished": true
+    }
+  ],
+  "failedCases": [
+    {
+      "file": "src/lib/server/auth/smtp-socket.test.ts",
+      "title": "forwards exactly the whole-send byte budget and destroys the peer on the next byte"
+    },
+    {
+      "file": "src/lib/server/image-files/service.test.ts",
+      "title": "private real PNG source files cold backup and dry-run/actual restore preserve reviewed image bytes and reject incomplete media"
+    },
+    {
+      "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+      "title": "offline retained deletion ledger recovery through the real CLI does not install a restore if cleanup cannot remove media and leaves the checkpoint untouched"
+    },
+    {
+      "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+      "title": "offline retained deletion ledger recovery through the real CLI preserves live media with a valid empty ledger and rejects future or partial database schemas"
+    },
+    {
+      "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+      "title": "offline retained deletion ledger recovery through the real CLI rejects a retained checksum mismatch and malformed or duplicate-key JSON without exposing data"
+    },
+    {
+      "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+      "title": "offline retained deletion ledger recovery through the real CLI rejects wrong lineage, unknown schema, truncated/gapped history and changed known prefixes"
+    },
+    {
+      "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+      "title": "offline retained deletion ledger recovery through the real CLI requires a retained ledger for lifecycle-aware checkpoints, including dry run"
+    },
+    {
+      "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+      "title": "offline retained deletion ledger recovery through the real CLI restores an old checkpoint with later revocations, purges bytes/derived payloads and fences retries after restart"
+    },
+    {
+      "file": "src/lib/server/operations/reference-recovery.test.ts",
+      "title": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained identity.json and preserves original snapshot bytes"
+    },
+    {
+      "file": "src/lib/server/operations/reference-recovery.test.ts",
+      "title": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained revocations/synthetic.json and preserves original snapshot bytes"
+    },
+    {
+      "file": "src/lib/server/operations/reference-recovery.test.ts",
+      "title": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained synthetic.original and preserves original snapshot bytes"
+    },
+    {
+      "file": "src/lib/server/operations/reference-recovery.test.ts",
+      "title": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses initialized reference tables even if every reference file was omitted"
+    },
+    {
+      "file": "src/lib/server/operations/reference-recovery.test.ts",
+      "title": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files without any application DB"
+    },
+    {
+      "file": "src/lib/server/operations/reference-recovery.test.ts",
+      "title": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files/identity.json without any application DB"
+    },
+    {
+      "file": "src/lib/server/operations/reference-recovery.test.ts",
+      "title": "real offline backup CLI enforces reference refusal in full and dry-run restore still restores old no-reference backups and leaves the source unchanged"
+    },
+    {
+      "file": "src/lib/server/operations/restore-auth.test.ts",
+      "title": "restores real auth accounts while invalidating old sessions and one-use links only in the copy"
+    },
+    {
+      "file": "src/lib/server/operations/restore-optional-state.test.ts",
+      "title": "offline restore revokes consent and pending arrivals with recording ledger=false"
+    },
+    {
+      "file": "src/lib/server/operations/restore-optional-state.test.ts",
+      "title": "offline restore revokes consent and pending arrivals with recording ledger=true"
+    },
+    {
+      "file": "src/lib/server/operations/restore-shares.test.ts",
+      "title": "refuses an unknown share-update trigger before installing either legacy or lifecycle data"
+    },
+    {
+      "file": "src/lib/server/operations/restore-shares.test.ts",
+      "title": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=false)"
+    },
+    {
+      "file": "src/lib/server/operations/restore-shares.test.ts",
+      "title": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=true)"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery exports and reconciles a revocation published before an interrupted SQL commit"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery operation check is read-only; apply writes a deterministic private receipt and retains default refusal"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery preserves later rejected reviews and never replaces them with approval"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery rejects a concurrent revocation writer while recovery owns the SQLite write lock"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery restores later reviews and terminal revocation with exact pins, owner scope and request retries"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery restores valid later approval while obsolete review pins remain invalid"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery retries safely after failure at authority-validated without discarding terminal authority"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery retries safely after failure at before-commit without discarding terminal authority"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery retries safely after failure at committed without discarding terminal authority"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery retries safely after failure at reviews-reconciled without discarding terminal authority"
+    },
+    {
+      "file": "src/lib/server/reference-admission/recovery.test.ts",
+      "title": "complete private reference authority and bounded offline recovery retries safely after failure at tombstone-published without discarding terminal authority"
+    }
+  ]
+}

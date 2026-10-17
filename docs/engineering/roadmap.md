@@ -192,6 +192,21 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 
 **Integrated environment extension (E-ENV; separate from E-INT):** PB-023/PB-024 add local illustrative rendering and behavior without a real provider or location consent. The [environment browser report](../delivery/LOCAL-EVIDENCE.md) verifies neutral unconfigured real weather, transient saved-clock previews and unchanged private/public state. Persisted weather contracts and external provider dependencies remain unchanged; the local pass does not establish real weather integration.
 
+**Local workbench follow-up (exploratory prototype checked in desktop and narrow Mac viewports):** PB-023-B
+adds an opt-in synthetic basin and surface accumulation/melt experiment under the
+existing renderer/clock; PB-011-E retains production water/object/yard art gates.
+Synthetic rain, temperature controls, bath-slot effects and meltwater accounting
+are not a provider integration, location grant, real terrain survey or physical
+fluid/thermal model. EN-009 remains unconfigured; existing manual/simulated and
+neutral real-mode behavior, privacy and saved settings must remain compatible.
+The [current prototype receipt](../delivery/surface-workbench-20261017/README.md)
+does not qualify a physical phone or production hydrology. The separate
+[fixed-domain SI experiment](../delivery/surface-workbench-20261017/si-core-checkpoint.md)
+has passing focused numerical/clock tests and bounded independent code approval;
+the full [water/snow design](../architecture/surface-weather-model.md) still requires
+topology/persistence/authored-scene integration, calibration and actual renderer
+acceptance. EN-009 remains a separate unconfigured provider boundary.
+
 ### EN-010 — Publication/PR and production checkpoint
 
 **Source / decision:** The original local task excluded publication; subsequent user instructions authorized engine PRs/merges and later the separately reviewed documentation PRs/merges. **Implementation:** Engine review branches published. **Integration:** Both engine PRs and main documentation cleanup PR #4 merged; subsequent backlog/runtime/visual candidates require their own exact source/check review. **Release / production:** See [current release status](../publication/20261012/README.md); no deployment is established by a Git merge.
@@ -235,6 +250,14 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 **Tests and evidence:** [U:src/lib/server/recordings/lifecycle.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/recordings/lifecycle.test.ts); [U:src/lib/server/operations/lifecycle-recovery.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/operations/lifecycle-recovery.test.ts); [U:scripts/tests/test_private_backup.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/tests/test_private_backup.py). [E-CAT:recording-lifecycle/recording-lifecycle-browser-results.json](../delivery/LOCAL-EVIDENCE.md); [E-CAT:lifecycle-recovery-http.log](../delivery/LOCAL-EVIDENCE.md).
 
 **Dependencies:** PB-012, PB-013, PB-022, EN-003, EN-006. **Remaining gap:** No automatic discovery/erasure of offline copies, account-wide orchestrator, production purge or guarantee of newest ledger; archive is not deletion authorization. E-REF adds terminal reference revocation for the current store, but cannot secure rollback of both database and external tombstones from an older entire filesystem; supported reference-store cold restore is deliberately refused. Recording-deletion export is not a reference-revocation export. **Next action:** Establish latest-receipt custody and owner/operator retention/erasure policy; preserve the E-REC freshness limit. Original worker integration precedes distributed cleanup.
+
+**Planned photo-yard dependency:** PB-011-F extends this policy question to a private
+original, metadata-stripped working copy, editable mask revisions, inpainted/stylized
+layers, geometry, scene pins, caches and backups. Define complete derivative lineage,
+rights-revocation effects, reversible prior-scene fallback and separately authorized
+deletion before real photo processing or sharing. Existing source-file revocation
+does not by itself implement scene-wide erasure or offline-copy guarantees. The
+photo-free storyboard performs no intake, processing, upload, deletion or publication.
 
 **Bounded reference cold recovery (E-REC; local integrated checkpoint):** Complete current review/revocation/idempotency authority may reconcile only a backup with the same immutable admission set. The independently retained latest digest binds bytes but cannot prove newestness when both authority and receipt roll back. Loss of genuine authority or the trusted receipt remains blocked. Existing recording-deletion evidence stays separate; this introduces no purge, erasure policy or discovery of offline copies.
 

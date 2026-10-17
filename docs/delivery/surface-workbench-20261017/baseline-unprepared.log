@@ -1,0 +1,76 @@
+▲ [WARNING] Cannot find base config file "./.svelte-kit/tsconfig.json" [tsconfig.json]
+
+    tsconfig.json:2:13:
+      2 │   "extends": "./.svelte-kit/tsconfig.json",
+        ╵              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ RUN  v3.2.4 <PRIVATE_BASELINE_CHECKOUT>
+
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 8 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/lib/server/auth/smtp-socket.test.ts [ src/lib/server/auth/smtp-socket.test.ts ]
+TSConfckParseError: failed to resolve "extends":"./.svelte-kit/tsconfig.json" in <PRIVATE_BASELINE_CHECKOUT>/tsconfig.json
+  Plugin: vite:esbuild
+  File: <PRIVATE_BASELINE_CHECKOUT>/src/lib/server/auth/smtp-socket.test.ts
+ ❯ resolveExtends ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5809:8
+ ❯ parseExtends ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5775:71
+ ❯ parse$13 ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5677:23
+ ❯ loadTsconfigJsonForFile ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6302:37
+ ❯ transformWithEsbuild ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6086:55
+ ❯ TransformPluginContext.transform ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6172:20
+ ❯ EnvironmentPluginContainer.transform ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:29048:14
+ ❯ loadAndTransform ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:22914:26
+
+Caused by: Error: Cannot find module './.svelte-kit/tsconfig.json'
+Require stack:
+- <PRIVATE_BASELINE_CHECKOUT>/tsconfig.json
+ ❯ resolveExtends ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5800:16
+ ❯ parseExtends ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5775:71
+ ❯ parse$13 ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5677:23
+ ❯ loadTsconfigJsonForFile ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6302:37
+ ❯ transformWithEsbuild ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6086:55
+ ❯ TransformPluginContext.transform ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6172:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/8]⎯
+
+ FAIL  src/lib/server/image-files/service.test.ts [ src/lib/server/image-files/service.test.ts ]
+ FAIL  src/lib/server/operations/lifecycle-recovery.test.ts [ src/lib/server/operations/lifecycle-recovery.test.ts ]
+ FAIL  src/lib/server/operations/reference-recovery.test.ts [ src/lib/server/operations/reference-recovery.test.ts ]
+ FAIL  src/lib/server/operations/restore-auth.test.ts [ src/lib/server/operations/restore-auth.test.ts ]
+ FAIL  src/lib/server/operations/restore-optional-state.test.ts [ src/lib/server/operations/restore-optional-state.test.ts ]
+ FAIL  src/lib/server/operations/restore-shares.test.ts [ src/lib/server/operations/restore-shares.test.ts ]
+ FAIL  src/lib/server/reference-admission/recovery.test.ts [ src/lib/server/reference-admission/recovery.test.ts ]
+TSConfckParseError: failed to resolve "extends":"./.svelte-kit/tsconfig.json" in <PRIVATE_BASELINE_CHECKOUT>/tsconfig.json
+  Plugin: vite:esbuild
+  File: <PRIVATE_BASELINE_CHECKOUT>/src/lib/server/image-files/service.test.ts
+ ❯ resolveExtends ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5809:8
+ ❯ parseExtends ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5775:71
+ ❯ getParsedDeep ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5696:32
+ ❯ parse$13 ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5674:84
+ ❯ loadTsconfigJsonForFile ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6302:37
+ ❯ transformWithEsbuild ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6086:55
+ ❯ TransformPluginContext.transform ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6172:20
+ ❯ EnvironmentPluginContainer.transform ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:29048:14
+ ❯ loadAndTransform ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:22914:26
+
+Caused by: Error: Cannot find module './.svelte-kit/tsconfig.json'
+Require stack:
+- <PRIVATE_BASELINE_CHECKOUT>/tsconfig.json
+ ❯ resolveExtends ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5800:16
+ ❯ parseExtends ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5775:71
+ ❯ getParsedDeep ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5696:32
+ ❯ parse$13 ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:5674:84
+ ❯ loadTsconfigJsonForFile ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6302:37
+ ❯ transformWithEsbuild ../../birdsong-yard-sprites/node_modules/vite/dist/node/chunks/config.js:6086:55
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/8]⎯
+
+
+ Test Files  8 failed (8)
+      Tests  no tests
+   Start at  18:02:01
+   Duration  229ms (transform 8ms, setup 0ms, collect 0ms, tests 0ms, environment 1ms, prepare 367ms)
+
+JSON report written to <UI_CHECKOUT>/docs/delivery/surface-workbench-20261017/baseline-unit.json

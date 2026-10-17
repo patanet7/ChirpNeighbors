@@ -108,6 +108,91 @@ The photo-conditioned species-art acceptance in PB-021 excludes a plain downsamp
 
 **Current visual direction:** The bounded source-density/layout implementation is recorded under [PB-011-C](yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui). Source pixel detail and on-screen world size are separate decisions. There is **no user approval of a 32px art canvas or world footprint**; a fixture dimension is not design authority. The unseen approved concept cannot be claimed matched from a description or from technical test success.
 
+**Local art-lab follow-up (planning and engine integration, unpublished):**
+`U:src/lib/workbench/production-plan.ts` supplies versioned local planning metadata
+for `/art-lab`, reusing existing species/animation, scene and object authorities.
+The bounded target is one European robin, one layered garden and a feeder, with
+idle/moving/feeding contact and depth acceptance before expanding the clip pack.
+Garden/courtyard concepts and perch/feed/bath/nest anchor comparisons are planning
+inputs; existing five-frame/six-clip fixture art and absent sleep/play/nest clips
+stay disclosed. No new production pixels or approval is implied.
+
+Private V4 source density 1/2/4 does not bypass the 65,536 decoded-pixel/64-frame
+bound or the 256-pixel source edge. The shared catalog public render path remains
+V2-only, so globally reusable high-detail V4 assets need coordinated publication
+and reader-contract evolution under PB-003. Preserve exact old pins and default-deny
+production promotion. Canvas, frame reuse, proportions, palette and lighting need
+actual visual review; neither the 32×32/60-frame proposal nor the padded fixture
+canvas is approved direction. Reference rights/species review, separate bird/yard/
+object production, bounded packaging, actual-yard interaction checks and immutable
+catalog release remain the existing PB-014/020/021 gates. Explicit simulation can
+exercise these engine behaviors but cannot establish real detection syncing.
+
+#### Retained raven production case: reusable method, separate asset contract
+
+The user-delivered [raven report and materialization receipt](../delivery/raven-production-20261017/README.md)
+are now readable locally; the complete original and private identifiers were
+preserved outside Git. The public report is explicitly redacted, with separate
+original-source and public-copy size/SHA-256 records. This resolves **report access**, not access/validation of
+the approved Chirp species concept. The raven case's final atlas and optional archive
+were not downloaded here. Its reported completed rows, validation, motion metrics
+and user acceptance are source statements, not independently checked atlas evidence
+in this checkout. The mascot is pixel-art-adjacent illustration, not reviewed actual-
+species anatomy or a demonstrated strict-grid/palette Chirp pack. It grants no new
+source/model/output rights or production publication authority.
+
+**Reuse within PB-014/020/021, without rebuilding the existing pipeline:**
+
+- Freeze an approved canonical identity/reference revision before generating action
+  variants; separately identify species, style, pose and layout reference roles.
+  Keep exact source bytes/hashes, prompt revisions, accepted/rejected candidates and
+  repair history. The report records actual descriptive prompts, magenta source
+  generation with `transparent_background: false`, then reference-grounded state
+  calls; underlying model/seed/resolution controls were not exposed. Preserve that
+  limit rather than promising byte-identical regeneration from a prompt.
+- Extract complete connected poses **before** equal-cell cropping or mirroring.
+  Group detached toes/feather tips with their bird; the largest component alone can
+  amputate anatomy. Register with stable anatomical/body scale, grounded baseline,
+  pivots, padding and intentional airborne displacement. Do not independently fit
+  every pose envelope: extended wings must not shrink the torso.
+- Review chroma extraction against light/dark/saturated backgrounds. The case used
+  RGB `(255,0,255)` source backing; antialiased edge mixtures require inspection,
+  not indiscriminate colour-distance deletion. Chirp's binary-alpha/grid/palette
+  admission remains a distinct deliberate conversion/review gate. No automatic
+  chroma-key implementation or art replacement is supplied by this documentation.
+- Retain anatomy/temporal failure cases and repairs: clipped tails required new
+  complete source poses, handlike waiting gestures required natural wing mechanics,
+  spread-wing hop fitting shrank the body, premature fixed-slot mirroring cut poses,
+  and gaze generation reversed the body until head/neck motion was constrained
+  separately. Empty-padding/edge tests cannot prove a source tail was never clipped.
+  Foot gaps may be legitimate anatomy rather than holes to fill.
+- Inspect contact sheets **and motion** at actual display size. The report records
+  a 28-source-pixel hop, zero landing offset, 1.5-pixel gaze-centre drift and a 1.109
+  gaze-width ratio; these are case measurements, not Chirp acceptance thresholds.
+  Retain the ambiguous 292.5° vertical-gaze warning rather than converting a labeled
+  acceptance into uniform blind-review success. Keep preview timing separate from
+  runtime action binding; the report explicitly could not verify automatic event
+  activation. Chirp still needs its actual sampler, support and transition review.
+
+**Packaging boundary:** The report describes 73 populated pet frames in a
+1536×2288 atlas with 192×208 cells. Its row names, sixteen gaze angles and pet
+lifecycle are not Chirp's closed nine-action/right-facing-mirrorable contracts.
+In particular the pet's `running` work/thinking row is not automatically locomotion.
+The whole atlas exceeds Chirp's 256-pixel source edge; although an individual
+192×208 cell fits that edge, 73 such frames total 2,915,328 decoded pixels and exceed
+both the 64-frame and 65,536-pixel private pack limits (even two native cells exceed
+the pixel budget). Repacking alone does not solve this. Review actual species
+inputs, canvas/clip scope/frame reuse, palette/alpha and any separately versioned
+resource/public-catalog extension before admission. Do not downsample the mascot
+and claim species fidelity, pet-format compatibility or approved 32px direction.
+
+**Next acceptance:** Reuse these extraction/registration/review techniques in the
+existing one-species vertical slice only after exact input bytes and rights are
+available. Bind accepted frames, timing, pivots, contacts and lineage to the existing
+immutable manifests; run actual normal/reduced-motion/Pixi/SVG and fallback tests.
+No raven media, pet identifier/selection, generation provider or new Chirp artwork
+pin was installed by importing this report.
+
 ### PB-022 — Owners can reversibly archive private uploads/packages and unpin or restore resident artwork, with explicit retention reasons.
 
 **Source / decision:** user decision; Agreed. **Implementation:** Reversible lifecycle implemented. **Integration:** Local integrated checkpoint. **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.
