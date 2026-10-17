@@ -1,0 +1,249 @@
+{
+  "canvas_dimensions_px": [
+    1536,
+    1024
+  ],
+  "coordinate_system": "x right, y down; all full-canvas production layers share origin [0,0]",
+  "direct_reference_pixel_inspection_by_this_worker": false,
+  "reference_state": "Mac observation brief received; actual pixel transfer pending",
+  "generation_state": "not_submitted",
+  "scope": "Original composition/layer plan only; no source layout copying, no new image assets or runtime implementation",
+  "render_contract": {
+    "style": "Detailed naturalistic square-pixel clusters, connected organic shape groups, stepped silhouettes, restrained hue ramps; calm broad atmosphere with selective foreground detail.",
+    "light": "Soft upper-left light, consistent cast-shadow direction toward lower-right.",
+    "depth": "Far planes lower contrast and cooler; nearby forms darker with selective restrained warm highlights.",
+    "bird_focus": "Keep a broad continuous open ground stage. No birds, feeders, baths, furniture, text or UI baked into these layers."
+  },
+  "canonical_receipt": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null,
+    "pull_request": null
+  },
+  "asset_id": "scene.san_diego_compact_marine_courtyard",
+  "family_id": "scene.san_diego_compact_marine_courtyard",
+  "composition_id": "composition-review-01.marine_courtyard",
+  "name": "Compact marine-morning courtyard with a side-gate glimpse",
+  "regional_fit": "Small exterior coastal urban courtyard in diffuse marine light. Managed containers and sparse cultivated accents remain irrigation-dependent.",
+  "original_design_choices": [
+    "Small domestic enclosure with quiet pale pavers, an asymmetrical low wall return and a narrow gate glimpse at far right.",
+    "No pergola, panoramic coastline, ridge vista, lake, boat or center feature; this is distinct from the previous broad managed patio.",
+    "Soft marine gray-blue upper opening contrasts with restrained buff plaster and warm-gray ground.",
+    "Only a narrow near left vine edge and small corner containers frame the open ground; no dense foliage arch."
+  ],
+  "composition_regions": [
+    {
+      "id": "marine_opening",
+      "bounds_px": [
+        190,
+        0,
+        1350,
+        460
+      ],
+      "role": "Broad low-contrast pale exterior sky opening."
+    },
+    {
+      "id": "side_gate_glimpse",
+      "bounds_px": [
+        1250,
+        390,
+        1420,
+        650
+      ],
+      "role": "Small depth cue, kept quiet enough not to dominate birds."
+    },
+    {
+      "id": "quiet_bird_stage",
+      "polygon_px": [
+        [
+          350,
+          650
+        ],
+        [
+          1190,
+          650
+        ],
+        [
+          1250,
+          980
+        ],
+        [
+          300,
+          980
+        ]
+      ],
+      "role": "Continuous understated paver ground with gentle seams, no central clutter."
+    },
+    {
+      "id": "left_edge_frame",
+      "bounds_px": [
+        0,
+        80,
+        145,
+        1024
+      ],
+      "role": "Narrow vine/support fragment, sparse and peripheral."
+    }
+  ],
+  "layers": [
+    {
+      "id": "distance_base",
+      "order": 0,
+      "requested_alpha": false,
+      "extent": "full canvas",
+      "generated": false,
+      "contents": "Pale marine cloud deck, restrained low rooftop silhouettes and soft side-street color glimpse. Lower half quiet underpaint to be covered.",
+      "flattened_within_layer": [
+        "sky_cloud_deck",
+        "distant_rooftops"
+      ],
+      "exclusions": [
+        "close_walls",
+        "pavers",
+        "foreground_plants",
+        "objects"
+      ]
+    },
+    {
+      "id": "courtyard_midground",
+      "order": 10,
+      "requested_alpha": true,
+      "generated": false,
+      "transparent_region_target_px": [
+        0,
+        0,
+        1536,
+        390
+      ],
+      "opaque_region_target_px": [
+        0,
+        610,
+        1536,
+        1024
+      ],
+      "transition_region_target_px": [
+        0,
+        390,
+        1536,
+        610
+      ],
+      "contents": "Quiet buff stucco rear boundary and return, narrow far-right side gate, small-scale continuous pale pavers with mild cool seam shadows.",
+      "flattened_within_layer": [
+        "stucco_boundary",
+        "side_gate",
+        "pavers"
+      ],
+      "integration_rule": "Align untrimmed origin; check gate glimpse and boundary silhouette against distance base.",
+      "ground_anchor_px": [
+        768,
+        1024
+      ],
+      "contact_footprint_px": [
+        [
+          300,
+          650
+        ],
+        [
+          1200,
+          650
+        ],
+        [
+          1250,
+          1000
+        ],
+        [
+          260,
+          1000
+        ]
+      ]
+    },
+    {
+      "id": "foreground_frame",
+      "order": 30,
+      "requested_alpha": true,
+      "generated": false,
+      "contents": "One narrow side vine/support at extreme left and two small low corner container accents. Generic cultivated foliage; no new botanical species identity claim.",
+      "center_transparency_target_px": [
+        300,
+        0,
+        1380,
+        1024
+      ],
+      "flattened_within_layer": [
+        "container",
+        "foliage",
+        "support"
+      ],
+      "wind_attachment_metadata": [
+        {
+          "id": "left_container_base",
+          "position_px": [
+            110,
+            1010
+          ],
+          "status": "provisional_artist_estimate_not_rigged"
+        },
+        {
+          "id": "right_container_base",
+          "position_px": [
+            1460,
+            1010
+          ],
+          "status": "provisional_artist_estimate_not_rigged"
+        }
+      ],
+      "limitations": "Rigid pots/supports and leaves not independently rigged; requested alpha does not establish semantic separation inside the layer."
+    }
+  ],
+  "approximate_world_scale": {
+    "ground_width_m": 6,
+    "status": "art_direction_proposal_not_calibrated",
+    "pixels_per_meter": null
+  },
+  "state_slots": [
+    {
+      "id": "marine_morning",
+      "status": "planned"
+    },
+    {
+      "id": "clear_afternoon",
+      "status": "missing"
+    },
+    {
+      "id": "healthy_managed_containers",
+      "status": "missing"
+    },
+    {
+      "id": "dry_containers",
+      "status": "missing"
+    },
+    {
+      "id": "damp_cool_season_pavers",
+      "status": "missing"
+    }
+  ],
+  "seasonal_constraints": [
+    "Marine cloud does not imply rainforest vegetation.",
+    "Container greenness depends on management separately from calendar.",
+    "Outdoor courtyard only; no indoor visiting-bird or rain/wind behavior assumed.",
+    "No snow default."
+  ],
+  "cross_track_slots": [
+    {
+      "id": "small_bath_slot",
+      "position_px": [
+        970,
+        800
+      ],
+      "status": "reserved_empty_not_functional"
+    },
+    {
+      "id": "free_object_slot",
+      "position_px": [
+        600,
+        850
+      ],
+      "status": "reserved_empty_not_functional"
+    }
+  ]
+}

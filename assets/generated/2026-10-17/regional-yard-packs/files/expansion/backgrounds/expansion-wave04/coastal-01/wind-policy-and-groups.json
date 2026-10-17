@@ -1,0 +1,484 @@
+{
+  "policy": {
+    "status": "PROPOSED_ARTIST_POLICY_NOT_IMPLEMENTED",
+    "physics_calibrated": false,
+    "stiffness_definition": "Dimensionless artist resistance parameter0..1, larger meansless motion; not spring constant or measured physical stiffness.",
+    "caps_definition": "Maximum absolute proposed rotation from rest and tip displacement at1536x1024 scene; both caps apply, choose more restrictive. No displacement of roots/contact pivots.",
+    "classes": {
+      "rigid": {
+        "stiffness": 1.0,
+        "mild_rotation_deg": 0,
+        "strong_rotation_deg": 0,
+        "mild_tip_displacement_px": 0,
+        "strong_tip_displacement_px": 0,
+        "root_translation_px": 0,
+        "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+      },
+      "flexible_branch": {
+        "stiffness": 0.85,
+        "mild_rotation_deg": 0.6,
+        "strong_rotation_deg": 1.8,
+        "mild_tip_displacement_px": 2,
+        "strong_tip_displacement_px": 5,
+        "root_translation_px": 0,
+        "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+      },
+      "foliage_mass": {
+        "stiffness": 0.65,
+        "mild_rotation_deg": 0.8,
+        "strong_rotation_deg": 2.2,
+        "mild_tip_displacement_px": 3,
+        "strong_tip_displacement_px": 7,
+        "root_translation_px": 0,
+        "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+      },
+      "grass_tip": {
+        "stiffness": 0.45,
+        "mild_rotation_deg": 1.0,
+        "strong_rotation_deg": 3.0,
+        "mild_tip_displacement_px": 1,
+        "strong_tip_displacement_px": 3,
+        "root_translation_px": 0,
+        "pivot_rule": "Base of isolated blade/tipgroup; lawnpaint/soil/rootline remainrigid. No whole-groundwarp."
+      }
+    },
+    "art_safety_limits": {
+      "ground_warp": false,
+      "root_sliding": false,
+      "pot_or_trunk_sway": false,
+      "scale_stretch_allowed": false,
+      "leaf_scale_range": [
+        1,
+        1
+      ],
+      "alpha_or_lightness_flicker": "No procedural opacity/color pulsation; nearest resampling or subpixel treatment must be reviewed for pixel shimmer.",
+      "occlusion": "Motion mustrespectstaticfrontpotrim/branchjunction; masksnotyetavailable.",
+      "review": "Mild/strong areartistlabels only, no weather-speed conversion. Reject visible jointgaps, leafstretch, clippedtips or groundcontactdrift."
+    },
+    "optional_loose_leaves": {
+      "status": "missing_not_implemented",
+      "stiffness": null,
+      "pivot": null,
+      "amplitude_caps": null,
+      "reason": "Detachedparticleart/path/emissionrulesnotdesigned; no blanketautumnemission."
+    }
+  },
+  "actual_source_layer_count": 4,
+  "actual_flexible_source_file_count": 1,
+  "global_foliage_pivot": null,
+  "global_pivot_reason": "Unrelatedpot/branch/bordergroupscannotsharesinglepivot. Fullflexiblesourceremainscompound; now6spatialcropsavailable asprovisionalgroups.",
+  "actual_per_leaf_separation": false,
+  "actual_per_twig_separation": false,
+  "actual_rig_implemented": false,
+  "actual_deformation_implemented": false,
+  "static_pivots": [
+    {
+      "id": "pot_contact",
+      "pivot_scene_px": [
+        130,
+        1000
+      ],
+      "status": "artistcontactestimate",
+      "caps": {
+        "stiffness": 1.0,
+        "mild_rotation_deg": 0,
+        "strong_rotation_deg": 0,
+        "mild_tip_displacement_px": 0,
+        "strong_tip_displacement_px": 0,
+        "root_translation_px": 0,
+        "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+      }
+    },
+    {
+      "id": "trunk_root",
+      "pivot_scene_px": [
+        1480,
+        1015
+      ],
+      "status": "artistcontactestimate",
+      "caps": {
+        "stiffness": 1.0,
+        "mild_rotation_deg": 0,
+        "strong_rotation_deg": 0,
+        "mild_tip_displacement_px": 0,
+        "strong_tip_displacement_px": 0,
+        "root_translation_px": 0,
+        "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "left_pot_mass",
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/flexible-foliage-r1.png",
+      "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+      "source_roi_px": [
+        0,
+        540,
+        300,
+        810
+      ],
+      "actual_visible_alpha_bounds_px": [
+        1,
+        540,
+        273,
+        770
+      ],
+      "bounds_threshold": "alpha>=128",
+      "pivot_scene_px": [
+        130,
+        767
+      ],
+      "pivot_basis": "Visiblealpha pixelnearestprovisionaljoint; artistanchor, notcertifiedanatomicaljoint. Needsstatic-supportocclusionreview.",
+      "root_contact_fixed": true,
+      "motion_class": "foliage_mass",
+      "proposed_caps": {
+        "stiffness": 0.65,
+        "mild_rotation_deg": 0.8,
+        "strong_rotation_deg": 2.2,
+        "mild_tip_displacement_px": 3,
+        "strong_tip_displacement_px": 7,
+        "root_translation_px": 0,
+        "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+      },
+      "derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/derivatives/flexible-left_pot_mass.png",
+        "crop_box_px": [
+          0,
+          540,
+          277,
+          774
+        ],
+        "dimensions_px": [
+          277,
+          234
+        ],
+        "trim_offset_px": [
+          0,
+          540
+        ],
+        "local_pivot_px": [
+          130,
+          227
+        ],
+        "sha256": "a0923ed73bd2275f0808cb4dc514594538a9030a8611b6cb28571f02cceeae2c",
+        "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+      },
+      "actual_group_crop_available": true,
+      "actual_motion_or_rig_implemented": false,
+      "occlusion_mask_available": false,
+      "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+    },
+    {
+      "id": "right_upper_branch",
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/flexible-foliage-r1.png",
+      "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+      "source_roi_px": [
+        1080,
+        0,
+        1536,
+        240
+      ],
+      "actual_visible_alpha_bounds_px": [
+        1108,
+        0,
+        1536,
+        240
+      ],
+      "bounds_threshold": "alpha>=128",
+      "pivot_scene_px": [
+        1220,
+        125
+      ],
+      "pivot_basis": "Visiblealpha pixelnearestprovisionaljoint; artistanchor, notcertifiedanatomicaljoint. Needsstatic-supportocclusionreview.",
+      "root_contact_fixed": true,
+      "motion_class": "flexible_branch",
+      "proposed_caps": {
+        "stiffness": 0.85,
+        "mild_rotation_deg": 0.6,
+        "strong_rotation_deg": 1.8,
+        "mild_tip_displacement_px": 2,
+        "strong_tip_displacement_px": 5,
+        "root_translation_px": 0,
+        "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+      },
+      "derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/derivatives/flexible-right_upper_branch.png",
+        "crop_box_px": [
+          1104,
+          0,
+          1536,
+          240
+        ],
+        "dimensions_px": [
+          432,
+          240
+        ],
+        "trim_offset_px": [
+          1104,
+          0
+        ],
+        "local_pivot_px": [
+          116,
+          125
+        ],
+        "sha256": "25413075fd213235c489c7ecfe06738e1b5a287408b570e8e07d5cdbd58b81d4",
+        "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+      },
+      "actual_group_crop_available": true,
+      "actual_motion_or_rig_implemented": false,
+      "occlusion_mask_available": false,
+      "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+    },
+    {
+      "id": "right_lower_branch",
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/flexible-foliage-r1.png",
+      "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+      "source_roi_px": [
+        1180,
+        240,
+        1536,
+        470
+      ],
+      "actual_visible_alpha_bounds_px": [
+        1213,
+        240,
+        1536,
+        443
+      ],
+      "bounds_threshold": "alpha>=128",
+      "pivot_scene_px": [
+        1299,
+        353
+      ],
+      "pivot_basis": "Visiblealpha pixelnearestprovisionaljoint; artistanchor, notcertifiedanatomicaljoint. Needsstatic-supportocclusionreview.",
+      "root_contact_fixed": true,
+      "motion_class": "flexible_branch",
+      "proposed_caps": {
+        "stiffness": 0.85,
+        "mild_rotation_deg": 0.6,
+        "strong_rotation_deg": 1.8,
+        "mild_tip_displacement_px": 2,
+        "strong_tip_displacement_px": 5,
+        "root_translation_px": 0,
+        "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+      },
+      "derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/derivatives/flexible-right_lower_branch.png",
+        "crop_box_px": [
+          1209,
+          240,
+          1536,
+          447
+        ],
+        "dimensions_px": [
+          327,
+          207
+        ],
+        "trim_offset_px": [
+          1209,
+          240
+        ],
+        "local_pivot_px": [
+          90,
+          113
+        ],
+        "sha256": "370c62e78d230a9a39ca7d3bc8e83d681438869b8075d5f90c4224e9f2d49508",
+        "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+      },
+      "actual_group_crop_available": true,
+      "actual_motion_or_rig_implemented": false,
+      "occlusion_mask_available": false,
+      "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+    },
+    {
+      "id": "back_border_left",
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/flexible-foliage-r1.png",
+      "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+      "source_roi_px": [
+        280,
+        430,
+        640,
+        550
+      ],
+      "actual_visible_alpha_bounds_px": [
+        312,
+        451,
+        597,
+        536
+      ],
+      "bounds_threshold": "alpha>=128",
+      "pivot_scene_px": [
+        535,
+        535
+      ],
+      "pivot_basis": "Medianvisiblepixelatbottomrootband; artistrootestimate, notphysicallycalibrated.",
+      "root_contact_fixed": true,
+      "motion_class": "foliage_mass",
+      "proposed_caps": {
+        "stiffness": 0.65,
+        "mild_rotation_deg": 0.8,
+        "strong_rotation_deg": 2.2,
+        "mild_tip_displacement_px": 3,
+        "strong_tip_displacement_px": 7,
+        "root_translation_px": 0,
+        "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+      },
+      "derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/derivatives/flexible-back_border_left.png",
+        "crop_box_px": [
+          308,
+          447,
+          601,
+          540
+        ],
+        "dimensions_px": [
+          293,
+          93
+        ],
+        "trim_offset_px": [
+          308,
+          447
+        ],
+        "local_pivot_px": [
+          227,
+          88
+        ],
+        "sha256": "111d315674756a67b6cdbb99d64410a68ce6dcbaacd627fbc6f5365ec1babe6c",
+        "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+      },
+      "actual_group_crop_available": true,
+      "actual_motion_or_rig_implemented": false,
+      "occlusion_mask_available": false,
+      "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+    },
+    {
+      "id": "back_border_middle",
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/flexible-foliage-r1.png",
+      "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+      "source_roi_px": [
+        780,
+        430,
+        1180,
+        550
+      ],
+      "actual_visible_alpha_bounds_px": [
+        827,
+        455,
+        1166,
+        538
+      ],
+      "bounds_threshold": "alpha>=128",
+      "pivot_scene_px": [
+        997,
+        537
+      ],
+      "pivot_basis": "Medianvisiblepixelatbottomrootband; artistrootestimate, notphysicallycalibrated.",
+      "root_contact_fixed": true,
+      "motion_class": "foliage_mass",
+      "proposed_caps": {
+        "stiffness": 0.65,
+        "mild_rotation_deg": 0.8,
+        "strong_rotation_deg": 2.2,
+        "mild_tip_displacement_px": 3,
+        "strong_tip_displacement_px": 7,
+        "root_translation_px": 0,
+        "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+      },
+      "derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/derivatives/flexible-back_border_middle.png",
+        "crop_box_px": [
+          823,
+          451,
+          1170,
+          542
+        ],
+        "dimensions_px": [
+          347,
+          91
+        ],
+        "trim_offset_px": [
+          823,
+          451
+        ],
+        "local_pivot_px": [
+          174,
+          86
+        ],
+        "sha256": "e753fd198abce10ee3ae58d6dc160b6b6c684ff23af77dfc1347da358272733b",
+        "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+      },
+      "actual_group_crop_available": true,
+      "actual_motion_or_rig_implemented": false,
+      "occlusion_mask_available": false,
+      "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+    },
+    {
+      "id": "back_border_right",
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/flexible-foliage-r1.png",
+      "source_sha256": "f9c87e865ae7db2e4436d05d7ee336c126584a8df78833d3ffa77a7557aebc7b",
+      "source_roi_px": [
+        1360,
+        470,
+        1536,
+        550
+      ],
+      "actual_visible_alpha_bounds_px": [
+        1406,
+        474,
+        1536,
+        537
+      ],
+      "bounds_threshold": "alpha>=128",
+      "pivot_scene_px": [
+        1446,
+        536
+      ],
+      "pivot_basis": "Medianvisiblepixelatbottomrootband; artistrootestimate, notphysicallycalibrated.",
+      "root_contact_fixed": true,
+      "motion_class": "foliage_mass",
+      "proposed_caps": {
+        "stiffness": 0.65,
+        "mild_rotation_deg": 0.8,
+        "strong_rotation_deg": 2.2,
+        "mild_tip_displacement_px": 3,
+        "strong_tip_displacement_px": 7,
+        "root_translation_px": 0,
+        "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+      },
+      "derivative": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/derivatives/flexible-back_border_right.png",
+        "crop_box_px": [
+          1402,
+          470,
+          1536,
+          541
+        ],
+        "dimensions_px": [
+          134,
+          71
+        ],
+        "trim_offset_px": [
+          1402,
+          470
+        ],
+        "local_pivot_px": [
+          44,
+          66
+        ],
+        "sha256": "f727a476c50dd71a68932907168c7f5e590c3da80f39134e1c4e5a71481aa56c",
+        "operation": "Disjoint spatial ROI then visiblebounds+4px crop, no recoloring/paint/morphology; faintalphaoutsideROIexcluded. Not anatomicalsegmentation or exactreconstruction of every faintsourcepixel."
+      },
+      "actual_group_crop_available": true,
+      "actual_motion_or_rig_implemented": false,
+      "occlusion_mask_available": false,
+      "review_status": "provisionalgroupcrop_requiresmotionandjointreview"
+    }
+  ],
+  "unresolved": [
+    "Actual twig/leaf anatomicaljoints and overlapmasks not independentlysegmented.",
+    "Per-groupcropcaps areproposed; no motionframes/rigtested.",
+    "Ground turf paintedgrasstips arebaked into staticground andcannotmovesingly.",
+    "No looseleafparticleart or occlusionmasks."
+  ]
+}

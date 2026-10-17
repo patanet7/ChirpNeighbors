@@ -1,0 +1,87 @@
+{
+  "track": "BACKGROUNDS",
+  "schema_version": "1.0.0",
+  "scope": "Prioritized regional scene matrix; intake planning delta only, existing first-three scenes preserved",
+  "rows": [
+    {
+      "priority": 1,
+      "asset_id": "scene.san_diego_oak_riparian_shade_pocket",
+      "region": "San Diego coastal-slope, irrigated or riparian-influenced yard edge",
+      "habitat": "oak_riparian_edge",
+      "distinct_from_existing": "Shaded intimate oak-litter ground and managed moisture pocket; no sunny coastal wall or open canyon composition",
+      "water_access_constraint": "Moisture pocket conditional; do not imply dry oak slopes are riparian jungle",
+      "production_layer_queue": [
+        "opaque_sky_and_atmospheric_distance_base",
+        "true_alpha_ground_and_low_boundary_midground",
+        "true_alpha_oak_corner_foreground"
+      ],
+      "state_needs": [
+        "healthy_shade_day",
+        "dry_unwatered_litter",
+        "cool_season_damp_ground",
+        "warm_season_dappled_shade",
+        "dawn_dusk"
+      ],
+      "seasonal_behavior": "Evergreen oak canopy; scattered litter rather than entire orange autumn canopy. Sycamore deciduous variants only if separately specified and supported.",
+      "current_status": "planned_not_generated_outside_authorized_one_proof_scope"
+    },
+    {
+      "priority": 2,
+      "asset_id": "scene.san_diego_compact_marine_courtyard",
+      "region": "San Diego compact coastal urban exterior",
+      "habitat": "coastal_urban",
+      "distinct_from_existing": "Small enclosed urban geometry, diffuse marine morning and side-gate depth; no broad vista, pergola, canyon ridge or terracotta patio duplicate",
+      "water_access_constraint": "Managed containers; irrigation independent of season",
+      "production_layer_queue": [
+        "opaque_marine_sky_and_rooftop_distance_base",
+        "true_alpha_small_courtyard_pavers_and_stucco_boundary",
+        "true_alpha_peripheral_container_and_vine_accents"
+      ],
+      "state_needs": [
+        "marine_morning",
+        "clear_afternoon",
+        "dry_containers",
+        "healthy_managed_containers",
+        "cool_season_damp_pavers",
+        "dawn_dusk"
+      ],
+      "seasonal_behavior": "Marine cloud variation without rainforest greenness; no indoor bird/weather assumptions, no snow default.",
+      "current_status": "proof01_generated_reviewed_provisional",
+      "proof_variant_id": "analyst_reference_guided_proof01_v1",
+      "actual_generated_layer_count": 3
+    },
+    {
+      "priority": 3,
+      "asset_id": "scene.san_diego_inland_low_water_evening",
+      "region": "San Diego inland valley",
+      "habitat": "inland_suburban",
+      "distinct_from_existing": "Evening light study and low-water domestic edge, deferred until first two independent layer sets reviewed",
+      "production_layer_queue": [
+        "distant_hills",
+        "domestic_ground_stage",
+        "edge_framing"
+      ],
+      "current_status": "backlog_not_generated"
+    },
+    {
+      "priority": 4,
+      "asset_id": "scene.san_diego_cool_season_garden",
+      "region": "San Diego lowland planted garden",
+      "habitat": "coastal_urban_or_inland_suburban",
+      "distinct_from_existing": "Cool-season soft soil and wetness states, requires visible art/state review",
+      "production_layer_queue": [
+        "overcast_distance",
+        "damp_ground",
+        "seasonal_edge_accents"
+      ],
+      "current_status": "backlog_not_generated"
+    }
+  ],
+  "not_implementation": "Layer, state, wind and seasonal metadata does not implement animation, weather, physics or runtime integration.",
+  "canonical_intake": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null,
+    "pull_request": null
+  }
+}

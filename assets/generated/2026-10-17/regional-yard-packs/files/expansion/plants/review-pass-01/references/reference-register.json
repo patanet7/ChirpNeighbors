@@ -1,0 +1,89 @@
+{
+  "reference_mode": "primary_botanical_text_only_no_botanical_photo_pixels_inspected",
+  "retrieved_at": "2026-10-17",
+  "sources": [
+    {
+      "reference_id": "jepson.stipa_pulchra.45644",
+      "url": "https://herbariadb.berkeley.edu/eflora/eflora_display.php?tid=45644",
+      "publisher": "University and Jepson Herbaria, UC Berkeley",
+      "type": "primary flora treatment; indexed botanical text",
+      "facts_used": "Awn length 38–100 mm; bent twice. Current Jepson name Stipa pulchra.",
+      "access": "Indexed text read; direct open failed internal fetch.",
+      "image_pixels_inspected": false,
+      "image_used_as_generation_input": false,
+      "license_id": null,
+      "license_note": "Factual text constraints paraphrased; no reference photograph reproduced.",
+      "short_observed_excerpts": [
+        "awn 38--100 mm",
+        "bent 2"
+      ]
+    },
+    {
+      "reference_id": "usda.nrcs.capmcpg14191",
+      "url": "https://www.nrcs.usda.gov/plantmaterials/capmcpg14191.pdf",
+      "publisher": "USDA Natural Resources Conservation Service, Plant Materials Center",
+      "type": "primary agency plant guide",
+      "facts_used": "Upright perennial bunchgrass with numerous narrow basal leaves; open nodding panicle and conspicuously long, twice-bent seed awns. Growth and dormancy depend on moisture, location and season.",
+      "access": "Web PDF text read; photo captions found, actual photo pixels unavailable.",
+      "image_pixels_inspected": false,
+      "image_used_as_generation_input": false,
+      "license_id": null,
+      "license_note": "Agency-hosted document is not assumed to place all credited photographs in public domain. No photo bytes obtained or redistributed.",
+      "short_observed_excerpts": [
+        "conspicuously long awns",
+        "open, nodding panicle",
+        "twice-bent awn"
+      ]
+    },
+    {
+      "reference_id": "usda.forestservice.36982",
+      "url": "https://research.fs.usda.gov/download/treesearch/36982.pdf",
+      "publisher": "USDA Forest Service hosted species profile",
+      "type": "botanical species profile",
+      "facts_used": "Narrow blades 0.8–3.5 mm; tall open branched inflorescences, 2–6 spikelets per branch; stiff 38–100 mm awns strongly twice-bent with straight terminal segments.",
+      "access": "Web PDF text read; shell download proxy tunnel403; screenshot returned citation only, no pixels.",
+      "image_pixels_inspected": false,
+      "image_used_as_generation_input": false,
+      "license_id": null,
+      "license_note": "Photo caption credits Carol W. Witham ©2004. No license permission inferred and no photo bytes reproduced.",
+      "short_observed_excerpts": [
+        "open panicle of spikelets",
+        "strongly twice bent"
+      ]
+    },
+    {
+      "reference_id": "cnga.stipa_pulchra.photo",
+      "page_url": "https://cnga.org/Stipa-pulchra",
+      "image_url": "https://cnga.org/resources/Pictures/More%20Images%20and%20photos/Plants-%20grasses/Stipa%20pulchra_Atascadero%202020_DJeffery.JPG",
+      "creator": "D. Jeffery (caption attribution)",
+      "type": "photographer-credited field photo on native grass organization page",
+      "access": "Image click failed with inaccessible WildApricot CDN redirect, non-retryable tool error.",
+      "image_pixels_inspected": false,
+      "image_used_as_generation_input": false,
+      "license_id": null,
+      "license_note": "Page says all rights reserved; no open image license found. No bytes obtained/reproduced."
+    }
+  ],
+  "blockers": [
+    {
+      "action": "HTTP GET botanical PDF",
+      "target": "https://research.fs.usda.gov/download/treesearch/36982.pdf",
+      "outcome": "failed_known_no_bytes",
+      "reason": "URLError: Tunnel connection failed: 403 Forbidden",
+      "attempts": "ordinary network and additional network enabled; both same proxy error; no permission bypass"
+    },
+    {
+      "action": "web PDF screenshot page0",
+      "target": "https://research.fs.usda.gov/download/treesearch/36982.pdf",
+      "outcome": "citation_only_not_image",
+      "reason": "tool returned a string containing source citation only, JSON length84; no image pixels"
+    },
+    {
+      "action": "web click image",
+      "target": "https://cnga.org/resources/Pictures/More%20Images%20and%20photos/Plants-%20grasses/Stipa%20pulchra_Atascadero%202020_DJeffery.JPG",
+      "outcome": "failed_known_no_bytes",
+      "reason": "500 redirected to inaccessible cdn.wildapricot.com signed URL; non-retryable tool error"
+    }
+  ],
+  "quote_policy": "Short source excerpts only, at most25 verbatim words per source. Morphology criteria elsewhere paraphrase factual dimensions. Source links are public; no open license inferred for photographs."
+}

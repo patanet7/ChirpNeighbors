@@ -1,0 +1,21 @@
+# ChirpNeighbors — OBJECT THEME PACKS wave03
+
+Eight actual imagegen production entries: seven new object families and the `rectangular_concrete` variant of existing `object.ground_birdbath`. The first six pieces cover modern planter, seating, bath, screen, light and decor; the last two fill rustic woodland hanging-light and desert/xeriscape path-light gaps. Prior object archives remain byte-identical.
+
+The modern family shares natural cedar slats, charcoal metal and pale warm-gray concrete/ceramic intent. The ceramic display pedestal's generated speckled surface reads as aggregate/concrete rather than clearly glazed ceramic; that discrepancy is retained in the label, material observation and review defects. Owner material/style acceptance is pending. Lamps were requested unlit: the rustic candle has no flame, the pathlight lens is dark, and the bollard's bright glass is a daylight reflection. No emitted light, independently authored lit state or glow simulation is claimed.
+
+`track-intake.json` is an intake delta to the parent shared canonical inventory. No global index, app or Git change is included. `planned-inventory.json` is the historical queue snapshot saved before imagegen calls, not active job status. `collection-coverage-delta.json` is a derived feed only. Theme, material, color, size, weathering, functional affordance, region and seasonal/holiday state are separate catalog dimensions.
+
+Canonical ground-bath identity is `asset_id=object.ground_birdbath`, `family_id=object.ground_birdbath`, `variant_id=rectangular_concrete`. It does not supersede the original bath or mint a new primary family. Source and sprite dimensions are measured from image bytes. Physical dimensions, projected scale, placement pivots, footprint polygons, perches, water contacts and mounting points are provisional art-direction metadata requiring shared-scene validation.
+
+Two preserved original PNGs yield eight native-RGBA sprites through reviewed rectangle cropping, alpha-bound trimming and transparent padding. Contact sheets use nearest-neighbor compositing on checker/light/dark surfaces. No art was painted, recolored, color-keyed, generated with code, or produced with Blender. Actual inspected local generated references are retained by exact path/hash; old inaccessible Library reference packs were not supplied. Source rights/model/seed remain unknown where not exposed; generated art is not asserted public-domain or CC licensed.
+
+The disconnect checkpoint was resolved by waiting on the original active cell58. Sheet2 returned successfully and was immediately preserved. No call was retried; no uncertain/inflight generation remains. `disconnect-checkpoint.json` records the exact original and retained hash. `tool-call-records.json` records exact prompts and reference arguments.
+
+All sprites are flattened static candidates. Independent body/shadow/water/glass/light parts and missing wet/dry/lit/snowcap/holiday/wind slots have not been authored. The lantern has proposed suspension metadata only. The pathlight's full stake is visible; burial/ground occlusion remains missing. There is no animation, emitted lighting, ecology, water physics, wind rig, collision or runtime alignment implementation. San Diego has no default snowy or orange-autumn overlay.
+
+Agent and parent reviews passed scoped silhouette completeness, crop separation, screen-gap alpha and coherent modern-palette presentation. Strict logical pixel-grid/style and owner acceptance remain pending because the art has dense textured shading. Staged, integrated and accepted states are false.
+
+Each art ZIP is independently usable and below 8 decimal MB: original PNG, exact prompt, four exact sprite files, filtered intake/provenance/geometry/state metadata, three previews and verified member hashes. Final source/metadata ZIP contains complete corrected eight-entry intake, source scripts, exact call records, references, preservation/validation/review receipts and all-eight contact. Original reference art is retained in prior object packages and is not required to load the delivered sprites.
+
+Canonical intake remains `pending_mac_verification`; commit, remote SHA and PR are null. Production has completed this assigned wave with zero active generation jobs. Parent/Mac owner handles byte verification and canonical tracker/Git relay.

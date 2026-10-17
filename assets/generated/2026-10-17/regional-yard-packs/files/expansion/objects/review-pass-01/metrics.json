@@ -1,0 +1,193 @@
+{
+  "material_statistics_are_not_a_classifier": true,
+  "surface_descriptor_caution": "Matched front-face adjacent luminance differences describe image variation. They cannot establish ceramic vs concrete/plastic; visual glaze/reflection/form review is required. Resampling/lighting affect values.",
+  "measurement_alpha_threshold": 128,
+  "measurement_alpha_threshold_changes_art": false,
+  "before": {
+    "dimensions_px": [
+      292,
+      457
+    ],
+    "alpha_bbox": [
+      8,
+      8,
+      284,
+      449
+    ],
+    "body_bbox_alpha128": [
+      15,
+      14,
+      268,
+      438
+    ],
+    "surface_roi": {
+      "roi_px": [
+        61,
+        150,
+        139,
+        340
+      ],
+      "roi_normalized_to_body_bbox": [
+        0.18,
+        0.32,
+        0.49,
+        0.77
+      ],
+      "adjacent_luminance_difference_median_0_255": 6.9212,
+      "adjacent_luminance_difference_p90_0_255": 18.5077,
+      "luminance_std_0_255": 14.4572,
+      "alpha_min": 252,
+      "alpha_max": 254
+    }
+  },
+  "after_native": {
+    "dimensions_px": [
+      1002,
+      1569
+    ],
+    "alpha_bbox": [
+      0,
+      0,
+      1002,
+      1569
+    ],
+    "body_bbox_alpha128": [
+      48,
+      36,
+      935,
+      1535
+    ],
+    "surface_roi": {
+      "roi_px": [
+        208,
+        516,
+        483,
+        1190
+      ],
+      "roi_normalized_to_body_bbox": [
+        0.18,
+        0.32,
+        0.49,
+        0.77
+      ],
+      "adjacent_luminance_difference_median_0_255": 0.2848,
+      "adjacent_luminance_difference_p90_0_255": 1.0,
+      "luminance_std_0_255": 3.0366,
+      "alpha_min": 250,
+      "alpha_max": 253
+    }
+  },
+  "after_registered": {
+    "dimensions_px": [
+      292,
+      457
+    ],
+    "alpha_bbox": [
+      3,
+      4,
+      286,
+      445
+    ],
+    "body_bbox_alpha128": [
+      17,
+      14,
+      267,
+      438
+    ],
+    "surface_roi": {
+      "roi_px": [
+        62,
+        150,
+        140,
+        340
+      ],
+      "roi_normalized_to_body_bbox": [
+        0.18,
+        0.32,
+        0.49,
+        0.77
+      ],
+      "adjacent_luminance_difference_median_0_255": 0.5026,
+      "adjacent_luminance_difference_p90_0_255": 1.2059,
+      "luminance_std_0_255": 3.0588,
+      "alpha_min": 250,
+      "alpha_max": 253
+    }
+  },
+  "scale_registration": {
+    "method": "Nearest-neighbor isotropic height match to prior alpha>=128 body height; integer paste into exact prior canvas; no shape stretching or repainting",
+    "requested_uniform_scale": 0.2828552368245497,
+    "actual_resize_scales_xy": [
+      0.282435129740519,
+      0.2829827915869981
+    ],
+    "paste_offset_px": [
+      3,
+      4
+    ],
+    "before_body_height_px": 424,
+    "registered_body_height_px": 424,
+    "nominal_physical_height_m_unchanged": 0.5,
+    "before_body_height_pixels_per_nominal_meter": 848.0,
+    "after_registered_body_height_pixels_per_nominal_meter": 848.0,
+    "before_body_width_height_ratio": 0.5966981132075472,
+    "registered_body_width_height_ratio": 0.589622641509434,
+    "relative_width_height_ratio_change_percent": -1.1857707509881354,
+    "alpha128_silhouette_IoU_registered": 0.9769165816802097,
+    "canonical_root_px_unchanged": [
+      144,
+      411
+    ],
+    "transferred_source_root_px": [
+      500.2648221343874,
+      1439.544811320755
+    ],
+    "transferred_root_in_registered_canvas_px": [
+      144.29235994414336,
+      411.36640932212566
+    ],
+    "root_transfer_rounding_error_px": 0.46875380348333584,
+    "canonical_footprint_retained": {
+      "coordinate_system": "sprite_canvas_px",
+      "polygons": [
+        [
+          [
+            32,
+            393
+          ],
+          [
+            143,
+            367
+          ],
+          [
+            257,
+            406
+          ],
+          [
+            182,
+            436
+          ]
+        ]
+      ],
+      "status": "proposed_metadata_not_collision",
+      "no_ground_contact": false
+    },
+    "runtime_alignment_verified": false
+  },
+  "edge_alpha_diagnostic": {
+    "criterion": "RGB max-min>=80, diagnostic for saturated residual edge colors only",
+    "high_chroma_pixel_count": 7633,
+    "alpha_bands": {
+      "0-0": 0,
+      "1-4": 7623,
+      "5-16": 10,
+      "17-64": 0,
+      "65-127": 0,
+      "128-255": 0
+    },
+    "max_alpha_high_chroma": 6,
+    "max_possible_channel_contribution_0_255": 6,
+    "art_modified_to_remove_fringe": false,
+    "visible_edge_defect_status": "Requires actual light/dark composite inspection; raw hidden/near-zero-alpha RGB is not proof of a visible halo."
+  }
+}

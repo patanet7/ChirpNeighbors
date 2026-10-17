@@ -1,0 +1,165 @@
+{
+  "coastal_garden": {
+    "label": "Coastal native garden",
+    "default_families": [
+      "plant.torrey_pine",
+      "plant.california_bush_sunflower",
+      "plant.san_diego_monkeyflower",
+      "plant.shaws_agave"
+    ],
+    "option_families": [
+      "plant.san_diego_sunflower",
+      "plant.coyote_brush",
+      "plant.common_yarrow",
+      "plant.california_poppy",
+      "plant.purple_needlegrass"
+    ],
+    "conditions": "Torrey pine and Shaw's agave have restricted native contexts; planted regional options, not universal county defaults. Choose one sunflower identity deliberately. Keep flowering/water states coherent.",
+    "default_variant_keys": [
+      "plant.torrey_pine::healthy",
+      "plant.california_bush_sunflower::healthy.flowering",
+      "plant.san_diego_monkeyflower::healthy",
+      "plant.shaws_agave::healthy"
+    ],
+    "option_variant_keys": [
+      "plant.san_diego_sunflower::healthy",
+      "plant.coyote_brush::healthy",
+      "plant.common_yarrow::healthy",
+      "plant.california_poppy::healthy",
+      "plant.purple_needlegrass::healthy.seed_morphology_r01"
+    ],
+    "sheltered_interior_only_variant_keys": [],
+    "alternative_state_variant_keys": [
+      "plant.san_diego_monkeyflower::dry_sparse",
+      "plant.san_diego_sunflower::dry_spent",
+      "plant.coyote_brush::mild_dry_stress",
+      "plant.common_yarrow::spent_flower"
+    ],
+    "state_selection_rule": "Default/option keys select one primary whole-plant variant per chosen instance. Alternative states replace that variant at its adjusted anchor/scale, never auto-spawn alongside it."
+  },
+  "shaded_oak": {
+    "label": "Shaded oak yard / bright perimeter",
+    "default_families": [],
+    "option_families": [
+      "plant.hollyleaf_cherry",
+      "plant.blue_eyed_grass",
+      "plant.common_yarrow"
+    ],
+    "conditions": "Bright-edge/managed-moisture composition candidates only; no claim these are all deep-shade plants. Source backgrounds may contain baked oak. No independent usable oak tree from these local sources: Engelmann wood/canopy attachment HOLD; coast live oak exists only in earlier external references, not an audited local sprite.",
+    "default_variant_keys": [],
+    "option_variant_keys": [
+      "plant.hollyleaf_cherry::healthy.flowering",
+      "plant.common_yarrow::healthy",
+      "plant.blue_eyed_grass::healthy"
+    ],
+    "sheltered_interior_only_variant_keys": [],
+    "alternative_state_variant_keys": [
+      "plant.common_yarrow::spent_flower"
+    ],
+    "state_selection_rule": "Default/option keys select one primary whole-plant variant per chosen instance. Alternative states replace that variant at its adjusted anchor/scale, never auto-spawn alongside it."
+  },
+  "mediterranean_courtyard": {
+    "label": "Mediterranean courtyard / planted patio",
+    "default_families": [
+      "plant.crassula_ovata",
+      "plant.ivy_geranium_cultivar_group"
+    ],
+    "option_families": [
+      "plant.shaws_agave",
+      "plant.california_poppy",
+      "plant.showy_penstemon",
+      "plant.san_diego_monkeyflower"
+    ],
+    "conditions": "Two default pots are cultivated, not native. Ivy geranium needs an elevated ledge/table anchor and visible trailing foliage. Optional regional plants are independent planted beds/rosettes; do not invent a separate pot for flattened rooted sprites.",
+    "default_variant_keys": [
+      "plant.crassula_ovata::healthy",
+      "plant.ivy_geranium_cultivar_group::healthy"
+    ],
+    "option_variant_keys": [
+      "plant.showy_penstemon::healthy.flowering",
+      "plant.san_diego_monkeyflower::healthy",
+      "plant.california_poppy::healthy",
+      "plant.shaws_agave::healthy"
+    ],
+    "sheltered_interior_only_variant_keys": [],
+    "alternative_state_variant_keys": [
+      "plant.san_diego_monkeyflower::dry_sparse"
+    ],
+    "state_selection_rule": "Default/option keys select one primary whole-plant variant per chosen instance. Alternative states replace that variant at its adjusted anchor/scale, never auto-spawn alongside it."
+  },
+  "existing_inland": {
+    "label": "Existing inland canyon / foothill garden",
+    "default_families": [
+      "plant.sugar_bush",
+      "plant.white_sage",
+      "plant.black_sage",
+      "plant.showy_penstemon"
+    ],
+    "option_families": [
+      "plant.california_sagebrush",
+      "plant.hollyleaf_cherry",
+      "plant.san_diego_monkeyflower",
+      "plant.san_diego_sunflower",
+      "plant.common_yarrow",
+      "plant.california_poppy",
+      "plant.purple_needlegrass",
+      "plant.california_sycamore"
+    ],
+    "conditions": "Sycamore is a large moist-pocket/riparian/irrigated option, not the default dry hill tree. Other plants retain source moisture/season needs. Revised needlegrass remains provisional, with fine-awn readability pending.",
+    "default_variant_keys": [
+      "plant.sugar_bush::healthy.flowering",
+      "plant.white_sage::healthy.flowering",
+      "plant.showy_penstemon::healthy.flowering",
+      "plant.black_sage::healthy.flowering"
+    ],
+    "option_variant_keys": [
+      "plant.california_sycamore::healthy",
+      "plant.hollyleaf_cherry::healthy.flowering",
+      "plant.california_sagebrush::healthy",
+      "plant.san_diego_monkeyflower::healthy",
+      "plant.san_diego_sunflower::healthy",
+      "plant.common_yarrow::healthy",
+      "plant.california_poppy::healthy",
+      "plant.purple_needlegrass::healthy.seed_morphology_r01"
+    ],
+    "sheltered_interior_only_variant_keys": [],
+    "alternative_state_variant_keys": [
+      "plant.san_diego_monkeyflower::dry_sparse",
+      "plant.san_diego_sunflower::dry_spent",
+      "plant.common_yarrow::spent_flower"
+    ],
+    "state_selection_rule": "Default/option keys select one primary whole-plant variant per chosen instance. Alternative states replace that variant at its adjusted anchor/scale, never auto-spawn alongside it."
+  },
+  "existing_patio": {
+    "label": "Existing patio / sheltered nursery option boundary",
+    "default_families": [
+      "plant.crassula_ovata",
+      "plant.ivy_geranium_cultivar_group"
+    ],
+    "option_families": [],
+    "sheltered_interior_only_families": [
+      "plant.monstera_deliciosa",
+      "plant.epipremnum_aureum",
+      "plant.dracaena_trifasciata",
+      "plant.zamioculcas_zamiifolia",
+      "plant.chlorophytum_comosum",
+      "plant.ficus_elastica"
+    ],
+    "conditions": "Indoor-tagged stock is not an automatic outdoor patio option; show only in a deliberately sheltered/interior placement mode. Outdoor wind/weather default disabled. Pothos and spider plant require elevated shelf/table placement.",
+    "default_variant_keys": [
+      "plant.crassula_ovata::healthy",
+      "plant.ivy_geranium_cultivar_group::healthy"
+    ],
+    "option_variant_keys": [],
+    "sheltered_interior_only_variant_keys": [
+      "plant.monstera_deliciosa::healthy",
+      "plant.epipremnum_aureum::healthy",
+      "plant.dracaena_trifasciata::healthy",
+      "plant.zamioculcas_zamiifolia::healthy",
+      "plant.chlorophytum_comosum::healthy",
+      "plant.ficus_elastica::healthy"
+    ],
+    "alternative_state_variant_keys": [],
+    "state_selection_rule": "Default/option keys select one primary whole-plant variant per chosen instance. Alternative states replace that variant at its adjusted anchor/scale, never auto-spawn alongside it."
+  }
+}

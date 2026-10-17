@@ -1,0 +1,83 @@
+{
+  "source_images_unchanged": true,
+  "canvas_px": [
+    1536,
+    1024
+  ],
+  "draw_passes": [
+    {
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/distance-r1.png",
+      "offset_px": [
+        0,
+        0
+      ],
+      "purpose": "opaque coverage from original unchanged distance source"
+    },
+    {
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/distance-r1.png",
+      "offset_px": [
+        0,
+        -140
+      ],
+      "purpose": "expose distant canopy above generated wall"
+    },
+    {
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/ground-boundary-r1.png",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/rigid-edges-r1.png",
+      "offset_px": [
+        0,
+        0
+      ]
+    },
+    {
+      "source": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/backgrounds/expansion-wave04/coastal-01/originals/flexible-foliage-r1.png",
+      "offset_px": [
+        0,
+        0
+      ]
+    }
+  ],
+  "coverage_checks": [
+    {
+      "variant": "single_shift_only_diagnostic",
+      "alpha_min_max": [
+        247,
+        255
+      ],
+      "pixels_below_alpha255": 175005,
+      "fully_uncovered_alpha0_pixels": 0,
+      "below255_bounds": [
+        0,
+        884,
+        1454,
+        1024
+      ],
+      "bottom140_alpha_min_max": [
+        247,
+        255
+      ]
+    },
+    {
+      "variant": "final_with_original_source_coverage_draw",
+      "alpha_min_max": [
+        255,
+        255
+      ],
+      "pixels_below_alpha255": 0,
+      "fully_uncovered_alpha0_pixels": 0,
+      "below255_bounds": null,
+      "bottom140_alpha_min_max": [
+        255,
+        255
+      ]
+    }
+  ],
+  "result": "Final alpha255 across every pixel; single-shift diagnostic retained to document near-opacity leak. No painted fill, background matte cleanup, pixel rescale or source overwrite.",
+  "registration_status": "provisional visual placement; no physical projection or semantic decomposition claim"
+}

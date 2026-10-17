@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.0.0",
+  "canvas_px": [
+    1536,
+    1024
+  ],
+  "coordinate_contract": "Full canvas, origin [0,0], x right/y down; keep source files and record trim offsets on any later crop.",
+  "generation_status": "planned_not_submitted",
+  "new_art_bytes": 0,
+  "reference_guidance": {
+    "type": "verified_mac_analyst_brief_plus_directly_inspected_project_prop_candidates",
+    "direct_external_reference_pixels_inspected_by_this_worker": false,
+    "external_screenshot_supplied": false,
+    "exact_named_source_evidence": "Private analysis excluded from production packages.",
+    "project_prop_inspection": "style-reference-review/project-prop-inspection.json"
+  },
+  "perspective": {
+    "camera": "Side-on yard stage with gently elevated top/contact-plane visibility, compatible with inspected props. No extreme isometric or wide-angle lens.",
+    "scale": "World scale remains provisional; scene pixels do not define canonical bird size.",
+    "verticals": "Architecture and posts remain visually upright; repeated ground seams recede consistently."
+  },
+  "lighting": {
+    "key": "Soft upper-left daylight, environment-specific diffusion.",
+    "shadow": "Lower-right; attached tight contact shadows and broader low-contrast environment shade.",
+    "priority": "Bird/contact readability must exceed decorative texture salience. No false claim before actual canonical bird check."
+  },
+  "render_style": {
+    "clusters": "Connected naturalistic clusters, deliberate edge steps and restrained value ramps.",
+    "detail": "Concentrate fine wear/material accents in placeable props and nearest edges; calm ground/distant masses.",
+    "distance": "Cooler, paler, lower contrast and simpler than near framing.",
+    "avoid": "Uniform pixel noise, smooth vector forms, thick framing border, copied scene layouts."
+  },
+  "separation_evidence": {
+    "this_revision_actual_generated_layers": 0,
+    "status": "required_only_not_generated",
+    "existing_project_layer_count_is_not_this_revision_evidence": true
+  },
+  "wind_hierarchy": {
+    "static": [
+      "architecture",
+      "ground",
+      "pots",
+      "main_trunks",
+      "major_rigid_supports"
+    ],
+    "flexible_required": [
+      "small_branches",
+      "foliage_masses",
+      "grass_tips"
+    ],
+    "optional": [
+      "loose_leaf_particles",
+      "separate_occlusion_masks"
+    ],
+    "implemented": false,
+    "constraint": "Leaves may move with flexible branch groups; containers/trunks remain anchored. A single flattened canopy cannot supply per-leaf articulation.",
+    "root_anchors_status": "Proposed image geometry; no rig or physics implemented.",
+    "seasonal_behavior": "No blanket orange fall or snow default. Evergreen/cultivated/native state needs are per species and irrigation context.",
+    "proposed_artist_policy": {
+      "status": "PROPOSED_ARTIST_POLICY_NOT_IMPLEMENTED",
+      "physics_calibrated": false,
+      "stiffness_definition": "Dimensionless artist resistance parameter0..1, larger meansless motion; not spring constant or measured physical stiffness.",
+      "caps_definition": "Maximum absolute proposed rotation from rest and tip displacement at1536x1024 scene; both caps apply, choose more restrictive. No displacement of roots/contact pivots.",
+      "classes": {
+        "rigid": {
+          "stiffness": 1.0,
+          "mild_rotation_deg": 0,
+          "strong_rotation_deg": 0,
+          "mild_tip_displacement_px": 0,
+          "strong_tip_displacement_px": 0,
+          "root_translation_px": 0,
+          "pivot_rule": "Ground contact or fixed support. Do not sway architecture, pots, main trunks, main branches, ground or contact shadows."
+        },
+        "flexible_branch": {
+          "stiffness": 0.85,
+          "mild_rotation_deg": 0.6,
+          "strong_rotation_deg": 1.8,
+          "mild_tip_displacement_px": 2,
+          "strong_tip_displacement_px": 5,
+          "root_translation_px": 0,
+          "pivot_rule": "Local flexible-branch joint where it meets static wood; unresolved joint staysnull and motiondisabled until alignmentreview."
+        },
+        "foliage_mass": {
+          "stiffness": 0.65,
+          "mild_rotation_deg": 0.8,
+          "strong_rotation_deg": 2.2,
+          "mild_tip_displacement_px": 3,
+          "strong_tip_displacement_px": 7,
+          "root_translation_px": 0,
+          "pivot_rule": "Own leaf-mass root/branch anchor, not whole-scene pivot. Compoundgroupsrequireindividualextraction/masks."
+        },
+        "grass_tip": {
+          "stiffness": 0.45,
+          "mild_rotation_deg": 1.0,
+          "strong_rotation_deg": 3.0,
+          "mild_tip_displacement_px": 1,
+          "strong_tip_displacement_px": 3,
+          "root_translation_px": 0,
+          "pivot_rule": "Base of isolated blade/tipgroup; lawnpaint/soil/rootline remainrigid. No whole-groundwarp."
+        }
+      },
+      "art_safety_limits": {
+        "ground_warp": false,
+        "root_sliding": false,
+        "pot_or_trunk_sway": false,
+        "scale_stretch_allowed": false,
+        "leaf_scale_range": [
+          1,
+          1
+        ],
+        "alpha_or_lightness_flicker": "No procedural opacity/color pulsation; nearest resampling or subpixel treatment must be reviewed for pixel shimmer.",
+        "occlusion": "Motion mustrespectstaticfrontpotrim/branchjunction; masksnotyetavailable.",
+        "review": "Mild/strong areartistlabels only, no weather-speed conversion. Reject visible jointgaps, leafstretch, clippedtips or groundcontactdrift."
+      },
+      "optional_loose_leaves": {
+        "status": "missing_not_implemented",
+        "stiffness": null,
+        "pivot": null,
+        "amplitude_caps": null,
+        "reason": "Detachedparticleart/path/emissionrulesnotdesigned; no blanketautumnemission."
+      }
+    },
+    "actual_rig_implemented": false,
+    "unmade_part_pivots": {
+      "status": "planned_rules_only",
+      "actual_coordinates_px": null,
+      "reason": "This composition revision wasnotgenerated whenplanned; do not invent actualalpha-basedpivots.",
+      "rules": {
+        "rigid": "groundcontact/structuralsupport",
+        "branch": "visiblewoodjoint",
+        "foliage": "localroot/branchattachment",
+        "grass": "fixedbladebase"
+      }
+    }
+  },
+  "canonical_receipt": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null,
+    "pull_request": null
+  },
+  "priority": 4,
+  "name": "Urban balcony — sheltered rail-side garden",
+  "asset_id": "scene.san_diego_urban_balcony",
+  "variant_id": "wave04_urban_balcony_v1",
+  "identity_status": "planned_new_family",
+  "composition": "An intimate exterior balcony with a simple narrow rail at rear, pale city haze between neighboring façades, and low neutral deck staging. A rigid railing planter near one side and a small floor pot at the opposite side support sparse flexible plant masses. No interior room or panoramic high-rise scene.",
+  "region": "Managed San Diego exterior balcony; wind shelter and watering context explicit.",
+  "stage_polygon_px": [
+    [
+      360,
+      690
+    ],
+    [
+      1190,
+      690
+    ],
+    [
+      1240,
+      980
+    ],
+    [
+      300,
+      980
+    ]
+  ],
+  "placement_slots": [
+    {
+      "id": "small_container_reserve",
+      "position_px": [
+        550,
+        850
+      ]
+    },
+    {
+      "id": "dish_reserve",
+      "position_px": [
+        1030,
+        860
+      ]
+    }
+  ],
+  "value_plan": {
+    "stage": "Low-contrast warm-gray decking/stone, enough separation for small ground contacts.",
+    "distance": "Cool pale urban shapes; no legible windows/signage clutter.",
+    "near_frame": "Sparse dark rail/support silhouettes with gaps."
+  },
+  "layer_plan": [
+    {
+      "key": "distance.r1",
+      "depth": 0,
+      "alpha_requested": false,
+      "contents": [
+        "city_haze",
+        "roof_shapes",
+        "sky"
+      ],
+      "motion": "static_base",
+      "generated": false,
+      "alpha_verified": false,
+      "independently_generated_requirement": true,
+      "contents_separated_within_file": false,
+      "actual_semantic_separability": "none_evidenced_for_this_revision"
+    },
+    {
+      "key": "balcony_structure.r1",
+      "depth": 10,
+      "alpha_requested": true,
+      "contents": [
+        "floor",
+        "rail",
+        "side_wall"
+      ],
+      "motion": "rigid",
+      "generated": false,
+      "alpha_verified": false,
+      "independently_generated_requirement": true,
+      "contents_separated_within_file": false,
+      "actual_semantic_separability": "none_evidenced_for_this_revision"
+    },
+    {
+      "key": "planter_supports.r1",
+      "depth": 25,
+      "alpha_requested": true,
+      "contents": [
+        "empty_railing_planter",
+        "floor_pot",
+        "mounts"
+      ],
+      "motion": "rigid",
+      "generated": false,
+      "alpha_verified": false,
+      "independently_generated_requirement": true,
+      "contents_separated_within_file": false,
+      "actual_semantic_separability": "none_evidenced_for_this_revision"
+    },
+    {
+      "key": "balcony_foliage.r1",
+      "depth": 30,
+      "alpha_requested": true,
+      "contents": [
+        "planter_foliage",
+        "fine_trailing_tips"
+      ],
+      "motion": "flexible_candidate_only",
+      "attachment_anchors_px": {
+        "rail_planter_soil": [
+          220,
+          610
+        ],
+        "floor_pot_soil": [
+          1430,
+          870
+        ]
+      },
+      "generated": false,
+      "alpha_verified": false,
+      "independently_generated_requirement": true,
+      "contents_separated_within_file": false,
+      "actual_semantic_separability": "none_evidenced_for_this_revision"
+    }
+  ],
+  "state_needs": [
+    "sheltered_daylight",
+    "managed_healthy",
+    "dry_containers",
+    "wind_exposed_variant"
+  ],
+  "next_action": "Queued; no wild-bird visitation or indoor weather behavior assumed."
+}

@@ -1,0 +1,3123 @@
+{
+  "title": "ChirpNeighbors PLANTS expansion intake",
+  "schema_version": "chirp.canonical-intake.extension.v1",
+  "role": "batch evidence handoff feeding parent shared inventory; not competing queue",
+  "track": "PLANTS",
+  "source_batch_excluded_ids": [
+    "plant.california_sycamore",
+    "plant.torrey_pine",
+    "plant.sugar_bush",
+    "plant.hollyleaf_cherry",
+    "plant.white_sage",
+    "plant.california_sagebrush",
+    "plant.california_bush_sunflower",
+    "plant.showy_penstemon",
+    "plant.black_sage"
+  ],
+  "assets": [
+    {
+      "asset_id": "plant.san_diego_monkeyflower",
+      "family_id": "plant.san_diego_monkeyflower",
+      "variant_id": "healthy",
+      "label": "San Diego monkeyflower",
+      "species_or_plant_taxon": "Diplacus puniceus",
+      "taxon": "Diplacus puniceus",
+      "cultivar_name": null,
+      "cultivar_status": "no_named_cultivar_claim",
+      "track": "PLANTS",
+      "batch_id": "plants.expansion.20261017.02",
+      "category": "regional",
+      "native_tags": [
+        "local_native_species",
+        "exact accession unverified"
+      ],
+      "provenance_status": "textual_primary_sources_checked; art_not_vouchered_accession",
+      "taxonomy_note": "Coastal southern California native shrub. Name Diplacus puniceus retained; some listings use Diplacus aurantiacus var. puniceus.",
+      "reference_sources": [
+        {
+          "url": "https://ucjeps.berkeley.edu/eflora/eflora_display.php?tid=23093",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        },
+        {
+          "url": "https://store.theodorepayne.org/products/theodore-payne-foundation-diplacus-puniceus",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        }
+      ],
+      "seasonal_behavior": "Spring red-orange flared tubular flowers; dry summer foliage thinning/dormancy may occur with water stress. Rain/irrigation and coastal/inland exposure alter timing.",
+      "world_scale": {
+        "unit": "m",
+        "chosen_instance_height": 0.7,
+        "chosen_instance_canopy_width": 0.8,
+        "basis": "illustrative managed specimen; designer approval pending"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "state_slots": [
+        {
+          "id": "healthy",
+          "status": "generated_static"
+        },
+        {
+          "id": "dry_or_water_stress",
+          "status": "generated_static_variant",
+          "variant_id": "dry_sparse"
+        },
+        {
+          "id": "seasonal_flower_or_spent_or_managed_growth",
+          "status": "needed_not_generated"
+        }
+      ],
+      "layer_slots": [
+        {
+          "id": "whole_flattened_sprite",
+          "status": "generated_flattened"
+        },
+        {
+          "id": "foliage_wind_groups",
+          "status": "needed_not_separated"
+        },
+        {
+          "id": "seasonal_overlay",
+          "status": "needed_not_generated"
+        }
+      ],
+      "wind_attachment_metadata": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          308,
+          461
+        ],
+        "pot_or_ground_fixed_px": [
+          308,
+          461
+        ],
+        "outer_left_px": [
+          127,
+          194
+        ],
+        "outer_right_px": [
+          507,
+          194
+        ],
+        "upper_crown_px": [
+          317,
+          87
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "generation": {
+        "job_id": "exec-22004d8f-9ed2-421f-b56d-b0f5d02d0e76",
+        "tool": "image_gen.imagegen",
+        "prompt_exact": "Create an actual production sprite sheet of FOUR isolated Southern California garden plants in detailed naturalistic PIXEL ART. Visible square pixel clusters, stepped diagonal contours, deliberately limited restrained organic palette, precise pixel shading, no soft painterly gradients or 3D render. Think each object authored on a fine 192-to-256-pixel logical grid and shown with nearest-neighbor crispness. Warm upper-left light, subtle selective dark contour, three-quarter side garden view with slight top visibility. Botanical structure is carefully detailed; quiet garden objects support birds as focus, no birds/animals here. No UI or text.\n\nTRUE transparent alpha background. Exactly 2 by 2 separated grid, one full plant per quadrant. Each silhouette occupies at most 74 percent of its quadrant width and 76 percent height, with broad fully empty gutters and transparent margins on ALL sides. All leaves, roots and flower tips fully visible. No overlap. No labels, panels, borders, checkerboard, backdrop, pots, ground tiles, large shadows. Small natural ground contact collar and only a few tiny pebbles. Fit specimens independently to their cells; cell size is not physical scale comparison. No duplication of species.\n\nUPPER LEFT — San Diego/red bush monkeyflower, Diplacus puniceus: a loose low rounded woody subshrub with narrow dark-green opposite lanceolate leaves, slender brown woody base, dark orange-red TUBULAR flowers that flare into two-lipped five-lobed open faces. Natural sparse flowers around stem tips, not fuchsia tubes, not trumpet vine. Healthy spring flowering state.\nUPPER RIGHT — San Diego sunflower, Bahiopsis laciniata (also called Viguiera laciniata): compact upright branching woody shrub, many relatively narrow lance-shaped resinous green leaves with lightly irregular or toothed margins, several small yellow daisy heads with yellow-to-brown centers and short yellow rays. Native shrub proportions; not tall crop sunflower, not broad diamond-leaf Encelia californica. Healthy flowering state.\nLOWER LEFT — Coyote brush, Baccharis pilularis: dense but naturally irregular rounded woody green shrub, numerous SMALL glossy obovate green leaves, subtle small teeth on some leaves, visible brown basal branch forks. Healthy evergreen foliage ONLY, no flowers or cottony seed fluff; plant sex/cultivar unresolved. Not a conifer, no broad giant leaves.\nLOWER RIGHT — Common yarrow, Achillea millefolium: low basal mound of very fine feathery deeply divided green leaves; slim upright leafy stems support several FLAT TOPPED clusters of tiny ivory-white daisy florets, a delicate white flowering perennial clump. Not Queen Anne's lace rounded lacy umbels and not fernleaf yarrow yellow flowers. Healthy white-flowering phenotype, no cultivar identity implied.\n\nDeliver crisp pixel-art whole sprites, not photographs or smooth illustrations. Transparent cutouts only. Each plant is a flattened whole sprite; no internal branches/foliage layer separability implied.\n",
+        "prompt_path": "prompts/regional-02.txt",
+        "negative_prompt_if_supported": null,
+        "reference_asset_ids": [],
+        "model_if_exposed": null,
+        "seed_if_exposed": null,
+        "settings_if_exposed": {
+          "transparent_background": true
+        },
+        "generation_timestamp": null,
+        "recorded_at": "2026-10-17T16:21:46.034077+00:00",
+        "timestamp_note": "Exact provider generation time not exposed; recorded_at is intake creation time.",
+        "original_output_paths": [
+          "originals/regional-02.png"
+        ],
+        "original_hashes": [
+          "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e"
+        ],
+        "provider_original_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/regional-02.png",
+        "tool_receipt": "tool-receipts.json",
+        "edit_history": [],
+        "failed_attempts": []
+      },
+      "derivatives": [
+        {
+          "path": "sprites/san_diego_monkeyflower.png",
+          "sha256": "490b93238b786224c0212b084c58ff33d71034727baedd621f12cde319415532",
+          "dimensions_px": [
+            634,
+            484
+          ],
+          "operation": "Rectangular crop only. Alpha>8 used to locate padded crop bounds; original RGBA values unchanged.",
+          "source_crop_box": [
+            50,
+            80,
+            684,
+            564
+          ],
+          "original_sha256": "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e"
+        }
+      ],
+      "geometry": {
+        "source_dimensions_px": [
+          1374,
+          1145
+        ],
+        "frame_canvas_dimensions_px": [
+          634,
+          484
+        ],
+        "source_crop_box": [
+          50,
+          80,
+          684,
+          564
+        ],
+        "trim_offset": [
+          50,
+          80
+        ],
+        "alpha_bounds": [
+          0,
+          0,
+          634,
+          484
+        ],
+        "visible_alpha_bounds_threshold_8": [
+          12,
+          12,
+          622,
+          472
+        ],
+        "root_pivot_px": [
+          308,
+          461
+        ],
+        "placement_pivot_px": [
+          308,
+          461
+        ],
+        "placement_pivot_normalized": [
+          0.4858,
+          0.95248
+        ],
+        "ground_contact_footprint": {
+          "shape": "ellipse",
+          "center_px": [
+            308,
+            461
+          ],
+          "radii_px": [
+            115,
+            10
+          ],
+          "basis": "manual visual provisional; designer validation pending"
+        },
+        "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+        "world_units": "m",
+        "chosen_instance_size": {
+          "unit": "m",
+          "chosen_instance_height": 0.7,
+          "chosen_instance_canopy_width": 0.8,
+          "basis": "illustrative managed specimen; designer approval pending"
+        },
+        "pixels_per_world_unit": 691.43,
+        "layer_depth": "placement_y_sort",
+        "material_surface": "organic_vegetation",
+        "perches": [],
+        "collision_shapes": [
+          "ground_contact_footprint_only; foliage occlusion separate"
+        ],
+        "container_separable": null,
+        "mounting_surface": "floor_or_ground",
+        "trailing_foliage_below_placement_pivot": false,
+        "alpha_validation": {
+          "mode": "RGBA",
+          "min": 0,
+          "max": 255,
+          "zero_alpha_pixels": 94862,
+          "partial_alpha_pixels": 211967,
+          "real_alpha": true,
+          "edge_pixels_alpha_gt8": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "inspection": "Proper light/dark alpha composites; no color key or alpha/color repainting."
+        }
+      },
+      "review_status": "provisional_visual_candidate_pending_taxonomy_style_owner_review",
+      "rejection_reason": null,
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "content_version": "20261017.02",
+      "semantic_role": "placeable_regional_vegetation",
+      "source_license": {
+        "creator": "OpenAI image_gen output",
+        "license_id": null,
+        "license_url": null,
+        "commercial_use_status": "Project review under applicable service terms; no CC/public-domain claim for generated art.",
+        "attribution_text": null,
+        "share_alike_obligations": null,
+        "reference_image_usage": "None: botanical references read as public factual text, not photographic generation input.",
+        "style_reference_usage": "Written approved detailed naturalistic pixel-art direction only; original style pixels not inspected or supplied.",
+        "original_file_hash": "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e",
+        "modification_notice": "Lossless PNG sprite crop; no code-painted artwork."
+      },
+      "evidence": {
+        "requirement_ids": [
+          "ART-049",
+          "ART-050",
+          "ART-053",
+          "ART-055",
+          "ART-056",
+          "ART-062",
+          "ART-063"
+        ],
+        "state": "generated_reviewed_provisional",
+        "owner": "PLANTS track agent",
+        "visual_review_receipt": "reviews/track-review.md",
+        "technical_review": "RGBA PNG decode, true-alpha transparent pixels, no visible anatomy crop at alpha>8, derivative/source SHA256/dimensions; no application runtime validation.",
+        "last_verified_at": "2026-10-17T16:21:46.041037+00:00"
+      },
+      "runtime": {
+        "package_manifest": "track-intake.json",
+        "loader_profile": "RGBA static PNG",
+        "application_route": null,
+        "build_commit": null,
+        "served_asset_hash": null,
+        "atlas": null,
+        "animation_or_physics_implemented": false
+      },
+      "variants": [
+        {
+          "variant_id": "dry_sparse",
+          "semantic_state": "dry_sparse",
+          "states": {
+            "generated": true,
+            "static": true,
+            "animated": false,
+            "reviewed": true,
+            "staged": false,
+            "integrated": false,
+            "accepted": false
+          },
+          "geometry": {
+            "source_dimensions_px": [
+              1374,
+              1145
+            ],
+            "frame_canvas_dimensions_px": [
+              656,
+              524
+            ],
+            "source_crop_box": [
+              30,
+              46,
+              686,
+              570
+            ],
+            "trim_offset": [
+              30,
+              46
+            ],
+            "alpha_bounds": [
+              3,
+              1,
+              655,
+              524
+            ],
+            "visible_alpha_bounds_threshold_8": [
+              12,
+              12,
+              644,
+              513
+            ],
+            "root_pivot_px": [
+              325,
+              498
+            ],
+            "placement_pivot_px": [
+              325,
+              498
+            ],
+            "placement_pivot_normalized": [
+              0.49543,
+              0.95038
+            ],
+            "ground_contact_footprint": {
+              "shape": "ellipse",
+              "center_px": [
+                325,
+                498
+              ],
+              "radii_px": [
+                115,
+                10
+              ],
+              "basis": "manual visual provisional; designer validation pending"
+            },
+            "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+            "world_units": "m",
+            "chosen_instance_size": {
+              "unit": "m",
+              "chosen_instance_height": 0.7,
+              "chosen_instance_canopy_width": 0.8,
+              "basis": "illustrative managed specimen; designer approval pending"
+            },
+            "pixels_per_world_unit": 748.57,
+            "layer_depth": "placement_y_sort",
+            "material_surface": "organic_vegetation",
+            "perches": [],
+            "collision_shapes": [
+              "ground_contact_footprint_only; foliage occlusion separate"
+            ],
+            "container_separable": null,
+            "mounting_surface": "floor_or_ground",
+            "trailing_foliage_below_placement_pivot": false,
+            "alpha_validation": {
+              "mode": "RGBA",
+              "min": 0,
+              "max": 255,
+              "zero_alpha_pixels": 106271,
+              "partial_alpha_pixels": 237467,
+              "real_alpha": true,
+              "edge_pixels_alpha_gt8": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "inspection": "Proper light/dark composites; crop only, RGBA unchanged."
+            }
+          },
+          "generation": {
+            "job_id": "exec-ad23a677-09c2-4c1d-ae2b-2d87e54d13e9",
+            "tool": "image_gen.imagegen",
+            "prompt_exact": "Create a matching alternate STATIC STATE sprite sheet using the supplied four-plant pixel-art sheet as style, camera, lighting, species, plant order and general silhouette reference. Keep precise crisp naturalistic pixel-grid art and restrained palette. This is a dry/spent foliage illustration set, NOT animation frames, NOT exact pixel-aligned morphs. Maintain each plant's recognizable woody form and botanical distinctions. Real transparent alpha background, exactly four separate full sprites in a 2 by 2 grid, generous empty gutters and at least 8 percent transparent margin inside every quadrant. No text, labels, panels, animals, birds, ground tiles, painted backdrop or checkerboard. Each rooted plant has only its modest contact pebbles/collar.\n\nUPPER LEFT same Diplacus puniceus San Diego monkeyflower: DRY SUMMER/WATER-STRESS state. Remove the red-orange flowers; preserve woody branching structure with considerably sparser narrow green-gray and a few curled tan leaves. Natural partial summer dormancy, not dead black sticks. Some living green leaf tips remain. No flames or dramatic drought cracks.\nUPPER RIGHT same Bahiopsis laciniata San Diego sunflower: DRIER LATE-GROWING-SEASON state. Fewer narrow green leaves, modest tan lower leaves, a few small brown spent flower heads on fine stems, one or two faded yellow rays only. Still a living native woody shrub. Not all brown and not orange autumn broadleaf foliage. Water-dependent thinning; no claim every plant follows same calendar.\nLOWER LEFT same Baccharis pilularis coyote brush: MILD DRY-STRESS evergreen state. Keep the rounded dense small-leaf green structure and basal branches; outer foliage somewhat duller olive, scattered sparse gaps and a few tan older interior leaves. NO flowers or cottony seed fluff because individual sex unresolved. No deciduous bare crown and no whole-crown orange fall.\nLOWER RIGHT same Achillea millefolium yarrow: SPENT FLOWER state after bloom. Replace white flower corymbs with small flat-topped buff-brown seedhead clusters and slender tan stems. Keep the fine deeply divided feathery basal foliage partly green with some dry tan leaf tips. No yellow flowering cultivar; no snowy white flowers. Living perennial regrowth retained.\n\nAll tips and ground contact fully inside frame. Preserve consistent detailed pixel-art scale and light from upper left. Do not make separate seasons into four unrelated new species. Each plant remains one flattened whole RGBA sprite; no separable layers/rig/animation claimed.\n",
+            "prompt_path": "prompts/regional-dry-02.txt",
+            "reference_asset_ids": [
+              "originals/regional-02.png"
+            ],
+            "referenced_image_paths": [
+              "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/regional-02.png"
+            ],
+            "model_if_exposed": null,
+            "seed_if_exposed": null,
+            "settings_if_exposed": {
+              "transparent_background": true
+            },
+            "original_output_paths": [
+              "originals/regional-dry-02.png"
+            ],
+            "original_hashes": [
+              "506c748bf2705b2323696726c463b730ced20c90058c02aaffc0409927c6545b"
+            ],
+            "generation_timestamp": null,
+            "recorded_at": "2026-10-17T16:24:38.493980+00:00",
+            "tool_receipt": "regional-dry-tool-receipt.json",
+            "edit_history": [
+              "Imagegen alternate static dry/spent illustration using regional02 sheet as reference. Not pixel-aligned animation/morph frames."
+            ],
+            "failed_attempts": []
+          },
+          "derivatives": [
+            {
+              "path": "sprites/san_diego_monkeyflower__dry_sparse.png",
+              "sha256": "c5feec52dd0b4ff26739d35b235bcd1360673f6749789c14e9b3707a8328175a",
+              "dimensions_px": [
+                656,
+                524
+              ],
+              "source_crop_box": [
+                30,
+                46,
+                686,
+                570
+              ],
+              "operation": "Rectangular crop only; RGBA byte values unchanged."
+            }
+          ],
+          "review_status": "provisional_static_state_candidate_pending_expert_owner",
+          "rejection_reason": null,
+          "motion_alignment": "Not guaranteed pixel/frame aligned with healthy sprite. Root anchor can position replacement; no interpolation or smooth animation implemented.",
+          "wind_attachment_metadata": {
+            "implemented": false,
+            "root_anchor_px": [
+              325,
+              498
+            ],
+            "upper_crown_px": [
+              328,
+              94
+            ],
+            "outer_left_px": [
+              131,
+              210
+            ],
+            "outer_right_px": [
+              525,
+              210
+            ],
+            "separated_foliage_groups": false
+          },
+          "canonical_intake": {
+            "status": "pending_mac_verification",
+            "commit": null,
+            "remote_sha": null
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "plant.san_diego_sunflower",
+      "family_id": "plant.san_diego_sunflower",
+      "variant_id": "healthy",
+      "label": "San Diego sunflower",
+      "species_or_plant_taxon": "Bahiopsis laciniata",
+      "taxon": "Bahiopsis laciniata",
+      "cultivar_name": null,
+      "cultivar_status": "no_named_cultivar_claim",
+      "track": "PLANTS",
+      "batch_id": "plants.expansion.20261017.02",
+      "category": "regional",
+      "native_tags": [
+        "local_native_species",
+        "exact accession unverified"
+      ],
+      "provenance_status": "textual_primary_sources_checked; art_not_vouchered_accession",
+      "taxonomy_note": "Accepted Bahiopsis laciniata; Viguiera laciniata synonym. Southern California/Baja native; not Encelia californica.",
+      "reference_sources": [
+        {
+          "url": "https://ucjeps.berkeley.edu/eflora/eflora_display.php?tid=82216",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        },
+        {
+          "url": "https://store.theodorepayne.org/products/theodore-payne-foundation-bahiopsis-viguiera-lacin",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        }
+      ],
+      "seasonal_behavior": "Yellow flowering flush winter/spring into summer depending moisture; dry stress may thin foliage. Sources differ on evergreen versus summer dormant, so moisture-state model required.",
+      "world_scale": {
+        "unit": "m",
+        "chosen_instance_height": 1.1,
+        "chosen_instance_canopy_width": 1.4,
+        "basis": "illustrative managed specimen; designer approval pending"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "state_slots": [
+        {
+          "id": "healthy",
+          "status": "generated_static"
+        },
+        {
+          "id": "dry_or_water_stress",
+          "status": "generated_static_variant",
+          "variant_id": "dry_spent"
+        },
+        {
+          "id": "seasonal_flower_or_spent_or_managed_growth",
+          "status": "needed_not_generated"
+        }
+      ],
+      "layer_slots": [
+        {
+          "id": "whole_flattened_sprite",
+          "status": "generated_flattened"
+        },
+        {
+          "id": "foliage_wind_groups",
+          "status": "needed_not_separated"
+        },
+        {
+          "id": "seasonal_overlay",
+          "status": "needed_not_generated"
+        }
+      ],
+      "wind_attachment_metadata": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          330,
+          508
+        ],
+        "pot_or_ground_fixed_px": [
+          330,
+          508
+        ],
+        "outer_left_px": [
+          125,
+          215
+        ],
+        "outer_right_px": [
+          500,
+          215
+        ],
+        "upper_crown_px": [
+          312,
+          97
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "generation": {
+        "job_id": "exec-22004d8f-9ed2-421f-b56d-b0f5d02d0e76",
+        "tool": "image_gen.imagegen",
+        "prompt_exact": "Create an actual production sprite sheet of FOUR isolated Southern California garden plants in detailed naturalistic PIXEL ART. Visible square pixel clusters, stepped diagonal contours, deliberately limited restrained organic palette, precise pixel shading, no soft painterly gradients or 3D render. Think each object authored on a fine 192-to-256-pixel logical grid and shown with nearest-neighbor crispness. Warm upper-left light, subtle selective dark contour, three-quarter side garden view with slight top visibility. Botanical structure is carefully detailed; quiet garden objects support birds as focus, no birds/animals here. No UI or text.\n\nTRUE transparent alpha background. Exactly 2 by 2 separated grid, one full plant per quadrant. Each silhouette occupies at most 74 percent of its quadrant width and 76 percent height, with broad fully empty gutters and transparent margins on ALL sides. All leaves, roots and flower tips fully visible. No overlap. No labels, panels, borders, checkerboard, backdrop, pots, ground tiles, large shadows. Small natural ground contact collar and only a few tiny pebbles. Fit specimens independently to their cells; cell size is not physical scale comparison. No duplication of species.\n\nUPPER LEFT — San Diego/red bush monkeyflower, Diplacus puniceus: a loose low rounded woody subshrub with narrow dark-green opposite lanceolate leaves, slender brown woody base, dark orange-red TUBULAR flowers that flare into two-lipped five-lobed open faces. Natural sparse flowers around stem tips, not fuchsia tubes, not trumpet vine. Healthy spring flowering state.\nUPPER RIGHT — San Diego sunflower, Bahiopsis laciniata (also called Viguiera laciniata): compact upright branching woody shrub, many relatively narrow lance-shaped resinous green leaves with lightly irregular or toothed margins, several small yellow daisy heads with yellow-to-brown centers and short yellow rays. Native shrub proportions; not tall crop sunflower, not broad diamond-leaf Encelia californica. Healthy flowering state.\nLOWER LEFT — Coyote brush, Baccharis pilularis: dense but naturally irregular rounded woody green shrub, numerous SMALL glossy obovate green leaves, subtle small teeth on some leaves, visible brown basal branch forks. Healthy evergreen foliage ONLY, no flowers or cottony seed fluff; plant sex/cultivar unresolved. Not a conifer, no broad giant leaves.\nLOWER RIGHT — Common yarrow, Achillea millefolium: low basal mound of very fine feathery deeply divided green leaves; slim upright leafy stems support several FLAT TOPPED clusters of tiny ivory-white daisy florets, a delicate white flowering perennial clump. Not Queen Anne's lace rounded lacy umbels and not fernleaf yarrow yellow flowers. Healthy white-flowering phenotype, no cultivar identity implied.\n\nDeliver crisp pixel-art whole sprites, not photographs or smooth illustrations. Transparent cutouts only. Each plant is a flattened whole sprite; no internal branches/foliage layer separability implied.\n",
+        "prompt_path": "prompts/regional-02.txt",
+        "negative_prompt_if_supported": null,
+        "reference_asset_ids": [],
+        "model_if_exposed": null,
+        "seed_if_exposed": null,
+        "settings_if_exposed": {
+          "transparent_background": true
+        },
+        "generation_timestamp": null,
+        "recorded_at": "2026-10-17T16:21:46.177671+00:00",
+        "timestamp_note": "Exact provider generation time not exposed; recorded_at is intake creation time.",
+        "original_output_paths": [
+          "originals/regional-02.png"
+        ],
+        "original_hashes": [
+          "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e"
+        ],
+        "provider_original_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/regional-02.png",
+        "tool_receipt": "tool-receipts.json",
+        "edit_history": [],
+        "failed_attempts": []
+      },
+      "derivatives": [
+        {
+          "path": "sprites/san_diego_sunflower.png",
+          "sha256": "57ecb34cf27ff12b7fcde335cecd333c8c3a87154954c42136993ff7f7f679ec",
+          "dimensions_px": [
+            625,
+            537
+          ],
+          "operation": "Rectangular crop only. Alpha>8 used to locate padded crop bounds; original RGBA values unchanged.",
+          "source_crop_box": [
+            710,
+            33,
+            1335,
+            570
+          ],
+          "original_sha256": "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e"
+        }
+      ],
+      "geometry": {
+        "source_dimensions_px": [
+          1374,
+          1145
+        ],
+        "frame_canvas_dimensions_px": [
+          625,
+          537
+        ],
+        "source_crop_box": [
+          710,
+          33,
+          1335,
+          570
+        ],
+        "trim_offset": [
+          710,
+          33
+        ],
+        "alpha_bounds": [
+          0,
+          0,
+          624,
+          537
+        ],
+        "visible_alpha_bounds_threshold_8": [
+          12,
+          12,
+          613,
+          528
+        ],
+        "root_pivot_px": [
+          330,
+          508
+        ],
+        "placement_pivot_px": [
+          330,
+          508
+        ],
+        "placement_pivot_normalized": [
+          0.528,
+          0.946
+        ],
+        "ground_contact_footprint": {
+          "shape": "ellipse",
+          "center_px": [
+            330,
+            508
+          ],
+          "radii_px": [
+            115,
+            10
+          ],
+          "basis": "manual visual provisional; designer validation pending"
+        },
+        "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+        "world_units": "m",
+        "chosen_instance_size": {
+          "unit": "m",
+          "chosen_instance_height": 1.1,
+          "chosen_instance_canopy_width": 1.4,
+          "basis": "illustrative managed specimen; designer approval pending"
+        },
+        "pixels_per_world_unit": 488.18,
+        "layer_depth": "placement_y_sort",
+        "material_surface": "organic_vegetation",
+        "perches": [],
+        "collision_shapes": [
+          "ground_contact_footprint_only; foliage occlusion separate"
+        ],
+        "container_separable": null,
+        "mounting_surface": "floor_or_ground",
+        "trailing_foliage_below_placement_pivot": false,
+        "alpha_validation": {
+          "mode": "RGBA",
+          "min": 0,
+          "max": 255,
+          "zero_alpha_pixels": 108111,
+          "partial_alpha_pixels": 227490,
+          "real_alpha": true,
+          "edge_pixels_alpha_gt8": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "inspection": "Proper light/dark alpha composites; no color key or alpha/color repainting."
+        }
+      },
+      "review_status": "provisional_visual_candidate_pending_taxonomy_style_owner_review",
+      "rejection_reason": null,
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "content_version": "20261017.02",
+      "semantic_role": "placeable_regional_vegetation",
+      "source_license": {
+        "creator": "OpenAI image_gen output",
+        "license_id": null,
+        "license_url": null,
+        "commercial_use_status": "Project review under applicable service terms; no CC/public-domain claim for generated art.",
+        "attribution_text": null,
+        "share_alike_obligations": null,
+        "reference_image_usage": "None: botanical references read as public factual text, not photographic generation input.",
+        "style_reference_usage": "Written approved detailed naturalistic pixel-art direction only; original style pixels not inspected or supplied.",
+        "original_file_hash": "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e",
+        "modification_notice": "Lossless PNG sprite crop; no code-painted artwork."
+      },
+      "evidence": {
+        "requirement_ids": [
+          "ART-049",
+          "ART-050",
+          "ART-053",
+          "ART-055",
+          "ART-056",
+          "ART-062",
+          "ART-063"
+        ],
+        "state": "generated_reviewed_provisional",
+        "owner": "PLANTS track agent",
+        "visual_review_receipt": "reviews/track-review.md",
+        "technical_review": "RGBA PNG decode, true-alpha transparent pixels, no visible anatomy crop at alpha>8, derivative/source SHA256/dimensions; no application runtime validation.",
+        "last_verified_at": "2026-10-17T16:21:46.183881+00:00"
+      },
+      "runtime": {
+        "package_manifest": "track-intake.json",
+        "loader_profile": "RGBA static PNG",
+        "application_route": null,
+        "build_commit": null,
+        "served_asset_hash": null,
+        "atlas": null,
+        "animation_or_physics_implemented": false
+      },
+      "variants": [
+        {
+          "variant_id": "dry_spent",
+          "semantic_state": "dry_spent",
+          "states": {
+            "generated": true,
+            "static": true,
+            "animated": false,
+            "reviewed": true,
+            "staged": false,
+            "integrated": false,
+            "accepted": false
+          },
+          "geometry": {
+            "source_dimensions_px": [
+              1374,
+              1145
+            ],
+            "frame_canvas_dimensions_px": [
+              629,
+              556
+            ],
+            "source_crop_box": [
+              716,
+              14,
+              1345,
+              570
+            ],
+            "trim_offset": [
+              716,
+              14
+            ],
+            "alpha_bounds": [
+              9,
+              3,
+              628,
+              555
+            ],
+            "visible_alpha_bounds_threshold_8": [
+              12,
+              12,
+              617,
+              550
+            ],
+            "root_pivot_px": [
+              324,
+              537
+            ],
+            "placement_pivot_px": [
+              324,
+              537
+            ],
+            "placement_pivot_normalized": [
+              0.5151,
+              0.96583
+            ],
+            "ground_contact_footprint": {
+              "shape": "ellipse",
+              "center_px": [
+                324,
+                537
+              ],
+              "radii_px": [
+                115,
+                10
+              ],
+              "basis": "manual visual provisional; designer validation pending"
+            },
+            "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+            "world_units": "m",
+            "chosen_instance_size": {
+              "unit": "m",
+              "chosen_instance_height": 1.1,
+              "chosen_instance_canopy_width": 1.4,
+              "basis": "illustrative managed specimen; designer approval pending"
+            },
+            "pixels_per_world_unit": 505.45,
+            "layer_depth": "placement_y_sort",
+            "material_surface": "organic_vegetation",
+            "perches": [],
+            "collision_shapes": [
+              "ground_contact_footprint_only; foliage occlusion separate"
+            ],
+            "container_separable": null,
+            "mounting_surface": "floor_or_ground",
+            "trailing_foliage_below_placement_pivot": false,
+            "alpha_validation": {
+              "mode": "RGBA",
+              "min": 0,
+              "max": 255,
+              "zero_alpha_pixels": 113488,
+              "partial_alpha_pixels": 236223,
+              "real_alpha": true,
+              "edge_pixels_alpha_gt8": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "inspection": "Proper light/dark composites; crop only, RGBA unchanged."
+            }
+          },
+          "generation": {
+            "job_id": "exec-ad23a677-09c2-4c1d-ae2b-2d87e54d13e9",
+            "tool": "image_gen.imagegen",
+            "prompt_exact": "Create a matching alternate STATIC STATE sprite sheet using the supplied four-plant pixel-art sheet as style, camera, lighting, species, plant order and general silhouette reference. Keep precise crisp naturalistic pixel-grid art and restrained palette. This is a dry/spent foliage illustration set, NOT animation frames, NOT exact pixel-aligned morphs. Maintain each plant's recognizable woody form and botanical distinctions. Real transparent alpha background, exactly four separate full sprites in a 2 by 2 grid, generous empty gutters and at least 8 percent transparent margin inside every quadrant. No text, labels, panels, animals, birds, ground tiles, painted backdrop or checkerboard. Each rooted plant has only its modest contact pebbles/collar.\n\nUPPER LEFT same Diplacus puniceus San Diego monkeyflower: DRY SUMMER/WATER-STRESS state. Remove the red-orange flowers; preserve woody branching structure with considerably sparser narrow green-gray and a few curled tan leaves. Natural partial summer dormancy, not dead black sticks. Some living green leaf tips remain. No flames or dramatic drought cracks.\nUPPER RIGHT same Bahiopsis laciniata San Diego sunflower: DRIER LATE-GROWING-SEASON state. Fewer narrow green leaves, modest tan lower leaves, a few small brown spent flower heads on fine stems, one or two faded yellow rays only. Still a living native woody shrub. Not all brown and not orange autumn broadleaf foliage. Water-dependent thinning; no claim every plant follows same calendar.\nLOWER LEFT same Baccharis pilularis coyote brush: MILD DRY-STRESS evergreen state. Keep the rounded dense small-leaf green structure and basal branches; outer foliage somewhat duller olive, scattered sparse gaps and a few tan older interior leaves. NO flowers or cottony seed fluff because individual sex unresolved. No deciduous bare crown and no whole-crown orange fall.\nLOWER RIGHT same Achillea millefolium yarrow: SPENT FLOWER state after bloom. Replace white flower corymbs with small flat-topped buff-brown seedhead clusters and slender tan stems. Keep the fine deeply divided feathery basal foliage partly green with some dry tan leaf tips. No yellow flowering cultivar; no snowy white flowers. Living perennial regrowth retained.\n\nAll tips and ground contact fully inside frame. Preserve consistent detailed pixel-art scale and light from upper left. Do not make separate seasons into four unrelated new species. Each plant remains one flattened whole RGBA sprite; no separable layers/rig/animation claimed.\n",
+            "prompt_path": "prompts/regional-dry-02.txt",
+            "reference_asset_ids": [
+              "originals/regional-02.png"
+            ],
+            "referenced_image_paths": [
+              "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/regional-02.png"
+            ],
+            "model_if_exposed": null,
+            "seed_if_exposed": null,
+            "settings_if_exposed": {
+              "transparent_background": true
+            },
+            "original_output_paths": [
+              "originals/regional-dry-02.png"
+            ],
+            "original_hashes": [
+              "506c748bf2705b2323696726c463b730ced20c90058c02aaffc0409927c6545b"
+            ],
+            "generation_timestamp": null,
+            "recorded_at": "2026-10-17T16:24:38.577879+00:00",
+            "tool_receipt": "regional-dry-tool-receipt.json",
+            "edit_history": [
+              "Imagegen alternate static dry/spent illustration using regional02 sheet as reference. Not pixel-aligned animation/morph frames."
+            ],
+            "failed_attempts": []
+          },
+          "derivatives": [
+            {
+              "path": "sprites/san_diego_sunflower__dry_spent.png",
+              "sha256": "6b02dce4068bfc800cafa14789d1daccdd9e5865f02ed2de73aa4451e2943f6b",
+              "dimensions_px": [
+                629,
+                556
+              ],
+              "source_crop_box": [
+                716,
+                14,
+                1345,
+                570
+              ],
+              "operation": "Rectangular crop only; RGBA byte values unchanged."
+            }
+          ],
+          "review_status": "provisional_static_state_candidate_pending_expert_owner",
+          "rejection_reason": null,
+          "motion_alignment": "Not guaranteed pixel/frame aligned with healthy sprite. Root anchor can position replacement; no interpolation or smooth animation implemented.",
+          "wind_attachment_metadata": {
+            "implemented": false,
+            "root_anchor_px": [
+              324,
+              537
+            ],
+            "upper_crown_px": [
+              314,
+              100
+            ],
+            "outer_left_px": [
+              126,
+              222
+            ],
+            "outer_right_px": [
+              503,
+              222
+            ],
+            "separated_foliage_groups": false
+          },
+          "canonical_intake": {
+            "status": "pending_mac_verification",
+            "commit": null,
+            "remote_sha": null
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "plant.coyote_brush",
+      "family_id": "plant.coyote_brush",
+      "variant_id": "healthy",
+      "label": "Coyote brush",
+      "species_or_plant_taxon": "Baccharis pilularis",
+      "taxon": "Baccharis pilularis",
+      "cultivar_name": null,
+      "cultivar_status": "no_named_cultivar_claim",
+      "track": "PLANTS",
+      "batch_id": "plants.expansion.20261017.02",
+      "category": "regional",
+      "native_tags": [
+        "California_native_species",
+        "local ecotype/subspecies unresolved"
+      ],
+      "provenance_status": "textual_primary_sources_checked; art_not_vouchered_accession",
+      "taxonomy_note": "Native California shrub. No named prostrate cultivar, subspecies or sex identity asserted for art.",
+      "reference_sources": [
+        {
+          "url": "https://vegetation.cnps.org/alliance/151",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        },
+        {
+          "url": "https://www.calflora.org/app/taxon?crn=1031",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        }
+      ],
+      "seasonal_behavior": "Evergreen core; seasonal inconspicuous flower/seed slots in late season. White fluffy seed only on female plant: sex unresolved, so seed state not generated. Drought stress distinct from calendar.",
+      "world_scale": {
+        "unit": "m",
+        "chosen_instance_height": 1.2,
+        "chosen_instance_canopy_width": 1.6,
+        "basis": "illustrative managed specimen; designer approval pending"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "state_slots": [
+        {
+          "id": "healthy",
+          "status": "generated_static"
+        },
+        {
+          "id": "dry_or_water_stress",
+          "status": "generated_static_variant",
+          "variant_id": "mild_dry_stress"
+        },
+        {
+          "id": "seasonal_flower_or_spent_or_managed_growth",
+          "status": "needed_not_generated"
+        }
+      ],
+      "layer_slots": [
+        {
+          "id": "whole_flattened_sprite",
+          "status": "generated_flattened"
+        },
+        {
+          "id": "foliage_wind_groups",
+          "status": "needed_not_separated"
+        },
+        {
+          "id": "seasonal_overlay",
+          "status": "needed_not_generated"
+        }
+      ],
+      "wind_attachment_metadata": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          321,
+          510
+        ],
+        "pot_or_ground_fixed_px": [
+          321,
+          510
+        ],
+        "outer_left_px": [
+          139,
+          217
+        ],
+        "outer_right_px": [
+          555,
+          217
+        ],
+        "upper_crown_px": [
+          347,
+          98
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "generation": {
+        "job_id": "exec-22004d8f-9ed2-421f-b56d-b0f5d02d0e76",
+        "tool": "image_gen.imagegen",
+        "prompt_exact": "Create an actual production sprite sheet of FOUR isolated Southern California garden plants in detailed naturalistic PIXEL ART. Visible square pixel clusters, stepped diagonal contours, deliberately limited restrained organic palette, precise pixel shading, no soft painterly gradients or 3D render. Think each object authored on a fine 192-to-256-pixel logical grid and shown with nearest-neighbor crispness. Warm upper-left light, subtle selective dark contour, three-quarter side garden view with slight top visibility. Botanical structure is carefully detailed; quiet garden objects support birds as focus, no birds/animals here. No UI or text.\n\nTRUE transparent alpha background. Exactly 2 by 2 separated grid, one full plant per quadrant. Each silhouette occupies at most 74 percent of its quadrant width and 76 percent height, with broad fully empty gutters and transparent margins on ALL sides. All leaves, roots and flower tips fully visible. No overlap. No labels, panels, borders, checkerboard, backdrop, pots, ground tiles, large shadows. Small natural ground contact collar and only a few tiny pebbles. Fit specimens independently to their cells; cell size is not physical scale comparison. No duplication of species.\n\nUPPER LEFT — San Diego/red bush monkeyflower, Diplacus puniceus: a loose low rounded woody subshrub with narrow dark-green opposite lanceolate leaves, slender brown woody base, dark orange-red TUBULAR flowers that flare into two-lipped five-lobed open faces. Natural sparse flowers around stem tips, not fuchsia tubes, not trumpet vine. Healthy spring flowering state.\nUPPER RIGHT — San Diego sunflower, Bahiopsis laciniata (also called Viguiera laciniata): compact upright branching woody shrub, many relatively narrow lance-shaped resinous green leaves with lightly irregular or toothed margins, several small yellow daisy heads with yellow-to-brown centers and short yellow rays. Native shrub proportions; not tall crop sunflower, not broad diamond-leaf Encelia californica. Healthy flowering state.\nLOWER LEFT — Coyote brush, Baccharis pilularis: dense but naturally irregular rounded woody green shrub, numerous SMALL glossy obovate green leaves, subtle small teeth on some leaves, visible brown basal branch forks. Healthy evergreen foliage ONLY, no flowers or cottony seed fluff; plant sex/cultivar unresolved. Not a conifer, no broad giant leaves.\nLOWER RIGHT — Common yarrow, Achillea millefolium: low basal mound of very fine feathery deeply divided green leaves; slim upright leafy stems support several FLAT TOPPED clusters of tiny ivory-white daisy florets, a delicate white flowering perennial clump. Not Queen Anne's lace rounded lacy umbels and not fernleaf yarrow yellow flowers. Healthy white-flowering phenotype, no cultivar identity implied.\n\nDeliver crisp pixel-art whole sprites, not photographs or smooth illustrations. Transparent cutouts only. Each plant is a flattened whole sprite; no internal branches/foliage layer separability implied.\n",
+        "prompt_path": "prompts/regional-02.txt",
+        "negative_prompt_if_supported": null,
+        "reference_asset_ids": [],
+        "model_if_exposed": null,
+        "seed_if_exposed": null,
+        "settings_if_exposed": {
+          "transparent_background": true
+        },
+        "generation_timestamp": null,
+        "recorded_at": "2026-10-17T16:21:46.356145+00:00",
+        "timestamp_note": "Exact provider generation time not exposed; recorded_at is intake creation time.",
+        "original_output_paths": [
+          "originals/regional-02.png"
+        ],
+        "original_hashes": [
+          "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e"
+        ],
+        "provider_original_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/regional-02.png",
+        "tool_receipt": "tool-receipts.json",
+        "edit_history": [],
+        "failed_attempts": []
+      },
+      "derivatives": [
+        {
+          "path": "sprites/coyote_brush.png",
+          "sha256": "3c0147777ce3800227720b63cdce4f82bc8a4f9f60347934b0ccbc2e696bd846",
+          "dimensions_px": [
+            694,
+            542
+          ],
+          "operation": "Rectangular crop only. Alpha>8 used to locate padded crop bounds; original RGBA values unchanged.",
+          "source_crop_box": [
+            35,
+            571,
+            729,
+            1113
+          ],
+          "original_sha256": "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e"
+        }
+      ],
+      "geometry": {
+        "source_dimensions_px": [
+          1374,
+          1145
+        ],
+        "frame_canvas_dimensions_px": [
+          694,
+          542
+        ],
+        "source_crop_box": [
+          35,
+          571,
+          729,
+          1113
+        ],
+        "trim_offset": [
+          35,
+          571
+        ],
+        "alpha_bounds": [
+          0,
+          0,
+          694,
+          542
+        ],
+        "visible_alpha_bounds_threshold_8": [
+          12,
+          12,
+          682,
+          530
+        ],
+        "root_pivot_px": [
+          321,
+          510
+        ],
+        "placement_pivot_px": [
+          321,
+          510
+        ],
+        "placement_pivot_normalized": [
+          0.46254,
+          0.94096
+        ],
+        "ground_contact_footprint": {
+          "shape": "ellipse",
+          "center_px": [
+            321,
+            510
+          ],
+          "radii_px": [
+            145,
+            12
+          ],
+          "basis": "manual visual provisional; designer validation pending"
+        },
+        "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+        "world_units": "m",
+        "chosen_instance_size": {
+          "unit": "m",
+          "chosen_instance_height": 1.2,
+          "chosen_instance_canopy_width": 1.6,
+          "basis": "illustrative managed specimen; designer approval pending"
+        },
+        "pixels_per_world_unit": 451.67,
+        "layer_depth": "placement_y_sort",
+        "material_surface": "organic_vegetation",
+        "perches": [],
+        "collision_shapes": [
+          "ground_contact_footprint_only; foliage occlusion separate"
+        ],
+        "container_separable": null,
+        "mounting_surface": "floor_or_ground",
+        "trailing_foliage_below_placement_pivot": false,
+        "alpha_validation": {
+          "mode": "RGBA",
+          "min": 0,
+          "max": 255,
+          "zero_alpha_pixels": 122888,
+          "partial_alpha_pixels": 253233,
+          "real_alpha": true,
+          "edge_pixels_alpha_gt8": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "inspection": "Proper light/dark alpha composites; no color key or alpha/color repainting."
+        }
+      },
+      "review_status": "provisional_visual_candidate_pending_taxonomy_style_owner_review",
+      "rejection_reason": null,
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "content_version": "20261017.02",
+      "semantic_role": "placeable_regional_vegetation",
+      "source_license": {
+        "creator": "OpenAI image_gen output",
+        "license_id": null,
+        "license_url": null,
+        "commercial_use_status": "Project review under applicable service terms; no CC/public-domain claim for generated art.",
+        "attribution_text": null,
+        "share_alike_obligations": null,
+        "reference_image_usage": "None: botanical references read as public factual text, not photographic generation input.",
+        "style_reference_usage": "Written approved detailed naturalistic pixel-art direction only; original style pixels not inspected or supplied.",
+        "original_file_hash": "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e",
+        "modification_notice": "Lossless PNG sprite crop; no code-painted artwork."
+      },
+      "evidence": {
+        "requirement_ids": [
+          "ART-049",
+          "ART-050",
+          "ART-053",
+          "ART-055",
+          "ART-056",
+          "ART-062",
+          "ART-063"
+        ],
+        "state": "generated_reviewed_provisional",
+        "owner": "PLANTS track agent",
+        "visual_review_receipt": "reviews/track-review.md",
+        "technical_review": "RGBA PNG decode, true-alpha transparent pixels, no visible anatomy crop at alpha>8, derivative/source SHA256/dimensions; no application runtime validation.",
+        "last_verified_at": "2026-10-17T16:21:46.362489+00:00"
+      },
+      "runtime": {
+        "package_manifest": "track-intake.json",
+        "loader_profile": "RGBA static PNG",
+        "application_route": null,
+        "build_commit": null,
+        "served_asset_hash": null,
+        "atlas": null,
+        "animation_or_physics_implemented": false
+      },
+      "variants": [
+        {
+          "variant_id": "mild_dry_stress",
+          "semantic_state": "mild_dry_stress",
+          "states": {
+            "generated": true,
+            "static": true,
+            "animated": false,
+            "reviewed": true,
+            "staged": false,
+            "integrated": false,
+            "accepted": false
+          },
+          "geometry": {
+            "source_dimensions_px": [
+              1374,
+              1145
+            ],
+            "frame_canvas_dimensions_px": [
+              705,
+              544
+            ],
+            "source_crop_box": [
+              29,
+              570,
+              734,
+              1114
+            ],
+            "trim_offset": [
+              29,
+              570
+            ],
+            "alpha_bounds": [
+              2,
+              6,
+              705,
+              543
+            ],
+            "visible_alpha_bounds_threshold_8": [
+              12,
+              9,
+              693,
+              532
+            ],
+            "root_pivot_px": [
+              327,
+              511
+            ],
+            "placement_pivot_px": [
+              327,
+              511
+            ],
+            "placement_pivot_normalized": [
+              0.46383,
+              0.93934
+            ],
+            "ground_contact_footprint": {
+              "shape": "ellipse",
+              "center_px": [
+                327,
+                511
+              ],
+              "radii_px": [
+                145,
+                12
+              ],
+              "basis": "manual visual provisional; designer validation pending"
+            },
+            "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+            "world_units": "m",
+            "chosen_instance_size": {
+              "unit": "m",
+              "chosen_instance_height": 1.2,
+              "chosen_instance_canopy_width": 1.6,
+              "basis": "illustrative managed specimen; designer approval pending"
+            },
+            "pixels_per_world_unit": 453.33,
+            "layer_depth": "placement_y_sort",
+            "material_surface": "organic_vegetation",
+            "perches": [],
+            "collision_shapes": [
+              "ground_contact_footprint_only; foliage occlusion separate"
+            ],
+            "container_separable": null,
+            "mounting_surface": "floor_or_ground",
+            "trailing_foliage_below_placement_pivot": false,
+            "alpha_validation": {
+              "mode": "RGBA",
+              "min": 0,
+              "max": 255,
+              "zero_alpha_pixels": 112519,
+              "partial_alpha_pixels": 270998,
+              "real_alpha": true,
+              "edge_pixels_alpha_gt8": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "inspection": "Proper light/dark composites; crop only, RGBA unchanged."
+            }
+          },
+          "generation": {
+            "job_id": "exec-ad23a677-09c2-4c1d-ae2b-2d87e54d13e9",
+            "tool": "image_gen.imagegen",
+            "prompt_exact": "Create a matching alternate STATIC STATE sprite sheet using the supplied four-plant pixel-art sheet as style, camera, lighting, species, plant order and general silhouette reference. Keep precise crisp naturalistic pixel-grid art and restrained palette. This is a dry/spent foliage illustration set, NOT animation frames, NOT exact pixel-aligned morphs. Maintain each plant's recognizable woody form and botanical distinctions. Real transparent alpha background, exactly four separate full sprites in a 2 by 2 grid, generous empty gutters and at least 8 percent transparent margin inside every quadrant. No text, labels, panels, animals, birds, ground tiles, painted backdrop or checkerboard. Each rooted plant has only its modest contact pebbles/collar.\n\nUPPER LEFT same Diplacus puniceus San Diego monkeyflower: DRY SUMMER/WATER-STRESS state. Remove the red-orange flowers; preserve woody branching structure with considerably sparser narrow green-gray and a few curled tan leaves. Natural partial summer dormancy, not dead black sticks. Some living green leaf tips remain. No flames or dramatic drought cracks.\nUPPER RIGHT same Bahiopsis laciniata San Diego sunflower: DRIER LATE-GROWING-SEASON state. Fewer narrow green leaves, modest tan lower leaves, a few small brown spent flower heads on fine stems, one or two faded yellow rays only. Still a living native woody shrub. Not all brown and not orange autumn broadleaf foliage. Water-dependent thinning; no claim every plant follows same calendar.\nLOWER LEFT same Baccharis pilularis coyote brush: MILD DRY-STRESS evergreen state. Keep the rounded dense small-leaf green structure and basal branches; outer foliage somewhat duller olive, scattered sparse gaps and a few tan older interior leaves. NO flowers or cottony seed fluff because individual sex unresolved. No deciduous bare crown and no whole-crown orange fall.\nLOWER RIGHT same Achillea millefolium yarrow: SPENT FLOWER state after bloom. Replace white flower corymbs with small flat-topped buff-brown seedhead clusters and slender tan stems. Keep the fine deeply divided feathery basal foliage partly green with some dry tan leaf tips. No yellow flowering cultivar; no snowy white flowers. Living perennial regrowth retained.\n\nAll tips and ground contact fully inside frame. Preserve consistent detailed pixel-art scale and light from upper left. Do not make separate seasons into four unrelated new species. Each plant remains one flattened whole RGBA sprite; no separable layers/rig/animation claimed.\n",
+            "prompt_path": "prompts/regional-dry-02.txt",
+            "reference_asset_ids": [
+              "originals/regional-02.png"
+            ],
+            "referenced_image_paths": [
+              "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/regional-02.png"
+            ],
+            "model_if_exposed": null,
+            "seed_if_exposed": null,
+            "settings_if_exposed": {
+              "transparent_background": true
+            },
+            "original_output_paths": [
+              "originals/regional-dry-02.png"
+            ],
+            "original_hashes": [
+              "506c748bf2705b2323696726c463b730ced20c90058c02aaffc0409927c6545b"
+            ],
+            "generation_timestamp": null,
+            "recorded_at": "2026-10-17T16:24:38.688709+00:00",
+            "tool_receipt": "regional-dry-tool-receipt.json",
+            "edit_history": [
+              "Imagegen alternate static dry/spent illustration using regional02 sheet as reference. Not pixel-aligned animation/morph frames."
+            ],
+            "failed_attempts": []
+          },
+          "derivatives": [
+            {
+              "path": "sprites/coyote_brush__mild_dry_stress.png",
+              "sha256": "67a1ca6361775024469b4940d16de1ce580c7f9959116557ef1d922c32972137",
+              "dimensions_px": [
+                705,
+                544
+              ],
+              "source_crop_box": [
+                29,
+                570,
+                734,
+                1114
+              ],
+              "operation": "Rectangular crop only; RGBA byte values unchanged."
+            }
+          ],
+          "review_status": "provisional_static_state_candidate_pending_expert_owner",
+          "rejection_reason": null,
+          "motion_alignment": "Not guaranteed pixel/frame aligned with healthy sprite. Root anchor can position replacement; no interpolation or smooth animation implemented.",
+          "wind_attachment_metadata": {
+            "implemented": false,
+            "root_anchor_px": [
+              327,
+              511
+            ],
+            "upper_crown_px": [
+              352,
+              98
+            ],
+            "outer_left_px": [
+              141,
+              218
+            ],
+            "outer_right_px": [
+              564,
+              218
+            ],
+            "separated_foliage_groups": false
+          },
+          "canonical_intake": {
+            "status": "pending_mac_verification",
+            "commit": null,
+            "remote_sha": null
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "plant.common_yarrow",
+      "family_id": "plant.common_yarrow",
+      "variant_id": "healthy",
+      "label": "Common yarrow",
+      "species_or_plant_taxon": "Achillea millefolium",
+      "taxon": "Achillea millefolium",
+      "cultivar_name": null,
+      "cultivar_status": "no_named_cultivar_claim",
+      "track": "PLANTS",
+      "batch_id": "plants.expansion.20261017.02",
+      "category": "regional",
+      "native_tags": [
+        "native_complex_with_nonlocal_nursery_lineages",
+        "San_Diego_accession_unverified"
+      ],
+      "provenance_status": "textual_primary_sources_checked; art_not_vouchered_accession",
+      "taxonomy_note": "Broad variable taxon complex with native and introduced/nursery lineages. White-flowering art candidate does not establish local genotype, seed provenance or cultivar.",
+      "reference_sources": [
+        {
+          "url": "https://calscape.org/plant/47/Achillea-millefolium-%28Common-Yarrow%29",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        },
+        {
+          "url": "https://www.wildflower.org/plants/result.php?id_plant=acmi2",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        }
+      ],
+      "seasonal_behavior": "Fine feathery low leaves; flat white flower corymbs in growing season. Dry/spent stems and rain regrowth slots. Bloom/greenness depend on moisture and management, not universal calendar.",
+      "world_scale": {
+        "unit": "m",
+        "chosen_instance_height": 0.55,
+        "chosen_instance_canopy_width": 0.55,
+        "basis": "illustrative managed specimen; designer approval pending"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "state_slots": [
+        {
+          "id": "healthy",
+          "status": "generated_static"
+        },
+        {
+          "id": "dry_or_water_stress",
+          "status": "generated_static_variant",
+          "variant_id": "spent_flower"
+        },
+        {
+          "id": "seasonal_flower_or_spent_or_managed_growth",
+          "status": "generated_spent_static_variant"
+        }
+      ],
+      "layer_slots": [
+        {
+          "id": "whole_flattened_sprite",
+          "status": "generated_flattened"
+        },
+        {
+          "id": "foliage_wind_groups",
+          "status": "needed_not_separated"
+        },
+        {
+          "id": "seasonal_overlay",
+          "status": "needed_not_generated"
+        }
+      ],
+      "wind_attachment_metadata": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          311,
+          472
+        ],
+        "pot_or_ground_fixed_px": [
+          311,
+          472
+        ],
+        "outer_left_px": [
+          115,
+          202
+        ],
+        "outer_right_px": [
+          461,
+          202
+        ],
+        "upper_crown_px": [
+          288,
+          91
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "generation": {
+        "job_id": "exec-22004d8f-9ed2-421f-b56d-b0f5d02d0e76",
+        "tool": "image_gen.imagegen",
+        "prompt_exact": "Create an actual production sprite sheet of FOUR isolated Southern California garden plants in detailed naturalistic PIXEL ART. Visible square pixel clusters, stepped diagonal contours, deliberately limited restrained organic palette, precise pixel shading, no soft painterly gradients or 3D render. Think each object authored on a fine 192-to-256-pixel logical grid and shown with nearest-neighbor crispness. Warm upper-left light, subtle selective dark contour, three-quarter side garden view with slight top visibility. Botanical structure is carefully detailed; quiet garden objects support birds as focus, no birds/animals here. No UI or text.\n\nTRUE transparent alpha background. Exactly 2 by 2 separated grid, one full plant per quadrant. Each silhouette occupies at most 74 percent of its quadrant width and 76 percent height, with broad fully empty gutters and transparent margins on ALL sides. All leaves, roots and flower tips fully visible. No overlap. No labels, panels, borders, checkerboard, backdrop, pots, ground tiles, large shadows. Small natural ground contact collar and only a few tiny pebbles. Fit specimens independently to their cells; cell size is not physical scale comparison. No duplication of species.\n\nUPPER LEFT — San Diego/red bush monkeyflower, Diplacus puniceus: a loose low rounded woody subshrub with narrow dark-green opposite lanceolate leaves, slender brown woody base, dark orange-red TUBULAR flowers that flare into two-lipped five-lobed open faces. Natural sparse flowers around stem tips, not fuchsia tubes, not trumpet vine. Healthy spring flowering state.\nUPPER RIGHT — San Diego sunflower, Bahiopsis laciniata (also called Viguiera laciniata): compact upright branching woody shrub, many relatively narrow lance-shaped resinous green leaves with lightly irregular or toothed margins, several small yellow daisy heads with yellow-to-brown centers and short yellow rays. Native shrub proportions; not tall crop sunflower, not broad diamond-leaf Encelia californica. Healthy flowering state.\nLOWER LEFT — Coyote brush, Baccharis pilularis: dense but naturally irregular rounded woody green shrub, numerous SMALL glossy obovate green leaves, subtle small teeth on some leaves, visible brown basal branch forks. Healthy evergreen foliage ONLY, no flowers or cottony seed fluff; plant sex/cultivar unresolved. Not a conifer, no broad giant leaves.\nLOWER RIGHT — Common yarrow, Achillea millefolium: low basal mound of very fine feathery deeply divided green leaves; slim upright leafy stems support several FLAT TOPPED clusters of tiny ivory-white daisy florets, a delicate white flowering perennial clump. Not Queen Anne's lace rounded lacy umbels and not fernleaf yarrow yellow flowers. Healthy white-flowering phenotype, no cultivar identity implied.\n\nDeliver crisp pixel-art whole sprites, not photographs or smooth illustrations. Transparent cutouts only. Each plant is a flattened whole sprite; no internal branches/foliage layer separability implied.\n",
+        "prompt_path": "prompts/regional-02.txt",
+        "negative_prompt_if_supported": null,
+        "reference_asset_ids": [],
+        "model_if_exposed": null,
+        "seed_if_exposed": null,
+        "settings_if_exposed": {
+          "transparent_background": true
+        },
+        "generation_timestamp": null,
+        "recorded_at": "2026-10-17T16:21:46.481612+00:00",
+        "timestamp_note": "Exact provider generation time not exposed; recorded_at is intake creation time.",
+        "original_output_paths": [
+          "originals/regional-02.png"
+        ],
+        "original_hashes": [
+          "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e"
+        ],
+        "provider_original_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/regional-02.png",
+        "tool_receipt": "tool-receipts.json",
+        "edit_history": [],
+        "failed_attempts": []
+      },
+      "derivatives": [
+        {
+          "path": "sprites/common_yarrow.png",
+          "sha256": "c267729a78fce7631538970b8aa48c37d7b98b1a2195b3710f8d1cd112f06aa2",
+          "dimensions_px": [
+            576,
+            506
+          ],
+          "operation": "Rectangular crop only. Alpha>8 used to locate padded crop bounds; original RGBA values unchanged.",
+          "source_crop_box": [
+            754,
+            621,
+            1330,
+            1127
+          ],
+          "original_sha256": "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e"
+        }
+      ],
+      "geometry": {
+        "source_dimensions_px": [
+          1374,
+          1145
+        ],
+        "frame_canvas_dimensions_px": [
+          576,
+          506
+        ],
+        "source_crop_box": [
+          754,
+          621,
+          1330,
+          1127
+        ],
+        "trim_offset": [
+          754,
+          621
+        ],
+        "alpha_bounds": [
+          1,
+          0,
+          574,
+          500
+        ],
+        "visible_alpha_bounds_threshold_8": [
+          12,
+          12,
+          564,
+          494
+        ],
+        "root_pivot_px": [
+          311,
+          472
+        ],
+        "placement_pivot_px": [
+          311,
+          472
+        ],
+        "placement_pivot_normalized": [
+          0.53993,
+          0.93281
+        ],
+        "ground_contact_footprint": {
+          "shape": "ellipse",
+          "center_px": [
+            311,
+            472
+          ],
+          "radii_px": [
+            155,
+            10
+          ],
+          "basis": "manual visual provisional; designer validation pending"
+        },
+        "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+        "world_units": "m",
+        "chosen_instance_size": {
+          "unit": "m",
+          "chosen_instance_height": 0.55,
+          "chosen_instance_canopy_width": 0.55,
+          "basis": "illustrative managed specimen; designer approval pending"
+        },
+        "pixels_per_world_unit": 920.0,
+        "layer_depth": "placement_y_sort",
+        "material_surface": "organic_vegetation",
+        "perches": [],
+        "collision_shapes": [
+          "ground_contact_footprint_only; foliage occlusion separate"
+        ],
+        "container_separable": null,
+        "mounting_surface": "floor_or_ground",
+        "trailing_foliage_below_placement_pivot": false,
+        "alpha_validation": {
+          "mode": "RGBA",
+          "min": 0,
+          "max": 255,
+          "zero_alpha_pixels": 82685,
+          "partial_alpha_pixels": 208740,
+          "real_alpha": true,
+          "edge_pixels_alpha_gt8": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "inspection": "Proper light/dark alpha composites; no color key or alpha/color repainting."
+        }
+      },
+      "review_status": "provisional_visual_candidate_pending_taxonomy_style_owner_review",
+      "rejection_reason": null,
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "content_version": "20261017.02",
+      "semantic_role": "placeable_regional_vegetation",
+      "source_license": {
+        "creator": "OpenAI image_gen output",
+        "license_id": null,
+        "license_url": null,
+        "commercial_use_status": "Project review under applicable service terms; no CC/public-domain claim for generated art.",
+        "attribution_text": null,
+        "share_alike_obligations": null,
+        "reference_image_usage": "None: botanical references read as public factual text, not photographic generation input.",
+        "style_reference_usage": "Written approved detailed naturalistic pixel-art direction only; original style pixels not inspected or supplied.",
+        "original_file_hash": "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e",
+        "modification_notice": "Lossless PNG sprite crop; no code-painted artwork."
+      },
+      "evidence": {
+        "requirement_ids": [
+          "ART-049",
+          "ART-050",
+          "ART-053",
+          "ART-055",
+          "ART-056",
+          "ART-062",
+          "ART-063"
+        ],
+        "state": "generated_reviewed_provisional",
+        "owner": "PLANTS track agent",
+        "visual_review_receipt": "reviews/track-review.md",
+        "technical_review": "RGBA PNG decode, true-alpha transparent pixels, no visible anatomy crop at alpha>8, derivative/source SHA256/dimensions; no application runtime validation.",
+        "last_verified_at": "2026-10-17T16:21:46.487942+00:00"
+      },
+      "runtime": {
+        "package_manifest": "track-intake.json",
+        "loader_profile": "RGBA static PNG",
+        "application_route": null,
+        "build_commit": null,
+        "served_asset_hash": null,
+        "atlas": null,
+        "animation_or_physics_implemented": false
+      },
+      "variants": [
+        {
+          "variant_id": "spent_flower",
+          "semantic_state": "spent_flower",
+          "states": {
+            "generated": true,
+            "static": true,
+            "animated": false,
+            "reviewed": true,
+            "staged": false,
+            "integrated": false,
+            "accepted": false
+          },
+          "geometry": {
+            "source_dimensions_px": [
+              1374,
+              1145
+            ],
+            "frame_canvas_dimensions_px": [
+              599,
+              545
+            ],
+            "source_crop_box": [
+              751,
+              587,
+              1350,
+              1132
+            ],
+            "trim_offset": [
+              751,
+              587
+            ],
+            "alpha_bounds": [
+              8,
+              0,
+              597,
+              542
+            ],
+            "visible_alpha_bounds_threshold_8": [
+              12,
+              12,
+              587,
+              533
+            ],
+            "root_pivot_px": [
+              314,
+              506
+            ],
+            "placement_pivot_px": [
+              314,
+              506
+            ],
+            "placement_pivot_normalized": [
+              0.52421,
+              0.92844
+            ],
+            "ground_contact_footprint": {
+              "shape": "ellipse",
+              "center_px": [
+                314,
+                506
+              ],
+              "radii_px": [
+                155,
+                10
+              ],
+              "basis": "manual visual provisional; designer validation pending"
+            },
+            "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+            "world_units": "m",
+            "chosen_instance_size": {
+              "unit": "m",
+              "chosen_instance_height": 0.55,
+              "chosen_instance_canopy_width": 0.55,
+              "basis": "illustrative managed specimen; designer approval pending"
+            },
+            "pixels_per_world_unit": 990.91,
+            "layer_depth": "placement_y_sort",
+            "material_surface": "organic_vegetation",
+            "perches": [],
+            "collision_shapes": [
+              "ground_contact_footprint_only; foliage occlusion separate"
+            ],
+            "container_separable": null,
+            "mounting_surface": "floor_or_ground",
+            "trailing_foliage_below_placement_pivot": false,
+            "alpha_validation": {
+              "mode": "RGBA",
+              "min": 0,
+              "max": 255,
+              "zero_alpha_pixels": 101779,
+              "partial_alpha_pixels": 224671,
+              "real_alpha": true,
+              "edge_pixels_alpha_gt8": {
+                "top": 0,
+                "bottom": 0,
+                "left": 0,
+                "right": 0
+              },
+              "inspection": "Proper light/dark composites; crop only, RGBA unchanged."
+            }
+          },
+          "generation": {
+            "job_id": "exec-ad23a677-09c2-4c1d-ae2b-2d87e54d13e9",
+            "tool": "image_gen.imagegen",
+            "prompt_exact": "Create a matching alternate STATIC STATE sprite sheet using the supplied four-plant pixel-art sheet as style, camera, lighting, species, plant order and general silhouette reference. Keep precise crisp naturalistic pixel-grid art and restrained palette. This is a dry/spent foliage illustration set, NOT animation frames, NOT exact pixel-aligned morphs. Maintain each plant's recognizable woody form and botanical distinctions. Real transparent alpha background, exactly four separate full sprites in a 2 by 2 grid, generous empty gutters and at least 8 percent transparent margin inside every quadrant. No text, labels, panels, animals, birds, ground tiles, painted backdrop or checkerboard. Each rooted plant has only its modest contact pebbles/collar.\n\nUPPER LEFT same Diplacus puniceus San Diego monkeyflower: DRY SUMMER/WATER-STRESS state. Remove the red-orange flowers; preserve woody branching structure with considerably sparser narrow green-gray and a few curled tan leaves. Natural partial summer dormancy, not dead black sticks. Some living green leaf tips remain. No flames or dramatic drought cracks.\nUPPER RIGHT same Bahiopsis laciniata San Diego sunflower: DRIER LATE-GROWING-SEASON state. Fewer narrow green leaves, modest tan lower leaves, a few small brown spent flower heads on fine stems, one or two faded yellow rays only. Still a living native woody shrub. Not all brown and not orange autumn broadleaf foliage. Water-dependent thinning; no claim every plant follows same calendar.\nLOWER LEFT same Baccharis pilularis coyote brush: MILD DRY-STRESS evergreen state. Keep the rounded dense small-leaf green structure and basal branches; outer foliage somewhat duller olive, scattered sparse gaps and a few tan older interior leaves. NO flowers or cottony seed fluff because individual sex unresolved. No deciduous bare crown and no whole-crown orange fall.\nLOWER RIGHT same Achillea millefolium yarrow: SPENT FLOWER state after bloom. Replace white flower corymbs with small flat-topped buff-brown seedhead clusters and slender tan stems. Keep the fine deeply divided feathery basal foliage partly green with some dry tan leaf tips. No yellow flowering cultivar; no snowy white flowers. Living perennial regrowth retained.\n\nAll tips and ground contact fully inside frame. Preserve consistent detailed pixel-art scale and light from upper left. Do not make separate seasons into four unrelated new species. Each plant remains one flattened whole RGBA sprite; no separable layers/rig/animation claimed.\n",
+            "prompt_path": "prompts/regional-dry-02.txt",
+            "reference_asset_ids": [
+              "originals/regional-02.png"
+            ],
+            "referenced_image_paths": [
+              "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/regional-02.png"
+            ],
+            "model_if_exposed": null,
+            "seed_if_exposed": null,
+            "settings_if_exposed": {
+              "transparent_background": true
+            },
+            "original_output_paths": [
+              "originals/regional-dry-02.png"
+            ],
+            "original_hashes": [
+              "506c748bf2705b2323696726c463b730ced20c90058c02aaffc0409927c6545b"
+            ],
+            "generation_timestamp": null,
+            "recorded_at": "2026-10-17T16:24:38.763764+00:00",
+            "tool_receipt": "regional-dry-tool-receipt.json",
+            "edit_history": [
+              "Imagegen alternate static dry/spent illustration using regional02 sheet as reference. Not pixel-aligned animation/morph frames."
+            ],
+            "failed_attempts": []
+          },
+          "derivatives": [
+            {
+              "path": "sprites/common_yarrow__spent_flower.png",
+              "sha256": "f6d473cfcad9fc3a4f762f9b045834d3be57e426812979f5f79699c09faef19a",
+              "dimensions_px": [
+                599,
+                545
+              ],
+              "source_crop_box": [
+                751,
+                587,
+                1350,
+                1132
+              ],
+              "operation": "Rectangular crop only; RGBA byte values unchanged."
+            }
+          ],
+          "review_status": "provisional_static_state_candidate_pending_expert_owner",
+          "rejection_reason": null,
+          "motion_alignment": "Not guaranteed pixel/frame aligned with healthy sprite. Root anchor can position replacement; no interpolation or smooth animation implemented.",
+          "wind_attachment_metadata": {
+            "implemented": false,
+            "root_anchor_px": [
+              314,
+              506
+            ],
+            "upper_crown_px": [
+              300,
+              98
+            ],
+            "outer_left_px": [
+              120,
+              218
+            ],
+            "outer_right_px": [
+              479,
+              218
+            ],
+            "separated_foliage_groups": false
+          },
+          "canonical_intake": {
+            "status": "pending_mac_verification",
+            "commit": null,
+            "remote_sha": null
+          }
+        }
+      ]
+    },
+    {
+      "asset_id": "plant.monstera_deliciosa",
+      "family_id": "plant.monstera_deliciosa",
+      "variant_id": "healthy",
+      "label": "Monstera",
+      "species_or_plant_taxon": "Monstera deliciosa",
+      "taxon": "Monstera deliciosa",
+      "cultivar_name": null,
+      "cultivar_status": "no_named_cultivar_claim",
+      "track": "PLANTS",
+      "batch_id": "plants.expansion.20261017.02",
+      "category": "nursery",
+      "native_tags": [
+        "nonnative_managed_indoor"
+      ],
+      "provenance_status": "textual_primary_sources_checked; art_not_vouchered_accession",
+      "taxonomy_note": "Tropical American species grown as houseplant. Unvariegated green form; no named cultivar.",
+      "reference_sources": [
+        {
+          "url": "https://plants.ces.ncsu.edu/plants/monstera-deliciosa/",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        },
+        {
+          "url": "https://homegarden.cahnr.uconn.edu/factsheets/monstera-deliciosa/",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        }
+      ],
+      "seasonal_behavior": "Indoor lighting/temperature/irrigation control growth; no automatic outdoor rain/wind/leaf fall or seasonal orange crown. Fenestration varies with maturity/light; water-stress droop state needed.",
+      "world_scale": {
+        "unit": "m",
+        "chosen_instance_height": 1.0,
+        "chosen_instance_canopy_width": 0.85,
+        "basis": "illustrative managed specimen; designer approval pending"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "state_slots": [
+        {
+          "id": "healthy",
+          "status": "generated_static"
+        },
+        {
+          "id": "dry_or_water_stress",
+          "status": "needed_not_generated"
+        },
+        {
+          "id": "seasonal_flower_or_spent_or_managed_growth",
+          "status": "needed_not_generated"
+        }
+      ],
+      "layer_slots": [
+        {
+          "id": "whole_flattened_sprite",
+          "status": "generated_flattened"
+        },
+        {
+          "id": "foliage_wind_groups",
+          "status": "needed_not_separated"
+        },
+        {
+          "id": "seasonal_overlay",
+          "status": "needed_not_generated"
+        }
+      ],
+      "wind_attachment_metadata": {
+        "implemented": false,
+        "indoor_wind_default_disabled": true,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          270,
+          398
+        ],
+        "pot_or_ground_fixed_px": [
+          270,
+          567
+        ],
+        "outer_left_px": [
+          118,
+          236
+        ],
+        "outer_right_px": [
+          472,
+          236
+        ],
+        "upper_crown_px": [
+          295,
+          106
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "generation": {
+        "job_id": "exec-4cb14d55-3d11-4dbe-9def-30ae188046ea",
+        "tool": "image_gen.imagegen",
+        "prompt_exact": "Create an actual production sprite sheet of FOUR isolated managed nursery plants, each in its own modest container, in detailed naturalistic PIXEL ART. Visible square pixel clusters, stepped diagonal contours, deliberately limited restrained organic palette, precise pixel shading, no soft painterly gradients or 3D render. Think each object authored on a fine 192-to-256-pixel logical grid and shown with nearest-neighbor crispness. Warm upper-left light, subtle selective dark contour, three-quarter side garden view with slight top visibility. Quiet garden objects support birds as focus; no birds or animals here. No UI/text.\n\nTRUE transparent alpha background. Exactly 2 by 2 separated grid, one complete plant/container per quadrant. Each silhouette occupies at most 72 percent of its quadrant width and 74 percent height with broad empty transparent gutters and margins on all sides. Every leaf, vine tip, pot base and saucer visible and inside frame. No overlap, labels, panels, borders, checkerboard, decorative backdrop or ground tiles. No large shadows. Pots are simple natural unbranded shapes; they are integral flattened art, not independent layers. Fit specimens independently to cells; no physical size comparison implied.\n\nUPPER LEFT — Monstera deliciosa: unvariegated deep green houseplant in a simple warm terra-cotta round pot and saucer. A few juvenile solid heart-shaped leaves plus several larger mature heart-shaped leaves with recognizable deep edge splits and small true internal fenestration holes. Thick green petioles and a few restrained aerial roots, no fruit or flowers, no moss pole. Lush but modest specimen, not huge tropical jungle. Leaf holes show true empty alpha where unobstructed.\nUPPER RIGHT — Epipremnum aureum pothos: compact juvenile houseplant clump with two or three gracefully trailing vines and glossy pointed heart-shaped leaves, green with small irregular warm yellow variegation. A modest pale cream ceramic pot and saucer, vines trail down both sides while complete pot base remains visible. No named cultivar asserted. No mature split leaves, no flowers, no hanging ropes or shelf.\nLOWER LEFT — Crassula ovata jade plant: branching miniature tree-like succulent in plain broad shallow muted clay pot with visible well-draining soil. Thick woody tan-brown trunk, fleshy oval green opposite leaves with subtle red edging on just a few sunlit leaves. Ordinary oval-leaf species form, no tubular Gollum/Hobbit leaves and no named cultivar. Healthy leafy nonflowering managed patio specimen.\nLOWER RIGHT — Ivy geranium nursery group, Pelargonium peltatum horticultural target: trailing green plant in a small simple broad terra-cotta bowl container. Shiny slightly fleshy five-lobed ivy-shaped PELTATE leaves, trailing stems over bowl edge, restrained pink five-petal flower clusters carried above foliage. Green leaves must look ivy-lobed rather than round zonal geranium leaves. Named cultivar/hybrid ancestry unresolved; no cultivar label. Complete trailing tips and pot visible. No hanging ropes, wall or pedestal.\n\nDeliver crisp pixel-art whole plant-and-container sprites, not photographs or smooth illustrations. Transparent cutouts only. No disconnected accessory elements or separate foliage layers.\n",
+        "prompt_path": "prompts/nursery-02.txt",
+        "negative_prompt_if_supported": null,
+        "reference_asset_ids": [],
+        "model_if_exposed": null,
+        "seed_if_exposed": null,
+        "settings_if_exposed": {
+          "transparent_background": true
+        },
+        "generation_timestamp": null,
+        "recorded_at": "2026-10-17T16:21:46.645537+00:00",
+        "timestamp_note": "Exact provider generation time not exposed; recorded_at is intake creation time.",
+        "original_output_paths": [
+          "originals/nursery-02.png"
+        ],
+        "original_hashes": [
+          "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad"
+        ],
+        "provider_original_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/nursery-02.png",
+        "tool_receipt": "tool-receipts.json",
+        "edit_history": [],
+        "failed_attempts": []
+      },
+      "derivatives": [
+        {
+          "path": "sprites/monstera_deliciosa.png",
+          "sha256": "45ece6d86b7e980a4c62a0bb99ce15a2248f42c95cc910391da1a4905c66e612",
+          "dimensions_px": [
+            590,
+            591
+          ],
+          "operation": "Rectangular crop only. Alpha>8 used to locate padded crop bounds; original RGBA values unchanged.",
+          "source_crop_box": [
+            80,
+            0,
+            670,
+            591
+          ],
+          "original_sha256": "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad"
+        }
+      ],
+      "geometry": {
+        "source_dimensions_px": [
+          1355,
+          1161
+        ],
+        "frame_canvas_dimensions_px": [
+          590,
+          591
+        ],
+        "source_crop_box": [
+          80,
+          0,
+          670,
+          591
+        ],
+        "trim_offset": [
+          80,
+          0
+        ],
+        "alpha_bounds": [
+          0,
+          0,
+          590,
+          591
+        ],
+        "visible_alpha_bounds_threshold_8": [
+          12,
+          10,
+          578,
+          579
+        ],
+        "root_pivot_px": [
+          270,
+          398
+        ],
+        "placement_pivot_px": [
+          270,
+          567
+        ],
+        "placement_pivot_normalized": [
+          0.45763,
+          0.95939
+        ],
+        "ground_contact_footprint": {
+          "shape": "ellipse",
+          "center_px": [
+            270,
+            567
+          ],
+          "radii_px": [
+            104,
+            16
+          ],
+          "basis": "manual visual provisional; designer validation pending"
+        },
+        "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+        "world_units": "m",
+        "chosen_instance_size": {
+          "unit": "m",
+          "chosen_instance_height": 1.0,
+          "chosen_instance_canopy_width": 0.85,
+          "basis": "illustrative managed specimen; designer approval pending"
+        },
+        "pixels_per_world_unit": 591.0,
+        "layer_depth": "placement_y_sort",
+        "material_surface": "vegetation_with_integral_ceramic_or_clay_container",
+        "perches": [],
+        "collision_shapes": [
+          "ground_contact_footprint_only; foliage occlusion separate"
+        ],
+        "container_separable": false,
+        "mounting_surface": "floor_or_ground",
+        "trailing_foliage_below_placement_pivot": false,
+        "alpha_validation": {
+          "mode": "RGBA",
+          "min": 0,
+          "max": 255,
+          "zero_alpha_pixels": 127898,
+          "partial_alpha_pixels": 220689,
+          "real_alpha": true,
+          "edge_pixels_alpha_gt8": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "inspection": "Proper light/dark alpha composites; no color key or alpha/color repainting."
+        }
+      },
+      "review_status": "provisional_visual_candidate_pending_taxonomy_style_owner_review",
+      "rejection_reason": null,
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "content_version": "20261017.02",
+      "semantic_role": "managed_nursery_plant_with_integral_container",
+      "source_license": {
+        "creator": "OpenAI image_gen output",
+        "license_id": null,
+        "license_url": null,
+        "commercial_use_status": "Project review under applicable service terms; no CC/public-domain claim for generated art.",
+        "attribution_text": null,
+        "share_alike_obligations": null,
+        "reference_image_usage": "None: botanical references read as public factual text, not photographic generation input.",
+        "style_reference_usage": "Written approved detailed naturalistic pixel-art direction only; original style pixels not inspected or supplied.",
+        "original_file_hash": "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad",
+        "modification_notice": "Lossless PNG sprite crop; no code-painted artwork."
+      },
+      "evidence": {
+        "requirement_ids": [
+          "ART-049",
+          "ART-050",
+          "ART-053",
+          "ART-055",
+          "ART-056",
+          "ART-062",
+          "ART-063"
+        ],
+        "state": "generated_reviewed_provisional",
+        "owner": "PLANTS track agent",
+        "visual_review_receipt": "reviews/track-review.md",
+        "technical_review": "RGBA PNG decode, true-alpha transparent pixels, no visible anatomy crop at alpha>8, derivative/source SHA256/dimensions; no application runtime validation.",
+        "last_verified_at": "2026-10-17T16:21:46.650435+00:00"
+      },
+      "runtime": {
+        "package_manifest": "track-intake.json",
+        "loader_profile": "RGBA static PNG",
+        "application_route": null,
+        "build_commit": null,
+        "served_asset_hash": null,
+        "atlas": null,
+        "animation_or_physics_implemented": false
+      }
+    },
+    {
+      "asset_id": "plant.epipremnum_aureum",
+      "family_id": "plant.epipremnum_aureum",
+      "variant_id": "healthy",
+      "label": "Pothos",
+      "species_or_plant_taxon": "Epipremnum aureum",
+      "taxon": "Epipremnum aureum",
+      "cultivar_name": null,
+      "cultivar_status": "no_named_cultivar_claim",
+      "track": "PLANTS",
+      "batch_id": "plants.expansion.20261017.02",
+      "category": "nursery",
+      "native_tags": [
+        "nonnative_managed_indoor"
+      ],
+      "provenance_status": "textual_primary_sources_checked; art_not_vouchered_accession",
+      "taxonomy_note": "Society Islands origin per NC State; species distinct from E. pinnatum. Juvenile houseplant phenotype, cultivar unresolved; green with modest yellow variegation only.",
+      "reference_sources": [
+        {
+          "url": "https://plants.ces.ncsu.edu/plants/epipremnum-aureum/",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        }
+      ],
+      "seasonal_behavior": "Managed indoor vine retains juvenile heart leaves; light/irrigation modify variegation and growth. No automatic San Diego outdoor seasonal fall or wind; dry droop/yellowing needs state.",
+      "world_scale": {
+        "unit": "m",
+        "chosen_instance_height": 0.55,
+        "chosen_instance_canopy_width": 0.8,
+        "basis": "illustrative managed specimen; designer approval pending"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "state_slots": [
+        {
+          "id": "healthy",
+          "status": "generated_static"
+        },
+        {
+          "id": "dry_or_water_stress",
+          "status": "needed_not_generated"
+        },
+        {
+          "id": "seasonal_flower_or_spent_or_managed_growth",
+          "status": "needed_not_generated"
+        }
+      ],
+      "layer_slots": [
+        {
+          "id": "whole_flattened_sprite",
+          "status": "generated_flattened"
+        },
+        {
+          "id": "foliage_wind_groups",
+          "status": "needed_not_separated"
+        },
+        {
+          "id": "seasonal_overlay",
+          "status": "needed_not_generated"
+        }
+      ],
+      "wind_attachment_metadata": {
+        "implemented": false,
+        "indoor_wind_default_disabled": true,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          274,
+          237
+        ],
+        "pot_or_ground_fixed_px": [
+          281,
+          424
+        ],
+        "outer_left_px": [
+          115,
+          205
+        ],
+        "outer_right_px": [
+          459,
+          205
+        ],
+        "upper_crown_px": [
+          287,
+          92
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "generation": {
+        "job_id": "exec-4cb14d55-3d11-4dbe-9def-30ae188046ea",
+        "tool": "image_gen.imagegen",
+        "prompt_exact": "Create an actual production sprite sheet of FOUR isolated managed nursery plants, each in its own modest container, in detailed naturalistic PIXEL ART. Visible square pixel clusters, stepped diagonal contours, deliberately limited restrained organic palette, precise pixel shading, no soft painterly gradients or 3D render. Think each object authored on a fine 192-to-256-pixel logical grid and shown with nearest-neighbor crispness. Warm upper-left light, subtle selective dark contour, three-quarter side garden view with slight top visibility. Quiet garden objects support birds as focus; no birds or animals here. No UI/text.\n\nTRUE transparent alpha background. Exactly 2 by 2 separated grid, one complete plant/container per quadrant. Each silhouette occupies at most 72 percent of its quadrant width and 74 percent height with broad empty transparent gutters and margins on all sides. Every leaf, vine tip, pot base and saucer visible and inside frame. No overlap, labels, panels, borders, checkerboard, decorative backdrop or ground tiles. No large shadows. Pots are simple natural unbranded shapes; they are integral flattened art, not independent layers. Fit specimens independently to cells; no physical size comparison implied.\n\nUPPER LEFT — Monstera deliciosa: unvariegated deep green houseplant in a simple warm terra-cotta round pot and saucer. A few juvenile solid heart-shaped leaves plus several larger mature heart-shaped leaves with recognizable deep edge splits and small true internal fenestration holes. Thick green petioles and a few restrained aerial roots, no fruit or flowers, no moss pole. Lush but modest specimen, not huge tropical jungle. Leaf holes show true empty alpha where unobstructed.\nUPPER RIGHT — Epipremnum aureum pothos: compact juvenile houseplant clump with two or three gracefully trailing vines and glossy pointed heart-shaped leaves, green with small irregular warm yellow variegation. A modest pale cream ceramic pot and saucer, vines trail down both sides while complete pot base remains visible. No named cultivar asserted. No mature split leaves, no flowers, no hanging ropes or shelf.\nLOWER LEFT — Crassula ovata jade plant: branching miniature tree-like succulent in plain broad shallow muted clay pot with visible well-draining soil. Thick woody tan-brown trunk, fleshy oval green opposite leaves with subtle red edging on just a few sunlit leaves. Ordinary oval-leaf species form, no tubular Gollum/Hobbit leaves and no named cultivar. Healthy leafy nonflowering managed patio specimen.\nLOWER RIGHT — Ivy geranium nursery group, Pelargonium peltatum horticultural target: trailing green plant in a small simple broad terra-cotta bowl container. Shiny slightly fleshy five-lobed ivy-shaped PELTATE leaves, trailing stems over bowl edge, restrained pink five-petal flower clusters carried above foliage. Green leaves must look ivy-lobed rather than round zonal geranium leaves. Named cultivar/hybrid ancestry unresolved; no cultivar label. Complete trailing tips and pot visible. No hanging ropes, wall or pedestal.\n\nDeliver crisp pixel-art whole plant-and-container sprites, not photographs or smooth illustrations. Transparent cutouts only. No disconnected accessory elements or separate foliage layers.\n",
+        "prompt_path": "prompts/nursery-02.txt",
+        "negative_prompt_if_supported": null,
+        "reference_asset_ids": [],
+        "model_if_exposed": null,
+        "seed_if_exposed": null,
+        "settings_if_exposed": {
+          "transparent_background": true
+        },
+        "generation_timestamp": null,
+        "recorded_at": "2026-10-17T16:21:46.780033+00:00",
+        "timestamp_note": "Exact provider generation time not exposed; recorded_at is intake creation time.",
+        "original_output_paths": [
+          "originals/nursery-02.png"
+        ],
+        "original_hashes": [
+          "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad"
+        ],
+        "provider_original_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/nursery-02.png",
+        "tool_receipt": "tool-receipts.json",
+        "edit_history": [],
+        "failed_attempts": []
+      },
+      "derivatives": [
+        {
+          "path": "sprites/epipremnum_aureum.png",
+          "sha256": "42532e81164f26124816c42cfcb972ffbc08e82c9d556b95ced1756ce498c666",
+          "dimensions_px": [
+            574,
+            512
+          ],
+          "operation": "Rectangular crop only. Alpha>8 used to locate padded crop bounds; original RGBA values unchanged.",
+          "source_crop_box": [
+            729,
+            111,
+            1303,
+            623
+          ],
+          "original_sha256": "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad"
+        }
+      ],
+      "geometry": {
+        "source_dimensions_px": [
+          1355,
+          1161
+        ],
+        "frame_canvas_dimensions_px": [
+          574,
+          512
+        ],
+        "source_crop_box": [
+          729,
+          111,
+          1303,
+          623
+        ],
+        "trim_offset": [
+          729,
+          111
+        ],
+        "alpha_bounds": [
+          0,
+          0,
+          574,
+          504
+        ],
+        "visible_alpha_bounds_threshold_8": [
+          12,
+          12,
+          562,
+          500
+        ],
+        "root_pivot_px": [
+          274,
+          237
+        ],
+        "placement_pivot_px": [
+          281,
+          424
+        ],
+        "placement_pivot_normalized": [
+          0.48955,
+          0.82812
+        ],
+        "ground_contact_footprint": {
+          "shape": "ellipse",
+          "center_px": [
+            281,
+            424
+          ],
+          "radii_px": [
+            95,
+            17
+          ],
+          "basis": "manual visual provisional; designer validation pending"
+        },
+        "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+        "world_units": "m",
+        "chosen_instance_size": {
+          "unit": "m",
+          "chosen_instance_height": 0.55,
+          "chosen_instance_canopy_width": 0.8,
+          "basis": "illustrative managed specimen; designer approval pending"
+        },
+        "pixels_per_world_unit": 930.91,
+        "layer_depth": "placement_y_sort",
+        "material_surface": "vegetation_with_integral_ceramic_or_clay_container",
+        "perches": [],
+        "collision_shapes": [
+          "ground_contact_footprint_only; foliage occlusion separate"
+        ],
+        "container_separable": false,
+        "mounting_surface": "elevated_indoor_shelf_or_table",
+        "trailing_foliage_below_placement_pivot": true,
+        "alpha_validation": {
+          "mode": "RGBA",
+          "min": 0,
+          "max": 255,
+          "zero_alpha_pixels": 104674,
+          "partial_alpha_pixels": 189176,
+          "real_alpha": true,
+          "edge_pixels_alpha_gt8": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "inspection": "Proper light/dark alpha composites; no color key or alpha/color repainting."
+        }
+      },
+      "review_status": "provisional_visual_candidate_pending_taxonomy_style_owner_review",
+      "rejection_reason": null,
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "content_version": "20261017.02",
+      "semantic_role": "managed_nursery_plant_with_integral_container",
+      "source_license": {
+        "creator": "OpenAI image_gen output",
+        "license_id": null,
+        "license_url": null,
+        "commercial_use_status": "Project review under applicable service terms; no CC/public-domain claim for generated art.",
+        "attribution_text": null,
+        "share_alike_obligations": null,
+        "reference_image_usage": "None: botanical references read as public factual text, not photographic generation input.",
+        "style_reference_usage": "Written approved detailed naturalistic pixel-art direction only; original style pixels not inspected or supplied.",
+        "original_file_hash": "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad",
+        "modification_notice": "Lossless PNG sprite crop; no code-painted artwork."
+      },
+      "evidence": {
+        "requirement_ids": [
+          "ART-049",
+          "ART-050",
+          "ART-053",
+          "ART-055",
+          "ART-056",
+          "ART-062",
+          "ART-063"
+        ],
+        "state": "generated_reviewed_provisional",
+        "owner": "PLANTS track agent",
+        "visual_review_receipt": "reviews/track-review.md",
+        "technical_review": "RGBA PNG decode, true-alpha transparent pixels, no visible anatomy crop at alpha>8, derivative/source SHA256/dimensions; no application runtime validation.",
+        "last_verified_at": "2026-10-17T16:21:46.784895+00:00"
+      },
+      "runtime": {
+        "package_manifest": "track-intake.json",
+        "loader_profile": "RGBA static PNG",
+        "application_route": null,
+        "build_commit": null,
+        "served_asset_hash": null,
+        "atlas": null,
+        "animation_or_physics_implemented": false
+      }
+    },
+    {
+      "asset_id": "plant.crassula_ovata",
+      "family_id": "plant.crassula_ovata",
+      "variant_id": "healthy",
+      "label": "Jade plant",
+      "species_or_plant_taxon": "Crassula ovata",
+      "taxon": "Crassula ovata",
+      "cultivar_name": null,
+      "cultivar_status": "no_named_cultivar_claim",
+      "track": "PLANTS",
+      "batch_id": "plants.expansion.20261017.02",
+      "category": "nursery",
+      "native_tags": [
+        "nonnative_managed_outdoor_container"
+      ],
+      "provenance_status": "textual_primary_sources_checked; art_not_vouchered_accession",
+      "taxonomy_note": "South African succulent nursery species; ordinary oval-leaf form, no named cultivar.",
+      "reference_sources": [
+        {
+          "url": "https://plants.ces.ncsu.edu/plants/crassula-ovata/",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        }
+      ],
+      "seasonal_behavior": "Managed frost-sheltered patio container; thick evergreen leaves, moisture-stress wrinkling and light-related red margins are state needs. Small pale flower slots possible in suitable conditions, not assumed yearly; no orange deciduous fall.",
+      "world_scale": {
+        "unit": "m",
+        "chosen_instance_height": 0.65,
+        "chosen_instance_canopy_width": 0.65,
+        "basis": "illustrative managed specimen; designer approval pending"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "state_slots": [
+        {
+          "id": "healthy",
+          "status": "generated_static"
+        },
+        {
+          "id": "dry_or_water_stress",
+          "status": "needed_not_generated"
+        },
+        {
+          "id": "seasonal_flower_or_spent_or_managed_growth",
+          "status": "needed_not_generated"
+        }
+      ],
+      "layer_slots": [
+        {
+          "id": "whole_flattened_sprite",
+          "status": "generated_flattened"
+        },
+        {
+          "id": "foliage_wind_groups",
+          "status": "needed_not_separated"
+        },
+        {
+          "id": "seasonal_overlay",
+          "status": "needed_not_generated"
+        }
+      ],
+      "wind_attachment_metadata": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          294,
+          358
+        ],
+        "pot_or_ground_fixed_px": [
+          291,
+          501
+        ],
+        "outer_left_px": [
+          110,
+          209
+        ],
+        "outer_right_px": [
+          442,
+          209
+        ],
+        "upper_crown_px": [
+          276,
+          94
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "generation": {
+        "job_id": "exec-4cb14d55-3d11-4dbe-9def-30ae188046ea",
+        "tool": "image_gen.imagegen",
+        "prompt_exact": "Create an actual production sprite sheet of FOUR isolated managed nursery plants, each in its own modest container, in detailed naturalistic PIXEL ART. Visible square pixel clusters, stepped diagonal contours, deliberately limited restrained organic palette, precise pixel shading, no soft painterly gradients or 3D render. Think each object authored on a fine 192-to-256-pixel logical grid and shown with nearest-neighbor crispness. Warm upper-left light, subtle selective dark contour, three-quarter side garden view with slight top visibility. Quiet garden objects support birds as focus; no birds or animals here. No UI/text.\n\nTRUE transparent alpha background. Exactly 2 by 2 separated grid, one complete plant/container per quadrant. Each silhouette occupies at most 72 percent of its quadrant width and 74 percent height with broad empty transparent gutters and margins on all sides. Every leaf, vine tip, pot base and saucer visible and inside frame. No overlap, labels, panels, borders, checkerboard, decorative backdrop or ground tiles. No large shadows. Pots are simple natural unbranded shapes; they are integral flattened art, not independent layers. Fit specimens independently to cells; no physical size comparison implied.\n\nUPPER LEFT — Monstera deliciosa: unvariegated deep green houseplant in a simple warm terra-cotta round pot and saucer. A few juvenile solid heart-shaped leaves plus several larger mature heart-shaped leaves with recognizable deep edge splits and small true internal fenestration holes. Thick green petioles and a few restrained aerial roots, no fruit or flowers, no moss pole. Lush but modest specimen, not huge tropical jungle. Leaf holes show true empty alpha where unobstructed.\nUPPER RIGHT — Epipremnum aureum pothos: compact juvenile houseplant clump with two or three gracefully trailing vines and glossy pointed heart-shaped leaves, green with small irregular warm yellow variegation. A modest pale cream ceramic pot and saucer, vines trail down both sides while complete pot base remains visible. No named cultivar asserted. No mature split leaves, no flowers, no hanging ropes or shelf.\nLOWER LEFT — Crassula ovata jade plant: branching miniature tree-like succulent in plain broad shallow muted clay pot with visible well-draining soil. Thick woody tan-brown trunk, fleshy oval green opposite leaves with subtle red edging on just a few sunlit leaves. Ordinary oval-leaf species form, no tubular Gollum/Hobbit leaves and no named cultivar. Healthy leafy nonflowering managed patio specimen.\nLOWER RIGHT — Ivy geranium nursery group, Pelargonium peltatum horticultural target: trailing green plant in a small simple broad terra-cotta bowl container. Shiny slightly fleshy five-lobed ivy-shaped PELTATE leaves, trailing stems over bowl edge, restrained pink five-petal flower clusters carried above foliage. Green leaves must look ivy-lobed rather than round zonal geranium leaves. Named cultivar/hybrid ancestry unresolved; no cultivar label. Complete trailing tips and pot visible. No hanging ropes, wall or pedestal.\n\nDeliver crisp pixel-art whole plant-and-container sprites, not photographs or smooth illustrations. Transparent cutouts only. No disconnected accessory elements or separate foliage layers.\n",
+        "prompt_path": "prompts/nursery-02.txt",
+        "negative_prompt_if_supported": null,
+        "reference_asset_ids": [],
+        "model_if_exposed": null,
+        "seed_if_exposed": null,
+        "settings_if_exposed": {
+          "transparent_background": true
+        },
+        "generation_timestamp": null,
+        "recorded_at": "2026-10-17T16:21:46.919975+00:00",
+        "timestamp_note": "Exact provider generation time not exposed; recorded_at is intake creation time.",
+        "original_output_paths": [
+          "originals/nursery-02.png"
+        ],
+        "original_hashes": [
+          "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad"
+        ],
+        "provider_original_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/nursery-02.png",
+        "tool_receipt": "tool-receipts.json",
+        "edit_history": [],
+        "failed_attempts": []
+      },
+      "derivatives": [
+        {
+          "path": "sprites/crassula_ovata.png",
+          "sha256": "4dcebf1988c6c649bf2d4f2b9f0cd0c13b6363f6c80e2fb6a03f6e60b4f80d63",
+          "dimensions_px": [
+            552,
+            523
+          ],
+          "operation": "Rectangular crop only. Alpha>8 used to locate padded crop bounds; original RGBA values unchanged.",
+          "source_crop_box": [
+            56,
+            600,
+            608,
+            1123
+          ],
+          "original_sha256": "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad"
+        }
+      ],
+      "geometry": {
+        "source_dimensions_px": [
+          1355,
+          1161
+        ],
+        "frame_canvas_dimensions_px": [
+          552,
+          523
+        ],
+        "source_crop_box": [
+          56,
+          600,
+          608,
+          1123
+        ],
+        "trim_offset": [
+          56,
+          600
+        ],
+        "alpha_bounds": [
+          1,
+          0,
+          551,
+          523
+        ],
+        "visible_alpha_bounds_threshold_8": [
+          12,
+          9,
+          540,
+          511
+        ],
+        "root_pivot_px": [
+          294,
+          358
+        ],
+        "placement_pivot_px": [
+          291,
+          501
+        ],
+        "placement_pivot_normalized": [
+          0.52717,
+          0.95793
+        ],
+        "ground_contact_footprint": {
+          "shape": "ellipse",
+          "center_px": [
+            291,
+            501
+          ],
+          "radii_px": [
+            145,
+            16
+          ],
+          "basis": "manual visual provisional; designer validation pending"
+        },
+        "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+        "world_units": "m",
+        "chosen_instance_size": {
+          "unit": "m",
+          "chosen_instance_height": 0.65,
+          "chosen_instance_canopy_width": 0.65,
+          "basis": "illustrative managed specimen; designer approval pending"
+        },
+        "pixels_per_world_unit": 804.62,
+        "layer_depth": "placement_y_sort",
+        "material_surface": "vegetation_with_integral_ceramic_or_clay_container",
+        "perches": [],
+        "collision_shapes": [
+          "ground_contact_footprint_only; foliage occlusion separate"
+        ],
+        "container_separable": false,
+        "mounting_surface": "floor_or_ground",
+        "trailing_foliage_below_placement_pivot": false,
+        "alpha_validation": {
+          "mode": "RGBA",
+          "min": 0,
+          "max": 255,
+          "zero_alpha_pixels": 104358,
+          "partial_alpha_pixels": 184203,
+          "real_alpha": true,
+          "edge_pixels_alpha_gt8": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "inspection": "Proper light/dark alpha composites; no color key or alpha/color repainting."
+        }
+      },
+      "review_status": "provisional_visual_candidate_pending_taxonomy_style_owner_review",
+      "rejection_reason": null,
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "content_version": "20261017.02",
+      "semantic_role": "managed_nursery_plant_with_integral_container",
+      "source_license": {
+        "creator": "OpenAI image_gen output",
+        "license_id": null,
+        "license_url": null,
+        "commercial_use_status": "Project review under applicable service terms; no CC/public-domain claim for generated art.",
+        "attribution_text": null,
+        "share_alike_obligations": null,
+        "reference_image_usage": "None: botanical references read as public factual text, not photographic generation input.",
+        "style_reference_usage": "Written approved detailed naturalistic pixel-art direction only; original style pixels not inspected or supplied.",
+        "original_file_hash": "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad",
+        "modification_notice": "Lossless PNG sprite crop; no code-painted artwork."
+      },
+      "evidence": {
+        "requirement_ids": [
+          "ART-049",
+          "ART-050",
+          "ART-053",
+          "ART-055",
+          "ART-056",
+          "ART-062",
+          "ART-063"
+        ],
+        "state": "generated_reviewed_provisional",
+        "owner": "PLANTS track agent",
+        "visual_review_receipt": "reviews/track-review.md",
+        "technical_review": "RGBA PNG decode, true-alpha transparent pixels, no visible anatomy crop at alpha>8, derivative/source SHA256/dimensions; no application runtime validation.",
+        "last_verified_at": "2026-10-17T16:21:46.924809+00:00"
+      },
+      "runtime": {
+        "package_manifest": "track-intake.json",
+        "loader_profile": "RGBA static PNG",
+        "application_route": null,
+        "build_commit": null,
+        "served_asset_hash": null,
+        "atlas": null,
+        "animation_or_physics_implemented": false
+      }
+    },
+    {
+      "asset_id": "plant.ivy_geranium_cultivar_group",
+      "family_id": "plant.ivy_geranium_cultivar_group",
+      "variant_id": "healthy",
+      "label": "Ivy geranium nursery group",
+      "species_or_plant_taxon": "Pelargonium peltatum cultivar group",
+      "taxon": "Pelargonium peltatum cultivar group",
+      "cultivar_name": null,
+      "cultivar_status": "unresolved_nursery_group",
+      "track": "PLANTS",
+      "batch_id": "plants.expansion.20261017.02",
+      "category": "nursery",
+      "native_tags": [
+        "nonnative_managed_patio_cultivar_unresolved"
+      ],
+      "provenance_status": "textual_primary_sources_checked; art_not_vouchered_accession",
+      "taxonomy_note": "South African species horticultural target. Named cultivar and possible hybrid ancestry unresolved; nursery group is a descriptive category, not assertion of a formally registered Cultivar Group.",
+      "reference_sources": [
+        {
+          "url": "https://plants.ces.ncsu.edu/plants/pelargonium-peltatum/",
+          "retrieved_at": "2026-10-17",
+          "use": "textual_taxonomy/morphology/context_only",
+          "image_used_as_input": false,
+          "image_license": null
+        }
+      ],
+      "seasonal_behavior": "Trailing patio plant; pink flower umbels during warm managed growth, moisture/light/heat/frost influence flowering and stress. No universal native-season assumptions.",
+      "world_scale": {
+        "unit": "m",
+        "chosen_instance_height": 0.55,
+        "chosen_instance_canopy_width": 0.85,
+        "basis": "illustrative managed specimen; designer approval pending"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "tested": true
+      },
+      "state_slots": [
+        {
+          "id": "healthy",
+          "status": "generated_static"
+        },
+        {
+          "id": "dry_or_water_stress",
+          "status": "needed_not_generated"
+        },
+        {
+          "id": "seasonal_flower_or_spent_or_managed_growth",
+          "status": "needed_not_generated"
+        }
+      ],
+      "layer_slots": [
+        {
+          "id": "whole_flattened_sprite",
+          "status": "generated_flattened"
+        },
+        {
+          "id": "foliage_wind_groups",
+          "status": "needed_not_separated"
+        },
+        {
+          "id": "seasonal_overlay",
+          "status": "needed_not_generated"
+        }
+      ],
+      "wind_attachment_metadata": {
+        "implemented": false,
+        "indoor_wind_default_disabled": false,
+        "constraint": "Root/stem base fixed, outer stems/leaf tips subtle motion; pot fixed. Metadata only, no simulation.",
+        "root_anchor_px": [
+          300,
+          275
+        ],
+        "pot_or_ground_fixed_px": [
+          307,
+          428
+        ],
+        "outer_left_px": [
+          129,
+          210
+        ],
+        "outer_right_px": [
+          518,
+          210
+        ],
+        "upper_crown_px": [
+          324,
+          94
+        ],
+        "mesh_or_separate_groups_exist": false
+      },
+      "generation": {
+        "job_id": "exec-4cb14d55-3d11-4dbe-9def-30ae188046ea",
+        "tool": "image_gen.imagegen",
+        "prompt_exact": "Create an actual production sprite sheet of FOUR isolated managed nursery plants, each in its own modest container, in detailed naturalistic PIXEL ART. Visible square pixel clusters, stepped diagonal contours, deliberately limited restrained organic palette, precise pixel shading, no soft painterly gradients or 3D render. Think each object authored on a fine 192-to-256-pixel logical grid and shown with nearest-neighbor crispness. Warm upper-left light, subtle selective dark contour, three-quarter side garden view with slight top visibility. Quiet garden objects support birds as focus; no birds or animals here. No UI/text.\n\nTRUE transparent alpha background. Exactly 2 by 2 separated grid, one complete plant/container per quadrant. Each silhouette occupies at most 72 percent of its quadrant width and 74 percent height with broad empty transparent gutters and margins on all sides. Every leaf, vine tip, pot base and saucer visible and inside frame. No overlap, labels, panels, borders, checkerboard, decorative backdrop or ground tiles. No large shadows. Pots are simple natural unbranded shapes; they are integral flattened art, not independent layers. Fit specimens independently to cells; no physical size comparison implied.\n\nUPPER LEFT — Monstera deliciosa: unvariegated deep green houseplant in a simple warm terra-cotta round pot and saucer. A few juvenile solid heart-shaped leaves plus several larger mature heart-shaped leaves with recognizable deep edge splits and small true internal fenestration holes. Thick green petioles and a few restrained aerial roots, no fruit or flowers, no moss pole. Lush but modest specimen, not huge tropical jungle. Leaf holes show true empty alpha where unobstructed.\nUPPER RIGHT — Epipremnum aureum pothos: compact juvenile houseplant clump with two or three gracefully trailing vines and glossy pointed heart-shaped leaves, green with small irregular warm yellow variegation. A modest pale cream ceramic pot and saucer, vines trail down both sides while complete pot base remains visible. No named cultivar asserted. No mature split leaves, no flowers, no hanging ropes or shelf.\nLOWER LEFT — Crassula ovata jade plant: branching miniature tree-like succulent in plain broad shallow muted clay pot with visible well-draining soil. Thick woody tan-brown trunk, fleshy oval green opposite leaves with subtle red edging on just a few sunlit leaves. Ordinary oval-leaf species form, no tubular Gollum/Hobbit leaves and no named cultivar. Healthy leafy nonflowering managed patio specimen.\nLOWER RIGHT — Ivy geranium nursery group, Pelargonium peltatum horticultural target: trailing green plant in a small simple broad terra-cotta bowl container. Shiny slightly fleshy five-lobed ivy-shaped PELTATE leaves, trailing stems over bowl edge, restrained pink five-petal flower clusters carried above foliage. Green leaves must look ivy-lobed rather than round zonal geranium leaves. Named cultivar/hybrid ancestry unresolved; no cultivar label. Complete trailing tips and pot visible. No hanging ropes, wall or pedestal.\n\nDeliver crisp pixel-art whole plant-and-container sprites, not photographs or smooth illustrations. Transparent cutouts only. No disconnected accessory elements or separate foliage layers.\n",
+        "prompt_path": "prompts/nursery-02.txt",
+        "negative_prompt_if_supported": null,
+        "reference_asset_ids": [],
+        "model_if_exposed": null,
+        "seed_if_exposed": null,
+        "settings_if_exposed": {
+          "transparent_background": true
+        },
+        "generation_timestamp": null,
+        "recorded_at": "2026-10-17T16:21:47.062913+00:00",
+        "timestamp_note": "Exact provider generation time not exposed; recorded_at is intake creation time.",
+        "original_output_paths": [
+          "originals/nursery-02.png"
+        ],
+        "original_hashes": [
+          "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad"
+        ],
+        "provider_original_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/plants/originals/nursery-02.png",
+        "tool_receipt": "tool-receipts.json",
+        "edit_history": [],
+        "failed_attempts": []
+      },
+      "derivatives": [
+        {
+          "path": "sprites/ivy_geranium_cultivar_group.png",
+          "sha256": "cc9f6c32e9b98b92eb17dca066349c1c029dc0342abebd0c8132265778d1a1df",
+          "dimensions_px": [
+            647,
+            525
+          ],
+          "operation": "Rectangular crop only. Alpha>8 used to locate padded crop bounds; original RGBA values unchanged.",
+          "source_crop_box": [
+            700,
+            634,
+            1347,
+            1159
+          ],
+          "original_sha256": "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad"
+        }
+      ],
+      "geometry": {
+        "source_dimensions_px": [
+          1355,
+          1161
+        ],
+        "frame_canvas_dimensions_px": [
+          647,
+          525
+        ],
+        "source_crop_box": [
+          700,
+          634,
+          1347,
+          1159
+        ],
+        "trim_offset": [
+          700,
+          634
+        ],
+        "alpha_bounds": [
+          0,
+          10,
+          647,
+          519
+        ],
+        "visible_alpha_bounds_threshold_8": [
+          9,
+          12,
+          635,
+          513
+        ],
+        "root_pivot_px": [
+          300,
+          275
+        ],
+        "placement_pivot_px": [
+          307,
+          428
+        ],
+        "placement_pivot_normalized": [
+          0.4745,
+          0.81524
+        ],
+        "ground_contact_footprint": {
+          "shape": "ellipse",
+          "center_px": [
+            307,
+            428
+          ],
+          "radii_px": [
+            118,
+            15
+          ],
+          "basis": "manual visual provisional; designer validation pending"
+        },
+        "physical_measurement_basis": "Chosen illustrative specimen; no measured nursery accession. Pixel/world scale provisional.",
+        "world_units": "m",
+        "chosen_instance_size": {
+          "unit": "m",
+          "chosen_instance_height": 0.55,
+          "chosen_instance_canopy_width": 0.85,
+          "basis": "illustrative managed specimen; designer approval pending"
+        },
+        "pixels_per_world_unit": 954.55,
+        "layer_depth": "placement_y_sort",
+        "material_surface": "vegetation_with_integral_ceramic_or_clay_container",
+        "perches": [],
+        "collision_shapes": [
+          "ground_contact_footprint_only; foliage occlusion separate"
+        ],
+        "container_separable": false,
+        "mounting_surface": "elevated_patio_ledge_or_table",
+        "trailing_foliage_below_placement_pivot": true,
+        "alpha_validation": {
+          "mode": "RGBA",
+          "min": 0,
+          "max": 255,
+          "zero_alpha_pixels": 121605,
+          "partial_alpha_pixels": 217992,
+          "real_alpha": true,
+          "edge_pixels_alpha_gt8": {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
+          },
+          "inspection": "Proper light/dark alpha composites; no color key or alpha/color repainting."
+        }
+      },
+      "review_status": "provisional_visual_candidate_pending_taxonomy_style_owner_review",
+      "rejection_reason": null,
+      "canonical_intake": {
+        "status": "pending_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      },
+      "content_version": "20261017.02",
+      "semantic_role": "managed_nursery_plant_with_integral_container",
+      "source_license": {
+        "creator": "OpenAI image_gen output",
+        "license_id": null,
+        "license_url": null,
+        "commercial_use_status": "Project review under applicable service terms; no CC/public-domain claim for generated art.",
+        "attribution_text": null,
+        "share_alike_obligations": null,
+        "reference_image_usage": "None: botanical references read as public factual text, not photographic generation input.",
+        "style_reference_usage": "Written approved detailed naturalistic pixel-art direction only; original style pixels not inspected or supplied.",
+        "original_file_hash": "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad",
+        "modification_notice": "Lossless PNG sprite crop; no code-painted artwork."
+      },
+      "evidence": {
+        "requirement_ids": [
+          "ART-049",
+          "ART-050",
+          "ART-053",
+          "ART-055",
+          "ART-056",
+          "ART-062",
+          "ART-063"
+        ],
+        "state": "generated_reviewed_provisional",
+        "owner": "PLANTS track agent",
+        "visual_review_receipt": "reviews/track-review.md",
+        "technical_review": "RGBA PNG decode, true-alpha transparent pixels, no visible anatomy crop at alpha>8, derivative/source SHA256/dimensions; no application runtime validation.",
+        "last_verified_at": "2026-10-17T16:21:47.067834+00:00"
+      },
+      "runtime": {
+        "package_manifest": "track-intake.json",
+        "loader_profile": "RGBA static PNG",
+        "application_route": null,
+        "build_commit": null,
+        "served_asset_hash": null,
+        "atlas": null,
+        "animation_or_physics_implemented": false
+      }
+    }
+  ],
+  "production_queue": [
+    {
+      "sheet_id": "plants-regional-02",
+      "asset_ids": [
+        "plant.san_diego_monkeyflower",
+        "plant.san_diego_sunflower",
+        "plant.coyote_brush",
+        "plant.common_yarrow"
+      ],
+      "status": "generated_reviewed_provisional",
+      "original": "originals/regional-02.png"
+    },
+    {
+      "sheet_id": "plants-nursery-02",
+      "asset_ids": [
+        "plant.monstera_deliciosa",
+        "plant.epipremnum_aureum",
+        "plant.crassula_ovata",
+        "plant.ivy_geranium_cultivar_group"
+      ],
+      "status": "generated_reviewed_provisional",
+      "original": "originals/nursery-02.png"
+    },
+    {
+      "sheet_id": "plants-regional-dry-02",
+      "asset_ids": [
+        "plant.san_diego_monkeyflower",
+        "plant.san_diego_sunflower",
+        "plant.coyote_brush",
+        "plant.common_yarrow"
+      ],
+      "variant_ids": [
+        "dry_sparse",
+        "dry_spent",
+        "mild_dry_stress",
+        "spent_flower"
+      ],
+      "status": "generated_reviewed_provisional",
+      "original": "originals/regional-dry-02.png"
+    }
+  ],
+  "canonical_intake": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null
+  },
+  "tool_or_reference_blockers": [
+    "Original style-reference pixels not inspected; first workstream Library transport proxy403, parent public screenshot verification also unresolved. Written approved direction used.",
+    "Jepson direct page open encountered verification challenge; authoritative indexed taxon snippets plus CNPS/Calflora/extension/producer text cross-check used.",
+    "Yarrow local genotype/seed accession unresolved; ivy-geranium named cultivar/hybrid ancestry unresolved.",
+    "Mac canonical commit/remote SHA, owner acceptance and application integration pending."
+  ],
+  "implementation_scope": "Static art/placement/state/wind metadata only; no runtime app edits or animation/physics implementation.",
+  "counts": {
+    "new_entries": 8,
+    "generated": 8,
+    "reviewed_provisional": 8,
+    "staged": 0,
+    "integrated": 0,
+    "accepted": 0,
+    "generated_static_sprites": 12,
+    "additional_static_state_variants": 4
+  },
+  "tool_status": {
+    "imagegen_calls_submitted": 3,
+    "completed": 3,
+    "running": 0,
+    "failed": 0
+  },
+  "generation_jobs": [
+    {
+      "job_id": "exec-22004d8f-9ed2-421f-b56d-b0f5d02d0e76",
+      "sheet_id": "regional-02",
+      "prompt_path": "prompts/regional-02.txt",
+      "original_path": "originals/regional-02.png",
+      "sha256": "479e8f0f80e34f1bfc915031fbe42992a28b163c203380ce33e1dac8c19c791e",
+      "dimensions_px": [
+        1374,
+        1145
+      ],
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "reference_image_inputs": [],
+      "model": null,
+      "seed": null
+    },
+    {
+      "job_id": "exec-4cb14d55-3d11-4dbe-9def-30ae188046ea",
+      "sheet_id": "nursery-02",
+      "prompt_path": "prompts/nursery-02.txt",
+      "original_path": "originals/nursery-02.png",
+      "sha256": "fb36266b54986bd85a6bff1d783fc0a353df1f0b5f81a0128c603205fe2c0aad",
+      "dimensions_px": [
+        1355,
+        1161
+      ],
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "reference_image_inputs": [],
+      "model": null,
+      "seed": null
+    },
+    {
+      "job_id": "exec-ad23a677-09c2-4c1d-ae2b-2d87e54d13e9",
+      "sheet_id": "regional-dry-02",
+      "prompt_path": "prompts/regional-dry-02.txt",
+      "original_path": "originals/regional-dry-02.png",
+      "sha256": "506c748bf2705b2323696726c463b730ced20c90058c02aaffc0409927c6545b",
+      "dimensions_px": [
+        1374,
+        1145
+      ],
+      "tool": "image_gen.imagegen",
+      "transparent_background": true,
+      "reference_image_inputs": [
+        "originals/regional-02.png"
+      ],
+      "model": null,
+      "seed": null
+    }
+  ]
+}

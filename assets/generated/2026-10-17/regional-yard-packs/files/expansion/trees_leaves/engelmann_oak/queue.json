@@ -1,0 +1,89 @@
+{
+  "schema_version": "chirp.canonical-intake.extension.v1",
+  "track": "trees_leaves",
+  "batch_id": "yard.sd.trees_leaves.20261017.04",
+  "asset_id": "plant.engelmann_oak",
+  "taxon": "Quercus engelmannii",
+  "inventory_role": "Track feed into root single expansion inventory",
+  "queue": [
+    {
+      "variant_id": "wood_scaffold",
+      "status": "generated_worker_reviewed_candidate"
+    },
+    {
+      "variant_id": "canopy_healthy",
+      "status": "generated_worker_reviewed_candidate"
+    },
+    {
+      "variant_id": "leaf_healthy",
+      "status": "generated_worker_reviewed_candidate"
+    },
+    {
+      "variant_id": "leaf_older_dry",
+      "status": "generated_worker_reviewed_candidate"
+    },
+    {
+      "variant_id": "acorn_mature",
+      "status": "generated_worker_reviewed_candidate"
+    },
+    {
+      "variant_id": "leaf_acorn_litter",
+      "status": "generated_worker_reviewed_candidate"
+    }
+  ],
+  "primary_text_references": [
+    {
+      "url": "https://vegetation.cnps.org/alliance/81",
+      "publisher": "California Native Plant Society",
+      "text_inspected": true,
+      "image_pixels_inspected": false,
+      "supports": [
+        "San Diego inland woodland/foothill context including Ramona-Santa Ysabel",
+        "semi-deciduous bluish foliage",
+        "drought-deciduous variability",
+        "irregular mast and annual acorn development"
+      ]
+    },
+    {
+      "url": "https://research.fs.usda.gov/treesearch/28457",
+      "publisher": "USDA Forest Service; Scott1991",
+      "text_inspected": true,
+      "image_pixels_inspected": false,
+      "supports": [
+        "historical San Diego foothill range study"
+      ],
+      "limitation": "Historic1991 distribution; not current population accounting"
+    }
+  ],
+  "photo_references": {
+    "species_photographs_inspected": false,
+    "species_photographs_used_as_generation_input": false,
+    "blocked_url": "https://calscape.org/Quercus-engelmannii-(Engelmann-Oak)",
+    "blocked_reason": "403 through web tool"
+  },
+  "style_references": [
+    {
+      "path": "assets/generated/2026-10-17/packs/plant-california-sycamore/sprites/california_sycamore.png",
+      "pixels_inspected": true,
+      "role": "project-generated style/light reference only; not this species or a botanical photo"
+    }
+  ],
+  "state_needs": {
+    "healthy_canopy": "queued_leaf_on_not_universal_evergreen",
+    "older_dry_leaf": "generating_sheet",
+    "sparse_drought_crown": "needed_not_generated",
+    "wet": "needed_not_generated",
+    "seasonal": "semi-evergreen/drought-deciduous variability, no blanket orange autumn or routine snow"
+  },
+  "canonical_intake": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null,
+    "pull_request": null,
+    "staged": false,
+    "integrated": false,
+    "accepted": false
+  },
+  "current_batch_complete": true,
+  "active_imagegen_jobs": 0
+}
