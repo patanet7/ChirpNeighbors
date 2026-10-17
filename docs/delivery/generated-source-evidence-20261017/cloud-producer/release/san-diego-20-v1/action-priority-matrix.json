@@ -15,7 +15,7 @@
   ],
   "orderIsBiologicalFrequencyRanking": false,
   "all20Implemented": false,
-  "registeredDrawingCount": 117,
+  "registeredDrawingCount": 119,
   "newNextSpeciesDrawingsPendingRegistration": 0,
   "boundMeaning": "packetBindingReady=exported existing manifest references source frames; appBindingVerified=actual shared runtime admission/action observed; these are separate",
   "riggedMeaning": "transform/rig reuse can count as implemented motion only when bound and observed; contributes0newdrawings",
@@ -2504,12 +2504,15 @@
         "frequencyEvidenceState": "not-established; no universal most-to-least natural frequency claim"
       },
       "coverage": {
-        "sourceDrawingsAvailable": 1,
+        "sourceDrawingsAvailable": 3,
         "immutableSourceFrameIds": [
-          "frame.sha256.59c7fcf5c54bfe1f9526fc6aa5078695eb5951088940244cae2130fb0a6d076c"
+          "frame.sha256.59c7fcf5c54bfe1f9526fc6aa5078695eb5951088940244cae2130fb0a6d076c",
+          "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+          "frame.sha256.5e7db50d969fde6d366ab3dbec44b7fc93b28b1857d83f1bb4b5a2c1179d10c5"
         ],
         "sourceExportPaths": [
-          "reuse/sd20-corvid-reuse-v1/american_crow/texture-review-manifest.json"
+          "reuse/sd20-corvid-reuse-v1/american_crow/texture-review-manifest.json",
+          "motion/sd20-crow-neutral-blink-v1/texture-review-manifest.json"
         ],
         "generatedSourceAvailable": true,
         "riggedMotionPrepared": false,
@@ -2517,13 +2520,19 @@
         "appBindingVerified": false,
         "appBindingState": "not-confirmed-from-cloud",
         "normalSizeSourceReviewed": true,
-        "normalSpeedSourcePlaybackSampled": false,
+        "normalSpeedSourcePlaybackSampled": true,
         "actualYardPlaybackVerified": false,
         "notes": [
-          "Crow idle is an honest held stride pose, not a newly drawn neutral."
-        ]
+          "Crow idle is an honest held stride pose, not a newly drawn neutral.",
+          "Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending."
+        ],
+        "latestSourceReview": "motion/sd20-crow-neutral-blink-v1/independent-review.json"
       },
-      "activeAssignment": null,
+      "activeAssignment": {
+        "state": "reviewed-source-staged-for-publication",
+        "batch": "motion/sd20-crow-neutral-blink-v1",
+        "actualRunning": false
+      },
       "mandatoryFrameCount": null,
       "minimumReleaseCategory": true
     },
