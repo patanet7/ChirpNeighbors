@@ -149,3 +149,7 @@ Atlas/manifest, exactIDs/lineage, APNG/GIF, viewer, independentreview, measureme
 `release/san-diego-20-v1/roster.json` replaces the18core/three-perfect-bird release focus with exactly20decent recognizable local species, each with a minimal idle/look, speciesappropriate movement and feasibleinteraction, source-supported seasonal/habitat tags, explicitmissingactions/fallbacks and exactknownsourceIDs. Dark-eyedJunco andCaliforniaQuail join the existing18core; neither is portrayed as a universaldenseurbanyardresident. No abundance/probability claims. Existingfinch/dove/crow/raven art is prioritized; BlueJay/Cardinal art is not relabelled as local California species.
 
 FirstbatchSD20-reuse-01 is the existingmale96pxblink handoff fromPR17 (mergedae943bbf3d84eb39d3e392a6a20c1b487a5e9e3d); movement/interaction bindings remainmissing. Batch2dove/crow/ravenreuse andBatch3Anna/BlackPhoebe/CaliforniaTowhee are queued, notrunning.0newgeneration/drawings,0cloudruntimeadmissions,20species is a targetnotcompletion. Parent/Mac owns actualintake/yardadmission.
+
+## Dove starter reuse batch
+
+`reuse/sd20-dove-reuse-v1` contains a portable source/reviewZIP, exact11existingdrawingIDs, three192pxRGBAintakeoptions and independent16samplebrowserreview. Standingfirst; moving/feedingclips are sourcepreviews, actualtravel/waterbindingpending. No newdrawings, no plantedcontact/art/runtimeapproval. Fullsourcebytes/prompts areinZIP; originalrootbatchcopiesremainretained.
