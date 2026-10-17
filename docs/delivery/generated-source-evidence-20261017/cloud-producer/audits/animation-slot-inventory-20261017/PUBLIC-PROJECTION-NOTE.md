@@ -1,0 +1,1 @@
+Baseline audit at PR33:102 native drawing IDs /21 originals. This audit predates animation checkpoint1. Private Library handles are omitted in this public copy. New source overlays live in release/animation-checkpoint-1-20261017; do not infer app binding from producer files.

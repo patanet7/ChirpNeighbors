@@ -1,0 +1,9 @@
+# Animation and yard source checkpoint1
+
+Baseline PR33 exact slot audit covers20 species and200 semantic questions, not a frame quota. It found34 overlapping useful provisional uses:17 neutral presentations,10 look transitions,7 blinks;147 rows outright missing. Animation production continues from those measured gaps independently of Mac integration.
+
+- sd20-junco-awake-v1: 2 actual new drawings. Provisional awake neutral/blink source; old rest study retained separately. Review: `motion/sd20-junco-awake-v1/independent-review.json`; playable `motion/sd20-junco-awake-v1/review.html`.
+
+Registered checkpoint additions: 2 drawings /1 calls. Whole registered bank: 104 IDs /22 originals. No current native generation running; source publication/review active. Root trajectories, crop/scale derivatives and repeated preview ticks are never counted as drawings.
+
+Next queued: Crow useful neutral/blink, other missing idle slots common-first, real locomotion, then feed/drink/preen; bounded yard wind iteration based on retained review lessons. Queued is not running. Exact current source and review hashes are in intake-overlay.json. This folder does not establish Mac admission, actor binding, app rendering or owner acceptance.
