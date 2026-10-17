@@ -1,0 +1,94 @@
+{
+  "experimentId": "crow-short-step-bounded-v1",
+  "outcome": "BLOCKED_BEFORE_GENERATION",
+  "newImageCalls": 0,
+  "newGeneratedCandidates": 0,
+  "accepted": false,
+  "integrated": false,
+  "exactGenerationPrompt": null,
+  "generationOriginal": null,
+  "whyNoPromptOrOriginal": "No candidate call was made; retaining the owner-authorized allowance is preferable to repeating a failed soft-guide method.",
+  "priorEvidence": [
+    {
+      "scope": "parent relay, not locally visually inspected",
+      "result": "Alternating support/lift roles improved; manual representative toe estimates still indicated 20\u201326 runtime px stance slip and about 5 px ground variation.",
+      "notEstablished": "automated landmark tracking, calibrated physical scale, accepted motion"
+    },
+    {
+      "scope": "parent relay and Library metadata, pixels unavailable",
+      "result": "Compact guide target approximately 41 px between feet; generated result approximately 100 px in that experiment's source convention. Reach improved but still missed the guide; body texture drift remained.",
+      "notEstablished": "a matched-scale numerical before/after comparison with this new fixture"
+    }
+  ],
+  "availableGeneratorInterface": {
+    "tool": "image_gen.imagegen",
+    "exposedArguments": [
+      "prompt",
+      "referenced_image_paths",
+      "num_last_images_to_include",
+      "transparent_background"
+    ],
+    "notExposed": [
+      "hard pose/keypoint constraints",
+      "protected-pixel edit mask",
+      "part rig",
+      "camera/canvas-size argument",
+      "deterministic seed",
+      "trajectory constraint solver"
+    ],
+    "interpretation": "Prompt and reference guidance can change appearance, but no exposed hard-control mechanism establishes planted-foot geometry or unchanged torso pixels. This does not prove the model can never produce a useful pose."
+  },
+  "differentControllableApproachConsidered": {
+    "method": "pixel-preserving articulated parts with explicit support-foot pinning, fixed torso scale and declared root trajectory",
+    "whyDifferent": "Foot trajectories and torso scale would be enforced by part transforms rather than requested in a regenerated whole bird or sheet.",
+    "availability": "not currently executable as a valid crow experiment",
+    "missing": [
+      "actual preserved crow pixels and matched source/preview transforms",
+      "reviewed leg/toe segmentation and anatomical landmarks",
+      "near/far occlusion masks and overlap repair",
+      "a concrete part-deformation method whose output is reviewed separately from native generated body poses"
+    ],
+    "notPerformed": [
+      "no rig",
+      "no synthetic crow frames",
+      "no crop/translate called generated animation",
+      "no runtime or repository changes"
+    ]
+  },
+  "preparedDiagnostic": {
+    "file": "contact-trajectory-proposal.json",
+    "status": "unbound authored fixture, not current app contract",
+    "sourceCanvasProposal": [
+      1024,
+      1024
+    ],
+    "fixedBaselineY": 800,
+    "torsoRestAnchor": [
+      512,
+      540
+    ],
+    "rootTravel": 40,
+    "twoSteps": true,
+    "scanHoldsMs": [
+      180,
+      380
+    ],
+    "maxTorsoVerticalExcursion": 2,
+    "maxSwingFootLift": 8,
+    "supportFootMathDisplacement": 0,
+    "physicalScaleOrBirdPixelsBound": false,
+    "noWholeBodyAirborneHopDefined": true,
+    "tolerancesForActualBirdAcceptance": null
+  },
+  "acceptanceGates": [
+    "Resolve exact original frame IDs, file/pixel hashes and scale; inspect before candidate changes.",
+    "Bind baseline, torso/head/body-outline anchors and anatomical/near-far foot identities to those pixels.",
+    "Agree a modest measured amplitude and stance intervals; root plus local foot displacement measured at the same scale.",
+    "Show unchanged torso/appearance scale and neutral black plumage at fixed comparison scale.",
+    "Measure world-foot slip and baseline error over stance intervals; visual loop includes pause and plausible role/occlusion changes.",
+    "Any actual generated candidate retains exact prompt, guide, original and hashes; mathematical guide conformance alone never accepts it."
+  ],
+  "nextQueuedAction": "Parent supplies accessible preserved compact/guided crow originals, manifests and root-motion/contact estimates; then choose a part-controlled/manual workflow or an actually hard-constrained generation interface before spending the single candidate allowance.",
+  "blockerClassification": "source access failed plus no demonstrably different hard control available; no approval denial",
+  "remainingCandidateAllowance": 1
+}
