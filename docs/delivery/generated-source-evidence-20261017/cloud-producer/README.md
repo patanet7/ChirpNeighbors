@@ -189,3 +189,7 @@ The nine savedAnna/Phoebe/Towheeactiondrawings arepreservedinmergedPR26/27/28, w
 ## Completed source batch: sd20-bushtit-wren-sparrow-v1
 
 `new-species/sd20-bushtit-wren-sparrow-v1` retainsonecompletednativecall/6newdrawings with exactprompt/nativeoriginal/immutableIDs, PNGexports, manifestsandnormal-sizepreviews. Prior82drawingIDsunchanged; sourcebanknow88, original/promptpairs19. Naturalposequalityisreviewedatoutputsize; sourcepixelidentityremainsstrict. Appbinding/canonicalSharpreceipt/actualyardverificationpending; no fullactionsetor20completeclaim. Per-speciesprioritycoverageupdatedwithsourceandpacketstatesseparatefromappauthority.
+
+## Completed source batch: sd20-woodpecker-warbler-oriole-v1
+
+`new-species/sd20-woodpecker-warbler-oriole-v1` retainsonecompletednativecall/6newdrawings with exactprompt/nativeoriginal/immutableIDs, PNGexports, manifestsandnormal-sizepreviews. Prior88drawingIDsunchanged; sourcebanknow94, original/promptpairs20. Naturalposequalityisreviewedatoutputsize; sourcepixelidentityremainsstrict. Appbinding/canonicalSharpreceipt/actualyardverificationpending; no fullactionsetor20completeclaim. Per-speciesprioritycoverageupdatedwithsourceandpacketstatesseparatefromappauthority.
