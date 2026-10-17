@@ -1,0 +1,146 @@
+{
+  "batchId": "sd20-lesser-goldfinch-blink-v1",
+  "speciesId": "lesser_goldfinch",
+  "newDrawings": 1,
+  "reusedDrawings": 1,
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "e7e06a76904e667a780da33677cbb384a2339d40443d9732551790d060a48a7d",
+    "profile": "chirp-texture-review-v1"
+  },
+  "atlasBinding": {
+    "file": "idle-blink-atlas96.png",
+    "sha256": "7b2e97a74c76f1cc04e9c467c5f0068efdbbb34da2019441785657eefd87f6f0",
+    "width": 192,
+    "height": 96,
+    "alpha": "straight-rgba8",
+    "bindRule": "PNGbytes SHA256 and decoded dimensions must match both this wrapper and manifest.source.sha256/atlas dimensions. Contract manifest intentionally has no PNG filename field."
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+      "primarySourcePNG": "reused-awake-source1024.png",
+      "primarySourcePNGsha256": "c03f8445a206fe6a5d6b0423262c575f3f3da560bc415e7400070b53fa9cac77",
+      "reusedUnchangedAwake": true,
+      "newDrawing": false,
+      "renderFrameId": "lesser_goldfinch-neutral-96",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "reused-awake96.png",
+      "outputPNGsha256": "a114ba9ee3db46c89c1bf6da3765b8835d2660451955a8f570868dae051c0dc7",
+      "outputCanvas": {
+        "width": 96,
+        "height": 96
+      },
+      "pivot": {
+        "x": 57,
+        "y": 75
+      },
+      "contacts": [
+        {
+          "id": "foot-1",
+          "x": 56,
+          "y": 74
+        },
+        {
+          "id": "foot-2",
+          "x": 60,
+          "y": 73
+        }
+      ],
+      "world": {
+        "width": 101.64705882352942,
+        "height": 101.64705882352942
+      },
+      "density": 0.9444444444444444
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
+      "primarySourcePNG": "closed-native.png",
+      "primarySourcePNGsha256": "d1c5c7e42eeabcf2dfb90f51b165074054d93df1b8fba965b542d3b1cfab98c3",
+      "reusedUnchangedAwake": false,
+      "newDrawing": true,
+      "renderFrameId": "lesser_goldfinch-closed-96",
+      "atlasRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "closed96.png",
+      "outputPNGsha256": "7525bfb8c60fd61c76c8fe185b0c918672a9cdf5ccc88725bdce6b57f4549ff7",
+      "outputCanvas": {
+        "width": 96,
+        "height": 96
+      },
+      "pivot": {
+        "x": 57,
+        "y": 75
+      },
+      "contacts": [
+        {
+          "id": "foot-1",
+          "x": 56,
+          "y": 74
+        },
+        {
+          "id": "foot-2",
+          "x": 60,
+          "y": 73
+        }
+      ],
+      "world": {
+        "width": 101.64705882352942,
+        "height": 101.64705882352942
+      },
+      "density": 0.9444444444444444
+    }
+  ],
+  "clipSchedule": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "lesser_goldfinch-neutral-96",
+          "durationTicks": 60
+        },
+        {
+          "frameId": "lesser_goldfinch-closed-96",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "lesser_goldfinch-neutral-96",
+          "durationTicks": 27
+        }
+      ]
+    }
+  ],
+  "sourceDensityConversion": {
+    "reusedAwakeNativeCanvas": [
+      1024,
+      1024
+    ],
+    "newClosedNativeCanvas": [
+      1254,
+      1254
+    ],
+    "newWholeCallToReferenceCanvasRatio": 0.8165869218500797,
+    "outputCanvas": [
+      96,
+      96
+    ],
+    "method": "whole native canvas nearest export, no perpose silhouette fit/warp/painting"
+  },
+  "status": {
+    "packetBound": true,
+    "appBound": false,
+    "SharpCanonicalAdmission": false
+  },
+  "guardrail": "If actual yard-size old-open/new-closed identity/contact/flicker fails review, hold closure study. Body pixel equality is not an acceptance gate."
+}
