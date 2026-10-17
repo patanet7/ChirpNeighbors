@@ -1,0 +1,34 @@
+{
+  "status": "worker_reviewed_provisional_candidate",
+  "actual_independent_generated_sources": 8,
+  "actual_depth_slots_per_scene": 5,
+  "four_seasons_actual": true,
+  "seasonal_change_scope": "Four actual distinct ground sheets; four other source slots shared. Distant foliage and sky do not individually change season.",
+  "source_alpha": "Sky fully opaque. All7 other originals have actual0-alpha areas, max253/254 rather than255 and faint1..7 strayalpha; cleanedderivatives removealpha<8 only. Every composite alpha255 via opaque sky.",
+  "registration": "Far translated [0,-120] to expose ocean; all other actual source layers identity. Source coordinate requests not fully followed.",
+  "known_defects": [
+    "Grass texture remains fine/dense and sky has smooth/painterly atmosphere.",
+    "Large source clumps exceed requested sparse bounds, remain on edges with empty center.",
+    "Source foreground is frame-clipped at both outer edges; upper wind displacement may clip <=7px more.",
+    "Ground layers near-opaque max254 can retain a slight underlay influence, not mathematically opaque standalone.",
+    "No true anatomy hierarchy or individually editable leaves; whole clumps only.",
+    "No exact runtime contact or canonical bird scale review in this batch."
+  ],
+  "actual_pixel_review": [
+    "project coastal reference",
+    "cedar feeder style source",
+    "initial five-layer contact",
+    "spring registered composite",
+    "winter ground full canvas",
+    "four-season normal color sheet",
+    "four-season mobile color/grayscale sheets",
+    "eight actual layers dark sheet",
+    "heavy wind representative frame"
+  ],
+  "parent_review": "pending",
+  "staged": false,
+  "integrated": false,
+  "accepted": false,
+  "rejection_reason": null,
+  "test_command": "python source-unpublished/expansion/depth-06/coastal/finalize_depth.py"
+}

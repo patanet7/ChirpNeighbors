@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "region": "North America / United States / Southern California / San Diego",
+  "status": "first local production batch; not full roster complete, not runtime admitted",
+  "generator": "OpenAI built-in image generation; model revision and seed unavailable",
+  "species": [
+    {
+      "id": "quercus_agrifolia",
+      "name": "Coast live oak",
+      "states": [
+        "woody structural underlayer (NOT winter state)",
+        "evergreen foliage layer"
+      ],
+      "source": "https://www.ucanr.edu/site/uc-oaks/california-oak-tree-species-id-and-ecology"
+    },
+    {
+      "id": "heteromeles_arbutifolia",
+      "name": "Toyon",
+      "states": [
+        "vegetative evergreen base",
+        "independent red-fruit overlay"
+      ],
+      "source": "https://research.fs.usda.gov/feis/species-reviews/hetarb"
+    },
+    {
+      "id": "eriogonum_fasciculatum",
+      "name": "California buckwheat",
+      "states": [
+        "flowering complete shrub",
+        "rust seedhead complete shrub (normal seasonal state, NOT dead)"
+      ],
+      "source": "https://cnpssd.org/2020/12/20/2020-12-20-california-natives-for-flower-bouquets-by-season/"
+    }
+  ],
+  "assets": [
+    {
+      "id": "california-buckwheat-rust-heads",
+      "path": "source/california-buckwheat-rust-heads.png",
+      "sha256": "0e1e823d69b013ad13fa1e2ef825eb6b6796c486d537e1a0f12dc0083720e399",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        31,
+        80,
+        1235,
+        1187
+      ],
+      "alpha128_bottom_center": [
+        614.0,
+        1186
+      ],
+      "partial_alpha_fraction": 0.5588852514060271
+    },
+    {
+      "id": "coast-live-oak-foliage",
+      "path": "source/coast-live-oak-foliage.png",
+      "sha256": "f06be3fdd07b1c27dccc02544940b709f507698d6d0d46ecbfbe57c7855ef9e0",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        11,
+        33,
+        1243,
+        1020
+      ],
+      "alpha128_bottom_center": [
+        93.0,
+        1019
+      ],
+      "partial_alpha_fraction": 0.6180560324982385
+    },
+    {
+      "id": "california-buckwheat-flowering",
+      "path": "source/california-buckwheat-flowering.png",
+      "sha256": "f41d811f27b437c220a19c98ca0b3568ff897e67afe19db8a1747850ca1fb66c",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        33,
+        84,
+        1228,
+        1184
+      ],
+      "alpha128_bottom_center": [
+        615.0,
+        1183
+      ],
+      "partial_alpha_fraction": 0.5657627648939662
+    },
+    {
+      "id": "toyon-evergreen",
+      "path": "source/toyon-evergreen.png",
+      "sha256": "fbd00764d939e65d424a516a0f5fb7b76f4d12ec4c5b5bbe68e1f3889f00f9ec",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        39,
+        33,
+        1238,
+        1229
+      ],
+      "alpha128_bottom_center": [
+        643.0,
+        1228
+      ],
+      "partial_alpha_fraction": 0.6218664865731096
+    },
+    {
+      "id": "toyon-fruit-overlay",
+      "path": "source/toyon-fruit-overlay.png",
+      "sha256": "fb9c795ccaee0ff44bc7d7e08d8aa1bff5b66edd2a8b6fbad2350e6e26120e5d",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        63,
+        48,
+        1209,
+        1012
+      ],
+      "alpha128_bottom_center": [
+        214.0,
+        1011
+      ],
+      "partial_alpha_fraction": 0.12958850657163426
+    },
+    {
+      "id": "coast-live-oak-wood",
+      "path": "source/coast-live-oak-wood.png",
+      "sha256": "bc58d601630722bc1fbbf1c15423f493a7adeecc638b7eae3b24bfb32f899032",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        24,
+        46,
+        1232,
+        1201
+      ],
+      "alpha128_bottom_center": [
+        674.0,
+        1200
+      ],
+      "partial_alpha_fraction": 0.5256690551956228
+    }
+  ],
+  "registration": {
+    "buckwheat_alpha128_iou": 0.8681488575173371,
+    "buckwheat_identical_rgba_fraction_lower_15_percent": 0.8361159184227493,
+    "toyon_fruit_alpha128_on_base_fraction": 0.8579469824173721,
+    "notes": "Shared oak and toyon base ensure no root drift between composited states. Toyon fruit base overlap is not proof of twig attachment. Buckwheat regenerated root/foliage; no pixel-invariant claim."
+  },
+  "world_assumptions": {
+    "viewport": [
+      960,
+      540
+    ],
+    "oak_square": [
+      256,
+      256
+    ],
+    "toyon_square": [
+      120,
+      120
+    ],
+    "buckwheat_square": [
+      75,
+      75
+    ],
+    "note": "Game sizes stylized, not botanical scale claims. Same whole-canvas uniform mapping per species; no auto crop."
+  },
+  "anchors": {
+    "status": "proposed, not authored or engine tested",
+    "oak_root": [
+      680,
+      1200
+    ],
+    "oak_branch_split": [
+      675,
+      865
+    ],
+    "oak_canopy_pivot": [
+      670,
+      760
+    ],
+    "toyon_root": [
+      635,
+      1230
+    ],
+    "buckwheat_root": [
+      615,
+      1185
+    ]
+  },
+  "wind": {
+    "implemented": false,
+    "proposal": "Pin bottom 20 percent; oak structure stationary with small canopy deformation above y800; toyon fruit follows exactly the same deformation transform as host canopy; buckwheat thin flower stalks flex independently after masks authored. No fruit-only sway."
+  },
+  "runtime": {
+    "source_canvas": [
+      1254,
+      1254
+    ],
+    "derivative_canvas": [
+      512,
+      512
+    ],
+    "method": "uniform nearest neighbor, all source alpha retained before resampling",
+    "admitted": false
+  },
+  "missing": [
+    "toyon flower overlay",
+    "oak acorn overlay",
+    "species stress and recovery states",
+    "rain/wetness overlays",
+    "detached local leaf sprites",
+    "branch/flower deformation masks",
+    "verified attachment pivots",
+    "runtime integration",
+    "remaining San Diego roster"
+  ],
+  "rights": "All pixels generated. Biological sources text-only; no third-party artwork copied. Original source bytes/hash and exact prompts preserved. No exclusive-rights or biological certification claim."
+}

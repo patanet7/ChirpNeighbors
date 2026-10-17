@@ -1,0 +1,13 @@
+# San Diego independent depth source batch
+
+Five yard options have spring/summer/autumn/winter: coastal garden, Mediterranean courtyard and cedar privacy, weathered-board and picket fence yards. Each scene has five independent real-image slots: sky, far, midground, ground and foreground. Four actual generated ground variants supply seasonal differences; remaining layers are shared. Wood-fence art is reused from the prior canonical batch by hash. New semantic depth is not made by slicing flattened backgrounds.
+
+[Open the layer explorer](files/expansion/depth-06/root/ChirpNeighbors-Depth06-Layer-Explorer.html) to toggle actual depth images and play the offline tree/sage GIFs. [View all 20 scene compositions](files/expansion/depth-06/root/ChirpNeighbors-Depth06-All-Yards.png). [depth-catalog.json](depth-catalog.json) supplies repository-root sources, hashes, layer transforms, existing IDs, anchors, footprints, seasonal state needs and held status. [manifest.json](manifest.json) preserves the exact-image/prompt reconciliation and public metadata transformations.
+
+The bounded batch generated20 actual originals and20 exact prompts, alongside oak wood/four leaf-module slots, two plant entries with six parts and three functional prop variants. Seven real GIFs provide mild/heavy offline deformation evidence. Source and decoded-frame ledgers test fixed roots/wood, attachment overlap, bounds and closure; they do not implement runtime wind or physics.
+
+Normal healthy whole-oak canopy admission is HOLD: the rig uses a sparse/pruned scaffold. Deergrass base is HOLD for woody stubs. Sage cut collars, courtyard oversized edge groups/minor heavy-wind clipping, native registration drift and uncalibrated physical scale remain provisional. Foreground clumps are compound scene dressing, with no claim of anatomical branch/leaf separation. Continuous motion and Mac fit remain unverified.
+
+Source-only scope. Existing IDs and authority are retained; generated/reviewed/staged differs from integrated/accepted. No shared app, active runtime catalog or paused runtime worker environment was modified. External proprietary pixels, private Library/conversation locators and transport ZIPs are excluded from Git. All originals and exact prompts are covered by frozen source packages below 8 MB each.
+
+Validation: run `python3 assets/generated/2026-10-17/regional-yard-packs/depth-06/verify_depth.py`. With Pillow and NumPy, `replay_wind.py` restores source aliases in an isolated temporary tree and reproduces the two oak GIFs and sage GIF byte-for-byte in the current environment; no source or app file is overwritten.
