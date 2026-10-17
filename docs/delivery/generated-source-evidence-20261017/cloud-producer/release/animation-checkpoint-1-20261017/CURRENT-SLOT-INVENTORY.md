@@ -1,6 +1,6 @@
 # Current per-species source slots
 
-127 registered primary source IDs across 34 retained originals. Useful provisional idle semantic uses: 19 neutral, 15 blink, 10 look. These uses overlap drawings. Source studies do not complete species action sets.
+129 registered primary source IDs across 35 retained originals. Useful provisional idle semantic uses: 19 neutral, 15 blink, 10 look. These uses overlap drawings. Source studies do not complete species action sets.
 
 | Species | Neutral | Look | Blink | Locomotion | Feed / drink / preen | Flight |
 |---|---|---|---|---|---|---|
@@ -24,6 +24,8 @@
 | Spotted Towhee | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
 | Dark-eyed Junco | provisional source | missing | provisional source | missing | missing / missing / missing | missing |
 | California Quail | provisional still | study-only-stance-or-support-defect | missing | missing | missing / missing / missing | missing |
+
+Anna's Hummingbird / sd20-anna-hover-cycle-v2: 2 new + 2 reused source drawings; reviewed-source-study-with-qualifications. Additive flight study only; perched selections and semantic completion flags unchanged.
 
 Nuttall remains an inclined-trunk endpoint hypothesis; vertical support is unresolved. Towhee hop uses four new drawings plus one reused neutral; Bluebird excludes its old-neutral comparison from playback. Canonical Mac binding and actual yard verification remain UNKNOWN here.
 

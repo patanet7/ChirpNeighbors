@@ -70,7 +70,7 @@
         "frame.sha256.96b2cbe379067cb25d7d33963ae49cd4ce3fc615de22999472b8476e6408ea28",
         "frame.sha256.4edb2018539f645472467d63a68670a3e49d8d18de4360769d60da4c9db620f4"
       ],
-      "nativeBankDrawings": 5,
+      "nativeBankDrawings": 7,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.6ec8bdb38dc55eaa023523e449a54bbaeb37a342679af7871231d3c57184423d",
@@ -322,6 +322,86 @@
             "hover-study"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+          "file": "motion/sd20-anna-hover-cycle-v2/mid-downstroke-native.png",
+          "fileSha256": "6a47a13dee720911223bc23d91501abdb7f8acbe0332e6c582a5dcc6d27ee1eb",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            887,
+            887
+          ],
+          "species": "anna_s_hummingbird",
+          "appearanceVersion": "sd20-anna-hover-cycle-v2",
+          "poseTags": [
+            "mid-downstroke",
+            "candidate-source",
+            "flight-motion-proposal"
+          ],
+          "sourceAtlas": "motion/sd20-anna-hover-cycle-v2/original.png",
+          "sourceAtlasSha256": "b5036b7a2b4a62ac3e241cee2e4aea3a056e34fa13a5501643c092ce24689e34",
+          "derivation": {
+            "method": "shared native-call isotropic anatomy calibration and shared integer origin",
+            "sharedCalibrationFile": "whole-call-calibration.json",
+            "perPoseFit": false,
+            "paintOrWarp": false
+          },
+          "sourcePrompt": "motion/sd20-anna-hover-cycle-v2/prompt.txt",
+          "authoredPrompt": "motion/sd20-anna-hover-cycle-v2/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "hover"
+          ],
+          "flightMotionProposal": true,
+          "runtimeAdmission": false,
+          "reuseStatus": "Independent source review retained; Useful four-pose flutter source: two new wing-transition drawings plus two unchanged endpoints. Biological smooth hover mechanics and requested mid-recovery remain held/unresolved; art source is useful without claiming those mechanics accepted. One shared calibration and sparse authored position corrections add no drawings. Existing resting neutral/blink unchanged; no Mac runtime admission.",
+          "sourceReview": "motion/sd20-anna-hover-cycle-v2/independent-review.json"
+        },
+        {
+          "frameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+          "file": "motion/sd20-anna-hover-cycle-v2/mid-recovery-native.png",
+          "fileSha256": "13a1f5db4b4569a5d38e64d53c479bc3d090fdfddb866a88b872aa0982587d93",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            887,
+            887
+          ],
+          "species": "anna_s_hummingbird",
+          "appearanceVersion": "sd20-anna-hover-cycle-v2",
+          "poseTags": [
+            "mid-recovery",
+            "candidate-source",
+            "flight-motion-proposal"
+          ],
+          "sourceAtlas": "motion/sd20-anna-hover-cycle-v2/original.png",
+          "sourceAtlasSha256": "b5036b7a2b4a62ac3e241cee2e4aea3a056e34fa13a5501643c092ce24689e34",
+          "derivation": {
+            "method": "shared native-call isotropic anatomy calibration and shared integer origin",
+            "sharedCalibrationFile": "whole-call-calibration.json",
+            "perPoseFit": false,
+            "paintOrWarp": false
+          },
+          "sourcePrompt": "motion/sd20-anna-hover-cycle-v2/prompt.txt",
+          "authoredPrompt": "motion/sd20-anna-hover-cycle-v2/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "hover"
+          ],
+          "flightMotionProposal": true,
+          "runtimeAdmission": false,
+          "reuseStatus": "Independent source review retained; Useful four-pose flutter source: two new wing-transition drawings plus two unchanged endpoints. Biological smooth hover mechanics and requested mid-recovery remain held/unresolved; art source is useful without claiming those mechanics accepted. One shared calibration and sparse authored position corrections add no drawings. Existing resting neutral/blink unchanged; no Mac runtime admission.",
+          "sourceReview": "motion/sd20-anna-hover-cycle-v2/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -330,8 +410,9 @@
         "motion/sd20-anna-actions-v1/README.md"
       ],
       "sourceIssues": [
-        "Selected idle reuses one open look drawing plus closure; old neutral is separate. No matched old-neutral→new-look turn is established.",
-        "Two drawn hover wing poses are an isolated15Hz stylized sample; may strobe, not continuous hover or nectar/flight binding."
+        "Baseline PR33: Selected idle reuses one open look drawing plus closure; old neutral is separate. No matched old-neutral→new-look turn is established.",
+        "Baseline PR33: Two drawn hover wing poses are an isolated15Hz stylized sample; may strobe, not continuous hover or nectar/flight binding.",
+        "Current checkpoint: Useful four-pose flutter source: two new wing-transition drawings plus two unchanged endpoints. Biological smooth hover mechanics and requested mid-recovery remain held/unresolved; art source is useful without claiming those mechanics accepted. One shared calibration and sparse authored position corrections add no drawings. Existing resting neutral/blink unchanged; no Mac runtime admission."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -572,7 +653,29 @@
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "motionStudyProposals": [
+            {
+              "batchId": "sd20-anna-hover-cycle-v2",
+              "sourceManifest": "motion/sd20-anna-hover-cycle-v2/airborne-source-manifest.json",
+              "newSourceFrameIds": [
+                "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+                "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91"
+              ],
+              "reusedSourceFrameIds": [
+                "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+                "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6"
+              ],
+              "clipIds": [
+                "hover-study"
+              ],
+              "sourceReviewState": "reviewed-source-study-with-qualifications",
+              "held": false,
+              "runtimeAdmission": false,
+              "fullLocomotionAccepted": false,
+              "packetBindingReady": false
+            }
+          ]
         },
         {
           "speciesId": "anna_s_hummingbird",
@@ -705,7 +808,345 @@
         "Selected idle reuses one open look drawing plus closure; old neutral is separate. No matched old-neutral→new-look turn is established.",
         "Two drawn hover wing poses are an isolated15Hz stylized sample; may strobe, not continuous hover or nectar/flight binding."
       ],
-      "currentSourceIssues": [],
+      "currentSourceIssues": [
+        "Useful four-pose flutter source: two new wing-transition drawings plus two unchanged endpoints. Biological smooth hover mechanics and requested mid-recovery remain held/unresolved; art source is useful without claiming those mechanics accepted. One shared calibration and sparse authored position corrections add no drawings. Existing resting neutral/blink unchanged; no Mac runtime admission."
+      ],
+      "sourceMotionProposals": [
+        {
+          "batchId": "sd20-anna-hover-cycle-v2",
+          "kind": "validated-source-only-flight-motion-proposal",
+          "technicalValidationPassed": true,
+          "sourceReviewState": "reviewed-source-study-with-qualifications",
+          "reviewReceipt": {
+            "path": "motion/sd20-anna-hover-cycle-v2/independent-review.json",
+            "sha256": "ad6cedd7b46a855fcde2a0f752dcbeef7b60313074ad9df6df23ccd58de601ed",
+            "recommendation": "Useful provisional four-pose airborne flutter source study. Preserve two real new drawings and two exact reused endpoints; do not mark requested mid-recovery semantics, a smooth/biological hover cycle or canonical Mac action accepted.",
+            "disposition": "provisional-flutter-source; recovery-quality and runtime-admission held",
+            "heldClaims": [
+              "unambiguous mid-recovery transition",
+              "smooth or biologically validated hover cycle",
+              "canonical Mac hover action"
+            ],
+            "selectedSourceUsefulSlots": [
+              "four-pose airborne flutter source candidate"
+            ],
+            "artAccepted": false
+          },
+          "runtimeAdmission": false,
+          "productionAccepted": false,
+          "fullLocomotionAccepted": false,
+          "packetBindingReady": false,
+          "appBinding": "UNKNOWN",
+          "actualYardVerification": "UNKNOWN",
+          "sourceActionSlots": [
+            "locomotion"
+          ],
+          "newSourceFrameIds": [
+            "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+            "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+            "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6"
+          ],
+          "newDrawingCount": 2,
+          "reusedDrawingCount": 2,
+          "renderDerivativeCount": 4,
+          "renderDerivativesAreNewDrawings": false,
+          "primaryManifest": "motion/sd20-anna-hover-cycle-v2/PRIMARY-SOURCE-MANIFEST.json",
+          "sourceManifest": "motion/sd20-anna-hover-cycle-v2/airborne-source-manifest.json",
+          "frameToActionMap": "motion/sd20-anna-hover-cycle-v2/frame-to-action-map.json",
+          "retainedFileSHA256": {
+            "motion/sd20-anna-hover-cycle-v2/PRIMARY-SOURCE-MANIFEST.json": "59ee76719d3f3654dadec6914f8aadfd56c7f8ec2ad9d06b9f3e9883bbbd7c5e",
+            "motion/sd20-anna-hover-cycle-v2/frame-to-action-map.json": "3248f40e0586ccb40b4cb33c07b088d4a1c695ddaadc3c7750395c3a16c6d543",
+            "motion/sd20-anna-hover-cycle-v2/airborne-source-manifest.json": "f860eaf8741c5e8a11aec064b666e9a09f768437c9e11c5ca51c860072d56415",
+            "motion/sd20-anna-hover-cycle-v2/body-trajectory.json": "234e32b30e309c5638bfd2bfdfac4d9a234d9d2a351d20d6cc9e6346a6df2c23",
+            "motion/sd20-anna-hover-cycle-v2/independent-review.json": "ad6cedd7b46a855fcde2a0f752dcbeef7b60313074ad9df6df23ccd58de601ed",
+            "motion/sd20-anna-hover-cycle-v2/original.png": "b5036b7a2b4a62ac3e241cee2e4aea3a056e34fa13a5501643c092ce24689e34",
+            "motion/sd20-anna-hover-cycle-v2/prompt.txt": "50e7f40ed357e023aeacb0dc267bc886c0e963794587bb7dae85a2385d5b9869",
+            "motion/sd20-anna-hover-cycle-v2/mid-downstroke-native.png": "6a47a13dee720911223bc23d91501abdb7f8acbe0332e6c582a5dcc6d27ee1eb",
+            "motion/sd20-anna-hover-cycle-v2/mid-recovery-native.png": "13a1f5db4b4569a5d38e64d53c479bc3d090fdfddb866a88b872aa0982587d93",
+            "motion/sd20-anna-hover-cycle-v2/reused-hover-up1024.png": "ae66b5152e03af52bda4d5c594842f1b1c7aa240055d98a508368d41bc010411",
+            "motion/sd20-anna-hover-cycle-v2/reused-hover-down1024.png": "24bf71cb19a6afa50557af7a5294b374359b4e682209c12654871bff6f3885f9",
+            "motion/sd20-anna-hover-cycle-v2/hover-atlas96.png": "dab0aefcebdce77ec9c4d52bab3a720d862bfc3bfcbe645a307a010da2dddbee",
+            "motion/sd20-anna-hover-cycle-v2/reused-hover-up96.png": "e2909cc29fc18d116a22ad3fd9a3cdec502a25527a323311afc1231156a95106",
+            "motion/sd20-anna-hover-cycle-v2/mid-downstroke96.png": "90e63c48fca156d1ede4263e5046c9f407c1827cca8f159425e509281884de20",
+            "motion/sd20-anna-hover-cycle-v2/whole-call-calibration.json": "81ac10f77bf9be83ca0ec1774e1a1ff2bd6169fa4f4ffe14c8d22f3b41acf252",
+            "motion/sd20-anna-hover-cycle-v2/reused-hover-down96.png": "e15db9a34ae47ffe15894a34575edcef274b958288b53a4c630840c57918531a",
+            "motion/sd20-anna-hover-cycle-v2/mid-recovery96.png": "f0021ffcf06de27f8ab3ea975048b5037e224b92aedd8d5971583a40b6d6e460"
+          },
+          "frameChecks": [
+            {
+              "renderFrameId": "anna-hover-up-96",
+              "sourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+              "newDrawing": false,
+              "sourcePNGsha256": "ae66b5152e03af52bda4d5c594842f1b1c7aa240055d98a508368d41bc010411",
+              "outputPNGsha256": "e2909cc29fc18d116a22ad3fd9a3cdec502a25527a323311afc1231156a95106",
+              "outputRGBAId": "frame.sha256.2c58413cb4dd96d6f17caaa2d3653c81315000e3fc0c45f1f8c401c861b7f65b",
+              "atlasRect": {
+                "x": 0,
+                "y": 0,
+                "width": 96,
+                "height": 96
+              },
+              "canvas": {
+                "width": 96,
+                "height": 96
+              },
+              "world": {
+                "width": 64,
+                "height": 64
+              },
+              "density": 1.5,
+              "pivot": {
+                "x": 54,
+                "y": 68
+              },
+              "supportState": "airborne",
+              "contacts": [],
+              "transformProof": "exact full-canvas nearest resize"
+            },
+            {
+              "renderFrameId": "anna-hover-mid-downstroke-96",
+              "sourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+              "newDrawing": true,
+              "sourcePNGsha256": "6a47a13dee720911223bc23d91501abdb7f8acbe0332e6c582a5dcc6d27ee1eb",
+              "outputPNGsha256": "90e63c48fca156d1ede4263e5046c9f407c1827cca8f159425e509281884de20",
+              "outputRGBAId": "frame.sha256.531cfa5275538ee60eef3da25998e3a30539b3e76a95cf474fe36d6355cb9006",
+              "atlasRect": {
+                "x": 96,
+                "y": 0,
+                "width": 96,
+                "height": 96
+              },
+              "canvas": {
+                "width": 96,
+                "height": 96
+              },
+              "world": {
+                "width": 64,
+                "height": 64
+              },
+              "density": 1.5,
+              "pivot": {
+                "x": 54,
+                "y": 68
+              },
+              "supportState": "airborne",
+              "contacts": [],
+              "transformProof": "recomputed shared analytic nearest calibration"
+            },
+            {
+              "renderFrameId": "anna-hover-down-96",
+              "sourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+              "newDrawing": false,
+              "sourcePNGsha256": "24bf71cb19a6afa50557af7a5294b374359b4e682209c12654871bff6f3885f9",
+              "outputPNGsha256": "e15db9a34ae47ffe15894a34575edcef274b958288b53a4c630840c57918531a",
+              "outputRGBAId": "frame.sha256.e2e3d2617e73aa475fd198bc734b4571da659f07534c763af5b9ce8516322243",
+              "atlasRect": {
+                "x": 192,
+                "y": 0,
+                "width": 96,
+                "height": 96
+              },
+              "canvas": {
+                "width": 96,
+                "height": 96
+              },
+              "world": {
+                "width": 64,
+                "height": 64
+              },
+              "density": 1.5,
+              "pivot": {
+                "x": 54,
+                "y": 68
+              },
+              "supportState": "airborne",
+              "contacts": [],
+              "transformProof": "exact full-canvas nearest resize"
+            },
+            {
+              "renderFrameId": "anna-hover-mid-recovery-96",
+              "sourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+              "newDrawing": true,
+              "sourcePNGsha256": "13a1f5db4b4569a5d38e64d53c479bc3d090fdfddb866a88b872aa0982587d93",
+              "outputPNGsha256": "f0021ffcf06de27f8ab3ea975048b5037e224b92aedd8d5971583a40b6d6e460",
+              "outputRGBAId": "frame.sha256.19329ba8be9011b1e778216a982261808e20d1b510e2c74ad8f0eccd73db351e",
+              "atlasRect": {
+                "x": 288,
+                "y": 0,
+                "width": 96,
+                "height": 96
+              },
+              "canvas": {
+                "width": 96,
+                "height": 96
+              },
+              "world": {
+                "width": 64,
+                "height": 64
+              },
+              "density": 1.5,
+              "pivot": {
+                "x": 54,
+                "y": 68
+              },
+              "supportState": "airborne",
+              "contacts": [],
+              "transformProof": "recomputed shared analytic nearest calibration"
+            }
+          ],
+          "clips": [
+            {
+              "id": "hover-study",
+              "tickRate": 30,
+              "loop": true,
+              "frames": [
+                {
+                  "frameId": "anna-hover-up-96",
+                  "durationTicks": 1
+                },
+                {
+                  "frameId": "anna-hover-mid-downstroke-96",
+                  "durationTicks": 1
+                },
+                {
+                  "frameId": "anna-hover-down-96",
+                  "durationTicks": 1
+                },
+                {
+                  "frameId": "anna-hover-mid-recovery-96",
+                  "durationTicks": 1
+                }
+              ],
+              "cadenceMeaning": "authored4pose display loop7.5visualcycles/s; not a physical wingbeat measurement",
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "anna-hover-up-96",
+                  "durationTicks": 1,
+                  "sourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+                  "pose": "up"
+                },
+                {
+                  "frameId": "anna-hover-mid-downstroke-96",
+                  "durationTicks": 1,
+                  "sourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+                  "pose": "mid-downstroke"
+                },
+                {
+                  "frameId": "anna-hover-down-96",
+                  "durationTicks": 1,
+                  "sourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+                  "pose": "down"
+                },
+                {
+                  "frameId": "anna-hover-mid-recovery-96",
+                  "durationTicks": 1,
+                  "sourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+                  "pose": "mid-recovery"
+                }
+              ],
+              "durationTicks": 4
+            }
+          ],
+          "trajectories": [
+            {
+              "field": "motionTrajectory",
+              "tickRate": 30,
+              "durationTicks": 120,
+              "segments": [
+                {
+                  "ticks": [
+                    0,
+                    45
+                  ],
+                  "rootFrom": [
+                    48,
+                    44
+                  ],
+                  "rootTo": [
+                    48,
+                    44
+                  ],
+                  "motion": "hold"
+                },
+                {
+                  "ticks": [
+                    45,
+                    51
+                  ],
+                  "rootFrom": [
+                    48,
+                    44
+                  ],
+                  "rootTo": [
+                    49.5,
+                    43.5
+                  ],
+                  "motion": "one deliberate smooth correction"
+                },
+                {
+                  "ticks": [
+                    51,
+                    90
+                  ],
+                  "rootFrom": [
+                    49.5,
+                    43.5
+                  ],
+                  "rootTo": [
+                    49.5,
+                    43.5
+                  ],
+                  "motion": "hold"
+                },
+                {
+                  "ticks": [
+                    90,
+                    96
+                  ],
+                  "rootFrom": [
+                    49.5,
+                    43.5
+                  ],
+                  "rootTo": [
+                    48,
+                    44
+                  ],
+                  "motion": "second deliberate smooth correction"
+                },
+                {
+                  "ticks": [
+                    96,
+                    120
+                  ],
+                  "rootFrom": [
+                    48,
+                    44
+                  ],
+                  "rootTo": [
+                    48,
+                    44
+                  ],
+                  "motion": "hold"
+                }
+              ],
+              "separateFromPoseClock": true,
+              "sourceDrawingsAdded": 0
+            }
+          ],
+          "sharedCalibrations": [
+            "motion/sd20-anna-hover-cycle-v2/whole-call-calibration.json"
+          ],
+          "sourceHeld": false,
+          "qualifications": [
+            "Technical identity, alpha and schedule checks do not establish art quality or physical support.",
+            "Perched primary, neutral and blink selections remain unchanged.",
+            "Wing/pose and body clocks are independent; root translation adds zero drawings."
+          ]
+        }
+      ],
       "primaryManifestSHA256": "5e5ffece0b44f0fad09326db58bd2b15d5d8a586fb7eba82704db6b961994495",
       "primaryAtlasSHA256": "74e3d566aa3e504212f7579fe314c13d86a5a44281c2c590ba745993eea66cdc",
       "primaryClipId": "idle",
@@ -27630,73 +28071,154 @@
   "nextBoundedQueue": [
     {
       "priority": 1,
-      "task": {
-        "action": "awake neutral/blink pair",
-        "state": "assigned; output not audited or counted",
-        "targetNewDrawings": 2
-      },
-      "speciesId": "dark_eyed_junco"
-    },
-    {
-      "priority": 1,
-      "task": {
-        "action": "correct trunk-contact neutral/look pair",
-        "state": "assigned; output not audited or counted",
-        "targetNewDrawings": 2
-      },
-      "speciesId": "nuttall_s_woodpecker"
-    },
-    {
-      "priority": 1,
-      "task": {
-        "action": "real four-pose hop",
-        "state": "assigned; output not audited or counted",
-        "targetNewDrawings": 4
-      },
-      "speciesId": "california_towhee"
-    },
-    {
-      "priority": 1,
-      "task": {
-        "action": "real four-pose hop",
-        "state": "assigned; output not audited or counted",
-        "targetNewDrawings": 4
-      },
-      "speciesId": "western_bluebird"
-    },
-    {
-      "priority": 2,
-      "speciesId": "american_crow",
-      "task": "Matched neutral/blink to replace heldstride; inspect4legdraft ratherthanrerenderblindly."
-    },
-    {
-      "priority": 2,
-      "speciesId": "spotted_towhee",
-      "task": "Realgroundhop orblink basedon common-firstsourcegap; notcurrentlyassignedbythisaudit."
-    },
-    {
-      "priority": 2,
       "speciesId": "anna_s_hummingbird",
-      "task": "Review2wingstudy atworldscale and authorstablehoverphases beforeany nectarclaim; notcurrentlyassigned."
+      "batchId": "sd20-anna-hover-cycle-v2",
+      "task": "hover phase compatibility",
+      "checkpoint": "coordinator source-review/publication checkpoint",
+      "retainedPrimaryManifest": "/tmp/anna-ingest-build-v8otlz7j/cloud-producer/motion/sd20-anna-hover-cycle-v2/PRIMARY-SOURCE-MANIFEST.json",
+      "retainedPathScope": "canonical source root",
+      "actualSourceRetained": true,
+      "nativeOriginalRetained": true,
+      "registeredOverlay": true,
+      "newCallQueued": false,
+      "workerRunning": "UNKNOWN",
+      "sourceAccepted": false
+    },
+    {
+      "priority": 1,
+      "speciesId": "anna_s_hummingbird",
+      "batchId": "sd20-anna-dart-brake-v1",
+      "task": "dart/brake source and root checks",
+      "checkpoint": "coordinator source-review/publication checkpoint",
+      "retainedPrimaryManifest": "/workspace/asset-production/motion/sd20-anna-dart-brake-v1/PRIMARY-SOURCE-MANIFEST.json",
+      "retainedPathScope": "producer source only; not canonical intake",
+      "actualSourceRetained": true,
+      "nativeOriginalRetained": true,
+      "registeredOverlay": false,
+      "newCallQueued": false,
+      "workerRunning": "UNKNOWN",
+      "sourceAccepted": false
+    },
+    {
+      "priority": 1,
+      "speciesId": "anna_s_hummingbird",
+      "batchId": "sd20-anna-transitions-v1",
+      "task": "reverse/nectar/perch support-state checks",
+      "checkpoint": "producer frozen-export checkpoint; original retained",
+      "retainedPrimaryManifest": null,
+      "retainedPathScope": null,
+      "actualSourceRetained": false,
+      "nativeOriginalRetained": true,
+      "registeredOverlay": false,
+      "newCallQueued": false,
+      "workerRunning": "UNKNOWN",
+      "sourceAccepted": false
+    },
+    {
+      "priority": 2,
+      "task": "Review actual missing or study-only look slots in roster product order; choose one bounded source task after coordinator review",
+      "candidates": [
+        {
+          "speciesId": "anna_s_hummingbird",
+          "actualSlotState": "single-open-look-pose-no-matched-turn",
+          "sourceFrameIds": [
+            "frame.sha256.96b2cbe379067cb25d7d33963ae49cd4ce3fc615de22999472b8476e6408ea28"
+          ],
+          "existingStudyBeforeNewCall": true
+        },
+        {
+          "speciesId": "house_finch",
+          "actualSlotState": "older-drawn-look-study-drift",
+          "sourceFrameIds": [
+            "frame.sha256.44414f3c60e2bf4b7f169b2ac947bf8f4de14ce2c4c5cef2b856ec4e5c8f44f8",
+            "frame.sha256.f375fffe6ce7305c54ea4b0ac406759dd3054a12eaa9e61a41546fd30a501883",
+            "frame.sha256.50ec82abea5384d8ff366cb1bc79b0dc7ed39de8ce98d3dfb0042d551613f91a",
+            "frame.sha256.3a201c10e3353cd0edca041dc61f8091b92ef85e7aaedaa5a8d929e25fd3f9c9",
+            "frame.sha256.136c3550c99937982f469d6f6b31c6fe006a03e773c591082910521addc4655c",
+            "frame.sha256.be71155b634fe968903c3f32fdcdcf17498038f9e5bc2e3456f9a200daac38a2"
+          ],
+          "existingStudyBeforeNewCall": true
+        },
+        {
+          "speciesId": "black_phoebe",
+          "actualSlotState": "missing",
+          "sourceFrameIds": [],
+          "existingStudyBeforeNewCall": false
+        },
+        {
+          "speciesId": "mourning_dove",
+          "actualSlotState": "missing",
+          "sourceFrameIds": [],
+          "existingStudyBeforeNewCall": false
+        },
+        {
+          "speciesId": "american_crow",
+          "actualSlotState": "missing",
+          "sourceFrameIds": [],
+          "existingStudyBeforeNewCall": false
+        },
+        {
+          "speciesId": "nuttall_s_woodpecker",
+          "actualSlotState": "inclined-support-endpoint-hypothesis-vertical-unresolved",
+          "sourceFrameIds": [
+            "frame.sha256.d6195090c068b8de02dca04caaf49b210cc3356d0d985f41fdcdff21b9f589f7",
+            "frame.sha256.99c19131676644273b595b8ca26c5d51d84f49e443810d1ba8de6dedc66566c7"
+          ],
+          "existingStudyBeforeNewCall": true
+        },
+        {
+          "speciesId": "white_crowned_sparrow",
+          "actualSlotState": "missing",
+          "sourceFrameIds": [],
+          "existingStudyBeforeNewCall": false
+        },
+        {
+          "speciesId": "yellow_rumped_warbler",
+          "actualSlotState": "missing",
+          "sourceFrameIds": [],
+          "existingStudyBeforeNewCall": false
+        },
+        {
+          "speciesId": "dark_eyed_junco",
+          "actualSlotState": "missing",
+          "sourceFrameIds": [],
+          "existingStudyBeforeNewCall": false
+        },
+        {
+          "speciesId": "california_quail",
+          "actualSlotState": "study-only-stance-or-support-defect",
+          "sourceFrameIds": [
+            "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+            "frame.sha256.2a696fcaddb573cd66f07bda8faf4d532a8789dbeab517d1489e5d1fff863a70"
+          ],
+          "existingStudyBeforeNewCall": true
+        }
+      ],
+      "newCallQueued": false,
+      "orderingMeaning": "product roster order; not biological frequency"
     },
     {
       "priority": 3,
       "speciesId": "mourning_dove",
-      "task": "Reuseexisting6gait/5drink mappings with explicitlyauthored root/water targets; contactrepair beforenewcall."
+      "task": "Repair existing gait/drink reuse contact and authored root/water target mappings before any new generation",
+      "newCallQueued": false,
+      "checkpoint": "existing-source contact repair"
     },
     {
-      "priority": 3,
+      "priority": 4,
       "speciesId": "house_finch",
-      "task": "Prioritize shortgroundhop andproperseed/beakcontact before restartingfailedpreen generation."
+      "task": "Select bounded short ground hop or seed/beak-contact source work from actual gaps",
+      "newCallQueued": false,
+      "checkpoint": "unassigned product-priority proposal"
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-17T22:33:02.870472+00:00",
+  "projectionAsOfUTC": "2026-10-17T22:53:42.947464+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 127,
-    "registeredNativeOriginals": 34,
-    "newNativeCalls": 13,
-    "newDrawings": 25,
+    "registeredPrimaryDrawingIDs": 129,
+    "registeredNativeOriginals": 35,
+    "newNativeCalls": 14,
+    "newDrawings": 27,
     "semanticQuestions": 200,
     "usefulProvisionalIdleSemanticUses": 44,
     "usefulIdleUsesByAction": {
@@ -27730,6 +28252,8 @@
       "inclined-support-endpoint-hypothesis-vertical-unresolved": 2,
       "rest-eyelid-study-only": 1,
       "study-only-stance-or-support-defect": 1
-    }
+    },
+    "sourceOnlyFlightMotionStudies": 1,
+    "flightStudyRuntimeAdmissions": 0
   }
 }

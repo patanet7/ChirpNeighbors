@@ -1,0 +1,65 @@
+{
+  "batchId": "PROPOSED-sd20-anna-hover-wingcycle-v1",
+  "state": "planned; native call not assigned or submitted",
+  "nativeCallsSubmitted": 0,
+  "newDrawingsProduced": 0,
+  "proposedBound": {"nativeCalls": 1, "actualDrawings": 4, "automaticRetries": 0},
+  "speciesId": "anna_s_hummingbird",
+  "individual": "Existing adult male detailed naturalistic pixel-art identity; green/gray, rose crown/gorget, straight shortish bill",
+  "existingIdentityReference": {
+    "local": "/workspace/asset-production/new-species/sd20-three-canon-v1/anna_s_hummingbird/source1024.png",
+    "sourceFrameId": "frame.sha256.6ec8bdb38dc55eaa023523e449a54bbaeb37a342679af7871231d3c57184423d",
+    "sourcePNGsha256": "704cf4d074894aa9bd4f6454d720fec3035530f4aee4c8521e7ec1061f97cdb1",
+    "referenceMustBeViewedBeforeAnyLaterEdit": true,
+    "foldedWingCanonFlightCoverage": false,
+    "externalPhotoOrVideoModelInput": false
+  },
+  "drawingCoverage": [
+    {"pose": "H0", "wingPhase": "end of upstroke, preparing reversal", "headAndBody": "Steady side/three-quarter hover, right-facing bill; retain a readable male gorget", "feet": "Tucked, no planted contacts"},
+    {"pose": "H1", "wingPhase": "mid downstroke", "headAndBody": "Same individual core dimensions and viewing direction; wings visibly swept away from H0", "feet": "Tucked, no planted contacts"},
+    {"pose": "H2", "wingPhase": "end of downstroke, preparing reversal", "headAndBody": "Same head/bill station; show plausible near and far wings, no extra limbs", "feet": "Tucked, no planted contacts"},
+    {"pose": "H3", "wingPhase": "mid upstroke, returning with changed wing orientation", "headAndBody": "Same body; return stroke must be a real drawn wing pose rather than a mirrored downstroke", "feet": "Tucked, no planted contacts"}
+  ],
+  "canvasAndScale": {
+    "proposal": "One common 1024-square RGBA source cell per drawing; shared call-wide scale and torso station; full wing envelopes inside padding",
+    "exportProposal": "One uniform nearest-neighbor source-to-output transform for the whole call, initially 96-square for continuity; adjust whole batch once only if wings cannot fit or normal-size reading fails",
+    "existingDensityPxPerWorldUnit": 1.2941176470588236,
+    "existingPerchedAlphaBBoxPx": [34, 45, 79, 75],
+    "existingPerchedAlphaVisibleWorldSize": [34.77272727272727, 23.18181818181818],
+    "physicalScaleCaveat": "Projected alpha box is not total biological length; compare equivalent bill-to-tail axes and species ratio. Do not fit each changing wing envelope independently",
+    "wingEnvelopeCanChange": true,
+    "allowPerFrameFittingPaintingWarping": false
+  },
+  "displayTimingProposal": {
+    "tickRate": 30,
+    "poseOrder": ["H0", "H1", "H2", "H3"],
+    "durationTicks": [1, 1, 1, 1],
+    "loop": true,
+    "coverageMeaning": "Four distinct drawn wing phases sampled at display rate; this 7.5 cycles/s display loop is deliberately stylized and is not the bird's measured wingbeat rate",
+    "gate": "Inspect real-time and slow playback before acceptance; if four-state cadence reads as slow flapping, hold it and design a separately labelled blur composite/display treatment. Do not relabel a slow loop biologically accurate",
+    "bodyTrajectoryChannel": "Constant torso root for initial hover test; no mandatory periodic bob or jitter",
+    "timingIsMeasuredBiology": false
+  },
+  "anchorsToMeasureFromActualPixelsAfterGeneration": ["Torso registration landmark", "Bill tip with positive alpha and orientation", "Both wing roots", "Actual tucked feet if visible, inactive as support", "Tail tip", "Any accidental clipped wing edges"],
+  "interactionProof": {
+    "state": "planned only",
+    "target": "Fixed flower opening placed at measured bill tip in one source-only hover view",
+    "supportContacts": [],
+    "noIngestionPhysicsOrResourceEvent": true,
+    "billPinCaveat": "Visual alignment with a tolerance, never a body-support constraint; use actual frame bill geometry and report residuals"
+  },
+  "reviewRequired": [
+    "Four decoded source RGBA identities and unchanged native original/prompt lineage",
+    "Actual reciprocal wing and orientation changes, anatomically plausible near/far wing connection",
+    "Stable individual/core proportions with natural permitted pose change; no artificial pixel-equality criterion",
+    "Normal yard-scale light/dark view, enlarged wing-root/bill/feet views",
+    "No extra legs, perch/trunk/flower pixels or opaque matte",
+    "Source-only playback with numeric timing/hash evidence, no browser captures in deliverable",
+    "Independent review before portable Library seal; Mac owns runtime motion admission"
+  ],
+  "laterHeldBatches": [
+    {"priority": 2, "slot": "Forward approach, pitch-changing brake, upright reverse retreat", "whyHeld": "Hover four-phase coverage does not draw altered body/stroke-plane postures; Anna brake video still unviewed", "purposeBound": "Separate small checkpoint for distinct forward/brake/reverse key poses after hover review"},
+    {"priority": 3, "slot": "Perch take-off and landing contacts", "whyHeld": "Need actual supported feet, release, tucked flight feet and feet-before-contact drawings; rufous comparison is not Anna timing", "purposeBound": "Separate four-transition checkpoint with existing perched neutral reused only when exact identity/contact match is verified"},
+    {"priority": 4, "slot": "Nectar probe/retract details", "whyHeld": "Fixed bill target proof alone does not draw probe anatomy or prove nectar extraction"}
+  ]
+}
