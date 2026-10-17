@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "kind": "authored-fast-dart-timing-annex",
+  "nativeCalls": 0,
+  "newDrawings": 0,
+  "tickRate": 30,
+  "oneShot": true,
+  "loop": false,
+  "durationTicks": 45,
+  "durationMs": 1500,
+  "travelTicks": 12,
+  "travelMs": 400,
+  "travelWorld": 36,
+  "peakSpeedWorldPerSecond": 180,
+  "peakSpeedMeaning": "authored game-world timing, not biomechanics or measured hummingbird speed",
+  "segments": [
+    {
+      "ticks": [
+        0,
+        12
+      ],
+      "rootFrom": [
+        0,
+        0
+      ],
+      "rootTo": [
+        0,
+        0
+      ],
+      "interpolation": "hold",
+      "poseClipId": "reused-hover-endpoints-study",
+      "phase": "initial-hover"
+    },
+    {
+      "ticks": [
+        12,
+        18
+      ],
+      "rootFrom": [
+        0,
+        0
+      ],
+      "rootTo": [
+        18,
+        0
+      ],
+      "interpolation": "uSquared",
+      "poseClipId": "dart-forward-study",
+      "phase": "accelerate"
+    },
+    {
+      "ticks": [
+        18,
+        24
+      ],
+      "rootFrom": [
+        18,
+        0
+      ],
+      "rootTo": [
+        36,
+        0
+      ],
+      "interpolation": "2uMinusUSquared",
+      "poseClipId": "upright-brake-study",
+      "phase": "brake"
+    },
+    {
+      "ticks": [
+        24,
+        45
+      ],
+      "rootFrom": [
+        36,
+        0
+      ],
+      "rootTo": [
+        36,
+        0
+      ],
+      "interpolation": "hold",
+      "poseClipId": "reused-hover-endpoints-study",
+      "phase": "final-hover"
+    }
+  ],
+  "terminalPolicy": {
+    "root": "remain36,0 for all elapsed times after the one-shot end",
+    "pose": "global unclamped pose tick continues modulo final-hover clip duration; do not freeze wings or reset root",
+    "automaticReplay": false
+  },
+  "poseClock": {
+    "tickRate": 30,
+    "rule": "floor(elapsedMs*30/1000) modulo selected clip ticks, never reset at root segment boundary or terminal hold",
+    "resets": "manual replay or comparison-mode change only"
+  },
+  "worldCanvasPerBird": [
+    64,
+    64
+  ],
+  "renderCanvasPerFrame": [
+    96,
+    96
+  ],
+  "density": 1.5,
+  "perFramePivot": "Use B profile pivot for the selected actual render frame; do not normalize body or alpha envelope.",
+  "supports": [],
+  "feedingClaimed": false,
+  "physicalFrequencyClaimed": false,
+  "sourceOnlyRuntimeProposal": true,
+  "appBound": false
+}

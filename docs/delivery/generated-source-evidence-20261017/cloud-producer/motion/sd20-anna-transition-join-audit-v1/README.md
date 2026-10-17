@@ -1,0 +1,25 @@
+# Anna transition join audit — zero calls
+
+The recorded **6.667 landing /8 takeoff gaps compare body-origin endpoints, not toe contact**. They do not by themselves prove missing art. All analysis reuses exact B/C/A96RGBA outputs at density1.5, with no source edits, scale fitting, warping, new drawings, global/Git or Library writes. This additive audit does not overwrite C’s historical held-join receipts or claim Mac binding.
+
+For local pixel`q`, declared body pivot`p`, body-origin world position`R` and density`d`, the world point is`W=R+(q-p)/d`. A logical support anchor`S` at actual visible toe proxy`f` instead gives`R=S-(f-p)/d`. Changing between these representations preserves the entire image placement. Across genuinely different leg/body poses, fixed support can coexist with changing torso position. Translating the same held grounded pose would still drag its feet.
+
+| Test | Existing coordinates | What follows |
+|---|---|---|
+| Landing endpoint | Near-claw pixel[61,87], body origin[80,116], C pivot[54,68] | Toe world[84.667,128.667]:1.333 above plane130, not6.667 |
+| Arrival | Existing probe[57,79], body origin[80,122.667] | Toe[82,130] exactly on plane |
+| Shared landing support | Pin both proposed near proxies to[82,130] | Body origins[77.333,117.333]→[80,122.667]; near-proxy drift0; head change4.057world, bill3.771world |
+| Recorded takeoff start | Curled-claw[50,76], body origin[80,118] | Toe[77.333,123.333],6.667 above plane; torso-origin gap8 is different |
+| Takeoff toe-pin counterfactual | Old visible toe[54,74] and curled claw[50,76] pinned to[80,130] | Body origins[80,126]→[82.667,124.667]; head change1.094world, bill.943world; zero proxy drift is mathematical, not weighted support |
+
+Every chosen probe is an inspected actual alpha128-or-higher pixel. The landing near-claw selection excludes the tail at the same row. The other extended landing claw remains4world above the plane at first proposed near-claw acquisition; it is not silently flattened onto the surface. C’s two arrival probes occupy one overlapping foot silhouette and do not establish bilateral support or prove which toe corresponds across drawings. Head/bill data are image-space proxies with raster uncertainty, not calibrated anatomical tracking.
+
+The bounded normal-size comparison supports **trying a labelled stepped landing join using existing art**, with a fixed logical near-contact anchor and an explicit body-compression/wing-fold switch. It does not establish smooth impact, bilateral grip or actual physics. The~4world head/bill step and instant large wing fold remain visible limits. If that step is unacceptable in the real yard, the missing purpose is an **impact/partly folded-wing compression key with visibly supported feet**, rather than another neutral or a forced stationary torso rule.
+
+The old-perch→takeoff endpoint can look close after the declared origin change, but the selected takeoff claw is visibly curled. It is **not legitimate to turn it into a weighted grounded wing-active hold merely by placing a dark pixel on the line**. At most this is an unverified one-frame last-toe-release counterfactual. A production takeoff requiring a supported preload needs a **wings-engaged, feet-still-supported prerelease key**; existing C release and A hover then remain useful downstream sources. No new image call is justified solely by the8world body-origin number.
+
+The airborne release→A-hover test solves one explicit bill-continuity placement constraint. Bill residual0, eye/head residual~.651world, while declared body origin changes4.216world. That is a whole-image origin proposal, with no per-pose art fitting; it is not a measured physical motion. B braking uses its actual[48,60] pivot, C/A use their declared[54,68], and the old perched image is interpreted through C’s body-origin model rather than silently treated as its original idle profile pivot.
+
+`world-anchor-proof.json` contains exact image/world values, probeRGBA and counterfactual limits. `source-map.json` verifies all10 source IDs and source/output hashes, with portable local96PNG copies. C’s stableGO `2fd223…` and original67 frozen-payload hashes were checked before and after this audit. `joint-study-timeline.json` supplies bounded30Hz whole-image placement proposals. Reach/release each hold **one** C wing drawing for3ticks100ms; the later A cycle has real wing drawings. These are not complete C wing cycles or approved continuous flight.
+
+`previews/world-scale-contact-comparison.png` shows the actual64world image canvases on light/dark backgrounds. `review.html` is an optional self-contained stepped/play-once inspection with explicit candidate/counterfactual labels and endpoint holds. Own Chromium samples and manual boundary steps ran with zero page errors; browser image captures stay internal and are excluded from the handoff index. No continuous-video perception or independent art approval is claimed. The result is bounded: source reuse can address the coordinate gaps; weighted support semantics, discrete fold/compression and missing C wing phases remain separate production questions. Mac owns any actual adapter.
