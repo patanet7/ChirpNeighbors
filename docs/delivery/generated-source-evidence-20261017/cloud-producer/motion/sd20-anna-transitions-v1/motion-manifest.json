@@ -1,0 +1,1898 @@
+{
+  "schemaVersion": 1,
+  "kind": "source-motion-study",
+  "scope": "source-only",
+  "tickRate": 30,
+  "durationTicks": 69,
+  "totalTicks": 69,
+  "loop": false,
+  "sampleTickConvention": "frame-starts",
+  "rootInterpolation": "smoothstep-segment-frame-endpoints",
+  "rootInterpolationDefinition": "u=(tick-start)/(end-start-1);s=u*u*(3-2*u);root=(1-s)*rootFrom+s*rootTo;half-open ticks[start,end)",
+  "sourceManifest": "action-source-manifest.json",
+  "segments": [
+    {
+      "id": "one-hover-correction-out",
+      "ticks": [
+        0,
+        18
+      ],
+      "rootFrom": [
+        96.0,
+        93.33333333333333
+      ],
+      "rootTo": [
+        96.8,
+        92.73333333333333
+      ],
+      "supportState": "airborne",
+      "poseClipId": "A-flutter-cycle"
+    },
+    {
+      "id": "correction-return",
+      "ticks": [
+        18,
+        30
+      ],
+      "rootFrom": [
+        96.8,
+        92.73333333333333
+      ],
+      "rootTo": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "poseClipId": "A-flutter-cycle"
+    },
+    {
+      "id": "nectar-visual-align",
+      "ticks": [
+        30,
+        54
+      ],
+      "rootFrom": [
+        96.0,
+        93.33333333333333
+      ],
+      "rootTo": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "poseClipId": "A-flutter-cycle",
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTarget": [
+        110.0,
+        82.0
+      ]
+    },
+    {
+      "id": "withdraw-before-retreat",
+      "ticks": [
+        54,
+        60
+      ],
+      "rootFrom": [
+        96.0,
+        93.33333333333333
+      ],
+      "rootTo": [
+        92.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "poseClipId": "A-flutter-cycle",
+      "billTargetMode": "released"
+    },
+    {
+      "id": "reverse-posture-travel-study",
+      "ticks": [
+        60,
+        69
+      ],
+      "rootFrom": [
+        92.0,
+        93.33333333333333
+      ],
+      "rootTo": [
+        76.0,
+        92.33333333333333
+      ],
+      "supportState": "airborne",
+      "poseClipId": "C-reverse-key-study",
+      "limitation": "singlewingkeyheld9ticks;notcompleteoracceptedreverseflight"
+    }
+  ],
+  "poseClock": {
+    "tickRate": 30,
+    "timebase": "30Hzglobaltick",
+    "AFlutterClipId": "A-flutter-cycle",
+    "AAppliedTicks": [
+      0,
+      60
+    ],
+    "CReverseClipId": "C-reverse-key-study",
+    "CAppliedTicks": [
+      60,
+      69
+    ]
+  },
+  "wingClock": {
+    "independentTickCounter": true,
+    "actualA4phaseCycle": "tickmod4",
+    "CKeyLimitation": "clockcontinuesbutcycleisNOTappliedtoCbody;singlekeyheld,nofakewinggrafting"
+  },
+  "contactClock": {
+    "groundSupport": "noneforall69ticks",
+    "billVisualAlignTicks": [
+      30,
+      54
+    ],
+    "billReleasedAtTick": 54,
+    "billJoint": false,
+    "ingestionPhysics": false
+  },
+  "flowerTargetWorld": [
+    110.0,
+    82.0
+  ],
+  "presentation": {
+    "canvas": [
+      96,
+      96
+    ],
+    "world": [
+      64,
+      64
+    ],
+    "density": 1.5,
+    "pivot": [
+      54,
+      68
+    ]
+  },
+  "samples": [
+    {
+      "tick": 0,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 0,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 1,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 1,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.00797883167108,
+        93.32734920958002
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.00797883167108,
+        81.99401587624669
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 2,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 2,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.03061266028902,
+        93.31037383811655
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.03061266028902,
+        81.97704050478322
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 3,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 3,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.06594748626094,
+        93.28387271863762
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.06594748626094,
+        81.9505393853043
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 4,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 4,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.1120293099939,
+        93.24931135083791
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.1120293099939,
+        81.91597801750459
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 5,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 5,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.16690413189497,
+        93.20815523441209
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.16690413189497,
+        81.87482190107876
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 6,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 6,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.22861795237125,
+        93.1618698690549
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.22861795237125,
+        81.82853653572157
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 7,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 7,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.29521677182984,
+        93.11192075446095
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.29521677182984,
+        81.77858742112763
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 8,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 8,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.36474659067778,
+        93.05977339032499
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.36474659067778,
+        81.72644005699166
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 9,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 9,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.4352534093222,
+        93.00689327634167
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.4352534093222,
+        81.67355994300834
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 10,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 10,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.50478322817017,
+        92.95474591220571
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.50478322817017,
+        81.62141257887238
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 11,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 11,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.57138204762873,
+        92.90479679761178
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.57138204762873,
+        81.57146346427845
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 12,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 12,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.63309586810503,
+        92.85851143225456
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.63309586810503,
+        81.52517809892123
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 13,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 13,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.68797069000611,
+        92.81735531582875
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.68797069000611,
+        81.48402198249542
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 14,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 14,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.73405251373906,
+        92.78279394802904
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.73405251373906,
+        81.44946061469571
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 15,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 15,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.76938733971097,
+        92.75629282855012
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.76938733971097,
+        81.42295949521679
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 16,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 16,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.79202116832892,
+        92.73931745708664
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.79202116832892,
+        81.40598412375331
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 17,
+      "segmentId": "one-hover-correction-out",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 17,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.8,
+        92.73333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.8,
+        81.4
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 18,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 18,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.8,
+        92.73333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.8,
+        81.4
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 19,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 19,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.78136739293763,
+        92.7473077886301
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.78136739293763,
+        81.41397445529677
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 20,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 20,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.73027798647632,
+        92.78562484347607
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.73027798647632,
+        81.45229151014274
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 21,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 21,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.65394440270472,
+        92.84287503130479
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.65394440270472,
+        81.50954169797146
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 22,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 22,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.55957926371148,
+        92.9136488855497
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.55957926371148,
+        81.58031555221638
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 23,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 23,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.45439519158526,
+        92.99253693964437
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.45439519158526,
+        81.65920360631104
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 24,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 24,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.34560480841472,
+        93.07412972702228
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.34560480841472,
+        81.74079639368895
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 25,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 25,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.24042073628851,
+        93.15301778111696
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.24042073628851,
+        81.81968444778363
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 26,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 26,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.14605559729527,
+        93.22379163536189
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.14605559729527,
+        81.89045830202856
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 27,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 27,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.06972201352366,
+        93.28104182319058
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.06972201352366,
+        81.94770848985725
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 28,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 28,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.01863260706237,
+        93.31935887803655
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.01863260706237,
+        81.98602554470322
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 29,
+      "segmentId": "correction-return",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 29,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 30,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 30,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 31,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 31,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333334
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.00000000000001
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 1.4210854715202004e-14
+    },
+    {
+      "tick": 32,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 32,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 33,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 33,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 34,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 34,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 35,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 35,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333331
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        81.99999999999999
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 1.4210854715202004e-14
+    },
+    {
+      "tick": 36,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 36,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 37,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 37,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 38,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 38,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 39,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 39,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 40,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 40,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333334
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.00000000000001
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 1.4210854715202004e-14
+    },
+    {
+      "tick": 41,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 41,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333334
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.00000000000001
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 1.4210854715202004e-14
+    },
+    {
+      "tick": 42,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 42,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 43,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 43,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 44,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 44,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 45,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 45,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 46,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 46,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 47,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 47,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333334
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.00000000000001
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 1.4210854715202004e-14
+    },
+    {
+      "tick": 48,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 48,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 49,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 49,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 50,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 50,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 51,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 51,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 52,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 52,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 53,
+      "segmentId": "nectar-visual-align",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 53,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "visual-point-only,no-supportjoint/noingestion",
+      "billTargetResidualWorld": 0.0
+    },
+    {
+      "tick": 54,
+      "segmentId": "withdraw-before-retreat",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 54,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        96.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        110.0,
+        82.0
+      ],
+      "billTargetMode": "released",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 55,
+      "segmentId": "withdraw-before-retreat",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 55,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        95.584,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        109.584,
+        82.0
+      ],
+      "billTargetMode": "released",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 56,
+      "segmentId": "withdraw-before-retreat",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-up-96",
+      "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 56,
+      "wingPhaseIndex": 0,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        94.592,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        108.592,
+        82.0
+      ],
+      "billTargetMode": "released",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 57,
+      "segmentId": "withdraw-before-retreat",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-downstroke-96",
+      "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 57,
+      "wingPhaseIndex": 1,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        93.408,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        107.408,
+        82.0
+      ],
+      "billTargetMode": "released",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 58,
+      "segmentId": "withdraw-before-retreat",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-down-96",
+      "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 58,
+      "wingPhaseIndex": 2,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        92.416,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        106.416,
+        82.0
+      ],
+      "billTargetMode": "released",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 59,
+      "segmentId": "withdraw-before-retreat",
+      "poseClipId": "A-flutter-cycle",
+      "renderFrameId": "anna-hover-mid-recovery-96",
+      "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "bodyPoseId": "hover-master-family",
+      "wingClockTick": 59,
+      "wingPhaseIndex": 3,
+      "wingCycleApplied": true,
+      "singleWingKeyHold": false,
+      "rootWorldXY": [
+        92.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        106.0,
+        82.0
+      ],
+      "billTargetMode": "released",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 60,
+      "segmentId": "reverse-posture-travel-study",
+      "poseClipId": "C-reverse-key-study",
+      "renderFrameId": "anna-c-reverse-retreat-96",
+      "primarySourceFrameId": "frame.sha256.0546e724ef43109a7b8e3eba7af9c9c5575f17b900264129b888faaccf6f39e6",
+      "bodyPoseId": "reverse-retreat",
+      "wingClockTick": 60,
+      "wingPhaseIndex": null,
+      "wingCycleApplied": false,
+      "singleWingKeyHold": true,
+      "rootWorldXY": [
+        92.0,
+        93.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        105.33333333333333,
+        82.66666666666666
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 61,
+      "segmentId": "reverse-posture-travel-study",
+      "poseClipId": "C-reverse-key-study",
+      "renderFrameId": "anna-c-reverse-retreat-96",
+      "primarySourceFrameId": "frame.sha256.0546e724ef43109a7b8e3eba7af9c9c5575f17b900264129b888faaccf6f39e6",
+      "bodyPoseId": "reverse-retreat",
+      "wingClockTick": 61,
+      "wingPhaseIndex": null,
+      "wingCycleApplied": false,
+      "singleWingKeyHold": true,
+      "rootWorldXY": [
+        91.3125,
+        93.29036458333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        104.64583333333333,
+        82.62369791666666
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 62,
+      "segmentId": "reverse-posture-travel-study",
+      "poseClipId": "C-reverse-key-study",
+      "renderFrameId": "anna-c-reverse-retreat-96",
+      "primarySourceFrameId": "frame.sha256.0546e724ef43109a7b8e3eba7af9c9c5575f17b900264129b888faaccf6f39e6",
+      "bodyPoseId": "reverse-retreat",
+      "wingClockTick": 62,
+      "wingPhaseIndex": null,
+      "wingCycleApplied": false,
+      "singleWingKeyHold": true,
+      "rootWorldXY": [
+        89.5,
+        93.17708333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        102.83333333333333,
+        82.51041666666666
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 63,
+      "segmentId": "reverse-posture-travel-study",
+      "poseClipId": "C-reverse-key-study",
+      "renderFrameId": "anna-c-reverse-retreat-96",
+      "primarySourceFrameId": "frame.sha256.0546e724ef43109a7b8e3eba7af9c9c5575f17b900264129b888faaccf6f39e6",
+      "bodyPoseId": "reverse-retreat",
+      "wingClockTick": 63,
+      "wingPhaseIndex": null,
+      "wingCycleApplied": false,
+      "singleWingKeyHold": true,
+      "rootWorldXY": [
+        86.9375,
+        93.01692708333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        100.27083333333333,
+        82.35026041666666
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 64,
+      "segmentId": "reverse-posture-travel-study",
+      "poseClipId": "C-reverse-key-study",
+      "renderFrameId": "anna-c-reverse-retreat-96",
+      "primarySourceFrameId": "frame.sha256.0546e724ef43109a7b8e3eba7af9c9c5575f17b900264129b888faaccf6f39e6",
+      "bodyPoseId": "reverse-retreat",
+      "wingClockTick": 64,
+      "wingPhaseIndex": null,
+      "wingCycleApplied": false,
+      "singleWingKeyHold": true,
+      "rootWorldXY": [
+        84.0,
+        92.83333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        97.33333333333333,
+        82.16666666666666
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 65,
+      "segmentId": "reverse-posture-travel-study",
+      "poseClipId": "C-reverse-key-study",
+      "renderFrameId": "anna-c-reverse-retreat-96",
+      "primarySourceFrameId": "frame.sha256.0546e724ef43109a7b8e3eba7af9c9c5575f17b900264129b888faaccf6f39e6",
+      "bodyPoseId": "reverse-retreat",
+      "wingClockTick": 65,
+      "wingPhaseIndex": null,
+      "wingCycleApplied": false,
+      "singleWingKeyHold": true,
+      "rootWorldXY": [
+        81.0625,
+        92.64973958333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        94.39583333333333,
+        81.98307291666666
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 66,
+      "segmentId": "reverse-posture-travel-study",
+      "poseClipId": "C-reverse-key-study",
+      "renderFrameId": "anna-c-reverse-retreat-96",
+      "primarySourceFrameId": "frame.sha256.0546e724ef43109a7b8e3eba7af9c9c5575f17b900264129b888faaccf6f39e6",
+      "bodyPoseId": "reverse-retreat",
+      "wingClockTick": 66,
+      "wingPhaseIndex": null,
+      "wingCycleApplied": false,
+      "singleWingKeyHold": true,
+      "rootWorldXY": [
+        78.5,
+        92.48958333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        91.83333333333333,
+        81.82291666666666
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 67,
+      "segmentId": "reverse-posture-travel-study",
+      "poseClipId": "C-reverse-key-study",
+      "renderFrameId": "anna-c-reverse-retreat-96",
+      "primarySourceFrameId": "frame.sha256.0546e724ef43109a7b8e3eba7af9c9c5575f17b900264129b888faaccf6f39e6",
+      "bodyPoseId": "reverse-retreat",
+      "wingClockTick": 67,
+      "wingPhaseIndex": null,
+      "wingCycleApplied": false,
+      "singleWingKeyHold": true,
+      "rootWorldXY": [
+        76.6875,
+        92.37630208333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        90.02083333333333,
+        81.70963541666666
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    },
+    {
+      "tick": 68,
+      "segmentId": "reverse-posture-travel-study",
+      "poseClipId": "C-reverse-key-study",
+      "renderFrameId": "anna-c-reverse-retreat-96",
+      "primarySourceFrameId": "frame.sha256.0546e724ef43109a7b8e3eba7af9c9c5575f17b900264129b888faaccf6f39e6",
+      "bodyPoseId": "reverse-retreat",
+      "wingClockTick": 68,
+      "wingPhaseIndex": null,
+      "wingCycleApplied": false,
+      "singleWingKeyHold": true,
+      "rootWorldXY": [
+        76.0,
+        92.33333333333333
+      ],
+      "supportState": "airborne",
+      "grounded": false,
+      "contacts": [],
+      "billTipWorldXY": [
+        89.33333333333333,
+        81.66666666666666
+      ],
+      "billTargetMode": "free",
+      "billTargetResidualWorld": null
+    }
+  ],
+  "studies": [
+    {
+      "file": "landing-reach-study.json"
+    },
+    {
+      "file": "arrival-support-proof.json"
+    },
+    {
+      "file": "takeoff-release-study.json"
+    },
+    {
+      "file": "perched-reference-proof.json"
+    }
+  ],
+  "qualification": "Aflutterprovisionalvisualalignment+oneCreversetravelkeystudy;notcompletefeeding/reverseactionorMacadmission",
+  "appBound": false
+}
