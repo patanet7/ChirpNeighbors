@@ -177,3 +177,7 @@ FirstbatchSD20-reuse-01 is the existingmale96pxblink handoff fromPR17 (mergedae9
 ## Completed source batch: sd20-phoebe-actions-v1
 
 `motion/sd20-phoebe-actions-v1` retainsonecompletednativecall/3newdrawings with exactprompt/nativeoriginal/immutableIDs, PNGexports, manifestsandnormal-sizepreviews. Prior77drawingIDsunchanged; sourcebanknow80, original/promptpairs17. Naturalposequalityisreviewedatoutputsize; sourcepixelidentityremainsstrict. Appbinding/canonicalSharpreceipt/actualyardverificationpending; no fullactionsetor20completeclaim. Per-speciesprioritycoverageupdatedwithsourceandpacketstatesseparatefromappauthority.
+
+## Completed source batch: actions
+
+`motion/sd20-anna-phoebe-towhee-v1/california_towhee/actions` retainsonecompletednativecall/2newdrawings with exactprompt/nativeoriginal/immutableIDs, PNGexports, manifestsandnormal-sizepreviews. Prior80drawingIDsunchanged; sourcebanknow82, original/promptpairs18. Naturalposequalityisreviewedatoutputsize; sourcepixelidentityremainsstrict. Appbinding/canonicalSharpreceipt/actualyardverificationpending; no fullactionsetor20completeclaim. Per-speciesprioritycoverageupdatedwithsourceandpacketstatesseparatefromappauthority.
