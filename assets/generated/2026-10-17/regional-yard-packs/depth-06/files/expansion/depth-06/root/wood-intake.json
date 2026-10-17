@@ -1,0 +1,2634 @@
+{
+  "schema_version": "1.0.0",
+  "role": "Source intake delta under existing scene identity; no active catalog changed.",
+  "assets": [
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_cedar_privacy.season_spring_v1",
+      "label": "Layered coastal cedar-privacy yard — spring",
+      "season": "spring",
+      "style": "cedar-privacy",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-r1.png",
+          "sha256": "4b9005b26b759330f60d36dfb0e913a793c74449647d72ce076f0736438d7d81",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/cedar-privacy-fence-row.png",
+          "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-cedar-privacy-spring-960.png",
+      "preview_sha256": "0b92fe4a1b0967d0edad8a7bfb0bf570df0560602be07bc8d10c907dd979aeeb",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_cedar_privacy_season_spring_v1-384.png",
+      "mobile_preview_sha256": "7c97a9cc5a95c550a487027f5659d0ae1149ca12aca22fd8686d49581a6dee1a",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-cedar-privacy-spring.json",
+      "scene_contract_sha256": "77086327e3802c7a66e8246f58143f381dbecc3d1e3ad4518db831de6d995375",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_cedar_privacy.season_summer_v1",
+      "label": "Layered coastal cedar-privacy yard — summer",
+      "season": "summer",
+      "style": "cedar-privacy",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-summer-r1.png",
+          "sha256": "6074c4d9d0685aaa52afb5bb6ca26aeccb7b9c6cf19490c6d236a9bf67d3c489",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/cedar-privacy-fence-row.png",
+          "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-cedar-privacy-summer-960.png",
+      "preview_sha256": "b408e314aabf39fcbf81545cca5ff485c4c7efdaa359284fff8f103e6e3d84da",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_cedar_privacy_season_summer_v1-384.png",
+      "mobile_preview_sha256": "2851e6576c6a1201a8df93714abbb7eb094789bc9c3c57894c86d04b387dc24a",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-cedar-privacy-summer.json",
+      "scene_contract_sha256": "e19bba7640df2194e8e8d43d00ef8264dc3a873c474aebcfc5e472c52a66d448",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_cedar_privacy.season_autumn_v1",
+      "label": "Layered coastal cedar-privacy yard — autumn",
+      "season": "autumn",
+      "style": "cedar-privacy",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-autumn-r1.png",
+          "sha256": "c665f01747fda3c0a328ed0b9e84be9cbc5e0f39aaf9d83fbd3bf37a6b4cbf54",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/cedar-privacy-fence-row.png",
+          "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-cedar-privacy-autumn-960.png",
+      "preview_sha256": "7793908e9fb98daacfe98100328e2c3dc0dd6618dfb853b6ae121ef91e4eb7a3",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_cedar_privacy_season_autumn_v1-384.png",
+      "mobile_preview_sha256": "69fec180deae7dc2aefe4d5dd43431f1d9fcaaabf3f56950372a8a268cbf7a11",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-cedar-privacy-autumn.json",
+      "scene_contract_sha256": "49273a677edecf8b280dcdf5b79b82dbcfd97ce119653e03ccf632b0e2271162",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_cedar_privacy.season_winter_v1",
+      "label": "Layered coastal cedar-privacy yard — winter",
+      "season": "winter",
+      "style": "cedar-privacy",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-winter-r1.png",
+          "sha256": "a6d801c866250171d77d8726f05c3dad3add5e6cb6cdee36e2db650368e8bc24",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/cedar-privacy-fence-row.png",
+          "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-cedar-privacy-winter-960.png",
+      "preview_sha256": "680cd536b1e7cb4e4dc2c5f62f865638ef00db1e667b1b888a4d12337cd988c4",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_cedar_privacy_season_winter_v1-384.png",
+      "mobile_preview_sha256": "aa543a75b809e36b05b27f7e1f034b35b7c4df918a16cf6977a82b01fdce50da",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-cedar-privacy-winter.json",
+      "scene_contract_sha256": "076153f78890359868a8c07dc6475fe8577cb5ba72b0d3a27fbcd86a869c0936",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_weathered_vertical.season_spring_v1",
+      "label": "Layered coastal weathered-vertical yard — spring",
+      "season": "spring",
+      "style": "weathered-vertical",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-r1.png",
+          "sha256": "4b9005b26b759330f60d36dfb0e913a793c74449647d72ce076f0736438d7d81",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/weathered-vertical-fence-row.png",
+          "sha256": "6eb6272971f0bf9dffddf362eb2327e8f8a266ebaf390aa9cf48b1307ac34edd",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-weathered-vertical-spring-960.png",
+      "preview_sha256": "88d59d0884cd9c9a9450a0b96170fe271af3c15027d9c382e76ee323477b64ed",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_weathered_vertical_season_spring_v1-384.png",
+      "mobile_preview_sha256": "a31b8b0907e539e2fa66db035814c96cbe719384602733e75426170d5bcbc1dd",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-weathered-vertical-spring.json",
+      "scene_contract_sha256": "1caa89e5b3daed12c1d7562429d4f314f0e155be134bd7daa9579e60ae891515",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_weathered_vertical.season_summer_v1",
+      "label": "Layered coastal weathered-vertical yard — summer",
+      "season": "summer",
+      "style": "weathered-vertical",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-summer-r1.png",
+          "sha256": "6074c4d9d0685aaa52afb5bb6ca26aeccb7b9c6cf19490c6d236a9bf67d3c489",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/weathered-vertical-fence-row.png",
+          "sha256": "6eb6272971f0bf9dffddf362eb2327e8f8a266ebaf390aa9cf48b1307ac34edd",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-weathered-vertical-summer-960.png",
+      "preview_sha256": "a41bfd1ebb11888a09753789045ab35cb3e22562d84a86017c28b9ae38aa7152",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_weathered_vertical_season_summer_v1-384.png",
+      "mobile_preview_sha256": "4ef1c567989cb5dfba57fe77b0df49501609650e96e33659fb79c34ab799729e",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-weathered-vertical-summer.json",
+      "scene_contract_sha256": "c062b4841abe21156c704484e4424aaad2dc36d429f880fe7104f155df08073c",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_weathered_vertical.season_autumn_v1",
+      "label": "Layered coastal weathered-vertical yard — autumn",
+      "season": "autumn",
+      "style": "weathered-vertical",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-autumn-r1.png",
+          "sha256": "c665f01747fda3c0a328ed0b9e84be9cbc5e0f39aaf9d83fbd3bf37a6b4cbf54",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/weathered-vertical-fence-row.png",
+          "sha256": "6eb6272971f0bf9dffddf362eb2327e8f8a266ebaf390aa9cf48b1307ac34edd",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-weathered-vertical-autumn-960.png",
+      "preview_sha256": "883f140dc33d7fb73100a21b8c1d4dd415c3afeaa4c6c916be545de51eee054c",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_weathered_vertical_season_autumn_v1-384.png",
+      "mobile_preview_sha256": "be816412da0006ccbc56571586ac75bb2a7924011807b14ced42399d76501afc",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-weathered-vertical-autumn.json",
+      "scene_contract_sha256": "d3e12c45047321e4b217ea04e68880d66880109327977da5c69de709616c629d",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_weathered_vertical.season_winter_v1",
+      "label": "Layered coastal weathered-vertical yard — winter",
+      "season": "winter",
+      "style": "weathered-vertical",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-winter-r1.png",
+          "sha256": "a6d801c866250171d77d8726f05c3dad3add5e6cb6cdee36e2db650368e8bc24",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/weathered-vertical-fence-row.png",
+          "sha256": "6eb6272971f0bf9dffddf362eb2327e8f8a266ebaf390aa9cf48b1307ac34edd",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-weathered-vertical-winter-960.png",
+      "preview_sha256": "e18c65d1d2aca3b8643fad7582f2ac4c956140416610c75e33f220fdacb8f9d2",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_weathered_vertical_season_winter_v1-384.png",
+      "mobile_preview_sha256": "844caa7640182b92d2fea2e388c6a4dfa5c244c2147adc9ac760b42a929e3a16",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-weathered-vertical-winter.json",
+      "scene_contract_sha256": "2edb30990c5076ea8b0b0f3df9375c58791f2fa28ba5b7dc2d802002427c33b5",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_picket.season_spring_v1",
+      "label": "Layered coastal picket yard — spring",
+      "season": "spring",
+      "style": "picket",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-r1.png",
+          "sha256": "4b9005b26b759330f60d36dfb0e913a793c74449647d72ce076f0736438d7d81",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/picket-fence-row.png",
+          "sha256": "e7926e27b7e5364e62b0dc3e20d4cacd016a171b310e743651c33ce359f4c7e7",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-picket-spring-960.png",
+      "preview_sha256": "7d63fe6a9237fdc3ea86ea15fc5ab444a166efbcd7e59679dc16f899f6e9c3c5",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_picket_season_spring_v1-384.png",
+      "mobile_preview_sha256": "c28a9d888e9da19c0fa5b98d285cee4c4546c29f331a08da86b2ef2278ca431d",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-picket-spring.json",
+      "scene_contract_sha256": "c182ab289b44c6d4e0b6c9918a515842d7b56abd87ff2e72d2483b8fa0ccbd71",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_picket.season_summer_v1",
+      "label": "Layered coastal picket yard — summer",
+      "season": "summer",
+      "style": "picket",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-summer-r1.png",
+          "sha256": "6074c4d9d0685aaa52afb5bb6ca26aeccb7b9c6cf19490c6d236a9bf67d3c489",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/picket-fence-row.png",
+          "sha256": "e7926e27b7e5364e62b0dc3e20d4cacd016a171b310e743651c33ce359f4c7e7",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-picket-summer-960.png",
+      "preview_sha256": "36fd701f8d1abf687ea44e90bf8ab83ec300cca104164e8e75e9f3a92d246e97",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_picket_season_summer_v1-384.png",
+      "mobile_preview_sha256": "44ca72a96316a8ef21a9d5995482bf097dec730350a0093bbbfa7f82b255a88c",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-picket-summer.json",
+      "scene_contract_sha256": "7ec4b69f90e0cb03467b7020fac0e270f9e98f8e9c6daf9086d0525746c063dd",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_picket.season_autumn_v1",
+      "label": "Layered coastal picket yard — autumn",
+      "season": "autumn",
+      "style": "picket",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-autumn-r1.png",
+          "sha256": "c665f01747fda3c0a328ed0b9e84be9cbc5e0f39aaf9d83fbd3bf37a6b4cbf54",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/picket-fence-row.png",
+          "sha256": "e7926e27b7e5364e62b0dc3e20d4cacd016a171b310e743651c33ce359f4c7e7",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-picket-autumn-960.png",
+      "preview_sha256": "fcb726974f372d71adad752c443e5af58f35850ac35b5ecf26c485dabb1ac1e8",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_picket_season_autumn_v1-384.png",
+      "mobile_preview_sha256": "fbf5b23755de4071d197967b0e96b01b768a09021c6019c5b651533ce83a7fae",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-picket-autumn.json",
+      "scene_contract_sha256": "d3676c283f4c5ff3241d7808601cbd765e47295d1dbbb4f42910cfcdb92b3c3b",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    },
+    {
+      "schema_version": "1.0.0",
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "depth06_wood_fence_picket.season_winter_v1",
+      "label": "Layered coastal picket yard — winter",
+      "season": "winter",
+      "style": "picket",
+      "semantic_role": "independently_layered_yard",
+      "production_type": "composition of actual generated depth layers and prior actual fence components",
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "review_crop_source_px": [
+        0,
+        160,
+        1536,
+        1024
+      ],
+      "layers": [
+        {
+          "slot": "sky",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+          "sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 0,
+          "alpha_extrema": [
+            255,
+            255
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "far",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/far-r1.png",
+          "sha256": "28c0a16ab5f8f0df16bfa3be5318b280822fb4556e033bc2ab3ddd3c8a9a1f9a",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            -120
+          ],
+          "scale": 1,
+          "z_order": 1,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "ground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-winter-r1.png",
+          "sha256": "a6d801c866250171d77d8726f05c3dad3add5e6cb6cdee36e2db650368e8bc24",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 2,
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "midground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/picket-fence-row.png",
+          "sha256": "e7926e27b7e5364e62b0dc3e20d4cacd016a171b310e743651c33ce359f4c7e7",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 3,
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "origin": "prior independent RGBA fence-row derivative",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        },
+        {
+          "slot": "foreground",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/foreground-r1.png",
+          "sha256": "303d7933af1ff5225ba75ffbc8790397d0436c6e39f430c978d4026fc5b49e89",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "xy": [
+            0,
+            0
+          ],
+          "scale": 1,
+          "z_order": 4,
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "origin": "new actual independent imagegen source",
+          "separation": "true independent source layer; no semantic slice of flattened scene"
+        }
+      ],
+      "required_slots": [
+        "sky",
+        "far",
+        "midground",
+        "ground",
+        "foreground"
+      ],
+      "render_order": [
+        "sky",
+        "far",
+        "ground",
+        "midground",
+        "foreground"
+      ],
+      "clean_placement_stage_source_px": [
+        350,
+        600,
+        1180,
+        970
+      ],
+      "placement_stage_note": "No movable plants/furniture baked into ground; fixed lawn texture remains. Two independently alpha-framed plants occupy extreme edges.",
+      "placement_anchor": {
+        "mode": "full_canvas_origin",
+        "point_px": [
+          0,
+          0
+        ]
+      },
+      "ground_contact_footprint": {
+        "mode": "stage_region_not_collision",
+        "polygon_px": [
+          [
+            350,
+            600
+          ],
+          [
+            1180,
+            600
+          ],
+          [
+            1180,
+            970
+          ],
+          [
+            350,
+            970
+          ]
+        ]
+      },
+      "intended_scale": "1536x1024 authoring pixels, source-only uncalibrated physical metrics",
+      "source_reuse": "Coastal new sky/ocean/ground/foreground reused by SHA; exact prior fence row reused, with12 original component sprites available in wood-fences-01.",
+      "season_policy": "Four actual season-specific ground images; same evergreen foreground, sky and fence material shared. No artificial snow or automatic season switching.",
+      "wind": {
+        "foreground": "Shared coastal pinned-base offline demonstration; not runtime integration.",
+        "fence": "Rigidweight0; no gate motion.",
+        "rendered_in_this_scene": false
+      },
+      "state_slots": {
+        "dry_healthy": "Seasonal ground appearance only, no individual plant health simulation",
+        "gate_closed": "actual source",
+        "gate_open": "needs art and implementation"
+      },
+      "states": {
+        "requested": true,
+        "generated": true,
+        "reviewed": true,
+        "staged": true,
+        "integrated": false,
+        "accepted": false
+      },
+      "preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/wood-picket-winter-960.png",
+      "preview_sha256": "51b3ddd0368735e0c4f3dc1f6f6271cec7ccd1d82c2162169a2e1bb597200df8",
+      "mobile_preview_file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/previews/scene-depth06_wood_fence_picket_season_winter_v1-384.png",
+      "mobile_preview_sha256": "2bda53483296235119aae570965602a59ed57fdb3631bdec1d65f6f507ff4727",
+      "rejection_reason": null,
+      "known_limits": [
+        "Render ground before fence to preserve visible feet at490 and240pxprivacyfence silhouette; faroffset-120 explicitly registered.",
+        "Cedar and weathered panels naturally occlude most distant ocean; picket preserves distant glimpses.",
+        "Prior fence panel/gate/post metric normalization and corner snap holds remain.",
+        "Foreground framing artwork has cropped canvas-edge silhouettes; not whole independent species placeables.",
+        "Actual Mac cropping/contact/season switching remains pending."
+      ],
+      "scene_contract": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/root/wood-scenes/wood-picket-winter.json",
+      "scene_contract_sha256": "bb9b98d14c6fecd11587675e2dd619f0be25e54c6515e8b1fe88d8555f2605ab",
+      "review_status": "root_static_mobile_normal_contact_pass_provisional",
+      "review_notes": [
+        "Root actual12cell384wideoverview and960picket spring inspected. Independent depth slots are present; all4groundseason sources differ.",
+        "Frontfenceposts andclosedgateoverlayactualgroundcleanly; heavyprivacyocclusion ofdistance isexpected. No croppedflattenedscene layer claims.",
+        "Foregroundoriginals are edgeframing silhouettes, not complete isolatedspecies sprites.",
+        "Saturatedblueupper sky anddetailedlawn retained asstylecandidates; owner/Mac acceptancepending."
+      ]
+    }
+  ]
+}

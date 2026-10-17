@@ -1,0 +1,28 @@
+{
+  "status": "agent_scoped_visual_review_complete_parent_review_pending",
+  "actual_files_inspected": [
+    "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/mediterranean/previews/foundation-before-foreground.png",
+    "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/mediterranean/previews/seasons-contact-normal.png",
+    "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/mediterranean/previews/seasons-contact-mobile.png",
+    "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/mediterranean/previews/depth-layer-contact.png",
+    "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/mediterranean/previews/depth-layer-contact-dark.png"
+  ],
+  "findings": [
+    "Five actual depth source files visually distinct and alpha appropriate; no semantic slicing of a flattened full background.",
+    "Floor rendered before mid architecture: wall and gate bases retained, overlap hides join. Actualnormal/mobile composites show continuous stage, not floating wall.",
+    "Both botanical groups fully inside source image atalpha>=128 edge check; whole roots/contact patches present. Groups can be omitted/placed as compound parts, not individual taxon assets.",
+    "All four seasonal scenes use distinct actual ground source images. Seasonal differences restrained, winter cooler and autumn warmer with sparse edge leaves."
+  ],
+  "known_defects": [
+    "Native generated positions missed requested horizon430/stage600: mid rear-wall center spansy361..671. Effective open stage is nearer700..1024. No fake prompt-coordinate registration claimed.",
+    "Far generated band atnativey446..650 is registered upward210px to remain visible above architecture. Actual visible distance is higher than requested horizon.",
+    "Ground edit placement drift: summer top540 and winter539 vs spring570; explicit integer shifts+30/+31 register upper edges. Autumn shift+1. Some joint/texture geometry still varies; no pixel-perfect seasonal registration claim.",
+    "Foreground botanical groups are roughly421x381 and478x369 visible pixels, larger than intended190px-wide/230px-high sparse groups. Center review region[500,700,1030,1024] remains free of foreground pixels.",
+    "Shared sky/distance/architecture/foreground are static managed-courtyard context across four seasons; actual newly generated seasonal differences are in ground surface only. No seasonal sky/plant-state variations claimed.",
+    "Mid plaster is relatively weathered and paver texture detailed; strict logical pixel grid and bird/contact readability are not established by structural QA.",
+    "Each actual depth file remains flattened internally. Foreground crops are compound botanical groups without assigned species/canonical plant IDs, not anatomical segmentation.",
+    "Wind outputs are source-only whole-group pivot rotation proofs, including baked tiny root shadows; not physics, anatomical rigging or runtime wind."
+  ],
+  "root_intake_edited": false,
+  "app_or_git_edited": false
+}

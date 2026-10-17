@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "scope": "Source-production only, own workspace. Paused runtime/depth worker is excluded.",
+  "existing_inventory_authority": "Existing canonical requirements/tracker and exact legacy IDs; this is a derived incremental source intake.",
+  "worker_queues": [
+    {
+      "owner": "yards",
+      "directory": "depth-06/coastal",
+      "target": "5 true depth layers +3 real seasonal ground edits;4 actual season contracts",
+      "max_imagegen_calls": 8
+    },
+    {
+      "owner": "objects",
+      "directory": "depth-06/mediterranean",
+      "target": "5 true depth layers +3 real seasonal ground edits;4 actual season contracts",
+      "max_imagegen_calls": 8
+    },
+    {
+      "owner": "trees_leaves",
+      "directory": "depth-06/tree-wind",
+      "target": "coast-live-oak-wood +coast-live-oak-foliage four module slots; stable attachments mild/heavy offline playback",
+      "max_imagegen_calls": 2
+    },
+    {
+      "owner": "plants",
+      "directory": "depth-06/plant-object-modules",
+      "target": "2 existing species×3rigid/flexparts;3 matching functional object variants; actual mild/heavy anchored playback",
+      "max_imagegen_calls": 3
+    }
+  ],
+  "root_queue": {
+    "imagegen_calls": 0,
+    "target": "Woodfence4season5slotkits reusing existing fenceRGBA +coastal new independentlayers; globalQA/sourceindex/Library/Git"
+  },
+  "total_imagegen_budget": 21,
+  "planned_calls_before_major_failure_reserve": 20,
+  "required_depth_slots": [
+    "sky",
+    "far",
+    "midground",
+    "ground",
+    "foreground"
+  ],
+  "required_seasons": [
+    "spring",
+    "summer",
+    "autumn",
+    "winter"
+  ],
+  "art_policy": "Imagegen actualart. Code only measured crop/alpha-preserving transforms/compositing/review playback, no painted placeholder art. Do not fake hidden sky/ground by semantic slicing of flattened scenes.",
+  "reference_access": {
+    "this_worker_has_external_reference_pixels": false,
+    "analyst_text_observations_available": true,
+    "source_project_pixels_inspected_by_workers": true,
+    "standalone_image_generation_skill_available": false,
+    "callable_image_generation_tool_available": true,
+    "external_proprietary_pixels_excluded": true
+  },
+  "review_policy": [
+    "Inspect actual outputs and declaredsource sizes/alpha",
+    "Record actualcoords/scales/drifts andcandidate/heldstates honestly",
+    "Showactualmild/heavyofflineplayback andregistration metrics; runtimephysics staysfalse",
+    "No more calls for microscopic defects",
+    "Keep originals/prompts/refs/rights/sourcehashes and derivative operations",
+    "Everytransportarchive below8MB immutable CRC/memberhashcheck"
+  ],
+  "runtime_app_edits": false
+}

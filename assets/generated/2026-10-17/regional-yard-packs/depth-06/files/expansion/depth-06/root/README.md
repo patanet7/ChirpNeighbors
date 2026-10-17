@@ -1,0 +1,11 @@
+# ChirpNeighbors depth06 source batch
+
+Twenty actual seasonal compositions cover coastal garden, Mediterranean courtyard and cedar privacy, weathered-board and picket fence options. Every scene has five independent source slots: sky, far distance, midground, ground and foreground. Four independently generated ground states supply spring/summer/autumn/winter; other layers are shared. The wood-fence options reuse prior individual fence art by hash. These are actual alpha layers, not semantic slices of a flattened background.
+
+The self-contained Layer Explorer lets reviewers toggle each depth slot and inspect actual offline tree/sage GIFs. Its raster views use source crop[0,160,1536,1024] at384×216, displayed with nearest-neighbor scaling. All20 source scene contracts preserve actual layer order, source hashes and measured translations. Mediterranean floor renders before wall; ocean layers use explicit upward translations. Quiet stage and dimensional fit remain provisional until Mac integration.
+
+Twenty actual imagegen originals and20 exact prompts were produced in bounded disjoint categories. Tree wood, four leaf-bearing modules, six plant parts and three matching functional prop variants accompany the yards. Sources/references and rights statements are preserved; no external proprietary pixels were used for conditioning or delivered.
+
+Seven actual GIFs demonstrate mild/heavy offline motion. Decoded-frame, attachment, fixed-contact and closure checks are supplied; continuous motion has not been visually certified in the Mac runtime. Oak normal healthy whole-canopy admission is held: the source proof is a sparse/pruned scaffold with four leaf modules. Deergrass base is held for woody cut stubs. Sage cut collars remain visible; overlapping pixels do not certify natural joints. Courtyard whole-group heavy wind has minor edge clipping and lacks an anatomical rig. No wind physics or active runtime animation is implemented.
+
+This is a staged source intake, not another authoritative inventory. Existing primary IDs and variant lineage remain intact; generated/reviewed/staged are separate from integrated/accepted. Shared app and paused runtime-worker environment were not modified. Source branch publication and Library receipts are reported separately from runtime intake.
