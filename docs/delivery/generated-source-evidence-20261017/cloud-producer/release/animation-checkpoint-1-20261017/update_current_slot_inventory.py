@@ -4,10 +4,11 @@ from collections import Counter
 import argparse,json
 p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=(Path(__file__).resolve().parent/'../..').resolve());root=p.parse_args().root
 release=root/'release/animation-checkpoint-1-20261017';baseline=json.loads((root/'audits/animation-slot-inventory-20261017/inventory.json').read_text());overlay=json.loads((release/'intake-overlay.json').read_text());bank=json.loads((root/'frame-bank.json').read_text());byid={b['id']:b for b in baseline['species']}
+for bird in baseline['species']:bird['baselineSourceIssues']=list(bird['sourceIssues']);bird['currentSourceIssues']=[]
 for batch in overlay['batches']:
  for sid in batch['speciesIds']:
   bird=byid[sid];fs=[f for f in bank['frames'] if f['frameId'] in batch['sourceFrameIds'] and f['species']==sid]
-  bird['nativeSourceRecords'].extend(fs);bird['nativeBankDrawings']+=len(fs);bird['sourceIssues'].append(batch['scope']);bird['nextAssignedTask']=None
+  bird['nativeSourceRecords'].extend(fs);bird['nativeBankDrawings']+=len(fs);bird['currentSourceIssues'].append(batch['scope']);bird['sourceIssues']=['Baseline PR33: '+x for x in bird['baselineSourceIssues']]+['Current checkpoint: '+x for x in bird['currentSourceIssues']];bird['nextAssignedTask']=None
   affected=['locomotion'] if batch['slot']=='ordinary_locomotion' else ['neutral','look'] if sid=='nuttall_s_woodpecker' else ['neutral','blink']
   for slot in bird['slots']:
    if slot['slot'] not in affected:continue
