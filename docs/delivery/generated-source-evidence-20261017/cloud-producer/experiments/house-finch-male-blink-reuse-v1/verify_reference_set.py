@@ -1,0 +1,18 @@
+from pathlib import Path
+from PIL import Image
+import json,hashlib,numpy as np,subprocess
+P=Path(__file__).parent;R=P.parent.parent;m=json.loads((P/'manifest.json').read_text());checks=[];imlist=[];canonical=[];repo=Path('/workspace/chirp-finch-preen-canon');prefix='docs/delivery/generated-source-evidence-20261017/cloud-producer/'
+for f in m['referenceFrames']:
+ p=R/f['file'];im=Image.open(p).convert('RGBA');assert hashlib.sha256(p.read_bytes()).hexdigest()==f['fileSha256'];assert 'frame.sha256.'+hashlib.sha256(f'RGBA8;{im.width}x{im.height};'.encode()+im.tobytes()).hexdigest()==f['frameId'];imlist.append(im)
+ if (repo/'.git').exists():
+  payload=subprocess.check_output(['git','-C',str(repo),'show','33df557812121bb3ec7d7b17cc53a56f03908f77:'+prefix+f['file']]);assert hashlib.sha256(payload).hexdigest()==f['fileSha256'];canonical.append(f['frameId'])
+assert len({f['frameId'] for f in m['referenceFrames']})==3;assert len(m['sequence'])==5 and len({s['frameId'] for s in m['sequence']})==3;assert m['sequence'][0]['frameId']==m['sequence'][-1]['frameId'];assert all(f['derivation']['sourceScale']==1 and not f['derivation']['perFrameRescale'] for f in m['referenceFrames']);checks+=['three retained file/pixel identities verified, canonical committed bytes match when source checkout available','five proposed timing phases reference exactly three existing drawings; no fit/rescale/newframe claim']
+base=np.array(imlist[0]);a1=np.array(imlist[1]);a2=np.array(imlist[2]);assert not np.array_equal(base[600:],a1[600:]) and not np.array_equal(base[600:],a2[600:]);assert not m['strictWholeFrameReusePassed'];checks+=['strict wholeframe body-reuse failure retained for both half/closed drawings']
+with Image.open(P/'reuse-preview.gif') as im:
+ assert im.n_frames==5
+ for i,ms in enumerate([1400,80,90,80,650]):im.seek(i);im.load();assert im.info['duration']==ms
+checks+=['reference-only GIF decodes five exacttiming phases']
+quiet=json.loads((P/'quiet-idle-reuse.json').read_text());assert quiet['sourceFrameId']==m['referenceFrames'][0]['frameId'] and quiet['newAnimationClipCount']==0 and quiet['sourceBodyFootPixelsChanged']==0;sampler=json.loads((P/'quiet-sampler-verification.json').read_text());assert sampler['passed'] and sampler['quietModeSamples']==6 and sampler['normalModeControlSamples']==2;checks+=['one-neutral quietstill proposal references existing ID; exact existing sampler function tested with6quiet and2normal control cases']
+assert m['newDrawingCount']==m['newGenerationCalls']==m['newPixelAssemblies']==m['newProductionClipCount']==m['verifiedProductionReuseCount']==0;assert not m['accepted'] and not m['staged'] and not m['integrated'];bank=json.loads((R/'frame-bank.json').read_text());assert len(bank['frames'])==64 and bank['verifiedReuseCount']==0;checks+=['64drawing bank and0production reuse remain unchanged; no art/integration promotion']
+req=json.loads((P/'admission-requirements.json').read_text());assert not req['admissionGranted'] and len(req['requirements'])==9;checks+=['nine explicit admission requirements retained; no catalog/task authority replaced']
+receipt={'passed':True,'checksPassed':len(checks),'checks':checks,'sourceExistingDrawingIds':3,'timingPhases':5,'newGeneratedDrawings':0,'newAnimationClips':0,'canonicalSourceCommit':'3c43f1465453cb401be44c2ec26010e78dcdd4e0','allThreeCanonicalBlobHashesMatched':len(canonical)==3,'canonicalSourceVerificationSkipped':len(canonical)==0,'wholeFrameBlinkAdmitted':False,'quietStillAdmissionPending':True};(P/'verification.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt))
