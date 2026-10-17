@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "species": "black_phoebe",
+  "priorityMeaning": "product expected-screen-time priority, not quantified wild behavioral frequency",
+  "naturalHistory": [
+    {
+      "url": "https://www.allaboutbirds.org/guide/Black_Phoebe/lifehistory",
+      "readDateUtc": "2026-10-17",
+      "supports": [
+        "insects and arthropods dominate diet",
+        "prey caught by sallies from perches",
+        "pump/fan tail in some behavioral contexts"
+      ],
+      "doesNotEstablish": [
+        "tail-pump rate",
+        "blink frequency",
+        "animation timing",
+        "universal idle ordering"
+      ]
+    }
+  ],
+  "counts": {
+    "newNativeDrawings": 3,
+    "existingCanonReused": 1,
+    "newRiggedFrames": 0,
+    "newImageGenerationCalls": 1,
+    "fullActionSets": 0
+  },
+  "slots": [
+    {
+      "id": "idle-look-blink",
+      "productPriority": 1,
+      "generated": "closed blink generated; neutral canon reused; no dedicated look turn",
+      "rigged": false,
+      "packetBound": true,
+      "packetClipId": "idle",
+      "appBound": false,
+      "normalYardVisuallyVerified": false,
+      "staticFrameVisualReview": true,
+      "recommendedPacket": "blink-atlas96.png + blink-manifest.json",
+      "limits": [
+        "100ms closed-eye hold without half lid",
+        "small body/foot raster change during blink",
+        "warm-brown/pale-edge canon kept, not definitive adult black-plumage treatment"
+      ]
+    },
+    {
+      "id": "perched-tail-pump",
+      "productPriority": 1,
+      "generated": "tail-up and tail-down real drawn poses",
+      "rigged": false,
+      "packetBound": true,
+      "packetClipId": "idle",
+      "appBound": false,
+      "normalYardVisuallyVerified": false,
+      "recommendedPacket": "idle-atlas96.png + texture-review-manifest.json",
+      "limits": [
+        "strong tail-up excursion greater than prompt",
+        "1output-pixel foot baseline variation; body top also1px lower vs canon",
+        "transition quality requires yard viewing; no extra edit attempted"
+      ]
+    },
+    {
+      "id": "ordinary-locomotion-short-sally",
+      "productPriority": 2,
+      "generated": false,
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "normalYardVisuallyVerified": false,
+      "plan": "Use existing runtime flight/arrival/departure states once purposeful wing and landing drawings exist. A translated standing sprite is not flight animation.",
+      "fallback": "Perch idle only; no locomotion claim."
+    },
+    {
+      "id": "feeding-insect-sally",
+      "productPriority": 3,
+      "generated": false,
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "normalYardVisuallyVerified": false,
+      "plan": "Insect target with beak anchor after flight/interaction binding; no seed-feeder interaction.",
+      "fallback": "Show near a water/perch habitat without fake feeding."
+    },
+    {
+      "id": "preen",
+      "productPriority": 4,
+      "generated": false,
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "normalYardVisuallyVerified": false
+    },
+    {
+      "id": "takeoff-flight-landing",
+      "productPriority": 2,
+      "priorityOverride": "Flight supports ecological ordinary locomotion and flycatching; prioritize over decorative preen.",
+      "generated": false,
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "normalYardVisuallyVerified": false
+    },
+    {
+      "id": "rest-perch-variation",
+      "productPriority": 6,
+      "generated": "standing reused only",
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "normalYardVisuallyVerified": false
+    },
+    {
+      "id": "rare-social-seasonal",
+      "productPriority": 7,
+      "generated": false,
+      "rigged": false,
+      "packetBound": false,
+      "appBound": false,
+      "normalYardVisuallyVerified": false
+    }
+  ]
+}
