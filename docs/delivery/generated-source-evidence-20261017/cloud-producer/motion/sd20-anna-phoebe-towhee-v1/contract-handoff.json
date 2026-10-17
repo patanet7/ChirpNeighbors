@@ -1,0 +1,64 @@
+{
+  "repository": "patanet7/birdsong-yard-sprites",
+  "commit": "a8d3666e293047efaf7f162a1e2b069f346fc18d",
+  "fixedStepSeconds": 0.03333333333333333,
+  "currentSeams": [
+    {
+      "path": "src/lib/engine/simulation.ts",
+      "symbols": [
+        "requestPreviewGroundActivity",
+        "setPreviewSurfaceAdmission"
+      ],
+      "constraint": "preview actor must be placed and own settled ground; no pending route/destination; shortest clear ground path and target within120worldunits; daylight/no shelter environment; actual clearance/occupancy must be checked by app"
+    },
+    {
+      "path": "src/lib/engine/renderer.ts",
+      "symbol": "flightLift",
+      "constraint": "current hop uses -5*abs(sin(behaviorTicks*pi/8))*min(1,remaining/12); actor route root advances continuously, so source packet alone cannot establish stationary feet at sine zeros"
+    },
+    {
+      "path": "src/lib/engine/review-texture.ts",
+      "symbol": "YardReviewTexture",
+      "constraint": "clipId idle only; optional paint has no actor/support/physics/catalog authority; normal source manifests retained with no forged movement clip"
+    },
+    {
+      "path": "src/lib/assets/manifest.ts",
+      "symbols": [
+        "sampleClip"
+      ],
+      "constraint": "V3/V4/V5 sample pose may reuse frame with pivot/contacts/rotation; clip does not own root trajectory"
+    },
+    {
+      "path": "src/lib/assets/clip-transitions.ts",
+      "symbol": "resolveClipTransition",
+      "constraint": "immediate cuts; authoredTransition false; blending false; durationTicks0; caller supplies known support identity"
+    },
+    {
+      "path": "src/lib/assets/manifest-v3.ts",
+      "symbol": "animationPoseSchema",
+      "constraint": "rotation -0.5..0.5rad; contact kinds left-foot/right-foot/perch/ground; no beak/flower/insect contact semantics"
+    },
+    {
+      "path": "src/lib/assets/pose-geometry.ts",
+      "symbols": [
+        "poseTransform",
+        "sourceWorldScale"
+      ],
+      "constraint": "world origin is support anchor, not sprite top-left; apply mirroring thenrotation; V4/V5 world scale=1/presentation.sourcePixelsPerWorldUnit"
+    }
+  ],
+  "macBindingRecipe": [
+    "Admit unchanged source atlas/idle manifest through actual Sharp canonical intake first.",
+    "Bind only a transient explicit preview actor with real placement and clearance; do not equate review paint with actor admission.",
+    "For Phoebe/Towhee hop, reserve a clear owned landing ground support18/24worldunits away. Start exactly on owned ground.",
+    "Use provided 30Hz sample table as a bounded acceptance recipe: hold root on ground, unsupported parabolic displacement only, then snap neither scale nor source to fit landing; settle endpoint exactly. Current app may need this explicit trajectory seam; packet does not implement it.",
+    "Switch idle\u2192moving\u2192idle at behavior-clock0 with explicit support IDs. Existing transition helper reports immediate cuts and no authored recovery. A missing moving drawing can be an honestly labelled static-source rigged hop.",
+    "Reduced-motion holds a valid settled support and source pose, never a visibly sliding planted still.",
+    "Place example decorative targets at exact proxy world coordinates; flower/insect target lies at upright bill height. Towhee groundseed remains a look target with about50worldunit bill gap; do not emit feeding/ingestion events.",
+    "Verify actual yard playback, contacts, scale and interruption/reduced-motion behavior on Mac before labeling appBound or videoViewed."
+  ],
+  "scope": "recipe and isolated transform proof; not runtime schema, alternate renderer, bound action package or new engine",
+  "newGenerationCalls": 0,
+  "newDrawings": 0,
+  "canonicalSharpReceipt": null
+}
