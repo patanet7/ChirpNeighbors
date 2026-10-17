@@ -77,7 +77,7 @@ def validate_flight_motion_batch(root, batch):
     frames={}
     for f in source['frames']:
         fid=f['id'];sid=f['primarySourceFrameId'];require(fid not in frames and sid in entries,'unknown/duplicate source frame')
-        m=render.get(fid);require(m and m['primarySourceFrameId']==sid,'source/render ID lineage mismatch')
+        m=render.get(fid);require(m and m.get('primarySourceFrameId',m.get('sourceFrameId'))==sid,'source/render ID lineage mismatch')
         p,si=entries[sid]; rect=f['sourceRect'];require(rect==m['atlasRect'],'atlas rectangles disagree')
         x,y,w,h=[rect[k] for k in ['x','y','width','height']]
         require(all(isinstance(v,int) for v in [x,y,w,h]) and x>=0 and y>=0 and w>0 and h>0 and x+w<=ai.width and y+h<=ai.height,'atlas rectangle out of bounds')
@@ -95,7 +95,7 @@ def validate_flight_motion_batch(root, batch):
         if calfile:
             cp=path(calfile,pp.parent);c=json.loads(cp.read_text());shared_calibrations.add(str(cp.relative_to(root)))
             if reg.get('sharedCalibrationSHA256'):require(reg['sharedCalibrationSHA256']==sha(cp),'shared calibration hash mismatch')
-            require(c.get('perPoseScale') is False and c.get('perPoseTranslation',False) is False and c.get('wingEnvelopeFit',False) is False,'per-pose fit is not family registration')
+            require(c.get('perPoseScale',reg.get('perPoseScale')) is False and c.get('perPoseTranslation',False) is False and c.get('wingEnvelopeFit',False) is False,'per-pose fit is not family registration')
             if 'sharedNativeTo1024Scale' in c:
                 s=c['sharedNativeTo1024Scale'];tx,ty=c['sharedOriginTranslation'];tw,th=c['targetCanvas']
                 predicted=Image.new('RGBA',(w,h));dst=predicted.load();src=si.load()
@@ -106,6 +106,14 @@ def validate_flight_motion_batch(root, batch):
                         ix=math.floor((((xx+.5)*tw/w)-tx)/s)
                         if 0<=ix<si.width:dst[xx,yy]=src[ix,iy]
                 transform='recomputed shared analytic nearest calibration'
+            elif 'sharedNativeCellTo1024Scale' in c:
+                scale=c['sharedNativeCellTo1024Scale'];tx,ty=c['sharedOriginInteger'];tw,th=c['targetCanvas']
+                registered=si.transform((tw,th),Image.Transform.AFFINE,(1/scale,0,-tx/scale,0,1/scale,-ty/scale),Image.Resampling.NEAREST)
+                predicted=registered.resize((w,h),Image.Resampling.NEAREST)
+                if p.get('registeredPNG'):
+                    rp=path(p['registeredPNG'],pp.parent);require(Image.open(rp).convert('RGBA').tobytes()==registered.tobytes(),'C registered intermediate does not match shared affine')
+                    if p.get('registeredPNGsha256'):require(sha(rp)==p['registeredPNGsha256'],'registered PNG hash mismatch')
+                transform='recomputed shared cell-to1024 affine then nearest output resize'
             elif 'sharedNativeToFamilyScale' in c:
                 scale=c['sharedNativeToFamilyScale'];sx,sy=c['primaryRoot'];rx,ry=c['registeredRoot'];rw,rh=c['registeredCanvas']
                 offset=(sx-rx/scale,sy-ry/scale)
@@ -141,17 +149,24 @@ def validate_flight_motion_batch(root, batch):
             f=frames[fid];seq.append({**step,'sourceFrameId':f['primarySourceFrameId'],'pose':entries[f['primarySourceFrameId']][0]['pose']})
         require(seq,'empty source clip')
         if c.get('durationTicks') is not None:require(c['durationTicks']==sum(s['durationTicks'] for s in seq),'declared clip duration mismatch')
-        clips.append({**c,'orderedSourceFrameSequence':seq,'durationTicks':sum(s['durationTicks'] for s in seq)})
+        clips.append({**c,'orderedSourceFrameSequence':seq,'durationTicks':sum(s['durationTicks'] for s in seq),'uniqueSourceDrawingCount':len(set(s['sourceFrameId'] for s in seq))})
     require(len({c['id'] for c in clips})==len(clips),'duplicate clip ID')
     # Body trajectory has a separate clock. A longer episode never creates more source drawings.
     trajectories=[]
-    for trajectory_name,t in [('motionTrajectory',trajectory),('motionProposalManifest',motion)]:
+    trajectory_docs=[('motionTrajectory',tp,trajectory),('motionProposalManifest',motion_path,motion)]
+    if mapping.get('motionProposalManifest'):
+        bound=mapping['motionProposalManifest'];require(motion_path and path(bound['file'],mp.parent)==motion_path and bound['sha256']==sha(motion_path),'map/main motion proposal binding mismatch')
+    for ref in mapping.get('motionProposalFiles',[]):
+        dp=path(ref['file'],mp.parent);require(sha(dp)==ref['sha256'],'additional study hash mismatch')
+        trajectory_docs.append(('independentStudy:'+ref['file'],dp,json.loads(dp.read_text())))
+    for trajectory_name,document_path,t in trajectory_docs:
         if t is None:continue
         if 'segments' not in t:
             raise ValueError(f'{trajectory_name} unsupported trajectory shape; explicit segments required')
         require(t.get('tickRate')==30,'body trajectory tick rate mismatch')
         require(t.get('runtimeBound',False) is False and t.get('newDrawingsFromTrajectory',0)==0,'trajectory cannot claim runtime admission/new drawings')
         if t.get('poseClock'):require(t['poseClock'].get('tickRate')==30,'pose clock tick rate mismatch')
+        if t.get('sourceManifest'):require(path(t['sourceManifest'],document_path.parent)==sp,'motion document source manifest mismatch')
         duration=t.get('durationTicks',t.get('totalTicks',t.get('endTick')));require(isinstance(duration,int) and duration>0,'body duration required')
         prev_tick=0;prev_root=None
         for segment in t['segments']:
@@ -175,15 +190,42 @@ def validate_flight_motion_batch(root, batch):
                 require(sample.get('supportState')==seg.get('supportState','airborne' if source['kind']=='airborne-source-review' else None),'sample/segment support state mismatch')
                 if sample.get('poseClipId'):require(sample['poseClipId']==seg.get('poseClipId'),'sample/segment pose clip mismatch')
                 require(abs(sample.get('timeSeconds',tick/30)-tick/30)<1e-8,'sample time/tick mismatch')
-                u=(tick-seg['ticks'][0])/(seg['ticks'][1]-seg['ticks'][0]);rule=seg.get('interpolation','linear')
-                require(rule in ['hold','linear','uSquared','2uMinusUSquared'],'unknown trajectory interpolation')
-                u={'hold':0,'linear':u,'uSquared':u*u,'2uMinusUSquared':2*u-u*u}[rule]
+                rule=seg.get('interpolation',t.get('rootInterpolation','linear'))
+                require(rule in ['hold','linear','uSquared','2uMinusUSquared','smoothstep-segment-frame-endpoints'],'unknown trajectory interpolation')
+                denominator=seg['ticks'][1]-seg['ticks'][0]-(1 if rule=='smoothstep-segment-frame-endpoints' else 0)
+                u=(tick-seg['ticks'][0])/denominator if denominator else 0
+                u={'hold':0,'linear':u,'uSquared':u*u,'2uMinusUSquared':2*u-u*u,'smoothstep-segment-frame-endpoints':u*u*(3-2*u)}[rule]
                 expected=[a+(b-a)*u for a,b in zip(seg['rootFrom'],seg['rootTo'])]
-                require(all(abs(a-b)<1e-7 for a,b in zip(sample['root'],expected)),'sample roots disagree with exact authored segment interpolation')
+                actual_root=sample.get('root',sample.get('rootWorldXY'))
+                require(actual_root is not None and len(actual_root)==2 and all(abs(a-b)<1e-7 for a,b in zip(actual_root,expected)),'sample roots disagree with exact authored segment interpolation')
+                if sample.get('renderFrameId'):
+                    fid=sample['renderFrameId'];require(fid in frames,'sample references unknown render frame')
+                    rf=frames[fid];require(not sample.get('primarySourceFrameId') or sample['primarySourceFrameId']==rf['primarySourceFrameId'],'sample source/render lineage mismatch')
+                    cf=next(c for c in clips if c['id']==sample['poseClipId']);require(fid in [x['frameId'] for x in cf['frames']],'sample frame not in selected pose clip')
+                    state=rf.get('supportState','airborne' if source['kind']=='airborne-source-review' else None)
+                    require(sample['supportState']==state,'sample/selected source support state mismatch')
+                    if sample.get('wingClockTick') is not None:
+                        require(sample['wingClockTick']==tick,'wing clock is not declared global tick')
+                        phase=tick%cf['durationTicks'] if cf['loop'] else min(tick,cf['durationTicks']-1)
+                        cursor=0;expected_frame=None
+                        for step in cf['frames']:
+                            cursor+=step['durationTicks']
+                            if phase<cursor:expected_frame=step['frameId'];break
+                        require(fid==expected_frame,'actual wing/pose sample does not follow declared source clip clock')
+                    technical=rf['contacts'];sample_contacts=sample.get('contacts',[])
+                    if state=='airborne':require(sample_contacts==[] and sample.get('grounded',False) is False,'airborne sample claims grounded support')
+                    else:
+                        require(bool(sample_contacts) and sample.get('grounded') is True,'supported sample requires explicit grounded contact projections')
+                        require(len(sample_contacts)==len(technical),'support sample/contact count mismatch')
+                        for marker in technical:
+                            sc=next((c for c in sample_contacts if c['id']==marker['id']),None);require(sc is not None and sc['sourcePositiveAlphaPixel']==[marker['x'],marker['y']],'support sample marker not bound to exact source pixel')
+                            projected=[actual_root[0]+(marker['x']-rf['pivot']['x'])/rf['sourcePixelsPerWorldUnit'],actual_root[1]+(marker['y']-rf['pivot']['y'])/rf['sourcePixelsPerWorldUnit']]
+                            require(all(abs(a-b)<1e-7 for a,b in zip(sc['worldXY'],projected)),'support contact projection mismatch')
+                            if t.get('flatPerchPlaneWorldY') is not None:require(abs(sc['worldXY'][1]-t['flatPerchPlaneWorldY'])<1e-6,'declared technical toe is not on support plane')
         if t.get('wingCycleTicks') is not None:require(t['wingCycleTicks'] in [c['durationTicks'] for c in clips],'declared wing cycle does not match exact clip')
         require(t.get('rootPathGeneratesNewDrawings',False) is False,'trajectory cannot add source drawings')
         if source['kind']=='airborne-source-review':require(t.get('supports',[])==[],'airborne trajectory cannot claim support')
-        trajectories.append({'field':trajectory_name,'tickRate':30,'durationTicks':duration,'segments':t['segments'],'separateFromPoseClock':True,'sourceDrawingsAdded':0})
+        trajectories.append({'field':trajectory_name,'document':str(document_path.relative_to(root)),'documentSHA256':sha(document_path),'tickRate':30,'durationTicks':duration,'segments':t['segments'],'separateFromPoseClock':True,'sourceDrawingsAdded':0})
     held=any(batch.get(k) is True or primary.get(k) is True for k in ['sourceHeld','newSourceHeld'])
     return {'batchId':primary['batchId'],'kind':'validated-source-only-flight-motion-proposal','technicalValidationPassed':True,'sourceReviewState':'held' if held else 'reviewed-source-study-with-qualifications' if review_path else 'pending-independent-source-review','reviewReceipt':({'path':str(review_path.relative_to(root)),'sha256':sha(review_path),**{k:review[k] for k in ['decision','verdict','recommendation','sourceAccepted','disposition','heldClaims','selectedSourceUsefulSlots','artAccepted'] if k in review}} if review_path else None),'runtimeAdmission':False,'productionAccepted':False,'fullLocomotionAccepted':False,'packetBindingReady':False,'appBinding':'UNKNOWN','actualYardVerification':'UNKNOWN','sourceActionSlots':slots,'newSourceFrameIds':new_ids,'reusedSourceFrameIds':reuse_ids,'newDrawingCount':len(new_ids),'reusedDrawingCount':len(reuse_ids),'renderDerivativeCount':len(frames),'renderDerivativesAreNewDrawings':False,'primaryManifest':str(pp.relative_to(root)),'sourceManifest':str(sp.relative_to(root)),'frameToActionMap':str(mp.relative_to(root)),'retainedFileSHA256':files,'frameChecks':frame_checks,'clips':clips,'trajectories':trajectories,'sharedCalibrations':sorted(shared_calibrations),'sourceHeld':held,'qualifications':['Technical identity, alpha and schedule checks do not establish art quality or physical support.','Perched primary, neutral and blink selections remain unchanged.','Wing/pose and body clocks are independent; root translation adds zero drawings.']}
 
@@ -204,23 +246,34 @@ def attach_flight_motion_proposal(bird, batch, report):
     require(idle==[r for r in bird['slots'] if r['slot'] in ['neutral','look','blink']],'flight proposal mutated idle source slots')
 
 def current_bounded_queue(species, root, overlays):
-    """Current checkpoints, not historical assignments; no assertion workers are running."""
+    """Only unfinished source checkpoints and actual gaps; no Git publication inference."""
     root=Path(root);queue=[]
     batches=[('sd20-anna-hover-cycle-v2','hover phase compatibility'),('sd20-anna-dart-brake-v1','dart/brake source and root checks'),('sd20-anna-transitions-v1','reverse/nectar/perch support-state checks')]
     registered={b['batchId']:b for b in overlays if b.get('flightMotionProposal')}
     for batch_id,task in batches:
+        record=registered.get(batch_id)
+        if record and record.get('review') and record.get('reviewSHA256'):
+            reviewed=(root/record['review']).resolve()
+            if reviewed.is_relative_to(root.resolve()) and reviewed.is_file() and sha(reviewed)==record['reviewSHA256']:
+                # Retained sourceMotionProposals preserve this completed checkpoint.
+                # Git/publication status is owned by the coordinator's queue.
+                continue
         candidates=[root/'motion'/batch_id,Path('/workspace/asset-production/motion')/batch_id]
         p=next((x for x in candidates if (x/'PRIMARY-SOURCE-MANIFEST.json').is_file()),None)
         original_folder=next((x for x in candidates if (x/'original.png').is_file()),None)
-        retained=bool(p);record=registered.get(batch_id)
-        queue.append({'priority':1,'speciesId':'anna_s_hummingbird','batchId':batch_id,'task':task,'checkpoint':'coordinator source-review/publication checkpoint' if retained else 'producer frozen-export checkpoint; original retained' if original_folder else 'producer receipt checkpoint; actual completion UNKNOWN','retainedPrimaryManifest':str(p/'PRIMARY-SOURCE-MANIFEST.json') if p else None,'retainedPathScope':('canonical source root' if p and p.is_relative_to(root) else 'producer source only; not canonical intake' if p else None),'actualSourceRetained':retained,'nativeOriginalRetained':bool(original_folder),'registeredOverlay':bool(record),'newCallQueued':False,'workerRunning':'UNKNOWN','sourceAccepted':False})
-    # Common-first product priority follows the supplied roster order, not biological frequency.
+        retained=bool(p)
+        queue.append({'priority':1,'speciesId':'anna_s_hummingbird','batchId':batch_id,'task':task,'checkpoint':'source review/registration checkpoint' if retained else 'producer frozen-export checkpoint; original retained' if original_folder else 'producer receipt checkpoint; actual completion UNKNOWN','retainedPrimaryManifest':str(p/'PRIMARY-SOURCE-MANIFEST.json') if p else None,'retainedPathScope':('canonical source root' if p and p.is_relative_to(root) else 'producer source only; not canonical intake' if p else None),'actualSourceRetained':retained,'nativeOriginalRetained':bool(original_folder),'registeredOverlay':bool(record),'newCallQueued':False,'workerRunning':'UNKNOWN','sourceAccepted':False,'GitPublicationStatus':'not inferred; coordinator owns publication queue'})
+    next_priority=2 if queue else 1
+    gap_candidates=[root/'motion/sd20-anna-transitions-v1/transition-gap-receipt.json',Path('/workspace/asset-production/motion/sd20-anna-transitions-v1/transition-gap-receipt.json')]
+    gap=next((p for p in gap_candidates if p.is_file()),None)
+    queue.append({'priority':next_priority,'speciesId':'anna_s_hummingbird','task':'Review existing contact/transition endpoint gaps and authored root-motion proof before choosing any new Anna art','checkpoint':'existing-source joint/contact/root proof; complete flight remains unaccepted','newCallQueued':False,'sourceAcceptedFullFlight':False,'gapEvidence':({'file':str(gap),'sha256':sha(gap),'pathScope':'canonical source' if gap.is_relative_to(root) else 'producer source only'} if gap else None)})
     missing=[]
     for bird in species:
         row=next(r for r in bird['slots'] if r['slot']=='look')
         if not row['provisionalUsefulSourceForThisSemanticSlot']:
             missing.append({'speciesId':bird['id'],'actualSlotState':row['state'],'sourceFrameIds':row.get('sourceFrameIds',[]),'existingStudyBeforeNewCall':bool(row.get('sourceFrameIds'))})
-    queue.append({'priority':2,'task':'Review actual missing or study-only look slots in roster product order; choose one bounded source task after coordinator review','candidates':missing,'newCallQueued':False,'orderingMeaning':'product roster order; not biological frequency'})
-    queue.append({'priority':3,'speciesId':'mourning_dove','task':'Repair existing gait/drink reuse contact and authored root/water target mappings before any new generation','newCallQueued':False,'checkpoint':'existing-source contact repair'})
-    queue.append({'priority':4,'speciesId':'house_finch','task':'Select bounded short ground hop or seed/beak-contact source work from actual gaps','newCallQueued':False,'checkpoint':'unassigned product-priority proposal'})
+    missing.sort(key=lambda candidate: candidate['speciesId']!='black_phoebe')
+    queue.append({'priority':next_priority+1,'task':'Select bounded missing look source work, Phoebe first when its look slot remains missing, then actual study-only/missing roster slots','candidates':missing,'newCallQueued':False,'orderingMeaning':'common-first product priority; not biological frequency'})
+    queue.append({'priority':next_priority+2,'speciesId':'mourning_dove','task':'Repair existing gait/drink reuse contact and authored root/water target mappings before any new generation','newCallQueued':False,'checkpoint':'existing-source contact repair'})
+    queue.append({'priority':next_priority+3,'speciesId':'house_finch','task':'Select bounded short ground hop or seed/beak-contact source work from actual gaps','newCallQueued':False,'checkpoint':'unassigned product-priority proposal'})
     return queue
