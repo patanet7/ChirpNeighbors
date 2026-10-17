@@ -4608,13 +4608,13 @@
       "id": "lesser_goldfinch",
       "name": "Lesser Goldfinch",
       "primaryIntakeStatus": "provisional-source-review-candidate",
-      "primaryManifest": "new-species/sd20-next-three-canon-v1/lesser_goldfinch/texture-review-manifest.json",
-      "primaryAtlas": "new-species/sd20-next-three-canon-v1/lesser_goldfinch/idle-look-atlas96.png",
+      "primaryManifest": "motion/sd20-lesser-goldfinch-blink-v1/texture-review-manifest.json",
+      "primaryAtlas": "motion/sd20-lesser-goldfinch-blink-v1/idle-blink-atlas96.png",
       "selectedIdleSourceIDs": [
         "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
-        "frame.sha256.0e5079ceefcccf123754056d3ca27e44ec7ae83b32382dfb7a2fe622712e335c"
+        "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
@@ -4723,6 +4723,59 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
+          "file": "motion/sd20-lesser-goldfinch-blink-v1/closed-native.png",
+          "fileSha256": "d1c5c7e42eeabcf2dfb90f51b165074054d93df1b8fba965b542d3b1cfab98c3",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "lesser_goldfinch",
+          "appearanceVersion": "sd20-lesser-goldfinch-blink-v1",
+          "poseTags": [
+            "closed-eye blink",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-lesser-goldfinch-blink-v1/original.png",
+          "sourceAtlasSha256": "d1c5c7e42eeabcf2dfb90f51b165074054d93df1b8fba965b542d3b1cfab98c3",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "pixelRegistration": "none; native source PNG retained byte-identical",
+            "wholeCallCanvasDensityConversion": {
+              "requestedCanvas": [
+                1024,
+                1024
+              ],
+              "actualNativeCanvas": [
+                1254,
+                1254
+              ],
+              "nativeToReferenceCanvasRatio": 0.8165869218500797,
+              "nativeToOutputRatio": 0.07655502392344497
+            },
+            "perPoseFit": false,
+            "paintOrWarp": false,
+            "alphaErasure": false
+          },
+          "sourcePrompt": "motion/sd20-lesser-goldfinch-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-lesser-goldfinch-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; One new closed-eye drawing, unchanged old awake reused; no regenerated neutral slot; explicit whole-call density conversion.",
+          "sourceReview": "motion/sd20-lesser-goldfinch-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -4732,7 +4785,9 @@
         "new-species/sd20-next-three-canon-v1/independent-review.json",
         "new-species/sd20-next-three-canon-v1/README.md"
       ],
-      "sourceIssues": [],
+      "sourceIssues": [
+        "Current checkpoint: One new closed-eye drawing, unchanged old awake reused; no regenerated neutral slot; explicit whole-call density conversion."
+      ],
       "nextAssignedTask": null,
       "slots": [
         {
@@ -4769,8 +4824,8 @@
           ],
           "renderBindings": [
             {
-              "manifest": "new-species/sd20-next-three-canon-v1/lesser_goldfinch/texture-review-manifest.json",
-              "atlasPNG": "new-species/sd20-next-three-canon-v1/lesser_goldfinch/idle-look-atlas96.png",
+              "manifest": "motion/sd20-lesser-goldfinch-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-lesser-goldfinch-blink-v1/idle-blink-atlas96.png",
               "clipId": "idle",
               "tickRate": 30,
               "loop": false,
@@ -4880,19 +4935,89 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "perched look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-blink",
+          "sourceFrameIds": [
+            "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+            "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-lesser-goldfinch-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-lesser-goldfinch-blink-v1/texture-review-manifest.json",
+            "motion/sd20-lesser-goldfinch-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-lesser-goldfinch-blink-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye→closed lid→same open state; half lid only if useful."
+            "One new closed-eye drawing, unchanged old awake reused; no regenerated neutral slot; explicit whole-call density conversion.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "lesser_goldfinch-neutral-96",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+              "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd"
+            },
+            {
+              "frameId": "lesser_goldfinch-closed-96",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
+              "outputRGBAId": "frame.sha256.e2dbebfaa4e3e92267772e86115ab631e3a3a28952c1e2b9b9f54a244e014984"
+            },
+            {
+              "frameId": "lesser_goldfinch-neutral-96",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+              "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-lesser-goldfinch-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-lesser-goldfinch-blink-v1/idle-blink-atlas96.png",
+              "clipId": "idle",
+              "tickRate": 30,
+              "loop": true,
+              "durationTicks": 90,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "lesser_goldfinch-neutral-96",
+                  "durationTicks": 60,
+                  "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+                  "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd"
+                },
+                {
+                  "frameId": "lesser_goldfinch-closed-96",
+                  "durationTicks": 3,
+                  "sourceFrameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
+                  "outputRGBAId": "frame.sha256.e2dbebfaa4e3e92267772e86115ab631e3a3a28952c1e2b9b9f54a244e014984"
+                },
+                {
+                  "frameId": "lesser_goldfinch-neutral-96",
+                  "durationTicks": 27,
+                  "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+                  "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "newSourceFrameIds": [
+            "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7"
+          ]
         },
         {
           "speciesId": "lesser_goldfinch",
@@ -5043,9 +5168,14 @@
         }
       ],
       "baselineSourceIssues": [],
-      "currentSourceIssues": [],
-      "primaryManifestSHA256": "635e3fa1760da81e1ff485e11ce2e249749f3dc4620737ef51afeb2dd304c6a3",
-      "primaryAtlasSHA256": "2fa347ac1ec3888059360bc0c467b7a9642e2ba26841208b30d3a4b2f563e2ab",
+      "currentSourceIssues": [
+        "One new closed-eye drawing, unchanged old awake reused; no regenerated neutral slot; explicit whole-call density conversion."
+      ],
+      "overlayQualifications": [
+        "Closure-only source batch: existing awake source reused; neutral coverage unchanged; no new neutral drawing counted."
+      ],
+      "primaryManifestSHA256": "e7e06a76904e667a780da33677cbb384a2339d40443d9732551790d060a48a7d",
+      "primaryAtlasSHA256": "7b2e97a74c76f1cc04e9c467c5f0068efdbbb34da2019441785657eefd87f6f0",
       "primaryClipId": "idle",
       "primaryFrameMappings": [
         {
@@ -5061,6 +5191,16 @@
               "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd",
               "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+              "sourcePNG": "motion/sd20-lesser-goldfinch-blink-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-lesser-goldfinch-blink-v1/reused-awake96.png",
+              "outputPNGsha256": "a114ba9ee3db46c89c1bf6da3765b8835d2660451955a8f570868dae051c0dc7",
+              "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd",
+              "evidence": "motion/sd20-lesser-goldfinch-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -5113,18 +5253,18 @@
           ]
         },
         {
-          "outputFrameId": "lesser_goldfinch-look-96",
-          "outputRGBAId": "frame.sha256.a2551472e240c0d54395c931421e1a77f38008b24ed16c3a1fad889c0c19b3af",
-          "sourceFrameId": "frame.sha256.0e5079ceefcccf123754056d3ca27e44ec7ae83b32382dfb7a2fe622712e335c",
+          "outputFrameId": "lesser_goldfinch-closed-96",
+          "outputRGBAId": "frame.sha256.e2dbebfaa4e3e92267772e86115ab631e3a3a28952c1e2b9b9f54a244e014984",
+          "sourceFrameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
           "exactExportMappings": [
             {
-              "sourceFrameId": "frame.sha256.0e5079ceefcccf123754056d3ca27e44ec7ae83b32382dfb7a2fe622712e335c",
-              "sourcePNG": "new-species/sd20-next-three-canon-v1/lesser_goldfinch/look-source1024.png",
-              "outputPNG": "new-species/sd20-next-three-canon-v1/lesser_goldfinch/look96.png",
-              "outputPNGsha256": "0a822321cb856292cc0f84536775b2093e49df8ff1ac342161523906ebf70b2a",
-              "outputRGBAId": "frame.sha256.a2551472e240c0d54395c931421e1a77f38008b24ed16c3a1fad889c0c19b3af",
-              "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
-              "phase": "look",
+              "sourceFrameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
+              "sourcePNG": "motion/sd20-lesser-goldfinch-blink-v1/closed-native.png",
+              "outputPNG": "motion/sd20-lesser-goldfinch-blink-v1/closed96.png",
+              "outputPNGsha256": "7525bfb8c60fd61c76c8fe185b0c918672a9cdf5ccc88725bdce6b57f4549ff7",
+              "outputRGBAId": "frame.sha256.e2dbebfaa4e3e92267772e86115ab631e3a3a28952c1e2b9b9f54a244e014984",
+              "evidence": "motion/sd20-lesser-goldfinch-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "closed-eye blink",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -5164,14 +5304,14 @@
               "id": "foot-1",
               "x": 56,
               "y": 74,
-              "sampledAlpha": 150,
+              "sampledAlpha": 250,
               "anatomicallyApproved": false
             },
             {
               "id": "foot-2",
               "x": 60,
               "y": 73,
-              "sampledAlpha": 242,
+              "sampledAlpha": 255,
               "anatomicallyApproved": false
             }
           ]
@@ -17754,6 +17894,16 @@
               "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+              "sourcePNG": "motion/sd20-lesser-goldfinch-blink-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-lesser-goldfinch-blink-v1/reused-awake96.png",
+              "outputPNGsha256": "a114ba9ee3db46c89c1bf6da3765b8835d2660451955a8f570868dae051c0dc7",
+              "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd",
+              "evidence": "motion/sd20-lesser-goldfinch-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -23898,6 +24048,210 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-lesser-goldfinch-blink-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-lesser-goldfinch-blink-v1/texture-review-manifest.json",
+      "manifestSHA256": "e7e06a76904e667a780da33677cbb384a2339d40443d9732551790d060a48a7d",
+      "atlasPNG": "motion/sd20-lesser-goldfinch-blink-v1/idle-blink-atlas96.png",
+      "atlasSHA256": "7b2e97a74c76f1cc04e9c467c5f0068efdbbb34da2019441785657eefd87f6f0",
+      "atlasDimensions": [
+        192,
+        96
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "lesser_goldfinch-neutral-96",
+          "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd",
+          "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+              "sourcePNG": "new-species/sd20-next-three-canon-v1/lesser_goldfinch/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-next-three-canon-v1/lesser_goldfinch/neutral96.png",
+              "outputPNGsha256": "a114ba9ee3db46c89c1bf6da3765b8835d2660451955a8f570868dae051c0dc7",
+              "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd",
+              "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+              "sourcePNG": "motion/sd20-lesser-goldfinch-blink-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-lesser-goldfinch-blink-v1/reused-awake96.png",
+              "outputPNGsha256": "a114ba9ee3db46c89c1bf6da3765b8835d2660451955a8f570868dae051c0dc7",
+              "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd",
+              "evidence": "motion/sd20-lesser-goldfinch-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 101.64705882352942,
+            "height": 101.64705882352942
+          },
+          "sourcePixelsPerWorldUnit": 0.9444444444444444,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74
+            },
+            {
+              "id": "foot-2",
+              "x": 60,
+              "y": 73
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74,
+              "sampledAlpha": 241,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 60,
+              "y": 73,
+              "sampledAlpha": 170,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "lesser_goldfinch-closed-96",
+          "outputRGBAId": "frame.sha256.e2dbebfaa4e3e92267772e86115ab631e3a3a28952c1e2b9b9f54a244e014984",
+          "sourceFrameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
+              "sourcePNG": "motion/sd20-lesser-goldfinch-blink-v1/closed-native.png",
+              "outputPNG": "motion/sd20-lesser-goldfinch-blink-v1/closed96.png",
+              "outputPNGsha256": "7525bfb8c60fd61c76c8fe185b0c918672a9cdf5ccc88725bdce6b57f4549ff7",
+              "outputRGBAId": "frame.sha256.e2dbebfaa4e3e92267772e86115ab631e3a3a28952c1e2b9b9f54a244e014984",
+              "evidence": "motion/sd20-lesser-goldfinch-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "closed-eye blink",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 96,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 101.64705882352942,
+            "height": 101.64705882352942
+          },
+          "sourcePixelsPerWorldUnit": 0.9444444444444444,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74
+            },
+            {
+              "id": "foot-2",
+              "x": 60,
+              "y": 73
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74,
+              "sampledAlpha": 250,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 60,
+              "y": 73,
+              "sampledAlpha": 255,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "lesser_goldfinch-neutral-96",
+              "durationTicks": 60
+            },
+            {
+              "frameId": "lesser_goldfinch-closed-96",
+              "durationTicks": 3
+            },
+            {
+              "frameId": "lesser_goldfinch-neutral-96",
+              "durationTicks": 27
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "lesser_goldfinch-neutral-96",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+              "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd"
+            },
+            {
+              "frameId": "lesser_goldfinch-closed-96",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
+              "outputRGBAId": "frame.sha256.e2dbebfaa4e3e92267772e86115ab631e3a3a28952c1e2b9b9f54a244e014984"
+            },
+            {
+              "frameId": "lesser_goldfinch-neutral-96",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+              "outputRGBAId": "frame.sha256.aa35e0b57c954910fcb3371b5270a92467270f1480b3c4b64596aa34b73f8bcd"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+            "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -25360,17 +25714,17 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-17T22:21:36.921516+00:00",
+  "projectionAsOfUTC": "2026-10-17T22:24:15.080102+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 121,
-    "registeredNativeOriginals": 28,
-    "newNativeCalls": 7,
-    "newDrawings": 19,
+    "registeredPrimaryDrawingIDs": 122,
+    "registeredNativeOriginals": 29,
+    "newNativeCalls": 8,
+    "newDrawings": 20,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 39,
+    "usefulProvisionalIdleSemanticUses": 40,
     "usefulIdleUsesByAction": {
       "neutral": 19,
-      "blink": 10,
+      "blink": 11,
       "look": 10
     },
     "reviewedOneShotHopStudies": 2,
@@ -25380,9 +25734,9 @@
     "states": {
       "provisional-drawn-neutral": 17,
       "single-open-look-pose-no-matched-turn": 1,
-      "provisional-drawn-blink": 10,
+      "provisional-drawn-blink": 11,
       "two-drawn-hover-wing-study-only": 1,
-      "missing": 144,
+      "missing": 143,
       "older-drawn-look-study-drift": 1,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,

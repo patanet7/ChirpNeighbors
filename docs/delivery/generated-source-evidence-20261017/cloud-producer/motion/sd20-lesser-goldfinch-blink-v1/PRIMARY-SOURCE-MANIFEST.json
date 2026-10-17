@@ -1,0 +1,70 @@
+{
+  "batchId": "sd20-lesser-goldfinch-blink-v1",
+  "nativeCalls": 1,
+  "original": "original.png",
+  "originalSHA256": "d1c5c7e42eeabcf2dfb90f51b165074054d93df1b8fba965b542d3b1cfab98c3",
+  "prompt": "prompt.txt",
+  "promptSHA256": "742679b05eac56d8092c2009784edd649aa70ec2c92305a6b516f31c33825123",
+  "frames": [
+    {
+      "sourceFrameId": "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a",
+      "sourcePNG": "closed-native.png",
+      "sourcePNGsha256": "d1c5c7e42eeabcf2dfb90f51b165074054d93df1b8fba965b542d3b1cfab98c3",
+      "speciesId": "lesser_goldfinch",
+      "pose": "closed-eye blink",
+      "registration": {
+        "nativeCanvas": [
+          1254,
+          1254
+        ],
+        "pixelRegistration": "none; native source PNG retained byte-identical",
+        "wholeCallCanvasDensityConversion": {
+          "requestedCanvas": [
+            1024,
+            1024
+          ],
+          "actualNativeCanvas": [
+            1254,
+            1254
+          ],
+          "nativeToReferenceCanvasRatio": 0.8165869218500797,
+          "nativeToOutputRatio": 0.07655502392344497
+        },
+        "perPoseFit": false,
+        "paintOrWarp": false,
+        "alphaErasure": false
+      },
+      "outputPNG": "closed96.png",
+      "outputPNGsha256": "7525bfb8c60fd61c76c8fe185b0c918672a9cdf5ccc88725bdce6b57f4549ff7"
+    }
+  ],
+  "reusedFrames": [
+    {
+      "sourceFrameId": "frame.sha256.dc444a19cd88d33e08346aca66c7c456a4ebae86a81fddc4485418c29b41f8b7",
+      "sourcePNG": "reused-awake-source1024.png",
+      "sourcePNGsha256": "c03f8445a206fe6a5d6b0423262c575f3f3da560bc415e7400070b53fa9cac77",
+      "speciesId": "lesser_goldfinch",
+      "pose": "existing awake neutral unchanged",
+      "outputPNG": "reused-awake96.png",
+      "outputPNGsha256": "a114ba9ee3db46c89c1bf6da3765b8835d2660451955a8f570868dae051c0dc7",
+      "newDrawing": false
+    }
+  ],
+  "outputMetadata": [
+    "texture-review-manifest.json",
+    "static-review-manifest.json",
+    "scale-contact-measurements.json",
+    "behavior-handoff.json",
+    "verification.json",
+    "browser-verification.json",
+    "independent-review.json",
+    "frame-to-action-map.json",
+    "review-target-hashes.json"
+  ],
+  "sourceStatus": "stable-source-awaiting-independent-compatibility-review",
+  "notes": [
+    "Exactly ONE new closed-eye drawing; existing awake reused unchanged. No new neutral, crop, rescale or trajectory counted as another drawing.",
+    "Canvas conversion is whole-native-call density normalization1254 to reference1024 coordinates/output96, never perpose silhouette fitting.",
+    "If normal-size identity/contact compatibility fails, retain closure as study; no automatic retry."
+  ]
+}
