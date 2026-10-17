@@ -1,6 +1,6 @@
 # Current per-species source slots
 
-15 new drawings /5 calls since PR33; 117 registered primary IDs total. Useful provisional idle uses: 18 neutral, 8 blink, 10 look. These uses overlap individual source drawings. No full locomotion or app binding is accepted by this source audit.
+17 new drawings /6 calls since PR33; 119 registered primary IDs total. Useful provisional idle uses: 19 neutral, 9 blink, 10 look. These uses overlap individual source drawings. No full locomotion or app binding is accepted by this source audit.
 
 | Species | Neutral | Look | Blink | Locomotion | Feed / drink / preen | Flight |
 |---|---|---|---|---|---|---|
@@ -13,7 +13,7 @@
 | Northern Mockingbird | provisional drawn | provisional drawn | missing | missing | missing / missing / missing | missing |
 | California Scrub-Jay | provisional drawn | provisional drawn | missing | missing | missing / missing / missing | missing |
 | Bushtit | provisional drawn | provisional drawn | missing | missing | missing / missing / missing | missing |
-| American Crow | held-stride-fallback-not-neutral | missing | missing | weak-drawn-walk-draft-contact-unbound | missing / missing / missing | missing |
+| American Crow | provisional drawn | missing | provisional drawn | weak-drawn-walk-draft-contact-unbound | missing / missing / missing | missing |
 | Common Raven | provisional drawn | provisional drawn | provisional drawn | drawn-hop-source-study-unpackaged | missing / missing / missing | missing |
 | Nuttall's Woodpecker | inclined-support-endpoint-hypothesis-vertical-unresolved | inclined-support-endpoint-hypothesis-vertical-unresolved | missing | missing | missing / missing / missing | missing |
 | White-crowned Sparrow | provisional drawn | missing | provisional drawn | missing | missing / missing / missing | missing |

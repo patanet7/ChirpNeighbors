@@ -3592,13 +3592,117 @@
       "id": "american_crow",
       "name": "American Crow",
       "primaryIntakeStatus": "provisional-source-review-candidate",
-      "primaryManifest": "reuse/sd20-corvid-reuse-v1/american_crow/texture-review-manifest.json",
+      "primaryManifest": "motion/sd20-crow-neutral-blink-v1/texture-review-manifest.json",
       "primaryAtlas": "reuse/sd20-corvid-reuse-v1/american_crow/atlas.png",
       "selectedIdleSourceIDs": [
-        "frame.sha256.59c7fcf5c54bfe1f9526fc6aa5078695eb5951088940244cae2130fb0a6d076c"
+        "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+        "frame.sha256.5e7db50d969fde6d366ab3dbec44b7fc93b28b1857d83f1bb4b5a2c1179d10c5"
       ],
-      "nativeBankDrawings": 0,
-      "nativeSourceRecords": [],
+      "nativeBankDrawings": 2,
+      "nativeSourceRecords": [
+        {
+          "frameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+          "file": "motion/sd20-crow-neutral-blink-v1/neutral-source1024.png",
+          "fileSha256": "64a3199e6509cccf3e578c46e796246b5fca35b25e94d5d54bf88fab31c3bcec",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "species": "american_crow",
+          "appearanceVersion": "sd20-crow-neutral-blink-v1",
+          "poseTags": [
+            "neutral",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-crow-neutral-blink-v1/original.png",
+          "sourceAtlasSha256": "4bbfadfd874fdac874ee11b8408336b17117a7c161b4a6e375366ad71292fbf8",
+          "derivation": {
+            "nativeOriginal": "original.png",
+            "nativeCellRect": [
+              0,
+              0,
+              887,
+              887
+            ],
+            "nativeCellRgbaId": "frame.sha256.07a8d39ebac327ed1e5258be6497e7d4050fda2ed7345ef7f50e1ba06c181cbf",
+            "stableSourceCanvas": [
+              1024,
+              1024
+            ],
+            "callWideSourceScale": 1,
+            "translation": [
+              0,
+              0
+            ],
+            "method": "equal887square native cells padded on stable1024canvas at same origin; no per-frame fitting, resizing, translation, rotation, pixel repaint, alpha threshold or contact snapping"
+          },
+          "sourcePrompt": "motion/sd20-crow-neutral-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-crow-neutral-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending.",
+          "sourceReview": "motion/sd20-crow-neutral-blink-v1/independent-review.json"
+        },
+        {
+          "frameId": "frame.sha256.5e7db50d969fde6d366ab3dbec44b7fc93b28b1857d83f1bb4b5a2c1179d10c5",
+          "file": "motion/sd20-crow-neutral-blink-v1/blink-source1024.png",
+          "fileSha256": "7e98efcdb6b83a040558c62727efb51dc2a54490ffc214e20d5fd4fef181c1b6",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "species": "american_crow",
+          "appearanceVersion": "sd20-crow-neutral-blink-v1",
+          "poseTags": [
+            "blink",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-crow-neutral-blink-v1/original.png",
+          "sourceAtlasSha256": "4bbfadfd874fdac874ee11b8408336b17117a7c161b4a6e375366ad71292fbf8",
+          "derivation": {
+            "nativeOriginal": "original.png",
+            "nativeCellRect": [
+              887,
+              0,
+              887,
+              887
+            ],
+            "nativeCellRgbaId": "frame.sha256.44a6857a6e462ccb52b3c7e1580dea1f84046d6bb0054afcad854211ddfd2ea7",
+            "stableSourceCanvas": [
+              1024,
+              1024
+            ],
+            "callWideSourceScale": 1,
+            "translation": [
+              0,
+              0
+            ],
+            "method": "equal887square native cells padded on stable1024canvas at same origin; no per-frame fitting, resizing, translation, rotation, pixel repaint, alpha threshold or contact snapping"
+          },
+          "sourcePrompt": "motion/sd20-crow-neutral-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-crow-neutral-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending.",
+          "sourceReview": "motion/sd20-crow-neutral-blink-v1/independent-review.json"
+        }
+      ],
       "inheritedSelectedSourceIDs": [
         "frame.sha256.59c7fcf5c54bfe1f9526fc6aa5078695eb5951088940244cae2130fb0a6d076c"
       ],
@@ -3608,7 +3712,8 @@
       ],
       "sourceIssues": [
         "Selected neutral is a held correctedcharcoal stride pose; no new neutral/look/blink.",
-        "4legpose moving draft is weakalternation and opt-in; worldcontact/rootcurve unverified."
+        "4legpose moving draft is weakalternation and opt-in; worldcontact/rootcurve unverified.",
+        "Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -3619,23 +3724,29 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "neutral ground look",
           "biologicalFrequencyRank": null,
-          "state": "held-stride-fallback-not-neutral",
+          "state": "provisional-drawn-neutral",
           "sourceFrameIds": [
-            "frame.sha256.59c7fcf5c54bfe1f9526fc6aa5078695eb5951088940244cae2130fb0a6d076c"
+            "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+            "frame.sha256.5e7db50d969fde6d366ab3dbec44b7fc93b28b1857d83f1bb4b5a2c1179d10c5"
           ],
-          "uniqueKnownSourceIDs": 1,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
           "evidencePaths": [
-            "reuse/sd20-corvid-reuse-v1/american_crow/texture-review-manifest.json"
+            "motion/sd20-crow-neutral-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-crow-neutral-blink-v1/independent-review.json"
           ],
           "preparedPackagePaths": [
-            "reuse/sd20-corvid-reuse-v1/american_crow/texture-review-manifest.json"
+            "motion/sd20-crow-neutral-blink-v1"
           ],
-          "remainingPhasesOrReview": [],
+          "remainingPhasesOrReview": [
+            "Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
+          ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "held-stride-fallback-not-neutral"
         },
         {
           "speciesId": "american_crow",
@@ -3665,19 +3776,29 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "neutral ground look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-blink",
+          "sourceFrameIds": [
+            "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+            "frame.sha256.5e7db50d969fde6d366ab3dbec44b7fc93b28b1857d83f1bb4b5a2c1179d10c5"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-crow-neutral-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-crow-neutral-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-crow-neutral-blink-v1"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye\u2192closed lid\u2192same open state; half lid only if useful."
+            "Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing"
         },
         {
           "speciesId": "american_crow",
@@ -13269,26 +13390,26 @@
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 117,
-    "registeredNativeOriginals": 26,
-    "newNativeCalls": 5,
-    "newDrawings": 15,
+    "registeredPrimaryDrawingIDs": 119,
+    "registeredNativeOriginals": 27,
+    "newNativeCalls": 6,
+    "newDrawings": 17,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 36,
+    "usefulProvisionalIdleSemanticUses": 38,
     "usefulIdleUsesByAction": {
-      "neutral": 18,
-      "blink": 8,
+      "neutral": 19,
+      "blink": 9,
       "look": 10
     },
     "reviewedOneShotHopStudies": 2,
     "sourceAcceptedFullLocomotionSlots": 0,
     "appBindingsVerifiedHere": 0,
     "states": {
-      "provisional-drawn-neutral": 16,
+      "provisional-drawn-neutral": 17,
       "single-open-look-pose-no-matched-turn": 1,
-      "provisional-drawn-blink": 8,
+      "provisional-drawn-blink": 9,
       "two-drawn-hover-wing-study-only": 1,
-      "missing": 146,
+      "missing": 145,
       "older-drawn-look-study-drift": 1,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,
@@ -13299,7 +13420,6 @@
       "provisional-held-static-fallback": 2,
       "drawn-walk-candidate-contact-unbound": 1,
       "drawn-drink-candidate-water-contact-unbound": 1,
-      "held-stride-fallback-not-neutral": 1,
       "weak-drawn-walk-draft-contact-unbound": 1,
       "drawn-hop-source-study-unpackaged": 1,
       "inclined-support-endpoint-hypothesis-vertical-unresolved": 2,

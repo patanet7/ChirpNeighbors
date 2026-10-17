@@ -1,0 +1,200 @@
+{
+  "scope": "image-source/raster diagnostics, not anatomical pressure/contact or worldtracking",
+  "scale": {
+    "axis": "neutral visible-width",
+    "proposedNeutralWorldWidth": 152,
+    "outputPxPerWorldUnit": 1.0328947368421053,
+    "worldCanvas": [
+      185.88535031847132,
+      185.88535031847132
+    ],
+    "stableSourceCanvas": [
+      1024,
+      1024
+    ],
+    "wholeCanvasOutputScale": 0.1875,
+    "biologicalSizeApproval": false,
+    "priorHeldStrideVisibleWorldSize": [
+      152,
+      92
+    ]
+  },
+  "poses": [
+    {
+      "pose": "neutral",
+      "sourceBBoxAlpha128": [
+        45,
+        212,
+        881,
+        799
+      ],
+      "outputBBoxAlpha128": [
+        8,
+        40,
+        165,
+        150
+      ],
+      "sourceFeet": [
+        {
+          "bottomBoundary": 790,
+          "centroid": [
+            520.6731804021524,
+            764.8802039082412
+          ],
+          "pixels": 3531
+        },
+        {
+          "bottomBoundary": 799,
+          "centroid": [
+            649.3595130571373,
+            760.3940702925585
+          ],
+          "pixels": 5093
+        }
+      ],
+      "outputFeet": [
+        {
+          "bottomBoundary": 148,
+          "centroid": [
+            97.47967479674797,
+            143.02439024390245
+          ],
+          "pixels": 123
+        },
+        {
+          "bottomBoundary": 150,
+          "centroid": [
+            121.32960893854748,
+            142.17877094972067
+          ],
+          "pixels": 179
+        }
+      ],
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "transparentPixels": 853930,
+        "partialAlphaPixels": 194257,
+        "noOutputAlphaThreshold": true
+      },
+      "eyeCropSourceRect": [
+        720,
+        244,
+        59,
+        51
+      ],
+      "eyeRoiMeanLuminanceAbove200Alpha128PixelCount": 16,
+      "eyeMetricQualification": "Diagnostic within fixed eye ROI, not semantic aperture/catchlight approval or a brightness gate.",
+      "visibleWorldSize": [
+        152.0,
+        106.4968152866242
+      ]
+    },
+    {
+      "pose": "blink",
+      "sourceBBoxAlpha128": [
+        44,
+        212,
+        881,
+        798
+      ],
+      "outputBBoxAlpha128": [
+        8,
+        40,
+        165,
+        149
+      ],
+      "sourceFeet": [
+        {
+          "bottomBoundary": 790,
+          "centroid": [
+            520.6550156294402,
+            764.8485365160557
+          ],
+          "pixels": 3519
+        },
+        {
+          "bottomBoundary": 798,
+          "centroid": [
+            648.7604042806183,
+            760.3527546571542
+          ],
+          "pixels": 5046
+        }
+      ],
+      "outputFeet": [
+        {
+          "bottomBoundary": 148,
+          "centroid": [
+            97.47967479674797,
+            143.02439024390245
+          ],
+          "pixels": 123
+        },
+        {
+          "bottomBoundary": 149,
+          "centroid": [
+            121.25714285714285,
+            142.12
+          ],
+          "pixels": 175
+        }
+      ],
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "transparentPixels": 853792,
+        "partialAlphaPixels": 194410,
+        "noOutputAlphaThreshold": true
+      },
+      "eyeCropSourceRect": [
+        720,
+        244,
+        59,
+        51
+      ],
+      "eyeRoiMeanLuminanceAbove200Alpha128PixelCount": 0,
+      "eyeMetricQualification": "Diagnostic within fixed eye ROI, not semantic aperture/catchlight approval or a brightness gate.",
+      "visibleWorldSize": [
+        152.0,
+        105.52866242038216
+      ]
+    }
+  ],
+  "commonDeclaredContacts": [
+    {
+      "id": "foot-a-review",
+      "x": 99,
+      "y": 146
+    },
+    {
+      "id": "foot-b-review",
+      "x": 124,
+      "y": 144
+    }
+  ],
+  "contactsMeaning": "same alpha>=128 image markers only; independent source reviewer must assess genuinely supported two-foot artwork",
+  "footDrift": {
+    "maxPerFootGroundBoundaryChangeSourcePx": 1,
+    "maxPerFootGroundBoundaryChangeOutputPx": 1,
+    "maxFootPixelCentroidChangeOutputPx": 0.09330250524616852,
+    "maxFootPixelCentroidChangeWorld": 0.09033108788164086,
+    "endpointUncertainty": "ROI alpha-mask proxies, not toe-joint anatomical tracking; small antialiasing/raster changes can shift centroid"
+  },
+  "loop": {
+    "phaseTicks": [
+      75,
+      3,
+      42
+    ],
+    "tickRate": 30,
+    "durationTicks": 120,
+    "durationSeconds": 4.0,
+    "blinkMs": 100,
+    "endpointSourceSame": true
+  },
+  "quietMode": "supplied neutral static fallback; no wholebody transform is generated motion",
+  "newDrawings": 2,
+  "locomotionClaim": false,
+  "appBound": false
+}
