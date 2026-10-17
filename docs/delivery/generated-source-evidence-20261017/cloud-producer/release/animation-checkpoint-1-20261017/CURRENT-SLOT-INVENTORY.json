@@ -13204,7 +13204,7 @@
         "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
         "frame.sha256.5e7db50d969fde6d366ab3dbec44b7fc93b28b1857d83f1bb4b5a2c1179d10c5"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
@@ -13307,6 +13307,58 @@
           ],
           "reuseStatus": "independently reviewed source candidate; Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending.",
           "sourceReview": "motion/sd20-crow-neutral-blink-v1/independent-review.json"
+        },
+        {
+          "frameId": "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09",
+          "file": "motion/sd20-crow-look-v1/look-native.png",
+          "fileSha256": "012e54409a97d353beca186bf4b58f3906ec06e6590a2bc5e4fa11ee16b10cbc",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "american_crow",
+          "appearanceVersion": "sd20-crow-look-v1",
+          "poseTags": [
+            "toward-viewer skull/bill turn open eyes; compatibility pending",
+            "candidate-source",
+            "look-only"
+          ],
+          "sourceAtlas": "motion/sd20-crow-look-v1/original.png",
+          "sourceAtlasSha256": "012e54409a97d353beca186bf4b58f3906ec06e6590a2bc5e4fa11ee16b10cbc",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "referenceCanvas": [
+              1024,
+              1024
+            ],
+            "wholeCallDensityNormalization": 0.8165869218500797,
+            "directNativeToOutputRatio": 0.15311004784688995,
+            "integerOriginTranslation": [
+              0,
+              0
+            ],
+            "perPoseBodyFit": false,
+            "paint": false,
+            "warp": false,
+            "alphaErasure": false
+          },
+          "sourcePrompt": "motion/sd20-crow-look-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-crow-look-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "look"
+          ],
+          "reuseStatus": "Independently reviewed look-only source study; HELD matched-look playback; native head study retained. New head/bill direction is readable but body/tail/feet pop at normal size; zero useful look gain. Existing Crow look state/sourceIDs/active bindings and useful45 retained; append inactive held candidate only. One new drawing plus exact existing awake reuse; no new neutral/blink, no runtime admission/app binding.",
+          "sourceReview": "motion/sd20-crow-look-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [
@@ -13319,7 +13371,8 @@
       "sourceIssues": [
         "Baseline PR33: Selected neutral is a held correctedcharcoal stride pose; no new neutral/look/blink.",
         "Baseline PR33: 4legpose moving draft is weakalternation and opt-in; worldcontact/rootcurve unverified.",
-        "Current checkpoint: Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending."
+        "Current checkpoint: Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending.",
+        "Current checkpoint: HELD matched-look playback; native head study retained. New head/bill direction is readable but body/tail/feet pop at normal size; zero useful look gain. Existing Crow look state/sourceIDs/active bindings and useful45 retained; append inactive held candidate only. One new drawing plus exact existing awake reuse; no new neutral/blink, no runtime admission/app binding."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -13412,7 +13465,105 @@
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "heldLookCandidates": [
+            {
+              "batchId": "sd20-crow-look-v1",
+              "kind": "look-only-new-drawing-source-candidate",
+              "canonicalSchemaValidation": "NOT_RUN; explicit look clip needs current Mac contract confirmation",
+              "profileLabelIsRuntimeAdmission": false,
+              "primaryManifest": "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "manifest": "motion/sd20-crow-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-crow-look-v1/look-atlas192.png",
+              "manifestSHA256": "70183f2966f72bd870f715d7c175400cded7b81c9ab709ac832c0af9b401c24f",
+              "atlasSHA256": "5875f7e8693cb313e1006bc84bb4a338da734cd190a8642c72b5d0a7bdc6a0b0",
+              "sourceFrameIds": [
+                "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+                "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09"
+              ],
+              "newSourceFrameIds": [
+                "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09"
+              ],
+              "reusedSourceFrameIds": [
+                "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5"
+              ],
+              "newDrawingCount": 1,
+              "reusedDrawingCount": 1,
+              "newNeutralDrawings": 0,
+              "newBlinkDrawings": 0,
+              "clipId": "look",
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "crow-supported-neutral-192",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+                  "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5"
+                },
+                {
+                  "frameId": "crow-look-viewer-192",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09",
+                  "outputRGBAId": "frame.sha256.e750573209c5c1dad4a23fb4d3f5fc178006a938037613e57cf5a5c793f55cd1"
+                },
+                {
+                  "frameId": "crow-supported-neutral-192",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+                  "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5"
+                }
+              ],
+              "renderBinding": {
+                "manifest": "motion/sd20-crow-look-v1/texture-review-manifest.json",
+                "atlasPNG": "motion/sd20-crow-look-v1/look-atlas192.png",
+                "clipId": "look",
+                "tickRate": 30,
+                "loop": false,
+                "durationTicks": 72,
+                "orderedSourceFrameSequence": [
+                  {
+                    "frameId": "crow-supported-neutral-192",
+                    "durationTicks": 30,
+                    "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+                    "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5"
+                  },
+                  {
+                    "frameId": "crow-look-viewer-192",
+                    "durationTicks": 12,
+                    "sourceFrameId": "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09",
+                    "outputRGBAId": "frame.sha256.e750573209c5c1dad4a23fb4d3f5fc178006a938037613e57cf5a5c793f55cd1"
+                  },
+                  {
+                    "frameId": "crow-supported-neutral-192",
+                    "durationTicks": 30,
+                    "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+                    "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5"
+                  }
+                ],
+                "contactsMeaning": "technical alpha markers, not physical support approval",
+                "appBinding": "UNKNOWN",
+                "actualYardVerification": "UNKNOWN",
+                "held": true,
+                "useAsActiveSource": false
+              },
+              "evidencePaths": [
+                "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+                "motion/sd20-crow-look-v1/texture-review-manifest.json",
+                "motion/sd20-crow-look-v1/frame-to-action-map.json",
+                "motion/sd20-crow-look-v1/independent-review.json"
+              ],
+              "sourceHeld": true,
+              "sourceReviewState": "held",
+              "productionAccepted": false,
+              "runtimeAdmission": false,
+              "packetBindingReady": false,
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN",
+              "reviewReceipt": {
+                "path": "motion/sd20-crow-look-v1/independent-review.json",
+                "sha256": "2658e5b4d3799d3d3e7fb8be8bcd524fcfc0031e9184d135b861a2b304265c6e"
+              }
+            }
+          ]
         },
         {
           "speciesId": "american_crow",
@@ -13732,7 +13883,11 @@
         "4legpose moving draft is weakalternation and opt-in; worldcontact/rootcurve unverified."
       ],
       "currentSourceIssues": [
-        "Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending."
+        "Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending.",
+        "HELD matched-look playback; native head study retained. New head/bill direction is readable but body/tail/feet pop at normal size; zero useful look gain. Existing Crow look state/sourceIDs/active bindings and useful45 retained; append inactive held candidate only. One new drawing plus exact existing awake reuse; no new neutral/blink, no runtime admission/app binding."
+      ],
+      "overlayQualifications": [
+        "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings."
       ],
       "primaryManifestSHA256": "add3141992dbf57da63ff104b9d8368b46b67ccfeb7cb133313cc57d9544fd03",
       "primaryAtlasSHA256": "808eb70449dc24ea486bed40ffc80532be83007a2f5998e590e42fdeb98df373",
@@ -13752,6 +13907,16 @@
               "evidence": "motion/sd20-crow-neutral-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "neutral",
               "mappingMethod": "exact full-source nearest resize matches declared export RGBA"
+            },
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-crow-look-v1/reused-awake192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -27303,6 +27468,16 @@
               "evidence": "motion/sd20-crow-neutral-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "neutral",
               "mappingMethod": "exact full-source nearest resize matches declared export RGBA"
+            },
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-crow-look-v1/reused-awake192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -29218,6 +29393,234 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-crow-look-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-crow-look-v1/texture-review-manifest.json",
+      "manifestSHA256": "70183f2966f72bd870f715d7c175400cded7b81c9ab709ac832c0af9b401c24f",
+      "atlasPNG": "motion/sd20-crow-look-v1/look-atlas192.png",
+      "atlasSHA256": "5875f7e8693cb313e1006bc84bb4a338da734cd190a8642c72b5d0a7bdc6a0b0",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "crow-supported-neutral-192",
+          "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+          "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-neutral-blink-v1/neutral-source1024.png",
+              "outputPNG": "motion/sd20-crow-neutral-blink-v1/neutral192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-neutral-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "neutral",
+              "mappingMethod": "exact full-source nearest resize matches declared export RGBA"
+            },
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-crow-look-v1/reused-awake192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 185.88535031847132,
+            "height": 185.88535031847132
+          },
+          "sourcePixelsPerWorldUnit": 1.0328947368421053,
+          "pivot": {
+            "x": 111,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-a-review",
+              "x": 99,
+              "y": 146
+            },
+            {
+              "id": "foot-b-review",
+              "x": 124,
+              "y": 144
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-a-review",
+              "x": 99,
+              "y": 146,
+              "sampledAlpha": 248,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-b-review",
+              "x": 124,
+              "y": 144,
+              "sampledAlpha": 247,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "crow-look-viewer-192",
+          "outputRGBAId": "frame.sha256.e750573209c5c1dad4a23fb4d3f5fc178006a938037613e57cf5a5c793f55cd1",
+          "sourceFrameId": "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09",
+              "sourcePNG": "motion/sd20-crow-look-v1/look-native.png",
+              "outputPNG": "motion/sd20-crow-look-v1/look192.png",
+              "outputPNGsha256": "f6593c119321687a118f936d500660d37814146d73ffaf6609293f374bba6078",
+              "outputRGBAId": "frame.sha256.e750573209c5c1dad4a23fb4d3f5fc178006a938037613e57cf5a5c793f55cd1",
+              "evidence": "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "toward-viewer skull/bill turn open eyes; compatibility pending",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 185.88535031847132,
+            "height": 185.88535031847132
+          },
+          "sourcePixelsPerWorldUnit": 1.0328947368421053,
+          "pivot": {
+            "x": 111,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-a-review",
+              "x": 99,
+              "y": 146
+            },
+            {
+              "id": "foot-b-review",
+              "x": 124,
+              "y": 144
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-a-review",
+              "x": 99,
+              "y": 146,
+              "sampledAlpha": 252,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-b-review",
+              "x": 124,
+              "y": 144,
+              "sampledAlpha": 253,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "crow-supported-neutral-192",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "crow-supported-neutral-192",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5"
+          ]
+        },
+        {
+          "id": "look",
+          "tickRate": 30,
+          "loop": false,
+          "frames": [
+            {
+              "frameId": "crow-supported-neutral-192",
+              "durationTicks": 30
+            },
+            {
+              "frameId": "crow-look-viewer-192",
+              "durationTicks": 12
+            },
+            {
+              "frameId": "crow-supported-neutral-192",
+              "durationTicks": 30
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "crow-supported-neutral-192",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5"
+            },
+            {
+              "frameId": "crow-look-viewer-192",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09",
+              "outputRGBAId": "frame.sha256.e750573209c5c1dad4a23fb4d3f5fc178006a938037613e57cf5a5c793f55cd1"
+            },
+            {
+              "frameId": "crow-supported-neutral-192",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5"
+            }
+          ],
+          "durationTicks": 72,
+          "durationSeconds": 2.4,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+            "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -30625,7 +31028,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/phoebe-look-ingest-build-vgott1_q/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/crow-look-ingest-build-o4zyl951/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -30723,12 +31126,12 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-17T23:26:23.729489+00:00",
+  "projectionAsOfUTC": "2026-10-17T23:36:47.801068+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 138,
-    "registeredNativeOriginals": 38,
-    "newNativeCalls": 17,
-    "newDrawings": 36,
+    "registeredPrimaryDrawingIDs": 139,
+    "registeredNativeOriginals": 39,
+    "newNativeCalls": 18,
+    "newDrawings": 37,
     "semanticQuestions": 200,
     "usefulProvisionalIdleSemanticUses": 45,
     "usefulIdleUsesByAction": {

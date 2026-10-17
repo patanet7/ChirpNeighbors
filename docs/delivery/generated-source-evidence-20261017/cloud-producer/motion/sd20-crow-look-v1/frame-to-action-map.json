@@ -1,0 +1,90 @@
+{
+  "batchId": "sd20-crow-look-v1",
+  "speciesId": "american_crow",
+  "lookOnlyNewDrawing": true,
+  "renderClipId": "look",
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "70183f2966f72bd870f715d7c175400cded7b81c9ab709ac832c0af9b401c24f",
+    "profile": "chirp-texture-review-v1"
+  },
+  "atlasBinding": {
+    "file": "look-atlas192.png",
+    "sha256": "5875f7e8693cb313e1006bc84bb4a338da734cd190a8642c72b5d0a7bdc6a0b0",
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8",
+    "bindRule": "wrapper PNG filename/sha/dimensions explicitly bound; strict profile has no atlas filename field"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+      "primarySourcePNG": "reused-awake-source1024.png",
+      "primarySourcePNGsha256": "64a3199e6509cccf3e578c46e796246b5fca35b25e94d5d54bf88fab31c3bcec",
+      "newDrawing": false,
+      "lookOnlyNewDrawing": false,
+      "renderFrameId": "crow-supported-neutral-192",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "outputPNG": "reused-awake192.png",
+      "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09",
+      "primarySourcePNG": "look-native.png",
+      "primarySourcePNGsha256": "012e54409a97d353beca186bf4b58f3906ec06e6590a2bc5e4fa11ee16b10cbc",
+      "newDrawing": true,
+      "lookOnlyNewDrawing": true,
+      "renderFrameId": "crow-look-viewer-192",
+      "atlasRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "outputPNG": "look192.png",
+      "outputPNGsha256": "f6593c119321687a118f936d500660d37814146d73ffaf6609293f374bba6078"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "crow-look-viewer-192",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ],
+  "projectionScope": "look-only overlay candidate; exact awake idle fallback; existing neutral/blink intake untouched",
+  "canonicalSchemaValidation": "NOT_RUN",
+  "currentMacContract": "UNKNOWN",
+  "packetBindingReady": false,
+  "appBound": false
+}
