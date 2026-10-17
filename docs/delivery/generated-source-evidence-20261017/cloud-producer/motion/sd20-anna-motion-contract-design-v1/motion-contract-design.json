@@ -1,0 +1,156 @@
+{
+  "schema": "anna-source-motion-contract-design-v1-PROPOSAL-NOT-CANONICAL",
+  "speciesId": "anna_s_hummingbird",
+  "status": "prepare-only; coordinator assignment required before any native image call",
+  "nativeCalls": 0,
+  "newDrawings": 0,
+  "runtimeBound": false,
+  "ownerApproved": false,
+  "upstreamProposal": "/workspace/asset-production/motion/anna-source-action-coordination-v1/COORDINATION-PROPOSAL.json",
+  "sourceInventory": "existing-source-inventory.json",
+  "clock": {
+    "tickRate": 30,
+    "sampleTime": "elapsed clamped>=0; finite action tick clamped0..last; cycleTick modulo cycleLength separately",
+    "wingClockPersistsAcrossTrajectorySegments": true,
+    "pathClockDoesNotDetermineNewArt": true,
+    "oneShotActionStopsAtEnd": true,
+    "manualReplayResetsBothClocksExplicitly": true
+  },
+  "poseChannel": {
+    "assetType": "whole-bird RGBA; no independently compositable body/wing layers available",
+    "existingCycleStudy": {
+      "id": "existing-two-pose-hover-study",
+      "steps": [
+        {
+          "sourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+          "durationTicks": 1
+        },
+        {
+          "sourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+          "durationTicks": 1
+        }
+      ],
+      "sourceDrawings": 2,
+      "newDrawingsHere": 0,
+      "displayCyclesPerSecond": 15,
+      "biologicalWingbeatFrequencyClaimed": false,
+      "cadenceStatus": "existing stylized source study; normal-size strobe/body-continuity review required"
+    },
+    "missingPurposefulSources": [
+      "wing recovery/crossing if needed for readable cadence",
+      "forward-flight/braking/reverse body variants if existing wing poses are insufficient",
+      "bill/neck feeding pose if insertion/contact is shown",
+      "perch approach, feet extension, wing fold and supported settle where transitions are visible"
+    ],
+    "noPerPoseScaleFit": true,
+    "noTransformsCountedAsDrawings": true
+  },
+  "trajectoryChannel": {
+    "independentOfPoseClock": true,
+    "coordinates": "world units; root x/y, optional heading/rotation explicitly classified as rig transforms",
+    "sampleRate": 30,
+    "interpolation": "authored segment rule with position/velocity continuity; not measured biomechanics",
+    "supportedRootTravelAllowed": false,
+    "airborneRootTravelAllowed": true,
+    "repositionWithExistingHover": "May be declared reused-source trajectory study, with zero new drawing credit and no completed takeoff/landing/feeding claim",
+    "endpointBehavior": "hold final root; no silent wrap/reset to departure",
+    "orientationPolicy": "No instantaneous heading flip or body-rotation transform masquerading as a new banking/reversal drawing"
+  },
+  "supportChannel": {
+    "modes": [
+      "perch-supported",
+      "airborne",
+      "flower-bill-target"
+    ],
+    "perch-supported": {
+      "rootStationary": true,
+      "contacts": "pose-local positive-alpha foot proxies + declared world perch plane; anatomy/physics approval separate",
+      "releaseEvent": "before airborne travel",
+      "firstLandingEvent": "root fixed from first supported tick onward; source settle/fold is required if depicted"
+    },
+    "airborne": {
+      "groundContacts": null,
+      "wingCycleActive": true,
+      "perchedFootContractMayBeReused": false
+    },
+    "flower-bill-target": {
+      "groundContacts": null,
+      "wingCycleActive": true,
+      "rootRule": "flowerWorldTarget - transformed measured local bill anchor / declared density",
+      "anchorStatus": "Existing approximate bill proxy~[76,52] from source handoff; must measure each actual selected frame, not assume exact anatomical contact",
+      "billConstraintQualified": true,
+      "requiresSourceForVisibleFeeding": true,
+      "backAwayReleasesBillConstraint": true
+    }
+  },
+  "scaleChannel": {
+    "authoritativeMacScale": "UNKNOWN; coordinator must select before production/binding",
+    "canon": {
+      "density": 1.2941176470588236,
+      "worldCanvas": 74.18181818181817,
+      "targetVisibleWidthWorld": 34
+    },
+    "existingActions": {
+      "density": 1.5,
+      "worldCanvas": 64,
+      "perchedVisibleWidthWorld": 32.666666666666664
+    },
+    "sharedCanvasDimensionsDoNotImplySharedWorldScale": true,
+    "wholeCallConversion": "if coordinator selects one presentation, explicitly convert complete canvases, pivots and anchors together; keep source originals immutable"
+  },
+  "requiredBindingWrapper": {
+    "required": [
+      "atlasFile",
+      "atlasSHA256",
+      "manifestFile",
+      "manifestSHA256",
+      "sourceFrameId",
+      "sourcePNGsha256",
+      "renderId",
+      "sourceRect",
+      "individualPNG",
+      "individualPNGsha256",
+      "tickRate",
+      "renderClipId",
+      "durationTicks",
+      "newVsReusedVsDerived"
+    ],
+    "clipSelection": "Explicit renderClipId, never assume idle; perched idle and airborne/feeding source motion are separate purposes",
+    "profileScope": "Existing chirp-texture-review-v1 supports source texture review; actual actor trajectory/support adapter is a separate Mac implementation concern",
+    "canonicalSharpReceipt": null,
+    "appAdmission": false
+  },
+  "verificationPlan": [
+    "All primary source IDs and output hashes verified, atlas slices equal individual RGBA outputs; original/prompt/nativeargs immutable",
+    "Source counts include actual distinct drawings only; transforms, tick samples, reused wings and registration derivatives add zero",
+    "Wing frame progression unchanged by changing path speed or holding root position; path movement alone never satisfies wing-pose coverage",
+    "Every tick selects a defined source/render frame even if firstRAF timestamp precedes start; test stale timestamp, terminal hold and labeledReplay",
+    "Supported root/first landing remains stationary; measured contact alpha and opacity disclosed separately from anatomical/physical approval",
+    "Bill/flower lock residuals and body jitter measured while airborne; no ground foot markers on hovering poses",
+    "Normal declared world-size light/dark playback, enlarged eye/body/wing/contact crops, timestamped states/hashes/dimensions only; browser capture bytes excluded",
+    "Independent actual-time review of wing strobe, iridescent identity, body/bill drift, readable acceleration/braking and endpoint transition; do not claim continuous-video or Mac-yard evidence without it"
+  ],
+  "coverageAtDesignTime": {
+    "perchedIdleBlinkLook": {
+      "existingSourceDrawings": true,
+      "newHere": false,
+      "actualMacBinding": "UNKNOWN"
+    },
+    "hover": {
+      "existingWingDrawings": 2,
+      "newHere": false,
+      "actorFlightBinding": false
+    },
+    "airborneReposition": {
+      "rootPlanOnly": true,
+      "newDrawings": 0,
+      "actualRuntimeBound": false
+    },
+    "feedingTakeoffLanding": {
+      "planned": true,
+      "dedicatedExistingDrawingsAvailable": false,
+      "runtimeBound": false
+    }
+  },
+  "nextQueue": "Root assignment after six-blink checkpoint; preparation only, no new native call."
+}

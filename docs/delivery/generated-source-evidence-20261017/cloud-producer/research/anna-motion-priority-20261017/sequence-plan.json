@@ -1,0 +1,41 @@
+{
+  "schema": "research-authored-sequence-proposal-v1; not an app manifest",
+  "state": {"planned": true, "packetBoundAnimation": false, "videoViewed": false, "appBound": false, "newDrawings": 0},
+  "coordinates": {
+    "kind": "Hypothetical source-proof world plane, x right and y down",
+    "rootDefinition": "One torso landmark for the entire airborne/landing trajectory; do not silently switch between torso pivot and foot pivot",
+    "perchTop": [180, 160],
+    "examplePerchedTorsoRoot": [180, 140],
+    "flowerOpening": [250, 140],
+    "exampleHoverTorsoRoot": [235, 140],
+    "guideBillOffset": [15, 0],
+    "guidePerchFootOffset": [0, 20],
+    "isActualSourceGeometry": false,
+    "requiredBinding": "Replace guide offsets with measured per-drawing landmarks; compute object placement/root endpoint from actual bill/feet pixels. Retain residuals and species scale; do not fabricate endpoint equality",
+    "doNotUseOldPerchPivotAsFlightRoot": true
+  },
+  "channels": {
+    "bodyTrajectory": "Authored torso path and pitch; never counted as new drawings",
+    "wingCycle": "Actual new drawn phases H0-H3, running independently through airborne travel/hover; new body postures require their own wing coverage",
+    "billAim": "Measured bill axis toward fixed flower; head compensation requires drawn changes, not whole-bird rotation that throws the bill off target",
+    "perchSupport": "Active only after real toe contact and root arrest; release before body displacement away from fixed support",
+    "contactEvents": "Visual source-state labels only; Mac owner decides runtime support/action state"
+  },
+  "states": [
+    {"id": "perched", "proposalTicks": 30, "root": "[180,140] constant", "bodyPitch": "Existing upright perched source", "wing": "Folded", "feet": "Gripping measured perch", "bill": "Free", "activeSupport": "perch", "coverage": "Existing static source only; must match later action individual"},
+    {"id": "takeoff_prepare", "proposalTicks": 4, "root": "No authored travel before contact release; torso articulation must be drawn if feet stay fixed", "bodyPitch": "Small anticipatory change; authored, not measured Anna angle", "wing": "Unfold and start active strokes while toe support still exists", "feet": "Real supporting toe pixels; then release", "bill": "Facing intended flight direction", "activeSupport": "perch until release", "coverage": "HELD: no transition drawing; comparative rufous paper only"},
+    {"id": "launch", "proposalTicks": 6, "root": "Author a smooth route from [180,140] toward [195,133] after toe release", "bodyPitch": "Forward flight posture, not the perched body tipped as a substitute", "wing": "Active strokes", "feet": "Drawn retracting/tucked", "bill": "Free", "activeSupport": null, "coverage": "HELD: needs body/feet transition sources"},
+    {"id": "approach", "proposalTicks": 9, "root": "[195,133] to [230,139], bounded forward path", "bodyPitch": "Forward-inclined flight; exact angle authored", "wing": "Active distinct wing cycle with suitable stroke plane", "feet": "Tucked", "bill": "Approaches flower axis without penetration", "activeSupport": null, "coverage": "HELD: hover cycle alone does not establish forward posture"},
+    {"id": "brake", "proposalTicks": 6, "root": "Smooth deceleration [230,139] to [235,140], end velocity zero", "bodyPitch": "Proposed pitch toward hover; needs Anna visual confirmation and separate drawn body pose", "wing": "Strokes continue through deceleration; no folded-wing slide", "feet": "Tucked", "bill": "Head compensation keeps flower in front", "activeSupport": null, "coverage": "HELD: authored hypothesis, not a measured Anna brake"},
+    {"id": "hover_inspect", "proposalTicks": 24, "root": "[235,140] constant in initial source test", "bodyPitch": "Steady hover proposal, no mandatory periodic rocking", "wing": "H0-H3 cyclic proposal", "feet": "Tucked; no foot support", "bill": "Measured tip near fixed [250,140] after guide offsets replaced", "activeSupport": null, "coverage": "NEXT CHECKPOINT: four new wing drawings proposed, none produced"},
+    {"id": "probe", "proposalTicks": 12, "root": "Small bounded approach only after real bill/flower geometry validation", "bodyPitch": "Hover-feeding posture; preserve bill axis", "wing": "Active hovering", "feet": "Unsupported", "bill": "Potential flower-opening overlap; source visual alignment only", "activeSupport": null, "coverage": "HELD: no probe/tongue drawing or nectar/resource/physics event"},
+    {"id": "reverse_retreat", "proposalTicks": 9, "root": "[235,140] to [219,140] while bill continues facing right", "bodyPitch": "Distinct steeper reverse body with head flexion, qualitative Anna-specific evidence", "wing": "Distinct reverse stroke-plane posture required; do not simply play forward travel backward", "feet": "Tucked", "bill": "Clear flower before turning; nearly horizontal aim proposed", "activeSupport": null, "coverage": "HELD: biological basis documented, actual source absent"},
+    {"id": "return_approach", "proposalTicks": 15, "root": "Author route toward [182,139]; turning requires appropriate body drawing", "bodyPitch": "Suitable return/landing approach", "wing": "Active strokes", "feet": "Tucked until final approach", "bill": "Free", "activeSupport": null, "coverage": "HELD: no turning/landing drawing"},
+    {"id": "landing_reach", "proposalTicks": 6, "root": "Decelerate toward torso placement that puts measured toes on [180,160]", "bodyPitch": "More upright landing proposal", "wing": "Keep active until feet make real contact", "feet": "Draw extension and grip, not detached contact markers", "bill": "Free", "activeSupport": "none until measured toe alpha reaches perch", "coverage": "HELD: Anna landing media and new drawing needed"},
+    {"id": "land_and_fold", "proposalTicks": 6, "root": "Arrest at contact-derived torso endpoint; no planted-foot sliding", "bodyPitch": "Settles by drawn articulation only", "wing": "Fold after source-visible grip; exact timing authored", "feet": "Both expected support toes remain on perch geometry", "bill": "Free", "activeSupport": "perch after visual contact", "coverage": "HELD: source-only proposal; no actual support solver or physics approval"},
+    {"id": "rest", "proposalTicks": 60, "root": "Constant after resolved landing registration", "bodyPitch": "Relaxed perched neutral", "wing": "Folded", "feet": "Perch support", "bill": "Free", "activeSupport": "perch", "coverage": "Existing static neutral may be reused; all previous transition holds still apply"}
+  ],
+  "authoredExampleTimeline": {"tickRate": 30, "totalTicks": 187, "seconds": 6.233333333333333, "biologicalTimingMeasurement": false, "executableNow": false},
+  "rootCurveProposal": "Use endpoint position/velocity continuous Hermite segments with explicit guide endpoints; zero terminal hover velocity. This is animation authorship, not inverse dynamics or a claim of generated locomotion",
+  "restrictions": ["No non-stop body jitter", "No idle folded-wing sprite sliding through airborne states", "No foot support during hover or bill support at flowers", "No unviewed temporal observation claim", "No source frame IDs until decoded new drawings actually exist", "No runtime binding or manifest admission inferred from this research JSON"]
+}

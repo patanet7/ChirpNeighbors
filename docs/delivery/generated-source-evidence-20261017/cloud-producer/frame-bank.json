@@ -6951,7 +6951,7 @@
           0,
           0
         ],
-        "method": "One explicit whole-canvas nearest1254\u21921024,then nearest1024\u2192192. No local fit,paint,warp,alpha change or per-pose scale.",
+        "method": "One explicit whole-canvas nearest1254→1024,then nearest1024→192. No local fit,paint,warp,alpha change or per-pose scale.",
         "perPoseFit": false
       },
       "sourcePrompt": "motion/sd20-northern-mockingbird-blink-v1/prompt.txt",
@@ -7160,7 +7160,7 @@
           0,
           0
         ],
-        "method": "One explicit whole-canvas nearest1254\u21921024,then nearest1024\u219296. No local fit,paint,warp,alpha change or per-pose scale.",
+        "method": "One explicit whole-canvas nearest1254→1024,then nearest1024→96. No local fit,paint,warp,alpha change or per-pose scale.",
         "perPoseFit": false
       },
       "sourcePrompt": "motion/sd20-bushtit-blink-v1/prompt.txt",
@@ -7176,6 +7176,86 @@
       ],
       "reuseStatus": "independently reviewed source candidate; HELD closure-only study; useful blink completion not established. One actual closure with exact oldawake reuse; tiny28world eye readability assessed independently, no new neutral.",
       "sourceReview": "motion/sd20-bushtit-blink-v1/independent-review.json"
+    },
+    {
+      "frameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+      "file": "motion/sd20-anna-hover-cycle-v2/mid-downstroke-native.png",
+      "fileSha256": "6a47a13dee720911223bc23d91501abdb7f8acbe0332e6c582a5dcc6d27ee1eb",
+      "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+      "dimensions": [
+        887,
+        887
+      ],
+      "species": "anna_s_hummingbird",
+      "appearanceVersion": "sd20-anna-hover-cycle-v2",
+      "poseTags": [
+        "mid-downstroke",
+        "candidate-source",
+        "flight-motion-proposal"
+      ],
+      "sourceAtlas": "motion/sd20-anna-hover-cycle-v2/original.png",
+      "sourceAtlasSha256": "b5036b7a2b4a62ac3e241cee2e4aea3a056e34fa13a5501643c092ce24689e34",
+      "derivation": {
+        "method": "shared native-call isotropic anatomy calibration and shared integer origin",
+        "sharedCalibrationFile": "whole-call-calibration.json",
+        "perPoseFit": false,
+        "paintOrWarp": false
+      },
+      "sourcePrompt": "motion/sd20-anna-hover-cycle-v2/prompt.txt",
+      "authoredPrompt": "motion/sd20-anna-hover-cycle-v2/prompt.txt",
+      "generator": "OpenAI image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "anatomyScaleAccepted": false,
+      "rootContactAccepted": false,
+      "acceptedUses": [],
+      "candidateUses": [
+        "hover"
+      ],
+      "flightMotionProposal": true,
+      "runtimeAdmission": false,
+      "reuseStatus": "Independent source review retained; Useful four-pose flutter source: two new wing-transition drawings plus two unchanged endpoints. Biological smooth hover mechanics and requested mid-recovery remain held/unresolved; art source is useful without claiming those mechanics accepted. One shared calibration and sparse authored position corrections add no drawings. Existing resting neutral/blink unchanged; no Mac runtime admission.",
+      "sourceReview": "motion/sd20-anna-hover-cycle-v2/independent-review.json"
+    },
+    {
+      "frameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+      "file": "motion/sd20-anna-hover-cycle-v2/mid-recovery-native.png",
+      "fileSha256": "13a1f5db4b4569a5d38e64d53c479bc3d090fdfddb866a88b872aa0982587d93",
+      "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+      "dimensions": [
+        887,
+        887
+      ],
+      "species": "anna_s_hummingbird",
+      "appearanceVersion": "sd20-anna-hover-cycle-v2",
+      "poseTags": [
+        "mid-recovery",
+        "candidate-source",
+        "flight-motion-proposal"
+      ],
+      "sourceAtlas": "motion/sd20-anna-hover-cycle-v2/original.png",
+      "sourceAtlasSha256": "b5036b7a2b4a62ac3e241cee2e4aea3a056e34fa13a5501643c092ce24689e34",
+      "derivation": {
+        "method": "shared native-call isotropic anatomy calibration and shared integer origin",
+        "sharedCalibrationFile": "whole-call-calibration.json",
+        "perPoseFit": false,
+        "paintOrWarp": false
+      },
+      "sourcePrompt": "motion/sd20-anna-hover-cycle-v2/prompt.txt",
+      "authoredPrompt": "motion/sd20-anna-hover-cycle-v2/prompt.txt",
+      "generator": "OpenAI image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "anatomyScaleAccepted": false,
+      "rootContactAccepted": false,
+      "acceptedUses": [],
+      "candidateUses": [
+        "hover"
+      ],
+      "flightMotionProposal": true,
+      "runtimeAdmission": false,
+      "reuseStatus": "Independent source review retained; Useful four-pose flutter source: two new wing-transition drawings plus two unchanged endpoints. Biological smooth hover mechanics and requested mid-recovery remain held/unresolved; art source is useful without claiming those mechanics accepted. One shared calibration and sparse authored position corrections add no drawings. Existing resting neutral/blink unchanged; no Mac runtime admission.",
+      "sourceReview": "motion/sd20-anna-hover-cycle-v2/independent-review.json"
     }
   ],
   "clips": [
@@ -7273,7 +7353,7 @@
           "Eye rendering and smooth fine feather texture may be too photographic for target pixel-art style.",
           "Source body size, feather identity and foot layout drift between poses; no per-frame normalization conceals it.",
           "Root/feet points are pixel heuristics pending anatomical/contact review; beak landmark and seed contact need explicit annotation.",
-          "Published species length13\u201314cm/wingspan20\u201325cm are evidence only; measurement endpoints undefined and cross-species sprite calibration remains unaccepted.",
+          "Published species length13–14cm/wingspan20–25cm are evidence only; measurement endpoints undefined and cross-species sprite calibration remains unaccepted.",
           "Original atlas overruns nominal cells; component isolation preserves all alpha>=2 source pixels exactly; alpha=1 residue omitted only in derivatives.",
           "Six idle key poses are stepped; viewer turn and return have residual contour drift; loop seam unaccepted."
         ]
@@ -7388,7 +7468,7 @@
           "Eye rendering and smooth fine feather texture may be too photographic for target pixel-art style.",
           "Source body size, feather identity and foot layout drift between poses; no per-frame normalization conceals it.",
           "Root/feet points are pixel heuristics pending anatomical/contact review; beak landmark and seed contact need explicit annotation.",
-          "Published species length13\u201314cm/wingspan20\u201325cm are evidence only; measurement endpoints undefined and cross-species sprite calibration remains unaccepted.",
+          "Published species length13–14cm/wingspan20–25cm are evidence only; measurement endpoints undefined and cross-species sprite calibration remains unaccepted.",
           "Original atlas overruns nominal cells; component isolation preserves all alpha>=2 source pixels exactly; alpha=1 residue omitted only in derivatives.",
           "Seed/kernel is oversized and pickup/crushing contact timing is illustrative; no resolved shell-splitting acceptance.",
           "Feeding posture is a head/neck bow; ordinary ground walking/hopping amplitude is a separate requested behavior."
@@ -7504,7 +7584,7 @@
           "Eye rendering and smooth fine feather texture may be too photographic for target pixel-art style.",
           "Source body size, feather identity and foot layout drift between poses; no per-frame normalization conceals it.",
           "Root/feet points are pixel heuristics pending anatomical/contact review; beak landmark and seed contact need explicit annotation.",
-          "Published species length13\u201314cm/wingspan20\u201325cm are evidence only; measurement endpoints undefined and cross-species sprite calibration remains unaccepted.",
+          "Published species length13–14cm/wingspan20–25cm are evidence only; measurement endpoints undefined and cross-species sprite calibration remains unaccepted.",
           "Original atlas overruns nominal cells; component isolation preserves all alpha>=2 source pixels exactly; alpha=1 residue omitted only in derivatives.",
           "Six idle key poses are stepped; viewer turn and return have residual contour drift; loop seam unaccepted."
         ]
@@ -7619,7 +7699,7 @@
           "Eye rendering and smooth fine feather texture may be too photographic for target pixel-art style.",
           "Source body size, feather identity and foot layout drift between poses; no per-frame normalization conceals it.",
           "Root/feet points are pixel heuristics pending anatomical/contact review; beak landmark and seed contact need explicit annotation.",
-          "Published species length13\u201314cm/wingspan20\u201325cm are evidence only; measurement endpoints undefined and cross-species sprite calibration remains unaccepted.",
+          "Published species length13–14cm/wingspan20–25cm are evidence only; measurement endpoints undefined and cross-species sprite calibration remains unaccepted.",
           "Original atlas overruns nominal cells; component isolation preserves all alpha>=2 source pixels exactly; alpha=1 residue omitted only in derivatives.",
           "Seed/kernel is oversized and pickup/crushing contact timing is illustrative; no resolved shell-splitting acceptance.",
           "Feeding posture is a head/neck bow; ordinary ground walking/hopping amplitude is a separate requested behavior."
@@ -8308,7 +8388,7 @@
   ],
   "frameRegisterId": "local-production-frame-evidence@1",
   "sourceAuthority": "Exact local pixel identity/provenance; Mac shared canonical IDs still pending",
-  "frameCount": 127,
+  "frameCount": 129,
   "verifiedReuseCount": 0,
-  "status": "127 immutable primary drawing records; exports, repeated holds and root trajectories are not new drawings; verified app reuse0"
+  "status": "129 immutable drawing records; derived exports/root trajectories add no drawings; Anna flight remains source proposal only"
 }

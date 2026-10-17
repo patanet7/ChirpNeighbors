@@ -1,0 +1,38 @@
+{
+  "checkedAtUTC": "2026-10-17T22:28:37Z",
+  "nativeCalls": 0,
+  "newDrawings": 0,
+  "mediaDecoded": false,
+  "modelReferenceMediaInputs": 0,
+  "failures": [
+    {
+      "action": "Decode open-licensed Commons original field video",
+      "target": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Flickr_-_brewbooks_-_Hummingbird_on_Honeysuckle.ogv",
+      "webOutcome": "Failed to fetch: unsupported content-type application/ogg (400)",
+      "shellOutcome": "urllib.request: Tunnel connection failed: 403 Forbidden",
+      "explicitNetworkReadOutcome": "Same proxy 403 with network access requested; no bytes downloaded",
+      "status": "blocked; known not downloaded",
+      "alreadyCompleted": "Original file page license, author, source, dimensions, duration and published SHA1 read successfully",
+      "consequence": "No claim of visual temporal observation, species/sex confirmation, timestamps, wingbeat measurement, brake, reverse or landing coverage"
+    },
+    {
+      "action": "Inspect still-image pixels",
+      "target": "Commons USFWS male flight and Kevin Cole male-flying originals/thumbnails",
+      "outcome": "Web returned URL-only image references without inspectable pixel content; shell external media fetch route returned proxy 403",
+      "status": "pixel inspection not completed",
+      "alreadyCompleted": "Original description, authorship, licenses and source links read",
+      "consequence": "Page description is distinguished from direct visual observation; no still-derived anatomical measurements"
+    },
+    {
+      "action": "Read full published primary hover/hum paper and license",
+      "target": "https://elifesciences.org/articles/63107 and https://pmc.ncbi.nlm.nih.gov/articles/PMC8055270/",
+      "outcome": "Publisher client challenge and PMC browser challenge; shell API/XML fetch proxy 403",
+      "status": "full page/license verification blocked",
+      "alreadyCompleted": "Primary preprint abstract and publication identity available; other Anna-specific primary hover and backward-flight articles read",
+      "consequence": "No assumption that accessible paper figures/videos are cleared for pixel reuse"
+    }
+  ],
+  "notAutomaticApprovalReviewDenial": true,
+  "remainingIndependentWorkCompleted": "Primary-paper facts, original-media license receipts, conservative coverage gaps, bounded source and authored trajectory plan",
+  "noScreenshotsOrEmbeddedMediaIncluded": true
+}

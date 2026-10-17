@@ -7,6 +7,7 @@ from pathlib import Path
 from collections import Counter,defaultdict
 import argparse,json,copy,hashlib,datetime
 from PIL import Image
+from anna_motion_adapter import validate_flight_motion_batch, attach_flight_motion_proposal, current_bounded_queue
 P=argparse.ArgumentParser(description=__doc__);P.add_argument('--root',type=Path,required=True);P.add_argument('--output-dir',type=Path,default=Path(__file__).resolve().parent);P.add_argument('--apply',action='store_true',help='Coordinator only: write CURRENT-SLOT-INVENTORY.json/MD instead of proposed outputs into explicitly supplied output directory');args=P.parse_args();root=args.root.resolve();out=args.output_dir.resolve();out.mkdir(parents=True,exist_ok=True)
 sha=lambda b:hashlib.sha256(b).hexdigest()
 def rid(im):return 'frame.sha256.'+sha(f'RGBA8;{im.width}x{im.height};'.encode()+im.convert('RGBA').tobytes())
@@ -156,6 +157,9 @@ for b in overlay['batches']:
  primary=primaries[b['primaryManifest']];parent=Path(b['primaryManifest']).parent
  for sid in b.get('speciesIds',[]):
   bird=byid[sid];bird['currentSourceIssues'].append(b['scope']);bird['sourceIssues']=['Baseline PR33: '+x for x in bird['baselineSourceIssues']]+['Current checkpoint: '+x for x in bird['currentSourceIssues']];rows={r['slot']:r for r in bird['slots']};new=[f for f in primary['frames'] if f.get('speciesId')==sid];newIDs=[f['sourceFrameId'] for f in new]
+  if b.get('flightMotionProposal') is True:
+   proposal=validate_flight_motion_batch(root,b);attach_flight_motion_proposal(bird,b,proposal)
+   continue
   if b['slot']=='ordinary_locomotion':
    motionPath=str(parent/'motion-manifest.json');motion=read(motionPath);poses={f['pose']:f for f in primary['frames']+primary.get('reusedFrames',[]) if f.get('playbackRole','')!='immutable comparison only; excluded from hop due cross-original proportion discontinuity'}
    seq=[]
@@ -211,11 +215,14 @@ for bird in baseline['species']:
  # Check every referenced source/evidence path resolves within canonical source root.
  for row in bird['slots']:
   for p in row.get('evidencePaths',[]):safe(p)
+baseline['nextBoundedQueue']=current_bounded_queue(baseline['species'],root,overlay['batches'])
 slots=[s for b in baseline['species'] for s in b['slots']]
 for row in slots:
  if row['slot']=='blink' and row['state']=='provisional-drawn-blink':
   seq=row.get('orderedSourceFrameSequence',[]);assert len({x['sourceFrameId'] for x in seq})>=2 and seq[0]['sourceFrameId']==seq[-1]['sourceFrameId'],('blink schedule missing closure/return',row['speciesId'])
 idle=Counter(s['slot'] for s in slots if s['provisionalUsefulSourceForThisSemanticSlot'] and s['slot'] in ['neutral','look','blink']);baseline['kind']='Current source-only slot overlay with verified atlas/source sequence projections';baseline['currentOverlay']=release+'/intake-overlay.json';baseline['projectionAsOfUTC']=datetime.datetime.now(datetime.timezone.utc).isoformat();baseline['preparedPackages']=packages;baseline['currentCounts']={'registeredPrimaryDrawingIDs':overlay['registeredDrawings'],'registeredNativeOriginals':overlay['registeredOriginals'],'newNativeCalls':overlay['newNativeCalls'],'newDrawings':overlay['newDrawings'],'semanticQuestions':len(slots),'usefulProvisionalIdleSemanticUses':sum(idle.values()),'usefulIdleUsesByAction':dict(idle),'reviewedOneShotHopStudies':sum(s['state']=='provisional-drawn-one-shot-hop-study-contact-unbound' for s in slots),'sourceAcceptedFullLocomotionSlots':0,'appBindingsVerifiedHere':0,'appBindingCurrentState':'UNKNOWN','states':dict(Counter(s['state'] for s in slots))}
+baseline['currentCounts']['sourceOnlyFlightMotionStudies']=sum(len(b.get('sourceMotionProposals',[])) for b in baseline['species'])
+baseline['currentCounts']['flightStudyRuntimeAdmissions']=0
 # Report actual byte-pair problems in the existing projection, independent of proposed changes.
 for old in current['species']:
  man=old['primaryManifest'];p=safe(man);j=read(man);a=safe(old['primaryAtlas']);actual=sha(a.read_bytes());expected=j['source']['sha256'];pkg=package(man)
@@ -244,5 +251,8 @@ def short(row):
  return row['state']
 for bird in baseline['species']:
  r={x['slot']:x for x in bird['slots']};lines.append('| '+bird['name']+' | '+' | '.join(short(r[k]) for k in ['neutral','look','blink','locomotion'])+' | '+' / '.join(short(r[k]) for k in ['feeding','drinking','preen'])+' | '+short(r['takeoff_flight_landing'])+' |')
+for bird in baseline['species']:
+ for proposal in bird.get('sourceMotionProposals',[]):
+  lines+=['',f"{bird['name']} / {proposal['batchId']}: {proposal['newDrawingCount']} new + {proposal['reusedDrawingCount']} reused source drawings; {proposal['sourceReviewState']}. Additive flight study only; perched selections and semantic completion flags unchanged."]
 lines+=['','Nuttall remains an inclined-trunk endpoint hypothesis; vertical support is unresolved. Towhee hop uses four new drawings plus one reused neutral; Bluebird excludes its old-neutral comparison from playback. Canonical Mac binding and actual yard verification remain UNKNOWN here.','','Atlas paths are resolved against each selected manifest’s exact source.sha256. Primary/source IDs are reusable drawings; render IDs and registered derivatives add no drawings. Closure-only incoming batches affect blink coverage only. A batch marked newSourceHeld keeps the prior primary neutral intake and records the new blink as a held study.','']
 (out/('CURRENT-SLOT-INVENTORY.md' if args.apply else 'CURRENT-SLOT-INVENTORY.proposed.md')).write_text('\n'.join(lines))
