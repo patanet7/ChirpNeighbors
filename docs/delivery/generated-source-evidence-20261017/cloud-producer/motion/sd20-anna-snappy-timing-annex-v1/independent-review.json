@@ -1,0 +1,1438 @@
+{
+  "schemaVersion": 1,
+  "batchId": "sd20-anna-snappy-timing-annex-v1",
+  "reviewedUtc": "2026-10-17T23:03:59.349267+00:00",
+  "reviewer": "Independent bounded timing/source review",
+  "disposition": "provisional-faster-authored-timing-candidate",
+  "preferredTimingForRequestedSnappyPass": "snappy 0.4-second travel, with retained B source limitations",
+  "nativeCalls": 0,
+  "newDrawings": 0,
+  "reusedFrames": 8,
+  "additionalAnimationDrawingCredit": 0,
+  "biologicalSpeedAccepted": false,
+  "smoothFlightAccepted": false,
+  "actualMacBindingApproved": false,
+  "sourceOwnerFinalApproval": "pending",
+  "frozenInputLedgerSHA256": "169defa3e24da2b1678ed5c6c08a111663f4472f9b944ea87addd1d7f1fdf78b",
+  "inputFileHashes": {
+    "PRIMARY-SOURCE-MANIFEST.json": "762e62bb85e3a4ad81fd0984e53f9c95041b864896c489839f7e9c26db8d2199",
+    "README.md": "03371b89e1858f897ad545459a9badce1a19b28c89c6962d7025517c37f38680",
+    "assets/dart-brake-family-atlas96.png": "e1dbdd64b30399c8776be4befd2c3e4211dd65e04b79a65ddacef6f109fe7ca9",
+    "assets/frames/00-anna-forward-drive-a-96.png": "383976a665589456108754321dd8af1589372c6f0ee44b2f053d23554c1f0557",
+    "assets/frames/01-anna-forward-drive-b-96.png": "411acab64f8788e39b0f7a7bb5f8c3db209daf82c5e8d38c624e311581f7b095",
+    "assets/frames/02-anna-upright-brake-a-96.png": "c6923f44363534b3b308f02fdc1313a064e78134e6a86c93eb2f627ddaaf17d1",
+    "assets/frames/03-anna-upright-brake-b-96.png": "ad17fdcfd14059b4f9768c983883e86a214ef7f66ecb00cbde25020112bf7d17",
+    "assets/frames/04-anna-hover-up-96.png": "e2909cc29fc18d116a22ad3fd9a3cdec502a25527a323311afc1231156a95106",
+    "assets/frames/05-anna-hover-mid-downstroke-96.png": "90e63c48fca156d1ede4263e5046c9f407c1827cca8f159425e509281884de20",
+    "assets/frames/06-anna-hover-down-96.png": "e15db9a34ae47ffe15894a34575edcef274b958288b53a4c630840c57918531a",
+    "assets/frames/07-anna-hover-mid-recovery-96.png": "f0021ffcf06de27f8ab3ea975048b5037e224b92aedd8d5971583a40b6d6e460",
+    "browser-verification.json": "3d1b53817dca4ad84c594bee86278913b41a547f00c6771fb0b48cba47e213b3",
+    "build_annex.py": "99709f654c2d6d0c67025baa9a049eb4a5d1720739491d6d129ff640940899fc",
+    "player.js": "68a22c55134b17a7e2f37f4df6e31d8913ff0d742359704fbe170e37470d2060",
+    "preview-data.json": "799896ae52493ade538062b2ad35fdfcb9c3cbf4426a1cb914cfbc8e0bebe04a",
+    "references/PRIMARY-SOURCE-MANIFEST.json": "51fa915f2652a2a6fbfe4ada5b05b3f1cc12ccc8e4a0fd0bebf1684b16024ebb",
+    "references/airborne-source-manifest.json": "142c9d18ae9c69eca7671f244616d9da9520a01d31b83a7c2ef7fabe7ce81f86",
+    "references/body-trajectory.json": "b92897994d65ccc01860cd706a8c90a528b04d3d6763a4c21cfd73f527c2ecb9",
+    "references/frame-to-action-map.json": "0c172aaabe40228ea254fa037caf791ba1f7e0ee10895b0d094093db1e54492d",
+    "review.html": "7ca95710f6aae8051677c6b3916d69dbdaa3ff55e7fa139ea4a5d4c71139aaee",
+    "snappy-trajectory.json": "4e5671e6c4ac34661fcbb420b1974789dda5f79e59734720b48e713e005176a4",
+    "source-bindings.json": "97e956cc9bd603cd700ed3cd8daaf22cb52b05bc071426dcf91160b7b601bab0",
+    "upstream-qualification.json": "1e9377f817758bda297208fd46c05001f0324e6d477b419786fc02bf1531c7ad",
+    "verification.json": "e64878430cb7b43388124fee07141706491b6a56ba8314ba50fb7e7d40978279",
+    "verify_annex.cjs": "325231eaec5310f8553621d91716fc044ede2c6e58b65ac339f2c4be9d3ac936",
+    "verify_art.py": "14009e68aa52e3a9bacd3c4e18f9a7e2e6ac5912d3465a171f0ac868e7529032",
+    "verify_browser.py": "612cc6581356d51727c1cb111ab2164b0b1eb5ec42a1c2440744228fb0d2cfb6"
+  },
+  "technicalChecks": {
+    "allFrozenTargetsMatch": 27,
+    "all4UpstreamMetadataCopiesByteIdentical": true,
+    "all8PrimaryRGBAIDsAndPNGHashPairsMatch": true,
+    "all8CopiedOutputPNGHashesAndAtlasSlicesMatch": true,
+    "framePivotsRetained": [
+      {
+        "id": "anna-forward-drive-a-96",
+        "primarySourceFrameId": "frame.sha256.9089bd6e94e05ea825a4487ac789c3e5f4e638fab4c89e7b119db336270d47b1",
+        "outputPNGsha256": "383976a665589456108754321dd8af1589372c6f0ee44b2f053d23554c1f0557",
+        "pivot": {
+          "x": 48,
+          "y": 60
+        }
+      },
+      {
+        "id": "anna-forward-drive-b-96",
+        "primarySourceFrameId": "frame.sha256.2d4f12c6d5c727c31dc2c0f94f31e91b87d80e5e5940ddcaf3840754cade978e",
+        "outputPNGsha256": "411acab64f8788e39b0f7a7bb5f8c3db209daf82c5e8d38c624e311581f7b095",
+        "pivot": {
+          "x": 48,
+          "y": 60
+        }
+      },
+      {
+        "id": "anna-upright-brake-a-96",
+        "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+        "outputPNGsha256": "c6923f44363534b3b308f02fdc1313a064e78134e6a86c93eb2f627ddaaf17d1",
+        "pivot": {
+          "x": 48,
+          "y": 60
+        }
+      },
+      {
+        "id": "anna-upright-brake-b-96",
+        "primarySourceFrameId": "frame.sha256.1dde43b7c228e171579526ec2904b81b3d49c3da552a9fa72d8e93b64cab5be2",
+        "outputPNGsha256": "ad17fdcfd14059b4f9768c983883e86a214ef7f66ecb00cbde25020112bf7d17",
+        "pivot": {
+          "x": 48,
+          "y": 60
+        }
+      },
+      {
+        "id": "anna-hover-up-96",
+        "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+        "outputPNGsha256": "e2909cc29fc18d116a22ad3fd9a3cdec502a25527a323311afc1231156a95106",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        }
+      },
+      {
+        "id": "anna-hover-mid-downstroke-96",
+        "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+        "outputPNGsha256": "90e63c48fca156d1ede4263e5046c9f407c1827cca8f159425e509281884de20",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        }
+      },
+      {
+        "id": "anna-hover-down-96",
+        "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+        "outputPNGsha256": "e15db9a34ae47ffe15894a34575edcef274b958288b53a4c630840c57918531a",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        }
+      },
+      {
+        "id": "anna-hover-mid-recovery-96",
+        "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+        "outputPNGsha256": "f0021ffcf06de27f8ab3ea975048b5037e224b92aedd8d5971583a40b6d6e460",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        }
+      }
+    ],
+    "actualCSSScene": [
+      144,
+      96
+    ],
+    "untrimmedSourceCSSCanvas": [
+      64,
+      64
+    ],
+    "sourceTilePixels": [
+      96,
+      96
+    ],
+    "density": 1.5,
+    "travelWorldUnits": 36,
+    "newTravelDurationSeconds": 0.4,
+    "oldTravelDurationSeconds": 1.2,
+    "newMeanSpeedWorldPerSecond": 90,
+    "oldMeanSpeedWorldPerSecond": 30,
+    "newAuthoredPeakWorldPerSecond": 180,
+    "oldAuthoredPeakWorldPerSecond": 60,
+    "speedRatio": 3,
+    "newEpisodeSeconds": 1.5,
+    "authoredCurveIndependentBoundaryCalculations": [
+      {
+        "ms": 0,
+        "rootWorldX": 0
+      },
+      {
+        "ms": 400,
+        "rootWorldX": 0.0
+      },
+      {
+        "ms": 500,
+        "rootWorldX": 4.5
+      },
+      {
+        "ms": 600,
+        "rootWorldX": 18.0
+      },
+      {
+        "ms": 700,
+        "rootWorldX": 31.5
+      },
+      {
+        "ms": 800,
+        "rootWorldX": 36
+      },
+      {
+        "ms": 1500,
+        "rootWorldX": 36
+      },
+      {
+        "ms": 10000,
+        "rootWorldX": 36
+      }
+    ],
+    "terminalNumericControlsRoot36With4ContinuingWingIDs": true
+  },
+  "independentBrowserEvidence": {
+    "browser": "Independent Chromium Playwright loopback",
+    "DPR": 1,
+    "htmlSHA256": "7ca95710f6aae8051677c6b3916d69dbdaa3ff55e7fa139ea4a5d4c71139aaee",
+    "mainCanvasCSS": [
+      144,
+      96
+    ],
+    "untrimmedBirdCanvasCSS": [
+      64,
+      64
+    ],
+    "liveSamples": [
+      {
+        "requestedMsAfterReplay": 200,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:11.989905+00:00",
+        "stateBefore": {
+          "elapsedMs": 200.5,
+          "mode": "snappy",
+          "rootTick": 6.015,
+          "poseTick": 6,
+          "phaseTick": 0,
+          "frameId": "anna-hover-down-96",
+          "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            0,
+            0
+          ],
+          "phase": "initial-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 267.3,
+          "mode": "snappy",
+          "rootTick": 8.019,
+          "poseTick": 8,
+          "phaseTick": 0,
+          "frameId": "anna-hover-up-96",
+          "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            0,
+            0
+          ],
+          "phase": "initial-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "ee69a5b57aca201220994bb520ffeb27fea5c1040f5f031f8adfba24a34f8814",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 430,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:12.208482+00:00",
+        "stateBefore": {
+          "elapsedMs": 417.20000000000005,
+          "mode": "snappy",
+          "rootTick": 12.516000000000002,
+          "poseTick": 12,
+          "phaseTick": 0,
+          "frameId": "anna-forward-drive-a-96",
+          "primarySourceFrameId": "frame.sha256.9089bd6e94e05ea825a4487ac789c3e5f4e638fab4c89e7b119db336270d47b1",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            0.1331280000000009,
+            0
+          ],
+          "phase": "accelerate",
+          "poseClipId": "dart-forward-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 500.6,
+          "mode": "snappy",
+          "rootTick": 15.018,
+          "poseTick": 15,
+          "phaseTick": 0,
+          "frameId": "anna-forward-drive-b-96",
+          "primarySourceFrameId": "frame.sha256.2d4f12c6d5c727c31dc2c0f94f31e91b87d80e5e5940ddcaf3840754cade978e",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            4.554162000000002,
+            0
+          ],
+          "phase": "accelerate",
+          "poseClipId": "dart-forward-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "217455691bc87d9a00cd2f203cce6c8d7e9471de8902ba7cba13c2b8dfc2c969",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 510,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:12.308882+00:00",
+        "stateBefore": {
+          "elapsedMs": 500.6,
+          "mode": "snappy",
+          "rootTick": 15.018,
+          "poseTick": 15,
+          "phaseTick": 0,
+          "frameId": "anna-forward-drive-b-96",
+          "primarySourceFrameId": "frame.sha256.2d4f12c6d5c727c31dc2c0f94f31e91b87d80e5e5940ddcaf3840754cade978e",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            4.554162000000002,
+            0
+          ],
+          "phase": "accelerate",
+          "poseClipId": "dart-forward-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 600.6,
+          "mode": "snappy",
+          "rootTick": 18.018,
+          "poseTick": 18,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-a-96",
+          "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            18.107838000000005,
+            0
+          ],
+          "phase": "brake",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "83b3bf43e12dcf4799b2832f329d07610abac4d2a8a2807fc7af0b7c4615894e",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 590,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:12.376152+00:00",
+        "stateBefore": {
+          "elapsedMs": 600.6,
+          "mode": "snappy",
+          "rootTick": 18.018,
+          "poseTick": 18,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-a-96",
+          "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            18.107838000000005,
+            0
+          ],
+          "phase": "brake",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 667.2,
+          "mode": "snappy",
+          "rootTick": 20.016,
+          "poseTick": 20,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-a-96",
+          "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            28.063871999999993,
+            0
+          ],
+          "phase": "brake",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "bd16ed1371c91f0242a5e16c5d8346f846c6254ed6a8db163ba740ed5aeaafef",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 670,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:12.442208+00:00",
+        "stateBefore": {
+          "elapsedMs": 667.2,
+          "mode": "snappy",
+          "rootTick": 20.016,
+          "poseTick": 20,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-a-96",
+          "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            28.063871999999993,
+            0
+          ],
+          "phase": "brake",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 733.9,
+          "mode": "snappy",
+          "rootTick": 22.017,
+          "poseTick": 22,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-a-96",
+          "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            34.0338555,
+            0
+          ],
+          "phase": "brake",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "a2aaaf138b72a2b85e659570f06f32ca11344ad4200c9602b101590a16e69ac0",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 750,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:12.524688+00:00",
+        "stateBefore": {
+          "elapsedMs": 750.6,
+          "mode": "snappy",
+          "rootTick": 22.518,
+          "poseTick": 22,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-a-96",
+          "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            34.901838,
+            0
+          ],
+          "phase": "brake",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 817.3,
+          "mode": "snappy",
+          "rootTick": 24.519,
+          "poseTick": 24,
+          "phaseTick": 0,
+          "frameId": "anna-hover-up-96",
+          "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "final-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "aa0aaf424b2df2c812362877efa48de6b9b1b21423cfd0989ab47e69e5e6008d",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 850,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:12.624400+00:00",
+        "stateBefore": {
+          "elapsedMs": 850.6,
+          "mode": "snappy",
+          "rootTick": 25.518,
+          "poseTick": 25,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-downstroke-96",
+          "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "final-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 917.2,
+          "mode": "snappy",
+          "rootTick": 27.516,
+          "poseTick": 27,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-recovery-96",
+          "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "final-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "4e312a1529fa95e59b015ec2c11b5d17dacf7331318b3a9b37f279b7d1687f9a",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 1570,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:13.341613+00:00",
+        "stateBefore": {
+          "elapsedMs": 1567.2,
+          "mode": "snappy",
+          "rootTick": 47.016,
+          "poseTick": 47,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-recovery-96",
+          "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "final-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": true,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 1633.9,
+          "mode": "snappy",
+          "rootTick": 49.017,
+          "poseTick": 49,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-downstroke-96",
+          "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "final-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": true,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "3cb2430c9ee0d34c02ac8068b613a4e33893d50c5934f170a8bced9af24e2ea1",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 1640,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:13.409272+00:00",
+        "stateBefore": {
+          "elapsedMs": 1633.9,
+          "mode": "snappy",
+          "rootTick": 49.017,
+          "poseTick": 49,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-downstroke-96",
+          "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "final-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": true,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 1700.5,
+          "mode": "snappy",
+          "rootTick": 51.015,
+          "poseTick": 51,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-recovery-96",
+          "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "final-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": true,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "4e312a1529fa95e59b015ec2c11b5d17dacf7331318b3a9b37f279b7d1687f9a",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 1710,
+        "mode": "snappy",
+        "background": "light",
+        "utc": "2026-10-17T23:03:13.474224+00:00",
+        "stateBefore": {
+          "elapsedMs": 1700.5,
+          "mode": "snappy",
+          "rootTick": 51.015,
+          "poseTick": 51,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-recovery-96",
+          "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "final-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": true,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 1767.2,
+          "mode": "snappy",
+          "rootTick": 53.016,
+          "poseTick": 53,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-downstroke-96",
+          "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "final-hover",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": true,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "3cb2430c9ee0d34c02ac8068b613a4e33893d50c5934f170a8bced9af24e2ea1",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 200,
+        "mode": "original",
+        "background": "dark",
+        "utc": "2026-10-17T23:03:13.775087+00:00",
+        "stateBefore": {
+          "elapsedMs": 192.89999999850988,
+          "mode": "original",
+          "rootTick": 5.786999999955296,
+          "poseTick": 5,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-downstroke-96",
+          "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            0,
+            0
+          ],
+          "phase": "reused-hover-endpoints-study",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 259.5999999985097,
+          "mode": "original",
+          "rootTick": 7.787999999955291,
+          "poseTick": 7,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-recovery-96",
+          "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            0,
+            0
+          ],
+          "phase": "reused-hover-endpoints-study",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "dfde4801ecb60d96b69873653b8ebedc2cca1b4886b2b85d22f6be21888815ce",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 550,
+        "mode": "original",
+        "background": "dark",
+        "utc": "2026-10-17T23:03:14.124609+00:00",
+        "stateBefore": {
+          "elapsedMs": 542.8999999985099,
+          "mode": "original",
+          "rootTick": 16.286999999955295,
+          "poseTick": 16,
+          "phaseTick": 0,
+          "frameId": "anna-forward-drive-a-96",
+          "primarySourceFrameId": "frame.sha256.9089bd6e94e05ea825a4487ac789c3e5f4e638fab4c89e7b119db336270d47b1",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            0.0920204999936072,
+            0
+          ],
+          "phase": "dart-forward-study",
+          "poseClipId": "dart-forward-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 609.4999999985098,
+          "mode": "original",
+          "rootTick": 18.284999999955293,
+          "poseTick": 18,
+          "phaseTick": 0,
+          "frameId": "anna-forward-drive-a-96",
+          "primarySourceFrameId": "frame.sha256.9089bd6e94e05ea825a4487ac789c3e5f4e638fab4c89e7b119db336270d47b1",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            0.5995124999836818,
+            0
+          ],
+          "phase": "dart-forward-study",
+          "poseClipId": "dart-forward-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "876524b1f7f65ffd136283a1205cbf44409d621c0729852e771f6d9eaff02e9b",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 780,
+        "mode": "original",
+        "background": "dark",
+        "utc": "2026-10-17T23:03:14.357605+00:00",
+        "stateBefore": {
+          "elapsedMs": 776.1999999985101,
+          "mode": "original",
+          "rootTick": 23.285999999955305,
+          "poseTick": 23,
+          "phaseTick": 0,
+          "frameId": "anna-forward-drive-b-96",
+          "primarySourceFrameId": "frame.sha256.2d4f12c6d5c727c31dc2c0f94f31e91b87d80e5e5940ddcaf3840754cade978e",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            3.8143219999588505,
+            0
+          ],
+          "phase": "dart-forward-study",
+          "poseClipId": "dart-forward-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 842.8999999985099,
+          "mode": "original",
+          "rootTick": 25.286999999955295,
+          "poseTick": 25,
+          "phaseTick": 0,
+          "frameId": "anna-forward-drive-b-96",
+          "primarySourceFrameId": "frame.sha256.2d4f12c6d5c727c31dc2c0f94f31e91b87d80e5e5940ddcaf3840754cade978e",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            5.879020499948902,
+            0
+          ],
+          "phase": "dart-forward-study",
+          "poseClipId": "dart-forward-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "f6077c8344134c3e6d08d5dc23dd7ecb107aca9192e97ae99cfa4298a1417ad1",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 1030,
+        "mode": "original",
+        "background": "dark",
+        "utc": "2026-10-17T23:03:14.609771+00:00",
+        "stateBefore": {
+          "elapsedMs": 1026.19999999851,
+          "mode": "original",
+          "rootTick": 30.785999999955305,
+          "poseTick": 30,
+          "phaseTick": 0,
+          "frameId": "anna-forward-drive-a-96",
+          "primarySourceFrameId": "frame.sha256.9089bd6e94e05ea825a4487ac789c3e5f4e638fab4c89e7b119db336270d47b1",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            13.844321999921604,
+            0
+          ],
+          "phase": "dart-forward-study",
+          "poseClipId": "dart-forward-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 1092.8999999985099,
+          "mode": "original",
+          "rootTick": 32.7869999999553,
+          "poseTick": 32,
+          "phaseTick": 0,
+          "frameId": "anna-forward-drive-a-96",
+          "primarySourceFrameId": "frame.sha256.9089bd6e94e05ea825a4487ac789c3e5f4e638fab4c89e7b119db336270d47b1",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            17.576520499911656,
+            0
+          ],
+          "phase": "dart-forward-study",
+          "poseClipId": "dart-forward-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "25d66799de946b608d3cfbd032a10f5681d294fd07e0f72a5b17421f9b249882",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 1260,
+        "mode": "original",
+        "background": "dark",
+        "utc": "2026-10-17T23:03:14.843545+00:00",
+        "stateBefore": {
+          "elapsedMs": 1259.4999999985098,
+          "mode": "original",
+          "rootTick": 37.784999999955296,
+          "poseTick": 37,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-b-96",
+          "primarySourceFrameId": "frame.sha256.1dde43b7c228e171579526ec2904b81b3d49c3da552a9fa72d8e93b64cab5be2",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            26.297987499934358,
+            0
+          ],
+          "phase": "upright-brake-study",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 1326.19999999851,
+          "mode": "original",
+          "rootTick": 39.7859999999553,
+          "poseTick": 39,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-b-96",
+          "primarySourceFrameId": "frame.sha256.1dde43b7c228e171579526ec2904b81b3d49c3da552a9fa72d8e93b64cab5be2",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            29.013677999944306,
+            0
+          ],
+          "phase": "upright-brake-study",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "25dd784462afeb52c7b11dadb7b77bbd6b7f7e187a4fe863576cd741b74cef3a",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 1500,
+        "mode": "original",
+        "background": "dark",
+        "utc": "2026-10-17T23:03:15.075011+00:00",
+        "stateBefore": {
+          "elapsedMs": 1492.79999999851,
+          "mode": "original",
+          "rootTick": 44.7839999999553,
+          "poseTick": 44,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-a-96",
+          "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            33.85340799996912,
+            0
+          ],
+          "phase": "upright-brake-study",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 1559.4999999985098,
+          "mode": "original",
+          "rootTick": 46.784999999955296,
+          "poseTick": 46,
+          "phaseTick": 0,
+          "frameId": "anna-upright-brake-a-96",
+          "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+          "pivot": {
+            "x": 48,
+            "y": 60
+          },
+          "root": [
+            35.01298749997906,
+            0
+          ],
+          "phase": "upright-brake-study",
+          "poseClipId": "upright-brake-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "8d6a3753ce07fb7059305963e8ca146f4a11cfe0431e4546f2bb22791616bfe7",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 1730,
+        "mode": "original",
+        "background": "dark",
+        "utc": "2026-10-17T23:03:15.310101+00:00",
+        "stateBefore": {
+          "elapsedMs": 1726.19999999851,
+          "mode": "original",
+          "rootTick": 51.7859999999553,
+          "poseTick": 51,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-recovery-96",
+          "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "reused-hover-endpoints-study",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 1792.79999999851,
+          "mode": "original",
+          "rootTick": 53.7839999999553,
+          "poseTick": 53,
+          "phaseTick": 0,
+          "frameId": "anna-hover-mid-downstroke-96",
+          "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "reused-hover-endpoints-study",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": false,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "35825ae923d85aa51be703f553e418ff10c1cc0897a07e2618e68c0cb9b62c95",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      },
+      {
+        "requestedMsAfterReplay": 3100,
+        "mode": "original",
+        "background": "dark",
+        "utc": "2026-10-17T23:03:16.674164+00:00",
+        "stateBefore": {
+          "elapsedMs": 3092.7999999985095,
+          "mode": "original",
+          "rootTick": 92.78399999995528,
+          "poseTick": 92,
+          "phaseTick": 0,
+          "frameId": "anna-hover-up-96",
+          "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "reused-hover-endpoints-study",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": true,
+          "contacts": []
+        },
+        "stateAfter": {
+          "elapsedMs": 3159.39999999851,
+          "mode": "original",
+          "rootTick": 94.7819999999553,
+          "poseTick": 94,
+          "phaseTick": 0,
+          "frameId": "anna-hover-down-96",
+          "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+          "pivot": {
+            "x": 54,
+            "y": 68
+          },
+          "root": [
+            36,
+            0
+          ],
+          "phase": "reused-hover-endpoints-study",
+          "poseClipId": "reused-hover-endpoints-study",
+          "terminal": true,
+          "contacts": []
+        },
+        "screenshotPNGsha256": "ecc320bfae19303c49659fc31e54be06cfa4a06a6c7878b6e47f71e7683c98b5",
+        "dimensions": [
+          144,
+          97
+        ],
+        "captureBytesRetained": false
+      }
+    ],
+    "pausedNumericControls": [
+      {
+        "elapsedMs": 0,
+        "mode": "snappy",
+        "rootTick": 0,
+        "poseTick": 0,
+        "phaseTick": 0,
+        "frameId": "anna-hover-up-96",
+        "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        },
+        "root": [
+          0,
+          0
+        ],
+        "phase": "initial-hover",
+        "poseClipId": "reused-hover-endpoints-study",
+        "terminal": false,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 400,
+        "mode": "snappy",
+        "rootTick": 12,
+        "poseTick": 12,
+        "phaseTick": 0,
+        "frameId": "anna-forward-drive-a-96",
+        "primarySourceFrameId": "frame.sha256.9089bd6e94e05ea825a4487ac789c3e5f4e638fab4c89e7b119db336270d47b1",
+        "pivot": {
+          "x": 48,
+          "y": 60
+        },
+        "root": [
+          0,
+          0
+        ],
+        "phase": "accelerate",
+        "poseClipId": "dart-forward-study",
+        "terminal": false,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 500,
+        "mode": "snappy",
+        "rootTick": 15,
+        "poseTick": 15,
+        "phaseTick": 0,
+        "frameId": "anna-forward-drive-b-96",
+        "primarySourceFrameId": "frame.sha256.2d4f12c6d5c727c31dc2c0f94f31e91b87d80e5e5940ddcaf3840754cade978e",
+        "pivot": {
+          "x": 48,
+          "y": 60
+        },
+        "root": [
+          4.5,
+          0
+        ],
+        "phase": "accelerate",
+        "poseClipId": "dart-forward-study",
+        "terminal": false,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 600,
+        "mode": "snappy",
+        "rootTick": 18,
+        "poseTick": 18,
+        "phaseTick": 0,
+        "frameId": "anna-upright-brake-a-96",
+        "primarySourceFrameId": "frame.sha256.b7ef624e7e1ba1779edfc72b867350fc6171abc0260e1ee83ba124feaef8a641",
+        "pivot": {
+          "x": 48,
+          "y": 60
+        },
+        "root": [
+          18,
+          0
+        ],
+        "phase": "brake",
+        "poseClipId": "upright-brake-study",
+        "terminal": false,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 700,
+        "mode": "snappy",
+        "rootTick": 21,
+        "poseTick": 21,
+        "phaseTick": 0,
+        "frameId": "anna-upright-brake-b-96",
+        "primarySourceFrameId": "frame.sha256.1dde43b7c228e171579526ec2904b81b3d49c3da552a9fa72d8e93b64cab5be2",
+        "pivot": {
+          "x": 48,
+          "y": 60
+        },
+        "root": [
+          31.5,
+          0
+        ],
+        "phase": "brake",
+        "poseClipId": "upright-brake-study",
+        "terminal": false,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 800,
+        "mode": "snappy",
+        "rootTick": 24,
+        "poseTick": 24,
+        "phaseTick": 0,
+        "frameId": "anna-hover-up-96",
+        "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        },
+        "root": [
+          36,
+          0
+        ],
+        "phase": "final-hover",
+        "poseClipId": "reused-hover-endpoints-study",
+        "terminal": false,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 1500,
+        "mode": "snappy",
+        "rootTick": 45,
+        "poseTick": 45,
+        "phaseTick": 0,
+        "frameId": "anna-hover-mid-downstroke-96",
+        "primarySourceFrameId": "frame.sha256.59e2ec43e0088200efe83bfe439a53c0675dcd1006df0a48c30b0e3e2fd1df2e",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        },
+        "root": [
+          36,
+          0
+        ],
+        "phase": "final-hover",
+        "poseClipId": "reused-hover-endpoints-study",
+        "terminal": true,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 1534,
+        "mode": "snappy",
+        "rootTick": 46.02,
+        "poseTick": 46,
+        "phaseTick": 0,
+        "frameId": "anna-hover-down-96",
+        "primarySourceFrameId": "frame.sha256.4b925f97306cbebc34d34517eb21a9feb8a89608d3395d32a2a50b8e6360fdc6",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        },
+        "root": [
+          36,
+          0
+        ],
+        "phase": "final-hover",
+        "poseClipId": "reused-hover-endpoints-study",
+        "terminal": true,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 1567,
+        "mode": "snappy",
+        "rootTick": 47.01,
+        "poseTick": 47,
+        "phaseTick": 0,
+        "frameId": "anna-hover-mid-recovery-96",
+        "primarySourceFrameId": "frame.sha256.3bca99580b05736bd7ba9c4810aaa21646f330042fcffe8b69ea11db9eb7af91",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        },
+        "root": [
+          36,
+          0
+        ],
+        "phase": "final-hover",
+        "poseClipId": "reused-hover-endpoints-study",
+        "terminal": true,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 1601,
+        "mode": "snappy",
+        "rootTick": 48.03,
+        "poseTick": 48,
+        "phaseTick": 0,
+        "frameId": "anna-hover-up-96",
+        "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        },
+        "root": [
+          36,
+          0
+        ],
+        "phase": "final-hover",
+        "poseClipId": "reused-hover-endpoints-study",
+        "terminal": true,
+        "contacts": []
+      },
+      {
+        "elapsedMs": 10000,
+        "mode": "snappy",
+        "rootTick": 300,
+        "poseTick": 300,
+        "phaseTick": 0,
+        "frameId": "anna-hover-up-96",
+        "primarySourceFrameId": "frame.sha256.ae6536774dd1466a60b211ad7065eb7dcc74808fedd73c1563e30251cd532aae",
+        "pivot": {
+          "x": 54,
+          "y": 68
+        },
+        "root": [
+          36,
+          0
+        ],
+        "phase": "final-hover",
+        "poseClipId": "reused-hover-endpoints-study",
+        "terminal": true,
+        "contacts": []
+      }
+    ],
+    "pageErrors": [],
+    "capturesSaved": 0,
+    "continuousVideoPerceptionClaim": false,
+    "MacVisited": false
+  },
+  "findings": [
+    {
+      "criterion": "actual-size fast-read comparison",
+      "status": "provisionally useful faster pass",
+      "finding": "The live actual144x96 yard scene draws the unchanged sprite on64 CSS/world canvas. The short forward displacement followed by upright brake is a snappier authored pass than the original timing, supported by the threefold travel-speed change and sampled placements/category changes. Prefer this isolated timing candidate for the requested faster demonstration. This does not certify continuous perceived smoothness or biological hummingbird speed."
+    },
+    {
+      "criterion": "pitch changes, wing cadence and identity",
+      "status": "B source limits unchanged; smooth flight held",
+      "finding": "Real flatter forward body and upright tail-fan brake remain readable; green/gray/rose identity survives the short presentation. The hover\u2192forward\u2192brake\u2192hover switches remain abrupt. Six ticks each for forward/brake permit only three repeats of each two-drawing pair at authored15visualcycles/s, while final A flutter uses four existing phases at7.5cycles/s. Faster root travel supplies no intermediate body pitch, new wing recovery or biological stroke ordering. Sparse cadence/strobing and small phase-dependent texture shimmer remain."
+    },
+    {
+      "criterion": "root/pose separation, terminal behavior and contacts",
+      "status": "source proposal demonstrated",
+      "finding": "Live terminal samples and independent numeric controls show root[36,0] fixed while global poseTick/frame IDs keep changing beyond1.5seconds; controls at1500/1534/1567/1601ms cover all four hover IDs. There is no root replay at terminal hold. Explicit replay/mode change restarts the epoch. Per-frame pivots48,60 versus54,68 are retained rather than normalized. All contacts remain empty; no ground support, feeding, landing or force simulation is claimed."
+    },
+    {
+      "criterion": "zero-art/source preservation",
+      "status": "verified",
+      "finding": "All27 frozen targets match, four upstream metadata snapshots are byte-identical, and eight original primaryRGBA IDs and copied output/atlas tiles match. Timing changes count zero new drawings or additional completed action slots. Original B source/profile/map/path files were not modified by this review."
+    }
+  ],
+  "recommendation": "Retain the zero-call annex as the preferred provisional fast authored pass for owner/source review. Preserve original B as timing comparison and preserve its abrupt pitch-switch, sparse-wing, recovery and smooth-flight holds. Do not upgrade this to biological speed, complete flight-animation acceptance or actual Mac yard integration.",
+  "limits": [
+    "Bounded actual-size live source samples and numeric controls, not continuous human-video perception or actual Mac yard review.",
+    "18 live source-panel captures were inspected transiently in memory; only timestamps, hashes, dimensions and before/after states are retained. No browser captures/base64 are embedded or saved in deliverables.",
+    "Screenshot collection spans roughly67\u2013100ms and sometimes crosses multiple30Hz phases. Requested sample times are scheduling targets; actual before/after elapsedMs in the receipt govern each observation. Snapshots do not measure retinal motion or eliminate display aliasing.",
+    "Snappy mode was sampled on light ground and original mode on dark ground; background and timing were not factorially compared in this bounded test. Prior B review inspected both light/dark. No light-versus-dark causal claim is made.",
+    "Common authored speed is in declared game-world units, with biological scale unapproved.",
+    "No universal exact-bodyRGBA/bbox/framecount quality gate applied; hashes establish preservation only."
+  ]
+}

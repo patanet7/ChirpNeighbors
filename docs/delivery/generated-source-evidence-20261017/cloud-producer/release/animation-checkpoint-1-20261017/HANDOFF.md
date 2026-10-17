@@ -16,3 +16,6 @@ sd20-anna-dart-brake-v1: 4 new drawings, 4 existing source IDs reused. Useful pr
 
 
 sd20-anna-transitions-v1: 4 new drawings, 5 existing source IDs reused. Four useful provisional C posture-key studies plus five exact reuses; each new body/wing posture has one source key. Completed reverse flight, landing, takeoff and feeding remain held; qualified Aflutter reuse does not complete biological hover. Primary extraction excludes43alpha1 fringe pixels while unchanged full original retains them. Current torso-origin transition join gaps6.667/8world are retained as measured source-proof gaps; separate zero-call joint/contact/root audit remains pending. One shared call calibration, no per-pose fitting; resting neutral/look/blink unchanged, no Mac admission. Exact action map `motion/sd20-anna-transitions-v1/frame-to-action-map.json`; source profile `motion/sd20-anna-transitions-v1/action-source-manifest.json`; proposal `motion/sd20-anna-transitions-v1/motion-manifest.json`. Neutral/blink intake unchanged. Flight motion is a source proposal; runtime admission false.
+
+
+Anna distinctive motion checkpoint:10newsource drawings/3nativecalls,with separatezero-callfasttiming andtransitionreuseevidence. Exact handoff `ANNA-DISTINCTIVE-MOTION-CHECKPOINT.json`; art/runtime/physical holds retained. No newneutraldrawings orMacbindingclaim.

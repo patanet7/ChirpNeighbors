@@ -1,0 +1,545 @@
+{
+  "scope": "Zero-call coordinate/reuse audit and labelled joint proposals, not source/physics/runtime approval",
+  "nativeCalls": 0,
+  "newDrawings": 0,
+  "density": 1.5,
+  "planeWorldY": 130.0,
+  "formula": {
+    "imagePixelToWorld": "W(q)=R_body+(q-p_body)/density",
+    "logicalSupportRoot": "S=W(f); R_body=S-(f-p_body)/density",
+    "equivalence": "Changing from body pivot to support pivot with the paired origin change preserves every rendered pixel exactly in continuous world coordinates. It does not warp or individually fit the art.",
+    "important": "Stationary logical support root need not imply stationary torso/body-origin when genuinely different leg/body poses change f relative to p. Same held-pose body translation would drag feet."
+  },
+  "measuredProbes": {
+    "landing-near-claw": {
+      "renderFrameId": "anna-c-landing-reach-96",
+      "pixel": [
+        61,
+        87
+      ],
+      "RGBA": [
+        34,
+        22,
+        23,
+        161
+      ],
+      "meaning": "Independent lowest alpha128 pixel in near-leg/claw ROIx56..63,y81..88; excludes tail atx40..44. A visible claw proxy, not certified toe identity.",
+      "anatomicalCorrespondenceApproved": false
+    },
+    "landing-other-claw": {
+      "renderFrameId": "anna-c-landing-reach-96",
+      "pixel": [
+        66,
+        81
+      ],
+      "RGBA": [
+        139,
+        132,
+        130,
+        245
+      ],
+      "meaning": "Other extended-claw visible point. No inference that both feet simultaneously support a plane.",
+      "anatomicalCorrespondenceApproved": false
+    },
+    "arrival-near-probe": {
+      "renderFrameId": "anna-c-arrival-supported-96",
+      "pixel": [
+        57,
+        79
+      ],
+      "RGBA": [
+        19,
+        12,
+        11,
+        240
+      ],
+      "meaning": "Existing C same-row positive-alpha probe in overlapping foot silhouette.",
+      "anatomicalCorrespondenceApproved": false
+    },
+    "arrival-other-probe": {
+      "renderFrameId": "anna-c-arrival-supported-96",
+      "pixel": [
+        49,
+        79
+      ],
+      "RGBA": [
+        49,
+        32,
+        28,
+        255
+      ],
+      "meaning": "Existing second visible probe; not bilateral foot identity.",
+      "anatomicalCorrespondenceApproved": false
+    },
+    "perch-near-probe": {
+      "renderFrameId": "anna-c-perched-reference-96",
+      "pixel": [
+        54,
+        74
+      ],
+      "RGBA": [
+        48,
+        34,
+        30,
+        251
+      ],
+      "meaning": "Existing C old-perch near-visible toe probe.",
+      "anatomicalCorrespondenceApproved": false
+    },
+    "takeoff-curled-claw": {
+      "renderFrameId": "anna-c-takeoff-release-96",
+      "pixel": [
+        50,
+        76
+      ],
+      "RGBA": [
+        16,
+        13,
+        12,
+        246
+      ],
+      "meaning": "Lowest alpha128 pixel in curled-claw ROIx48..55,y70..78. Touching this pixel to a plane is not proof of weighted support.",
+      "anatomicalCorrespondenceApproved": false
+    }
+  },
+  "baseline": {
+    "landing": {
+      "renderFrameId": "anna-c-landing-reach-96",
+      "bodyOriginWorld": [
+        80.0,
+        116.0
+      ],
+      "declaredBodyOriginPixel": [
+        54,
+        68
+      ],
+      "headWorld": [
+        83.25586402194746,
+        108.12746463664388
+      ],
+      "billWorld": [
+        94.0,
+        106.66666666666667
+      ],
+      "actualBodyOriginPixelRGBA": [
+        228,
+        202,
+        154,
+        253
+      ],
+      "toeWorld": [
+        {
+          "pixel": [
+            61,
+            87
+          ],
+          "world": [
+            84.66666666666667,
+            128.66666666666666
+          ]
+        },
+        {
+          "pixel": [
+            66,
+            81
+          ],
+          "world": [
+            88.0,
+            124.66666666666667
+          ]
+        }
+      ]
+    },
+    "arrival": {
+      "renderFrameId": "anna-c-arrival-supported-96",
+      "bodyOriginWorld": [
+        80.0,
+        122.66666666666667
+      ],
+      "declaredBodyOriginPixel": [
+        54,
+        68
+      ],
+      "headWorld": [
+        83.514532289874,
+        112.27211569102667
+      ],
+      "billWorld": [
+        94.0,
+        110.66666666666667
+      ],
+      "actualBodyOriginPixelRGBA": [
+        169,
+        142,
+        96,
+        253
+      ],
+      "toeWorld": [
+        {
+          "pixel": [
+            57,
+            79
+          ],
+          "world": [
+            82.0,
+            130.0
+          ]
+        },
+        {
+          "pixel": [
+            49,
+            79
+          ],
+          "world": [
+            76.66666666666667,
+            130.0
+          ]
+        }
+      ]
+    },
+    "perched": {
+      "renderFrameId": "anna-c-perched-reference-96",
+      "bodyOriginWorld": [
+        80.0,
+        126.0
+      ],
+      "declaredBodyOriginPixel": [
+        54,
+        68
+      ],
+      "headWorld": [
+        84.0,
+        111.33333333333333
+      ],
+      "billWorld": [
+        94.66666666666667,
+        108.66666666666667
+      ],
+      "actualBodyOriginPixelRGBA": [
+        152,
+        131,
+        112,
+        253
+      ],
+      "toeWorld": [
+        {
+          "pixel": [
+            54,
+            74
+          ],
+          "world": [
+            80.0,
+            130.0
+          ]
+        }
+      ]
+    },
+    "takeoff": {
+      "renderFrameId": "anna-c-takeoff-release-96",
+      "bodyOriginWorld": [
+        80.0,
+        118.0
+      ],
+      "declaredBodyOriginPixel": [
+        54,
+        68
+      ],
+      "headWorld": [
+        82.41519215118616,
+        104.50142980924139
+      ],
+      "billWorld": [
+        92.66666666666667,
+        102.66666666666667
+      ],
+      "actualBodyOriginPixelRGBA": [
+        174,
+        151,
+        140,
+        252
+      ],
+      "toeWorld": [
+        {
+          "pixel": [
+            50,
+            76
+          ],
+          "world": [
+            77.33333333333333,
+            123.33333333333333
+          ]
+        }
+      ]
+    },
+    "reportedTorsoOriginGapLanding": 6.666666666666671,
+    "reportedTorsoOriginGapTakeoff": 8,
+    "actualLandingNearClawGapAbovePlane": 1.3333333333333428,
+    "actualTakeoffCurledClawGapAbovePlane": 6.666666666666671
+  },
+  "landingToePinned": {
+    "logicalSupportRoot": [
+      82.0,
+      130.0
+    ],
+    "frames": [
+      {
+        "renderFrameId": "anna-c-landing-reach-96",
+        "bodyOriginWorld": [
+          77.33333333333333,
+          117.33333333333333
+        ],
+        "declaredBodyOriginPixel": [
+          54,
+          68
+        ],
+        "headWorld": [
+          80.58919735528079,
+          109.46079796997721
+        ],
+        "billWorld": [
+          91.33333333333333,
+          108.0
+        ],
+        "actualBodyOriginPixelRGBA": [
+          228,
+          202,
+          154,
+          253
+        ],
+        "toeWorld": [
+          {
+            "pixel": [
+              61,
+              87
+            ],
+            "world": [
+              82.0,
+              130.0
+            ]
+          },
+          {
+            "pixel": [
+              66,
+              81
+            ],
+            "world": [
+              85.33333333333333,
+              126.0
+            ]
+          }
+        ]
+      },
+      {
+        "renderFrameId": "anna-c-arrival-supported-96",
+        "bodyOriginWorld": [
+          80.0,
+          122.66666666666667
+        ],
+        "declaredBodyOriginPixel": [
+          54,
+          68
+        ],
+        "headWorld": [
+          83.514532289874,
+          112.27211569102667
+        ],
+        "billWorld": [
+          94.0,
+          110.66666666666667
+        ],
+        "actualBodyOriginPixelRGBA": [
+          169,
+          142,
+          96,
+          253
+        ],
+        "toeWorld": [
+          {
+            "pixel": [
+              57,
+              79
+            ],
+            "world": [
+              82.0,
+              130.0
+            ]
+          },
+          {
+            "pixel": [
+              49,
+              79
+            ],
+            "world": [
+              76.66666666666667,
+              130.0
+            ]
+          }
+        ]
+      }
+    ],
+    "nearToeDrift": 0.0,
+    "bodyOriginDisplacement": 5.96284793999945,
+    "headDisplacement": 4.057227108289379,
+    "billDisplacement": 3.77123616632826,
+    "secondLandingClawHeightAbovePlane": 4.0,
+    "semanticLimit": "Only a proposed one-visible-claw acquisition point. Arrival two probes are not left/right identity; leg/wing fold remains one discrete pose switch."
+  },
+  "takeoffToePinCounterfactual": {
+    "logicalSupportRoot": [
+      80.0,
+      130.0
+    ],
+    "frames": [
+      {
+        "renderFrameId": "anna-c-perched-reference-96",
+        "bodyOriginWorld": [
+          80.0,
+          126.0
+        ],
+        "declaredBodyOriginPixel": [
+          54,
+          68
+        ],
+        "headWorld": [
+          84.0,
+          111.33333333333333
+        ],
+        "billWorld": [
+          94.66666666666667,
+          108.66666666666667
+        ],
+        "actualBodyOriginPixelRGBA": [
+          152,
+          131,
+          112,
+          253
+        ],
+        "toeWorld": [
+          {
+            "pixel": [
+              54,
+              74
+            ],
+            "world": [
+              80.0,
+              130.0
+            ]
+          }
+        ]
+      },
+      {
+        "renderFrameId": "anna-c-takeoff-release-96",
+        "bodyOriginWorld": [
+          82.66666666666667,
+          124.66666666666667
+        ],
+        "declaredBodyOriginPixel": [
+          54,
+          68
+        ],
+        "headWorld": [
+          85.08185881785283,
+          111.16809647590806
+        ],
+        "billWorld": [
+          95.33333333333334,
+          109.33333333333334
+        ],
+        "actualBodyOriginPixelRGBA": [
+          174,
+          151,
+          140,
+          252
+        ],
+        "toeWorld": [
+          {
+            "pixel": [
+              50,
+              76
+            ],
+            "world": [
+              80.0,
+              130.0
+            ]
+          }
+        ]
+      }
+    ],
+    "toeDrift": 0.0,
+    "bodyOriginDisplacement": 2.981423969999722,
+    "headDisplacement": 1.0944047335504852,
+    "billDisplacement": 0.94280904158207,
+    "semanticLimit": "Curled claw is not a loaded planted foot. At most an unverified single-frame last-toe-release candidate, never a grounded wing-active hold or proof of support."
+  },
+  "releaseToHoverBillAlignedProposal": {
+    "frames": [
+      {
+        "renderFrameId": "anna-c-takeoff-release-96",
+        "bodyOriginWorld": [
+          84.0,
+          120.0
+        ],
+        "declaredBodyOriginPixel": [
+          54,
+          68
+        ],
+        "headWorld": [
+          86.41519215118616,
+          106.50142980924139
+        ],
+        "billWorld": [
+          96.66666666666667,
+          104.66666666666667
+        ],
+        "actualBodyOriginPixelRGBA": [
+          174,
+          151,
+          140,
+          252
+        ],
+        "toeWorld": [
+          {
+            "pixel": [
+              50,
+              76
+            ],
+            "world": [
+              81.33333333333333,
+              125.33333333333333
+            ]
+          }
+        ]
+      },
+      {
+        "renderFrameId": "anna-hover-up-96",
+        "bodyOriginWorld": [
+          82.66666666666667,
+          116.0
+        ],
+        "declaredBodyOriginPixel": [
+          54,
+          68
+        ],
+        "headWorld": [
+          86.0,
+          106.0
+        ],
+        "billWorld": [
+          96.66666666666667,
+          104.66666666666667
+        ],
+        "actualBodyOriginPixelRGBA": [
+          166,
+          163,
+          113,
+          253
+        ],
+        "toeWorld": []
+      }
+    ],
+    "billResidual": 0.0,
+    "headResidual": 0.6510118094185742,
+    "bodyOriginDisplacement": 4.216370213557838,
+    "meaning": "Explicit whole-pose airborne origin proposal, solving one bill-continuity constraint; no scale/rotation/warp. Torso origin changes with image pose; no actual physical motion/force is inferred."
+  }
+}
