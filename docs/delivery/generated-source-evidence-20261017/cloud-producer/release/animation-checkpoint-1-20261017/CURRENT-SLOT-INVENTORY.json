@@ -3341,7 +3341,7 @@
         "frame.sha256.0fa7914a68b7afd39fa82d86e6b9d0b83ffc78051f65299d33e723dbbee43ee8",
         "frame.sha256.a6638bd1e72d859bff1c3c7844d2092addc0fbcc36eced5bfc96a2085dff4732"
       ],
-      "nativeBankDrawings": 34,
+      "nativeBankDrawings": 35,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
@@ -5804,6 +5804,65 @@
           "supportRoot": null,
           "feetContactsApprox": null,
           "beakAnchorApprox": null
+        },
+        {
+          "frameId": "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d",
+          "file": "motion/sd20-house-finch-look-v1/look-native.png",
+          "fileSha256": "16a5ad32023170f4c127a7fb693f30d892fd15c57503ef2d61a528aba1ee5633",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "house_finch",
+          "appearanceVersion": "sd20-house-finch-look-v1",
+          "poseTags": [
+            "look-viewer",
+            "candidate-source",
+            "look-only"
+          ],
+          "sourceAtlas": "motion/sd20-house-finch-look-v1/original.png",
+          "sourceAtlasSha256": "16a5ad32023170f4c127a7fb693f30d892fd15c57503ef2d61a528aba1ee5633",
+          "derivation": {
+            "method": "whole native canvas nearest resize only",
+            "sourceCanvas": [
+              1254,
+              1254
+            ],
+            "outputCanvas": [
+              96,
+              96
+            ],
+            "wholeCanvasScaleXY": [
+              0.07655502392344497,
+              0.07655502392344497
+            ],
+            "referenceSourceCanvas": [
+              1024,
+              1024
+            ],
+            "nativeToReferenceWholeCanvasScaleXY": [
+              0.8165869218500797,
+              0.8165869218500797
+            ],
+            "perPoseFit": false,
+            "perPoseTranslation": false,
+            "snap": false,
+            "pixelPaint": false
+          },
+          "sourcePrompt": "motion/sd20-house-finch-look-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-house-finch-look-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "look"
+          ],
+          "reuseStatus": "Independently reviewed look-only source study; Provisionally useful toward-viewer House Finch look; one actual new drawing plus exact existing awake entry/return, no new neutral/blink. Modest feather/tail/toe shimmer, retained28 extreme-red partial-alpha output pixels and foot-centroid0.679world retained; alpha contact proxies do not certify sole support. Two poses only, no smooth-turn/yaw approval. Player terminal tick71 vs nominal72 disclosed; Mac completion/runtime contract UNKNOWN, Zod/Sharp NOT_RUN; no app binding.",
+          "sourceReview": "motion/sd20-house-finch-look-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -5813,10 +5872,11 @@
         "experiments/house-finch-male-blink-runtime-assessment-v2/README.md"
       ],
       "sourceIssues": [
-        "Male blink-first uses3retained drawings with69ticks at30Hz. Older male/female6pose idles retain contour/foot/layout drift.",
-        "12feed drawings are illustrative with oversized seed/kernel and unresolved pickup/crush timing; no consumption completion.",
-        "Female preen6drawings +reusedneutral fail body/feet/neutraltransition review; single-canvas repair also failed.",
-        "Fixed-body cutout proof and neck cleanup are rigged0newdrawings, attention tilt only, unresolved jaw/overlap seam."
+        "Baseline PR33: Male blink-first uses3retained drawings with69ticks at30Hz. Older male/female6pose idles retain contour/foot/layout drift.",
+        "Baseline PR33: 12feed drawings are illustrative with oversized seed/kernel and unresolved pickup/crush timing; no consumption completion.",
+        "Baseline PR33: Female preen6drawings +reusedneutral fail body/feet/neutraltransition review; single-canvas repair also failed.",
+        "Baseline PR33: Fixed-body cutout proof and neck cleanup are rigged0newdrawings, attention tilt only, unresolved jaw/overlap seam.",
+        "Current checkpoint: Provisionally useful toward-viewer House Finch look; one actual new drawing plus exact existing awake entry/return, no new neutral/blink. Modest feather/tail/toe shimmer, retained28 extreme-red partial-alpha output pixels and foot-centroid0.679world retained; alpha contact proxies do not certify sole support. Two poses only, no smooth-turn/yaw approval. Player terminal tick71 vs nominal72 disclosed; Mac completion/runtime contract UNKNOWN, Zod/Sharp NOT_RUN; no app binding."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -5886,27 +5946,192 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "standing blink/look",
           "biologicalFrequencyRank": null,
-          "state": "older-drawn-look-study-drift",
+          "state": "provisional-drawn-look",
           "sourceFrameIds": [
-            "frame.sha256.44414f3c60e2bf4b7f169b2ac947bf8f4de14ce2c4c5cef2b856ec4e5c8f44f8",
-            "frame.sha256.f375fffe6ce7305c54ea4b0ac406759dd3054a12eaa9e61a41546fd30a501883",
-            "frame.sha256.50ec82abea5384d8ff366cb1bc79b0dc7ed39de8ce98d3dfb0042d551613f91a",
-            "frame.sha256.3a201c10e3353cd0edca041dc61f8091b92ef85e7aaedaa5a8d929e25fd3f9c9",
-            "frame.sha256.136c3550c99937982f469d6f6b31c6fe006a03e773c591082910521addc4655c",
-            "frame.sha256.be71155b634fe968903c3f32fdcdcf17498038f9e5bc2e3456f9a200daac38a2"
+            "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+            "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d"
           ],
-          "uniqueKnownSourceIDs": 6,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
           "evidencePaths": [
-            "batches/house-finch-male-idle-v1/manifest.json",
-            "batches/house-finch-female-idle-v1/manifest.json"
+            "motion/sd20-house-finch-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-house-finch-look-v1/texture-review-manifest.json",
+            "motion/sd20-house-finch-look-v1/frame-to-action-map.json",
+            "motion/sd20-house-finch-look-v1/independent-review.json"
           ],
-          "preparedPackagePaths": [],
-          "remainingPhasesOrReview": [],
+          "preparedPackagePaths": [
+            "motion/sd20-house-finch-look-v1/texture-review-manifest.json"
+          ],
+          "remainingPhasesOrReview": [
+            "Provisionally useful toward-viewer House Finch look; one actual new drawing plus exact existing awake entry/return, no new neutral/blink. Modest feather/tail/toe shimmer, retained28 extreme-red partial-alpha output pixels and foot-centroid0.679world retained; alpha contact proxies do not certify sole support. Two poses only, no smooth-turn/yaw approval. Player terminal tick71 vs nominal72 disclosed; Mac completion/runtime contract UNKNOWN, Zod/Sharp NOT_RUN; no app binding.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
+          ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "older-drawn-look-study-drift",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "finch-male-open-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+            },
+            {
+              "frameId": "house-finch-look-viewer-96",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d",
+              "outputRGBAId": "frame.sha256.241c63ebc4449d70e1f7a549d56df9cb32cfd575fe6b87d348db15056fcaefe7"
+            },
+            {
+              "frameId": "finch-male-open-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-house-finch-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-house-finch-look-v1/look-atlas96.png",
+              "clipId": "look",
+              "tickRate": 30,
+              "loop": false,
+              "durationTicks": 72,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "finch-male-open-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+                  "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+                },
+                {
+                  "frameId": "house-finch-look-viewer-96",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d",
+                  "outputRGBAId": "frame.sha256.241c63ebc4449d70e1f7a549d56df9cb32cfd575fe6b87d348db15056fcaefe7"
+                },
+                {
+                  "frameId": "finch-male-open-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+                  "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "lookOnlyNewDrawing": true,
+          "selectedLookManifest": "motion/sd20-house-finch-look-v1/texture-review-manifest.json",
+          "selectedClipId": "look",
+          "newSourceFrameIds": [
+            "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b"
+          ],
+          "batchNewDrawings": 1,
+          "batchReusedDrawings": 1,
+          "newNeutralDrawings": 0,
+          "newBlinkDrawings": 0,
+          "packetBindingReady": false,
+          "lookOnlySourceReview": {
+            "batchId": "sd20-house-finch-look-v1",
+            "kind": "look-only-new-drawing-source-candidate",
+            "canonicalSchemaValidation": "NOT_RUN; explicit look clip needs current Mac contract confirmation",
+            "profileLabelIsRuntimeAdmission": false,
+            "primaryManifest": "motion/sd20-house-finch-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "manifest": "motion/sd20-house-finch-look-v1/texture-review-manifest.json",
+            "atlasPNG": "motion/sd20-house-finch-look-v1/look-atlas96.png",
+            "manifestSHA256": "88b352d0913e765d96ef40efa8ce37ad13c0c58c11188be1e3e997161113535f",
+            "atlasSHA256": "c25b8d55fb46851d77c24c22ffef7c856103f4ffa5b0c3335ab2a1655de7e772",
+            "sourceFrameIds": [
+              "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d"
+            ],
+            "newSourceFrameIds": [
+              "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d"
+            ],
+            "reusedSourceFrameIds": [
+              "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b"
+            ],
+            "newDrawingCount": 1,
+            "reusedDrawingCount": 1,
+            "newNeutralDrawings": 0,
+            "newBlinkDrawings": 0,
+            "clipId": "look",
+            "orderedSourceFrameSequence": [
+              {
+                "frameId": "finch-male-open-96",
+                "durationTicks": 30,
+                "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+                "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+              },
+              {
+                "frameId": "house-finch-look-viewer-96",
+                "durationTicks": 12,
+                "sourceFrameId": "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d",
+                "outputRGBAId": "frame.sha256.241c63ebc4449d70e1f7a549d56df9cb32cfd575fe6b87d348db15056fcaefe7"
+              },
+              {
+                "frameId": "finch-male-open-96",
+                "durationTicks": 30,
+                "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+                "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+              }
+            ],
+            "renderBinding": {
+              "manifest": "motion/sd20-house-finch-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-house-finch-look-v1/look-atlas96.png",
+              "clipId": "look",
+              "tickRate": 30,
+              "loop": false,
+              "durationTicks": 72,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "finch-male-open-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+                  "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+                },
+                {
+                  "frameId": "house-finch-look-viewer-96",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d",
+                  "outputRGBAId": "frame.sha256.241c63ebc4449d70e1f7a549d56df9cb32cfd575fe6b87d348db15056fcaefe7"
+                },
+                {
+                  "frameId": "finch-male-open-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+                  "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            },
+            "evidencePaths": [
+              "motion/sd20-house-finch-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "motion/sd20-house-finch-look-v1/texture-review-manifest.json",
+              "motion/sd20-house-finch-look-v1/frame-to-action-map.json",
+              "motion/sd20-house-finch-look-v1/independent-review.json"
+            ],
+            "sourceHeld": false,
+            "sourceReviewState": "reviewed-source-look-with-qualifications",
+            "productionAccepted": false,
+            "runtimeAdmission": false,
+            "packetBindingReady": false,
+            "appBinding": "UNKNOWN",
+            "actualYardVerification": "UNKNOWN",
+            "reviewReceipt": {
+              "path": "motion/sd20-house-finch-look-v1/independent-review.json",
+              "sha256": "3d922a0606c6bf607a0c25b36fabf93de749ea5877be5e855b06f8374a0a4304"
+            }
+          }
         },
         {
           "speciesId": "house_finch",
@@ -6895,7 +7120,12 @@
         "Female preen6drawings +reusedneutral fail body/feet/neutraltransition review; single-canvas repair also failed.",
         "Fixed-body cutout proof and neck cleanup are rigged0newdrawings, attention tilt only, unresolved jaw/overlap seam."
       ],
-      "currentSourceIssues": [],
+      "currentSourceIssues": [
+        "Provisionally useful toward-viewer House Finch look; one actual new drawing plus exact existing awake entry/return, no new neutral/blink. Modest feather/tail/toe shimmer, retained28 extreme-red partial-alpha output pixels and foot-centroid0.679world retained; alpha contact proxies do not certify sole support. Two poses only, no smooth-turn/yaw approval. Player terminal tick71 vs nominal72 disclosed; Mac completion/runtime contract UNKNOWN, Zod/Sharp NOT_RUN; no app binding."
+      ],
+      "overlayQualifications": [
+        "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings."
+      ],
       "primaryManifestSHA256": "8524d97db16452d4e04a0d9cdc762eb06b798e1b08af855315370c4ad73a9678",
       "primaryAtlasSHA256": "577897ba73e239d73daa969e9cf9179be8acb8e0d976b84ee8d0c9c847ad0798",
       "primaryClipId": "idle",
@@ -6913,6 +7143,16 @@
               "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
               "evidence": "experiments/house-finch-male-blink-runtime-assessment-v2/source-lineage.json",
               "phase": "finch-male-open-96",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "sourcePNG": "motion/sd20-house-finch-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-house-finch-look-v1/reused-awake96.png",
+              "outputPNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974",
+              "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
+              "evidence": "motion/sd20-house-finch-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -21284,6 +21524,16 @@
               "evidence": "experiments/house-finch-male-blink-runtime-assessment-v2/source-lineage.json",
               "phase": "finch-male-open-96",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "sourcePNG": "motion/sd20-house-finch-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-house-finch-look-v1/reused-awake96.png",
+              "outputPNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974",
+              "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
+              "evidence": "motion/sd20-house-finch-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -29621,6 +29871,234 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-house-finch-look-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-house-finch-look-v1/texture-review-manifest.json",
+      "manifestSHA256": "88b352d0913e765d96ef40efa8ce37ad13c0c58c11188be1e3e997161113535f",
+      "atlasPNG": "motion/sd20-house-finch-look-v1/look-atlas96.png",
+      "atlasSHA256": "c25b8d55fb46851d77c24c22ffef7c856103f4ffa5b0c3335ab2a1655de7e772",
+      "atlasDimensions": [
+        192,
+        96
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "finch-male-open-96",
+          "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
+          "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "sourcePNG": "frames/fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b.png",
+              "outputPNG": "experiments/house-finch-male-blink-runtime-assessment-v2/frames96/open.png",
+              "outputPNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974",
+              "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
+              "evidence": "experiments/house-finch-male-blink-runtime-assessment-v2/source-lineage.json",
+              "phase": "finch-male-open-96",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "sourcePNG": "motion/sd20-house-finch-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-house-finch-look-v1/reused-awake96.png",
+              "outputPNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974",
+              "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
+              "evidence": "motion/sd20-house-finch-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 96,
+            "height": 96
+          },
+          "sourcePixelsPerWorldUnit": 1,
+          "pivot": {
+            "x": 48,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-a",
+              "x": 45,
+              "y": 73
+            },
+            {
+              "id": "foot-b",
+              "x": 48,
+              "y": 74
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-a",
+              "x": 45,
+              "y": 73,
+              "sampledAlpha": 242,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-b",
+              "x": 48,
+              "y": 74,
+              "sampledAlpha": 169,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "house-finch-look-viewer-96",
+          "outputRGBAId": "frame.sha256.241c63ebc4449d70e1f7a549d56df9cb32cfd575fe6b87d348db15056fcaefe7",
+          "sourceFrameId": "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d",
+              "sourcePNG": "motion/sd20-house-finch-look-v1/look-native.png",
+              "outputPNG": "motion/sd20-house-finch-look-v1/look96.png",
+              "outputPNGsha256": "534a3329c51a9517dbee7c6b67937dce0fb881ba8be416bd1259e5c6e1bc7904",
+              "outputRGBAId": "frame.sha256.241c63ebc4449d70e1f7a549d56df9cb32cfd575fe6b87d348db15056fcaefe7",
+              "evidence": "motion/sd20-house-finch-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "look-viewer",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 96,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 96,
+            "height": 96
+          },
+          "sourcePixelsPerWorldUnit": 1,
+          "pivot": {
+            "x": 48,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-a",
+              "x": 45,
+              "y": 73
+            },
+            {
+              "id": "foot-b",
+              "x": 48,
+              "y": 74
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-a",
+              "x": 45,
+              "y": 73,
+              "sampledAlpha": 251,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-b",
+              "x": 48,
+              "y": 74,
+              "sampledAlpha": 235,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "finch-male-open-96",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "finch-male-open-96",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b"
+          ]
+        },
+        {
+          "id": "look",
+          "tickRate": 30,
+          "loop": false,
+          "frames": [
+            {
+              "frameId": "finch-male-open-96",
+              "durationTicks": 30
+            },
+            {
+              "frameId": "house-finch-look-viewer-96",
+              "durationTicks": 12
+            },
+            {
+              "frameId": "finch-male-open-96",
+              "durationTicks": 30
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "finch-male-open-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+            },
+            {
+              "frameId": "house-finch-look-viewer-96",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d",
+              "outputRGBAId": "frame.sha256.241c63ebc4449d70e1f7a549d56df9cb32cfd575fe6b87d348db15056fcaefe7"
+            },
+            {
+              "frameId": "finch-male-open-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+              "outputRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66"
+            }
+          ],
+          "durationTicks": 72,
+          "durationSeconds": 2.4,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+            "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -31028,7 +31506,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/crow-look-ingest-build-o4zyl951/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/house-finch-look-ingest-build-kq9n55_u/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -31042,19 +31520,6 @@
           "actualSlotState": "single-open-look-pose-no-matched-turn",
           "sourceFrameIds": [
             "frame.sha256.96b2cbe379067cb25d7d33963ae49cd4ce3fc615de22999472b8476e6408ea28"
-          ],
-          "existingStudyBeforeNewCall": true
-        },
-        {
-          "speciesId": "house_finch",
-          "actualSlotState": "older-drawn-look-study-drift",
-          "sourceFrameIds": [
-            "frame.sha256.44414f3c60e2bf4b7f169b2ac947bf8f4de14ce2c4c5cef2b856ec4e5c8f44f8",
-            "frame.sha256.f375fffe6ce7305c54ea4b0ac406759dd3054a12eaa9e61a41546fd30a501883",
-            "frame.sha256.50ec82abea5384d8ff366cb1bc79b0dc7ed39de8ce98d3dfb0042d551613f91a",
-            "frame.sha256.3a201c10e3353cd0edca041dc61f8091b92ef85e7aaedaa5a8d929e25fd3f9c9",
-            "frame.sha256.136c3550c99937982f469d6f6b31c6fe006a03e773c591082910521addc4655c",
-            "frame.sha256.be71155b634fe968903c3f32fdcdcf17498038f9e5bc2e3456f9a200daac38a2"
           ],
           "existingStudyBeforeNewCall": true
         },
@@ -31126,18 +31591,18 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-17T23:36:47.801068+00:00",
+  "projectionAsOfUTC": "2026-10-17T23:45:27.021961+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 139,
-    "registeredNativeOriginals": 39,
-    "newNativeCalls": 18,
-    "newDrawings": 37,
+    "registeredPrimaryDrawingIDs": 140,
+    "registeredNativeOriginals": 40,
+    "newNativeCalls": 19,
+    "newDrawings": 38,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 45,
+    "usefulProvisionalIdleSemanticUses": 46,
     "usefulIdleUsesByAction": {
       "neutral": 19,
       "blink": 15,
-      "look": 11
+      "look": 12
     },
     "reviewedOneShotHopStudies": 2,
     "sourceAcceptedFullLocomotionSlots": 0,
@@ -31149,11 +31614,10 @@
       "provisional-drawn-blink": 15,
       "two-drawn-hover-wing-study-only": 1,
       "missing": 137,
-      "older-drawn-look-study-drift": 1,
+      "provisional-drawn-look": 12,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,
       "drawn-perch-candidate-failed-registration": 1,
-      "provisional-drawn-look": 11,
       "rig-only-static-translation-proof": 1,
       "provisional-drawn-one-shot-hop-study-contact-unbound": 2,
       "provisional-held-static-fallback": 2,

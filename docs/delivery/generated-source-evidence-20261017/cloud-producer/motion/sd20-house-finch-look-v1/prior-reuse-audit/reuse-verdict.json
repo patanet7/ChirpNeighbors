@@ -1,0 +1,211 @@
+{
+  "auditId": "house-finch-look-reuse-before-generation-v1",
+  "scope": "preliminary existing-source inspection only",
+  "nativeCalls": 0,
+  "newDrawings": 0,
+  "imageGenerationQueued": false,
+  "imageGenerationAuthorized": false,
+  "currentAwake": {
+    "pose": "neutral",
+    "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+    "canonicalPath": "/workspace/chirp-cloud-source-canon/docs/delivery/generated-source-evidence-20261017/cloud-producer/frames/fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b.png",
+    "sourceFile": "sources/neutral1024.png",
+    "sourcePNGsha256": "bab4bfb8ffc82f533f776b1b6596b76b59c7fef2354615fc7fe0dfc495db1bca",
+    "canonicalAndWorkingCopyIdentical": true,
+    "outputPNG": "frames96/neutral.png",
+    "outputPNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974",
+    "sourceCanvas": [
+      1024,
+      1024
+    ],
+    "outputCanvas": [
+      96,
+      96
+    ],
+    "wholeCanvasScale": 0.09375,
+    "worldCanvas": [
+      96,
+      96
+    ],
+    "density": 1,
+    "pivot": [
+      48,
+      75
+    ],
+    "feetContactProbes": [
+      {
+        "id": "foot-a",
+        "x": 45,
+        "y": 73,
+        "actualAlpha": 242
+      },
+      {
+        "id": "foot-b",
+        "x": 48,
+        "y": 74,
+        "actualAlpha": 169
+      }
+    ],
+    "bboxAlpha128": [
+      15,
+      37,
+      64,
+      75
+    ],
+    "legacyApproxFeetSource": [
+      [
+        480,
+        794
+      ],
+      [
+        543,
+        800
+      ]
+    ],
+    "legacyApproxBeakSource": [
+      689,
+      460
+    ],
+    "legacyRegistration": {
+      "method": "6 principal alpha>=32 components; nearest-component assignment of all alpha>=2 pixels; integer translation only",
+      "alphaOneResidueDiscardedInDerivative": true,
+      "originalRetainedUnchanged": true,
+      "translation": [
+        154,
+        297
+      ],
+      "sourceScale": 1,
+      "perFrameRescale": false
+    },
+    "regionalComparisonToExactAwake": {
+      "headInspectionROI": {
+        "ROI": [
+          42,
+          32,
+          69,
+          58
+        ],
+        "changedRGBApixels": 0,
+        "unionPositiveAlphaPixels": 364,
+        "changedFractionOfPositiveUnion": 0.0,
+        "alpha128SilhouetteIntersectionOverUnion": 1.0
+      },
+      "torsoWingInspectionROI": {
+        "ROI": [
+          25,
+          54,
+          60,
+          71
+        ],
+        "changedRGBApixels": 0,
+        "unionPositiveAlphaPixels": 408,
+        "changedFractionOfPositiveUnion": 0.0,
+        "alpha128SilhouetteIntersectionOverUnion": 1.0
+      },
+      "feetInspectionROI": {
+        "ROI": [
+          40,
+          69,
+          56,
+          78
+        ],
+        "changedRGBApixels": 0,
+        "unionPositiveAlphaPixels": 53,
+        "changedFractionOfPositiveUnion": 0.0,
+        "alpha128SilhouetteIntersectionOverUnion": 1.0
+      },
+      "tailInspectionROI": {
+        "ROI": [
+          12,
+          63,
+          39,
+          79
+        ],
+        "changedRGBApixels": 0,
+        "unionPositiveAlphaPixels": 77,
+        "changedFractionOfPositiveUnion": 0.0,
+        "alpha128SilhouetteIntersectionOverUnion": 1.0
+      }
+    }
+  },
+  "currentGeometry": {
+    "manifest": "experiments/house-finch-male-blink-runtime-assessment-v2/texture-review-manifest.json",
+    "canvas": [
+      96,
+      96
+    ],
+    "world": [
+      96,
+      96
+    ],
+    "density": 1,
+    "pivot": [
+      48,
+      75
+    ],
+    "contacts": [
+      {
+        "id": "foot-a",
+        "x": 45,
+        "y": 73,
+        "actualAlpha": 242
+      },
+      {
+        "id": "foot-b",
+        "x": 48,
+        "y": 74,
+        "actualAlpha": 169
+      }
+    ]
+  },
+  "candidateFindings": [
+    {
+      "pose": "upward-attention",
+      "sourceFrameId": "frame.sha256.44414f3c60e2bf4b7f169b2ac947bf8f4de14ce2c4c5cef2b856ec4e5c8f44f8",
+      "semantic": "Real raised-head/bill attention drawing,readable at normal96CSS source canvas.",
+      "reuseDisposition": "Retain as older attention study;does not by itself establish matched head-turn coverage.",
+      "visualIssue": "Whole-body feather/wing/tail redraw,slightly slimmer/narrower outline and foot raster change;head raises rather than turns toward viewer."
+    },
+    {
+      "pose": "viewer-glance",
+      "sourceFrameId": "frame.sha256.f375fffe6ce7305c54ea4b0ac406759dd3054a12eaa9e61a41546fd30a501883",
+      "semantic": "Real redrawn head/bill shape;shorter bill and broader face,with substantial downward bill shift.",
+      "reuseDisposition": "Held as matched look replacement;normal-yard turn direction is ambiguous between glance and downward head movement.",
+      "visualIssue": "Tail/wing/torso feather clusters and foot pixels redraw alongside head;not an isolated compatible turn. Retain study,no source deletion."
+    },
+    {
+      "pose": "profile-return",
+      "sourceFrameId": "frame.sha256.50ec82abea5384d8ff366cb1bc79b0dc7ed39de8ce98d3dfb0042d551613f91a",
+      "semantic": "Similar right-facing profile,slight bill/head shift.",
+      "reuseDisposition": "Do not add another neutral or treat as useful distinct turn. Exact current awake is safer return.",
+      "visualIssue": "Little new look information;body/foot contour and feather changes still present."
+    }
+  ],
+  "recommendation": {
+    "zeroCallReuseConfidentlyFillsMatchedLookSlot": false,
+    "currentLookState": "retain older-drawn-look-study-drift pending coordinator decision",
+    "nextUsefulSourceWork": "One genuinely new head-turn drawing edited from exact current awake,if root authorizes after Crow normal review checkpoint;reuse exact current awake as return.",
+    "newNeutralNeeded": false,
+    "newBlinkNeeded": false,
+    "retriesOrImageCallsIssued": false
+  },
+  "decisionLimits": [
+    "Preliminary producer audit,not independent admission.",
+    "Pixel equality metrics are diagnostic only,not a universal outside-head equality gate.",
+    "A visually useful broad attention pose may still be reconsidered by coordinator;this audit does not upgrade its existing held slot.",
+    "No rig/preen hold used as head-turn approval.",
+    "Browser numeric checks are loopback source viewer,not app or Mac yard validation."
+  ],
+  "evidence": [
+    "source-comparison.json",
+    "current-geometry-snapshot.json",
+    "normal-yard-and-head-comparison.png",
+    "review.html",
+    "browser-numeric-receipt.json"
+  ],
+  "nextQueue": {
+    "state": "waiting-root-GO",
+    "dependsOn": "Crow normal review checkpoint and explicit root generation authorization",
+    "action": "At most one matched-look edit if subsequently assigned;no call running/queued now."
+  }
+}
