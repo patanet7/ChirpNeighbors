@@ -1,0 +1,7 @@
+Repair07 deergrass, exact existing assetID deergrass-vegetative variant repair07_root_v1.
+One new actual imagegen fibrous crown replaces held woody-stub base. Both prior fan PNGs are reused byte-identically, not new art counts. Original depth06 held variant and sources unchanged.
+Actual healthy whole static assembly/contact reviewed on light/dark and existing depth06 coastal yard960x540/384x216. Crown is rendered600x265 via NEAREST from1218x537 exactRGBAcrop; prior fans remain1:1 native source scale inside960x768 assembly. Rootcontact point samples actualalpha249 sourcefibers. Fibroushairs may extend below nominal dense-crown anchor; no collision implementation.
+Gentle offline fan-transform GIF49decodedframes, fixedpalette, exactfirstlastclosure, protectedcore/rootRGBA unchanged49samples, no clipping. Compounds rotate about buriedpivots; base static. No perbladephysics/newdrawnframes/app animation implementation.
+Nativefinecurvedbotanical detail/strictpixelstyle and expert/owner acceptance remain pending. One actual healthy state; seasonal/dry/seedculm needs metadata only.
+Source original actual1254square despite1024square requested; preserved. Exactprompt/ref/rights/hashes/crops allretained. LicenseID/commercialuse notindependently established.
+Portable replay: wind ZIP self-contained Python scripts/render_gentle.py (Pillow,numpy). Optional yard-review ZIP adds existing yard source for same-script context outputs. All packages have memberSHA/CRC and are under8MB.

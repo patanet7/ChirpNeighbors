@@ -1,0 +1,384 @@
+{
+  "schema": "plant-source-intake-v1",
+  "track": "native-shrub-gap",
+  "batch": "repair07-native-shrubs",
+  "actual_generation_calls": 2,
+  "max_authorized_calls": 2,
+  "assets": [
+    {
+      "asset_id": "plant.bladderpod",
+      "family_id": "plant.bladderpod",
+      "variant_id": "repair07_healthy_v1",
+      "content_version": "r2_leaf_correction",
+      "display_name": "Bladderpod",
+      "taxon": {
+        "canonical_display_name": "Cleomella arborea",
+        "requested_name": "Peritoma arborea",
+        "synonyms": [
+          "Peritoma arborea",
+          "Isomeris arborea"
+        ],
+        "not_duplicates_of": [
+          "Prunus ilicifolia (hollyleaf cherry)",
+          "Heteromeles arbutifolia (toyon)"
+        ]
+      },
+      "file": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "dimensions": [
+        780,
+        901
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "min": 0,
+        "max": 254,
+        "actual_zero_pixels": 281673,
+        "real_alpha": true,
+        "fully_opaque_core": false,
+        "near_opaque_source_known_defect": "Maximum253/254, preserved rather than claimed255."
+      },
+      "source": {
+        "sheet": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/originals/two-native-shrubs-r2.png",
+        "sheet_sha256": "b1802ea18a3476271f0e50549525af80331a8558589ea0ed8a8314cc871dfc63",
+        "crop_xyxy": [
+          10,
+          64,
+          790,
+          965
+        ],
+        "matte_operation": "Alpha<8 set0; fullverticalgutterseparatorx790; preserveotherRGBA; cropwith4pxpadding",
+        "rights": "Project-generated art and project-owned style refs; no external photographic pixels or license grants used.",
+        "botanical_text_attribution_file": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/metadata/botanical-provenance.json",
+        "generation_prompt": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/prompts/bladderpod-leaf-correction-r2.txt",
+        "original_r1_prompt_preserved": true
+      },
+      "geometry": {
+        "anchor_px": [
+          370,
+          895
+        ],
+        "anchor_normalized": [
+          0.47435897435897434,
+          0.9933407325194229
+        ],
+        "contact_footprint_bbox_px": [
+          196,
+          871,
+          544,
+          896
+        ],
+        "contact_footprint_polygon_px": [
+          [
+            196,
+            871
+          ],
+          [
+            544,
+            871
+          ],
+          [
+            544,
+            896
+          ],
+          [
+            196,
+            896
+          ]
+        ],
+        "anchor_method": "Representative contact anchor from bottom13 alpha>=128 rows; footprint from bottom25 rows, includes small baked ground-contact tuft, not botanical root system.",
+        "managed_example_height_m": 1.5,
+        "mature_example_height_m": 2.0,
+        "primary_text_height_range_m": [
+          0.5,
+          2
+        ],
+        "actual_runtime_physical_scale": null
+      },
+      "regional_ecology": {
+        "region": "San Diego / Southern California native yard candidate; precise site/habitat and provenance suitability conditional",
+        "evidence": "CNPS SanDiego plant-sale list plus FNA/Calflora taxon text",
+        "habit": "evergreen shrub",
+        "moisture": "Dry-season appearance and flowering/fruiting vary with establishment, water, location and year. No exact-month rule, snow or blanket autumn-color default.",
+        "flowers_fruit": "Illustrative simultaneous yellow flowering/pod state, not every month guaranteed.",
+        "bird_food_or_pollinator_behavior_implemented": false
+      },
+      "actual_states": [
+        "healthy.flowering.pods"
+      ],
+      "state_slots": [
+        {
+          "state": "healthy.vegetative",
+          "status": "needs_art"
+        },
+        {
+          "state": "mild_dry_stress",
+          "status": "needs_art"
+        },
+        {
+          "state": "strong_dry_stress",
+          "status": "needs_art"
+        },
+        {
+          "state": "season_spring",
+          "status": "needs_art"
+        },
+        {
+          "state": "season_summer",
+          "status": "needs_art"
+        },
+        {
+          "state": "season_autumn",
+          "status": "needs_art"
+        },
+        {
+          "state": "season_winter",
+          "status": "needs_art"
+        }
+      ],
+      "layers": {
+        "whole_sprite_flattened": true,
+        "independently_placeable_whole_sprite": true,
+        "wood_and_leaf_separation": false,
+        "foliage_part_slots": "needs_art",
+        "branch_part_slots": "needs_art",
+        "occlusion_mask": "needs_art"
+      },
+      "wind": {
+        "implemented": false,
+        "root_anchor": [
+          370,
+          895
+        ],
+        "whole_sprite_wind_disabled": true,
+        "rigid_root_contact_motion_limit_px": 0,
+        "trunk_attachment_metadata": "root anchor only; anatomy-specific branch pivots unresolved because art is flattened",
+        "flexible_leaf_pivot": null,
+        "mild_heavy_states": "needs separated art and rig; no preview or physics in this batch"
+      },
+      "functional_interaction": {
+        "perch_anchor": null,
+        "forage_points": [],
+        "status": "requirements only, not implemented"
+      },
+      "review": {
+        "generated": true,
+        "worker_reviewed": true,
+        "status": "provisional_botanical_candidate",
+        "parent_review": "static_candidate_pass_with_botanical_limits; owner_and_mac_acceptance_pending",
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "rejection_reason": null,
+        "known_defects": [
+          "R2 improves prominent three-leaflet groups; overlaps still require botanical art review.",
+          "Near-opaque sprite alpha maximum below255 and fine edge softness.",
+          "Small root-contact tuft is baked into sprite; not separate ground mesh.",
+          "Fine diagnostic leaf anatomy is not reliable at tiny mobile display."
+        ]
+      },
+      "canonical_intake": {
+        "status": "pending_parent_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      }
+    },
+    {
+      "asset_id": "plant.hollyleaf_redberry",
+      "family_id": "plant.hollyleaf_redberry",
+      "variant_id": "repair07_healthy_v1",
+      "content_version": "r1",
+      "display_name": "Hollyleaf redberry",
+      "taxon": {
+        "canonical_display_name": "Rhamnus ilicifolia",
+        "requested_name": "Rhamnus ilicifolia",
+        "synonyms": [
+          "Rhamnus crocea subsp. ilicifolia",
+          "Rhamnus crocea var. ilicifolia"
+        ],
+        "not_duplicates_of": [
+          "Prunus ilicifolia (hollyleaf cherry)",
+          "Heteromeles arbutifolia (toyon)"
+        ]
+      },
+      "file": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/hollyleaf_redberry.png",
+      "sha256": "4edcf1e2ff99e0fdf8d3e456a47be0c525435d1eae475c87e379aa7a69239289",
+      "dimensions": [
+        737,
+        883
+      ],
+      "mode": "RGBA",
+      "alpha": {
+        "min": 0,
+        "max": 253,
+        "actual_zero_pixels": 223038,
+        "real_alpha": true,
+        "fully_opaque_core": false,
+        "near_opaque_source_known_defect": "Maximum253/254, preserved rather than claimed255."
+      },
+      "source": {
+        "sheet": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/originals/two-native-shrubs-r1.png",
+        "sheet_sha256": "cf7017535887709887b4b218fb250881c52a47f4cd6d64cf8a2cd24e6de1e848",
+        "crop_xyxy": [
+          790,
+          79,
+          1527,
+          962
+        ],
+        "matte_operation": "Alpha<8 set0; fullverticalgutterseparatorx790; preserveotherRGBA; cropwith4pxpadding",
+        "rights": "Project-generated art and project-owned style refs; no external photographic pixels or license grants used.",
+        "botanical_text_attribution_file": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/metadata/botanical-provenance.json",
+        "generation_prompt": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/prompts/two-native-shrubs-r1.txt",
+        "original_r1_prompt_preserved": true
+      },
+      "geometry": {
+        "anchor_px": [
+          388,
+          877
+        ],
+        "anchor_normalized": [
+          0.5264586160108549,
+          0.9932049830124575
+        ],
+        "contact_footprint_bbox_px": [
+          200,
+          853,
+          566,
+          878
+        ],
+        "contact_footprint_polygon_px": [
+          [
+            200,
+            853
+          ],
+          [
+            566,
+            853
+          ],
+          [
+            566,
+            878
+          ],
+          [
+            200,
+            878
+          ]
+        ],
+        "anchor_method": "Representative contact anchor from bottom13 alpha>=128 rows; footprint from bottom25 rows, includes small baked ground-contact tuft, not botanical root system.",
+        "managed_example_height_m": 2.0,
+        "mature_example_height_m": 3.5,
+        "primary_text_height_range_m": [
+          1.5,
+          4
+        ],
+        "actual_runtime_physical_scale": null
+      },
+      "regional_ecology": {
+        "region": "San Diego / Southern California native yard candidate; precise site/habitat and provenance suitability conditional",
+        "evidence": "USDA/RCRCD profile explicitly records SanDiego localities and regional habitat",
+        "habit": "evergreen shrub",
+        "moisture": "Dry-season appearance and flowering/fruiting vary with establishment, water, location and year. No exact-month rule, snow or blanket autumn-color default.",
+        "flowers_fruit": "Illustrative fruiting individual with red drupes, not all individuals/seasons guaranteed.",
+        "bird_food_or_pollinator_behavior_implemented": false
+      },
+      "actual_states": [
+        "healthy.fruiting"
+      ],
+      "state_slots": [
+        {
+          "state": "healthy.vegetative",
+          "status": "needs_art"
+        },
+        {
+          "state": "mild_dry_stress",
+          "status": "needs_art"
+        },
+        {
+          "state": "strong_dry_stress",
+          "status": "needs_art"
+        },
+        {
+          "state": "season_spring",
+          "status": "needs_art"
+        },
+        {
+          "state": "season_summer",
+          "status": "needs_art"
+        },
+        {
+          "state": "season_autumn",
+          "status": "needs_art"
+        },
+        {
+          "state": "season_winter",
+          "status": "needs_art"
+        }
+      ],
+      "layers": {
+        "whole_sprite_flattened": true,
+        "independently_placeable_whole_sprite": true,
+        "wood_and_leaf_separation": false,
+        "foliage_part_slots": "needs_art",
+        "branch_part_slots": "needs_art",
+        "occlusion_mask": "needs_art"
+      },
+      "wind": {
+        "implemented": false,
+        "root_anchor": [
+          388,
+          877
+        ],
+        "whole_sprite_wind_disabled": true,
+        "rigid_root_contact_motion_limit_px": 0,
+        "trunk_attachment_metadata": "root anchor only; anatomy-specific branch pivots unresolved because art is flattened",
+        "flexible_leaf_pivot": null,
+        "mild_heavy_states": "needs separated art and rig; no preview or physics in this batch"
+      },
+      "functional_interaction": {
+        "perch_anchor": null,
+        "forage_points": [],
+        "status": "requirements only, not implemented"
+      },
+      "review": {
+        "generated": true,
+        "worker_reviewed": true,
+        "status": "provisional_botanical_candidate",
+        "parent_review": "static_candidate_pass_with_botanical_limits; owner_and_mac_acceptance_pending",
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "rejection_reason": null,
+        "known_defects": [
+          "Some leaves remain stylized hollylike and berry-to-leaf ratio emphasized; taxon review provisional.",
+          "Near-opaque sprite alpha maximum below255 and fine edge softness.",
+          "Small root-contact tuft is baked into sprite; not separate ground mesh.",
+          "Fine diagnostic leaf anatomy is not reliable at tiny mobile display."
+        ]
+      },
+      "canonical_intake": {
+        "status": "pending_parent_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      }
+    }
+  ],
+  "unique_species_entries": 2,
+  "source_history": [
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/originals/two-native-shrubs-r1.png",
+      "sha256": "cf7017535887709887b4b218fb250881c52a47f4cd6d64cf8a2cd24e6de1e848",
+      "left_bladderpod_status": "HELD for diagnostic4–5leaflet groups",
+      "right_redberry_status": "preferred provisional source"
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/originals/two-native-shrubs-r2.png",
+      "sha256": "b1802ea18a3476271f0e50549525af80331a8558589ea0ed8a8314cc871dfc63",
+      "left_bladderpod_status": "preferred corrected provisional source",
+      "right_redberry_status": "historical resynthesis, not a third asset or additional species"
+    }
+  ],
+  "generated_yard_backgrounds": 0,
+  "wind_or_physics_implemented": false,
+  "shared_catalog_edited": false,
+  "evidence_test_command": "python source-unpublished/expansion/repair-07/native-shrubs/finalize_shrubs.py"
+}
