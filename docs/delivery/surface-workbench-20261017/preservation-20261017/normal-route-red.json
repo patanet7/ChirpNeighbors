@@ -1,0 +1,694 @@
+{
+  "schemaVersion": 1,
+  "status": "failed",
+  "scope": "Actual normal / Pixi renderer; isolated synthetic owners/database/server/browser only",
+  "repo": "/Users/thomaspatane/GitHub/personal/birdsong-yard-sprites",
+  "node": "v24.19.0",
+  "output": "/Users/thomaspatane/Documents/Codex/2026-10-16/task/.chirp-runtime/normal-runtime-repair-20261017/red-browser/chirp-normal-runtime-P3Zrbv",
+  "data": "/var/folders/5h/dtb8sz851qq_0xkndxnx29zh0000gn/T/chirp-normal-yard-data-w5VbTe",
+  "checks": [
+    {
+      "name": "Two actual canonical fixture sessions use isolated synthetic owner state",
+      "passed": true,
+      "detail": {
+        "aliceBirds": 3,
+        "bobBirds": 3
+      }
+    },
+    {
+      "name": "Alice creates second bath through canonical object command",
+      "passed": true,
+      "detail": {
+        "id": "98375234-574d-474f-b905-e114985bfe90",
+        "kind": "bath",
+        "x": 482,
+        "y": 407
+      }
+    },
+    {
+      "name": "normal-yard-before-runtime-assertion: actual rendered RGB pixels vary",
+      "passed": true,
+      "detail": {
+        "label": "normal-yard-before-runtime-assertion",
+        "file": "normal-yard-before-runtime-assertion.png",
+        "sha256": "ece9fa83004f8fab05fb0a49a773f85cb1b20bfad3d54dc12dd82bfd83cd78a6",
+        "bytes": 11293,
+        "width": 1122,
+        "height": 632,
+        "channels": 3,
+        "rgbStdDev": [
+          53.35115894402481,
+          38.19204077253667,
+          43.822164529148544
+        ]
+      }
+    },
+    {
+      "name": "Normal yard exposes physical configuration and actual shared runtime diagnostics",
+      "passed": false,
+      "detail": {
+        "runtimePresent": false,
+        "physicalPresent": false,
+        "canvasRendered": true,
+        "attrs": [
+          "data-scene-renderer",
+          "data-scene-layers",
+          "data-scene-manifest",
+          "data-review-art",
+          "data-environment",
+          "data-layer-visibility",
+          "data-depth-order",
+          "data-asset-pins",
+          "data-resources",
+          "data-decorative-visit"
+        ]
+      }
+    }
+  ],
+  "sourceHashes": {
+    "src/routes/+page.svelte": "0205dab34c702108eb45fcf586618c9020641d30c96a69939eca70f54baf2176",
+    "src/lib/components/YardScene.svelte": "17807cc0b6c0ad87534eba139b37bdc285be8c9532360fae6d57ba329123b3af",
+    "src/lib/engine/renderer.ts": "6fc9205c0b5666216075b0a91cc179fad82fbbb48353197f433a377a29c41d22",
+    "src/lib/engine/surface-runtime.ts": "796a20e4ce81f7af53339914775e027099b577707a1eb1a629b91dd06941edbe",
+    "src/lib/engine/surface-interactions.ts": "cd9e7e1aa708ecba432c9e32fd4881e6ab68df3e378e2c8ce470c8e7653ec146",
+    "script": "66861101c289df3bcef15d53f0e9678d939de0cfebe749ccb291fdba75c1f181"
+  },
+  "screenshots": [
+    {
+      "label": "normal-yard-before-runtime-assertion",
+      "file": "normal-yard-before-runtime-assertion.png",
+      "sha256": "ece9fa83004f8fab05fb0a49a773f85cb1b20bfad3d54dc12dd82bfd83cd78a6",
+      "bytes": 11293,
+      "width": 1122,
+      "height": 632,
+      "channels": 3,
+      "rgbStdDev": [
+        53.35115894402481,
+        38.19204077253667,
+        43.822164529148544
+      ]
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": [],
+  "phases": [
+    {
+      "phase": "baseline-normal-yard",
+      "observed": {
+        "runtime": null,
+        "physical": null,
+        "actors": [
+          {
+            "sessionSeed": 2977507661,
+            "profile": {
+              "schemaVersion": 1,
+              "speciesId": "cn-species-passer-domesticus",
+              "tuning": "illustrative",
+              "sizeScale": 0.85,
+              "movement": {
+                "speed": 112,
+                "hopBias": 0.8
+              },
+              "preferences": {
+                "ground": 4,
+                "perch": 1,
+                "feed": 4
+              },
+              "socialSpacing": 4,
+              "caution": 0.5
+            },
+            "speciesId": "cn-species-passer-domesticus",
+            "traits": {
+              "schemaVersion": 1,
+              "speciesId": "cn-species-passer-domesticus",
+              "provenance": {
+                "kind": "product-authored-illustrative",
+                "version": 1,
+                "biologicalValidation": "unvalidated",
+                "observationDerived": false
+              },
+              "sizeScale": 0.85,
+              "locomotion": {
+                "speed": 112,
+                "hopBias": 0.8
+              },
+              "affinities": {
+                "ground": 4,
+                "perch": 1,
+                "roost": 5
+              },
+              "activities": {
+                "feed": 4,
+                "bath": 4,
+                "nest": 3,
+                "play": 3,
+                "sing": 2
+              },
+              "socialSpacing": 4,
+              "caution": 0.5
+            },
+            "personality": {
+              "schemaVersion": 1,
+              "provenance": {
+                "kind": "fictional-individual",
+                "version": 1,
+                "observationDerived": false,
+                "seedBasis": "decorative-resident-id"
+              },
+              "seed": 1262235620,
+              "curiosity": 0.9526674328261677,
+              "sociability": 0.001056621317066397,
+              "boldness": 0.9874600290757278
+            },
+            "decision": {
+              "schemaVersion": 1,
+              "provenance": "decorative-simulation",
+              "tick": 0,
+              "phase": "day",
+              "trigger": "initial-placement",
+              "selected": {
+                "behavior": "idle",
+                "slotId": "ground:1:2",
+                "affordance": "ground",
+                "capability": null,
+                "priority": 4,
+                "reasons": [
+                  "highest-available-affinity",
+                  "clearance-verified"
+                ]
+              },
+              "candidates": [],
+              "locomotion": {
+                "mode": "flight",
+                "reason": "stationary-support"
+              },
+              "transition": {
+                "from": "idle",
+                "to": "idle",
+                "reason": "activity-transition"
+              }
+            },
+            "environment": {
+              "provenance": "product-authored-illustrative",
+              "biologicalValidation": "unvalidated",
+              "phase": "day",
+              "restricted": [],
+              "shelter": {
+                "status": "not-required",
+                "slotId": null,
+                "reason": "calm-environment"
+              }
+            },
+            "effective": {
+              "socialSpacing": 3.9989433786829336,
+              "caution": 0.3537619912772817,
+              "priorities": {
+                "idle": 4,
+                "moving": 1,
+                "perching": 1,
+                "singing": 2.487460029075728,
+                "feeding": 4,
+                "bathing": 4.9053348656523355,
+                "sleeping": 5,
+                "playing": 3.6790011492392516,
+                "nesting": 2.3209988507607484
+              }
+            },
+            "placement": "placed",
+            "experiment": null,
+            "locomotion": "flight",
+            "direction": 1,
+            "transform": {
+              "pivot": {
+                "x": 36,
+                "y": 48
+              },
+              "direction": 1,
+              "rotation": 0,
+              "scale": 0.85,
+              "origin": {
+                "x": 316,
+                "y": 434
+              }
+            },
+            "supportWorld": null,
+            "contactsWorld": [],
+            "visualBounds": {
+              "left": 295.6,
+              "right": 333.85,
+              "top": 403.4,
+              "bottom": 434
+            },
+            "footprint": {
+              "left": 299,
+              "right": 333,
+              "top": 423.8,
+              "bottom": 444.2
+            },
+            "geometryReviewed": false,
+            "id": "8ab9ce49-d5b2-4169-9d56-9fe7f851e1a1",
+            "artworkId": "fixture-art:sparrow:v1",
+            "status": "legacy",
+            "key": "[1,\"[\\\"cn-species-passer-domesticus\\\",\\\"fixture-art:sparrow:v1\\\"]\",[\"legacy\",null]]",
+            "frame": 1,
+            "schemaVersion": 2,
+            "poseId": null,
+            "durationTicks": 9,
+            "pivot": {
+              "x": 36,
+              "y": 48
+            },
+            "contacts": [],
+            "clip": "idle",
+            "clipFallback": false,
+            "requestedClip": "idle",
+            "missingClips": [
+              "sleeping",
+              "playing",
+              "nesting"
+            ],
+            "visualOverride": "none",
+            "behavior": "idle",
+            "nextBehavior": "idle",
+            "phase": "day",
+            "slotId": "ground:1:2",
+            "targetSlotId": null,
+            "x": 316,
+            "y": 434,
+            "display": {
+              "mode": "pixi",
+              "worldScale": 1.1666666666666667,
+              "pixelRatio": 1,
+              "sourcePixelCss": 0.9916666666666667,
+              "paused": false
+            }
+          },
+          {
+            "sessionSeed": 2977507661,
+            "profile": {
+              "schemaVersion": 1,
+              "speciesId": "cn-species-cyanocitta-cristata",
+              "tuning": "illustrative",
+              "sizeScale": 1.15,
+              "movement": {
+                "speed": 138,
+                "hopBias": 0.2
+              },
+              "preferences": {
+                "ground": 1,
+                "perch": 5,
+                "feed": 3
+              },
+              "socialSpacing": 18,
+              "caution": 0.75
+            },
+            "speciesId": "cn-species-cyanocitta-cristata",
+            "traits": {
+              "schemaVersion": 1,
+              "speciesId": "cn-species-cyanocitta-cristata",
+              "provenance": {
+                "kind": "product-authored-illustrative",
+                "version": 1,
+                "biologicalValidation": "unvalidated",
+                "observationDerived": false
+              },
+              "sizeScale": 1.15,
+              "locomotion": {
+                "speed": 138,
+                "hopBias": 0.2
+              },
+              "affinities": {
+                "ground": 1,
+                "perch": 5,
+                "roost": 6
+              },
+              "activities": {
+                "feed": 3,
+                "bath": 1,
+                "nest": 2,
+                "play": 5,
+                "sing": 1
+              },
+              "socialSpacing": 18,
+              "caution": 0.75
+            },
+            "personality": {
+              "schemaVersion": 1,
+              "provenance": {
+                "kind": "fictional-individual",
+                "version": 1,
+                "observationDerived": false,
+                "seedBasis": "decorative-resident-id"
+              },
+              "seed": 2410168190,
+              "curiosity": 0.7678333746194451,
+              "sociability": 0.4368228794626945,
+              "boldness": 0.11813353726596887
+            },
+            "decision": {
+              "schemaVersion": 1,
+              "provenance": "decorative-simulation",
+              "tick": 0,
+              "phase": "day",
+              "trigger": "initial-placement",
+              "selected": {
+                "behavior": "perching",
+                "slotId": "fixture-perch:left",
+                "affordance": "perch",
+                "capability": null,
+                "priority": 5,
+                "reasons": [
+                  "highest-available-affinity",
+                  "clearance-verified"
+                ]
+              },
+              "candidates": [],
+              "locomotion": {
+                "mode": "flight",
+                "reason": "stationary-support"
+              },
+              "transition": {
+                "from": "idle",
+                "to": "perching",
+                "reason": "activity-transition"
+              }
+            },
+            "environment": {
+              "provenance": "product-authored-illustrative",
+              "biologicalValidation": "unvalidated",
+              "phase": "day",
+              "restricted": [],
+              "shelter": {
+                "status": "not-required",
+                "slotId": null,
+                "reason": "calm-environment"
+              }
+            },
+            "effective": {
+              "socialSpacing": 16.034297042417876,
+              "caution": 0.8645599388202093,
+              "priorities": {
+                "idle": 1,
+                "moving": 1,
+                "perching": 5,
+                "singing": 0.8090667686329844,
+                "feeding": 3,
+                "bathing": 1.1339166873097226,
+                "sleeping": 6,
+                "playing": 5.6695834365486135,
+                "nesting": 1.7321666253805548
+              }
+            },
+            "placement": "placed",
+            "experiment": null,
+            "locomotion": "flight",
+            "direction": 1,
+            "transform": {
+              "pivot": {
+                "x": 36,
+                "y": 48
+              },
+              "direction": 1,
+              "rotation": 0,
+              "scale": 1.15,
+              "origin": {
+                "x": 155,
+                "y": 305
+              }
+            },
+            "supportWorld": null,
+            "contactsWorld": [],
+            "visualBounds": {
+              "left": 127.4,
+              "right": 179.15,
+              "top": 263.6,
+              "bottom": 305
+            },
+            "footprint": {
+              "left": 132,
+              "right": 178,
+              "top": 291.2,
+              "bottom": 318.8
+            },
+            "geometryReviewed": false,
+            "id": "d3016933-dd5d-4021-bafe-20b59427f410",
+            "artworkId": "fixture-art:bluejay:v1",
+            "status": "legacy",
+            "key": "[1,\"[\\\"cn-species-cyanocitta-cristata\\\",\\\"fixture-art:bluejay:v1\\\"]\",[\"legacy\",null]]",
+            "frame": 1,
+            "schemaVersion": 2,
+            "poseId": null,
+            "durationTicks": 9,
+            "pivot": {
+              "x": 36,
+              "y": 48
+            },
+            "contacts": [],
+            "clip": "perching",
+            "clipFallback": false,
+            "requestedClip": "perching",
+            "missingClips": [
+              "sleeping",
+              "playing",
+              "nesting"
+            ],
+            "visualOverride": "none",
+            "behavior": "perching",
+            "nextBehavior": "idle",
+            "phase": "day",
+            "slotId": "fixture-perch:left",
+            "targetSlotId": null,
+            "x": 155,
+            "y": 305,
+            "display": {
+              "mode": "pixi",
+              "worldScale": 1.1666666666666667,
+              "pixelRatio": 1,
+              "sourcePixelCss": 1.3416666666666666,
+              "paused": false
+            }
+          },
+          {
+            "sessionSeed": 2977507661,
+            "profile": {
+              "schemaVersion": 1,
+              "speciesId": "cn-species-erithacus-rubecula",
+              "tuning": "illustrative",
+              "sizeScale": 0.95,
+              "movement": {
+                "speed": 106,
+                "hopBias": 0.7
+              },
+              "preferences": {
+                "ground": 4,
+                "perch": 2,
+                "feed": 2
+              },
+              "socialSpacing": 12,
+              "caution": 0.65
+            },
+            "speciesId": "cn-species-erithacus-rubecula",
+            "traits": {
+              "schemaVersion": 1,
+              "speciesId": "cn-species-erithacus-rubecula",
+              "provenance": {
+                "kind": "product-authored-illustrative",
+                "version": 1,
+                "biologicalValidation": "unvalidated",
+                "observationDerived": false
+              },
+              "sizeScale": 0.95,
+              "locomotion": {
+                "speed": 106,
+                "hopBias": 0.7
+              },
+              "affinities": {
+                "ground": 4,
+                "perch": 2,
+                "roost": 5
+              },
+              "activities": {
+                "feed": 2,
+                "bath": 3,
+                "nest": 4,
+                "play": 1,
+                "sing": 5
+              },
+              "socialSpacing": 12,
+              "caution": 0.65
+            },
+            "personality": {
+              "schemaVersion": 1,
+              "provenance": {
+                "kind": "fictional-individual",
+                "version": 1,
+                "observationDerived": false,
+                "seedBasis": "decorative-resident-id"
+              },
+              "seed": 2775671198,
+              "curiosity": 0.92078087244201,
+              "sociability": 0.20582949468070397,
+              "boldness": 0.21923762844392045
+            },
+            "decision": {
+              "schemaVersion": 1,
+              "provenance": "decorative-simulation",
+              "tick": 0,
+              "phase": "day",
+              "trigger": "initial-placement",
+              "selected": {
+                "behavior": "idle",
+                "slotId": "ground:1:0",
+                "affordance": "ground",
+                "capability": null,
+                "priority": 4,
+                "reasons": [
+                  "highest-available-affinity",
+                  "clearance-verified"
+                ]
+              },
+              "candidates": [],
+              "locomotion": {
+                "mode": "flight",
+                "reason": "stationary-support"
+              },
+              "transition": {
+                "from": "idle",
+                "to": "idle",
+                "reason": "activity-transition"
+              }
+            },
+            "environment": {
+              "provenance": "product-authored-illustrative",
+              "biologicalValidation": "unvalidated",
+              "phase": "day",
+              "restricted": [],
+              "shelter": {
+                "status": "not-required",
+                "slotId": null,
+                "reason": "calm-environment"
+              }
+            },
+            "effective": {
+              "socialSpacing": 11.382511515957887,
+              "caution": 0.7342287114668239,
+              "priorities": {
+                "idle": 4,
+                "moving": 1,
+                "perching": 2,
+                "singing": 4.298094071109801,
+                "feeding": 2,
+                "bathing": 3.631171308663015,
+                "sleeping": 5,
+                "playing": 1.210390436221005,
+                "nesting": 3.15843825511598
+              }
+            },
+            "placement": "placed",
+            "experiment": null,
+            "locomotion": "flight",
+            "direction": 1,
+            "transform": {
+              "pivot": {
+                "x": 36,
+                "y": 48
+              },
+              "direction": 1,
+              "rotation": 0,
+              "scale": 0.95,
+              "origin": {
+                "x": 100,
+                "y": 434
+              }
+            },
+            "supportWorld": null,
+            "contactsWorld": [],
+            "visualBounds": {
+              "left": 77.2,
+              "right": 119.95,
+              "top": 399.8,
+              "bottom": 434
+            },
+            "footprint": {
+              "left": 81,
+              "right": 119,
+              "top": 422.6,
+              "bottom": 445.4
+            },
+            "geometryReviewed": false,
+            "id": "f5d36ea5-b2db-4889-b7ce-f4bf1acd6395",
+            "artworkId": "fixture-art:robin:v1",
+            "status": "legacy",
+            "key": "[1,\"[\\\"cn-species-erithacus-rubecula\\\",\\\"fixture-art:robin:v1\\\"]\",[\"legacy\",null]]",
+            "frame": 1,
+            "schemaVersion": 2,
+            "poseId": null,
+            "durationTicks": 9,
+            "pivot": {
+              "x": 36,
+              "y": 48
+            },
+            "contacts": [],
+            "clip": "idle",
+            "clipFallback": false,
+            "requestedClip": "idle",
+            "missingClips": [
+              "sleeping",
+              "playing",
+              "nesting"
+            ],
+            "visualOverride": "none",
+            "behavior": "idle",
+            "nextBehavior": "idle",
+            "phase": "day",
+            "slotId": "ground:1:0",
+            "targetSlotId": null,
+            "x": 100,
+            "y": 434,
+            "display": {
+              "mode": "pixi",
+              "worldScale": 1.1666666666666667,
+              "pixelRatio": 1,
+              "sourcePixelCss": 1.1083333333333334,
+              "paused": false
+            }
+          }
+        ],
+        "attrs": [
+          "data-scene-renderer",
+          "data-scene-layers",
+          "data-scene-manifest",
+          "data-review-art",
+          "data-environment",
+          "data-layer-visibility",
+          "data-depth-order",
+          "data-asset-pins",
+          "data-resources",
+          "data-decorative-visit"
+        ]
+      }
+    }
+  ],
+  "ownedServer": {
+    "pid": 47158,
+    "base": "http://127.0.0.1:60551",
+    "command": "Node24 Vite CLI, --host127.0.0.1 --strictPort on OS-selected free port"
+  },
+  "cleanup": {
+    "serverStopped": true,
+    "browserClosed": true
+  },
+  "base": "http://127.0.0.1:60551",
+  "browserVersion": "156.0.8078.4",
+  "syntheticSecondBath": {
+    "id": "98375234-574d-474f-b905-e114985bfe90",
+    "kind": "bath",
+    "x": 482,
+    "y": 407
+  },
+  "failure": {
+    "name": "Error",
+    "code": "CN-AUD-001",
+    "message": "Normal yard exposes physical configuration and actual shared runtime diagnostics"
+  }
+}

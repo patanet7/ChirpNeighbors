@@ -1,0 +1,72 @@
+{
+  "cwdAtExecution": "/Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/ui-snapshot",
+  "node": "/Users/thomaspatane/Documents/Codex/2026-10-16/task/.chirp-tools/mise-data/installs/node/24.19.0/bin/node",
+  "python": "/Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3",
+  "environment": "env -i HOME=/Users/thomaspatane PATH=<pinned-node-bin>:<pinned-python-bin>:/usr/bin:/bin TMPDIR=<audit>/test-receipts/tmp XDG_CACHE_HOME=<audit>/test-receipts/cache",
+  "commands": [
+    {
+      "argv": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "--reporter=json",
+        "--outputFile=../independent-full-unit.json"
+      ],
+      "exitCode": 1,
+      "sandbox": "default"
+    },
+    {
+      "argv": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "src/lib/server/auth/email.test.ts",
+        "src/lib/server/auth/transport.test.ts",
+        "src/lib/server/auth/smtp-socket.test.ts",
+        "src/lib/server/recordings/analysis.test.ts",
+        "src/lib/server/reference-discovery/discovery.test.ts",
+        "--reporter=json",
+        "--outputFile=../independent-loopback-unit.json"
+      ],
+      "exitCode": 1,
+      "sandbox": "approved escalation: own ephemeral127.0.0.1fixtures only"
+    },
+    {
+      "argv": [
+        "node",
+        "node_modules/vitest/vitest.mjs",
+        "run",
+        "src/lib/server/reference-admission/recovery.test.ts",
+        "--reporter=json",
+        "--outputFile=../independent-private-umask.json"
+      ],
+      "umask": "077",
+      "exitCode": 0
+    },
+    {
+      "argv": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exitCode": 0
+    },
+    {
+      "argv": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0
+    },
+    {
+      "argv": [
+        "npm",
+        "run",
+        "format:check"
+      ],
+      "exitCode": 0
+    }
+  ],
+  "reproduce": "Extract source archive in audit folder; symlink installed UI node_modules into extracted ui-snapshot; run npm run prepare first to regenerate omitted .svelte-kit; recreate localtmp/cache; then use pinned runtimes and clean environment. Source archive omits dependencies, generated SvelteKit/cache and all private data. Actual Raven source intentionally not supplied."
+}

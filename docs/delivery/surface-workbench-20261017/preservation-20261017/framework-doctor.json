@@ -1,0 +1,188 @@
+{
+  "ok": true,
+  "dimensions": {
+    "runnable": {
+      "healthy": true,
+      "commandFailures": []
+    },
+    "sourceCurrent": {
+      "healthy": true,
+      "installKind": "source-checkout",
+      "status": "current"
+    },
+    "helperComplete": {
+      "healthy": true
+    },
+    "schemaMigration": {
+      "healthy": true,
+      "status": "current",
+      "taskPackageState": "workspace"
+    },
+    "stateSafety": {
+      "healthy": true,
+      "errors": []
+    },
+    "diskRetention": {
+      "healthy": true,
+      "bytes": 296292,
+      "capBytes": 262144000
+    },
+    "linearConfiguration": {
+      "healthy": true,
+      "status": "skipped-local-only"
+    }
+  },
+  "checks": {
+    "projectRoot": "/Users/thomaspatane/GitHub/claude_system",
+    "taskPackagePath": "/Users/thomaspatane/GitHub/claude_system/.agents/tasks",
+    "taskPackageState": "workspace",
+    "taskPackageInitialized": true,
+    "taskWorkspaceExists": true,
+    "taskWorkspaceActiveInitiative": "token-audit-apply",
+    "taskWorkspaceInitiativeCount": 7,
+    "taskWorkspaceViews": {
+      "healthy": true,
+      "status": "current",
+      "initialized": true,
+      "problems": [],
+      "recommendedCommand": "task-runtime generate /Users/thomaspatane/GitHub/claude_system/.agents/tasks"
+    },
+    "claudeSettingsExists": true,
+    "claudeWrapperExists": true,
+    "codexWrapperExists": true,
+    "hookMainExists": true,
+    "legacyRuntimeTasksJsonExists": false,
+    "staleSkillReferences": [],
+    "configurationConflictSidecars": [],
+    "dependencyReadinessOk": true,
+    "dependencyReadiness": {
+      "projectRoot": "/Users/thomaspatane/GitHub/claude_system",
+      "pyprojectPath": "/Users/thomaspatane/GitHub/claude_system/pyproject.toml",
+      "uvAvailable": true,
+      "pyprojectExists": true,
+      "requiredPackages": [
+        "structlog>=24.0",
+        "pydantic>=2.12",
+        "filelock>=3.15",
+        "httpx>=0.27",
+        "ruff>=0.4"
+      ],
+      "dependencyAddCommand": [
+        "uv",
+        "add"
+      ],
+      "missingDeclaredPackages": [],
+      "importProbe": {
+        "missing": [],
+        "returncode": 0,
+        "stderr": ""
+      },
+      "missingRuntimeImports": []
+    },
+    "claudeSettingsJsonValid": true,
+    "claudeWrapperCommandSurface": {
+      "ok": true,
+      "missingCommands": [],
+      "reason": null
+    },
+    "codexWrapperCommandSurface": {
+      "ok": true,
+      "missingCommands": [],
+      "reason": null
+    }
+  },
+  "errors": [],
+  "warnings": [],
+  "commands": [
+    {
+      "name": "hooks-list",
+      "cmd": [
+        "/Users/thomaspatane/GitHub/claude_system/.venv/bin/python",
+        "/Users/thomaspatane/GitHub/claude_system/.agent_framework/scripts/hooks/main.py",
+        "--list"
+      ],
+      "returncode": 0,
+      "stdout": "compress-lint-output\ncompress-test-output\nphase-lifecycle\nreview-gate\nsafety-check\nsession-end\nsession-start\nsmart-test-on-commit\nstop-gate\nstuck-detector\ntask-completed-gate\ntask-heartbeat\ntask-stale-check\ntest-on-commit\ntoken-tracker",
+      "stderr": ""
+    },
+    {
+      "name": "claude-help",
+      "cmd": [
+        "/Users/thomaspatane/GitHub/claude_system/claude/bin/task-runtime",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: task-runtime {status,start,checkpoint,finish,doctor} ...\n\nDefault lifecycle:\n  status      Show health and one exact recommended action\n  start       Claim or resume dependency-ready work\n  checkpoint  Save interrupted work and release its claim\n  finish      Run declared gates, record proof, and close work\n  doctor      Diagnose independent framework health dimensions\n\nRun `task-runtime advanced --help` for compatibility, migration, planning, evidence, sync, and maintenance commands.",
+      "stderr": ""
+    },
+    {
+      "name": "claude-advanced-help",
+      "cmd": [
+        "/Users/thomaspatane/GitHub/claude_system/claude/bin/task-runtime",
+        "advanced",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: task_runtime_cli.py advanced [-h]\n\nAdvanced task-runtime command surface\n\noptions:\n  -h, --help  show this help message and exit\n\nCommands: next, list, validate, update, set-status, complete, amend-contract, release, heartbeat, snapshot, pause, resume, adopt-task, list-snapshots, show-snapshot, list-paused, rebind, test-design, record-red, record-green, adversarial-review, show-test-evidence, evidence-addendum, supersede-evidence, reset-test-evidence, sync-pending, sync-linear, sync-intent, linear-keys, get-linear-keys, bootstrap-linear, link-linear-hierarchy, refresh-statuses, reconcile-linear, describe, show, summary, migrate-state, maintain, generate, migrate-workspace-layout, recover-stale, activate, import-plan, bootstrap-project, create-initiative, complete-initiative.",
+      "stderr": ""
+    },
+    {
+      "name": "codex-help",
+      "cmd": [
+        "/Users/thomaspatane/GitHub/claude_system/.codex/bin/task-runtime",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: task-runtime {status,start,checkpoint,finish,doctor} ...\n\nDefault lifecycle:\n  status      Show health and one exact recommended action\n  start       Claim or resume dependency-ready work\n  checkpoint  Save interrupted work and release its claim\n  finish      Run declared gates, record proof, and close work\n  doctor      Diagnose independent framework health dimensions\n\nRun `task-runtime advanced --help` for compatibility, migration, planning, evidence, sync, and maintenance commands.",
+      "stderr": ""
+    },
+    {
+      "name": "codex-advanced-help",
+      "cmd": [
+        "/Users/thomaspatane/GitHub/claude_system/.codex/bin/task-runtime",
+        "advanced",
+        "--help"
+      ],
+      "returncode": 0,
+      "stdout": "usage: task_runtime_cli.py advanced [-h]\n\nAdvanced task-runtime command surface\n\noptions:\n  -h, --help  show this help message and exit\n\nCommands: next, list, validate, update, set-status, complete, amend-contract, release, heartbeat, snapshot, pause, resume, adopt-task, list-snapshots, show-snapshot, list-paused, rebind, test-design, record-red, record-green, adversarial-review, show-test-evidence, evidence-addendum, supersede-evidence, reset-test-evidence, sync-pending, sync-linear, sync-intent, linear-keys, get-linear-keys, bootstrap-linear, link-linear-hierarchy, refresh-statuses, reconcile-linear, describe, show, summary, migrate-state, maintain, generate, migrate-workspace-layout, recover-stale, activate, import-plan, bootstrap-project, create-initiative, complete-initiative.",
+      "stderr": ""
+    },
+    {
+      "name": "claude-summary",
+      "cmd": [
+        "/Users/thomaspatane/GitHub/claude_system/claude/bin/task-runtime",
+        "summary",
+        "/Users/thomaspatane/GitHub/claude_system/.agents/tasks"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"plan_path\": \"/Users/thomaspatane/GitHub/claude_system/.agents/tasks\",\n  \"runtime_state_path\": \"/Users/thomaspatane/.agent-framework/task-runtime/token-audit-apply-8291bd84e2599647.json\",\n  \"active_task_id\": null,\n  \"counts\": {\n    \"total\": 26,\n    \"leaf\": 20,\n    \"ready_leaf\": 6,\n    \"by_status\": {\n      \"pending\": 18,\n      \"in-progress\": 0,\n      \"review\": 4,\n      \"blocked\": 0,\n      \"done\": 4,\n      \"cancelled\": 0,\n      \"skipped\": 0\n    }\n  },\n  \"ready_leaf_ids\": [\n    202,\n    203,\n    307,\n    401,\n    403,\n    502\n  ],\n  \"top_level\": [\n    {\n      \"task_id\": 1,\n      \"title\": \"Apply the token audit: cheaper agents, a framework that measures itself\",\n      \"status\": \"pending\",\n      \"derived_status\": \"in-progress\",\n      \"linear_issue_key\": null,\n      \"ready_leaf_ids\": [\n        202,\n        203,\n        307,\n        401,\n        403,\n        502\n      ],\n      \"leaf_counts\": {\n        \"total\": 20,\n        \"completed\": 3,\n        \"remaining\": 17\n      }\n    }\n  ]\n}",
+      "stderr": ""
+    },
+    {
+      "name": "claude-show",
+      "cmd": [
+        "/Users/thomaspatane/GitHub/claude_system/claude/bin/task-runtime",
+        "show",
+        "/Users/thomaspatane/GitHub/claude_system/.agents/tasks",
+        "202"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"task_id\": 202,\n  \"title\": \"Targets, burn rate, goal drift, hook health\",\n  \"status\": \"pending\",\n  \"derived_status\": \"pending\",\n  \"is_leaf\": true,\n  \"assignable\": true,\n  \"parent_id\": 20,\n  \"depth\": 2,\n  \"dependencies\": [\n    201\n  ],\n  \"unmet_dependencies\": [],\n  \"effective_sync_policy\": \"local_only\",\n  \"linear_issue_key\": null,\n  \"ready\": true,\n  \"reason\": \"describe\",\n  \"testEvidence\": null,\n  \"broaderSuiteHints\": [],\n  \"redEvidenceSummary\": null,\n  \"greenEvidenceSummary\": null,\n  \"adversarialReviewSummary\": null\n}",
+      "stderr": ""
+    },
+    {
+      "name": "codex-summary",
+      "cmd": [
+        "/Users/thomaspatane/GitHub/claude_system/.codex/bin/task-runtime",
+        "summary",
+        "/Users/thomaspatane/GitHub/claude_system/.agents/tasks"
+      ],
+      "returncode": 0,
+      "stdout": "{\n  \"plan_path\": \"/Users/thomaspatane/GitHub/claude_system/.agents/tasks\",\n  \"runtime_state_path\": \"/Users/thomaspatane/.agent-framework/task-runtime/token-audit-apply-8291bd84e2599647.json\",\n  \"active_task_id\": null,\n  \"counts\": {\n    \"total\": 26,\n    \"leaf\": 20,\n    \"ready_leaf\": 6,\n    \"by_status\": {\n      \"pending\": 18,\n      \"in-progress\": 0,\n      \"review\": 4,\n      \"blocked\": 0,\n      \"done\": 4,\n      \"cancelled\": 0,\n      \"skipped\": 0\n    }\n  },\n  \"ready_leaf_ids\": [\n    202,\n    203,\n    307,\n    401,\n    403,\n    502\n  ],\n  \"top_level\": [\n    {\n      \"task_id\": 1,\n      \"title\": \"Apply the token audit: cheaper agents, a framework that measures itself\",\n      \"status\": \"pending\",\n      \"derived_status\": \"in-progress\",\n      \"linear_issue_key\": null,\n      \"ready_leaf_ids\": [\n        202,\n        203,\n        307,\n        401,\n        403,\n        502\n      ],\n      \"leaf_counts\": {\n        \"total\": 20,\n        \"completed\": 3,\n        \"remaining\": 17\n      }\n    }\n  ]\n}",
+      "stderr": ""
+    }
+  ],
+  "recommendations": [
+    "Installed surface looks runnable. You can start with /plan or `task-runtime next`."
+  ]
+}

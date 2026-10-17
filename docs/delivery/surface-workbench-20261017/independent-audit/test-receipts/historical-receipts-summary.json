@@ -1,0 +1,734 @@
+[
+  {
+    "source": "/Users/thomaspatane/Documents/Codex/2026-10-16/task/.chirp-runtime/action-integration-20261017/full-unit-demo-facts.json",
+    "sha256": "b539b733360920474cf473e1e3ae4a1cbcf41aa78f0530af12fd5dae524abf8b",
+    "summary": {
+      "numTotalTests": 2682,
+      "numPassedTests": 2650,
+      "numFailedTests": 32,
+      "numPendingTests": 0,
+      "startTime": 1792247558647
+    },
+    "failedCases": [
+      {
+        "file": "src/lib/server/image-files/service.test.ts",
+        "fullName": "private real PNG source files cold backup and dry-run/actual restore preserve reviewed image bytes and reject incomplete media",
+        "message": "AssertionError: Traceback (most recent call last):"
+      },
+      {
+        "file": "src/lib/server/auth/smtp-socket.test.ts",
+        "fullName": "forwards exactly the whole-send byte budget and destroys the peer on the next byte",
+        "message": "TypeError: Cannot read properties of undefined (reading 'write')"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI restores an old checkpoint with later revocations, purges bytes/derived payloads and fences retries after restart",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI requires a retained ledger for lifecycle-aware checkpoints, including dry run",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI preserves live media with a valid empty ledger and rejects future or partial database schemas",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI rejects wrong lineage, unknown schema, truncated/gapped history and changed known prefixes",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI rejects a retained checksum mismatch and malformed or duplicate-key JSON without exposing data",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI does not install a restore if cleanup cannot remove media and leaves the checkpoint untouched",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained identity.json and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained revocations/synthetic.json and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained synthetic.original and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses initialized reference tables even if every reference file was omitted",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files without any application DB",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files/identity.json without any application DB",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore still restores old no-reference backups and leaves the source unchanged",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-auth.test.ts",
+        "fullName": "restores real auth accounts while invalidating old sessions and one-use links only in the copy",
+        "message": "Error: Command failed: python3 /Users/thomaspatane/GitHub/personal/birdsong-yard-sprites/scripts/private_backup.py create /Users/thomaspatane/Documents/Codex/2026-10-16/task/.chirp-runtime/test-tmp/chirp-auth-restore-9UsKxF/source /Users/thomaspatane/Documents/Codex/2026-10-16/task/.chirp-runtime/test-tmp/chirp-auth-restore-9UsKxF/checkpoint --offline"
+      },
+      {
+        "file": "src/lib/server/operations/restore-optional-state.test.ts",
+        "fullName": "offline restore revokes consent and pending arrivals with recording ledger=false",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' not to contain 'Traceback'"
+      },
+      {
+        "file": "src/lib/server/operations/restore-optional-state.test.ts",
+        "fullName": "offline restore revokes consent and pending arrivals with recording ledger=true",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' not to contain 'Traceback'"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=false)",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=true)",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "refuses an unknown share-update trigger before installing either legacy or lifecycle data",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery restores later reviews and terminal revocation with exact pins, owner scope and request retries",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery restores valid later approval while obsolete review pins remain invalid",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery preserves later rejected reviews and never replaces them with approval",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery exports and reconciles a revocation published before an interrupted SQL commit",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at authority-validated without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at tombstone-published without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at reviews-reconciled without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at before-commit without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at committed without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery rejects a concurrent revocation writer while recovery owns the SQLite write lock",
+        "message": "YardError: Private reference integrity is unavailable."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery operation check is read-only; apply writes a deterministic private receipt and retains default refusal",
+        "message": "Error: Invalid private reference directory."
+      }
+    ],
+    "failedByFile": {
+      "src/lib/server/image-files/service.test.ts": 1,
+      "src/lib/server/auth/smtp-socket.test.ts": 1,
+      "src/lib/server/operations/lifecycle-recovery.test.ts": 6,
+      "src/lib/server/operations/reference-recovery.test.ts": 7,
+      "src/lib/server/operations/restore-auth.test.ts": 1,
+      "src/lib/server/operations/restore-optional-state.test.ts": 2,
+      "src/lib/server/operations/restore-shares.test.ts": 3,
+      "src/lib/server/reference-admission/recovery.test.ts": 11
+    }
+  },
+  {
+    "source": "/Users/thomaspatane/Documents/Codex/2026-10-16/task/.chirp-runtime/autonomous-garden-20261017/full-unit.json",
+    "sha256": "03ee2d8cd31f033fd66d364d4e9ef71f7e0a6738d2e65ca307d690a5ec4355a2",
+    "summary": {
+      "numTotalTests": 2647,
+      "numPassedTests": 2615,
+      "numFailedTests": 32,
+      "numPendingTests": 0,
+      "startTime": 1792244783589
+    },
+    "failedCases": [
+      {
+        "file": "src/lib/server/auth/smtp-socket.test.ts",
+        "fullName": "forwards exactly the whole-send byte budget and destroys the peer on the next byte",
+        "message": "TypeError: Cannot read properties of undefined (reading 'write')"
+      },
+      {
+        "file": "src/lib/server/image-files/service.test.ts",
+        "fullName": "private real PNG source files cold backup and dry-run/actual restore preserve reviewed image bytes and reject incomplete media",
+        "message": "AssertionError: Traceback (most recent call last):"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI restores an old checkpoint with later revocations, purges bytes/derived payloads and fences retries after restart",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI requires a retained ledger for lifecycle-aware checkpoints, including dry run",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI preserves live media with a valid empty ledger and rejects future or partial database schemas",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI rejects wrong lineage, unknown schema, truncated/gapped history and changed known prefixes",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI rejects a retained checksum mismatch and malformed or duplicate-key JSON without exposing data",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI does not install a restore if cleanup cannot remove media and leaves the checkpoint untouched",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained identity.json and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained revocations/synthetic.json and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained synthetic.original and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses initialized reference tables even if every reference file was omitted",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files without any application DB",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files/identity.json without any application DB",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore still restores old no-reference backups and leaves the source unchanged",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-auth.test.ts",
+        "fullName": "restores real auth accounts while invalidating old sessions and one-use links only in the copy",
+        "message": "Error: Command failed: python3 /Users/thomaspatane/GitHub/personal/birdsong-yard-sprites/scripts/private_backup.py create /Users/thomaspatane/Documents/Codex/2026-10-16/task/.chirp-runtime/test-tmp/chirp-auth-restore-NSFI4F/source /Users/thomaspatane/Documents/Codex/2026-10-16/task/.chirp-runtime/test-tmp/chirp-auth-restore-NSFI4F/checkpoint --offline"
+      },
+      {
+        "file": "src/lib/server/operations/restore-optional-state.test.ts",
+        "fullName": "offline restore revokes consent and pending arrivals with recording ledger=false",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' not to contain 'Traceback'"
+      },
+      {
+        "file": "src/lib/server/operations/restore-optional-state.test.ts",
+        "fullName": "offline restore revokes consent and pending arrivals with recording ledger=true",
+        "message": "AssertionError: expected 'Traceback (most recent call last):\\n \u2026' not to contain 'Traceback'"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=false)",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=true)",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "refuses an unknown share-update trigger before installing either legacy or lifecycle data",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery restores later reviews and terminal revocation with exact pins, owner scope and request retries",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery restores valid later approval while obsolete review pins remain invalid",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery preserves later rejected reviews and never replaces them with approval",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery exports and reconciles a revocation published before an interrupted SQL commit",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at authority-validated without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at tombstone-published without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at reviews-reconciled without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at before-commit without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at committed without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery rejects a concurrent revocation writer while recovery owns the SQLite write lock",
+        "message": "YardError: Private reference integrity is unavailable."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery operation check is read-only; apply writes a deterministic private receipt and retains default refusal",
+        "message": "Error: Invalid private reference directory."
+      }
+    ],
+    "failedByFile": {
+      "src/lib/server/auth/smtp-socket.test.ts": 1,
+      "src/lib/server/image-files/service.test.ts": 1,
+      "src/lib/server/operations/lifecycle-recovery.test.ts": 6,
+      "src/lib/server/operations/reference-recovery.test.ts": 7,
+      "src/lib/server/operations/restore-auth.test.ts": 1,
+      "src/lib/server/operations/restore-optional-state.test.ts": 2,
+      "src/lib/server/operations/restore-shares.test.ts": 3,
+      "src/lib/server/reference-admission/recovery.test.ts": 11
+    }
+  },
+  {
+    "source": "/Users/thomaspatane/Documents/Codex/2026-10-16/task/.chirp-runtime/final-full-unit.json",
+    "sha256": "859aa80005d6d808f6935556317f4d5bf478256f40f74ac7d6d7d478e5f25ed1",
+    "summary": {
+      "numTotalTests": 2287,
+      "numPassedTests": 2255,
+      "numFailedTests": 32,
+      "numPendingTests": 0,
+      "startTime": 1792209659755
+    },
+    "failedCases": [
+      {
+        "file": "src/lib/server/image-files/service.test.ts",
+        "fullName": "private real PNG source files cold backup and dry-run/actual restore preserve reviewed image bytes and reject incomplete media",
+        "message": "AssertionError: Atomic no-replace directory publication is unavailable."
+      },
+      {
+        "file": "src/lib/server/auth/smtp-socket.test.ts",
+        "fullName": "forwards exactly the whole-send byte budget and destroys the peer on the next byte",
+        "message": "TypeError: Cannot read properties of undefined (reading 'write')"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI restores an old checkpoint with later revocations, purges bytes/derived payloads and fences retries after restart",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI requires a retained ledger for lifecycle-aware checkpoints, including dry run",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI preserves live media with a valid empty ledger and rejects future or partial database schemas",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI rejects wrong lineage, unknown schema, truncated/gapped history and changed known prefixes",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI rejects a retained checksum mismatch and malformed or duplicate-key JSON without exposing data",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI does not install a restore if cleanup cannot remove media and leaves the checkpoint untouched",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained identity.json and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained revocations/synthetic.json and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained synthetic.original and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses initialized reference tables even if every reference file was omitted",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files without any application DB",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files/identity.json without any application DB",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore still restores old no-reference backups and leaves the source unchanged",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-auth.test.ts",
+        "fullName": "restores real auth accounts while invalidating old sessions and one-use links only in the copy",
+        "message": "Error: Command failed: python3 /Users/thomaspatane/GitHub/personal/birdsong-yard-sprites/scripts/private_backup.py create /private/tmp/chirp-auth-restore-GEPYgn/source /private/tmp/chirp-auth-restore-GEPYgn/checkpoint --offline"
+      },
+      {
+        "file": "src/lib/server/operations/restore-optional-state.test.ts",
+        "fullName": "offline restore revokes consent and pending arrivals with recording ledger=false",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-optional-state.test.ts",
+        "fullName": "offline restore revokes consent and pending arrivals with recording ledger=true",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=false)",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=true)",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "refuses an unknown share-update trigger before installing either legacy or lifecycle data",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery restores later reviews and terminal revocation with exact pins, owner scope and request retries",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery restores valid later approval while obsolete review pins remain invalid",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery preserves later rejected reviews and never replaces them with approval",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery exports and reconciles a revocation published before an interrupted SQL commit",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at authority-validated without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at tombstone-published without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at reviews-reconciled without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at before-commit without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at committed without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery rejects a concurrent revocation writer while recovery owns the SQLite write lock",
+        "message": "YardError: Private reference integrity is unavailable."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery operation check is read-only; apply writes a deterministic private receipt and retains default refusal",
+        "message": "Error: Invalid private reference directory."
+      }
+    ],
+    "failedByFile": {
+      "src/lib/server/image-files/service.test.ts": 1,
+      "src/lib/server/auth/smtp-socket.test.ts": 1,
+      "src/lib/server/operations/lifecycle-recovery.test.ts": 6,
+      "src/lib/server/operations/reference-recovery.test.ts": 7,
+      "src/lib/server/operations/restore-auth.test.ts": 1,
+      "src/lib/server/operations/restore-optional-state.test.ts": 2,
+      "src/lib/server/operations/restore-shares.test.ts": 3,
+      "src/lib/server/reference-admission/recovery.test.ts": 11
+    }
+  },
+  {
+    "source": "docs/delivery/surface-workbench-20261017/baseline-unit.json",
+    "sha256": "a0f16958c873135f3f42cad6d8a334f62f9b053426ff5874236ceef65c752368",
+    "summary": {
+      "numTotalTests": 91,
+      "numPassedTests": 59,
+      "numFailedTests": 32,
+      "numPendingTests": 0,
+      "startTime": 1792198958843
+    },
+    "failedCases": [
+      {
+        "file": "src/lib/server/image-files/service.test.ts",
+        "fullName": "private real PNG source files cold backup and dry-run/actual restore preserve reviewed image bytes and reject incomplete media",
+        "message": "AssertionError: Atomic no-replace directory publication is unavailable."
+      },
+      {
+        "file": "src/lib/server/auth/smtp-socket.test.ts",
+        "fullName": "forwards exactly the whole-send byte budget and destroys the peer on the next byte",
+        "message": "Error: listen EPERM: operation not permitted 127.0.0.1"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI restores an old checkpoint with later revocations, purges bytes/derived payloads and fences retries after restart",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI requires a retained ledger for lifecycle-aware checkpoints, including dry run",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI preserves live media with a valid empty ledger and rejects future or partial database schemas",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI rejects wrong lineage, unknown schema, truncated/gapped history and changed known prefixes",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI rejects a retained checksum mismatch and malformed or duplicate-key JSON without exposing data",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/lifecycle-recovery.test.ts",
+        "fullName": "offline retained deletion ledger recovery through the real CLI does not install a restore if cleanup cannot remove media and leaves the checkpoint untouched",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained identity.json and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained revocations/synthetic.json and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses an old DB plus retained synthetic.original and preserves original snapshot bytes",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses initialized reference tables even if every reference file was omitted",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files without any application DB",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore refuses retained private-reference-files/identity.json without any application DB",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/reference-recovery.test.ts",
+        "fullName": "real offline backup CLI enforces reference refusal in full and dry-run restore still restores old no-reference backups and leaves the source unchanged",
+        "message": "AssertionError: expected 'Atomic no-replace directory publicati\u2026' to be '' // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-auth.test.ts",
+        "fullName": "restores real auth accounts while invalidating old sessions and one-use links only in the copy",
+        "message": "Error: Command failed: python3 <PRIVATE_BASELINE_CHECKOUT>/scripts/private_backup.py create /private/tmp/chirp-auth-restore-wBN5q7/source /private/tmp/chirp-auth-restore-wBN5q7/checkpoint --offline"
+      },
+      {
+        "file": "src/lib/server/operations/restore-optional-state.test.ts",
+        "fullName": "offline restore revokes consent and pending arrivals with recording ledger=false",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-optional-state.test.ts",
+        "fullName": "offline restore revokes consent and pending arrivals with recording ledger=true",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=false)",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "revokes checkpoint share capabilities only in the restored copy (recording lifecycle=true)",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/operations/restore-shares.test.ts",
+        "fullName": "refuses an unknown share-update trigger before installing either legacy or lifecycle data",
+        "message": "AssertionError: expected 1 to be +0 // Object.is equality"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery restores later reviews and terminal revocation with exact pins, owner scope and request retries",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery restores valid later approval while obsolete review pins remain invalid",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery preserves later rejected reviews and never replaces them with approval",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery exports and reconciles a revocation published before an interrupted SQL commit",
+        "message": "Error: Invalid private reference directory."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at authority-validated without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at tombstone-published without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at reviews-reconciled without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at before-commit without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery retries safely after failure at committed without discarding terminal authority",
+        "message": "AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'"
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery rejects a concurrent revocation writer while recovery owns the SQLite write lock",
+        "message": "YardError: Private reference integrity is unavailable."
+      },
+      {
+        "file": "src/lib/server/reference-admission/recovery.test.ts",
+        "fullName": "complete private reference authority and bounded offline recovery operation check is read-only; apply writes a deterministic private receipt and retains default refusal",
+        "message": "Error: Invalid private reference directory."
+      }
+    ],
+    "failedByFile": {
+      "src/lib/server/image-files/service.test.ts": 1,
+      "src/lib/server/auth/smtp-socket.test.ts": 1,
+      "src/lib/server/operations/lifecycle-recovery.test.ts": 6,
+      "src/lib/server/operations/reference-recovery.test.ts": 7,
+      "src/lib/server/operations/restore-auth.test.ts": 1,
+      "src/lib/server/operations/restore-optional-state.test.ts": 2,
+      "src/lib/server/operations/restore-shares.test.ts": 3,
+      "src/lib/server/reference-admission/recovery.test.ts": 11
+    }
+  }
+]

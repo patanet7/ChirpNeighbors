@@ -1,0 +1,45 @@
+{
+  "status": "ready-workspace-only",
+  "repair": "CN-AUD-001 saved normal/lab scene input projection",
+  "files": [
+    {
+      "path": "src/lib/client/yard-runtime-config.ts",
+      "sha256": "2bfa10cbbf426d3029fa8e4499a5e4834f9db27db8d2afb335ef558c6a194f4f"
+    },
+    {
+      "path": "src/lib/client/yard-runtime-config.test.ts",
+      "sha256": "d531b8f7638dd0e1c48c70960166d211f4ef73ab185702bab62bb6d4a815d659"
+    }
+  ],
+  "verification": {
+    "tests": 9,
+    "strictTypeScript": "pass",
+    "typedLint": "pass",
+    "node": "24.19.0"
+  },
+  "api": "buildYardRuntimeConfig(snapshot, assets, explicitNowNumberOrUtcString, optionalSelection)",
+  "selection": "initial omitted selection chooses lexical firstactivebird and savedbath; explicitly passed null/missing IDs retained without fallback; root retains perowner state",
+  "returns": [
+    "asOf",
+    "activeBirds",
+    "sceneBirds",
+    "assets",
+    "objects",
+    "palette",
+    "setting",
+    "scenePin",
+    "reducedMotion",
+    "selection",
+    "selectionStatus",
+    "renderingIdentities"
+  ],
+  "authority": "existing yardReadResponseSchema validates saved aggregate and selected exact pins; existing AnimationRegistry describes ready/legacy/unavailable/unpinned fallback; no footprint, slot, model, provider, database or taxonomy changes",
+  "pending": [
+    "Parent component/root/lab wiring and normal physical defaults",
+    "Water owner native renderer lifetime/selection integration",
+    "Canonical install and combined gates",
+    "Actual native runtime HTTP/browser verification"
+  ],
+  "canonicalWrites": false,
+  "indexChanges": false
+}

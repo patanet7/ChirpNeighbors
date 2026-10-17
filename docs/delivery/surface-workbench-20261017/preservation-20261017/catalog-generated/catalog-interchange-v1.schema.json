@@ -1,0 +1,2610 @@
+{
+  "$ref": "#/definitions/CatalogInterchangeV1",
+  "definitions": {
+    "CatalogInterchangeV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "chirp-catalog-interchange"
+        },
+        "authority": {
+          "type": "string",
+          "const": "informational-source-projection"
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+        },
+        "revision": {
+          "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+        },
+        "generatedAt": {
+          "type": "string",
+          "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+        },
+        "inputSources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "facts",
+                  "aliases",
+                  "occurrence",
+                  "coverage",
+                  "frameReuse"
+                ]
+              },
+              "id": {
+                "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+              },
+              "version": {
+                "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "hashBasis": {
+                "type": "string",
+                "const": "canonical-contract-json-sha256"
+              }
+            },
+            "required": [
+              "role",
+              "id",
+              "version",
+              "sha256",
+              "hashBasis"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 4,
+          "maxItems": 5
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "facts": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "id": {
+                  "type": "string",
+                  "const": "chirp-species-learning-facts"
+                },
+                "version": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 3000
+                },
+                "preparedDate": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "scope": {
+                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                },
+                "measurementPolicy": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                  }
+                },
+                "contentPolicy": {
+                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                },
+                "records": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120,
+                        "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+                      },
+                      "species": {
+                        "type": "object",
+                        "properties": {
+                          "commonName": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 120
+                          },
+                          "scientificName": {
+                            "type": "string",
+                            "minLength": 2,
+                            "maxLength": 160,
+                            "allOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "commonName",
+                          "scientificName"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "taxonomy": {
+                        "type": "object",
+                        "properties": {
+                          "authority": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "authorityVersion": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "externalTaxonId": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "applicationSpeciesId": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/id"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "authority",
+                          "authorityVersion",
+                          "externalTaxonId",
+                          "applicationSpeciesId"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "regionalScope": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                      },
+                      "regionalStatus": {
+                        "type": "string",
+                        "const": "proposal-not-live-occurrence"
+                      },
+                      "confirmedAtUserHome": {
+                        "type": "boolean",
+                        "const": false
+                      },
+                      "fictionalPersonality": {
+                        "type": "null"
+                      },
+                      "fields": {
+                        "type": "object",
+                        "properties": {
+                          "identification": {
+                            "type": "object",
+                            "properties": {
+                              "text": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "source-linked",
+                                  "missing",
+                                  "conflicted"
+                                ]
+                              },
+                              "sourceIds": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/id"
+                                },
+                                "maxItems": 12
+                              },
+                              "confidenceLabel": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "text",
+                              "status",
+                              "sourceIds",
+                              "confidenceLabel"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "habitat": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/fields/properties/identification"
+                          },
+                          "regionSeason": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/fields/properties/identification"
+                          },
+                          "diet": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/fields/properties/identification"
+                          },
+                          "behavior": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/fields/properties/identification"
+                          },
+                          "calls": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/fields/properties/identification"
+                          }
+                        },
+                        "required": [
+                          "identification",
+                          "habitat",
+                          "regionSeason",
+                          "diet",
+                          "behavior",
+                          "calls"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "funFacts": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/fields/properties/identification"
+                        },
+                        "minItems": 1,
+                        "maxItems": 8
+                      },
+                      "measurements": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "key": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/id"
+                            },
+                            "measurementKind": {
+                              "type": "string",
+                              "enum": [
+                                "reported-length",
+                                "wingspan",
+                                "mass"
+                              ]
+                            },
+                            "unit": {
+                              "type": "string",
+                              "enum": [
+                                "cm",
+                                "g",
+                                "in"
+                              ]
+                            },
+                            "value": {
+                              "anyOf": [
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "kind": {
+                                      "type": "string",
+                                      "const": "point"
+                                    },
+                                    "value": {
+                                      "type": "number",
+                                      "exclusiveMinimum": 0
+                                    }
+                                  },
+                                  "required": [
+                                    "kind",
+                                    "value"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "kind": {
+                                      "type": "string",
+                                      "const": "range"
+                                    },
+                                    "minimum": {
+                                      "type": "number",
+                                      "exclusiveMinimum": 0
+                                    },
+                                    "maximum": {
+                                      "type": "number",
+                                      "exclusiveMinimum": 0
+                                    }
+                                  },
+                                  "required": [
+                                    "kind",
+                                    "minimum",
+                                    "maximum"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              ]
+                            },
+                            "sexScope": {
+                              "anyOf": [
+                                {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "ageScope": {
+                              "anyOf": [
+                                {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "sourceEndpointDefinition": {
+                              "anyOf": [
+                                {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "sourceId": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/id"
+                            },
+                            "note": {
+                              "anyOf": [
+                                {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "key",
+                            "measurementKind",
+                            "unit",
+                            "value",
+                            "sexScope",
+                            "ageScope",
+                            "sourceEndpointDefinition",
+                            "sourceId",
+                            "note"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 16
+                      },
+                      "measurementCaveats": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                        },
+                        "maxItems": 16
+                      },
+                      "sourceConflicts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "field": {
+                              "type": "string",
+                              "enum": [
+                                "length",
+                                "wingspan",
+                                "mass"
+                              ]
+                            },
+                            "status": {
+                              "type": "string",
+                              "const": "unresolved"
+                            },
+                            "selected": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/measurements/items"
+                            },
+                            "alternative": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/measurements/items"
+                            },
+                            "crosscheck": {
+                              "anyOf": [
+                                {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/measurements/items"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "resolution": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                            }
+                          },
+                          "required": [
+                            "field",
+                            "status",
+                            "selected",
+                            "alternative",
+                            "crosscheck",
+                            "resolution"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 8
+                      },
+                      "confidence": {
+                        "type": "object",
+                        "properties": {
+                          "naturalHistory": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "regionalSeasonality": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "measurementTranscription": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "scaleCalibration": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "naturalHistory",
+                          "regionalSeasonality",
+                          "measurementTranscription",
+                          "scaleCalibration"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "sources": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/id"
+                            },
+                            "url": {
+                              "type": "string",
+                              "format": "uri",
+                              "maxLength": 2048
+                            },
+                            "title": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                            },
+                            "publicationDate": {
+                              "anyOf": [
+                                {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/version"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "checkedAt": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/preparedDate"
+                            },
+                            "dateBasis": {
+                              "type": "string",
+                              "enum": [
+                                "supplied-research",
+                                "local-source-check"
+                              ]
+                            },
+                            "evidenceKind": {
+                              "type": "string",
+                              "enum": [
+                                "guide-summary",
+                                "historical-regional-context",
+                                "measurement-report",
+                                "sound-description"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "url",
+                            "title",
+                            "publicationDate",
+                            "checkedAt",
+                            "dateBasis",
+                            "evidenceKind"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 1,
+                        "maxItems": 24
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "species",
+                      "taxonomy",
+                      "regionalScope",
+                      "regionalStatus",
+                      "confirmedAtUserHome",
+                      "fictionalPersonality",
+                      "fields",
+                      "funFacts",
+                      "measurements",
+                      "measurementCaveats",
+                      "sourceConflicts",
+                      "confidence",
+                      "sources"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 64
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "id",
+                "version",
+                "preparedDate",
+                "scope",
+                "measurementPolicy",
+                "contentPolicy",
+                "records"
+              ],
+              "additionalProperties": false
+            },
+            "aliases": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "id": {
+                  "type": "string",
+                  "const": "chirp-reviewed-taxon-aliases"
+                },
+                "version": {
+                  "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                },
+                "aliases": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160,
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$"
+                      },
+                      "source": {
+                        "type": "object",
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "enum": [
+                              "application",
+                              "external",
+                              "source-record"
+                            ]
+                          },
+                          "authority": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                          },
+                          "version": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                          },
+                          "taxonId": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/aliases/properties/aliases/items/properties/id"
+                          },
+                          "scientificName": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/species/properties/scientificName"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "authority",
+                          "version",
+                          "taxonId",
+                          "scientificName"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "target": {
+                        "type": "object",
+                        "properties": {
+                          "catalog": {
+                            "type": "string",
+                            "const": "chirp-display-catalog"
+                          },
+                          "version": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "speciesId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160,
+                            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                          }
+                        },
+                        "required": [
+                          "catalog",
+                          "version",
+                          "speciesId"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "relationship": {
+                        "type": "string",
+                        "enum": [
+                          "same-taxon",
+                          "accepted-synonym"
+                        ]
+                      },
+                      "review": {
+                        "type": "object",
+                        "properties": {
+                          "reviewId": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/aliases/properties/aliases/items/properties/id"
+                          },
+                          "reviewedAt": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/generatedAt"
+                          },
+                          "sourceDigest": {
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{64}$"
+                          },
+                          "status": {
+                            "type": "string",
+                            "const": "reviewed"
+                          }
+                        },
+                        "required": [
+                          "reviewId",
+                          "reviewedAt",
+                          "sourceDigest",
+                          "status"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "source",
+                      "target",
+                      "relationship",
+                      "review"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 128
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "id",
+                "version",
+                "aliases"
+              ],
+              "additionalProperties": false
+            },
+            "occurrence": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "id": {
+                  "type": "string",
+                  "const": "chirp-occurrence-claims"
+                },
+                "version": {
+                  "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                },
+                "readiness": {
+                  "type": "string",
+                  "enum": [
+                    "unconfigured",
+                    "reviewed"
+                  ]
+                },
+                "regions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160
+                      },
+                      "parents": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                        },
+                        "maxItems": 4
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "label",
+                      "parents"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 64
+                },
+                "habitats": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "label": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/occurrence/properties/regions/items/properties/label"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "label"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 64
+                },
+                "claims": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "taxon": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/aliases/properties/aliases/items/properties/source"
+                      },
+                      "regionIds": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                        },
+                        "minItems": 1,
+                        "maxItems": 8
+                      },
+                      "habitatIds": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                        },
+                        "maxItems": 8
+                      },
+                      "windows": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "from": {
+                              "type": "string",
+                              "pattern": "^\\d{2}-\\d{2}$"
+                            },
+                            "through": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/occurrence/properties/claims/items/properties/windows/items/properties/from"
+                            }
+                          },
+                          "required": [
+                            "from",
+                            "through"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 1,
+                        "maxItems": 8
+                      },
+                      "support": {
+                        "type": "string",
+                        "enum": [
+                          "likely",
+                          "possible",
+                          "unlikely"
+                        ]
+                      },
+                      "review": {
+                        "type": "string",
+                        "const": "reviewed"
+                      },
+                      "confidence": {
+                        "type": "string",
+                        "const": "qualitative-source-claim"
+                      },
+                      "validFrom": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/preparedDate"
+                      },
+                      "validThrough": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/preparedDate"
+                      },
+                      "sources": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/facts/properties/records/items/properties/sources/items"
+                        },
+                        "minItems": 1,
+                        "maxItems": 8
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "taxon",
+                      "regionIds",
+                      "habitatIds",
+                      "windows",
+                      "support",
+                      "review",
+                      "confidence",
+                      "validFrom",
+                      "validThrough",
+                      "sources"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 256
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "id",
+                "version",
+                "readiness",
+                "regions",
+                "habitats",
+                "claims"
+              ],
+              "additionalProperties": false
+            },
+            "coverage": {
+              "type": "array",
+              "items": {
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "subject": {
+                        "type": "object",
+                        "properties": {
+                          "taxon": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/aliases/properties/aliases/items/properties/source"
+                          },
+                          "packId": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                          }
+                        },
+                        "required": [
+                          "taxon",
+                          "packId"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "slotId": {
+                        "type": "string",
+                        "enum": [
+                          "idle",
+                          "blink",
+                          "look_up",
+                          "look_down",
+                          "look_toward_viewer",
+                          "look_back",
+                          "look_other_directions",
+                          "hop",
+                          "walk_or_ground_locomotion",
+                          "takeoff",
+                          "flight",
+                          "landing",
+                          "seed_feeding",
+                          "insect_feeding",
+                          "drinking",
+                          "bathing",
+                          "preening",
+                          "feather_twitch",
+                          "singing",
+                          "sleeping",
+                          "playing",
+                          "nest_building",
+                          "alert_escape",
+                          "return_arrival"
+                        ]
+                      },
+                      "sourceBinding": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "sourceDigest": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              },
+                              "receiptDigest": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              }
+                            },
+                            "required": [
+                              "sourceDigest",
+                              "receiptDigest"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "frameCount": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 256
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "distinctFrameCount": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 256
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "animation": {
+                        "type": "string",
+                        "enum": [
+                          "static",
+                          "genuine-frames",
+                          "procedural-only",
+                          "unknown"
+                        ]
+                      },
+                      "gates": {
+                        "type": "object",
+                        "properties": {
+                          "sourcePresence": {
+                            "type": "object",
+                            "properties": {
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "unknown",
+                                  "missing",
+                                  "candidate",
+                                  "accepted",
+                                  "rejected",
+                                  "not-applicable",
+                                  "conflicted"
+                                ]
+                              },
+                              "evidenceRefs": {
+                                "type": "array",
+                                "items": {
+                                  "allOf": [
+                                    {
+                                      "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                                    },
+                                    {
+                                      "type": "string",
+                                      "pattern": "^(?!libfile_|file_)"
+                                    }
+                                  ]
+                                },
+                                "maxItems": 8
+                              },
+                              "binding": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/sourceBinding/anyOf/0"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "status",
+                              "evidenceRefs",
+                              "binding"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "genuineFrames": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          },
+                          "structuralValidation": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          },
+                          "reviewApproval": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          },
+                          "rightsClearance": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          },
+                          "integration": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          },
+                          "runtime": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          },
+                          "nativeSupport": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          },
+                          "biologicalScale": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          },
+                          "facts": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          },
+                          "motionQuality": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "scale": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "endpointConvention": {
+                                "type": "string",
+                                "enum": [
+                                  "unknown",
+                                  "source-defined",
+                                  "conflicted"
+                                ]
+                              },
+                              "fixedAcrossFrames": {
+                                "type": [
+                                  "boolean",
+                                  "null"
+                                ]
+                              },
+                              "fixedAcrossClips": {
+                                "type": [
+                                  "boolean",
+                                  "null"
+                                ]
+                              },
+                              "referenceId": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence/properties/evidenceRefs/items"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "endpointConvention",
+                              "fixedAcrossFrames",
+                              "fixedAcrossClips",
+                              "referenceId"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "organization": {
+                        "type": "object",
+                        "properties": {
+                          "familyId": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "variantId": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "layer": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "enum": [
+                                  "background",
+                                  "ground",
+                                  "objects",
+                                  "foreground"
+                                ]
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "clipId": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "state": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "enum": [
+                                  "idle",
+                                  "moving",
+                                  "perching",
+                                  "singing",
+                                  "feeding",
+                                  "bathing",
+                                  "sleeping",
+                                  "playing",
+                                  "nesting"
+                                ]
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "reference": {
+                            "anyOf": [
+                              {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "kind": {
+                                        "type": "string",
+                                        "const": "catalog-release"
+                                      },
+                                      "release": {
+                                        "type": "object",
+                                        "properties": {
+                                          "schemaVersion": {
+                                            "type": "number",
+                                            "const": 1
+                                          },
+                                          "request": {
+                                            "type": "object",
+                                            "properties": {
+                                              "schemaVersion": {
+                                                "type": "number",
+                                                "const": 1
+                                              },
+                                              "taxonomy": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/aliases/properties/aliases/items/properties/target"
+                                              },
+                                              "style": {
+                                                "type": "object",
+                                                "properties": {
+                                                  "id": {
+                                                    "type": "string",
+                                                    "pattern": "^[a-z0-9][a-z0-9._-]{0,79}$"
+                                                  },
+                                                  "version": {
+                                                    "type": "integer",
+                                                    "minimum": 1,
+                                                    "maximum": 9007199254740991
+                                                  }
+                                                },
+                                                "required": [
+                                                  "id",
+                                                  "version"
+                                                ],
+                                                "additionalProperties": false
+                                              },
+                                              "assetVersion": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/0/properties/release/properties/request/properties/style/properties/version"
+                                              },
+                                              "variant": {
+                                                "anyOf": [
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "kind": {
+                                                        "type": "string",
+                                                        "const": "canonical"
+                                                      }
+                                                    },
+                                                    "required": [
+                                                      "kind"
+                                                    ],
+                                                    "additionalProperties": false
+                                                  },
+                                                  {
+                                                    "type": "object",
+                                                    "properties": {
+                                                      "kind": {
+                                                        "type": "string",
+                                                        "const": "variant"
+                                                      },
+                                                      "id": {
+                                                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/0/properties/release/properties/request/properties/style/properties/id"
+                                                      },
+                                                      "version": {
+                                                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/0/properties/release/properties/request/properties/style/properties/version"
+                                                      }
+                                                    },
+                                                    "required": [
+                                                      "kind",
+                                                      "id",
+                                                      "version"
+                                                    ],
+                                                    "additionalProperties": false
+                                                  }
+                                                ]
+                                              }
+                                            },
+                                            "required": [
+                                              "schemaVersion",
+                                              "taxonomy",
+                                              "style",
+                                              "assetVersion",
+                                              "variant"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "catalogKey": {
+                                            "type": "string",
+                                            "pattern": "^[a-f0-9]{64}$"
+                                          },
+                                          "releaseVersion": {
+                                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/0/properties/release/properties/request/properties/style/properties/version"
+                                          },
+                                          "render": {
+                                            "type": "object",
+                                            "properties": {
+                                              "contract": {
+                                                "type": "string",
+                                                "const": "public-catalog-render-v1"
+                                              },
+                                              "sha256": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/0/properties/release/properties/catalogKey"
+                                              },
+                                              "bytes": {
+                                                "type": "integer",
+                                                "minimum": 1,
+                                                "maximum": 1000000
+                                              }
+                                            },
+                                            "required": [
+                                              "contract",
+                                              "sha256",
+                                              "bytes"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "review": {
+                                            "type": "object",
+                                            "properties": {
+                                              "decision": {
+                                                "type": "string",
+                                                "const": "approved"
+                                              },
+                                              "policyVersion": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/0/properties/release/properties/request/properties/style/properties/version"
+                                              }
+                                            },
+                                            "required": [
+                                              "decision",
+                                              "policyVersion"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "rights": {
+                                            "type": "object",
+                                            "properties": {
+                                              "redistributionAllowed": {
+                                                "type": "boolean",
+                                                "const": true
+                                              },
+                                              "policyVersion": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/0/properties/release/properties/request/properties/style/properties/version"
+                                              },
+                                              "publicAttributionSha256": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/0/properties/release/properties/catalogKey"
+                                              }
+                                            },
+                                            "required": [
+                                              "redistributionAllowed",
+                                              "policyVersion",
+                                              "publicAttributionSha256"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "fixture": {
+                                            "type": "boolean"
+                                          },
+                                          "taxonFidelityReviewed": {
+                                            "type": "boolean"
+                                          }
+                                        },
+                                        "required": [
+                                          "schemaVersion",
+                                          "request",
+                                          "catalogKey",
+                                          "releaseVersion",
+                                          "render",
+                                          "review",
+                                          "rights",
+                                          "fixture",
+                                          "taxonFidelityReviewed"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    },
+                                    "required": [
+                                      "kind",
+                                      "release"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "kind": {
+                                        "type": "string",
+                                        "const": "review-package"
+                                      },
+                                      "receipt": {
+                                        "type": "object",
+                                        "properties": {
+                                          "profile": {
+                                            "type": "string",
+                                            "const": "chirp-texture-review-v1"
+                                          },
+                                          "activation": {
+                                            "type": "string",
+                                            "const": "none"
+                                          },
+                                          "approved": {
+                                            "type": "boolean",
+                                            "const": false
+                                          },
+                                          "original": {
+                                            "type": "object",
+                                            "properties": {
+                                              "sha256": {
+                                                "type": "string",
+                                                "pattern": "^[a-f0-9]{64}$"
+                                              },
+                                              "bytes": {
+                                                "type": "integer",
+                                                "minimum": 1,
+                                                "maximum": 4194304
+                                              }
+                                            },
+                                            "required": [
+                                              "sha256",
+                                              "bytes"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "canonical": {
+                                            "type": "object",
+                                            "properties": {
+                                              "sha256": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt/properties/original/properties/sha256"
+                                              },
+                                              "bytes": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt/properties/original/properties/bytes"
+                                              },
+                                              "rgbaSha256": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt/properties/original/properties/sha256"
+                                              },
+                                              "width": {
+                                                "type": "integer",
+                                                "minimum": 1,
+                                                "maximum": 1024
+                                              },
+                                              "height": {
+                                                "type": "integer",
+                                                "minimum": 1,
+                                                "maximum": 1024
+                                              }
+                                            },
+                                            "required": [
+                                              "sha256",
+                                              "bytes",
+                                              "rgbaSha256",
+                                              "width",
+                                              "height"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "alpha": {
+                                            "type": "string",
+                                            "const": "straight-rgba8"
+                                          },
+                                          "normalization": {
+                                            "type": "string",
+                                            "const": "zero-hidden-rgb-only-v1"
+                                          },
+                                          "contactRule": {
+                                            "type": "string",
+                                            "const": "alpha-greater-than-zero-only-not-physical-review"
+                                          },
+                                          "metrics": {
+                                            "type": "object",
+                                            "properties": {
+                                              "partialAlphaPixels": {
+                                                "type": "integer",
+                                                "minimum": 0,
+                                                "maximum": 1048576
+                                              },
+                                              "transparentPixels": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt/properties/metrics/properties/partialAlphaPixels"
+                                              },
+                                              "hiddenRgbPixelsZeroed": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt/properties/metrics/properties/partialAlphaPixels"
+                                              },
+                                              "visibleRgbColors": {
+                                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt/properties/metrics/properties/partialAlphaPixels"
+                                              },
+                                              "frames": {
+                                                "type": "integer",
+                                                "minimum": 1,
+                                                "maximum": 64
+                                              },
+                                              "uniqueSourceFramePixels": {
+                                                "type": "integer",
+                                                "minimum": 1,
+                                                "maximum": 64
+                                              },
+                                              "knownDecodedRgbaBytes": {
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "maximum": 4194304
+                                              },
+                                              "knownSanitizedPngBytes": {
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "maximum": 4194304
+                                              },
+                                              "pngChunks": {
+                                                "type": "integer",
+                                                "minimum": 3,
+                                                "maximum": 1024
+                                              },
+                                              "knownCanonicalPngBytes": {
+                                                "type": "integer",
+                                                "exclusiveMinimum": 0,
+                                                "maximum": 4194304
+                                              }
+                                            },
+                                            "required": [
+                                              "partialAlphaPixels",
+                                              "transparentPixels",
+                                              "hiddenRgbPixelsZeroed",
+                                              "visibleRgbColors",
+                                              "frames",
+                                              "uniqueSourceFramePixels",
+                                              "knownDecodedRgbaBytes",
+                                              "knownSanitizedPngBytes",
+                                              "pngChunks",
+                                              "knownCanonicalPngBytes"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "frameDigests": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "type": "string",
+                                                  "minLength": 1,
+                                                  "maxLength": 80,
+                                                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+                                                },
+                                                "rgbaSha256": {
+                                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt/properties/original/properties/sha256"
+                                                }
+                                              },
+                                              "required": [
+                                                "id",
+                                                "rgbaSha256"
+                                              ],
+                                              "additionalProperties": false
+                                            },
+                                            "minItems": 1,
+                                            "maxItems": 64
+                                          },
+                                          "decoder": {
+                                            "type": "object",
+                                            "properties": {
+                                              "id": {
+                                                "type": "string",
+                                                "const": "sharp"
+                                              },
+                                              "version": {
+                                                "type": "string",
+                                                "minLength": 1,
+                                                "maxLength": 40
+                                              },
+                                              "libvips": {
+                                                "type": "string",
+                                                "minLength": 1,
+                                                "maxLength": 40
+                                              }
+                                            },
+                                            "required": [
+                                              "id",
+                                              "version",
+                                              "libvips"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "timings": {
+                                            "type": "object",
+                                            "properties": {
+                                              "scope": {
+                                                "type": "string",
+                                                "const": "cpu-wall-time-not-gpu-or-peak-memory"
+                                              },
+                                              "decodeMs": {
+                                                "type": "number",
+                                                "minimum": 0
+                                              },
+                                              "validationMs": {
+                                                "type": "number",
+                                                "minimum": 0
+                                              },
+                                              "encodeMs": {
+                                                "type": "number",
+                                                "minimum": 0
+                                              },
+                                              "totalMs": {
+                                                "type": "number",
+                                                "minimum": 0
+                                              }
+                                            },
+                                            "required": [
+                                              "scope",
+                                              "decodeMs",
+                                              "validationMs",
+                                              "encodeMs",
+                                              "totalMs"
+                                            ],
+                                            "additionalProperties": false
+                                          }
+                                        },
+                                        "required": [
+                                          "profile",
+                                          "activation",
+                                          "approved",
+                                          "original",
+                                          "canonical",
+                                          "alpha",
+                                          "normalization",
+                                          "contactRule",
+                                          "metrics",
+                                          "frameDigests",
+                                          "decoder",
+                                          "timings"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    },
+                                    "required": [
+                                      "kind",
+                                      "receipt"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "familyId",
+                          "variantId",
+                          "layer",
+                          "clipId",
+                          "state",
+                          "reference"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "motionQuality": {
+                        "type": "object",
+                        "properties": {
+                          "ordinaryGroundGait": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence/properties/status"
+                          },
+                          "sourceMotion": {
+                            "type": "string",
+                            "enum": [
+                              "upright-small-steps",
+                              "deep-crouch-launch",
+                              "exaggerated-leg-reach",
+                              "takeoff-startle",
+                              "unknown"
+                            ]
+                          },
+                          "evidenceRefs": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence/properties/evidenceRefs"
+                          }
+                        },
+                        "required": [
+                          "ordinaryGroundGait",
+                          "sourceMotion",
+                          "evidenceRefs"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "subject",
+                      "slotId",
+                      "sourceBinding",
+                      "frameCount",
+                      "distinctFrameCount",
+                      "animation",
+                      "gates",
+                      "scale"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "subject": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/subject"
+                      },
+                      "slotId": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/slotId"
+                      },
+                      "sourceBinding": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/sourceBinding"
+                      },
+                      "frameCount": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/frameCount"
+                      },
+                      "distinctFrameCount": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/distinctFrameCount"
+                      },
+                      "animation": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/animation"
+                      },
+                      "gates": {
+                        "type": "object",
+                        "properties": {
+                          "sourcePresence": {
+                            "type": "object",
+                            "properties": {
+                              "status": {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence/properties/status"
+                              },
+                              "evidenceRefs": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                                },
+                                "maxItems": 8
+                              },
+                              "binding": {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence/properties/binding"
+                              }
+                            },
+                            "required": [
+                              "status",
+                              "evidenceRefs",
+                              "binding"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "genuineFrames": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          },
+                          "structuralValidation": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          },
+                          "reviewApproval": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          },
+                          "rightsClearance": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          },
+                          "integration": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          },
+                          "runtime": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          },
+                          "nativeSupport": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          },
+                          "biologicalScale": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          },
+                          "facts": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          },
+                          "motionQuality": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence"
+                          }
+                        },
+                        "additionalProperties": false
+                      },
+                      "scale": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "endpointConvention": {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/scale/anyOf/0/properties/endpointConvention"
+                              },
+                              "fixedAcrossFrames": {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/scale/anyOf/0/properties/fixedAcrossFrames"
+                              },
+                              "fixedAcrossClips": {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/scale/anyOf/0/properties/fixedAcrossClips"
+                              },
+                              "referenceId": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "endpointConvention",
+                              "fixedAcrossFrames",
+                              "fixedAcrossClips",
+                              "referenceId"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "organization": {
+                        "type": "object",
+                        "properties": {
+                          "familyId": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/familyId"
+                          },
+                          "variantId": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/variantId"
+                          },
+                          "layer": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/layer"
+                          },
+                          "clipId": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/clipId"
+                          },
+                          "state": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/state"
+                          },
+                          "reference": {
+                            "anyOf": [
+                              {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/0"
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "kind": {
+                                        "type": "string",
+                                        "const": "animation-pin"
+                                      },
+                                      "pin": {
+                                        "type": "object",
+                                        "properties": {
+                                          "jobId": {
+                                            "type": "string",
+                                            "minLength": 1,
+                                            "maxLength": 160
+                                          },
+                                          "artifactId": {
+                                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/pin/properties/jobId"
+                                          },
+                                          "version": {
+                                            "type": "integer",
+                                            "exclusiveMinimum": 0,
+                                            "maximum": 9007199254740991
+                                          },
+                                          "contentDigest": {
+                                            "type": "string",
+                                            "pattern": "^[a-f0-9]{64}$"
+                                          }
+                                        },
+                                        "required": [
+                                          "jobId",
+                                          "artifactId",
+                                          "version",
+                                          "contentDigest"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    },
+                                    "required": [
+                                      "kind",
+                                      "pin"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1"
+                                  }
+                                ]
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "familyId",
+                          "variantId",
+                          "layer",
+                          "clipId",
+                          "state",
+                          "reference"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "motionQuality": {
+                        "type": "object",
+                        "properties": {
+                          "ordinaryGroundGait": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/gates/properties/sourcePresence/properties/status"
+                          },
+                          "sourceMotion": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/motionQuality/properties/sourceMotion"
+                          },
+                          "evidenceRefs": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/1/properties/gates/properties/sourcePresence/properties/evidenceRefs"
+                          }
+                        },
+                        "required": [
+                          "ordinaryGroundGait",
+                          "sourceMotion",
+                          "evidenceRefs"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "subject",
+                      "slotId",
+                      "sourceBinding",
+                      "frameCount",
+                      "distinctFrameCount",
+                      "animation",
+                      "gates",
+                      "scale"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "maxItems": 2048
+            },
+            "frameReuse": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "id": {
+                  "type": "string",
+                  "const": "chirp-frame-reuse-catalog"
+                },
+                "version": {
+                  "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                },
+                "frames": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "ref": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                          },
+                          "version": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 9007199254740991
+                          },
+                          "rgbaDigest": {
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{64}$"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "version",
+                          "rgbaDigest"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "taxon": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/aliases/properties/aliases/items/properties/source"
+                      },
+                      "individualId": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "scaleId": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "geometry": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt/properties/frameDigests/items/properties/id"
+                          },
+                          "sourceRect": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 1024
+                              },
+                              "y": {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/sourceRect/properties/x"
+                              },
+                              "width": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 512
+                              },
+                              "height": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 512
+                              }
+                            },
+                            "required": [
+                              "x",
+                              "y",
+                              "width",
+                              "height"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "canvas": {
+                            "type": "object",
+                            "properties": {
+                              "width": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 512
+                              },
+                              "height": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 512
+                              }
+                            },
+                            "required": [
+                              "width",
+                              "height"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "trim": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/sourceRect/properties/x"
+                              },
+                              "y": {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/sourceRect/properties/x"
+                              }
+                            },
+                            "required": [
+                              "x",
+                              "y"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "pivot": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/trim"
+                          },
+                          "contacts": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/sourceRect/properties/x"
+                                },
+                                "y": {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/sourceRect/properties/x"
+                                },
+                                "id": {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt/properties/frameDigests/items/properties/id"
+                                }
+                              },
+                              "required": [
+                                "x",
+                                "y",
+                                "id"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "minItems": 1,
+                            "maxItems": 4
+                          },
+                          "world": {
+                            "type": "object",
+                            "properties": {
+                              "width": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "maximum": 2048
+                              },
+                              "height": {
+                                "type": "number",
+                                "exclusiveMinimum": 0,
+                                "maximum": 2048
+                              }
+                            },
+                            "required": [
+                              "width",
+                              "height"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "sourcePixelsPerWorldUnit": {
+                            "type": "number",
+                            "minimum": 0.25,
+                            "maximum": 8
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "sourceRect",
+                          "canvas",
+                          "trim",
+                          "pivot",
+                          "contacts",
+                          "world",
+                          "sourcePixelsPerWorldUnit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "provenance": {
+                        "type": "object",
+                        "properties": {
+                          "sourceId": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                          },
+                          "sourceVersion": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                          },
+                          "sourceDigest": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/ref/properties/rgbaDigest"
+                          },
+                          "derivationReceiptDigest": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/ref/properties/rgbaDigest"
+                          },
+                          "sourceClipReview": {
+                            "type": "string",
+                            "enum": [
+                              "unknown",
+                              "unreviewed",
+                              "approved",
+                              "rejected"
+                            ]
+                          },
+                          "evidenceRefs": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/provenance/properties/sourceId"
+                            },
+                            "maxItems": 8
+                          }
+                        },
+                        "required": [
+                          "sourceId",
+                          "sourceVersion",
+                          "sourceDigest",
+                          "derivationReceiptDigest",
+                          "sourceClipReview",
+                          "evidenceRefs"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "structural": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "unknown",
+                              "verified",
+                              "rejected"
+                            ]
+                          },
+                          "receipt": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/organization/properties/reference/anyOf/0/anyOf/1/properties/receipt"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "status",
+                          "receipt"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "frameReview": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "unknown",
+                              "unreviewed",
+                              "approved",
+                              "rejected"
+                            ]
+                          },
+                          "receiptDigest": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/ref/properties/rgbaDigest"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "evidenceRefs": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/provenance/properties/evidenceRefs"
+                          }
+                        },
+                        "required": [
+                          "status",
+                          "receiptDigest",
+                          "evidenceRefs"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "rights": {
+                        "type": "object",
+                        "properties": {
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "unknown",
+                              "cleared",
+                              "rejected"
+                            ]
+                          },
+                          "evidenceRefs": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/provenance/properties/evidenceRefs"
+                          }
+                        },
+                        "required": [
+                          "status",
+                          "evidenceRefs"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "ref",
+                      "taxon",
+                      "individualId",
+                      "scaleId",
+                      "geometry",
+                      "provenance",
+                      "structural",
+                      "frameReview",
+                      "rights"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 128
+                },
+                "clips": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "version": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/ref/properties/version"
+                      },
+                      "taxon": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/aliases/properties/aliases/items/properties/source"
+                      },
+                      "individualId": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "scaleId": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/id"
+                      },
+                      "slotId": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/coverage/items/allOf/0/properties/slotId"
+                      },
+                      "nativeState": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "enum": [
+                              "idle",
+                              "moving",
+                              "perching",
+                              "singing",
+                              "feeding",
+                              "bathing",
+                              "sleeping",
+                              "playing",
+                              "nesting"
+                            ]
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "basis": {
+                        "type": "string",
+                        "enum": [
+                          "verified-reuse",
+                          "proposed-reuse",
+                          "source-experiment",
+                          "user-feedback"
+                        ]
+                      },
+                      "registration": {
+                        "type": "object",
+                        "properties": {
+                          "canvas": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/canvas"
+                          },
+                          "trim": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/trim"
+                          },
+                          "pivot": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/trim"
+                          },
+                          "world": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/world"
+                          },
+                          "sourcePixelsPerWorldUnit": {
+                            "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/sourcePixelsPerWorldUnit"
+                          }
+                        },
+                        "required": [
+                          "canvas",
+                          "trim",
+                          "pivot",
+                          "world",
+                          "sourcePixelsPerWorldUnit"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "contacts": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "kind": {
+                                "type": "string",
+                                "const": "fixed"
+                              },
+                              "points": {
+                                "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/geometry/properties/contacts"
+                              }
+                            },
+                            "required": [
+                              "kind",
+                              "points"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "kind": {
+                                "type": "string",
+                                "const": "reviewed-transitions"
+                              }
+                            },
+                            "required": [
+                              "kind"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "tickRate": {
+                        "type": "number",
+                        "const": 30
+                      },
+                      "loop": {
+                        "type": "boolean"
+                      },
+                      "steps": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "frame": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/ref"
+                            },
+                            "durationTicks": {
+                              "type": "integer",
+                              "minimum": 1,
+                              "maximum": 300
+                            }
+                          },
+                          "required": [
+                            "frame",
+                            "durationTicks"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "minItems": 1,
+                        "maxItems": 64
+                      },
+                      "transitions": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "from": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/ref"
+                            },
+                            "to": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/ref"
+                            },
+                            "status": {
+                              "type": "string",
+                              "enum": [
+                                "unknown",
+                                "proposed",
+                                "verified",
+                                "rejected"
+                              ]
+                            },
+                            "receiptDigest": {
+                              "anyOf": [
+                                {
+                                  "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/ref/properties/rgbaDigest"
+                                },
+                                {
+                                  "type": "null"
+                                }
+                              ]
+                            },
+                            "evidenceRefs": {
+                              "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/provenance/properties/evidenceRefs"
+                            }
+                          },
+                          "required": [
+                            "from",
+                            "to",
+                            "status",
+                            "receiptDigest",
+                            "evidenceRefs"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 64
+                      },
+                      "review": {
+                        "$ref": "#/definitions/CatalogInterchangeV1/properties/payload/properties/frameReuse/properties/frames/items/properties/frameReview"
+                      },
+                      "note": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 500
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "version",
+                      "taxon",
+                      "individualId",
+                      "scaleId",
+                      "slotId",
+                      "nativeState",
+                      "basis",
+                      "registration",
+                      "contacts",
+                      "tickRate",
+                      "loop",
+                      "steps",
+                      "transitions",
+                      "review",
+                      "note"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 64
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "id",
+                "version",
+                "frames",
+                "clips"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "facts",
+            "aliases",
+            "occurrence",
+            "coverage"
+          ],
+          "additionalProperties": false
+        },
+        "payloadDigest": {
+          "$ref": "#/definitions/CatalogInterchangeV1/properties/inputSources/items/properties/sha256"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "authority",
+        "id",
+        "revision",
+        "generatedAt",
+        "inputSources",
+        "payload",
+        "payloadDigest"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/catalog-interchange-v1.schema.json",
+  "description": "Generated structural projection of shared Zod contracts; importCatalogInterchange is additionally required for digest verification, exact native taxonomy, alias uniqueness, DAG/calendar validity, source references and exclusion of owner-private pins. No rights, review, live occurrence or publication authority is conferred."
+}
