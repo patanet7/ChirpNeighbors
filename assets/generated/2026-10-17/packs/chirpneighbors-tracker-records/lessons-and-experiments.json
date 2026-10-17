@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "authority": "Local production lessons plus explicitly labelled parent relays; pending canonical shared experiment contract",
+  "experiments": [
+    {
+      "id": "HF-canon-1",
+      "attempts": [
+        "house-finch-canon-v1"
+      ],
+      "works": [
+        "male/female plumage distinctions visible",
+        "transparent output composites cleanly",
+        "own art style can condition a new text-grounded species candidate"
+      ],
+      "doesNotEstablish": [
+        "photo-based species conditioning",
+        "accepted anatomy/pixel-art style",
+        "biological cross-species scale"
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "settingsExposed": {
+        "transparent_background": true,
+        "seed": null
+      },
+      "exactPrompt": "batches/house-finch-canon-v1/prompt.txt",
+      "references": [
+        "batches/dove-walk-v1/original.png",
+        "batches/house-finch-canon-v1/reference-and-scale.json"
+      ],
+      "sourceOutput": "batches/house-finch-canon-v1/original.png",
+      "tests": [
+        "light-background composites"
+      ],
+      "feedback": [
+        "eye/feather texture may be too smooth/photographic"
+      ],
+      "hypothesis": "reference style and large source resolution bias toward fine smooth feather texture",
+      "nextChange": "review at actual game size before adopting canon; do not expand into more actions as if style accepted",
+      "outcome": "candidate, no acceptance"
+    },
+    {
+      "id": "HF-idle-1",
+      "attempts": [
+        "house-finch-male-idle-v1",
+        "house-finch-female-idle-v1"
+      ],
+      "works": [
+        "genuine closed/half blink",
+        "head/neck/viewer-turn shape changes",
+        "same-sex canon reference preserves broad appearance"
+      ],
+      "doesNotWork": [
+        "nominal atlas-cell compliance",
+        "stable exact feather/body/foot layout"
+      ],
+      "exactPrompts": [
+        "batches/house-finch-male-idle-v1/prompt.txt",
+        "batches/house-finch-female-idle-v1/prompt.txt"
+      ],
+      "sourceOutputs": [
+        "batches/house-finch-male-idle-v1/original.png",
+        "batches/house-finch-female-idle-v1/original.png"
+      ],
+      "tests": [
+        "6 unique frames each",
+        "6 APNG/GIF frames",
+        "original alpha>=32 cores not atlas-edge clipped"
+      ],
+      "failureCauseHypothesis": "image model ignored requested bird extent and cell margins; it did not preserve identical lower-body geometry",
+      "nextChange": "component isolation for technical packaging, then actual scene-scale/art review; no claim of anatomical correction",
+      "outcome": "playable candidates with stated drift"
+    },
+    {
+      "id": "HF-extraction-1",
+      "attempts": [
+        "package_finch.py"
+      ],
+      "works": [
+        "all atlas pixels alpha>=2 assigned exactly once to six principal silhouettes",
+        "exact copied RGBA for retained pixels",
+        "one uniform384px derivative scale, no per-frame fitting"
+      ],
+      "limitations": [
+        "alpha1 residue excluded from derived frames",
+        "root/feet/beak are heuristic estimates, not anatomical tracking",
+        "normalizing placement does not cure body-size drift"
+      ],
+      "tests": [
+        "per-clip manifest.validation"
+      ],
+      "sourceOutputs": [
+        "frame-bank.json"
+      ],
+      "nextChange": "Mac converts compatible source frames using agreed typed scale/contact contract",
+      "outcome": "technical isolation passes; artistic and contact review pending"
+    },
+    {
+      "id": "HF-feed-1",
+      "attempts": [
+        "house-finch-male-feed-v1",
+        "house-finch-female-feed-v1"
+      ],
+      "works": [
+        "redrawn bow/pickup/seed-held/kernel/recovery states",
+        "actual bill/neck/body changes"
+      ],
+      "doesNotWork": [
+        "seed/kernel plausibly small size",
+        "verified beak-seed contacts and timing",
+        "stable lower-body contours"
+      ],
+      "exactPrompts": [
+        "batches/house-finch-male-feed-v1/prompt.txt",
+        "batches/house-finch-female-feed-v1/prompt.txt"
+      ],
+      "sourceOutputs": [
+        "batches/house-finch-male-feed-v1/original.png",
+        "batches/house-finch-female-feed-v1/original.png"
+      ],
+      "failureCauseHypothesis": "model prioritizes legible prop over scale/contact precision",
+      "nextChange": "review beak landmarks/prop size at accepted world scale; controlled targeted correction if required",
+      "outcome": "candidate feeding clips, no food-physics acceptance"
+    },
+    {
+      "id": "rain-phase-2",
+      "attempts": [
+        "rain-continuity-v2"
+      ],
+      "works": [
+        "separate reusable rain texture frames exist"
+      ],
+      "doesNotWork": [
+        "requested temporal advection/loop"
+      ],
+      "testReceipt": "batches/rain-continuity-v2/continuity-review.json",
+      "nextChange": "Mac procedural-weather/compositor contract first; no further unrelated rain sheets",
+      "outcome": "failed sequence retained; individual-frame reuse only suggested"
+    },
+    {
+      "id": "crow-guided-contact-parent",
+      "evidenceScope": "parent relay; no bytes verified here",
+      "sourceBundle": "[private-source-reference-retained-locally]",
+      "works": [
+        "opposite support/lift and occlusion in guided poses"
+      ],
+      "doesNotWork": [
+        "full translating stance stability",
+        "natural modest amplitude",
+        "stable appearance"
+      ],
+      "observations": [
+        "manual20\u201326runtimepx stance slip",
+        "about5px ground variation"
+      ],
+      "nextChange": "trajectory/timing/registration/rig refinement with real-footage observation; preserve useful individual poses",
+      "outcome": "method experiment gate passed, production walk failed"
+    },
+    {
+      "id": "frame-reuse-1",
+      "sourceRegister": "frame-bank.json",
+      "works": [
+        "content-addressed immutable frame IDs",
+        "clips reference frames instead of copying source images",
+        "sequence failure and frame rejection are distinct"
+      ],
+      "candidateReuses": [
+        "House Finch idle neutral\u2192perching",
+        "feed recovery\u2192idle transition",
+        "failed rain sequence frame\u2192procedural texture"
+      ],
+      "verifiedReuseCount": 0,
+      "requiredGates": [
+        "species/sex/appearance version",
+        "scale/root/feet/beak contacts",
+        "direction",
+        "transition and timing validation"
+      ],
+      "nextChange": "prove a specific reuse in Mac before marking verified"
+    },
+    {
+      "id": "HF-perch-reuse-1",
+      "exactReview": "batches/house-finch-perching-review-v1/reuse-review.json",
+      "sourceFrames": 26,
+      "works": [
+        "idle/head/attention poses can serve body reference",
+        "ground/frame pixel identities remain immutable"
+      ],
+      "doesNotEstablish": [
+        "ground feet fitting a narrow round branch",
+        "flat-platform contact acceptance"
+      ],
+      "verifiedReuses": 0,
+      "outcome": "no full-frame reuse verified; existing clips preserved"
+    },
+    {
+      "id": "HF-perch-guide-1",
+      "attempts": [
+        "house-finch-perching-candidate-v1"
+      ],
+      "actualImageCalls": 1,
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "exactPrompt": "batches/house-finch-perching-candidate-v1/prompt.txt",
+      "references": [
+        "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+        "batches/house-finch-perching-review-v1/perch-guide.png"
+      ],
+      "sourceOutput": "batches/house-finch-perching-candidate-v1/original.png",
+      "tests": [
+        "batches/house-finch-perching-candidate-v1/candidate-review.json"
+      ],
+      "works": [
+        "visible curled toe geometry",
+        "isolated bird; no obvious baked branch or guides"
+      ],
+      "doesNotWork": [
+        "requested1024canvas (actual1254)",
+        "body scale preserved (+13.48%width after whole-canvas normalization)",
+        "intended fixed support registration (toes below target)"
+      ],
+      "failureCauseHypothesis": "model followed qualitative grip but changed framing/extent and did not obey numeric contacts",
+      "nextChange": "manual contact landmarks/rig/registration and appearance review; no second blind edit in this slice",
+      "outcome": "method cue changes grip appearance, candidate fails registered reuse/clip acceptance"
+    }
+  ]
+}

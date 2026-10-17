@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-17",
+  "project": "Chirp",
+  "status": "proposed_not_run",
+  "species": [
+    "House Finch",
+    "Mourning Dove",
+    "American Crow"
+  ],
+  "report": "../../docs/delivery/product-behavior-and-ideas.md#future-controlnet-comparison-experiments--pb-021-b",
+  "constraints": {
+    "no_models_run": true,
+    "no_paid_services": true,
+    "geometry_is_authoritative": true
+  },
+  "common_protocol": {
+    "poses": [
+      "neutral",
+      "left_support",
+      "passing",
+      "right_support",
+      "compressed_pre_hop",
+      "airborne"
+    ],
+    "seeds": [
+      101,
+      202
+    ],
+    "inference_canvas": [
+      512,
+      512
+    ],
+    "steps": 30,
+    "batch_size": 1,
+    "initial_gate_outputs": 18,
+    "base_bakeoff_max_outputs": 108,
+    "freeze": [
+      "reference",
+      "geometry",
+      "framing",
+      "species_scale",
+      "sampler",
+      "prompt",
+      "checkpoint_revisions",
+      "input_hashes"
+    ],
+    "evaluate_at": "final_sprite_resolution"
+  },
+  "acceptance": {
+    "stance_baseline_tolerance_px": 1,
+    "extra_or_missing_limbs": 0,
+    "clipping_allowed": false,
+    "per_frame_rescale_allowed": false,
+    "human_art_and_species_review_required": true,
+    "score_unmasked_and_final_composite_separately": true,
+    "metrics": [
+      "contact_foot_drift_root_compensated",
+      "silhouette_iou",
+      "landmark_displacement",
+      "species_scale",
+      "identity_retention",
+      "palette_drift",
+      "temporal_flicker",
+      "loop_seam"
+    ],
+    "alpha_metrics": [
+      "alpha-zero hidden RGB",
+      "partial-alpha/halo on light and dark composites",
+      "no unintended opaque matte"
+    ],
+    "pixel_grid_metrics": [
+      "fixed declared output grid and nearest-neighbor review",
+      "subpixel shimmer and palette/edge changes after exact registration"
+    ]
+  },
+  "experiments": [
+    {
+      "id": "geometry_gate",
+      "priority": 0,
+      "method": "approved 2D articulated silhouettes or 3D proxy",
+      "requires": [
+        "canonical art specs",
+        "reference per species"
+      ],
+      "decision": "approve geometry before diffusion"
+    },
+    {
+      "id": "reference_baseline",
+      "priority": 1,
+      "method": "reference adapter only",
+      "reference_strength": 0.6
+    },
+    {
+      "id": "lineart_reference",
+      "priority": 1,
+      "method": "Canny or lineart ControlNet plus general reference adapter",
+      "control_strength": 0.9,
+      "reference_strength": 0.6,
+      "sources": [
+        "https://github.com/lllyasviel/ControlNet",
+        "https://github.com/tencent-ailab/IP-Adapter"
+      ]
+    },
+    {
+      "id": "depth_or_cutout",
+      "priority": 2,
+      "method": "add depth only if valid 3D proxy; otherwise deterministic cutout baseline",
+      "depth_strength": 0.5,
+      "sources": [
+        "https://github.com/marcbadger/avian-mesh"
+      ]
+    },
+    {
+      "id": "tile_denoise_ablation",
+      "priority": 3,
+      "method": "Tile alone versus Tile plus lineart on identical posed cutouts",
+      "denoise": [
+        0.35,
+        0.65,
+        1.0
+      ],
+      "evidence": "official high-denoise example; bird contact and temporal quality unverified",
+      "sources": [
+        "https://huggingface.co/lllyasviel/control_v11f1e_sd15_tile"
+      ]
+    },
+    {
+      "id": "softedge_ablation",
+      "priority": 3,
+      "method": "compare SoftEdge against hard contours on same geometry",
+      "evidence": "generic conditioning; bird sprite outcome unverified"
+    },
+    {
+      "id": "animal_pose_scope_gate",
+      "priority": 4,
+      "method": "inspect schema and bird domain evidence before any generation test",
+      "evidence": "real AnimalPose conditioning checkpoint is quadruped-oriented; no bird validation found",
+      "sources": [
+        "https://github.com/Mikubill/sd-webui-controlnet/discussions/2351",
+        "https://github.com/abehonest/ControlNet_AnimalPose",
+        "https://huggingface.co/huchenlei/animal_openpose"
+      ]
+    },
+    {
+      "id": "temporal_research",
+      "priority": 5,
+      "method": "evaluate compatible temporal rendering only after geometry and art gates",
+      "evidence": "sprite temporal method exists; bird support unverified",
+      "sources": [
+        "https://arxiv.org/html/2412.03685v2",
+        "https://github.com/chenganhsieh/Sprite-Sheet-Diffusion"
+      ]
+    }
+  ],
+  "user_supplied_leads": [
+    "https://github.com/Mikubill/sd-webui-controlnet/discussions/2351",
+    "https://www.qwe.edu.pl/tutorial/how-to-use-controlnet-stable-diffusion/",
+    "https://www.reddit.com/r/StableDiffusion/comments/14dpcmi/turn_your_pet_into_any_animal_with_controlnet/",
+    "https://www.reddit.com/r/StableDiffusionInfo/comments/1480aby/turn_your_pet_into_any_animal_with_controlnet/"
+  ],
+  "unsupported_claims": [
+    "DWPose pretrained human model supports birds",
+    "MediaPipe Pose Landmarker supports birds",
+    "animal detector implies compatible bird diffusion checkpoint",
+    "Tile guarantees bird foot contact or temporal consistency"
+  ],
+  "stop_condition": "Expand only a passing rendering method to complete cycles; retain deterministic art plus correction if diffusion flickers.",
+  "execution_authorization": {
+    "scope": "save proposed technical notes only",
+    "modelInstallAuthorized": false,
+    "modelDownloadAuthorized": false,
+    "generationRunAuthorized": false,
+    "paidGpuAuthorized": false
+  },
+  "parameter_status": "proposed comparison dials, not executed settings, approved runtime profile or measured biological tolerance",
+  "dependency_evidence": {
+    "birdSpecificConditioningCheckpoint": "unverified",
+    "baseCheckpointRevision": null,
+    "preprocessorRevision": null,
+    "controlWeightsDigest": null,
+    "referenceAdapterRevision": null,
+    "modelAndWeightsLicenseReview": "pending for each exact revision, distinct from code license",
+    "hardware": "actual backend, GPU/VRAM/RAM, software/dtypes/offload and peak-memory/time must be measured; no hardware run authorized"
+  },
+  "experimentsByExistingBacklog": {
+    "geometry_gate": "PB-021-B/CN/geometry_gate",
+    "reference_baseline": "PB-021-B/CN/reference_baseline",
+    "lineart_reference": "PB-021-B/CN/lineart_reference",
+    "depth_or_cutout": "PB-021-B/CN/depth_or_cutout",
+    "tile_denoise_ablation": "PB-021-B/CN/tile_denoise_ablation",
+    "softedge_ablation": "PB-021-B/CN/softedge_ablation",
+    "animal_pose_scope_gate": "PB-021-B/CN/animal_pose_scope_gate",
+    "temporal_research": "PB-021-B/CN/temporal_research"
+  }
+}

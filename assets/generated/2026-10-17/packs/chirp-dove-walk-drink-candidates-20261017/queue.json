@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-17T13:53:30.556379+00:00",
+  "status": "two dove candidate batches reviewed and packaged; next queued layered plants/weather (jay flight dispatched externally)",
+  "sourceInventory": [
+    {
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "file_id": "[private-source-reference-retained-locally]",
+      "file_name": "chirp-spring-garden-source-candidates-20261017.zip",
+      "version": 0,
+      "size_bytes": 14698758,
+      "local_path": null,
+      "state": "queued",
+      "blocker": "Library helper download failed; network proxy returns 403 Forbidden"
+    },
+    {
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "file_id": "[private-source-reference-retained-locally]",
+      "file_name": "chirp-bluejay-blink-candidate-20261017.zip",
+      "version": 1,
+      "size_bytes": 18209379,
+      "local_path": null,
+      "state": "queued",
+      "blocker": "Library helper download failed; network proxy returns 403 Forbidden"
+    },
+    {
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "file_id": "[private-source-reference-retained-locally]",
+      "file_name": "chirp-bluejay-attention-candidates-20261017.zip",
+      "version": 0,
+      "size_bytes": 14927844,
+      "local_path": null,
+      "state": "queued",
+      "blocker": "Library helper download failed; network proxy returns 403 Forbidden"
+    },
+    {
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "file_id": "[private-source-reference-retained-locally]",
+      "file_name": "chirp-backyard-birds-source-candidates-20261017.zip",
+      "version": 0,
+      "size_bytes": 3516911,
+      "local_path": null,
+      "state": "queued",
+      "blocker": "Library helper download failed; network proxy returns 403 Forbidden"
+    },
+    {
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "file_id": "[private-source-reference-retained-locally]",
+      "file_name": "chirp-garden-furniture-source-candidates-20261017.zip",
+      "version": 0,
+      "size_bytes": 6573533,
+      "local_path": null,
+      "state": "queued",
+      "blocker": "Library helper download failed; network proxy returns 403 Forbidden"
+    },
+    {
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "file_id": "[private-source-reference-retained-locally]",
+      "file_name": "chirp-temperate-garden-source-candidates-20261017-v1.zip",
+      "version": 0,
+      "size_bytes": 10588861,
+      "local_path": null,
+      "state": "queued",
+      "blocker": "Library helper download failed; network proxy returns 403 Forbidden"
+    }
+  ],
+  "localCounts": {
+    "generatedSheets": 2,
+    "extractedFrames": 12,
+    "reviewedBatches": 2,
+    "stagedBatches": 0,
+    "integratedBatches": 0,
+    "generatedDrawings": 12
+  },
+  "batches": [
+    {
+      "id": "dove-walk-v1",
+      "state": "reviewed",
+      "owner": "this task",
+      "conditioning": "none; source downloads blocked",
+      "plannedFrames": 6,
+      "promptFile": "batches/dove-walk-v1/prompt.txt",
+      "issues": [
+        "Must compare identity with standing dove before acceptance"
+      ],
+      "actualGeneratedSheets": 1,
+      "originalFile": "/workspace/asset-production/batches/dove-walk-v1/original.png",
+      "imageToolOriginal": "/workspace/generated_images/exec-ec6674bb-21ff-4a76-8468-5e9cc7862aed.png",
+      "reviewVerdict": "candidate-with-issues",
+      "accepted": false,
+      "generatedDrawings": 6,
+      "extractedFrames": 6,
+      "manifestFile": "batches/dove-walk-v1/manifest.json",
+      "previewFile": "batches/dove-walk-v1/preview.gif",
+      "validation": "6 unique frames; 6-frame APNG/GIF; exact crop roundtrips; all alpha bounds inside source canvas",
+      "issuesFile": "batches/dove-walk-v1/review.md"
+    },
+    {
+      "id": "dove-drink-v1",
+      "state": "reviewed",
+      "plannedFrames": 6,
+      "promptFile": "batches/dove-drink-v1/prompt.txt",
+      "referenceFile": "batches/dove-walk-v1/original.png",
+      "conditioning": "new unconditioned walk candidate; canonical dove unavailable",
+      "actualGeneratedSheets": 1,
+      "originalFile": "/workspace/asset-production/batches/dove-drink-v1/original.png",
+      "reviewVerdict": "candidate-with-issues",
+      "accepted": false,
+      "generatedDrawings": 6,
+      "extractedFrames": 6,
+      "manifestFile": "batches/dove-drink-v1/manifest.json",
+      "previewFile": "batches/dove-drink-v1/preview.gif",
+      "validation": "6 unique frames; 6-frame APNG/GIF; exact crop roundtrips; all alpha bounds inside source canvas",
+      "issuesFile": "batches/dove-drink-v1/review.md"
+    },
+    {
+      "id": "dove-takeoff-flight-landing-v1",
+      "state": "queued",
+      "plannedFrames": 8,
+      "status": "queued; jay flight is active elsewhere, dove-specific flight pending canonical identity review"
+    },
+    {
+      "id": "layered-plants-weather-v1",
+      "state": "queued",
+      "plannedFrames": 6
+    }
+  ],
+  "externalReports": [
+    {
+      "id": "bluejay-hop-drink",
+      "state": "reviewed",
+      "source": "parent report 13:46UTC",
+      "generatedSheets": 2,
+      "localFiles": [],
+      "issues": [
+        "Anatomy/scale drift",
+        "Stepped six-pose motion",
+        "Exaggerated hop wing flare"
+      ],
+      "generatedDrawings": 12,
+      "bundleLibraryId": "[private-source-reference-retained-locally]",
+      "bundleSha256": "8793da4fd63b24aafe26d309e543101df96011b287a37367926c0a1dc83441d1",
+      "verifiedLocally": false,
+      "handoff": "packaged; Mac intake requested; Mac staging not verified"
+    },
+    {
+      "id": "cardinal-feeding-preen",
+      "state": "reviewed",
+      "source": "parent report 13:50UTC; files not yet downloaded locally",
+      "generatedSheets": 2,
+      "localFiles": [],
+      "generatedDrawings": 12,
+      "bundleLibraryId": "[private-source-reference-retained-locally]",
+      "bundleSha256": "81e487414949721736ac113f92ca3e96741e0789a764ada7033f5a9ade39266f",
+      "verifiedLocally": false,
+      "handoff": "packaged; Mac intake requested; Mac staging not verified"
+    },
+    {
+      "id": "bluejay-takeoff-flight-landing",
+      "state": "queued",
+      "status": "dispatched; no output reported"
+    },
+    {
+      "id": "cardinal-ground-move-sleep-wake",
+      "state": "queued",
+      "status": "dispatched; no output reported"
+    }
+  ]
+}

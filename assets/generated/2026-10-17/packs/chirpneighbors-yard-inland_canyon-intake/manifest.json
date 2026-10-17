@@ -1,0 +1,489 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-10-17T15:59:47.739808+00:00",
+  "batch_id": "CN-SD-YARDS-20261017-01",
+  "scope": "Independent candidate intake for scene.san_diego_inland_canyon; original byte-identical base and overlay, two corner sprites, exact prompts, composite preview and metadata.",
+  "canonical_inventory_library_id": "[private-source-reference-retained-locally]",
+  "canonical_tracker_library_id": "[private-source-reference-retained-locally]",
+  "recommended_inventory_contract_source": "[private-source-reference-retained-locally]#/recommended_inventory_contract",
+  "status_definitions": {
+    "generated": "Hash-verified source art exists",
+    "reviewed": "Technical and visual review recorded; may retain known defects",
+    "staged": "Verified loadable experimental route",
+    "integrated": "Used in intended user-facing flow",
+    "accepted": "Explicit owner/canon acceptance"
+  },
+  "canonical_intake": {
+    "status": "pending_mac_verification",
+    "commit": null,
+    "remote_sha": null,
+    "pull_request": null,
+    "instruction": "Parent relay sends archive to Mac canonical owner. No cloud Git/app edits."
+  },
+  "limitations": [
+    "No standalone image-generation skill was available; exposed image_gen.imagegen tool used.",
+    "Known Library style reference ZIP reads blocked by HTTP 403 proxy; provenance IDs only, no supplied or inspected reference pixels.",
+    "No bird art, Mac application changes, integration, animation or physics implementation."
+  ],
+  "assets": [
+    {
+      "asset_identity": {
+        "asset_id": "scene.san_diego_inland_canyon",
+        "family_id": "scene.san_diego_inland_canyon",
+        "variant_id": "san_diego_20261017_candidate_v1",
+        "species_or_plant_taxon": null,
+        "semantic_role": "yard_background_concept",
+        "schema_version": "1.0.0",
+        "content_version": 1,
+        "parent_asset_ids": [],
+        "supersedes": null
+      },
+      "source_and_rights": {
+        "reference_id": "[private-source-reference-retained-locally]",
+        "reference_url": null,
+        "retrieved_at": null,
+        "creator": "OpenAI image generation; image model not exposed",
+        "license_id": null,
+        "license_url": null,
+        "attribution_text": "Generated for ChirpNeighbors using written owner-approved style direction.",
+        "modification_notice": "Preview compositing and documented foreground crops only.",
+        "share_alike_obligations": null,
+        "commercial_use_status": "Generated output; contract/terms verification not performed. No third-party image license asserted.",
+        "original_file_hash": {
+          "base": "8fa5e0d4e5c697ed7a54c4746b2b26dfeaf0d0441e80a16d66f04e436d6e51c9",
+          "overlay": "7c97abab7898097e6da1f3949e4659a72a26187925d50346caab1f6f1a57e400"
+        }
+      },
+      "generation": {
+        "job_id": {
+          "base": "exec-d7603bad-4d10-4fb4-ba34-7566da6ce023",
+          "overlay": "exec-fae125d8-a5e3-4c56-a3f6-7d4ef21d4abf"
+        },
+        "visible_task_url": null,
+        "prompt_exact": {
+          "base": "Detailed naturalistic pixel-art environmental illustration for ChirpNeighbors. Deliberate crisp square pixel clusters, carefully shaded small material details, restrained natural Southern California palette, warm upper-left light, subtle organic outlines, no heavy black cartoon outlines, no painterly blur, no oversaturated ornament. Landscape game background with slightly elevated side-on three-quarter yard perspective, never overhead isometric. Keep very calm low-contrast background, simple large masses, clear depth and a large uncluttered central ground stage for small birds and user-placeable objects. No birds, no animals, no people, no text, no logos, no UI, no installed feeder or bath. No generic fantasy garden.\n\nCreate one wide 3:2 opaque background: a warm San Diego inland suburban yard beside a canyon-scrub edge. Low simple weathered boundary at mid depth, softly muted tawny canyon ridge and low sage scrub beyond, sparse planted canopy at the extreme edges. Dry warm buff soil and decomposed-granite open ground, one irregular pale stone edge and a very small irrigated muted-green island at the side, not an emerald lawn. Warm clear late morning light, subdued olive, dusty sage, pale straw and warm stone palette. Horizon around 40 percent height. Keep center 60 percent of lower half quiet and empty for birds and objects. No desert cactus field, no riparian jungle, no orange deciduous fall forest.\n\nThe delivered file is one flattened opaque base image, not a separated layer set. Independently generated foreground overlays will be separate files later.\n\nApproved written style only; no visual reference image supplied. Target 1536 by 1024 pixels, crisp deliberate pixel art.\n",
+          "overlay": "Generate one transparent foreground edge overlay, NOT a complete scene. True transparent alpha background everywhere except the small foreground objects. No sky, no background wall, no floor plane, no opaque rectangle, no matte, no checkerboard drawn into the artwork. Landscape canvas 1536 x 1024. Keep the top 70 percent of the canvas and middle 65 percent fully empty/transparent. Grounded vegetation and material details hug the bottom-left and bottom-right corners only, leaving all center bird staging space free. Upper-left warm lighting. Detailed naturalistic PIXEL ART using a coherent low-resolution 384 x 256 logical pixel grid enlarged exactly 4x nearest-neighbor: visible square stepped silhouettes and deliberate larger pixel clusters, flat stepped shading, subtle organic outlines, limited restrained Southern California palette. NO smooth gradients, NO high-resolution painterly brush stipple, NO photorealistic texture, NO blurry antialiasing. Preserve natural believable form and material detail. No birds, no animals, no humans, no text, no UI, no labels. The supplied yard image is a composition/palette guide only; generate only the foreground overlay and do not reproduce the yard.\n\nBottom-left modest dusty sagebrush-like low twiggy gray-green shrub fringe with a few dry tan stems and two buff rocks. Bottom-right a smaller low dry bunchgrass fringe with olive basal blades and tawny stems plus one irregular pale stone. Do not place tall stems across center or horizon. Corner masses each no more than 18 percent of width and 22 percent of height. These are decorative regional vegetation masses with no species identity claim.\n"
+        },
+        "negative_prompt_if_supported": null,
+        "reference_asset_ids": {
+          "base": [],
+          "overlay": [
+            "scene.san_diego_inland_canyon.flattened_base.candidate_v1"
+          ]
+        },
+        "tool": "image_gen.imagegen",
+        "model_if_exposed": null,
+        "model_revision_if_exposed": null,
+        "settings_if_exposed": {
+          "base": {
+            "transparent_background": false
+          },
+          "overlay": {
+            "transparent_background": true,
+            "referenced_image_paths": [
+              "/workspace/yard-production/yards/originals/inland_canyon_base_original.png"
+            ]
+          }
+        },
+        "seed_if_exposed": null,
+        "generation_timestamp": {
+          "base": "2026-10-17T15:54:19.633603+00:00",
+          "overlay": "2026-10-17T15:56:56.413979+00:00"
+        },
+        "original_output_paths": [
+          "originals/inland_canyon_base_original.png",
+          "originals/inland_canyon_overlay_original.png"
+        ],
+        "original_hashes": [
+          "8fa5e0d4e5c697ed7a54c4746b2b26dfeaf0d0441e80a16d66f04e436d6e51c9",
+          "7c97abab7898097e6da1f3949e4659a72a26187925d50346caab1f6f1a57e400"
+        ],
+        "edit_history": [],
+        "failed_attempts": []
+      },
+      "geometry": {
+        "source_dimensions_px": [
+          1536,
+          1024
+        ],
+        "frame_canvas_dimensions_px": [
+          1536,
+          1024
+        ],
+        "alpha_bounds": {
+          "base": [
+            0,
+            0,
+            1536,
+            1024
+          ],
+          "overlay": [
+            0,
+            53,
+            1536,
+            1024
+          ],
+          "overlay_alpha_ge_8_bounds": [
+            0,
+            648,
+            1536,
+            1024
+          ]
+        },
+        "trim_offset": [
+          0,
+          0
+        ],
+        "world_units": "meters",
+        "physical_measurement_basis": "Uncalibrated art-direction scene scale; perspective prevents one exact pixels-per-meter value.",
+        "species_size_range": null,
+        "chosen_instance_size": {
+          "approximate_ground_width_m": 14
+        },
+        "pixels_per_world_unit": null,
+        "root_pivot": [
+          768,
+          1024
+        ],
+        "feet_contact_points": [],
+        "beak_anchor": null,
+        "perches": [],
+        "collision_shapes": [],
+        "occluders": [
+          {
+            "layer": "independent_foreground_overlay",
+            "source": "originals/inland_canyon_overlay_original.png",
+            "z_order": 30,
+            "status": "static_alpha_only"
+          }
+        ],
+        "layer_depth": {
+          "flattened_base": 0,
+          "bird_stage_reserved": 20,
+          "foreground_overlay": 30
+        },
+        "material_surface": [
+          "dry_soil",
+          "decomposed_granite"
+        ]
+      },
+      "clips": {
+        "clip_id": null,
+        "action": null,
+        "body_heading": null,
+        "gaze_direction": null,
+        "frames": [],
+        "frame_durations_ms": null,
+        "loop_mode": null,
+        "start_end_pose": null,
+        "transition_rules": null,
+        "interruptibility": null,
+        "contact_events": [],
+        "sound_events": [],
+        "reduced_motion_alternative": "Static base and overlay files only",
+        "visual_review_receipt": "review-receipt.json"
+      },
+      "interaction": {
+        "affordances": [
+          "reserved_open_ground_for_placeable_objects_and_birds"
+        ],
+        "diet_compatibility": null,
+        "plant_habitat": "inland_canyon",
+        "perch_capacity": null,
+        "water_capacity": null,
+        "inflow_outflow": null,
+        "wetness": "dry_static_art",
+        "snow_attachment_surfaces": [],
+        "wind_response": {
+          "implemented": false,
+          "status": "metadata_only",
+          "base": "rigid flattened image; no independently moving baked foliage",
+          "overlay": "Whole corner crop could transform modestly; plant leaf segmentation absent",
+          "attachments": [
+            {
+              "part": "foreground_left",
+              "source_canvas_px": [
+                272,
+                1023
+              ],
+              "role": "approximate ground/root pin",
+              "coordinate_status": "provisional_artist_estimate"
+            },
+            {
+              "part": "foreground_right",
+              "source_canvas_px": [
+                1326,
+                1023
+              ],
+              "role": "approximate ground/root pin",
+              "coordinate_status": "provisional_artist_estimate"
+            }
+          ],
+          "separate_rigged_parts": []
+        },
+        "leaf_emitters": [],
+        "holiday_theme": null,
+        "season_applicability": "Regional mild Mediterranean coastal/inland setting: seasonal rain/cloud and dry summer state needs; irrigation governs planted islands and container health separately from calendar. No snow or whole-canopy orange fall default. Managed patio is exterior; indoor behavior not implied."
+      },
+      "runtime": {
+        "package_manifest": "manifest.json",
+        "loader_profile": "RGB base then RGBA overlay at identical canvas origin; extracted corners retain crop offsets",
+        "derived_atlas": null,
+        "atlas_hash": null,
+        "shader_or_procedural_effect": null,
+        "scene_preset_ids": [
+          "scene.san_diego_inland_canyon"
+        ],
+        "application_route": null,
+        "served_asset_hash": null,
+        "build_commit": null,
+        "feature_flag": null,
+        "fallback": null,
+        "saved_layout_migration": null
+      },
+      "evidence": {
+        "requirement_ids": [
+          "ART-049",
+          "ART-053",
+          "ART-054",
+          "ART-055",
+          "ART-056",
+          "ART-058",
+          "ART-062",
+          "ART-063"
+        ],
+        "source_message_ids": [],
+        "state": "reviewed_candidate",
+        "owner": "yard-background-subagent",
+        "last_verified_at": "2026-10-17T15:59:46.856934+00:00",
+        "test_command": "python yards/finalize_batch.py (Pillow decode, dimensions, alpha and SHA-256 checks; visual image review)",
+        "test_result": "All six originals decode at 1536x1024. Three RGB bases and three true-alpha RGBA overlays. Centers are fully transparent; review candidate status retained.",
+        "screenshot_or_playback_receipt": [
+          "previews/inland_canyon_composite.png"
+        ],
+        "reviewer": "yard-background-subagent plus parent visual inspection",
+        "known_defects": [
+          "Base surface texture reads painterly/high-resolution stipple rather than a coherent crisp pixel grid; style-match approval pending.",
+          "Overlay has soft halo and faint stray alpha; all originals retained, no matte cleanup claimed.",
+          "Overlay placement and style are approximate relative to base; independently generated accents do not exactly match baked plants.",
+          "Foreground corner shapes exceed the requested 22 percent-height limit; compositional review still required.",
+          "No distinct sky/ground/foliage separation, seasonal art, animation or weather simulation delivered."
+        ],
+        "next_action": "Owner style review and Mac intake verification; no application edits from cloud worktree."
+      },
+      "asset_id": "scene.san_diego_inland_canyon",
+      "family_id": "scene.san_diego_inland_canyon",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "label": "Inland canyon-edge yard",
+      "references": [
+        {
+          "library_file_id": "[private-source-reference-retained-locally]",
+          "pixels_inspected": false,
+          "supplied_to_generator": false,
+          "status": "provenance_only_library_download_proxy_http_403",
+          "license_id": null,
+          "license_url": null
+        },
+        {
+          "library_file_ids": [
+            "[private-source-reference-retained-locally]",
+            "[private-source-reference-retained-locally]"
+          ],
+          "source_kind": "regional_plan_text",
+          "source_path": "../references/ChirpNeighbors_San_Diego_Asset_Pack.md",
+          "used_for": "regional written content and seasonal behavior, no source image pixels"
+        }
+      ],
+      "placement_anchor": {
+        "type": "scene_origin",
+        "canvas_px": [
+          0,
+          0
+        ],
+        "root_pivot_px": [
+          768,
+          1024
+        ],
+        "coordinate_system": "1536x1024 pixel canvas; x right, y down"
+      },
+      "ground_contact_footprint": {
+        "polygon_px": [
+          [
+            330,
+            650
+          ],
+          [
+            1200,
+            650
+          ],
+          [
+            1200,
+            1000
+          ],
+          [
+            330,
+            1000
+          ]
+        ],
+        "role": "approximate clear central ground staging region, not physical collision geometry"
+      },
+      "intended_scale": {
+        "scene_ground_width_m_approximate": 14,
+        "calibration_status": "pending_Mac_scene_and_bird_scale_review",
+        "bird_scale_rule": "Keep physical species scale; never size birds by scene-canvas bounds."
+      },
+      "layer_slots": [
+        {
+          "id": "flattened_base",
+          "status": "generated",
+          "separable": false,
+          "contents": "sky, distant landscape, boundaries, ground and edge plants baked into one RGB file",
+          "path": "originals/inland_canyon_base_original.png"
+        },
+        {
+          "id": "foreground_overlay",
+          "status": "generated",
+          "separable": true,
+          "contents": "independently generated corner accents; not segmentation of base",
+          "path": "originals/inland_canyon_overlay_original.png"
+        },
+        {
+          "id": "foreground_left",
+          "status": "extracted",
+          "path": "sprites/scene.san_diego_inland_canyon.foreground_left.candidate_v1.png"
+        },
+        {
+          "id": "foreground_right",
+          "status": "extracted",
+          "path": "sprites/scene.san_diego_inland_canyon.foreground_right.candidate_v1.png"
+        },
+        {
+          "id": "independent_sky_clouds_ground_foliage",
+          "status": "missing",
+          "contents": "No claim that flattened base contains separable semantic layers."
+        }
+      ],
+      "state_slots": [
+        {
+          "id": "healthy_daylight",
+          "status": "generated_static_candidate"
+        },
+        {
+          "id": "dry_or_reduced_irrigation",
+          "status": "missing"
+        },
+        {
+          "id": "cool_season_marine_low_cloud",
+          "status": "missing"
+        },
+        {
+          "id": "warm_season_clear",
+          "status": "generated_static_candidate"
+        },
+        {
+          "id": "dawn_dusk_palette",
+          "status": "missing"
+        }
+      ],
+      "wind_rig": {
+        "implemented": false,
+        "status": "metadata_only",
+        "base": "rigid flattened image; no independently moving baked foliage",
+        "overlay": "Whole corner crop could transform modestly; plant leaf segmentation absent",
+        "attachments": [
+          {
+            "part": "foreground_left",
+            "source_canvas_px": [
+              272,
+              1023
+            ],
+            "role": "approximate ground/root pin",
+            "coordinate_status": "provisional_artist_estimate"
+          },
+          {
+            "part": "foreground_right",
+            "source_canvas_px": [
+              1326,
+              1023
+            ],
+            "role": "approximate ground/root pin",
+            "coordinate_status": "provisional_artist_estimate"
+          }
+        ],
+        "separate_rigged_parts": []
+      },
+      "functional_interactions": {
+        "status": "metadata_only_not_runtime_implemented",
+        "feeder_points": [],
+        "bath_points": [],
+        "fountain_points": [],
+        "note": "No feeders, baths or fountains are present. Those functional assets and interaction points belong to the object batch."
+      },
+      "states": {
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "tested": true,
+        "accepted": false
+      },
+      "rejection_reason": null,
+      "review_status": "reviewed_candidate_style_match_pending",
+      "acceptance_note": "Technical/visual review completed; no owner/canon acceptance implied.",
+      "derivatives": [
+        {
+          "path": "previews/inland_canyon_composite.png",
+          "operation": "alpha_composite_preview_only",
+          "source_paths": [
+            "originals/inland_canyon_base_original.png",
+            "originals/inland_canyon_overlay_original.png"
+          ],
+          "sha256": "aa60979dd690d82ccf4fc6f4549f0dd2d187e96aa6f710b0707690fd6bbe41be",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "new_generation": false
+        },
+        {
+          "derivative_id": "scene.san_diego_inland_canyon.foreground_left.candidate_v1",
+          "path": "sprites/scene.san_diego_inland_canyon.foreground_left.candidate_v1.png",
+          "source_path": "originals/inland_canyon_overlay_original.png",
+          "source_sha256": "7c97abab7898097e6da1f3949e4659a72a26187925d50346caab1f6f1a57e400",
+          "crop_box_px": [
+            0,
+            648,
+            544,
+            1024
+          ],
+          "dimensions_px": [
+            544,
+            376
+          ],
+          "sha256": "4d3a9723b1d29cb8f6e4c201a227a3506ef111e632f019a1271ee218ab1b8d9a",
+          "operation": "Half-canvas crop then alpha>=8 bounds crop; no recoloring or painted pixels. Faint alpha outside crop excluded, immutable original retained."
+        },
+        {
+          "derivative_id": "scene.san_diego_inland_canyon.foreground_right.candidate_v1",
+          "path": "sprites/scene.san_diego_inland_canyon.foreground_right.candidate_v1.png",
+          "source_path": "originals/inland_canyon_overlay_original.png",
+          "source_sha256": "7c97abab7898097e6da1f3949e4659a72a26187925d50346caab1f6f1a57e400",
+          "crop_box_px": [
+            1116,
+            721,
+            1536,
+            1024
+          ],
+          "dimensions_px": [
+            420,
+            303
+          ],
+          "sha256": "d1a8c823aceb82f6641efe928dbe90fe4854d5b6105e92dbb57daeff0b65ad05",
+          "operation": "Half-canvas crop then alpha>=8 bounds crop; no recoloring or painted pixels. Faint alpha outside crop excluded, immutable original retained."
+        }
+      ]
+    }
+  ]
+}

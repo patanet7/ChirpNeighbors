@@ -1,0 +1,256 @@
+{
+  "status": "candidate_art_not_production_approved",
+  "generation_calls": 6,
+  "method": "built-in image_gen; scripts only crop, uniformly resize and package",
+  "assumptions": "North American starter species: American Crow and Common Raven",
+  "runtime_canvas": [
+    384,
+    384
+  ],
+  "atlas_canvas": [
+    768,
+    768
+  ],
+  "physical_scale": {
+    "American Crow": {
+      "length_cm": [
+        40,
+        53
+      ],
+      "representative_cm": 46.5
+    },
+    "Common Raven": {
+      "length_cm": [
+        56,
+        69
+      ],
+      "representative_cm": 62.5
+    },
+    "raven_to_crow_representative_length": 1.3440860215053763,
+    "note": "Reference midpoint ratio, not a measured individual. Pixel canvas sizes do not encode real size; apply world scale separately."
+  },
+  "clips": {
+    "crow-walk": {
+      "frames": 4,
+      "durations_ms": [
+        160,
+        160,
+        160,
+        160
+      ],
+      "source_rectangles": [
+        [
+          0,
+          0,
+          768,
+          512
+        ],
+        [
+          768,
+          0,
+          1536,
+          512
+        ],
+        [
+          0,
+          512,
+          768,
+          1024
+        ],
+        [
+          768,
+          512,
+          1536,
+          1024
+        ]
+      ],
+      "source_to_runtime_scale": 0.48,
+      "placement_offset": [
+        4,
+        64
+      ],
+      "nominal_ground_anchor": [
+        256,
+        316
+      ],
+      "anchor_note": "Common cell-space pivot; generated feet vary slightly, no per-frame resizing or synthetic motion. Hop retains generated airborne displacement.",
+      "slots": [
+        "walk"
+      ],
+      "status": "generated_candidate"
+    },
+    "raven-hop": {
+      "frames": 4,
+      "durations_ms": [
+        160,
+        110,
+        140,
+        190
+      ],
+      "source_rectangles": [
+        [
+          0,
+          0,
+          768,
+          512
+        ],
+        [
+          768,
+          0,
+          1536,
+          512
+        ],
+        [
+          0,
+          512,
+          768,
+          1024
+        ],
+        [
+          768,
+          512,
+          1536,
+          1024
+        ]
+      ],
+      "source_to_runtime_scale": 0.48,
+      "placement_offset": [
+        4,
+        64
+      ],
+      "nominal_ground_anchor": [
+        256,
+        316
+      ],
+      "anchor_note": "Common cell-space pivot; generated feet vary slightly, no per-frame resizing or synthetic motion. Hop retains generated airborne displacement.",
+      "slots": [
+        "hop"
+      ],
+      "status": "generated_candidate"
+    },
+    "crow-idle": {
+      "frames": 4,
+      "durations_ms": [
+        1000,
+        120,
+        500,
+        500
+      ],
+      "source_rectangles": [
+        [
+          0,
+          0,
+          754,
+          512
+        ],
+        [
+          754,
+          0,
+          1536,
+          512
+        ],
+        [
+          0,
+          512,
+          754,
+          1024
+        ],
+        [
+          754,
+          512,
+          1536,
+          1024
+        ]
+      ],
+      "source_to_runtime_scale": 0.48,
+      "placement_offset": [
+        4,
+        64
+      ],
+      "nominal_ground_anchor": [
+        256,
+        316
+      ],
+      "anchor_note": "Common cell-space pivot; generated feet vary slightly, no per-frame resizing or synthetic motion. Hop retains generated airborne displacement.",
+      "slots": [
+        "idle",
+        "blink",
+        "head_turn"
+      ],
+      "status": "generated_candidate"
+    },
+    "raven-idle": {
+      "frames": 4,
+      "durations_ms": [
+        1000,
+        120,
+        500,
+        500
+      ],
+      "source_rectangles": [
+        [
+          0,
+          0,
+          768,
+          512
+        ],
+        [
+          768,
+          0,
+          1536,
+          512
+        ],
+        [
+          0,
+          512,
+          768,
+          1024
+        ],
+        [
+          768,
+          512,
+          1536,
+          1024
+        ]
+      ],
+      "source_to_runtime_scale": 0.48,
+      "placement_offset": [
+        4,
+        64
+      ],
+      "nominal_ground_anchor": [
+        256,
+        316
+      ],
+      "anchor_note": "Common cell-space pivot; generated feet vary slightly, no per-frame resizing or synthetic motion. Hop retains generated airborne displacement.",
+      "slots": [
+        "idle",
+        "blink",
+        "head_turn"
+      ],
+      "status": "generated_candidate"
+    }
+  },
+  "remaining_slots": {
+    "crow": [
+      "hop",
+      "feeding",
+      "drinking",
+      "preening",
+      "takeoff",
+      "flight",
+      "landing",
+      "sleep"
+    ],
+    "raven": [
+      "walk",
+      "feeding",
+      "drinking",
+      "preening",
+      "takeoff",
+      "flight",
+      "landing",
+      "sleep"
+    ]
+  }
+}

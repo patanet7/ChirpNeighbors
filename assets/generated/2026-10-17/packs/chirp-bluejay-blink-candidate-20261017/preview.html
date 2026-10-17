@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>ChirpNeighbors blink candidate</title>
+<style>body{font:16px system-ui;background:#ddd;margin:24px}h1{font-size:22px}.row{display:flex;gap:12px;margin:12px 0}.panel{padding:14px;background:#faf7ed}.dark{background:#16251e;color:white}canvas{display:block}small{display:block;max-width:650px}</style>
+<h1>Blue jay blink candidate • exact-source edit</h1><p>Four source frames. Same canvas and static placement. Eye movement only requested. Candidate, not approved runtime art.</p>
+<div id="panels"></div><p>72px silhouette width uses one fixed scale of 72 / 1315 for all frames. No per-frame centering, trimming or normalization.</p>
+<script>
+const names=['source/frame-00-open.png','raw/frame-01-half.png','raw/frame-02-closed.png','raw/frame-03-reopen.png'];
+const labels=['Open • 2200ms','Half • 70ms','Closed • 100ms','Reopen • 70ms'];
+Promise.all(names.map(n=>new Promise(r=>{const i=new Image;i.onload=()=>r(i);i.src=n}))).then(imgs=>{
+ for(const dark of [false,true]){const row=document.createElement('div');row.className='row';document.querySelector('#panels').append(row);for(let k=0;k<4;k++){const p=document.createElement('div');p.className='panel'+(dark?' dark':'');p.textContent=labels[k];const c=document.createElement('canvas');c.width=300;c.height=200;p.append(c);c.getContext('2d').drawImage(imgs[k],0,0,300,200);const s=document.createElement('canvas');s.width=300;s.height=85;p.append(s);s.getContext('2d').drawImage(imgs[k],100,10,1536*72/1315,1024*72/1315);row.append(p)}}
+ const row=document.createElement('div');row.className='row';document.body.append(row);for(const dark of [false,true]){const p=document.createElement('div');p.className='panel'+(dark?' dark':'');p.textContent='Animated • fixed coordinates';const c=document.createElement('canvas');c.width=420;c.height=280;p.append(c);row.append(p);const ctx=c.getContext('2d');function tick(t){const q=t%2440;const k=q<2200?0:q<2270?1:q<2370?2:3;ctx.clearRect(0,0,420,280);ctx.drawImage(imgs[k],0,0,420,280);requestAnimationFrame(tick)}requestAnimationFrame(tick)}window.ready=true;
+});</script>
