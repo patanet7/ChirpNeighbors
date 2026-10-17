@@ -1,6 +1,6 @@
 # Current per-species source slots
 
-17 new drawings /6 calls since PR33; 119 registered primary IDs total. Useful provisional idle uses: 19 neutral, 9 blink, 10 look. These uses overlap individual source drawings. No full locomotion or app binding is accepted by this source audit.
+19 new drawings /7 calls since PR33; 121 registered primary IDs total. Useful provisional idle uses: 19 neutral, 10 blink, 10 look. These uses overlap individual source drawings. No full locomotion or app binding is accepted by this source audit.
 
 | Species | Neutral | Look | Blink | Locomotion | Feed / drink / preen | Flight |
 |---|---|---|---|---|---|---|
@@ -21,7 +21,7 @@
 | Hooded Oriole | provisional drawn | provisional drawn | missing | missing | missing / missing / missing | missing |
 | Western Bluebird | provisional drawn | provisional drawn | missing | reviewed one-shot hop study | missing / missing / missing | missing |
 | Bewick's Wren | provisional drawn | provisional drawn | missing | missing | missing / missing / missing | missing |
-| Spotted Towhee | provisional drawn | provisional drawn | missing | missing | missing / missing / missing | missing |
+| Spotted Towhee | provisional drawn | provisional drawn | provisional drawn | missing | missing / missing / missing | missing |
 | Dark-eyed Junco | provisional drawn | missing | provisional drawn | missing | missing / missing / missing | missing |
 | California Quail | provisional drawn | study-only-stance-or-support-defect | missing | missing | missing / missing / missing | missing |
 
