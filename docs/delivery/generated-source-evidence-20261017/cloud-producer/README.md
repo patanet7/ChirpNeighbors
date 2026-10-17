@@ -35,8 +35,8 @@ a deterministic model/seed guarantee.
 
 ## Prior crow source access
 
-The three external compact/guided crow references are **absent**, with no invented
-source hashes. Fresh supported Library materialization attempts failed with
+At the initial checkpoint, the three external compact/guided crow references
+were absent, with no invented source hashes. Fresh supported Library materialization attempts failed with
 `URLError: Tunnel connection failed: 403 Forbidden` at network tunnel setup.
 No payload reached an image/ZIP decoder. This is an observed proxy transport
 denial; it does not establish an application permission denial, URL expiry,
@@ -91,3 +91,17 @@ and separate source/art/contact/loop/transition/storage/normal-yard gates. It
 is not a catalog or a replacement task ledger; no slot is fully accepted.
 The crow retrieval/control blocker remains separate and caused no generation
 call or infrastructure dependency in this House Finch slice.
+
+
+### Crow recovery supersedes the access blocker
+
+Canonical main28085717f71d5e4d2ceb71e19a96dd80f2c260b0 now retains the
+three crow source directories under `assets/generated/2026-10-17/packs/`.
+A supported sparse Git checkout actually recovered all56files (12,532,623bytes)
+and matched every byte count/SHA-256 against canonical `SHA256SUMS.json`.
+Three original PNGs were visually inspected. The historical Library tunnel
+denial is preserved, but current source access is resolved. The compact,
+passing and crossed-leg outputs remain source candidates; gait/contact/scale
+acceptance and source-specific motion measurement remain open. No new crow
+generation or human-pose-model claim was made. Current production stays with
+House Finch; the species matrix distinguishes storage, review and yard gates.

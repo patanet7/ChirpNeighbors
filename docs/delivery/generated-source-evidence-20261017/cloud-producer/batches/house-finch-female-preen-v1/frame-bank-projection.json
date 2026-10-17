@@ -411,5 +411,87 @@
       "seed": null
     }
   ],
-  "existingNeutralReference": "frame.sha256.7c12c45d8a8a6e64824669c595f4f58630aaa7a2eb6854ca76f5cd2311d2e6fe"
+  "existingNeutralReference": "frame.sha256.7c12c45d8a8a6e64824669c595f4f58630aaa7a2eb6854ca76f5cd2311d2e6fe",
+  "existingReferenceFrames": [
+    {
+      "frameId": "frame.sha256.7c12c45d8a8a6e64824669c595f4f58630aaa7a2eb6854ca76f5cd2311d2e6fe",
+      "file": "frames/7c12c45d8a8a6e64824669c595f4f58630aaa7a2eb6854ca76f5cd2311d2e6fe.png",
+      "fileSha256": "ed79704dca763d6ef32beb6ff6a7a9e0d7cf26e3069619e25f2c7539d14fb605",
+      "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "species": "house_finch",
+      "variant": "adult-female",
+      "appearanceVersion": "house-finch-canon-v1",
+      "poseTags": [
+        "neutral",
+        "idle",
+        "right-facing"
+      ],
+      "sourceAtlas": "batches/house-finch-female-idle-v1/original.png",
+      "sourceAtlasSha256": "1d33bb3bc8e184ca5992625e1e6f13830b47f25ddf4c0d38192bfe978f4d8846",
+      "sourceComponentId": 2,
+      "sourceCoreBBox": [
+        14,
+        96,
+        492,
+        497
+      ],
+      "derivation": {
+        "method": "6 principal alpha>=32 components; nearest-component assignment of all alpha>=2 pixels; integer translation only",
+        "alphaOneResidueDiscardedInDerivative": true,
+        "originalRetainedUnchanged": true,
+        "translation": [
+          162,
+          304
+        ],
+        "sourceScale": 1,
+        "perFrameRescale": false
+      },
+      "supportRoot": [
+        512,
+        800
+      ],
+      "feetContactsApprox": [
+        [
+          482,
+          793
+        ],
+        [
+          538,
+          800
+        ]
+      ],
+      "contactAnnotationMethod": "manual-review-needed pixel heuristic: lower28px median foot groups; not anatomical tracking",
+      "beakAnchorApprox": [
+        653,
+        465
+      ],
+      "scaleCalibrationRef": "scale.house_finch",
+      "anatomyScaleAccepted": false,
+      "rootContactAccepted": false,
+      "originalCoreEdgeContacts": 0,
+      "technicalSourcePixelCopyExact": true,
+      "acceptedUses": [],
+      "rejectedUses": [],
+      "candidateUses": [
+        "idle",
+        "perching"
+      ],
+      "reuseStatus": "suggestion only; appearance/anchor/transition validation required",
+      "sourcePrompt": "batches/house-finch-female-idle-v1/prompt.txt",
+      "generator": "OpenAI image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "beakAnchorMethod": "rightmost principal silhouette above toe band; may include held food tip; manual anatomical review pending",
+      "perchReuseReview": {
+        "reviewFile": "batches/house-finch-perching-review-v1/reuse-review.json",
+        "roundBranch": "unverified; source ground feet do not demonstrate grip",
+        "flatPlatform": "candidate only",
+        "verified": false
+      }
+    }
+  ]
 }

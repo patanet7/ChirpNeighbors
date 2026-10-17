@@ -62,7 +62,9 @@
     },
     "allSlotAcceptanceFalse": true,
     "producerCanCertify": "Local byte hashes and recorded evidence scope; no new artistic/contact/runtime admission authority.",
-    "canonicalPRInterpretation": "Historical outer handoff fields describe creation; priorSourceMergeObserved supersedes their unmerged flag for PR9. Source storage only; no behavior acceptance."
+    "canonicalPRInterpretation": "Historical outer handoff fields describe creation; priorSourceMergeObserved supersedes their unmerged flag for PR9. Source storage only; no behavior acceptance.",
+    "sourceRecoveryReceipt": "crow-git-recovery",
+    "sourceRecoveryIsEvidenceNotNewTaskAuthority": true
   },
   "interpretationRules": [
     "Generated does not mean reviewed; reviewed does not mean accepted.",
@@ -102,8 +104,8 @@
       "relativePath": "queue.json",
       "existsLocally": true,
       "scope": "local-byte-evidence",
-      "sha256": "725d545c96d7a02b5216009fd00236c1129185fbfe89a4f58ebfd4de453c1179",
-      "bytes": 29378272
+      "sha256": "9e584a964a146537952f95247d2ebacd96728745e5a4573437119368a531d991",
+      "bytes": 29379248
     },
     "framebank": {
       "path": "/workspace/asset-production/frame-bank.json",
@@ -1460,7 +1462,7 @@
       "recoverablePayloadVerifiedHere": false
     },
     "relay:crow-guided": {
-      "scope": "parent-external-relay-not-local-pixels",
+      "scope": "historical-parent-relay-with-current-canonical-source-recovery",
       "libraryFileId": "[private-source-reference-retained-locally]",
       "previewLibraryId": "[private-source-reference-retained-locally]",
       "translatedPreviewLibraryId": "[private-source-reference-retained-locally]",
@@ -1468,16 +1470,24 @@
       "fileSha256": null,
       "report": "Opposite support/lift and occlusion improved; manual representative toe estimates found20\u201326runtimepx stance slip and about5px ground variation; no production walk accepted.",
       "evidenceRef": "lessons",
-      "experimentId": "crow-guided-contact-parent"
+      "experimentId": "crow-guided-contact-parent",
+      "historicalScope": "parent-external-relay-not-local-pixels",
+      "currentSourceRecoveryEvidenceRef": "crow-git-recovery",
+      "currentVisualInspectionEvidenceRef": "crow-recovered-inspection",
+      "currentRecoveryDoesNotConvertHistoricalMeasurementsToAutomatedLocalTracking": true
     },
     "relay:crow-compact": {
-      "scope": "parent-external-relay-not-local-pixels",
+      "scope": "historical-parent-relay-with-current-canonical-source-recovery",
       "libraryFileId": "[private-source-reference-retained-locally]",
       "comparisonLibraryId": "[private-source-reference-retained-locally]",
       "frameIds": null,
       "fileSha256": null,
       "report": "Parent reports shortened reach but missed guide geometry; no acceptance.",
-      "accessEvidenceRef": "crow-access"
+      "accessEvidenceRef": "crow-access",
+      "historicalScope": "parent-external-relay-not-local-pixels",
+      "currentSourceRecoveryEvidenceRef": "crow-git-recovery",
+      "currentVisualInspectionEvidenceRef": "crow-recovered-inspection",
+      "currentRecoveryDoesNotConvertHistoricalMeasurementsToAutomatedLocalTracking": true
     },
     "external-demo-qa": {
       "scope": "parent-external-relay-not-local-pixels",
@@ -1743,6 +1753,1437 @@
         512
       ],
       "mode": "RGBA"
+    },
+    "crow-git-recovery": {
+      "path": "/workspace/asset-production/receipts/crow-canonical-source-recovery.json",
+      "relativePath": "receipts/crow-canonical-source-recovery.json",
+      "existsLocally": true,
+      "scope": "local-byte-evidence",
+      "sha256": "40b8a399fdc88d7dab9bc00d4f1f93ccac56b34b6fbb43977e1ff1c3cbffc963",
+      "bytes": 26368,
+      "receiptSummary": {
+        "source": "supported canonical Git sparse checkout, not denied Library URL",
+        "repository": "patanet7/ChirpNeighbors",
+        "commit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+        "filesRecoveredAndRehashed": 56,
+        "bytes": 12532623,
+        "allMatchCanonicalSHA256SUMS": true,
+        "sourceAccessBlockerResolved": true,
+        "oldLibraryProxyDenialRetained": true,
+        "artContactScaleAccepted": false,
+        "gaitControlBlockerStillOpen": true,
+        "newGenerationCalls": 0
+      },
+      "canonicalSourceFiles": [
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/REFERENCE-AND-REVIEW.md",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/REFERENCE-AND-REVIEW.md",
+          "bytes": 5008,
+          "sha256": "90c988a56b7540600d87881746e3d33b01e87194b4a24c9e0c99b468b5b31479",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.gif",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.gif",
+          "bytes": 93080,
+          "sha256": "c91140f53e3f3a46394f34ccff550eda64aa9800b8f97b4e6307dede870d3d46",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            548
+          ],
+          "format": "GIF"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.png",
+          "bytes": 524548,
+          "sha256": "5951775398b7c27606336fed1352576bba10bf5ca49b5b28924a9529100215c3",
+          "exactOriginalMember": true,
+          "dimensions": [
+            1536,
+            548
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.png",
+          "bytes": 40315,
+          "sha256": "bd2f5e7ff4b8e13333bd94e1eda24029e2cc191afafbd24c79b2e3ba238e2920",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            512
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.svg",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.svg",
+          "bytes": 1286,
+          "sha256": "bca21716f9b6dcc1a5a5c5beee8b2236c77cf16e17cc6362279f0faf4db49eab",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-output.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-output.png",
+          "bytes": 1453445,
+          "sha256": "5ef6233d6f82b908a39b4c9bbccb4ed6e8c32766652608dfe617ec768066462e",
+          "exactOriginalMember": true,
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-prompt.txt",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-prompt.txt",
+          "bytes": 1429,
+          "sha256": "538e6f94773c4c6e602435932723ea53b731da02228060726d9245b1bba7d9cc",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.png",
+          "bytes": 41616,
+          "sha256": "84208b9f6842b2e5c1615a9aa80fcf4b9a7fde01eea3fc48aedcf93023c59a00",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            512
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.svg",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.svg",
+          "bytes": 1294,
+          "sha256": "1ceddc6e084597e94d08e7d4c571cb3a01c2d6892edd91a6c4f1fcfd8b8c6afd",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/hashes.json",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/hashes.json",
+          "bytes": 1237,
+          "sha256": "944f23b1acbafc0368057dad52c03f10f6d256a888fd0661b14361384469496b",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.png",
+          "bytes": 42324,
+          "sha256": "bc219a00bb8ed689f7d529467e1c7d021d55dee3135ae94138d098f1c2a88a16",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            512
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.svg",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.svg",
+          "bytes": 1299,
+          "sha256": "0c8f5fa1510a861d82a4f14dbd91cffc0aa58df3a2ab4df7bf3d327c22a00bef",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/make-guides.py",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/make-guides.py",
+          "bytes": 1500,
+          "sha256": "e9b3ac4abe6b46e7bfc950605842dd981c069ee2550e5fcd208bb2f62c6449b0",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/package.py",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/package.py",
+          "bytes": 1086,
+          "sha256": "66cc1d05f26a97d5923bc4254e8760e052aff52be96a5396b3dbee46d4c891ef",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose-atlas.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose-atlas.png",
+          "bytes": 314237,
+          "sha256": "44ef0dce4ae6cdaf04ed93cc5ab48460c3674f7bf683bc9c8eb40fd9eea9bc15",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            768
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.apng",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.apng",
+          "bytes": 313192,
+          "sha256": "f069f729af6374605867ec3aedd1f097e80317f7d34f2eed5e700d633f34e016",
+          "exactOriginalMember": true,
+          "dimensions": [
+            384,
+            384
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.gif",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.gif",
+          "bytes": 58351,
+          "sha256": "8470ca60a109cc6471db2aa9f11cf7e29fec8620376c7abeafedbb1473fbfd50",
+          "exactOriginalMember": true,
+          "dimensions": [
+            384,
+            384
+          ],
+          "format": "GIF"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-hashes.json",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-hashes.json",
+          "bytes": 2959,
+          "sha256": "ac06fbab21d4238c4714bb43484aa3f91c58f4485075e230967b434904e4456d",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-review.json",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-review.json",
+          "bytes": 4033,
+          "sha256": "06413ac1dabd9f97514035be22fcb313bca5ca2aab8b1ebe6aee08f5225a69ea",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/fixed-speed-contact-test.gif",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/fixed-speed-contact-test.gif",
+          "bytes": 143161,
+          "sha256": "2b730a97546fdd5c0cd65bab165eba9b11533e9171454706ab1cd665e7deca29",
+          "exactOriginalMember": true,
+          "dimensions": [
+            800,
+            384
+          ],
+          "format": "GIF"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/four-pose-review.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/four-pose-review.png",
+          "bytes": 304899,
+          "sha256": "ff70d903f243a0cf86153fdc6cc545e9f9defb62720bcba17b5d2b70cb2e4b66",
+          "exactOriginalMember": true,
+          "dimensions": [
+            1536,
+            384
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-0.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-0.png",
+          "bytes": 86141,
+          "sha256": "1422e6404bcdcb3ef2cb1232757650fc6af073fc5d70749f241f7f19d398443a",
+          "exactOriginalMember": true,
+          "dimensions": [
+            384,
+            384
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-1.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-1.png",
+          "bytes": 75546,
+          "sha256": "0b9185d5a3bb8b2da276aefed9a73fee53fbe292c0b8d27e118a010f5d0978c6",
+          "exactOriginalMember": true,
+          "dimensions": [
+            384,
+            384
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-2.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-2.png",
+          "bytes": 75826,
+          "sha256": "b2865c83db814f4bf7b71ad582af863ee8223eded3540984b27e618bfc7296c6",
+          "exactOriginalMember": true,
+          "dimensions": [
+            384,
+            384
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-3.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-3.png",
+          "bytes": 79547,
+          "sha256": "e746d83beb136ecb9d306222d5541c814eb4e1fd0954ee1b2d037948aab97fc0",
+          "exactOriginalMember": true,
+          "dimensions": [
+            384,
+            384
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.png",
+          "bytes": 49314,
+          "sha256": "3cbd181463cecce7dd61d1f7a87dab99c75a47a3307daa375b606ae9db7d466a",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            512
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.svg",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.svg",
+          "bytes": 1665,
+          "sha256": "13ac70f5ca697df866dccd07a08d9361ec73c50c756186ccc501090536065c62",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-output.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-output.png",
+          "bytes": 1418229,
+          "sha256": "f092eb4aa33f48681234973889d7947d6d8d48185ec83d1605851ca02e0d8598",
+          "exactOriginalMember": true,
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-prompt.txt",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-prompt.txt",
+          "bytes": 1354,
+          "sha256": "c32c1fadae28d181d27f7512ebfbb686cd331bde27c0c94c4cd99605a7df9c44",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/hashes.json",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/hashes.json",
+          "bytes": 861,
+          "sha256": "c121cdd5fc2229820d5895ba5fd8b9cb01352a3cebd84ce4c427388628460787",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/input-crow-contact-source.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/input-crow-contact-source.png",
+          "bytes": 466917,
+          "sha256": "b3694b7bc92eeaa9cf941838a8f4bd32e153d7b61c1ebc044feeaa13eec82709",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            512
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.png",
+          "bytes": 48451,
+          "sha256": "2eac045c1350aaf1918dd7e22b3853bd629f0bdac1766827c03a9e57dff608c8",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            512
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.svg",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.svg",
+          "bytes": 1689,
+          "sha256": "1ebe5d5dab205e73f501f5b7de7a410bfc6e1d7dfb06165c2b7ae6d30a18439a",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-output.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-output.png",
+          "bytes": 1361305,
+          "sha256": "45bad8dceac60d7c26bcde6a5c2b6eb9b2674c8ef5c9de005147943c421eb1df",
+          "exactOriginalMember": true,
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-prompt.txt",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-prompt.txt",
+          "bytes": 1193,
+          "sha256": "a1bd6e85ad9ac7b2c656219a828db74ccf62d864482e31e4f24a56e57342d30b",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.png",
+          "bytes": 52298,
+          "sha256": "9bf95ab420d1f5d0f712fc809da93e4b6eea593c0b63ea276844768c2c73416a",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            512
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.svg",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.svg",
+          "bytes": 1724,
+          "sha256": "e7bf871d47c4a915163e959c88ba8124e21aa6d5691104499966823f5da170a4",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-output.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-output.png",
+          "bytes": 1339538,
+          "sha256": "db9834369278c1b97b026cbde55342b104b8c312316fd2f7589555b816eb1d75",
+          "exactOriginalMember": true,
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-cycle.py",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-cycle.py",
+          "bytes": 5358,
+          "sha256": "5b33ca35db196b33c798f190f7358c1e37028d0dd8d1de87007d7b3e6ea7e368",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-review.py",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-review.py",
+          "bytes": 2966,
+          "sha256": "98dabb6450eea71bba9ed0048cdc3005e16607f362d370ce2668f962b37c08bb",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/prompt.txt",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/prompt.txt",
+          "bytes": 1459,
+          "sha256": "3267dc3b721653f53ed383f5e611175683153571464d43192f64bad3f6cdc807",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/review.json",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/review.json",
+          "bytes": 1988,
+          "sha256": "3c1c9132b62f46692976d0adf16884c607925b5a8a47fde875cda6a0d5a4720b",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/side-by-side-review.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/side-by-side-review.png",
+          "bytes": 515870,
+          "sha256": "201a993fc23d7bdc66f39818fdc1c70e38ce99fcce5e125638748aa59b2af199",
+          "exactOriginalMember": true,
+          "dimensions": [
+            1536,
+            548
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.apng",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.apng",
+          "bytes": 515851,
+          "sha256": "57c7db3e996dfdcb4a06739701a00aab9a3520262ee22f0f81832e9337d44799",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            548
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.gif",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.gif",
+          "bytes": 88881,
+          "sha256": "976bdb3dacbea94ad09dccb697dc49457c4dfa32077d29d1ed7f6061d91f9080",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            548
+          ],
+          "format": "GIF"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/hashes.json",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/hashes.json",
+          "bytes": 861,
+          "sha256": "c121cdd5fc2229820d5895ba5fd8b9cb01352a3cebd84ce4c427388628460787",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/input-crow-contact-source.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/input-crow-contact-source.png",
+          "bytes": 466917,
+          "sha256": "b3694b7bc92eeaa9cf941838a8f4bd32e153d7b61c1ebc044feeaa13eec82709",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            512
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.png",
+          "bytes": 52298,
+          "sha256": "9bf95ab420d1f5d0f712fc809da93e4b6eea593c0b63ea276844768c2c73416a",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            512
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.svg",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.svg",
+          "bytes": 1724,
+          "sha256": "e7bf871d47c4a915163e959c88ba8124e21aa6d5691104499966823f5da170a4",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-output.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-output.png",
+          "bytes": 1339538,
+          "sha256": "db9834369278c1b97b026cbde55342b104b8c312316fd2f7589555b816eb1d75",
+          "exactOriginalMember": true,
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/package-review.py",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/package-review.py",
+          "bytes": 2966,
+          "sha256": "98dabb6450eea71bba9ed0048cdc3005e16607f362d370ce2668f962b37c08bb",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/prompt.txt",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/prompt.txt",
+          "bytes": 1459,
+          "sha256": "3267dc3b721653f53ed383f5e611175683153571464d43192f64bad3f6cdc807",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/review.json",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/review.json",
+          "bytes": 1988,
+          "sha256": "3c1c9132b62f46692976d0adf16884c607925b5a8a47fde875cda6a0d5a4720b",
+          "exactOriginalMember": true
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/side-by-side-review.png",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/side-by-side-review.png",
+          "bytes": 515870,
+          "sha256": "201a993fc23d7bdc66f39818fdc1c70e38ce99fcce5e125638748aa59b2af199",
+          "exactOriginalMember": true,
+          "dimensions": [
+            1536,
+            548
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.apng",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.apng",
+          "bytes": 515851,
+          "sha256": "57c7db3e996dfdcb4a06739701a00aab9a3520262ee22f0f81832e9337d44799",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            548
+          ],
+          "format": "PNG"
+        },
+        {
+          "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.gif",
+          "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.gif",
+          "bytes": 88881,
+          "sha256": "976bdb3dacbea94ad09dccb697dc49457c4dfa32077d29d1ed7f6061d91f9080",
+          "exactOriginalMember": true,
+          "dimensions": [
+            768,
+            548
+          ],
+          "format": "GIF"
+        }
+      ]
+    },
+    "crow-recovered-inspection": {
+      "path": "/workspace/asset-production/receipts/crow-recovered-visual-inspection.json",
+      "relativePath": "receipts/crow-recovered-visual-inspection.json",
+      "existsLocally": true,
+      "scope": "local-byte-evidence",
+      "sha256": "1d9dcbb07fcb020def0fef6f20d3299606ecf0b5c4a890cb38a177cd7829b314",
+      "bytes": 1861,
+      "receipt": {
+        "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+        "sourceRoot": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs",
+        "imagesInspected": [
+          "chirp-compact-step-reference-test/compact-step-output.png",
+          "chirp-guided-cycle-candidate/near-support-passing-output.png",
+          "chirp-guided-opposite-contact-test/opposite-contact-output.png"
+        ],
+        "inspectionMethod": "Actual local PNGs opened with view_image after canonical SHA256SUMS byte verification",
+        "sourceAccessBlockerResolved": true,
+        "visualFindings": [
+          "Neutral dark/black feather palette and broadly matching individual body are visible in these preserved generated inputs.",
+          "The compact output is more upright and reduces reach relative to the exaggerated opposite-contact output, but the raised foot still reaches forward; it does not itself establish an ordinary short-step cycle.",
+          "The guided passing pose and opposite-contact pose visibly depict different support/lift/leg-crossing arrangements. That confirms source pose differences, not stationary world-foot contact through a translating clip.",
+          "Large eye/feather-style and leg/foot mechanics still require actual-species/style review; no source identity, body scale or gait acceptance is granted."
+        ],
+        "notPerformed": [
+          "No new crow generation",
+          "No new automated gait/contact measurement",
+          "No runtime integration",
+          "No human-pose ControlNet claim"
+        ],
+        "historicalMeasurements": "Prior20\u201326runtimepx slip/~5px ground variation remain parent/manual evidence; newly available PNG inspection does not relabel them as automated local measurements.",
+        "nextQueuedWork": "Bind actual source torso/toe landmarks, timing and root trajectories, then select a controllable short-step experiment. Current production remains the House Finch slice.",
+        "artContactScaleAccepted": false
+      }
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/REFERENCE-AND-REVIEW.md": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/REFERENCE-AND-REVIEW.md",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/REFERENCE-AND-REVIEW.md",
+      "bytes": 5008,
+      "sha256": "90c988a56b7540600d87881746e3d33b01e87194b4a24c9e0c99b468b5b31479",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.gif": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.gif",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.gif",
+      "bytes": 93080,
+      "sha256": "c91140f53e3f3a46394f34ccff550eda64aa9800b8f97b4e6307dede870d3d46",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        548
+      ],
+      "format": "GIF",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-before-after.png",
+      "bytes": 524548,
+      "sha256": "5951775398b7c27606336fed1352576bba10bf5ca49b5b28924a9529100215c3",
+      "exactOriginalMember": true,
+      "dimensions": [
+        1536,
+        548
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.png",
+      "bytes": 40315,
+      "sha256": "bd2f5e7ff4b8e13333bd94e1eda24029e2cc191afafbd24c79b2e3ba238e2920",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        512
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.svg": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.svg",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-opposite-step.svg",
+      "bytes": 1286,
+      "sha256": "bca21716f9b6dcc1a5a5c5beee8b2236c77cf16e17cc6362279f0faf4db49eab",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-output.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-output.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-output.png",
+      "bytes": 1453445,
+      "sha256": "5ef6233d6f82b908a39b4c9bbccb4ed6e8c32766652608dfe617ec768066462e",
+      "exactOriginalMember": true,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-prompt.txt": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-prompt.txt",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step-prompt.txt",
+      "bytes": 1429,
+      "sha256": "538e6f94773c4c6e602435932723ea53b731da02228060726d9245b1bba7d9cc",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.png",
+      "bytes": 41616,
+      "sha256": "84208b9f6842b2e5c1615a9aa80fcf4b9a7fde01eea3fc48aedcf93023c59a00",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        512
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.svg": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.svg",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/compact-step.svg",
+      "bytes": 1294,
+      "sha256": "1ceddc6e084597e94d08e7d4c571cb3a01c2d6892edd91a6c4f1fcfd8b8c6afd",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/hashes.json": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/hashes.json",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/hashes.json",
+      "bytes": 1237,
+      "sha256": "944f23b1acbafc0368057dad52c03f10f6d256a888fd0661b14361384469496b",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.png",
+      "bytes": 42324,
+      "sha256": "bc219a00bb8ed689f7d529467e1c7d021d55dee3135ae94138d098f1c2a88a16",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        512
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.svg": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.svg",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/light-hop-provisional.svg",
+      "bytes": 1299,
+      "sha256": "0c8f5fa1510a861d82a4f14dbd91cffc0aa58df3a2ab4df7bf3d327c22a00bef",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/make-guides.py": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/make-guides.py",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/make-guides.py",
+      "bytes": 1500,
+      "sha256": "e9b3ac4abe6b46e7bfc950605842dd981c069ee2550e5fcd208bb2f62c6449b0",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/package.py": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/package.py",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-compact-step-reference-test/package.py",
+      "bytes": 1086,
+      "sha256": "66cc1d05f26a97d5923bc4254e8760e052aff52be96a5396b3dbee46d4c891ef",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose-atlas.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose-atlas.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose-atlas.png",
+      "bytes": 314237,
+      "sha256": "44ef0dce4ae6cdaf04ed93cc5ab48460c3674f7bf683bc9c8eb40fd9eea9bc15",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        768
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.apng": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.apng",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.apng",
+      "bytes": 313192,
+      "sha256": "f069f729af6374605867ec3aedd1f097e80317f7d34f2eed5e700d633f34e016",
+      "exactOriginalMember": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.gif": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.gif",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.gif",
+      "bytes": 58351,
+      "sha256": "8470ca60a109cc6471db2aa9f11cf7e29fec8620376c7abeafedbb1473fbfd50",
+      "exactOriginalMember": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "format": "GIF",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-hashes.json": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-hashes.json",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-hashes.json",
+      "bytes": 2959,
+      "sha256": "ac06fbab21d4238c4714bb43484aa3f91c58f4485075e230967b434904e4456d",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-review.json": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-review.json",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-review.json",
+      "bytes": 4033,
+      "sha256": "06413ac1dabd9f97514035be22fcb313bca5ca2aab8b1ebe6aee08f5225a69ea",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/fixed-speed-contact-test.gif": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/fixed-speed-contact-test.gif",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/fixed-speed-contact-test.gif",
+      "bytes": 143161,
+      "sha256": "2b730a97546fdd5c0cd65bab165eba9b11533e9171454706ab1cd665e7deca29",
+      "exactOriginalMember": true,
+      "dimensions": [
+        800,
+        384
+      ],
+      "format": "GIF",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/four-pose-review.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/four-pose-review.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/four-pose-review.png",
+      "bytes": 304899,
+      "sha256": "ff70d903f243a0cf86153fdc6cc545e9f9defb62720bcba17b5d2b70cb2e4b66",
+      "exactOriginalMember": true,
+      "dimensions": [
+        1536,
+        384
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-0.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-0.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-0.png",
+      "bytes": 86141,
+      "sha256": "1422e6404bcdcb3ef2cb1232757650fc6af073fc5d70749f241f7f19d398443a",
+      "exactOriginalMember": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-1.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-1.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-1.png",
+      "bytes": 75546,
+      "sha256": "0b9185d5a3bb8b2da276aefed9a73fee53fbe292c0b8d27e118a010f5d0978c6",
+      "exactOriginalMember": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-2.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-2.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-2.png",
+      "bytes": 75826,
+      "sha256": "b2865c83db814f4bf7b71ad582af863ee8223eded3540984b27e618bfc7296c6",
+      "exactOriginalMember": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-3.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-3.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-3.png",
+      "bytes": 79547,
+      "sha256": "e746d83beb136ecb9d306222d5541c814eb4e1fd0954ee1b2d037948aab97fc0",
+      "exactOriginalMember": true,
+      "dimensions": [
+        384,
+        384
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.png",
+      "bytes": 49314,
+      "sha256": "3cbd181463cecce7dd61d1f7a87dab99c75a47a3307daa375b606ae9db7d466a",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        512
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.svg": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.svg",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-guide.svg",
+      "bytes": 1665,
+      "sha256": "13ac70f5ca697df866dccd07a08d9361ec73c50c756186ccc501090536065c62",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-output.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-output.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-output.png",
+      "bytes": 1418229,
+      "sha256": "f092eb4aa33f48681234973889d7947d6d8d48185ec83d1605851ca02e0d8598",
+      "exactOriginalMember": true,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-prompt.txt": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-prompt.txt",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/far-support-passing-prompt.txt",
+      "bytes": 1354,
+      "sha256": "c32c1fadae28d181d27f7512ebfbb686cd331bde27c0c94c4cd99605a7df9c44",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/hashes.json": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/hashes.json",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/hashes.json",
+      "bytes": 861,
+      "sha256": "c121cdd5fc2229820d5895ba5fd8b9cb01352a3cebd84ce4c427388628460787",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/input-crow-contact-source.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/input-crow-contact-source.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/input-crow-contact-source.png",
+      "bytes": 466917,
+      "sha256": "b3694b7bc92eeaa9cf941838a8f4bd32e153d7b61c1ebc044feeaa13eec82709",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        512
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.png",
+      "bytes": 48451,
+      "sha256": "2eac045c1350aaf1918dd7e22b3853bd629f0bdac1766827c03a9e57dff608c8",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        512
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.svg": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.svg",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-guide.svg",
+      "bytes": 1689,
+      "sha256": "1ebe5d5dab205e73f501f5b7de7a410bfc6e1d7dfb06165c2b7ae6d30a18439a",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-output.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-output.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-output.png",
+      "bytes": 1361305,
+      "sha256": "45bad8dceac60d7c26bcde6a5c2b6eb9b2674c8ef5c9de005147943c421eb1df",
+      "exactOriginalMember": true,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-prompt.txt": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-prompt.txt",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/near-support-passing-prompt.txt",
+      "bytes": 1193,
+      "sha256": "a1bd6e85ad9ac7b2c656219a828db74ccf62d864482e31e4f24a56e57342d30b",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.png",
+      "bytes": 52298,
+      "sha256": "9bf95ab420d1f5d0f712fc809da93e4b6eea593c0b63ea276844768c2c73416a",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        512
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.svg": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.svg",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-guide.svg",
+      "bytes": 1724,
+      "sha256": "e7bf871d47c4a915163e959c88ba8124e21aa6d5691104499966823f5da170a4",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-output.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-output.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/opposite-contact-output.png",
+      "bytes": 1339538,
+      "sha256": "db9834369278c1b97b026cbde55342b104b8c312316fd2f7589555b816eb1d75",
+      "exactOriginalMember": true,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-cycle.py": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-cycle.py",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-cycle.py",
+      "bytes": 5358,
+      "sha256": "5b33ca35db196b33c798f190f7358c1e37028d0dd8d1de87007d7b3e6ea7e368",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-review.py": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-review.py",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/package-review.py",
+      "bytes": 2966,
+      "sha256": "98dabb6450eea71bba9ed0048cdc3005e16607f362d370ce2668f962b37c08bb",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/prompt.txt": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/prompt.txt",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/prompt.txt",
+      "bytes": 1459,
+      "sha256": "3267dc3b721653f53ed383f5e611175683153571464d43192f64bad3f6cdc807",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/review.json": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/review.json",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/review.json",
+      "bytes": 1988,
+      "sha256": "3c1c9132b62f46692976d0adf16884c607925b5a8a47fde875cda6a0d5a4720b",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/side-by-side-review.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/side-by-side-review.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/side-by-side-review.png",
+      "bytes": 515870,
+      "sha256": "201a993fc23d7bdc66f39818fdc1c70e38ce99fcce5e125638748aa59b2af199",
+      "exactOriginalMember": true,
+      "dimensions": [
+        1536,
+        548
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.apng": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.apng",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.apng",
+      "bytes": 515851,
+      "sha256": "57c7db3e996dfdcb4a06739701a00aab9a3520262ee22f0f81832e9337d44799",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        548
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.gif": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.gif",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/two-contact-comparison.gif",
+      "bytes": 88881,
+      "sha256": "976bdb3dacbea94ad09dccb697dc49457c4dfa32077d29d1ed7f6061d91f9080",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        548
+      ],
+      "format": "GIF",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/hashes.json": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/hashes.json",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/hashes.json",
+      "bytes": 861,
+      "sha256": "c121cdd5fc2229820d5895ba5fd8b9cb01352a3cebd84ce4c427388628460787",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/input-crow-contact-source.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/input-crow-contact-source.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/input-crow-contact-source.png",
+      "bytes": 466917,
+      "sha256": "b3694b7bc92eeaa9cf941838a8f4bd32e153d7b61c1ebc044feeaa13eec82709",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        512
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.png",
+      "bytes": 52298,
+      "sha256": "9bf95ab420d1f5d0f712fc809da93e4b6eea593c0b63ea276844768c2c73416a",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        512
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.svg": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.svg",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-guide.svg",
+      "bytes": 1724,
+      "sha256": "e7bf871d47c4a915163e959c88ba8124e21aa6d5691104499966823f5da170a4",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-output.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-output.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/opposite-contact-output.png",
+      "bytes": 1339538,
+      "sha256": "db9834369278c1b97b026cbde55342b104b8c312316fd2f7589555b816eb1d75",
+      "exactOriginalMember": true,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/package-review.py": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/package-review.py",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/package-review.py",
+      "bytes": 2966,
+      "sha256": "98dabb6450eea71bba9ed0048cdc3005e16607f362d370ce2668f962b37c08bb",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/prompt.txt": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/prompt.txt",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/prompt.txt",
+      "bytes": 1459,
+      "sha256": "3267dc3b721653f53ed383f5e611175683153571464d43192f64bad3f6cdc807",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/review.json": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/review.json",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/review.json",
+      "bytes": 1988,
+      "sha256": "3c1c9132b62f46692976d0adf16884c607925b5a8a47fde875cda6a0d5a4720b",
+      "exactOriginalMember": true,
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/side-by-side-review.png": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/side-by-side-review.png",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/side-by-side-review.png",
+      "bytes": 515870,
+      "sha256": "201a993fc23d7bdc66f39818fdc1c70e38ce99fcce5e125638748aa59b2af199",
+      "exactOriginalMember": true,
+      "dimensions": [
+        1536,
+        548
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.apng": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.apng",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.apng",
+      "bytes": 515851,
+      "sha256": "57c7db3e996dfdcb4a06739701a00aab9a3520262ee22f0f81832e9337d44799",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        548
+      ],
+      "format": "PNG",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
+    },
+    "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.gif": {
+      "scope": "canonical-git-file-byte-evidence",
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalPath": "assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.gif",
+      "localPath": "/workspace/chirp-crow-source-canon/assets/generated/2026-10-17/packs/chirp-guided-opposite-contact-test/two-contact-comparison.gif",
+      "bytes": 88881,
+      "sha256": "976bdb3dacbea94ad09dccb697dc49457c4dfa32077d29d1ed7f6061d91f9080",
+      "exactOriginalMember": true,
+      "dimensions": [
+        768,
+        548
+      ],
+      "format": "GIF",
+      "immutableProducerFrameId": null,
+      "hashNamespace": "PNG/file SHA256; no invented decoded frame ID",
+      "recoveryEvidenceRef": "crow-git-recovery"
     }
   },
   "rows": [
@@ -3853,12 +5294,12 @@
       },
       "gates": {
         "source": {
-          "status": "blocked-payload-recovery",
+          "status": "v1-idle-payload-unverified-recovered-neutral-reference-available",
           "accepted": false,
-          "reason": "External source pixels unavailable here; no immutable IDs/file hashes asserted.",
+          "reason": "Recovered56files cover three movement experiment packs, not all original v1 idle/blink outputs. Source/input-crow-contact-reference pixels are recovered; full four-frame idle and blink coverage still unverified.",
           "evidenceRefs": [
-            "crow-access",
-            "crow-bounded"
+            "crow-git-recovery",
+            "relay:crow-raven-first-motion"
           ]
         },
         "art": {
@@ -3903,7 +5344,7 @@
           ]
         }
       },
-      "nextStep": "Recover source bytes through parent/Mac canonical intake; preserve denial receipts; no bypass and no blind reroll.",
+      "nextStep": "Bind compatible neutral/reference pixels from recovered movement packs; inspect/recover the specific v1 idle clip if needed. Do not relabel other crow source/action slots complete.",
       "note": "Four-pose idle reported; blink presence/timing not verified from accessible pixels."
     },
     {
@@ -3978,17 +5419,19 @@
       "id": "american_crow.walk",
       "species": "american_crow",
       "slot": "walk",
-      "availability": "reported-unsuitable-walk-closed-by-source-control-blocker",
-      "state": "reported-reviewed-not-locally-verified",
+      "availability": "canonical-recovered-walk-experiments-needs-revision",
+      "state": "source-recovered-reviewed-needs-revision",
       "accepted": false,
-      "missingVsUnsuitable": "existing-reported-walk-failed-not-missing-attempt",
+      "missingVsUnsuitable": "existing-four-pose-walk-candidate-unsuitable-not-missing-attempt",
       "localFrameIds": [],
       "evidenceRefs": [
         "relay:crow-raven-first-motion",
         "relay:crow-v2-correction",
         "relay:crow-guided",
         "relay:crow-compact",
-        "lessons"
+        "lessons",
+        "crow-git-recovery",
+        "crow-recovered-inspection"
       ],
       "variants": [
         {
@@ -4009,29 +5452,32 @@
       },
       "gates": {
         "source": {
-          "status": "blocked-payload-recovery",
+          "status": "canonical-inputs-recovered-byte-verified",
           "accepted": false,
-          "reason": "External source pixels unavailable here; no immutable IDs/file hashes asserted.",
+          "reason": "56files across compact/guided-cycle/opposite-contact packs recovered at canonical Git28085717f71d5e4d2ceb71e19a96dd80f2c260b0 and rehashed against canonical SHA256SUMS. Three actual original PNGs inspected by root. Exact file paths/hashes in receipt; no new decoded frame IDs asserted.",
           "evidenceRefs": [
-            "crow-access",
-            "crow-bounded"
+            "crow-git-recovery",
+            "crow-recovered-inspection"
           ]
         },
         "art": {
-          "status": "reported-needs-revision",
+          "status": "source-inspected-needs-revision",
           "accepted": false,
-          "reason": "Owner rejected blue wing color/offcenter gait; v2 reported neutral palette improvement without art approval.",
+          "reason": "Root inspection sees neutral dark feathers and real leg-role differences; compact pose is more upright but raised foot still reaches forward. Eye/feather style, anatomy, scale and gait remain unaccepted.",
           "evidenceRefs": [
-            "relay:crow-raven-first-motion",
-            "relay:crow-v2-correction"
+            "crow-git-recovery",
+            "crow-recovered-inspection",
+            "relay:crow-guided"
           ]
         },
         "contact": {
           "status": "reported-failed-world-stance",
           "accepted": false,
-          "reason": "Guided poses alternated leg roles but manual parent estimates20\u201326runtimepx slip/~5px ground variation; no automated/local validation.",
+          "reason": "Gait-control/contact blocker remains open. Historical manual parent estimates20\u201326runtimepx stance slip/~5px ground variation are retained; recovered-image inspection is not new automated gait tracking.",
           "evidenceRefs": [
-            "relay:crow-guided"
+            "relay:crow-guided",
+            "crow-git-recovery",
+            "crow-recovered-inspection"
           ]
         },
         "loop": {
@@ -4050,10 +5496,12 @@
           "evidenceRefs": []
         },
         "prStorage": {
-          "status": "not-verified-for-external-bytes",
+          "status": "canonical-git-source-storage-only",
           "accepted": false,
-          "reason": "PR9 stores local producer sources; does not establish crow bundle recovery or storage.",
-          "evidenceRefs": []
+          "reason": "Recovered56files exist at canonical commit28085717f71d5e4d2ceb71e19a96dd80f2c260b0; this establishes these three experiment packs storage only, not all crow actions or art/contact/runtime admission.",
+          "evidenceRefs": [
+            "crow-git-recovery"
+          ]
         },
         "normalYardPlayback": {
           "status": "not-verified",
@@ -4064,20 +5512,44 @@
           ]
         }
       },
-      "nextStep": "Recover source bytes through parent/Mac canonical intake; preserve denial receipts; no bypass and no blind reroll."
+      "nextStep": "Bind recovered actual torso/toe landmarks, timing and root-motion trajectories, then choose a controllable short-step method. No new generation or accepted walk claimed; House Finch remains focus.",
+      "canonicalRecoveredClip": {
+        "scope": "preserved-failed-four-pose-candidate",
+        "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+        "frameCount": 4,
+        "producerFrameIds": [],
+        "notNewGeneration": true,
+        "accepted": false,
+        "inputsAndPromptRecoveryEvidenceRef": "crow-git-recovery",
+        "fileEvidenceRefs": [
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose-atlas.png",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.apng",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/crow-guided-four-pose.gif",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-hashes.json",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/cycle-review.json",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/fixed-speed-contact-test.gif",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/four-pose-review.png",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-0.png",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-1.png",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-2.png",
+          "canonical-crow-file:assets/generated/2026-10-17/packs/chirp-guided-cycle-candidate/cycle-candidate/frame-3.png"
+        ]
+      }
     },
     {
       "id": "american_crow.hop",
       "species": "american_crow",
       "slot": "hop",
-      "availability": "missing",
+      "availability": "recovered-motion-references-no-generated-hop-clip",
       "state": "queued",
       "accepted": false,
-      "missingVsUnsuitable": "missing-authored-action",
+      "missingVsUnsuitable": "dedicated-hop-missing-technical-guide-is-not-animation",
       "localFrameIds": [],
       "evidenceRefs": [
         "crow-bounded",
-        "relay:crow-compact"
+        "relay:crow-compact",
+        "crow-git-recovery",
+        "crow-recovered-inspection"
       ],
       "variants": [],
       "bodyHeading": {
@@ -4090,10 +5562,13 @@
       },
       "gates": {
         "source": {
-          "status": "not-demonstrated",
+          "status": "recovered-reference-inputs-hop-clip-missing",
           "accepted": false,
-          "reason": "No matching authored action and acceptance evidence.",
-          "evidenceRefs": []
+          "reason": "56canonical source files are recovered and hashed, including compact/guide/opposite experiments. Provisional light-hop PNG/SVG are authored technical guides, not a generated hopping clip; four-pose failed walk does not fill hop slot.",
+          "evidenceRefs": [
+            "crow-git-recovery",
+            "crow-recovered-inspection"
+          ]
         },
         "art": {
           "status": "not-demonstrated",
@@ -4120,10 +5595,12 @@
           "evidenceRefs": []
         },
         "prStorage": {
-          "status": "not-demonstrated",
+          "status": "reference-experiment-storage-only-hop-missing",
           "accepted": false,
-          "reason": "No matching authored action and acceptance evidence.",
-          "evidenceRefs": []
+          "reason": "Canonical storage covers retrieved experiment inputs/guides/failedwalk only; no generated hop source clip asserted.",
+          "evidenceRefs": [
+            "crow-git-recovery"
+          ]
         },
         "normalYardPlayback": {
           "status": "not-demonstrated",
@@ -4132,7 +5609,7 @@
           "evidenceRefs": []
         }
       },
-      "nextStep": "Author only after compatible neutral, scale/contact and action-specific references are agreed.",
+      "nextStep": "Use recovered source geometry for an action-specific controlled short-hop proposal after gait/contact method is agreed; dedicated hop animation remains missing.",
       "note": "Compact/low-hop technical proposals are not generated hopping clips. Owner ordinary movement target mostly upright, small lifts/modest bounce/short steps/scan pauses."
     },
     {
@@ -4690,7 +6167,19 @@
       ],
       "provesTheseThreeSpeciesNormalYardPlayback": false
     },
-    "frameBankSourceCount": 63
+    "frameBankSourceCount": 63,
+    "crowCanonicalRecovery": {
+      "files": 56,
+      "bytes": 12532623,
+      "sourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+      "canonicalChecksumsMatched": true,
+      "threeOriginalPNGsInspected": true,
+      "newGeneratedDrawings": 0,
+      "newProducerFrameIds": 0,
+      "sourceAccessResolved": true,
+      "gaitArtContactAccepted": false,
+      "normalYardPlaybackAccepted": false
+    }
   },
   "nextQueue": [
     {
@@ -4721,36 +6210,55 @@
     {
       "priority": 5,
       "species": "american_crow",
-      "task": "Recover compact/guided source bytes and matched contact/root data; establish controllable method.",
-      "state": "blocked-separately"
+      "task": "Access resolved for56canonical compact/guided/opposite files; bind actual contact/root/timing data and establish controllable short-step method. Other crow actions stay missing.",
+      "state": "queued-gait-control-open-source-access-resolved"
     }
   ],
   "crowBlocker": {
-    "id": "crow-short-step-bounded-v1",
-    "completedAt": "2026-10-17T15:49:57.188464+00:00",
-    "state": "reviewed prerequisite experiment; no generated asset",
-    "outcome": "blocked-before-generation",
-    "newImageCalls": 0,
-    "newCandidates": 0,
-    "accepted": false,
-    "staged": false,
-    "integrated": false,
-    "libraryFileId": "[private-source-reference-retained-locally]",
-    "bundle": "delivery/ChirpNeighbors-Crow-Bounded-Experiment.zip",
-    "sha256": "170e6ea7903c329a6c50dc31a15d65a666fb74e55fbc4ab895e8b36a6a0f6efb",
-    "bytes": 14930,
-    "diagnosis": "experiments/crow-short-step-bounded-v1/diagnosis.json",
-    "failureReceipt": "experiments/crow-short-step-bounded-v1/access-receipt.json",
-    "contactProposal": "experiments/crow-short-step-bounded-v1/contact-trajectory-proposal.json",
-    "reviewPreview": "experiments/crow-short-step-bounded-v1/review.html",
-    "sourcePixelsInspected": false,
-    "arithmeticChecksPassed": 3,
-    "actualCandidateContactMeasurements": null,
-    "priorAttemptMetricsEvidenceScope": "parent relay only; prior pixels unavailable",
-    "next": "accessible original compact/guided crow files and matched scale/contact/root data, then a concrete part-controlled workflow or hard-constraint interface",
-    "candidateAllowanceUnused": 1,
-    "sourceAccessDiagnosis": "retrieval-diagnosis/access-diagnosis.json",
-    "sourceAccessClassification": "fresh supported transfers observed URLError: Tunnel connection failed: 403 Forbidden; network proxy denied tunnel setup, no file payload received; no bypass attempted"
+    "state": "source-access-resolved-gait-control-open",
+    "sourceAccessBlockerResolved": true,
+    "resolvedScope": "56files in compact/guided-cycle/opposite-contact packs only; no blanket source/clip completeness",
+    "resolutionEvidenceRefs": [
+      "crow-git-recovery",
+      "crow-recovered-inspection"
+    ],
+    "currentSourceCommit": "28085717f71d5e4d2ceb71e19a96dd80f2c260b0",
+    "historicalLibraryTunnelDenialRetained": true,
+    "historicalBoundedExperiment": {
+      "id": "crow-short-step-bounded-v1",
+      "completedAt": "2026-10-17T15:49:57.188464+00:00",
+      "state": "reviewed prerequisite experiment; no generated asset",
+      "outcome": "blocked-before-generation",
+      "newImageCalls": 0,
+      "newCandidates": 0,
+      "accepted": false,
+      "staged": false,
+      "integrated": false,
+      "libraryFileId": "[private-source-reference-retained-locally]",
+      "bundle": "delivery/ChirpNeighbors-Crow-Bounded-Experiment.zip",
+      "sha256": "170e6ea7903c329a6c50dc31a15d65a666fb74e55fbc4ab895e8b36a6a0f6efb",
+      "bytes": 14930,
+      "diagnosis": "experiments/crow-short-step-bounded-v1/diagnosis.json",
+      "failureReceipt": "experiments/crow-short-step-bounded-v1/access-receipt.json",
+      "contactProposal": "experiments/crow-short-step-bounded-v1/contact-trajectory-proposal.json",
+      "reviewPreview": "experiments/crow-short-step-bounded-v1/review.html",
+      "sourcePixelsInspected": false,
+      "arithmeticChecksPassed": 3,
+      "actualCandidateContactMeasurements": null,
+      "priorAttemptMetricsEvidenceScope": "parent relay only; prior pixels unavailable",
+      "next": "accessible original compact/guided crow files and matched scale/contact/root data, then a concrete part-controlled workflow or hard-constraint interface",
+      "candidateAllowanceUnused": 1,
+      "sourceAccessDiagnosis": "retrieval-diagnosis/access-diagnosis.json",
+      "sourceAccessClassification": "fresh supported transfers observed URLError: Tunnel connection failed: 403 Forbidden; network proxy denied tunnel setup, no file payload received; no bypass attempted"
+    },
+    "remainingBlockers": [
+      "Source-specific torso/toe binding, contact phases, root-motion curve and timing",
+      "Controllable mostly-upright short-step method",
+      "Art/style/anatomy/physical scale/contact/transition acceptance",
+      "Missing dedicated crow actions and normal-yard playback"
+    ],
+    "newGenerationCallsForRecovery": 0,
+    "acceptedWalk": false
   },
   "matrixValidation": {
     "uniqueRowIds": true,
@@ -4762,12 +6270,14 @@
     "allGateAcceptanceFalse": true,
     "queueNotModified": true,
     "framebankNotModified": true,
-    "runtimeTestsRun": false
+    "runtimeTestsRun": false,
+    "crowRecoveredSourceFiles": 56,
+    "crowNewFrameIdsInvented": false,
+    "crowHopStillMissing": true
   },
-  "updatedAt": "2026-10-17T16:24:34.423219+00:00",
+  "updatedAt": "2026-10-17T16:33:36.501866+00:00",
   "publicProjection": {
-    "privateOriginalSha256": "081959a2351cc1ac91dce69b1c57768aec123e9032a1cb9a728959c8db9ff83b",
-    "redactedFields": "private Library/file handles and any personal fixture labels",
-    "scope": "derived source-evidence projection; original remains in private production records; not a new queue/catalog"
+    "privateOriginalSha256": "2f3ef770c606769dc1c5e6475269b5b36e7b5146ac301968dc3cbc5dc89b6841",
+    "scope": "redacted derived evidence view, not another queue/catalog"
   }
 }
