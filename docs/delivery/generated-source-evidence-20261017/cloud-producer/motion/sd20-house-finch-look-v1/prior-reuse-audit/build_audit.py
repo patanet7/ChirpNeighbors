@@ -1,0 +1,19 @@
+from pathlib import Path
+from PIL import Image,ImageDraw
+import json,hashlib,shutil,numpy as np
+P=Path(__file__).parent;R=Path('/workspace/asset-production');C=Path('/workspace/chirp-cloud-source-canon/docs/delivery/generated-source-evidence-20261017/cloud-producer');sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();fid=lambda im:'frame.sha256.'+hashlib.sha256(f'RGBA8;{im.width}x{im.height};'.encode()+im.tobytes()).hexdigest();js=lambda n,v:(P/n).write_text(json.dumps(v,indent=2)+'\n');b=json.loads((R/'frame-bank.json').read_text());candidates=[f for f in b['frames'] if f.get('species')=='house_finch' and f.get('variant')=='adult-male' and f['sourceAtlas']=='batches/house-finch-male-idle-v1/original.png' and f['poseTags'][0] in ['neutral','upward-attention','viewer-glance','profile-return']];records=[];ims=[];(P/'sources').mkdir(exist_ok=True);(P/'frames96').mkdir(exist_ok=True)
+for f in candidates:
+ name=f['poseTags'][0];src=R/f['file'];im=Image.open(src).convert('RGBA');assert fid(im)==f['frameId'];assert sha(src)==f['fileSha256'];assert sha(C/f['file'])==sha(src);dst='sources/'+name+'1024.png';shutil.copy2(src,P/dst);out=im.resize((96,96),Image.Resampling.NEAREST);on='frames96/'+name+'.png';out.save(P/on);ims.append(out);ar=np.array(out);yy,xx=np.where(ar[:,:,3]>=128);records.append({'pose':name,'sourceFrameId':f['frameId'],'canonicalPath':str(C/f['file']),'sourceFile':dst,'sourcePNGsha256':sha(src),'canonicalAndWorkingCopyIdentical':True,'outputPNG':on,'outputPNGsha256':sha(P/on),'sourceCanvas':[1024,1024],'outputCanvas':[96,96],'wholeCanvasScale':3/32,'worldCanvas':[96,96],'density':1,'pivot':[48,75],'feetContactProbes':[{'id':'foot-a','x':45,'y':73,'actualAlpha':int(ar[73,45,3])},{'id':'foot-b','x':48,'y':74,'actualAlpha':int(ar[74,48,3])}],'bboxAlpha128':[int(xx.min()),int(yy.min()),int(xx.max()+1),int(yy.max()+1)],'legacyApproxFeetSource':f.get('feetContactsApprox'),'legacyApproxBeakSource':f.get('beakAnchorApprox'),'legacyRegistration':f['derivation']})
+assert sha(P/records[0]['outputPNG'])==sha(R/'experiments/house-finch-male-blink-runtime-assessment-v2/frames96/open.png')
+base=np.array(ims[0]);regions={'headInspectionROI':[42,32,69,58],'torsoWingInspectionROI':[25,54,60,71],'feetInspectionROI':[40,69,56,78],'tailInspectionROI':[12,63,39,79]}
+for rec,im in zip(records,ims):
+ ar=np.array(im);rec['regionalComparisonToExactAwake']={}
+ for name,(x0,y0,x1,y1) in regions.items():
+  aa=base[y0:y1,x0:x1];bb=ar[y0:y1,x0:x1];union=(aa[:,:,3]>0)|(bb[:,:,3]>0);diff=np.any(aa!=bb,axis=2);silA=aa[:,:,3]>=128;silB=bb[:,:,3]>=128;rec['regionalComparisonToExactAwake'][name]={'ROI':[x0,y0,x1,y1],'changedRGBApixels':int(diff.sum()),'unionPositiveAlphaPixels':int(union.sum()),'changedFractionOfPositiveUnion':float((diff&union).sum()/max(1,union.sum())),'alpha128SilhouetteIntersectionOverUnion':float((silA&silB).sum()/max(1,(silA|silB).sum()))}
+js('source-comparison.json',{'scope':'zero-call preliminary reuse audit','newNativeCalls':0,'newDrawings':0,'sourceRecords':records,'geometryReference':'experiments/house-finch-male-blink-runtime-assessment-v2/texture-review-manifest.json','comparisonLimits':'Regionalboxesareinspectionwindows,notanatomicalsegmentation;RGBAexactnessisdiagnostic,notuniversalvisualgate.','perPoseFit':False,'perPoseTranslation':False})
+sheet=Image.new('RGBA',(960,520),'#eee8d9');d=ImageDraw.Draw(sheet)
+for i,(rec,im) in enumerate(zip(records,ims)):
+ x=i*240;d.text((x+4,5),rec['pose'],fill='#20342b')
+ for j,bg in enumerate(['#e5e0cd','#182a32']):pane=Image.new('RGBA',(96,96),bg);pane.alpha_composite(im);sheet.alpha_composite(pane,(x+4+j*112,28))
+ sheet.alpha_composite(im.resize((192,192),Image.Resampling.NEAREST),(x+4,145));sheet.alpha_composite(im.crop((40,31,71,59)).resize((186,168),Image.Resampling.NEAREST),(x+4,346))
+sheet.save(P/'normal-yard-and-head-comparison.png');print(json.dumps({'sourceRecords':records},indent=2))

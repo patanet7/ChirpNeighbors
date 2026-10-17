@@ -1,0 +1,88 @@
+{
+  "batchId": "sd20-house-finch-look-v1",
+  "speciesId": "house_finch",
+  "lookOnlyNewDrawing": true,
+  "renderClipId": "look",
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "88b352d0913e765d96ef40efa8ce37ad13c0c58c11188be1e3e997161113535f",
+    "profile": "chirp-texture-review-v1",
+    "canonicalSchemaValidation": "NOT_RUN;explicitlookcliprequirescurrentMacconfirmation"
+  },
+  "atlasBinding": {
+    "file": "look-atlas96.png",
+    "sha256": "c25b8d55fb46851d77c24c22ffef7c856103f4ffa5b0c3335ab2a1655de7e772",
+    "width": 192,
+    "height": 96,
+    "alpha": "straight-rgba8"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "primarySourcePNG": "reference-awake-source1024.png",
+      "primarySourcePNGsha256": "bab4bfb8ffc82f533f776b1b6596b76b59c7fef2354615fc7fe0dfc495db1bca",
+      "newDrawing": false,
+      "lookOnlyNewDrawing": false,
+      "renderFrameId": "finch-male-open-96",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "reused-awake96.png",
+      "outputPNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.6f39e3d0daf80eba5c49038537070d12758589d397b1273f86495725976fd64d",
+      "primarySourcePNG": "look-native.png",
+      "primarySourcePNGsha256": "16a5ad32023170f4c127a7fb693f30d892fd15c57503ef2d61a528aba1ee5633",
+      "newDrawing": true,
+      "lookOnlyNewDrawing": true,
+      "renderFrameId": "house-finch-look-viewer-96",
+      "atlasRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "look96.png",
+      "outputPNGsha256": "534a3329c51a9517dbee7c6b67937dce0fb881ba8be416bd1259e5c6e1bc7904"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "finch-male-open-96",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "finch-male-open-96",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "house-finch-look-viewer-96",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "finch-male-open-96",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ],
+  "projectionScope": "look-only;own idle exactawake only,no change existing primary neutral/blink intake",
+  "appBound": false,
+  "SharpCanonicalAdmission": false
+}
