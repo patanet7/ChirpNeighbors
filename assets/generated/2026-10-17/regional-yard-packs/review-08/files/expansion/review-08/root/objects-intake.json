@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "role": "Derived review delta; old asset records are not duplicated or overwritten.",
+  "assets": [],
+  "existing_variant_reviews": [
+    {
+      "asset_id": "object.wall_tool_rail",
+      "variant_id": "repair07_sage_cedar_v1",
+      "source_review_status": "provisional",
+      "review_findings": [
+        {
+          "priority": "P1",
+          "issue": "Current yard demo retains a downward-right rail projection while rear wall cap is nearly level. Mount screw delta598,111 implies~10.52deg slope; horizontal wall registration not established.",
+          "action": "Review projected wall plane/rail orientation and mount transform in the next authorized placement pass; retain original art."
+        },
+        {
+          "priority": "P1",
+          "issue": "Hook-seat markers are on low outer curve faces; tool-resting cradle/contact alignment is not validated.",
+          "action": "Hold tool-hanging interaction slots until a contact example confirms inner cradle geometry. No new imagegen needed for this metadata question."
+        }
+      ],
+      "scope": {},
+      "owner_accepted": false,
+      "runtime_integrated": false,
+      "review_source": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/review.json"
+    },
+    {
+      "asset_id": "object.garden_step_stool",
+      "variant_id": "repair07_sage_cedar_v1",
+      "source_review_status": "accepted-for-scoped-source-review",
+      "review_findings": [
+        {
+          "priority": "P2",
+          "issue": "Footprint polygons encompass projected foot-cap regions rather than calibrated contact soles; they are not physical collision/contact masks.",
+          "action": "Keep proposed geometry label and calibrate actual sole/world contacts when admitted; do not use masks as implemented collision."
+        },
+        {
+          "priority": "P2",
+          "issue": "Mobile demo is about17x12px including padding, so step/foot details cannot be functionally judged there.",
+          "action": "Use actual target-scale placement and hit/contact review later; do not infer load or actor alignment from the source contact sheet."
+        }
+      ],
+      "scope": {},
+      "owner_accepted": false,
+      "runtime_integrated": false,
+      "review_source": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/review.json"
+    },
+    {
+      "asset_id": "object.seed_storage_canister",
+      "variant_id": "repair07_sage_cedar_v1",
+      "source_review_status": "accepted-for-scoped-source-review",
+      "review_findings": [
+        {
+          "priority": "P2",
+          "issue": "Specular banding/rustlike mottling is stronger than intended matte sage; continuous body shading makes this most noticeable on the storage canister.",
+          "action": "Retain as weathered-green static candidate under allowed minor imperfections; if a strict matte-sage pass is later required, use a targeted controlled material revision rather than a new family."
+        },
+        {
+          "priority": "P3",
+          "issue": "Bail air-gap sample hasalpha3 and retained antialias/fringe; clean alpha presentation passes visually, not every gap pixel is exactly0.",
+          "action": "Preserve source. Revisit only if a target renderer exposes a visible fringe; do not silently alpha-key."
+        }
+      ],
+      "scope": {},
+      "owner_accepted": false,
+      "runtime_integrated": false,
+      "review_source": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/review.json"
+    },
+    {
+      "asset_id": "object.garden_watering_can",
+      "variant_id": "repair07_sage_cedar_v1",
+      "source_review_status": "accepted-for-scoped-source-review",
+      "review_findings": [
+        {
+          "priority": "P2",
+          "issue": "Matte-sage finish target not met literally: metal carries visible highlights and mottled weathering.",
+          "action": "Document observed weathered-green finish; no immediate regeneration needed for static candidate use."
+        },
+        {
+          "priority": "P2",
+          "issue": "Normal demo~58x38px and mobile~23x15px; rose holes and mouth/grip details do not remain interaction-verifiable atmobile.",
+          "action": "Validate proposed grip/pour/fill contact and picking against admitted runtime projection; never classify as a bath to obtain a runtime slot."
+        }
+      ],
+      "scope": {},
+      "owner_accepted": false,
+      "runtime_integrated": false,
+      "review_source": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/review.json"
+    }
+  ]
+}

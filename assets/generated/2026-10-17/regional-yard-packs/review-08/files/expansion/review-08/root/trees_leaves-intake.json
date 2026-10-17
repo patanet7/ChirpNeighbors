@@ -1,0 +1,237 @@
+{
+  "schema_version": "1.0.0",
+  "role": "Derived review delta; old asset records are not duplicated or overwritten.",
+  "assets": [
+    {
+      "asset_id": "coast-live-oak-foliage",
+      "variant_id": "review08_leaf_correction_v1",
+      "family_id": "quercus_agrifolia",
+      "species": "Quercus agrifolia",
+      "review_status": "HOLD",
+      "rejection_reason": "Dominant repeated narrow radial/starburst clusters and bright luminous tips persist. Some individual blades broadened, but whole-canopy botanical correction not achieved.",
+      "eligible_for_production": false,
+      "states": {
+        "generated": true,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false
+      },
+      "generated_art_count": 1,
+      "accepted_art_count": 0,
+      "production_asset_count": 0,
+      "derived_from": {
+        "asset_id": "coast-live-oak-foliage",
+        "variant_id": "repair07_healthy_canopy_v1",
+        "reference_file": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/oak/originals/healthy-canopy-r1.png",
+        "sha256": "5e2277443e522c9ea0c2fa645e862e4e664d1e6dd66520c8a022fa8311e1c50d",
+        "status": "HOLD unchanged"
+      },
+      "original": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/originals/leaf-correction-r1.png",
+        "sha256": "7625936664369e48bb4ecc5a6352ddac621dd67b7ff162cd985e32551bf3de20",
+        "dimensions_px": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA"
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "calls_submitted": 1,
+        "calls_completed": 1,
+        "active": 0,
+        "budget": 1,
+        "retries": 0,
+        "exact_prompt": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/prompts/leaf-correction-r1.txt",
+        "input": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/oak/originals/healthy-canopy-r1.png",
+        "transparent_background": true,
+        "receipt": "source-unpublished/expansion/review-08/oakfix/originals/generation-receipt.json"
+      },
+      "rights": {
+        "image_inputs": "Project-generated owned conditioning canopy; applicable project/service terms; no third-party image license asserted",
+        "primary_text_source": "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_quag.pdf",
+        "external_photo_pixels_used": false,
+        "USDA_text_only": true
+      },
+      "selected_held_derivative": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/sprites/corrected-canopy-common.png",
+        "sha256": "b0127fb7ad4a2eb2e31e7f46772c087b7af6be0f21caf3860fe218f2e702e3c8",
+        "dimensions_px": [
+          1536,
+          1536
+        ],
+        "operations": [
+          "Remove alpha<=1 contamination on derivative only",
+          "Uniform full-source nearest resize1254→1408",
+          "Translate[64,0] on1536 canvas"
+        ],
+        "alpha_le1_pixels_removed": 19679,
+        "approval": false
+      },
+      "assembly": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/sprites/held-tree-rest.png",
+        "new_generated_art": false,
+        "wood_dependency": {
+          "asset_id": "coast-live-oak-wood",
+          "variant_id": "depth06_modules_v1",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/tree-wind/originals/wood-scaffold-v1.png",
+          "sha256": "c500ff6a90297eae246bfe76af8033b8271ac6534956adb451a1044046e92b7e",
+          "dimensions_px": [
+            1254,
+            1254
+          ],
+          "byte_identity_preserved": true,
+          "translation": [
+            141,
+            141
+          ]
+        },
+        "anchor_px": [
+          794,
+          1319
+        ],
+        "footprint": {
+          "center": [
+            794,
+            1319
+          ],
+          "radii": [
+            160,
+            12
+          ],
+          "units": "common source pixels",
+          "status": "provisional visual root flare, not collision physics"
+        },
+        "z_order": [
+          "wood",
+          "foliage"
+        ],
+        "pin_anchors_px": [
+          [
+            315,
+            554
+          ],
+          [
+            697,
+            333
+          ],
+          [
+            1084,
+            417
+          ],
+          [
+            1319,
+            727
+          ]
+        ],
+        "registration": "Inherited exact wood placement; canopy alphaIoU0.97956; hidden twig attachment remains unverified. Mechanical fixed cores alone are not botanical proof."
+      },
+      "scale": {
+        "tree_scale": 0.5,
+        "tree_offset_source_px": [
+          23,
+          231
+        ],
+        "root_source_px": [
+          420,
+          890.5
+        ],
+        "viewport": [
+          0,
+          160,
+          1536,
+          1024
+        ],
+        "tree_height_metres_illustrative": 6,
+        "physical_calibration": "Provisional illustrative scale, not surveyed metres.",
+        "contact_ellipse_source_px": [
+          78,
+          6
+        ],
+        "layer": "above flattened existing review plate; foreground occlusion not dynamically solved",
+        "root_normal_px": [
+          262.5,
+          456.5625
+        ],
+        "root_mobile_px": [
+          105,
+          182.625
+        ]
+      },
+      "wind": {
+        "proof": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/gentle-wind.gif",
+        "implementation": "Existing source renderer via isolated stage; same compound deformation math",
+        "renderer_lineage": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/renderer-lineage.json",
+        "pin_core_radius_px": 48,
+        "weights": "0 within48px, smoothstep to1 by228px from nearest fixed point",
+        "wood_weight": 0,
+        "anatomical_segmentation": false,
+        "runtime_implemented": false,
+        "decoded_frames": 33,
+        "decoded_unique_frames": 31,
+        "exact_loop_closure": true,
+        "all_pin_core_changed_pixels": 0,
+        "all_root_changed_pixels": 0,
+        "always_unoccluded_wood_tested_display_pixels": 6643,
+        "always_unoccluded_wood_changed_pixels": 0,
+        "leaf_edge_occludes_initially_exposed_wood_samples": 89,
+        "qa": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/motion-qa.json",
+        "ledger": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/frame-ledger.json"
+      },
+      "state_art": {
+        "healthy_leaf_on": "actual generated attempted correction, held for leaf identity"
+      },
+      "pending_state_needs": [
+        "dry/stress",
+        "wet",
+        "spring flush/reproductive",
+        "summer stress as appropriate",
+        "autumn evergreen turnover/litter; no blanket orange crown",
+        "winter moisture appearance; no default snow"
+      ],
+      "state_choices": "Alternative states mutually exclusive per instance; no simultaneous healthy/dry spawn",
+      "pending_reviews": [
+        "botanical identity correction",
+        "strict pixel-style consistency",
+        "owner acceptance",
+        "hidden attachment anatomy",
+        "runtime admission"
+      ],
+      "track": "trees_leaves",
+      "intake_source_manifest": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/intake.json",
+      "intake_source_manifest_sha256": "30ca3621184a92616497e19b52f83ffd326e5661b5fb6d2903c1c2b5f6c5a893"
+    }
+  ],
+  "existing_variant_reviews": [
+    {
+      "asset_id": "coast-live-oak-foliage",
+      "variant_id": "repair07_healthy_canopy_v1",
+      "source_review_status": "held",
+      "review_findings": [
+        {
+          "defect": "Narrow radial/starburst foliar motifs with luminous leaf tips.",
+          "visible_at": "clear atsource/detail; starry highcontrast canopy texture persists180–260px",
+          "severity": "botanical identity hold; high-priority targeted canopy material/cluster fix"
+        },
+        {
+          "defect": "100px silhouette reads a generic broad-crowned tree.",
+          "visible_at": "100px",
+          "severity": "generic silhouette legibility is not species evidence or reason to lift hold"
+        },
+        {
+          "defect": "Compound foliage layer hides joins; motion occlusion does not prove anatomy.",
+          "visible_at": "source layer contract and assembly",
+          "severity": "anatomical attachment remains unproved; no new motion correctness claim in this botany review"
+        }
+      ],
+      "scope": {
+        "static_geometry": "accepted-for-scoped-source-review",
+        "botanical": "held"
+      },
+      "owner_accepted": false,
+      "runtime_integrated": false,
+      "review_source": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/botany/botanical-review.json"
+    }
+  ]
+}
