@@ -15,7 +15,7 @@
   ],
   "orderIsBiologicalFrequencyRanking": false,
   "all20Implemented": false,
-  "registeredDrawingCount": 110,
+  "registeredDrawingCount": 114,
   "newNextSpeciesDrawingsPendingRegistration": 0,
   "boundMeaning": "packetBindingReady=exported existing manifest references source frames; appBindingVerified=actual shared runtime admission/action observed; these are separate",
   "riggedMeaning": "transform/rig reuse can count as implemented motion only when bound and observed; contributes0newdrawings",
@@ -1276,25 +1276,37 @@
         "frequencyEvidenceState": "not-established; no universal most-to-least natural frequency claim"
       },
       "coverage": {
-        "sourceDrawingsAvailable": 0,
-        "immutableSourceFrameIds": [],
-        "sourceExportPaths": [
-          "motion/sd20-anna-phoebe-towhee-v1/california_towhee/binding-recipe.json"
+        "sourceDrawingsAvailable": 4,
+        "immutableSourceFrameIds": [
+          "frame.sha256.11ff542f52df9fe4a069841698d5c9077948c0d7df7048e8edc61d46d0852a0e",
+          "frame.sha256.22f45de72101a40c6fefa9a9bd1c3f5de482a1bf014bb602d9bcb99b07da19d1",
+          "frame.sha256.b302a2734645b9f1f096e9fc3713898374d22b1139e088bb915c50b426589915",
+          "frame.sha256.50af562220259cf5127f0236e82a0bae12b9ec36dad80fae52f9f224f7b9f78c"
         ],
-        "generatedSourceAvailable": false,
+        "sourceExportPaths": [
+          "motion/sd20-anna-phoebe-towhee-v1/california_towhee/binding-recipe.json",
+          "motion/sd20-california-towhee-hop-v1/motion-manifest.json"
+        ],
+        "generatedSourceAvailable": true,
         "riggedMotionPrepared": true,
         "packetBindingReady": false,
         "appBindingVerified": false,
         "appBindingState": "not-confirmed-from-cloud",
-        "normalSizeSourceReviewed": false,
-        "normalSpeedSourcePlaybackSampled": false,
+        "normalSizeSourceReviewed": true,
+        "normalSpeedSourcePlaybackSampled": true,
         "actualYardPlaybackVerified": false,
         "notes": [
-          "Bounded transform proof:0plantedrootdrift,11airborneticks,exactlanding; actual sharedrenderer binding pending. No newdrawings."
+          "Bounded transform proof:0plantedrootdrift,11airborneticks,exactlanding; actual sharedrenderer binding pending. No newdrawings.",
+          "Four actual backward-hop poses and one neutral reused; not a full double-scratch/feed action; varying whole-foot silhouettes disclosed."
         ],
-        "riggedPathGeometryVerified": true
+        "riggedPathGeometryVerified": true,
+        "latestSourceReview": "motion/sd20-california-towhee-hop-v1/independent-review.json"
       },
-      "activeAssignment": null,
+      "activeAssignment": {
+        "state": "reviewed-source-staged-for-publication",
+        "batch": "motion/sd20-california-towhee-hop-v1",
+        "actualRunning": false
+      },
       "mandatoryFrameCount": null,
       "minimumReleaseCategory": true
     },

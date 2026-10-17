@@ -1,0 +1,823 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-source-hop-motion-v1",
+  "speciesId": "california_towhee",
+  "clipId": "ground-hop-backward",
+  "canonicalRuntimeContract": false,
+  "scope": "source-review-only",
+  "appBound": false,
+  "canonicalSharpReceipt": null,
+  "tickRate": 30,
+  "loop": false,
+  "totalTicks": 29,
+  "durationMs": 966.6666666666666,
+  "sourcePoseSequence": [
+    {
+      "pose": "neutral",
+      "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+      "durationTicks": 6
+    },
+    {
+      "pose": "crouch",
+      "outputFrameId": "frame.sha256.f0b1558a52783e52f1ce50cba32d89f32abb6c06c5c8adfffe50adf821bd7fc5",
+      "durationTicks": 3
+    },
+    {
+      "pose": "airborne-tuck",
+      "outputFrameId": "frame.sha256.49d0452b9b4d5b90c20e8955b02fc6871e3667fbd7ed5057b60b4cf29d3e95d7",
+      "durationTicks": 4
+    },
+    {
+      "pose": "descending-reach",
+      "outputFrameId": "frame.sha256.0d0d9288df4627c54daf0a6840dfae2975c9628344f002e5a4807786f15afe02",
+      "durationTicks": 4
+    },
+    {
+      "pose": "supported-settle",
+      "outputFrameId": "frame.sha256.0a359b6064e920754fc8c6ac8da22904f9a36fbfb982c7b51d7324342b36123f",
+      "durationTicks": 3
+    },
+    {
+      "pose": "neutral",
+      "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+      "durationTicks": 9
+    }
+  ],
+  "frameAtlas": {
+    "PNG": "hop-atlas96.png",
+    "width": 480,
+    "height": 96,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb",
+    "frames": [
+      {
+        "pose": "neutral",
+        "sourceRect": [
+          0,
+          0,
+          96,
+          96
+        ],
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015"
+      },
+      {
+        "pose": "crouch",
+        "sourceRect": [
+          96,
+          0,
+          96,
+          96
+        ],
+        "outputFrameId": "frame.sha256.f0b1558a52783e52f1ce50cba32d89f32abb6c06c5c8adfffe50adf821bd7fc5"
+      },
+      {
+        "pose": "airborne-tuck",
+        "sourceRect": [
+          192,
+          0,
+          96,
+          96
+        ],
+        "outputFrameId": "frame.sha256.49d0452b9b4d5b90c20e8955b02fc6871e3667fbd7ed5057b60b4cf29d3e95d7"
+      },
+      {
+        "pose": "descending-reach",
+        "sourceRect": [
+          288,
+          0,
+          96,
+          96
+        ],
+        "outputFrameId": "frame.sha256.0d0d9288df4627c54daf0a6840dfae2975c9628344f002e5a4807786f15afe02"
+      },
+      {
+        "pose": "supported-settle",
+        "sourceRect": [
+          384,
+          0,
+          96,
+          96
+        ],
+        "outputFrameId": "frame.sha256.0a359b6064e920754fc8c6ac8da22904f9a36fbfb982c7b51d7324342b36123f"
+      }
+    ]
+  },
+  "presentation": {
+    "canvas": [
+      96,
+      96
+    ],
+    "pivotOutputXY": [
+      57,
+      76
+    ],
+    "outputPixelsPerWorldUnit": 0.8589743589743589,
+    "worldCanvas": [
+      111.76119402985076,
+      111.76119402985076
+    ],
+    "existingNeutralVisibleWidthWorldUnits": 78,
+    "relativeBiologicalScaleApproved": false,
+    "oneScaleForAllNewPoses": true
+  },
+  "trajectory": {
+    "distanceWorldUnits": -24,
+    "maxDesignedRootRiseWorldUnits": 8,
+    "groundPlaneWorldY": 130,
+    "startRootWorldXY": [
+      190,
+      130
+    ],
+    "landingRootWorldXY": [
+      166,
+      130
+    ],
+    "horizontalRule": "Linear root travel over ticks9..16 inclusive. Root position fixed while grounded, including lift-off and landing boundaries.",
+    "verticalRule": "Parabolic root rise8*4*u*(1-u) over airborne ticks; source drawn tuck additionally clears toes.",
+    "interpolation": "30Hz tick samples authoritative; display may hold per tick. Never move root during planted frames.",
+    "oneShotEnd": "Hold final neutral at landed root. Replay is explicit reset; no seamless loop claim.",
+    "samples": [
+      {
+        "tick": 0,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 1,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 2,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 3,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 4,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 5,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 6,
+        "pose": "crouch",
+        "outputFrameId": "frame.sha256.f0b1558a52783e52f1ce50cba32d89f32abb6c06c5c8adfffe50adf821bd7fc5",
+        "sourceFrameId": "frame.sha256.11ff542f52df9fe4a069841698d5c9077948c0d7df7048e8edc61d46d0852a0e",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 7,
+        "pose": "crouch",
+        "outputFrameId": "frame.sha256.f0b1558a52783e52f1ce50cba32d89f32abb6c06c5c8adfffe50adf821bd7fc5",
+        "sourceFrameId": "frame.sha256.11ff542f52df9fe4a069841698d5c9077948c0d7df7048e8edc61d46d0852a0e",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 8,
+        "pose": "crouch",
+        "outputFrameId": "frame.sha256.f0b1558a52783e52f1ce50cba32d89f32abb6c06c5c8adfffe50adf821bd7fc5",
+        "sourceFrameId": "frame.sha256.11ff542f52df9fe4a069841698d5c9077948c0d7df7048e8edc61d46d0852a0e",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 9,
+        "pose": "airborne-tuck",
+        "outputFrameId": "frame.sha256.49d0452b9b4d5b90c20e8955b02fc6871e3667fbd7ed5057b60b4cf29d3e95d7",
+        "sourceFrameId": "frame.sha256.22f45de72101a40c6fefa9a9bd1c3f5de482a1bf014bb602d9bcb99b07da19d1",
+        "rootWorldXY": [
+          190.0,
+          130.0
+        ],
+        "rootTravelKind": "airborne-translation",
+        "planted": false,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 124.17910447761194,
+        "supportBoundaryErrorWorldUnits": null,
+        "toeClearanceWorldUnits": 5.8208955223880565
+      },
+      {
+        "tick": 10,
+        "pose": "airborne-tuck",
+        "outputFrameId": "frame.sha256.49d0452b9b4d5b90c20e8955b02fc6871e3667fbd7ed5057b60b4cf29d3e95d7",
+        "sourceFrameId": "frame.sha256.22f45de72101a40c6fefa9a9bd1c3f5de482a1bf014bb602d9bcb99b07da19d1",
+        "rootWorldXY": [
+          186.57142857142858,
+          126.08163265306122
+        ],
+        "rootTravelKind": "airborne-translation",
+        "planted": false,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 120.26073713067316,
+        "supportBoundaryErrorWorldUnits": null,
+        "toeClearanceWorldUnits": 9.739262869326836
+      },
+      {
+        "tick": 11,
+        "pose": "airborne-tuck",
+        "outputFrameId": "frame.sha256.49d0452b9b4d5b90c20e8955b02fc6871e3667fbd7ed5057b60b4cf29d3e95d7",
+        "sourceFrameId": "frame.sha256.22f45de72101a40c6fefa9a9bd1c3f5de482a1bf014bb602d9bcb99b07da19d1",
+        "rootWorldXY": [
+          183.14285714285714,
+          123.46938775510205
+        ],
+        "rootTravelKind": "airborne-translation",
+        "planted": false,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 117.64849223271399,
+        "supportBoundaryErrorWorldUnits": null,
+        "toeClearanceWorldUnits": 12.351507767286009
+      },
+      {
+        "tick": 12,
+        "pose": "airborne-tuck",
+        "outputFrameId": "frame.sha256.49d0452b9b4d5b90c20e8955b02fc6871e3667fbd7ed5057b60b4cf29d3e95d7",
+        "sourceFrameId": "frame.sha256.22f45de72101a40c6fefa9a9bd1c3f5de482a1bf014bb602d9bcb99b07da19d1",
+        "rootWorldXY": [
+          179.71428571428572,
+          122.16326530612245
+        ],
+        "rootTravelKind": "airborne-translation",
+        "planted": false,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 116.3423697837344,
+        "supportBoundaryErrorWorldUnits": null,
+        "toeClearanceWorldUnits": 13.657630216265602
+      },
+      {
+        "tick": 13,
+        "pose": "descending-reach",
+        "outputFrameId": "frame.sha256.0d0d9288df4627c54daf0a6840dfae2975c9628344f002e5a4807786f15afe02",
+        "sourceFrameId": "frame.sha256.b302a2734645b9f1f096e9fc3713898374d22b1139e088bb915c50b426589915",
+        "rootWorldXY": [
+          176.28571428571428,
+          122.16326530612245
+        ],
+        "rootTravelKind": "airborne-translation",
+        "planted": false,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 117.50654888821201,
+        "supportBoundaryErrorWorldUnits": null,
+        "toeClearanceWorldUnits": 12.49345111178799
+      },
+      {
+        "tick": 14,
+        "pose": "descending-reach",
+        "outputFrameId": "frame.sha256.0d0d9288df4627c54daf0a6840dfae2975c9628344f002e5a4807786f15afe02",
+        "sourceFrameId": "frame.sha256.b302a2734645b9f1f096e9fc3713898374d22b1139e088bb915c50b426589915",
+        "rootWorldXY": [
+          172.85714285714286,
+          123.46938775510205
+        ],
+        "rootTravelKind": "airborne-translation",
+        "planted": false,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 118.8126713371916,
+        "supportBoundaryErrorWorldUnits": null,
+        "toeClearanceWorldUnits": 11.187328662808397
+      },
+      {
+        "tick": 15,
+        "pose": "descending-reach",
+        "outputFrameId": "frame.sha256.0d0d9288df4627c54daf0a6840dfae2975c9628344f002e5a4807786f15afe02",
+        "sourceFrameId": "frame.sha256.b302a2734645b9f1f096e9fc3713898374d22b1139e088bb915c50b426589915",
+        "rootWorldXY": [
+          169.42857142857144,
+          126.08163265306122
+        ],
+        "rootTravelKind": "airborne-translation",
+        "planted": false,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 121.42491623515077,
+        "supportBoundaryErrorWorldUnits": null,
+        "toeClearanceWorldUnits": 8.575083764849225
+      },
+      {
+        "tick": 16,
+        "pose": "descending-reach",
+        "outputFrameId": "frame.sha256.0d0d9288df4627c54daf0a6840dfae2975c9628344f002e5a4807786f15afe02",
+        "sourceFrameId": "frame.sha256.b302a2734645b9f1f096e9fc3713898374d22b1139e088bb915c50b426589915",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "airborne-translation",
+        "planted": false,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 125.34328358208955,
+        "supportBoundaryErrorWorldUnits": null,
+        "toeClearanceWorldUnits": 4.656716417910445
+      },
+      {
+        "tick": 17,
+        "pose": "supported-settle",
+        "outputFrameId": "frame.sha256.0a359b6064e920754fc8c6ac8da22904f9a36fbfb982c7b51d7324342b36123f",
+        "sourceFrameId": "frame.sha256.50af562220259cf5127f0236e82a0bae12b9ec36dad80fae52f9f224f7b9f78c",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 18,
+        "pose": "supported-settle",
+        "outputFrameId": "frame.sha256.0a359b6064e920754fc8c6ac8da22904f9a36fbfb982c7b51d7324342b36123f",
+        "sourceFrameId": "frame.sha256.50af562220259cf5127f0236e82a0bae12b9ec36dad80fae52f9f224f7b9f78c",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 19,
+        "pose": "supported-settle",
+        "outputFrameId": "frame.sha256.0a359b6064e920754fc8c6ac8da22904f9a36fbfb982c7b51d7324342b36123f",
+        "sourceFrameId": "frame.sha256.50af562220259cf5127f0236e82a0bae12b9ec36dad80fae52f9f224f7b9f78c",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 20,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 21,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 22,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 23,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 24,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 25,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 26,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 27,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      },
+      {
+        "tick": 28,
+        "pose": "neutral",
+        "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+        "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+        "rootWorldXY": [
+          166.0,
+          130.0
+        ],
+        "rootTravelKind": "stationary-planted",
+        "planted": true,
+        "supportPlaneWorldY": 130.0,
+        "lowestToeBoundaryWorldY": 130.0,
+        "supportBoundaryErrorWorldUnits": 0.0,
+        "toeClearanceWorldUnits": 0
+      }
+    ]
+  },
+  "frames": [
+    {
+      "pose": "neutral",
+      "sourceFrameId": "frame.sha256.8d2819dc208be7c398b643e4ae53e1f0d3f0345896b868f11b1ccc9107761d0a",
+      "outputFrameId": "frame.sha256.78d85aa1dcd9c907b0745536ef1b6aae34d63f31094e9c99ff912b83804a5015",
+      "outputPNG": "frames96/neutral.png",
+      "visibleBBoxAlpha128": [
+        8,
+        24,
+        75,
+        76
+      ],
+      "visibleWidthWorldUnits": 78.0,
+      "visibleHeightWorldUnits": 60.53731343283582,
+      "footLegProxyBBoxAlpha128": [
+        38,
+        58,
+        69,
+        76
+      ],
+      "lowestFootPixelBoundaryOutputY": 76,
+      "toeBoundarySupportAnchorOutputXY": [
+        55.5,
+        76.0
+      ],
+      "footContactsState": "planted",
+      "toeClearanceAtZeroRootHeightOutputPx": 0,
+      "beakTipOutputXY": [
+        74,
+        32.0
+      ],
+      "measurementCaveat": "bounded alpha128 geometry proxies, not anatomical toe tracking; lowest pixel-boundary support aligns plane but individual toes may change silhouette"
+    },
+    {
+      "pose": "crouch",
+      "sourceFrameId": "frame.sha256.11ff542f52df9fe4a069841698d5c9077948c0d7df7048e8edc61d46d0852a0e",
+      "outputFrameId": "frame.sha256.f0b1558a52783e52f1ce50cba32d89f32abb6c06c5c8adfffe50adf821bd7fc5",
+      "outputPNG": "frames96/crouch.png",
+      "visibleBBoxAlpha128": [
+        11,
+        39,
+        76,
+        76
+      ],
+      "visibleWidthWorldUnits": 75.67164179104478,
+      "visibleHeightWorldUnits": 43.07462686567165,
+      "footLegProxyBBoxAlpha128": [
+        38,
+        58,
+        70,
+        76
+      ],
+      "lowestFootPixelBoundaryOutputY": 76,
+      "toeBoundarySupportAnchorOutputXY": [
+        55.5,
+        76.0
+      ],
+      "footContactsState": "planted",
+      "toeClearanceAtZeroRootHeightOutputPx": 0,
+      "beakTipOutputXY": [
+        75,
+        47.0
+      ],
+      "measurementCaveat": "bounded alpha128 geometry proxies, not anatomical toe tracking; lowest pixel-boundary support aligns plane but individual toes may change silhouette"
+    },
+    {
+      "pose": "airborne-tuck",
+      "sourceFrameId": "frame.sha256.22f45de72101a40c6fefa9a9bd1c3f5de482a1bf014bb602d9bcb99b07da19d1",
+      "outputFrameId": "frame.sha256.49d0452b9b4d5b90c20e8955b02fc6871e3667fbd7ed5057b60b4cf29d3e95d7",
+      "outputPNG": "frames96/airborne-tuck.png",
+      "visibleBBoxAlpha128": [
+        12,
+        28,
+        75,
+        71
+      ],
+      "visibleWidthWorldUnits": 73.34328358208955,
+      "visibleHeightWorldUnits": 50.059701492537314,
+      "footLegProxyBBoxAlpha128": [
+        38,
+        58,
+        64,
+        71
+      ],
+      "lowestFootPixelBoundaryOutputY": 71,
+      "toeBoundarySupportAnchorOutputXY": null,
+      "footContactsState": "unplanted",
+      "toeClearanceAtZeroRootHeightOutputPx": 5,
+      "beakTipOutputXY": [
+        74,
+        35.5
+      ],
+      "measurementCaveat": "bounded alpha128 geometry proxies, not anatomical toe tracking; lowest pixel-boundary support aligns plane but individual toes may change silhouette"
+    },
+    {
+      "pose": "descending-reach",
+      "sourceFrameId": "frame.sha256.b302a2734645b9f1f096e9fc3713898374d22b1139e088bb915c50b426589915",
+      "outputFrameId": "frame.sha256.0d0d9288df4627c54daf0a6840dfae2975c9628344f002e5a4807786f15afe02",
+      "outputPNG": "frames96/descending-reach.png",
+      "visibleBBoxAlpha128": [
+        8,
+        27,
+        74,
+        72
+      ],
+      "visibleWidthWorldUnits": 76.83582089552239,
+      "visibleHeightWorldUnits": 52.38805970149254,
+      "footLegProxyBBoxAlpha128": [
+        45,
+        58,
+        68,
+        72
+      ],
+      "lowestFootPixelBoundaryOutputY": 72,
+      "toeBoundarySupportAnchorOutputXY": null,
+      "footContactsState": "unplanted",
+      "toeClearanceAtZeroRootHeightOutputPx": 4,
+      "beakTipOutputXY": [
+        73,
+        34.5
+      ],
+      "measurementCaveat": "bounded alpha128 geometry proxies, not anatomical toe tracking; lowest pixel-boundary support aligns plane but individual toes may change silhouette"
+    },
+    {
+      "pose": "supported-settle",
+      "sourceFrameId": "frame.sha256.50af562220259cf5127f0236e82a0bae12b9ec36dad80fae52f9f224f7b9f78c",
+      "outputFrameId": "frame.sha256.0a359b6064e920754fc8c6ac8da22904f9a36fbfb982c7b51d7324342b36123f",
+      "outputPNG": "frames96/supported-settle.png",
+      "visibleBBoxAlpha128": [
+        11,
+        36,
+        76,
+        76
+      ],
+      "visibleWidthWorldUnits": 75.67164179104478,
+      "visibleHeightWorldUnits": 46.56716417910448,
+      "footLegProxyBBoxAlpha128": [
+        38,
+        58,
+        69,
+        76
+      ],
+      "lowestFootPixelBoundaryOutputY": 76,
+      "toeBoundarySupportAnchorOutputXY": [
+        55.5,
+        76.0
+      ],
+      "footContactsState": "planted",
+      "toeClearanceAtZeroRootHeightOutputPx": 0,
+      "beakTipOutputXY": [
+        75,
+        44.5
+      ],
+      "measurementCaveat": "bounded alpha128 geometry proxies, not anatomical toe tracking; lowest pixel-boundary support aligns plane but individual toes may change silhouette"
+    }
+  ],
+  "groundedFootDiagnostics": {
+    "ROI": "alpha128,y72:77,x43:73;bothfeet combined,notanatomicaltracking",
+    "groundedFrames": [
+      {
+        "pose": "neutral",
+        "pixelCount": 28,
+        "centroidOutputXY": [
+          54.25,
+          72.64285714285714
+        ],
+        "bboxOutput": [
+          45,
+          72,
+          66,
+          76
+        ]
+      },
+      {
+        "pose": "crouch",
+        "pixelCount": 43,
+        "centroidOutputXY": [
+          55.883720930232556,
+          72.6046511627907
+        ],
+        "bboxOutput": [
+          45,
+          72,
+          69,
+          76
+        ]
+      },
+      {
+        "pose": "supported-settle",
+        "pixelCount": 48,
+        "centroidOutputXY": [
+          54.979166666666664,
+          73.41666666666667
+        ],
+        "bboxOutput": [
+          45,
+          72,
+          68,
+          76
+        ]
+      }
+    ],
+    "maxPairwiseCentroidChangeOutputPx": 1.634167609149308,
+    "maxPairwiseMaskHausdorffOutputPx": 3.1622776601683795,
+    "maxPairwiseCentroidChangeWorldUnits": 1.9024637837857616,
+    "caveat": "Toes change silhouette despite one fixed support boundary pixel; visual footflicker review is still required. These shape statistics do not establish a rigid foot translation."
+  },
+  "actionCoverage": {
+    "generatedDrawings": 4,
+    "reusedDrawings": 1,
+    "riggedDrawings": 0,
+    "trajectoryTransformsCountAsDrawings": false,
+    "packetBound": true,
+    "appBound": false,
+    "visuallyVerifiedInActualYard": false,
+    "behavior": "Single backward ground hop; not complete double-scratch or feeding."
+  }
+}
