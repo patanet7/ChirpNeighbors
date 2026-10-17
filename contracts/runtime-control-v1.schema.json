@@ -1,0 +1,52 @@
+{
+  "$ref": "#/definitions/RuntimeControlV1",
+  "definitions": {
+    "RuntimeControlV1": {
+      "type": "object",
+      "properties": {
+        "seed": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "paused": {
+          "type": "boolean"
+        },
+        "speed": {
+          "type": "number",
+          "minimum": 0.25,
+          "maximum": 8
+        },
+        "step": {
+          "type": "object",
+          "properties": {
+            "revision": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 9007199254740991
+            },
+            "ticks": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 300
+            }
+          },
+          "required": [
+            "revision",
+            "ticks"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "seed",
+        "paused",
+        "speed"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/runtime-control-v1.schema.json",
+  "description": "Structural developer scenario and shared runtime boundaries. The strict production Zod/domain authorities additionally enforce owner/session binding, exact immutable source pins, cross-record matching, CAS/idempotency, version/seed semantics, selection intent identity and bounded fixed-tick execution. Generated schemas never authorize execution; application semantic validation is mandatory. Scenario storage is isolated and cannot write back to an owner yard."
+}

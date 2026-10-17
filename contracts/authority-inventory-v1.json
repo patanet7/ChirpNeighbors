@@ -6406,6 +6406,1045 @@
       "gaps": [
         "The older workshop selection gate still reads the legacy overview; history navigation repairs archive/restore reachability without broadening that gate."
       ]
+    },
+    {
+      "id": "api/asset-review:POST",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/asset-review/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/asset-package.server.ts",
+          "symbols": [
+            "readReviewAssetMultipart"
+          ]
+        }
+      ],
+      "structural": [
+        "Bounded multipart PNG and strict review manifest; server decodes actual bytes."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Unsafe API hook additionally enforces immutable document session binding. Alice/Bob only; request budget released in finally; review grants no saved admission."
+      ],
+      "codec": [
+        "Multipart manifest/file cardinality, decoder, size, alpha and provenance checks."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/asset-review/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/asset-package.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Private artwork/source authorization and visual acceptance remain separate."
+      ]
+    },
+    {
+      "id": "api/showcase/birds:GET",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/showcase/birds/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-birds.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed bounded species/name POST command and canonical candidate listing; POST returns checked yard plus assets."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Unsafe API hook additionally enforces immutable document session binding. Only opted-in signed showcase; exact approved private source pins, idempotent existing-species reuse; other-owner state unchanged."
+      ],
+      "codec": [
+        "POST uses existing readCommand with 10000-byte cap; GET has no body."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/showcase/birds/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-birds.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Candidate art and held action coverage are not species/production approval."
+      ]
+    },
+    {
+      "id": "api/showcase/birds:POST",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/showcase/birds/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-birds.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Closed bounded species/name POST command and canonical candidate listing; POST returns checked yard plus assets."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Unsafe API hook additionally enforces immutable document session binding. Only opted-in signed showcase; exact approved private source pins, idempotent existing-species reuse; other-owner state unchanged."
+      ],
+      "codec": [
+        "POST uses existing readCommand with 10000-byte cap; GET has no body."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/showcase/birds/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-birds.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Candidate art and held action coverage are not species/production approval."
+      ]
+    },
+    {
+      "id": "api/showcase/object-art:POST",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/showcase/object-art/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/asset-package.server.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/repository.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Existing object ID and bounded multipart asset package; checked yard/assets response."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Unsafe API hook additionally enforces immutable document session binding. Requires opted-in showcase and existing owner object; persists bounded private skin while retaining object geometry."
+      ],
+      "codec": [
+        "Query ID is parsed with shared idSchema; existing actual-PNG decoder and multipart limits."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/showcase/object-art/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/showcase.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "One explicit candidate object skin; not geometry admission or catalog publication."
+      ]
+    },
+    {
+      "id": "api/showcase/objects:GET",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/showcase/objects/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/canonical-yard.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Canonical enum lookup returns validated object package or private PNG preview."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Opted-in showcase, immutable source hash and bounded safe file reads; read request budget."
+      ],
+      "codec": [
+        "id/preview query selects canonical package or decoded PNG; private no-store."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/showcase/objects/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/canonical-yard.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/canonical-yard.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Authored geometry remains provisional; no production rights approval."
+      ]
+    },
+    {
+      "id": "api/showcase/regional:GET",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/showcase/regional/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/regional-yard.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Fixed regional identity resolves a bounded package; no arbitrary path input."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Opted-in showcase, verified private immutable source bytes and export budget."
+      ],
+      "codec": [
+        "Private no-store JSON package with actual verified source lineage."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/showcase/regional/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/regional-yard.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Static scenery does not grant physical support, collision or occlusion."
+      ]
+    },
+    {
+      "id": "api/showcase/starter-updates:POST",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/showcase/starter-updates/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/domain/starter-update.ts",
+          "symbols": [
+            "starterUpdateCommandSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/starter-updates.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/repository.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Strict UUID/revision/art policy or revert/refresh command; matching response receipt."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Unsafe API hook additionally enforces immutable document session binding. Exact retry reconciles prior digest before dependency revalidation; new batch stages exact source/pins then commits atomically under expected revisions."
+      ],
+      "codec": [
+        "Existing readCommand 10000-byte cap, no-store JSON."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/showcase/starter-updates/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/starter-updates.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/storage/starter-updates.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Follow-compatible is scoped candidate policy, not automatic species/source acceptance."
+      ]
+    },
+    {
+      "id": "api/texture-candidates:POST",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/texture-candidates/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/texture-candidates.ts",
+          "symbols": [
+            "textureCandidateRequestSchema"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed tiny candidate-ID request; fixed private retained package JSON."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Unsafe API hook additionally enforces immutable document session binding. Alice/Bob only; fixed-source bounded read, cancellation checked before and after; no saved yard write."
+      ],
+      "codec": [
+        "256-byte JSON input through readCommand, no-store/nosniff output."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/texture-candidates/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/texture-candidates.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Supplied candidate bytes are review material, not art admission."
+      ]
+    },
+    {
+      "id": "api/texture-review:POST",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/texture-review/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/texture-profile.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/texture-profile.server.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Either exact syntheticEdge 128/256 or exactly one PNG and manifest; decoded texture package."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Unsafe API hook additionally enforces immutable document session binding. Alice/Bob only plus same-origin, upload budget and abort check; review response does not save/admit art."
+      ],
+      "codec": [
+        "100-byte JSON synthetic input or bounded multipart/PNG/manifest decode."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/texture-review/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/texture-profile.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Texture raster coverage does not create physical masks or species fidelity."
+      ]
+    },
+    {
+      "id": "art-lab:load",
+      "category": "ssr",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/art-lab/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/runtime.ts",
+          "symbols": [
+            "artLabPageDataSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/resolve.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Checked identity/snapshot/assets projection; candidate views additionally list fixed private examples."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Alice/Bob only with redirect for anonymous; private no-store; garden-demo reuses exact candidate-yard loader."
+      ],
+      "codec": [
+        "Server-side object projection; no source upload or saved write."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/art-lab/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/runtime.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "These are development lab views, not normal saved-yard acceptance."
+      ]
+    },
+    {
+      "id": "asset-review:load",
+      "category": "ssr",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/asset-review/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/runtime.ts",
+          "symbols": [
+            "artLabPageDataSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/resolve.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Checked identity/snapshot/assets projection; candidate views additionally list fixed private examples."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Alice/Bob only with redirect for anonymous; private no-store; garden-demo reuses exact candidate-yard loader."
+      ],
+      "codec": [
+        "Server-side object projection; no source upload or saved write."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/asset-review/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/runtime.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "These are development lab views, not normal saved-yard acceptance."
+      ]
+    },
+    {
+      "id": "candidate-yard:load",
+      "category": "ssr",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/candidate-yard/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/runtime.ts",
+          "symbols": [
+            "artLabPageDataSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/resolve.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/texture-candidates.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Checked identity/snapshot/assets projection; candidate views additionally list fixed private examples."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Alice/Bob only with redirect for anonymous; private no-store; garden-demo reuses exact candidate-yard loader."
+      ],
+      "codec": [
+        "Server-side object projection; no source upload or saved write."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/candidate-yard/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/runtime.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "These are development lab views, not normal saved-yard acceptance."
+      ]
+    },
+    {
+      "id": "garden-demo:load",
+      "category": "ssr",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/garden-demo/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/runtime.ts",
+          "symbols": [
+            "artLabPageDataSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/assets/resolve.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/texture-candidates.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Checked identity/snapshot/assets projection; candidate views additionally list fixed private examples."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Alice/Bob only with redirect for anonymous; private no-store; garden-demo reuses exact candidate-yard loader."
+      ],
+      "codec": [
+        "Server-side object projection; no source upload or saved write."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/garden-demo/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/runtime.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/saved-showcase-policy.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "These are development lab views, not normal saved-yard acceptance."
+      ]
+    },
+    {
+      "id": "gallery:load",
+      "category": "ssr",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/gallery/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/gallery/catalog.ts",
+          "symbols": [
+            "galleryPageDataSchema",
+            "galleryResidents"
+          ]
+        }
+      ],
+      "structural": [
+        "Closed gallery resident projection from checked owner snapshot."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Alice/Bob only, anonymous redirect and private no-store; read-only projection."
+      ],
+      "codec": [
+        "SSR private object projection."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/gallery/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/gallery/catalog.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Technical gallery is not art approval or normal saved-yard interaction."
+      ]
+    },
+    {
+      "id": "raven-study:load",
+      "category": "ssr",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/raven-study/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/raven-study.ts",
+          "symbols": [
+            "requireRavenStudy",
+            "readVerifiedRavenAtlas"
+          ]
+        }
+      ],
+      "structural": [
+        "Fixed study metadata and exact verified retained atlas bytes only."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Study identity gate, immutable hash and separate study root/strict legacy reader; verification failure hides atlas rather than substitute."
+      ],
+      "codec": [
+        "Private no-store/noindex; PNG route adds same-origin, nosniff and sandbox headers."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/raven-study/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/raven-study.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Optional privately retained study may be unavailable; no source substitution or runtime species claim."
+      ]
+    },
+    {
+      "id": "raven-study/atlas.png:GET",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/raven-study/atlas.png/+server.ts",
+        "symbols": []
+      },
+      "operation": "GET",
+      "transport": "binary",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/raven-study.ts",
+          "symbols": [
+            "requireRavenStudy",
+            "readVerifiedRavenAtlas"
+          ]
+        }
+      ],
+      "structural": [
+        "Fixed study metadata and exact verified retained atlas bytes only."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Study identity gate, immutable hash and separate study root/strict legacy reader; verification failure hides atlas rather than substitute."
+      ],
+      "codec": [
+        "Private no-store/noindex; PNG route adds same-origin, nosniff and sandbox headers."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/raven-study/atlas.png/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/raven-study.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Optional privately retained study may be unavailable; no source substitution or runtime species claim."
+      ]
+    },
+    {
+      "id": "texture-review:load",
+      "category": "ssr",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/texture-review/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/routes/texture-review/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Static reviewOnly true after explicit admission."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Alice/Bob only; anonymous redirects; private no-store."
+      ],
+      "codec": [
+        "SSR minimal flag without yard source bytes."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/texture-review/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/workbench/texture-review-session.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Review shell grants no saved-yard admission."
+      ]
+    },
+    {
+      "id": "api/dev-workbench:POST",
+      "category": "http",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/api/dev-workbench/+server.ts",
+        "symbols": []
+      },
+      "operation": "POST",
+      "transport": "json",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/lib/dev-workbench/contracts.ts",
+          "symbols": [
+            "devWorkbenchRequestSchema"
+          ]
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/dev-workbench/http.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/dev-workbench/scenarios.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/yard-command.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Strict versioned scenario/request/subset-command authority, bounded checked owner-private response."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Unsafe API hook additionally enforces immutable document session binding. Reject production before store construction; isolated TTL/session-bound scenario store; same shared executor/CAS/UUID receipts, no real-yard writeback."
+      ],
+      "codec": [
+        "Bounded same-origin JSON plus strict request schema; exact idempotency and revision at store."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/api/dev-workbench/+server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/dev-workbench/http.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/dev-workbench/scenarios.test.ts",
+          "symbols": []
+        },
+        {
+          "repo": "ui",
+          "path": "src/lib/server/dev-workbench/yard-command-cas.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "Structural scenario/playback schemas do not prove full deterministic engine replay."
+      ]
+    },
+    {
+      "id": "dev-workbench:load",
+      "category": "ssr",
+      "owner": "contracts",
+      "version": "private development boundary v1; synchronized 2026-10-17",
+      "source": {
+        "repo": "ui",
+        "path": "src/routes/dev-workbench/+page.server.ts",
+        "symbols": []
+      },
+      "operation": "load",
+      "transport": "ssr",
+      "authorities": [
+        {
+          "repo": "ui",
+          "path": "src/routes/dev-workbench/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "structural": [
+        "Authenticated development identity only; no scenario created by loader."
+      ],
+      "semantic": [
+        "Authenticated development mode plus explicit CHIRP_DEV_AUTH opt-in; owner comes from session, not caller data. Development identity required; production/unconfigured routes fail404."
+      ],
+      "codec": [
+        "SSR identity projection."
+      ],
+      "consumers": [
+        {
+          "repo": "ui",
+          "path": "src/routes/dev-workbench/+page.server.ts",
+          "symbols": []
+        }
+      ],
+      "evidence": [
+        {
+          "repo": "ui",
+          "path": "src/lib/server/dev-workbench/http.test.ts",
+          "symbols": []
+        }
+      ],
+      "gaps": [
+        "No live provider/production model or native desktop control authorized."
+      ]
     }
   ]
 }

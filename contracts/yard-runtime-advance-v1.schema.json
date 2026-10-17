@@ -1,0 +1,200 @@
+{
+  "$ref": "#/definitions/YardRuntimeAdvanceV1",
+  "definitions": {
+    "YardRuntimeAdvanceV1": {
+      "type": "object",
+      "properties": {
+        "paused": {
+          "type": "boolean"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "reducedMotion": {
+          "type": "boolean"
+        },
+        "physical": {
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "precipitationMmPerHour": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 500
+            },
+            "snowFraction": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "temperatureC": {
+              "type": "number",
+              "minimum": -30,
+              "maximum": 40
+            },
+            "speed": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 60
+            },
+            "replayRevision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "showBounds": {
+              "type": "boolean"
+            },
+            "initialBathLitres": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 6
+            },
+            "resumeRevision": {
+              "$ref": "#/definitions/YardRuntimeAdvanceV1/properties/physical/properties/replayRevision"
+            },
+            "pumpLitresPerMinute": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 12
+            },
+            "drainLitresPerMinute": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 12
+            },
+            "initialReservoirLitres": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 12
+            }
+          },
+          "required": [
+            "enabled",
+            "precipitationMmPerHour",
+            "snowFraction",
+            "temperatureC",
+            "speed",
+            "replayRevision",
+            "showBounds",
+            "initialBathLitres"
+          ],
+          "additionalProperties": false
+        },
+        "delta": {
+          "type": "number",
+          "minimum": 0
+        },
+        "interactionRequest": {
+          "type": "object",
+          "properties": {
+            "revision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "action": {
+              "type": "string",
+              "enum": [
+                "drinking",
+                "bathing",
+                "cancel"
+              ]
+            },
+            "origin": {
+              "type": "object",
+              "properties": {
+                "actorId": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160,
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                      "not": {
+                        "enum": [
+                          "__proto__",
+                          "prototype",
+                          "constructor"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "targetObjectId": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/YardRuntimeAdvanceV1/properties/interactionRequest/properties/origin/properties/actorId/anyOf/0"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "runtimeId": {
+                  "$ref": "#/definitions/YardRuntimeAdvanceV1/properties/interactionRequest/properties/origin/properties/actorId/anyOf/0"
+                },
+                "selectionRevision": {
+                  "$ref": "#/definitions/YardRuntimeAdvanceV1/properties/interactionRequest/properties/revision"
+                }
+              },
+              "required": [
+                "actorId",
+                "targetObjectId",
+                "runtimeId",
+                "selectionRevision"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "revision",
+            "action",
+            "origin"
+          ],
+          "additionalProperties": false
+        },
+        "timeRequest": {
+          "type": "object",
+          "properties": {
+            "revision": {
+              "$ref": "#/definitions/YardRuntimeAdvanceV1/properties/interactionRequest/properties/revision"
+            },
+            "seconds": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 60
+            },
+            "origin": {
+              "$ref": "#/definitions/YardRuntimeAdvanceV1/properties/interactionRequest/properties/origin"
+            }
+          },
+          "required": [
+            "revision",
+            "seconds",
+            "origin"
+          ],
+          "additionalProperties": false
+        },
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        }
+      },
+      "required": [
+        "physical",
+        "delta",
+        "schemaVersion"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/yard-runtime-advance-v1.schema.json",
+  "description": "Structural developer scenario and shared runtime boundaries. The strict production Zod/domain authorities additionally enforce owner/session binding, exact immutable source pins, cross-record matching, CAS/idempotency, version/seed semantics, selection intent identity and bounded fixed-tick execution. Generated schemas never authorize execution; application semantic validation is mandatory. Scenario storage is isolated and cannot write back to an owner yard."
+}

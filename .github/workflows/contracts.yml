@@ -20,6 +20,7 @@ jobs:
       - run: python -m pip check
       - run: python ../scripts/check_python_dependencies.py
       - run: python ../scripts/generate_python_contracts.py --check
+      - run: python ../scripts/check_runtime_sync_corpus.py ../contracts/fixtures/runtime-contract-sync-v1.json
       - run: python -m app.audio_pipeline.export_contracts --check
       - run: python -m app.audio_pipeline.export_openapi --check
       - run: python -m app.models.session_verifier --check

@@ -221,6 +221,11 @@ def gates(
             ],
         ),
         Gate(
+            "runtime-canonical-golden-sync",
+            ROOT,
+            ["node", "scripts/check_runtime_contract_sync.mjs", str(ui), python],
+        ),
+        Gate(
             "python-client-generation",
             ROOT,
             [python, "scripts/generate_python_contracts.py", "--check"],

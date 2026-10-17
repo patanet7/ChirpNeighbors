@@ -71,7 +71,24 @@
                       "perch",
                       "feeder",
                       "bath",
-                      "nest"
+                      "nest",
+                      "plant"
+                    ]
+                  },
+                  "catalogId": {
+                    "type": "string",
+                    "enum": [
+                      "california_bush_sunflower",
+                      "san_diego_monkeyflower",
+                      "blue_eyed_grass",
+                      "crassula_ovata",
+                      "hollyleaf_cherry",
+                      "torrey_pine",
+                      "cedar_feeder",
+                      "platform_feeder",
+                      "bench",
+                      "pedestal_birdbath",
+                      "cedar_fence"
                     ]
                   },
                   "x": {
@@ -113,11 +130,48 @@
                 },
                 "kind": {
                   "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected/properties/objects/items/properties/kind"
+                },
+                "catalogId": {
+                  "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected/properties/objects/items/properties/catalogId"
                 }
               },
               "required": [
                 "operation",
                 "kind"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "const": "restyle"
+                },
+                "objectId": {
+                  "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected/properties/scenePin/anyOf/0/properties/id"
+                },
+                "catalogId": {
+                  "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected/properties/objects/items/properties/catalogId"
+                }
+              },
+              "required": [
+                "operation",
+                "objectId",
+                "catalogId"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "const": "regional-defaults"
+                }
+              },
+              "required": [
+                "operation"
               ],
               "additionalProperties": false
             },
