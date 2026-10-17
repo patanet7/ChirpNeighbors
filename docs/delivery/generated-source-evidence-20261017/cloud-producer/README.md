@@ -1,7 +1,7 @@
 # Cloud-produced source artwork — exact-byte preservation
 
 This directory retains actual project source bytes for the canonical repository.
-It contains 13 native generated originals and their exact prompts, 64 immutable
+It contains 14 native generated originals and their exact prompts, 67 immutable
 drawing records, separate PNG frames, ten APNG/GIF review clips plus one control comparison, atlases, contact sheets,
 current candidate manifests, review findings and technical processing sources.
 These are source evidence: **zero local batches are admitted, integrated into the
@@ -157,3 +157,7 @@ FirstbatchSD20-reuse-01 is the existingmale96pxblink handoff fromPR17 (mergedae9
 ## Corvid starter reuse batch
 
 `reuse/sd20-corvid-reuse-v1` retains exactsourcebytes/prompts/IDs, a fourdrawingravenblink/lookidle at216canvas, an honestheldcrowstridepause at192canvas, and a separatecrowmovementdraft. Browserplaybacksampled3ravenstates; no actualyard/worldcontactproof. Existingdrawingreuse adds0drawings. Crowgait/interactionbindingsremainpending; sourceZIPisportable.
+
+## Three new San Diego starter canons
+
+`new-species/sd20-three-canon-v1` addsoneactualnativecall/threeoriginaldrawings: AnnaHummingbird, BlackPhoebe andCaliforniaTowhee. Exact2060×763original/prompt, registered1024sources and96RGBAexports, intake/sourceIDs, primaryspeciesreferences, positivealphacontacts andexplicitpresentationdensitiesretained. Visibleworldlengths34/54/78px, notbiologicalapproval. Staticidleonly; movement/interactionplanned, unbound, unverified. Sourcegeneratorignoredrequestedrelativesize; metadataexpressesdifferentdensitiesratherthanclaimingbiologicalsheetgeometry. Phoebewarmcast/palewingedges,Towheefeathercontrast/toes documented. Globalimmutablebanknow67drawings,14original/promptpairs; prior64IDsunchanged, verifiedproductionreuse0. No generationrunning; queuednextmotion/interactionbatchfollowsactualMacintake.
