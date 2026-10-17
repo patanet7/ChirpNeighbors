@@ -1,0 +1,5 @@
+Four actual reference-guided San Diego courtyard season foundations. All1536x1024 opaque and flattened. Original architecture/paving layout retained provisionally, local geometric patch registration within1 source pixel; not pixel identity.
+Spring cool fresh /summer clear dry /autumn restrained warmer light without leaf litter /winter cool diffuse and subtly damp seams without snow. Foreground stays empty for independently editable shared plant/object sprites.
+Preserved prior two-layer sources unchanged; these new seasonal images do NOT inherit semantic separation. Static art only, no animation/weather simulation/physics/app integration/owner acceptance.
+Review crop[0,160,1536,1024], NEAREST960x540 and384x216. The bird/bath review overlays use existing source bytes and identical prior A/B/C transforms, not baked art.
+Each seasonal source ZIP contains its original, applicable exact prompt, own-generated source input, filtered intake, tool receipt, geometry evidence and normal/mobile preview. All four together cover requested spring/summer/autumn/winter.

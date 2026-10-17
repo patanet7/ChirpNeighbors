@@ -1,0 +1,654 @@
+{
+  "schema": "background-seasonal-intake-v1",
+  "track": "BACKGROUNDS",
+  "batch": "coastal-seasons-01",
+  "scope": "one existing coastal yard, four actual opaque flattened seasonal art choices",
+  "source_asset_id": "scene.san_diego_coastal_urban",
+  "actual_generation_calls": 4,
+  "maximum_authorized_calls": 4,
+  "all_source_dimensions": [
+    1536,
+    1024
+  ],
+  "source_reference": {
+    "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/coastal-foundation-no-local-foreground.png",
+    "local_copy": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/coastal-foundation-no-local-foreground.png",
+    "sha256": "fa59961eb54d3eb9898757f9795a73eec415c4a3b7fa9bcf37ae413078849e51",
+    "dimensions": [
+      1536,
+      1024
+    ],
+    "rights": "Project-owned production foundation supplied for edit; no external screenshot conditioning. Existing project provenance retained by parent canonical intake.",
+    "directly_inspected": true
+  },
+  "assets": [
+    {
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "wave04_coastal_garden_v1.season_spring_v1",
+      "content_version": "r1",
+      "season": "spring",
+      "source_file": "assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/expansion/backgrounds/seasons-01/coastal/originals/spring-r1.png",
+      "sha256": "c777cbc06a9cb28865953116b8ce1c69db0bd94d99094f7b52555a4020f9b292",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "minimum": 255,
+        "maximum": 255,
+        "fully_opaque": true,
+        "source_contains_alpha_channel": false
+      },
+      "prompt_file": "assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/expansion/backgrounds/seasons-01/coastal/prompts/spring.txt",
+      "prompt_sha256": "2c822de06f438869bfe9347aa24105fd63b2f410326ad731adc413393852cb89",
+      "input_reference_file": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/coastal-foundation-no-local-foreground.png",
+      "input_reference_sha256": "fa59961eb54d3eb9898757f9795a73eec415c4a3b7fa9bcf37ae413078849e51",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "call_count": 1,
+        "transparent_background": false,
+        "project_reference_directly_inspected": true,
+        "external_image_conditioning": false,
+        "operation": "whole-foundation seasonal image edit",
+        "generation_job_id": "exec-835a6428-727d-43f2-8703-d5f0190ced29"
+      },
+      "geometry": {
+        "anchor_px": [
+          768,
+          1024
+        ],
+        "ground_contact_footprint_px": [
+          [
+            0,
+            548
+          ],
+          [
+            1536,
+            548
+          ],
+          [
+            1536,
+            1024
+          ],
+          [
+            0,
+            1024
+          ]
+        ],
+        "quiet_placement_zone_px": [
+          [
+            280,
+            590
+          ],
+          [
+            1250,
+            590
+          ],
+          [
+            1250,
+            950
+          ],
+          [
+            280,
+            950
+          ]
+        ],
+        "geometry_role": "advisory source-coordinate zones; full ground is static background, not collidable mesh",
+        "pixels_per_meter": null,
+        "intended_scale": "source1536x1024; declared 16:9 review crop only; actual Mac fit and runtime bird scale unverified",
+        "landmarks_edge_proxy_px": {
+          "wall_coping_dark_edge_y": 426,
+          "wall_soil_boundary_y": 523,
+          "soil_lawn_boundary_y": 546,
+          "right_pier_left_x": 1286,
+          "gate_left_x": 1334,
+          "gate_right_x": 1487
+        },
+        "delta_from_reference_px": {
+          "wall_coping_dark_edge_y": -1,
+          "wall_soil_boundary_y": 0,
+          "soil_lawn_boundary_y": -1,
+          "right_pier_left_x": -1,
+          "gate_left_x": -1,
+          "gate_right_x": -1
+        },
+        "largest_abs_sampled_delta_px": 1,
+        "pixel_locked": false
+      },
+      "layers": {
+        "actual_generated_source_layers": 1,
+        "flattened": true,
+        "separable_semantic_layers": false,
+        "baked_contents": [
+          "sky",
+          "distant coastal skyline and canopy",
+          "wall and gate",
+          "soil and stone boundary",
+          "lawn"
+        ],
+        "near_foreground_vegetation_or_props_added": false,
+        "project_original_separated_plates_retained_elsewhere": true
+      },
+      "states": {
+        "actual_generated_states": [
+          "spring"
+        ],
+        "dry_healthy_seasonal_scope": "whole-background seasonal color and illumination only; independent plants retain their own healthy/dry/seasonal states",
+        "ecology": "Regional conditional appearance, not a guaranteed month or ecological simulation.",
+        "runtime_weather_light_overlay": "separate requirement; not implemented"
+      },
+      "wind": {
+        "background_is_static": true,
+        "rigid_root_and_ground_motion_px": 0,
+        "actual_rig": false,
+        "per_plant_editability": false,
+        "distant_baked_canopy_wind": false,
+        "shared_placeable_plant_sprites": "independently placeable from existing packs; not embedded or delivered as new plants here",
+        "physics_or_animation_implemented": false
+      },
+      "review": {
+        "status": "worker_reviewed_provisional_candidate",
+        "parent_review": "pending",
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "rejection_reason": null,
+        "known_defects": [
+          "Subtle image-edit resynthesis changes fine texture and some edges; geometry is not pixel locked.",
+          "Dense foreground grass texture inherited from source; source is not a strict uniform pixel grid.",
+          "No runtime placement, exact bird/contact scale or seasonal transition validation."
+        ],
+        "proxy_stage_median_linear_luminance": 0.37143133931723354,
+        "proxy_metric_caveat": "Luminance over fixed broad lawn box only; not bird contrast or gameplay readability acceptance."
+      },
+      "source_and_rights": {
+        "original_art": "Generated project candidate",
+        "reference": "Project-owned clean coastal foundation. No external source screenshots included or used.",
+        "license": "Project-generated art; no third-party license asserted. Canonical rights review remains with owner."
+      },
+      "canonical_intake": {
+        "status": "pending_parent_review_and_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      }
+    },
+    {
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "wave04_coastal_garden_v1.season_summer_v1",
+      "content_version": "r1",
+      "season": "summer",
+      "source_file": "assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/expansion/backgrounds/seasons-01/coastal/originals/summer-r1.png",
+      "sha256": "aae94e6c83e5d0d9396f79fe4c3f9144b9769747e15ac2485dbe09bc461d133c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "minimum": 255,
+        "maximum": 255,
+        "fully_opaque": true,
+        "source_contains_alpha_channel": false
+      },
+      "prompt_file": "assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/expansion/backgrounds/seasons-01/coastal/prompts/summer.txt",
+      "prompt_sha256": "9fd5700575e8f2012a8fea35814baac07113a3aa0a792fa4818ca27656cbbb8a",
+      "input_reference_file": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/coastal-foundation-no-local-foreground.png",
+      "input_reference_sha256": "fa59961eb54d3eb9898757f9795a73eec415c4a3b7fa9bcf37ae413078849e51",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "call_count": 1,
+        "transparent_background": false,
+        "project_reference_directly_inspected": true,
+        "external_image_conditioning": false,
+        "operation": "whole-foundation seasonal image edit",
+        "generation_job_id": "exec-61dc4354-5402-4d4b-ba3c-31af141a1e76"
+      },
+      "geometry": {
+        "anchor_px": [
+          768,
+          1024
+        ],
+        "ground_contact_footprint_px": [
+          [
+            0,
+            548
+          ],
+          [
+            1536,
+            548
+          ],
+          [
+            1536,
+            1024
+          ],
+          [
+            0,
+            1024
+          ]
+        ],
+        "quiet_placement_zone_px": [
+          [
+            280,
+            590
+          ],
+          [
+            1250,
+            590
+          ],
+          [
+            1250,
+            950
+          ],
+          [
+            280,
+            950
+          ]
+        ],
+        "geometry_role": "advisory source-coordinate zones; full ground is static background, not collidable mesh",
+        "pixels_per_meter": null,
+        "intended_scale": "source1536x1024; declared 16:9 review crop only; actual Mac fit and runtime bird scale unverified",
+        "landmarks_edge_proxy_px": {
+          "wall_coping_dark_edge_y": 426,
+          "wall_soil_boundary_y": 523,
+          "soil_lawn_boundary_y": 546,
+          "right_pier_left_x": 1286,
+          "gate_left_x": 1332,
+          "gate_right_x": 1487
+        },
+        "delta_from_reference_px": {
+          "wall_coping_dark_edge_y": -1,
+          "wall_soil_boundary_y": 0,
+          "soil_lawn_boundary_y": -1,
+          "right_pier_left_x": -1,
+          "gate_left_x": -3,
+          "gate_right_x": -1
+        },
+        "largest_abs_sampled_delta_px": 3,
+        "pixel_locked": false
+      },
+      "layers": {
+        "actual_generated_source_layers": 1,
+        "flattened": true,
+        "separable_semantic_layers": false,
+        "baked_contents": [
+          "sky",
+          "distant coastal skyline and canopy",
+          "wall and gate",
+          "soil and stone boundary",
+          "lawn"
+        ],
+        "near_foreground_vegetation_or_props_added": false,
+        "project_original_separated_plates_retained_elsewhere": true
+      },
+      "states": {
+        "actual_generated_states": [
+          "summer"
+        ],
+        "dry_healthy_seasonal_scope": "whole-background seasonal color and illumination only; independent plants retain their own healthy/dry/seasonal states",
+        "ecology": "Regional conditional appearance, not a guaranteed month or ecological simulation.",
+        "runtime_weather_light_overlay": "separate requirement; not implemented"
+      },
+      "wind": {
+        "background_is_static": true,
+        "rigid_root_and_ground_motion_px": 0,
+        "actual_rig": false,
+        "per_plant_editability": false,
+        "distant_baked_canopy_wind": false,
+        "shared_placeable_plant_sprites": "independently placeable from existing packs; not embedded or delivered as new plants here",
+        "physics_or_animation_implemented": false
+      },
+      "review": {
+        "status": "worker_reviewed_provisional_candidate",
+        "parent_review": "pending",
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "rejection_reason": null,
+        "known_defects": [
+          "Subtle image-edit resynthesis changes fine texture and some edges; geometry is not pixel locked.",
+          "Dense foreground grass texture inherited from source; source is not a strict uniform pixel grid.",
+          "No runtime placement, exact bird/contact scale or seasonal transition validation."
+        ],
+        "proxy_stage_median_linear_luminance": 0.4221024689737675,
+        "proxy_metric_caveat": "Luminance over fixed broad lawn box only; not bird contrast or gameplay readability acceptance."
+      },
+      "source_and_rights": {
+        "original_art": "Generated project candidate",
+        "reference": "Project-owned clean coastal foundation. No external source screenshots included or used.",
+        "license": "Project-generated art; no third-party license asserted. Canonical rights review remains with owner."
+      },
+      "canonical_intake": {
+        "status": "pending_parent_review_and_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      }
+    },
+    {
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "wave04_coastal_garden_v1.season_autumn_v1",
+      "content_version": "r1",
+      "season": "autumn",
+      "source_file": "assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/expansion/backgrounds/seasons-01/coastal/originals/autumn-r1.png",
+      "sha256": "885fc45c96046d6b950e9e5dcc028ab0e4bf1d6d4aa77d603fd3ab3b7df83847",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "minimum": 255,
+        "maximum": 255,
+        "fully_opaque": true,
+        "source_contains_alpha_channel": false
+      },
+      "prompt_file": "assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/expansion/backgrounds/seasons-01/coastal/prompts/autumn.txt",
+      "prompt_sha256": "08bf21f8e1718b02e3431c2526f310787f21ca786b6f95674b4c937622ebd637",
+      "input_reference_file": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/coastal-foundation-no-local-foreground.png",
+      "input_reference_sha256": "fa59961eb54d3eb9898757f9795a73eec415c4a3b7fa9bcf37ae413078849e51",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "call_count": 1,
+        "transparent_background": false,
+        "project_reference_directly_inspected": true,
+        "external_image_conditioning": false,
+        "operation": "whole-foundation seasonal image edit",
+        "generation_job_id": "exec-d4b5eb81-8ee4-4449-8b1c-c9e199430972"
+      },
+      "geometry": {
+        "anchor_px": [
+          768,
+          1024
+        ],
+        "ground_contact_footprint_px": [
+          [
+            0,
+            548
+          ],
+          [
+            1536,
+            548
+          ],
+          [
+            1536,
+            1024
+          ],
+          [
+            0,
+            1024
+          ]
+        ],
+        "quiet_placement_zone_px": [
+          [
+            280,
+            590
+          ],
+          [
+            1250,
+            590
+          ],
+          [
+            1250,
+            950
+          ],
+          [
+            280,
+            950
+          ]
+        ],
+        "geometry_role": "advisory source-coordinate zones; full ground is static background, not collidable mesh",
+        "pixels_per_meter": null,
+        "intended_scale": "source1536x1024; declared 16:9 review crop only; actual Mac fit and runtime bird scale unverified",
+        "landmarks_edge_proxy_px": {
+          "wall_coping_dark_edge_y": 426,
+          "wall_soil_boundary_y": 523,
+          "soil_lawn_boundary_y": 545,
+          "right_pier_left_x": 1286,
+          "gate_left_x": 1335,
+          "gate_right_x": 1487
+        },
+        "delta_from_reference_px": {
+          "wall_coping_dark_edge_y": -1,
+          "wall_soil_boundary_y": 0,
+          "soil_lawn_boundary_y": -2,
+          "right_pier_left_x": -1,
+          "gate_left_x": 0,
+          "gate_right_x": -1
+        },
+        "largest_abs_sampled_delta_px": 2,
+        "pixel_locked": false
+      },
+      "layers": {
+        "actual_generated_source_layers": 1,
+        "flattened": true,
+        "separable_semantic_layers": false,
+        "baked_contents": [
+          "sky",
+          "distant coastal skyline and canopy",
+          "wall and gate",
+          "soil and stone boundary",
+          "lawn"
+        ],
+        "near_foreground_vegetation_or_props_added": false,
+        "project_original_separated_plates_retained_elsewhere": true
+      },
+      "states": {
+        "actual_generated_states": [
+          "autumn"
+        ],
+        "dry_healthy_seasonal_scope": "whole-background seasonal color and illumination only; independent plants retain their own healthy/dry/seasonal states",
+        "ecology": "Regional conditional appearance, not a guaranteed month or ecological simulation.",
+        "runtime_weather_light_overlay": "separate requirement; not implemented"
+      },
+      "wind": {
+        "background_is_static": true,
+        "rigid_root_and_ground_motion_px": 0,
+        "actual_rig": false,
+        "per_plant_editability": false,
+        "distant_baked_canopy_wind": false,
+        "shared_placeable_plant_sprites": "independently placeable from existing packs; not embedded or delivered as new plants here",
+        "physics_or_animation_implemented": false
+      },
+      "review": {
+        "status": "worker_reviewed_provisional_candidate",
+        "parent_review": "pending",
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "rejection_reason": null,
+        "known_defects": [
+          "Subtle image-edit resynthesis changes fine texture and some edges; geometry is not pixel locked.",
+          "Dense foreground grass texture inherited from source; source is not a strict uniform pixel grid.",
+          "No runtime placement, exact bird/contact scale or seasonal transition validation."
+        ],
+        "proxy_stage_median_linear_luminance": 0.3758252567371899,
+        "proxy_metric_caveat": "Luminance over fixed broad lawn box only; not bird contrast or gameplay readability acceptance."
+      },
+      "source_and_rights": {
+        "original_art": "Generated project candidate",
+        "reference": "Project-owned clean coastal foundation. No external source screenshots included or used.",
+        "license": "Project-generated art; no third-party license asserted. Canonical rights review remains with owner."
+      },
+      "canonical_intake": {
+        "status": "pending_parent_review_and_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      }
+    },
+    {
+      "asset_id": "scene.san_diego_coastal_urban",
+      "family_id": "scene.san_diego_coastal_urban",
+      "variant_id": "wave04_coastal_garden_v1.season_winter_v1",
+      "content_version": "r1",
+      "season": "winter",
+      "source_file": "assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/expansion/backgrounds/seasons-01/coastal/originals/winter-r1.png",
+      "sha256": "7a2f9252394c915dab3efdc7e9c2ba774609f52a68eba10937bc1bcd0c664e52",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha": {
+        "minimum": 255,
+        "maximum": 255,
+        "fully_opaque": true,
+        "source_contains_alpha_channel": false
+      },
+      "prompt_file": "assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/expansion/backgrounds/seasons-01/coastal/prompts/winter.txt",
+      "prompt_sha256": "66acd8d164416dee12530e1e2e5b523475e4925cb79e98c845561eac7ae81053",
+      "input_reference_file": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/starter-pack/audit-objects/coastal-foundation-no-local-foreground.png",
+      "input_reference_sha256": "fa59961eb54d3eb9898757f9795a73eec415c4a3b7fa9bcf37ae413078849e51",
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "call_count": 1,
+        "transparent_background": false,
+        "project_reference_directly_inspected": true,
+        "external_image_conditioning": false,
+        "operation": "whole-foundation seasonal image edit",
+        "generation_job_id": "exec-2e98972f-69f8-42d7-8110-f85c3a9c24d4"
+      },
+      "geometry": {
+        "anchor_px": [
+          768,
+          1024
+        ],
+        "ground_contact_footprint_px": [
+          [
+            0,
+            548
+          ],
+          [
+            1536,
+            548
+          ],
+          [
+            1536,
+            1024
+          ],
+          [
+            0,
+            1024
+          ]
+        ],
+        "quiet_placement_zone_px": [
+          [
+            280,
+            590
+          ],
+          [
+            1250,
+            590
+          ],
+          [
+            1250,
+            950
+          ],
+          [
+            280,
+            950
+          ]
+        ],
+        "geometry_role": "advisory source-coordinate zones; full ground is static background, not collidable mesh",
+        "pixels_per_meter": null,
+        "intended_scale": "source1536x1024; declared 16:9 review crop only; actual Mac fit and runtime bird scale unverified",
+        "landmarks_edge_proxy_px": {
+          "wall_coping_dark_edge_y": 426,
+          "wall_soil_boundary_y": 523,
+          "soil_lawn_boundary_y": 545,
+          "right_pier_left_x": 1286,
+          "gate_left_x": 1334,
+          "gate_right_x": 1487
+        },
+        "delta_from_reference_px": {
+          "wall_coping_dark_edge_y": -1,
+          "wall_soil_boundary_y": 0,
+          "soil_lawn_boundary_y": -2,
+          "right_pier_left_x": -1,
+          "gate_left_x": -1,
+          "gate_right_x": -1
+        },
+        "largest_abs_sampled_delta_px": 2,
+        "pixel_locked": false
+      },
+      "layers": {
+        "actual_generated_source_layers": 1,
+        "flattened": true,
+        "separable_semantic_layers": false,
+        "baked_contents": [
+          "sky",
+          "distant coastal skyline and canopy",
+          "wall and gate",
+          "soil and stone boundary",
+          "lawn"
+        ],
+        "near_foreground_vegetation_or_props_added": false,
+        "project_original_separated_plates_retained_elsewhere": true
+      },
+      "states": {
+        "actual_generated_states": [
+          "winter"
+        ],
+        "dry_healthy_seasonal_scope": "whole-background seasonal color and illumination only; independent plants retain their own healthy/dry/seasonal states",
+        "ecology": "Regional conditional appearance, not a guaranteed month or ecological simulation.",
+        "runtime_weather_light_overlay": "separate requirement; not implemented"
+      },
+      "wind": {
+        "background_is_static": true,
+        "rigid_root_and_ground_motion_px": 0,
+        "actual_rig": false,
+        "per_plant_editability": false,
+        "distant_baked_canopy_wind": false,
+        "shared_placeable_plant_sprites": "independently placeable from existing packs; not embedded or delivered as new plants here",
+        "physics_or_animation_implemented": false
+      },
+      "review": {
+        "status": "worker_reviewed_provisional_candidate",
+        "parent_review": "pending",
+        "staged": false,
+        "integrated": false,
+        "accepted": false,
+        "rejection_reason": null,
+        "known_defects": [
+          "Subtle image-edit resynthesis changes fine texture and some edges; geometry is not pixel locked.",
+          "Dense foreground grass texture inherited from source; source is not a strict uniform pixel grid.",
+          "No runtime placement, exact bird/contact scale or seasonal transition validation."
+        ],
+        "proxy_stage_median_linear_luminance": 0.24341413197648878,
+        "proxy_metric_caveat": "Luminance over fixed broad lawn box only; not bird contrast or gameplay readability acceptance."
+      },
+      "source_and_rights": {
+        "original_art": "Generated project candidate",
+        "reference": "Project-owned clean coastal foundation. No external source screenshots included or used.",
+        "license": "Project-generated art; no third-party license asserted. Canonical rights review remains with owner."
+      },
+      "canonical_intake": {
+        "status": "pending_parent_review_and_mac_verification",
+        "commit": null,
+        "remote_sha": null
+      }
+    }
+  ],
+  "canonical_state": "generated; worker reviewed provisionally; parent/Mac staging integration acceptance pending",
+  "new_species": 0,
+  "new_bird_art": 0,
+  "weather_physics_or_animation": false,
+  "independent_plant_packs_preserved": true,
+  "archive_transport": "Parent owns upload and canonical intake. No shared feed or Git modified.",
+  "generation_receipts_file": "assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/expansion/backgrounds/seasons-01/coastal/metadata/generation-receipts.json",
+  "review_evidence": {
+    "actual_pixels_inspected": [
+      "project reference full source",
+      "generated source contact",
+      "four-seasons-normal.png",
+      "four-seasons-mobile.png",
+      "four-seasons-mobile-gray.png"
+    ],
+    "test_command": "python source-unpublished/expansion/backgrounds/seasons-01/coastal/finalize_seasons.py",
+    "parent_practical_review": "pending",
+    "source_alpha_checks": "all RGB originals convert to alpha255 everywhere",
+    "full_geometry_exhaustively_verified": false
+  }
+}
