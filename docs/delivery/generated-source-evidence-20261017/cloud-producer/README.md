@@ -1,9 +1,9 @@
 # Cloud-produced source artwork — exact-byte preservation
 
 This directory retains actual project source bytes for the canonical repository.
-The current source checkpoint retains 21 native originals with exact prompts and 102 immutable primary drawing records (84 bird drawings, 18 scene/weather drawings), plus inherited corvid source-reuse lineage. All 20 roster species have source candidates; Nuttall is a clinging study with unresolved trunk support, and Junco is a rest/eyelid study with no useful awake idle or blink. The other 18 species have provisional source intakes; Quail uses its neutral still first.
+The current registered source checkpoint retains 22 native originals with exact prompts and 104 immutable primary drawing records. Animation and yard source production resumed after baseline PR33. See `release/animation-checkpoint-1-20261017/intake-overlay.json` and its `HANDOFF.md` for current additions, exact reviews and limitations.
 
-See `release/san-diego-20-v1/All-20-Source-Intake-Index.json` and `release/san-diego-20-v1/ALL-20-SOURCE-HANDOFF.md` for exact selected PNG/manifest pairs, statuses, hashes and integration gaps. Generation has stopped for handoff. Source availability does not establish completed animation sets, owner approval, canonical Mac admission or actual-yard verification. This archive changes source evidence only.
+`release/san-diego-20-v1/All-20-Source-Intake-Index.json` is the historical PR33 baseline, containing102 drawings/21 originals; its prior stop flag is superseded by the resumed checkpoint. The baseline per-species slot audit is in `audits/animation-slot-inventory-20261017`. Source availability does not establish completed animation sets, owner approval, canonical Mac admission or actual-yard verification. This archive changes source evidence only.
 
 `original-source-inventory.json` records every original and prompt SHA-256, byte
 count and source dimensions. All originals match a second native generator-output

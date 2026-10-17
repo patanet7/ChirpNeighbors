@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "fe0b227130adf97495fdabe7890cac60858d4ecc3df15cf907c47bab3a145a84",
+    "creator": "Chirp cloud source-preserving exporter",
+    "tool": "Pillow whole-canvas nearest export",
+    "toolVersion": "12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "junco-awake-192",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 122,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-1",
+          "x": 114,
+          "y": 146
+        },
+        {
+          "id": "foot-2",
+          "x": 143,
+          "y": 146
+        }
+      ],
+      "world": {
+        "width": 78,
+        "height": 78
+      },
+      "sourcePixelsPerWorldUnit": 2.4615384615384617
+    },
+    {
+      "id": "junco-closed-192",
+      "sourceRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 122,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-1",
+          "x": 114,
+          "y": 146
+        },
+        {
+          "id": "foot-2",
+          "x": 143,
+          "y": 146
+        }
+      ],
+      "world": {
+        "width": 78,
+        "height": 78
+      },
+      "sourcePixelsPerWorldUnit": 2.4615384615384617
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "junco-awake-192",
+          "durationTicks": 60
+        },
+        {
+          "frameId": "junco-closed-192",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "junco-awake-192",
+          "durationTicks": 27
+        }
+      ]
+    }
+  ]
+}
