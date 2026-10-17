@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "808eb70449dc24ea486bed40ffc80532be83007a2f5998e590e42fdeb98df373",
+    "creator": "Chirp bounded native crow neutral/blink reference edit",
+    "tool": "native image_gen; equal nativecell padding; nearest full-canvas output",
+    "toolVersion": "native model/seed not exposed; Pillow 12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "crow-supported-neutral-192",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 111,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-a-review",
+          "x": 99,
+          "y": 146
+        },
+        {
+          "id": "foot-b-review",
+          "x": 124,
+          "y": 144
+        }
+      ],
+      "world": {
+        "width": 185.88535031847132,
+        "height": 185.88535031847132
+      },
+      "sourcePixelsPerWorldUnit": 1.0328947368421053
+    },
+    {
+      "id": "crow-supported-blink-192",
+      "sourceRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 111,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-a-review",
+          "x": 99,
+          "y": 146
+        },
+        {
+          "id": "foot-b-review",
+          "x": 124,
+          "y": 144
+        }
+      ],
+      "world": {
+        "width": 185.88535031847132,
+        "height": 185.88535031847132
+      },
+      "sourcePixelsPerWorldUnit": 1.0328947368421053
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 75
+        },
+        {
+          "frameId": "crow-supported-blink-192",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 42
+        }
+      ]
+    }
+  ]
+}

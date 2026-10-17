@@ -163,12 +163,13 @@ for b in overlay['batches']:
   if b.get('lookOnlyNewDrawing') is True:
    # A bounded new head-turn source belongs to look only. Existing neutral/blink
    # and primary intake remain selected even though this packet also has an idle clip.
-   assert sid=='black_phoebe' and b.get('speciesIds')==['black_phoebe'],('Look-only scope must be explicit',sid)
+   assert b.get('speciesIds')==[sid],('Look-only batch must explicitly name one selected species',sid)
    assert b.get('runtimeAdmission') is False and b.get('renderClipId')=='look'
    assert b.get('addedOrReplacedSourceSlots')==['look']
    assert len(newIDs)==1 and len(primary['frames'])==1 and len(primary.get('reusedFrames',[]))==1
-   awakeID='frame.sha256.afdb316304688a04c8ea5130d42685c0a6bb74e922a8d0c5ac34637dd720850f'
-   assert rows['neutral']['sourceFrameIds']==[awakeID]
+   assert rows['neutral']['provisionalUsefulSourceForThisSemanticSlot'] is True and len(rows['neutral']['sourceFrameIds'])==1,('Look reuse requires one selected useful awake neutral',sid)
+   awakeID=rows['neutral']['sourceFrameIds'][0]
+   if b.get('expectedAwakeSourceFrameId'):assert b['expectedAwakeSourceFrameId']==awakeID,('Look reference differs from selected awake',sid)
    assert primary['reusedFrames'][0]['sourceFrameId']==awakeID and newIDs[0]!=awakeID
    assert newIDs[0] not in rows['blink']['sourceFrameIds'],('A new look may not relabel the old closure',newIDs[0])
    for field in ['primaryManifest','renderManifest','frameToActionMap']:
@@ -188,7 +189,7 @@ for b in overlay['batches']:
    assert len(pkg['frames'])==2 and {f['sourceFrameId'] for f in pkg['frames']}=={awakeID,newIDs[0]}
    for frame in pkg['frames']:
     for geometry in ['canvas','world','sourcePixelsPerWorldUnit','pivot','contacts']:
-     assert frame[geometry]==oldAwake[geometry],('Look must retain actual Phoebe family geometry',frame['outputFrameId'],geometry)
+     assert frame[geometry]==oldAwake[geometry],('Look must retain actual selected awake family geometry',frame['outputFrameId'],geometry)
    seq=c['orderedSourceFrameSequence'];phases=[]
    for step in seq:
     if not phases or phases[-1]!=step['sourceFrameId']:phases.append(step['sourceFrameId'])
@@ -207,7 +208,7 @@ for b in overlay['batches']:
     row=rows['look'];row['baselineState']=row['state'];assign(row,c['uniqueSourceFrameIds'],seq,paths,pkg,c)
     row.update(state='provisional-drawn-look',provisionalUsefulSourceForThisSemanticSlot=True,lookOnlyNewDrawing=True,selectedLookManifest=man,selectedClipId='look',newSourceFrameIds=newIDs,reusedSourceFrameIds=[awakeID],batchNewDrawings=1,batchReusedDrawings=1,newNeutralDrawings=0,newBlinkDrawings=0,packetBindingReady=False,remainingPhasesOrReview=[b['scope'],'Canonical Mac admission, actor binding and actual-yard verification unknown here.'])
     row['lookOnlySourceReview']=candidate
-   assert protectedIdle==[rows['neutral'],rows['blink']],('Look-only branch mutated Phoebe neutral/blink',sid)
+   assert protectedIdle==[rows['neutral'],rows['blink']],('Look-only branch mutated target neutral/blink',sid)
    assert protectedPrimary=={k:bird.get(k) for k in protectedPrimary},('Look-only branch replaced primary intake',sid)
    bird.setdefault('overlayQualifications',[]).append('Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings.')
    continue
