@@ -185,3 +185,7 @@ FirstbatchSD20-reuse-01 is the existingmale96pxblink handoff fromPR17 (mergedae9
 ## Saved action handoff and Anna export audit
 
 The nine savedAnna/Phoebe/Towheeactiondrawings arepreservedinmergedPR26/27/28, with exactfirstintakemappingsin `release/san-diego-20-v1/Fanout-Action-Intake-Handoff.json`. No recoveryregeneration. `audits/anna-darkness-20261017` independentlyverifies native-to-registered andnearest-export RGBA: selectedsourcebytesunchanged,maxdifference0. Source/exportcode-luma meansdiffer−1.84..+1.32bysampleselection; noexportdarkeningtransformfound. Nativepalehigh-frequencydetailisalreadypresent. Oldcanon34worldpxandaction32.67worldpxscalesarespecifiedseparately. Screenshotpixelswerenotretrieved/seen; livecausality,tint/blend/scale/contactoverlapremainMacRCA,notsourceauditfindings. No artedits/newmodels/training.
+
+## Completed source batch: sd20-bushtit-wren-sparrow-v1
+
+`new-species/sd20-bushtit-wren-sparrow-v1` retainsonecompletednativecall/6newdrawings with exactprompt/nativeoriginal/immutableIDs, PNGexports, manifestsandnormal-sizepreviews. Prior82drawingIDsunchanged; sourcebanknow88, original/promptpairs19. Naturalposequalityisreviewedatoutputsize; sourcepixelidentityremainsstrict. Appbinding/canonicalSharpreceipt/actualyardverificationpending; no fullactionsetor20completeclaim. Per-speciesprioritycoverageupdatedwithsourceandpacketstatesseparatefromappauthority.
