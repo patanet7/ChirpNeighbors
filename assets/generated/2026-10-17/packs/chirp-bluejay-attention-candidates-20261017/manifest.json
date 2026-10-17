@@ -1,0 +1,403 @@
+{
+  "status": "experimental staging candidates; not production-approved",
+  "source_library_id": "[private-source-reference-retained-locally]",
+  "source_sha256": "407a5c6b30f3190cf877d212b5ccc518c545b4f81aa8f6ec2214337a2f8aea72",
+  "blink_reference_library_id": "[private-source-reference-retained-locally]",
+  "blink_reference_local_zip_sha256": "ed19a7c10776ee1898387a13afded8c7e9d6acb9f8309f3ff596119820c9a51c",
+  "generation": "Four independent built-in imagegen edits, each directly referencing unchanged neutral baseline. Blink pack inspected for continuity, not an image input. Exact prompts in prompts.json.",
+  "coordinate_system": {
+    "canvas": [
+      1536,
+      1024
+    ],
+    "origin": "top-left",
+    "x": "right",
+    "y": "down",
+    "neutral_body_heading": "screen-right",
+    "head_yaw_degrees": "requested targets relative to right-facing profile; positive turns toward viewer then back; not measured 3D orientations",
+    "head_screen_pitch_degrees": "requested projected target; positive downward, negative upward; not calibrated",
+    "shared_pivot_approx": [
+      1000,
+      970
+    ],
+    "source_contacts_approx": [
+      [
+        905,
+        945
+      ],
+      [
+        1060,
+        975
+      ]
+    ],
+    "fixed_scale": 0.05475285171102662,
+    "scale_note": "Single common scale from inherited source width estimate 1315; no per-frame fitting. Intended source silhouette approx 72 pixels wide."
+  },
+  "registration_method": "Read-only alpha>128 foreground bbox and unweighted centroid in body ROI [100,400,1300,880] and feet ROI [790,880,1200,1015]. Body ROI includes lower neck, tail, belly and upper legs; feet ROI includes lower legs. Neither metric proves identical anatomical contacts. No registration correction, recoloring, alpha repair or cropping applied to PNG originals.",
+  "frames": [
+    {
+      "file": "source/frame-00-neutral.png",
+      "sha256": "407a5c6b30f3190cf877d212b5ccc518c545b4f81aa8f6ec2214337a2f8aea72",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_max": 254,
+      "measurements": {
+        "body": {
+          "bbox": [
+            207,
+            400,
+            1281,
+            880
+          ],
+          "centroid": [
+            859.496178362202,
+            618.7954205848519
+          ],
+          "bbox_delta": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "centroid_delta": [
+            0.0,
+            0.0
+          ],
+          "centroid_delta_at_72px": [
+            0.0,
+            0.0
+          ],
+          "visible_rgba_changed_fraction": 0.0
+        },
+        "feet": {
+          "bbox": [
+            805,
+            880,
+            1190,
+            1007
+          ],
+          "centroid": [
+            999.8488539172083,
+            945.3406089633938
+          ],
+          "bbox_delta": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "centroid_delta": [
+            0.0,
+            0.0
+          ],
+          "centroid_delta_at_72px": [
+            0.0,
+            0.0
+          ],
+          "visible_rgba_changed_fraction": 0.0
+        }
+      },
+      "pose": "neutral",
+      "requested_head_yaw_degrees": 0,
+      "requested_projected_pitch_degrees": 0,
+      "proposed_hold_ms": 2200,
+      "runtime_approved": false,
+      "staging_status": "candidate_with_warnings"
+    },
+    {
+      "file": "frames/frame-01-up.png",
+      "sha256": "52c1653d73654ce872051d4ebeaf4ecdbf9f5aa18eed89d22cfad132a575029d",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_max": 254,
+      "measurements": {
+        "body": {
+          "bbox": [
+            207,
+            400,
+            1283,
+            880
+          ],
+          "centroid": [
+            860.8920766200778,
+            618.7855603139737
+          ],
+          "bbox_delta": [
+            0,
+            0,
+            2,
+            0
+          ],
+          "centroid_delta": [
+            1.3958982578757286,
+            -0.009860270878107258
+          ],
+          "centroid_delta_at_72px": [
+            0.07642941031715016,
+            -0.0005398779492195609
+          ],
+          "visible_rgba_changed_fraction": 0.994863202181916
+        },
+        "feet": {
+          "bbox": [
+            806,
+            880,
+            1191,
+            1008
+          ],
+          "centroid": [
+            999.9369794558579,
+            945.4648806218768
+          ],
+          "bbox_delta": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "centroid_delta": [
+            0.08812553864959227,
+            0.12427165848293953
+          ],
+          "centroid_delta_at_72px": [
+            0.004825124549635471,
+            0.006804227688799731
+          ],
+          "visible_rgba_changed_fraction": 0.9975914899310898
+        }
+      },
+      "pose": "up",
+      "requested_head_yaw_degrees": 0,
+      "requested_projected_pitch_degrees": -25,
+      "proposed_hold_ms": 500,
+      "runtime_approved": false,
+      "staging_status": "candidate_with_warnings"
+    },
+    {
+      "file": "frames/frame-02-down.png",
+      "sha256": "3ad9f7d41ebd7b1bacfa9fab97be19c1422dfad3a890be8b6d6eac21b71b94bc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_max": 254,
+      "measurements": {
+        "body": {
+          "bbox": [
+            207,
+            400,
+            1287,
+            880
+          ],
+          "centroid": [
+            860.0471674150307,
+            618.3887778178362
+          ],
+          "bbox_delta": [
+            0,
+            0,
+            6,
+            0
+          ],
+          "centroid_delta": [
+            0.5509890528286405,
+            -0.4066427670156827
+          ],
+          "centroid_delta_at_72px": [
+            0.030168221903925565,
+            -0.02226485112177122
+          ],
+          "visible_rgba_changed_fraction": 0.9905119928084011
+        },
+        "feet": {
+          "bbox": [
+            806,
+            880,
+            1190,
+            1007
+          ],
+          "centroid": [
+            1000.5442191093456,
+            945.3191860059934
+          ],
+          "bbox_delta": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "centroid_delta": [
+            0.6953651921372739,
+            -0.021422957400432097
+          ],
+          "centroid_delta_at_72px": [
+            0.03807322725010169,
+            -0.0011729680097574988
+          ],
+          "visible_rgba_changed_fraction": 0.9955254237288136
+        }
+      },
+      "pose": "down",
+      "requested_head_yaw_degrees": 0,
+      "requested_projected_pitch_degrees": 30,
+      "proposed_hold_ms": 650,
+      "runtime_approved": false,
+      "staging_status": "candidate_with_warnings"
+    },
+    {
+      "file": "frames/frame-03-viewer.png",
+      "sha256": "25b23640aadf62574dc18f0be3fdb06feeaf82798309c9390057112f4d6ab88f",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_max": 254,
+      "measurements": {
+        "body": {
+          "bbox": [
+            207,
+            400,
+            1284,
+            880
+          ],
+          "centroid": [
+            860.5971273599752,
+            618.8903998724725
+          ],
+          "bbox_delta": [
+            0,
+            0,
+            3,
+            0
+          ],
+          "centroid_delta": [
+            1.1009489977731164,
+            0.09497928762061747
+          ],
+          "centroid_delta_at_72px": [
+            0.060280097216474815,
+            0.005200386850710614
+          ],
+          "visible_rgba_changed_fraction": 0.9950129671010781
+        },
+        "feet": {
+          "bbox": [
+            806,
+            880,
+            1191,
+            1008
+          ],
+          "centroid": [
+            1000.8141165260006,
+            945.998434522189
+          ],
+          "bbox_delta": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "centroid_delta": [
+            0.9652626087922727,
+            0.6578255587951389
+          ],
+          "centroid_delta_at_72px": [
+            0.052850880481402004,
+            0.03601782527243346
+          ],
+          "visible_rgba_changed_fraction": 0.997299789251844
+        }
+      },
+      "pose": "viewer",
+      "requested_head_yaw_degrees": 40,
+      "requested_projected_pitch_degrees": 0,
+      "proposed_hold_ms": 450,
+      "runtime_approved": false,
+      "staging_status": "candidate_with_warnings"
+    },
+    {
+      "file": "frames/frame-04-back.png",
+      "sha256": "aa4cfd8b0073ea4d30b358a89b12d6f1c488eb86e9219d99e721960c8f5f3e70",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "alpha_max": 254,
+      "measurements": {
+        "body": {
+          "bbox": [
+            207,
+            400,
+            1286,
+            880
+          ],
+          "centroid": [
+            860.6678841382021,
+            618.6054040995488
+          ],
+          "bbox_delta": [
+            0,
+            0,
+            5,
+            0
+          ],
+          "centroid_delta": [
+            1.171705776000067,
+            -0.19001648530309012
+          ],
+          "centroid_delta_at_72px": [
+            0.06415423260228505,
+            -0.010403944442450562
+          ],
+          "visible_rgba_changed_fraction": 0.9927282674821677
+        },
+        "feet": {
+          "bbox": [
+            806,
+            880,
+            1190,
+            1008
+          ],
+          "centroid": [
+            1000.1726458954965,
+            945.3585455554785
+          ],
+          "bbox_delta": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "centroid_delta": [
+            0.32379197828822726,
+            0.017936592084652148
+          ],
+          "centroid_delta_at_72px": [
+            0.017728534172435258,
+            0.000982079566612133
+          ],
+          "visible_rgba_changed_fraction": 0.9964810177979292
+        }
+      },
+      "pose": "back",
+      "requested_head_yaw_degrees": 120,
+      "requested_projected_pitch_degrees": 0,
+      "proposed_hold_ms": 400,
+      "runtime_approved": false,
+      "staging_status": "candidate_with_warnings"
+    }
+  ],
+  "timing": "Proposal only: event-driven neutral -> chosen pose -> neutral. No intermediate frames supplied; 100-160 ms travel would require additional generated transition frames or deliberate stepped cut. Do not infer yaw interpolation or full directional coverage.",
+  "warnings": [
+    "Exact body and foot pixel lock failed: over 99% of RGBA pixels in union-visible measurement ROIs differ, despite small geometry drift.",
+    "All frames alpha maximum 254 including baseline; production alpha requirements not validated.",
+    "Four discrete head directions plus baseline, not full directional or action coverage.",
+    "Backward glance has more stretched/raised upper neck; stage with anatomical review warning.",
+    "72px version loses fine eye/feather details; head silhouettes remain distinguishable.",
+    "No production/runtime code changed; separate PNGs are intended source inputs."
+  ]
+}

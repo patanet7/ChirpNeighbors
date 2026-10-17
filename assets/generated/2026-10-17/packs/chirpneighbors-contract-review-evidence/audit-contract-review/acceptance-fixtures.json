@@ -1,0 +1,405 @@
+{
+  "formatVersion": "chirp-contract-review-fixtures@0.1",
+  "status": "STATIC_EXPECTATIONS_PENDING_CANONICAL_BINDING",
+  "notRuntimeConfig": true,
+  "frames": "frame-reference-projection.json",
+  "fixtures": [
+    {
+      "id": "F01",
+      "title": "Immutable frame identity is necessary but not usage approval",
+      "frameRefs": [
+        "maleNeutral"
+      ],
+      "given": {
+        "unchangedFileSha256": "bab4bfb8ffc82f533f776b1b6596b76b59c7fef2354615fc7fe0dfc495db1bca",
+        "acceptedUses": []
+      },
+      "expected": {
+        "pixelIdentity": "pass",
+        "perchReuseDecision": "withhold",
+        "reasonCodes": [
+          "NO_VALIDATED_SUPPORT_USE"
+        ]
+      },
+      "evidence": [
+        "frame-bank.json"
+      ]
+    },
+    {
+      "id": "F02",
+      "title": "Ground-foot pose does not establish round-branch grip",
+      "frameRefs": [
+        "maleNeutral",
+        "femaleNeutral"
+      ],
+      "given": {
+        "supportGeometryRef": "authored-round-perch-test-1024@1",
+        "supportGeometry": {
+          "schemaVersion": 1,
+          "geometryId": "authored-round-perch-test-1024@1",
+          "source": "assistant-authored technical test geometry, no third-party imagery",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "coordinateUnits": "source pixels; no biological cm claim",
+          "axis": [
+            [
+              300,
+              806
+            ],
+            [
+              760,
+              806
+            ]
+          ],
+          "radius": 18,
+          "top": 788,
+          "bottom": 824,
+          "footCenterTargets": [
+            [
+              480,
+              788
+            ],
+            [
+              543,
+              788
+            ]
+          ],
+          "nearToeCurlRegion": {
+            "yMin": 792,
+            "yMax": 824
+          },
+          "occlusion": "perch is a separate scene layer; far hallux must pass behind support, near curled toes in front",
+          "worldScale": "pending Mac source-density/biological calibration",
+          "reviewScale": 0.375,
+          "justification": "existing source toes are spread ground poses; missing branch-specific grip/occlusion is explicit",
+          "isNaturalOptimalPerchDiameterClaim": false
+        },
+        "contactAnnotationKind": "ground-support pixel heuristic",
+        "maleFeetApprox": [
+          [
+            480,
+            794
+          ],
+          [
+            543,
+            800
+          ]
+        ],
+        "femaleFeetApprox": [
+          [
+            482,
+            793
+          ],
+          [
+            538,
+            800
+          ]
+        ],
+        "units": "source_px",
+        "confirmedGripOrOcclusionEvidence": false
+      },
+      "expected": {
+        "rawFrameIdentity": "pass",
+        "contactAndOcclusionEvidence": "unknown",
+        "perchReuseDecision": "withhold",
+        "reasonCodes": [
+          "GROUND_CONTACT_IS_NOT_BRANCH_GRIP",
+          "OCCLUSION_UNVERIFIED"
+        ]
+      },
+      "evidence": [
+        "batches/house-finch-perching-review-v1/reuse-review.json"
+      ]
+    },
+    {
+      "id": "F03",
+      "title": "Projected platform containment does not verify whole-foot support",
+      "frameRefs": [
+        "maleNeutral"
+      ],
+      "given": {
+        "diagnosticTopPolygon": [
+          [
+            300,
+            788
+          ],
+          [
+            740,
+            788
+          ],
+          [
+            760,
+            808
+          ],
+          [
+            320,
+            808
+          ]
+        ],
+        "coordinateSpace": "authored1024source_px",
+        "twoFootPointsApprox": [
+          [
+            480,
+            794
+          ],
+          [
+            543,
+            800
+          ]
+        ],
+        "fullFootprintDepthAndAnatomicalLandmarksVerified": false
+      },
+      "expected": {
+        "flatPlatformReuseDecision": "proposed_only",
+        "reasonCodes": [
+          "POINTS_DO_NOT_PROVE_FOOTPRINT_OR_DEPTH"
+        ]
+      },
+      "evidence": [
+        "batches/house-finch-perching-review-v1/perch-test-scene.html"
+      ]
+    },
+    {
+      "id": "F04",
+      "title": "Qualitative toe curl does not pass fixed source/scale/support registration",
+      "frameRefs": [
+        "maleNeutral",
+        "perchCandidate"
+      ],
+      "given": {
+        "requestedCanvas": [
+          1024,
+          1024
+        ],
+        "actualNativeCanvas": [
+          1254,
+          1254
+        ],
+        "comparison": "whole-canvas resize only; no fitting",
+        "bodyWidthRatioAfterNormalization": 1.1348384788448826,
+        "fixedCanvasAlphaMaskIoU": 0.609744460175053,
+        "maskAlphaThreshold": 32,
+        "toeCurlQualitativelyChanged": true,
+        "fixedGuideGripReview": "failed; toes below intended support",
+        "intrinsicBiologicalAnatomyAcceptance": false
+      },
+      "expected": {
+        "rawCandidateRetention": "allowed_as_candidate",
+        "canvasPreservationGoal": "fail",
+        "authoredScalePreservationGoal": "fail",
+        "registeredPerchReuse": "withhold",
+        "acceptedPerchedClip": false
+      },
+      "evidence": [
+        "batches/house-finch-perching-candidate-v1/candidate-review.json"
+      ]
+    },
+    {
+      "id": "F05",
+      "title": "Source to review mapping applies exactly once; not biological scale",
+      "frameRefs": [
+        "maleNeutral"
+      ],
+      "given": {
+        "sourceCanvas": [
+          1024,
+          1024
+        ],
+        "reviewCanvas": [
+          384,
+          384
+        ],
+        "sourceSupportRoot": [
+          512,
+          800
+        ],
+        "declaredUniformReviewScale": 0.375,
+        "unitsIn": "source_px",
+        "unitsOut": "review_px",
+        "biologicalCalibrationAccepted": false,
+        "declaredDiagnosticAffine": [
+          0.375,
+          0,
+          0,
+          0.375,
+          0,
+          0
+        ],
+        "coordinateConvention": "geometric point coordinates scaled about zero in this diagnostic fixture only; canonical Mac convention remains Q1"
+      },
+      "expected": {
+        "reviewSupportRoot": [
+          192,
+          300
+        ],
+        "doubleAppliedRootIsWrong": [
+          72,
+          112.5
+        ],
+        "physicalWorldScaleDecision": "unknown",
+        "currentRendererConformanceClaim": false
+      },
+      "evidence": [
+        "batches/house-finch-male-idle-v1/manifest.json"
+      ]
+    },
+    {
+      "id": "F06",
+      "title": "Pixel center/edge and foot-label conventions must be explicit before mirroring",
+      "frameRefs": [
+        "maleNeutral"
+      ],
+      "given": {
+        "sourceWidth": 1024,
+        "sourcePoint": [
+          480,
+          794
+        ],
+        "coordinateSpace": "source_px",
+        "pixelCenterOrEdgeConvention": null,
+        "footIdentityConvention": null
+      },
+      "expected": {
+        "admission": "withhold",
+        "possibleEdgeConventionPoint": [
+          544,
+          794
+        ],
+        "possibleCenterConventionPoint": [
+          543,
+          794
+        ],
+        "reasonCodes": [
+          "MIRROR_CONVENTION_UNAGREED",
+          "FOOT_IDENTITY_UNAGREED"
+        ]
+      },
+      "evidence": [
+        "batches/house-finch-male-idle-v1/manifest.json"
+      ]
+    },
+    {
+      "id": "F07",
+      "title": "Whole-bird z-order is not proof of far-hallux/near-digit occlusion",
+      "frameRefs": [
+        "maleNeutral",
+        "perchCandidate"
+      ],
+      "given": {
+        "availableView": "single RGBA sprite; branch drawn wholly before/after it in diagnostic scene",
+        "reviewedNearFarOcclusionMasksOrBakedSupportBinding": null,
+        "runtimeCapabilityRef": null
+      },
+      "expected": {
+        "occlusionConformance": "unknown",
+        "reuseDecision": "withhold",
+        "reasonCodes": [
+          "MISSING_SUPPORT_SPECIFIC_OCCLUSION_BINDING"
+        ]
+      },
+      "evidence": [
+        "batches/house-finch-perching-review-v1/perch-test-scene.html"
+      ]
+    },
+    {
+      "id": "F08",
+      "title": "Guided leg alternation is not a verified translating walk",
+      "frameRefs": [],
+      "externalEvidence": {
+        "bundleLibraryId": "[private-source-reference-retained-locally]",
+        "translatingContactGIF": "[private-source-reference-retained-locally]",
+        "scope": "parent relay; manual representative toe estimates, not automated tracking",
+        "reportedStanceSlide": [
+          20,
+          26
+        ],
+        "reportedSlideUnits": "runtime_px_parent_report",
+        "reportedGroundHeightVariation": 5,
+        "reportedHeightUnits": "runtime_px_parent_report",
+        "alternatingSupportLiftReported": true,
+        "productionWalkAcceptance": "failed",
+        "canonicalFrameBindings": null,
+        "rootMotionCurve": null,
+        "supportMotionCurve": null,
+        "timebaseRef": null,
+        "amplitudeTarget": "mostly upright short steps/modest bounce/pauses; not deep crouch"
+      },
+      "expected": {
+        "localAutomatedWorldContactConformance": "blocked_missing_source_and_motion_bindings",
+        "fullWalkAccepted": false,
+        "sourceRoleAlternationAloneSufficient": false
+      },
+      "evidence": [
+        "queue.json:latestParentQA.guidedCrowFourPose",
+        "lessons-and-experiments.json:crow-guided-contact-parent"
+      ]
+    },
+    {
+      "id": "F09",
+      "title": "Variant compatibility is independent of neutral pose similarity",
+      "frameRefs": [
+        "maleNeutral",
+        "femaleNeutral"
+      ],
+      "given": {
+        "requestedAppearance": "adult-male/house-finch-canon-v1",
+        "candidateAppearance": "adult-female/house-finch-canon-v1",
+        "sameSpecies": true
+      },
+      "expected": {
+        "substituteFemalePixelsForMaleUse": "reject",
+        "reasonCodes": [
+          "VARIANT_COMPATIBILITY_FAIL"
+        ]
+      },
+      "evidence": [
+        "frame-bank.json"
+      ]
+    },
+    {
+      "id": "F10",
+      "title": "Rejected sequence does not invalidate every immutable drawing or prove a new use",
+      "frameRefs": [
+        "rejectedRainSequenceFrame"
+      ],
+      "given": {
+        "sourceSequenceAcceptance": "failed temporal continuity",
+        "sameFrameBytesRetained": true,
+        "proposedNewUse": "static texture for an existing procedural compositor",
+        "newUseValidated": false
+      },
+      "expected": {
+        "pixelIdentity": "pass",
+        "automaticAllFrameRejection": false,
+        "automaticNewUseAcceptance": false,
+        "newUseDecision": "proposed_only"
+      },
+      "evidence": [
+        "batches/rain-continuity-v2/continuity-review.json"
+      ]
+    },
+    {
+      "id": "F11",
+      "title": "Reusing a recovery pose must not inherit seed/water consumption events",
+      "frameRefs": [
+        "feedRecovery"
+      ],
+      "given": {
+        "newProposedUse": "idle entry or perching body reference",
+        "sourceUse": "seed-feeding candidate",
+        "reviewedNewContactTransitionAndEventBindings": null
+      },
+      "expected": {
+        "pixelIdentityCanBeShared": true,
+        "implicitConsumptionFromFrameIdentity": false,
+        "fullReuseAcceptance": "withhold"
+      },
+      "evidence": [
+        "batches/house-finch-male-feed-v1/manifest.json"
+      ]
+    }
+  ],
+  "gateMeaning": "pass/fail/unknown are scoped expectations. No fixture marks complete art, biomechanics or runtime integration accepted. F08 is explicitly non-executable without source/motion bindings."
+}

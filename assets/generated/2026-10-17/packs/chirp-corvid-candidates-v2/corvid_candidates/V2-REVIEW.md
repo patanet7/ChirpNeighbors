@@ -1,0 +1,8 @@
+# Crow walk correction v2
+The user rejected v1 crow for blue plumage and poor walk centering. V1 ZIP and originals are preserved. V2 uses an actual image_gen palette/anatomy edit, not scripted recoloring. Alpha-qualified mean blue-minus-red fell from +22.11 to -0.57 channel levels, supporting the visible neutral charcoal result. The throat is less blue but remains more textured than an ideal American Crow.
+
+The source sheet places right-column body landmarks approximately 28 pixels left and lower-row landmarks 32 pixels up relative to first-cell coordinates. Translation-only packaging registers the same estimated torso/upper-thigh root to (254,240) on all 384px runtime frames, at a fixed 0.44 scale. The anchor estimate is manual and approximate. No per-frame bounding-box fit, scaling, warping, synthetic motion, or support-foot snapping is used. Zero intended root travel; engine locomotion must be supplied separately. Four-frame atlas inspected for body alignment and GIF/APNG sequence decoded successfully. This is a candidate for visual review, not a claim of perfect gait.
+
+Remaining visible flaw: the generated model largely retained the old gait and weak near/far alternation. It still needs a more convincing opposite-leg cycle. Compare GIF: v1 left, v2 right. Sizes differ slightly because v2 needs translation margins; within each clip scale is fixed.
+
+Eight image_gen calls total: v1 six calls; crow hop completed as seventh before feedback; crow walk v2 eighth. Crow hop original remains blue and unpromoted. Raven walk was paused to prioritize this correction. No more roster expansion undertaken.

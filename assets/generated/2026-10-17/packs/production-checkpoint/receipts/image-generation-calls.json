@@ -1,0 +1,116 @@
+{
+  "calls": [
+    {
+      "batch": "dove-walk-v1",
+      "tool": "image_gen.imagegen",
+      "toolAvailable": true,
+      "outcome": "generated",
+      "actualCalls": 1,
+      "reportedToolElapsedSeconds": 34.7,
+      "modelExposed": null,
+      "seedExposed": null,
+      "arguments": {
+        "promptFile": "batches/dove-walk-v1/prompt.txt",
+        "promptSha256": "22d94ca0d576539b739b47cbcf66a904a3654da0e417eaf007a51d8549f4cf0c",
+        "referencedImagePaths": [],
+        "transparentBackground": true
+      },
+      "toolOriginal": "/workspace/generated_images/exec-ec6674bb-21ff-4a76-8468-5e9cc7862aed.png",
+      "retainedOriginal": "batches/dove-walk-v1/original.png",
+      "originalSha256": "0ed8d9299d31dae2096d4d555bb805bef669fe878a666b7ee29839378ac1fccc",
+      "originalFileMtimeUTC": "2026-10-17T13:49:10.406512+00:00",
+      "manifest": "batches/dove-walk-v1/manifest.json"
+    },
+    {
+      "batch": "dove-drink-v1",
+      "tool": "image_gen.imagegen",
+      "toolAvailable": true,
+      "outcome": "generated",
+      "actualCalls": 1,
+      "reportedToolElapsedSeconds": 40.9,
+      "modelExposed": null,
+      "seedExposed": null,
+      "arguments": {
+        "promptFile": "batches/dove-drink-v1/prompt.txt",
+        "promptSha256": "ef8c92bd9d32876b8f531a2abce3bbc1a9cdfecc8b168159513aa7ced6ad98d3",
+        "referencedImagePaths": [
+          "batches/dove-walk-v1/original.png"
+        ],
+        "transparentBackground": true
+      },
+      "toolOriginal": "/workspace/generated_images/exec-d98090c9-f1b7-4f53-b7de-d2db5de16d6a.png",
+      "retainedOriginal": "batches/dove-drink-v1/original.png",
+      "originalSha256": "4a468d2f4ca83e7b46151f98171e5e67ef8ecb6ee17633ec9ca39408cd6c4c3d",
+      "originalFileMtimeUTC": "2026-10-17T13:50:55.400802+00:00",
+      "manifest": "batches/dove-drink-v1/manifest.json"
+    },
+    {
+      "batch": "understory-wind-v1",
+      "tool": "image_gen.imagegen",
+      "toolAvailable": true,
+      "outcome": "generated",
+      "actualCalls": 1,
+      "reportedToolElapsedSeconds": 47.2,
+      "modelExposed": null,
+      "seedExposed": null,
+      "arguments": {
+        "promptFile": "batches/understory-wind-v1/prompt.txt",
+        "promptSha256": "7f8d4bb685965ae6fa48a2f150da6793293f30b473da0b748e4d7574ca510080",
+        "referencedImagePaths": [],
+        "transparentBackground": true
+      },
+      "toolOriginal": "/workspace/generated_images/exec-440675d2-ec82-4e9e-96f3-8ccdb184e5fc.png",
+      "retainedOriginal": "batches/understory-wind-v1/original.png",
+      "originalSha256": "a0cf164b5bb2b1fda47744fdb8c78d6e184e438ea20ffd4f4bc454acb443fd59",
+      "originalFileMtimeUTC": "2026-10-17T13:55:47.432847+00:00",
+      "manifest": "batches/understory-wind-v1/manifest.json"
+    },
+    {
+      "batch": "rain-layer-v1",
+      "tool": "image_gen.imagegen",
+      "toolAvailable": true,
+      "outcome": "generated",
+      "actualCalls": 1,
+      "reportedToolElapsedSeconds": 28.4,
+      "modelExposed": null,
+      "seedExposed": null,
+      "arguments": {
+        "promptFile": "batches/rain-layer-v1/prompt.txt",
+        "promptSha256": "4e92dfbdeb1eae2f283602b04e4ea9205d4f4bd27eb0f208300f7a2765b63976",
+        "referencedImagePaths": [],
+        "transparentBackground": true
+      },
+      "toolOriginal": "/workspace/generated_images/exec-3dbad036-304d-43ed-a44a-004ec94bc8b0.png",
+      "retainedOriginal": "batches/rain-layer-v1/original.png",
+      "originalSha256": "36ef94c4cb8907c01447ef5f87a825ae88a8f3d3c9466d9279490b55f29e8479",
+      "originalFileMtimeUTC": "2026-10-17T13:57:34.873946+00:00",
+      "manifest": "batches/rain-layer-v1/manifest.json"
+    },
+    {
+      "batch": "rain-continuity-v2",
+      "tool": "image_gen.imagegen",
+      "outcome": "generated; temporal requirement failed",
+      "actualCalls": 1,
+      "reportedToolElapsedSeconds": 37.9,
+      "arguments": {
+        "promptFile": "batches/rain-continuity-v2/prompt.txt",
+        "referencedImagePaths": [
+          "batches/rain-layer-v1/original.png"
+        ],
+        "transparentBackground": true
+      },
+      "toolOriginal": "/workspace/generated_images/exec-a6b76ae9-40f1-4e8b-9ae3-ca31a319eccb.png",
+      "retainedOriginal": "batches/rain-continuity-v2/original.png",
+      "originalSha256": "4659df1d749dc4b2300313d05e95c16d84815af12ed7ebdc12b3cd626006ee26",
+      "acceptance": "failed temporal continuity; see continuity-review.json"
+    }
+  ],
+  "totals": {
+    "calls": 5,
+    "sheets": 5,
+    "generatedDrawings": 30,
+    "failedImageCalls": 0,
+    "failedTemporalAcceptance": 1
+  },
+  "providerModelOrSeedNotInvented": true
+}

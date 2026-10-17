@@ -1,0 +1,136 @@
+{
+  "status": "candidate_rework_not_approved_walk",
+  "new_calls_extension": 2,
+  "guided_calls_total": 3,
+  "known_project_calls_total": 14,
+  "fallback": "v2 unchanged",
+  "ordered_phases": [
+    "near forward contact",
+    "near support / far swing",
+    "far forward contact",
+    "far support / near swing"
+  ],
+  "timing_ms": [
+    180,
+    180,
+    180,
+    180
+  ],
+  "runtime_frame_size": [
+    384,
+    384
+  ],
+  "scale": "All source art normalized by fixed canvas ratio to 384x256 and placed at y=64. No per-frame fit, body warping, morphing or synthesized in-betweens.",
+  "gates": {
+    "opposite_contact_geometry": "PASS: foreground near shin crosses backward over forward far shin.",
+    "near_support_far_swing": "PASS: near foot planted, far foot visibly above it. Guide exact angles not copied.",
+    "far_support_near_swing": "PASS: far foot planted, near foot lifted forward. Guide exact angles not copied.",
+    "leg_occlusion": "PASS at coarse visible near/far-role level. Toe topology still needs detailed production cleanup.",
+    "identity": "CONDITIONAL: recognizable crow, neutral palette and head/bill retained; feather patterns and lower chest/leg attachment vary.",
+    "body_root_scale": "CONDITIONAL: same overall framing and scale after fixed normalization; lower-body silhouette shifts. No production pelvis registration claimed.",
+    "world_foot_contact": "FAIL at fixed speed: representative manually estimated toe tracks drift about 20 to 26 runtime pixels over stance.",
+    "ground_height": "FAIL tight one-pixel target: representative toe y varies up to about 5 runtime pixels.",
+    "alpha": "CONDITIONAL: true transparent background; max alpha 254; anti-aliased edges remain.",
+    "loop_continuity": "FAIL production gate: only four sparse phases, unequal stride spacing and abrupt changes. Genuine alternating roles, not a smooth approved walk.",
+    "native_pixel_finish": "FAIL final gate: high-resolution feather detail resampled to runtime; temporal texture cleanup unperformed."
+  },
+  "contact_estimates": {
+    "method": "Manual corresponding forward-toe estimates from source images at normalized 768x512 coordinates; approximate +/-5 pixels. Not automatic tracking or subpixel measurements.",
+    "fixed_root_advance_at_768_scale": [
+      0,
+      100,
+      200,
+      300,
+      400
+    ],
+    "near_stance_frame_indices": [
+      0,
+      1,
+      2
+    ],
+    "near_local_toe_xy": [
+      [
+        695,
+        466
+      ],
+      [
+        610,
+        470
+      ],
+      [
+        470,
+        467
+      ]
+    ],
+    "near_world_x": [
+      695,
+      710,
+      670
+    ],
+    "near_world_x_range_runtime_pixels": 20,
+    "far_stance_frame_indices": [
+      2,
+      3,
+      4
+    ],
+    "far_local_toe_xy": [
+      [
+        600,
+        463
+      ],
+      [
+        485,
+        470
+      ],
+      [
+        436,
+        473
+      ]
+    ],
+    "far_world_x": [
+      800,
+      785,
+      836
+    ],
+    "far_world_x_range_runtime_pixels": 25.5
+  },
+  "alpha_stats": {
+    "crow-contact-source.png": {
+      "size": [
+        768,
+        512
+      ],
+      "alpha_zero": 268436,
+      "alpha_max": 254,
+      "alpha_1_to_249": 21753
+    },
+    "near-support-passing-output.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_zero": 1124923,
+      "alpha_max": 254,
+      "alpha_1_to_249": 27069
+    },
+    "opposite-contact-output.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_zero": 1121172,
+      "alpha_max": 254,
+      "alpha_1_to_249": 32281
+    },
+    "far-support-passing-output.png": {
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha_zero": 1116021,
+      "alpha_max": 254,
+      "alpha_1_to_249": 31814
+    }
+  },
+  "next": "Keep this as a useful guide-compliance and phase-coverage proof. To approach production, author target contact trajectories/stance timing and use tightly controlled keyframe cleanup; no blind sheet regeneration. More in-betweens alone will not repair foot sliding."
+}

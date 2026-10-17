@@ -1,0 +1,2658 @@
+{
+  "schema_version": "1.0.0",
+  "created_at": "2026-10-17T13:48:00Z",
+  "scope": "ChirpNeighbors art, animation, scene, inventory and delivery requirements from supplied conversation",
+  "limitations": [
+    "Message-history connector unavailable to this worker; used the full supplied conversation with exact IDs.",
+    "Prior bundle/runtime facts are handoff evidence, not a fresh inspection of bytes, repository or running page.",
+    "No claim this includes unseen chats or attachment contents.",
+    "No final production acceptance, complete animation coverage, or active generation process inferred."
+  ],
+  "requirements": [
+    {
+      "id": "ART-001",
+      "category": "Art direction",
+      "requirement": "High-quality, detailed pixel-art birds; current placeholders are insufficient.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_030684771034819184e76b929dfee9da",
+        "Sentinel_6c5235007e3881919d44344760f44df9",
+        "Sentinel_fa1608945c288191ac47f3290ebd5ff8"
+      ],
+      "acceptance_proposal": "Inspect at actual game scale and enlarged; species markings, silhouette, feet and feather detail must remain legible.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-002",
+      "category": "Art direction",
+      "requirement": "Keep the birds detailed, but simplify the surrounding background into a recognizable yard/location.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_036def5c6c888191bcb3ffc42460e727"
+      ],
+      "acceptance_proposal": "Preserve calm visual hierarchy; no overdecorated illustrative frame.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-003",
+      "category": "Art direction",
+      "requirement": "Rich, beautiful, coherent pixel backgrounds like the privately supplied fishing-game reference; the earlier blue jay fits.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_f62eb080a62c8191b4fc5efcdcaaea24"
+      ],
+      "acceptance_proposal": "Private visual-reference comparison; retain depth/detail without importing another game’s artwork.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-004",
+      "category": "Art direction",
+      "requirement": "Use different palettes and different yards, including city/country and regional generation.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_ea287c5a0f848191b88807e13802eed4",
+        "Sentinel_1de8348be7a08191a4f5479b81fe8f73"
+      ],
+      "acceptance_proposal": "At least a documented palette/region/style family model; exact region list remains to be chosen.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-005",
+      "category": "Scene composition",
+      "requirement": "Layer scenes so objects can be added and positioned separately.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_a4d2432f11288191afdf645fd9f86cf4",
+        "Sentinel_a7b4cbf7ab508191b876bd1d6754c2f1"
+      ],
+      "acceptance_proposal": "Separate background, ground, movable objects, birds, foreground and effects; explicit depth ordering.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-006",
+      "category": "Scene composition",
+      "requirement": "Create multiple backgrounds, sets of objects, themes and regional packs.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_3f4ca4c5bc5c8191843880f183297dcc",
+        "Sentinel_38ae6fe2d43c8191a0057b9faba0bb13"
+      ],
+      "acceptance_proposal": "Catalog themes and constituent assets; show them in the demo rather than only reports.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-007",
+      "category": "Scene composition",
+      "requirement": "Per-user object inventory; add objects and save yard/layout.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_aae7ea68912c8191a6e66f1c10f4b094"
+      ],
+      "acceptance_proposal": "Placement persists across reload and isolates accounts; object asset IDs survive version changes.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-008",
+      "category": "Scene composition",
+      "requirement": "One yard initially, restylable; private but view-only shareable without locations.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_38c639732e8081919e8346a48f5872d0",
+        "Sentinel_f831367362d88191a7ce70e826cd3cc9"
+      ],
+      "acceptance_proposal": "Restyling preserves owned items; public payload omits private location and identifying metadata.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-009",
+      "category": "Scene composition",
+      "requirement": "Automatic generated regional scenes with a usable default first.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_f831367362d88191a7ce70e826cd3cc9"
+      ],
+      "acceptance_proposal": "Default works with no location or generator; generation and fallback status visible.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-010",
+      "category": "Scene composition",
+      "requirement": "Allow a yard photo: segment it, remove objects, regenerate as a yard, then place objects back.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_08943600637081918060a1407cd5e604"
+      ],
+      "acceptance_proposal": "Keep original private; editable masks and layers; no identifying photo/location leakage into shared yard.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-011",
+      "category": "Bird canon",
+      "requirement": "Pixel birds should be derived from a picture/reference of the actual species, not generic birds.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_4d5291ec73bc8191ab1bcdf69dfdd95c"
+      ],
+      "acceptance_proposal": "Each sprite links to species identity, references and distinguishing features.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-012",
+      "category": "Bird canon",
+      "requirement": "Generate an initial reusable species canon as species arrive; add variants when needed.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_54a57d38fa70819184be08e6878eb27a"
+      ],
+      "acceptance_proposal": "Avoid regeneration per user; reusable versioned species asset with variant lineage.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-013",
+      "category": "Bird canon",
+      "requirement": "Begin with common bird species; maintain a deeper bird/pet gallery using real resources/data.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_d187e4e90834819193e9f3b9a1ff6b22",
+        "Sentinel_bfc71dca23488191941becc385c66736"
+      ],
+      "acceptance_proposal": "Choose an explicit starter roster; no fixed species count was supplied by the user.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-014",
+      "category": "Bird canon",
+      "requirement": "Full birds that can move around the yard, not only a specific still picture.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_e12b878ee698819195f537fc6b4f9d78"
+      ],
+      "acceptance_proposal": "In-scene authored animation plus locomotion; a translated static picture does not satisfy anatomical motion.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-015",
+      "category": "Bird canon",
+      "requirement": "Correct relative bird scale, stable through poses and animation.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_0c38588bd0dc8191a236acf837f2f1b3"
+      ],
+      "acceptance_proposal": "Document physical dimension basis, world units, species ratios, pivots and posture treatment; do not normalize every bird to equal width.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-016",
+      "category": "Bird canon",
+      "requirement": "Birds look in all directions, including toward things that attract attention.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_c8d81dc326ec819189387f6211ee7a2b"
+      ],
+      "acceptance_proposal": "Separate heading and gaze; direction coverage and transitions explicitly enumerated, unsupported views marked missing.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-017",
+      "category": "Bird behavior",
+      "requirement": "Idle movement, hopping, cleaning/preening and feather twitches.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_c163ccaaa1c48191b743ab29f29e00ca"
+      ],
+      "acceptance_proposal": "Per-species clip manifest, frame timing, loop and transitions; visible playback at runtime scale.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-018",
+      "category": "Bird behavior",
+      "requirement": "Singing, feeding, bathing, sleeping, playing and making nests.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_347a3edd5aa48191af256285f767a18d"
+      ],
+      "acceptance_proposal": "State and clip coverage for each; biological applicability or stylization declared.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-019",
+      "category": "Bird behavior",
+      "requirement": "Eating seeds or bugs.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_787dd8a9c56c8191aaa6e0b07de69805"
+      ],
+      "acceptance_proposal": "Diet-aware food choice and beak/food contacts; seed and insect actions distinct where appropriate.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-020",
+      "category": "Bird behavior",
+      "requirement": "Different ways to feed birds and associated actions.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_3f4ca4c5bc5c8191843880f183297dcc",
+        "Sentinel_38c639732e8081919e8346a48f5872d0"
+      ],
+      "acceptance_proposal": "Feeder/object affordances map to diet/action clips; no unsupported ecological assertions.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-021",
+      "category": "Bird behavior",
+      "requirement": "Randomize initial positions and move based on characteristics.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_aae7ea68912c8191a6e66f1c10f4b094"
+      ],
+      "acceptance_proposal": "Seeded placement and movement; valid surfaces, perches, exclusions and collision bounds.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-022",
+      "category": "Bird behavior",
+      "requirement": "A hawk can fly in, other birds fly away temporarily, and then return.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_aae7ea68912c8191a6e66f1c10f4b094"
+      ],
+      "acceptance_proposal": "Event sequence with arrival, alert, escape, cooldown and return; reduced-motion support.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-023",
+      "category": "Bird behavior",
+      "requirement": "New bird sighted: bird flies in, with a banner or popup.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_aae7ea68912c8191a6e66f1c10f4b094"
+      ],
+      "acceptance_proposal": "Dedupe sightings and announcement events; fly-in, landing and UI confirmation are coordinated.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-024",
+      "category": "Bird behavior",
+      "requirement": "Ontology/characteristics trigger different animations and placements.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_d0a6dcac041481919e892bd47eea6de4"
+      ],
+      "acceptance_proposal": "Typed capability/affordance rules; only compatible clips/surfaces are selected.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-025",
+      "category": "Bird behavior",
+      "requirement": "Personalities grounded in real birds, plus traits, companionship and levels.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_e41101e600188191bfa02b872ecbd4f7",
+        "Sentinel_00af0d5dd07c8191a6912db1c4dbc5b9"
+      ],
+      "acceptance_proposal": "Species tendencies distinguish sourced biology from fictional individual variation and progression ideas.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-026",
+      "category": "Bird behavior",
+      "requirement": "Eventually play species calls randomly or on a timer.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_c163ccaaa1c48191b743ab29f29e00ca"
+      ],
+      "acceptance_proposal": "Licensed recordings, opt-in audio, volume/quiet hours and bounded intervals; no claim all audio is already obtained.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-027",
+      "category": "Sightings and residents",
+      "requirement": "Populate deduplicated finds from Merlin/manual/ESP32 identification; let users name/add birds or collect species, ideally one resident per species but choice allowed.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_347a3edd5aa48191af256285f767a18d",
+        "Sentinel_6a52b03d8d9881919e3ea8dff0221a8b"
+      ],
+      "acceptance_proposal": "Observation, species, resident instance and asset identity are separate; integration APIs/export support must be verified.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-028",
+      "category": "Sightings and residents",
+      "requirement": "Recent visitors disappear unless made permanent; people retain/delete their own records.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_347a3edd5aa48191af256285f767a18d",
+        "Sentinel_8ab9af7ed83c8191903c07cb3b782c61"
+      ],
+      "acceptance_proposal": "Configurable lifetime and explicit promote/remove actions; deletion does not remove shared species canon.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-029",
+      "category": "Plants",
+      "requirement": "Common houseplants and common North American trees/bushes; nursery-style indoor/outdoor variety.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_501d02e0af0c819192ae1398e4a0f8b7"
+      ],
+      "acceptance_proposal": "Catalog plant identities, cultivated/native status and indoor/outdoor suitability; exact species roster unchosen.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-030",
+      "category": "Plants",
+      "requirement": "People may eventually add their own plants.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_059d1ffc5ad481919617a62b52d46e82"
+      ],
+      "acceptance_proposal": "User plant instances/reference photos distinguish from shared canonical plant assets.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-031",
+      "category": "Plants",
+      "requirement": "Seasonal leaves, autumn orange/color change, leaf dropping.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_3f4ca4c5bc5c8191843880f183297dcc",
+        "Sentinel_e693f2d643208191841ffec8e31539e2"
+      ],
+      "acceptance_proposal": "Registered seasonal variants with stable trunk/root and foliage layers; color change and shedding separately represented.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-032",
+      "category": "Plants",
+      "requirement": "Wind/breeze layers animate plants and falling leaves.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_539a30e385748191bb080f5d5efb3943",
+        "Sentinel_99ce36491c5081918e33ee205aef0b4e"
+      ],
+      "acceptance_proposal": "Anchored sway and leaf emission/drift/settling respond to shared wind; not whole-image wobble.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-033",
+      "category": "Plants",
+      "requirement": "Dry plants and grass drying during summer; different states.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_e693f2d643208191841ffec8e31539e2",
+        "Sentinel_539a30e385748191bb080f5d5efb3943"
+      ],
+      "acceptance_proposal": "Moisture/state transitions with recovery; avoid universal winter/summer treatment across species.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-034",
+      "category": "Plants",
+      "requirement": "Season variants for everything where applicable.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_059d1ffc5ad481919617a62b52d46e82"
+      ],
+      "acceptance_proposal": "Per-family applicability matrix avoids demanding nonsensical seasonal states for rigid objects.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-035",
+      "category": "Furniture",
+      "requirement": "Furniture, decorations and object theme packs; real placement in the system.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_fe5c2fa6366c819189a7d8f913a8a3ee",
+        "Sentinel_99ce36491c5081918e33ee205aef0b4e"
+      ],
+      "acceptance_proposal": "Runtime-ready bounds, pivot, occlusion, surfaces and preview thumbnails, not only concept sheets.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-036",
+      "category": "Furniture",
+      "requirement": "Fountain with visible flow; birds disrupt water.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_13ad701a06908191b00a110c68077188"
+      ],
+      "acceptance_proposal": "Spout, basin, rim/occlusion, water level and bird-contact events share one state model.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-037",
+      "category": "Furniture",
+      "requirement": "Rain fills or overflows containers; splashes cause small waves.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_13ad701a06908191b00a110c68077188"
+      ],
+      "acceptance_proposal": "Capacity/inflow/outflow/overflow and splash-to-ripple response; test conservation/bounds.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-038",
+      "category": "Themes",
+      "requirement": "Seasonal and regional packs, themed decorations and holiday states such as Halloween.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_059d1ffc5ad481919617a62b52d46e82",
+        "Sentinel_539a30e385748191bb080f5d5efb3943"
+      ],
+      "acceptance_proposal": "Optional theme overlays and asset-family variants; calendar/region controls, no forced holiday theme.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-039",
+      "category": "Weather",
+      "requirement": "Real water layer and standing/pooling water.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_626201c7b9588191baa434e613ed2cfb",
+        "Sentinel_fe5c2fa6366c819189a7d8f913a8a3ee"
+      ],
+      "acceptance_proposal": "Surface geometry/depth/ripples and pooling behavior; visual and numerical tests.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-040",
+      "category": "Weather",
+      "requirement": "Real droplets, rain, snow and snow accumulation with different colors.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_5b3cfd83e0f081918e931025eeaad794"
+      ],
+      "acceptance_proposal": "Particle/material/rendering states include landing surfaces and accumulation, not just screen-space particles.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-041",
+      "category": "Weather",
+      "requirement": "Make snow/water legitimate rather than improvised visual effects.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_6aef1eefb6c081919b6f8ae5ee60557d"
+      ],
+      "acceptance_proposal": "Declared approximations, units, fixed-step behavior, bounded state, budgets and repeatable tests.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-042",
+      "category": "Weather",
+      "requirement": "Clouds, sun, sunrise, sunset and differing lighting effects.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_103c7d0e8b908191a7780fc1d32c7836",
+        "Sentinel_5b3cfd83e0f081918e931025eeaad794",
+        "Sentinel_3f4ca4c5bc5c8191843880f183297dcc"
+      ],
+      "acceptance_proposal": "Layered sky and continuous time/light state, daylight palette coherence, preview controls.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-043",
+      "category": "Weather",
+      "requirement": "Different weather systems, wind and weather/events integrated in the actual yard.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_ab948ddb6bb08191bcbe95fc16181513",
+        "Sentinel_fe5c2fa6366c819189a7d8f913a8a3ee"
+      ],
+      "acceptance_proposal": "Shared weather drives sky, vegetation, surfaces and bird behavior through explicit contracts.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-044",
+      "category": "Weather",
+      "requirement": "Weather based on the day and local weather.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_1de8348be7a08191a4f5479b81fe8f73",
+        "Sentinel_661f481fd5908191ae9fc738d0baa916"
+      ],
+      "acceptance_proposal": "Provider observations timestamped, units normalized, stale/error fallback and manual preview.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-045",
+      "category": "Weather",
+      "requirement": "Use broad region/city, potentially IP suggestion; people can set city/location; avoid traceability.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_9f6dbf6d81b48191bf8fc99b232b894b",
+        "Sentinel_f831367362d88191a7ce70e826cd3cc9"
+      ],
+      "acceptance_proposal": "Explicit coarse choice and correctable suggestion; raw IP is identifying and must not be described as anonymous.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-046",
+      "category": "Pipeline",
+      "requirement": "DRY, hierarchical, repeatable framework for engine, storage, animation and asset production.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_2eb3b132d434819182f398e049650ca8",
+        "Sentinel_e3a1970407e88191a82af1d57b406504",
+        "Sentinel_29027cadf28881918d861e688b72d1c5"
+      ],
+      "acceptance_proposal": "Reusable typed asset families, adapters and schema migrations; no per-pack custom loader proliferation.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-047",
+      "category": "Pipeline",
+      "requirement": "Strong typing/contracts end to end, lint/static checks and actual behavior/E2E testing.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_0d3154d8def08191908b934f471abd9b",
+        "Sentinel_cddae72ac01c81918009f66ff49c78a6"
+      ],
+      "acceptance_proposal": "Schema validation, boundary tests, runtime playback tests and visual receipts on versioned assets.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-048",
+      "category": "Pipeline",
+      "requirement": "Research current sprite/animation/ML pipelines, models and video LoRAs; prefer free/open approaches.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_ddc81fa3491c8191b279c0e85e1bdf0b",
+        "Sentinel_7952a633a8ec81919f68b4720289d70c",
+        "Sentinel_03682a89b38481918eb59063d58ba716"
+      ],
+      "acceptance_proposal": "Comparative experiments preserve source/date/license/cost and artifact outcomes; researched is not deployed.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-049",
+      "category": "Pipeline",
+      "requirement": "Transparency is required.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_7952a633a8ec81919f68b4720289d70c"
+      ],
+      "acceptance_proposal": "Actual alpha channel; composites on dark/light backgrounds; no baked checkerboard.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-050",
+      "category": "Pipeline",
+      "requirement": "Find suitable free/open-use species references when none supplied, including Wikimedia.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_6e0006e5a0d08191b0e869301848344f",
+        "Sentinel_c163ccaaa1c48191b743ab29f29e00ca"
+      ],
+      "acceptance_proposal": "Per-file author/source/license/attribution/derivative obligations; a site name is not a license.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-051",
+      "category": "Pipeline",
+      "requirement": "Study segmentation tools and reference-based generation; full animated birds remain essential.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_e12b878ee698819195f537fc6b4f9d78"
+      ],
+      "acceptance_proposal": "Segmented cutout quality and generated motion assessed independently; tool choice still experimental.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-052",
+      "category": "Pipeline",
+      "requirement": "Explicit list of animations and frames, generation prompts and pipeline.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_1b5c5a591d4c8191b4071ef82e5c9e00"
+      ],
+      "acceptance_proposal": "Per-family action/direction matrix with generated frame counts and missing-state queue.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-053",
+      "category": "Pipeline",
+      "requirement": "Save the exact OpenAI generation prompts and images.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_b297ae02524881919b4cc8e85ca68c70"
+      ],
+      "acceptance_proposal": "Persist originals, prompts, references, edits, versions and output checksums; unknown model/settings remain null.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-054",
+      "category": "Pipeline",
+      "requirement": "Deeply record the pipeline used for the bird/avatar for ChirpNeighbors.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_e857975e3d0c81918e1cb7e0354453e3"
+      ],
+      "acceptance_proposal": "Reproducible process record and actual tool receipts; do not promise identical stochastic regeneration.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-055",
+      "category": "Pipeline",
+      "requirement": "Produce real art assets for the application rather than running Blender for its own sake.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_99ce36491c5081918e33ee205aef0b4e"
+      ],
+      "acceptance_proposal": "Deliver loadable assets plus gameplay metadata; no unrequested Blender rendering workstream.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-056",
+      "category": "Pipeline",
+      "requirement": "Review workflows that work, continue making more assets, and verify animations rather than only generation.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_6f44fc54a7e48191a34762acdd462013",
+        "Sentinel_ed67e067f9b88191b6d93328db22dcc5"
+      ],
+      "acceptance_proposal": "Every completed batch has preview, checks, coverage delta and next concrete queue item.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-057",
+      "category": "Pipeline",
+      "requirement": "Inventory every asset request and animation requirement by going back through the conversation.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_feebfbb7a6f88191823314958774c8fa"
+      ],
+      "acceptance_proposal": "Source-linked deduplicated requirements register reconciled to asset/clip/runtime evidence.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-058",
+      "category": "Delivery",
+      "requirement": "Stage imperfect candidates in the page/demo now, including backgrounds and layers.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_521c744f15308191b0348fc37881ea4a"
+      ],
+      "acceptance_proposal": "Unreviewed label and isolated staging acceptable; technical decode/security failures still block load.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-059",
+      "category": "Delivery",
+      "requirement": "Make Alice’s/demo yard visibly use the new birds, backgrounds, animations, weather and water.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_278475c44b7881919ec531d1b359466b",
+        "Sentinel_e113d66746c881919d76755f865617a6"
+      ],
+      "acceptance_proposal": "Verify exact served URL and asset versions, screenshot and interaction playback after fresh load.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-060",
+      "category": "Delivery",
+      "requirement": "UI/DX pass: see what is happening and click controls reliably.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_f676b77299e88191bd13e117489928a3"
+      ],
+      "acceptance_proposal": "Readable labels, unclipped controls, focus/hit targets, responsive layout and discoverable scene/animation controls.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-061",
+      "category": "Delivery",
+      "requirement": "Move lingering computer-use cursor away; desktop QA itself remains allowed.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_f053c9c937f08191ad4b4f4c48d25bf5",
+        "Sentinel_921d3549e95c8191af7117e47e7284dd"
+      ],
+      "acceptance_proposal": "Respect active user input; finish/release QA controls and leave pointer unobtrusive.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-062",
+      "category": "Delivery",
+      "requirement": "Keep asset work continuing with fanout, tracked tasks and a visible separate cloud/system chat.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_2c8adc8dfae481919a3576d94d6b3bf7",
+        "Sentinel_210ce4d4f59081918060eceec7c03cf2",
+        "Sentinel_85c7cd33c5e881919839392e4e7121b5"
+      ],
+      "acceptance_proposal": "User-visible task URL, actual active/idle state, bounded batch queue and evidence; no claim invisible work is running without status.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-063",
+      "category": "Delivery",
+      "requirement": "More than a tiny handful overall; batches are acceptable but production must continue.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_757bb6908c348191b769997c63a5a0ce",
+        "Sentinel_85c7cd33c5e881919839392e4e7121b5"
+      ],
+      "acceptance_proposal": "Separate total catalog backlog from generation batch size; neither quantity nor full catalog roster was specified.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-064",
+      "category": "Delivery",
+      "requirement": "Track all ideas, architecture, behavioral tests and consolidated tasks; commit/push checkpoints.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_ff2885c8e5c48191885b7f12b235e512",
+        "Sentinel_95df0c036a4c81918a5439cbf9b6a638",
+        "Sentinel_7660ad86ae748191b56bb1db84c2f788"
+      ],
+      "acceptance_proposal": "Single canonical ledger with acceptance evidence; publication subject to current pending approval and privacy scope.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-065",
+      "category": "Delivery",
+      "requirement": "Preserve existing sidebar and product layout while improving actual artwork/animation/backgrounds.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_99cc57fdf870819184a614db42ddf067"
+      ],
+      "acceptance_proposal": "No unsolicited generic layout replacement; UI repair is scoped to usability and approved design.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-066",
+      "category": "Research privacy",
+      "requirement": "Keep peer/competitor analysis out of product repositories; deliver deep research privately.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_f2a7decceac881919dd3f3c2cd382606",
+        "Sentinel_8efadcfebc4881918f4a62176171f900"
+      ],
+      "acceptance_proposal": "Reference appendix remains private; repo-bound implementation docs use neutral requirements.",
+      "status": "requested; completion not established by this inventory"
+    },
+    {
+      "id": "ART-067",
+      "category": "Product principles",
+      "requirement": "Cute, user-friendly and preferably open source; avoid in-app monetization shenanigans.",
+      "basis": "explicit_user_request",
+      "source_message_ids": [
+        "Sentinel_a31a0846d7a88191812c1934c963dca1"
+      ],
+      "acceptance_proposal": "Asset architecture does not assume paywalls; later tentative cosmetic/credit ideas are decisions, not approved pricing.",
+      "status": "requested; completion not established by this inventory"
+    }
+  ],
+  "status_definitions": {
+    "requested": "User asked for it; no production evidence implied.",
+    "generated": "Original output exists with identifier/hash; no quality/integration implied.",
+    "static": "Still frame or pose; does not imply animation.",
+    "animated": "Authored sequence or declared procedural motion with timing exists.",
+    "reviewed": "Named visual/technical review with explicit outcome exists.",
+    "staged": "Loadable in experimental environment at a verified route.",
+    "integrated": "Used by intended user-facing flow, e.g. Alice’s yard, rather than isolated preview.",
+    "tested": "Specific behavior checked with timestamp/version/result; no blanket product acceptance."
+  },
+  "assets": [
+    {
+      "asset_id": "bird.blue_jay.canon",
+      "label": "Detailed blue jay",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": null,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "Bundle also contains shrub and cedar feeder. Canon quality acceptance unknown.",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "bird.blue_jay.blink",
+      "label": "Blue-jay blink candidate",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "clip",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": false,
+        "animated": true,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "Four separate PNG frames reported: open/half/closed/reopen; frame durations 2200/70/100/70 ms. APNG is preview only. Anatomical consistency not final.",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "bird.blue_jay.attention",
+      "label": "Blue-jay attention poses",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "pose_set",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": false,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "Neutral plus up/down/viewer-three-quarter/back-glance. Right-facing body; not all directions, not smooth transition animation.",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "bird.northern_cardinal.canon",
+      "label": "Adult male northern cardinal",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "No authored motion evidence. Relative scale provisional.",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "bird.mourning_dove.canon",
+      "label": "Mourning dove",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "No authored motion evidence. Relative scale provisional.",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "bird.robin.legacy_candidate",
+      "label": "Earlier robin",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "Earlier quality-limited candidate; must not be counted as current approved canon.",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "object.cedar_feeder",
+      "label": "Cedar feeder",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "plant.flowering_shrub",
+      "label": "Flowering shrub",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "object.bench",
+      "label": "Garden bench",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "plant.grass_planter.healthy",
+      "label": "Healthy grass planter",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "plant.grass_planter.dry",
+      "label": "Dry grass planter",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "Variant registration approximate; grass species unidentified.",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "object.fountain.empty",
+      "label": "Empty stone fountain/spout",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "Fountain simulation reported separately. Source PNG itself is static.",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "decor.pumpkin",
+      "label": "Pumpkin",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "tree.temperate.summer",
+      "label": "Temperate summer tree master",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "tree.temperate.wood",
+      "label": "Bare trunk/wood layer",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "tree.temperate.foliage_summer",
+      "label": "Summer foliage",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "tree.temperate.foliage_autumn",
+      "label": "Autumn foliage",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "scene.temperate.backdrop",
+      "label": "Combined garden backdrop",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "Contains lawn/grass; not a complete cleanly separated scene-layer set.",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "weather.cloud",
+      "label": "Cloud source",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "plant.autumn_leaf",
+      "label": "Autumn leaf source",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "object.bath.filled",
+      "label": "Earlier filled bath",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "object.bath.empty",
+      "label": "Earlier empty bath",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "object.feeder.legacy",
+      "label": "Earlier feeder",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "tree.legacy.summer",
+      "label": "Earlier summer tree",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "tree.legacy.autumn",
+      "label": "Earlier autumn tree",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "static",
+      "evidence_level": "prior_worker_handoff_not_reverified",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": true,
+        "animated": false,
+        "reviewed": null,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "notes": "",
+      "source_license": null,
+      "physical_dimensions": null,
+      "world_scale": null,
+      "pivot": null,
+      "anchors": null
+    },
+    {
+      "asset_id": "bird.blue_jay.hop",
+      "label": "blue jay hop",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "clip",
+      "evidence_level": "parent_delivery_and_visual_inspection_relay",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": false,
+        "animated": true,
+        "reviewed": true,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "review_scope": "Candidate contact sheet inspected; not production approval",
+      "frames": 6,
+      "source_frame_dimensions": [
+        704,
+        640
+      ],
+      "world_scale": null,
+      "anchors": null,
+      "notes": "Mac intake pending; uniform <=512 runtime derivative needed."
+    },
+    {
+      "asset_id": "bird.blue_jay.drinking",
+      "label": "blue jay drinking",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "clip",
+      "evidence_level": "parent_delivery_and_visual_inspection_relay",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": false,
+        "animated": true,
+        "reviewed": true,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "review_scope": "Candidate contact sheet inspected; not production approval",
+      "frames": 6,
+      "source_frame_dimensions": [
+        704,
+        640
+      ],
+      "world_scale": null,
+      "anchors": null,
+      "notes": "Mac intake pending; uniform <=512 runtime derivative needed."
+    },
+    {
+      "asset_id": "bird.northern_cardinal.seed_feeding",
+      "label": "northern cardinal seed_feeding",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "clip",
+      "evidence_level": "parent_delivery_and_visual_inspection_relay",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": false,
+        "animated": true,
+        "reviewed": true,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "review_scope": "Candidate contact sheet inspected; not production approval",
+      "frames": 6,
+      "source_frame_dimensions": [
+        600,
+        540
+      ],
+      "world_scale": null,
+      "anchors": null,
+      "notes": "Mac intake pending; uniform <=512 runtime derivative needed."
+    },
+    {
+      "asset_id": "bird.northern_cardinal.preening",
+      "label": "northern cardinal preening",
+      "library_file_id": "[private-source-reference-retained-locally]",
+      "kind": "clip",
+      "evidence_level": "parent_delivery_and_visual_inspection_relay",
+      "states": {
+        "requested": true,
+        "generated": true,
+        "static": false,
+        "animated": true,
+        "reviewed": true,
+        "staged": null,
+        "integrated": null,
+        "tested": null
+      },
+      "review_scope": "Candidate contact sheet inspected; not production approval",
+      "frames": 6,
+      "source_frame_dimensions": [
+        600,
+        540
+      ],
+      "world_scale": null,
+      "anchors": null,
+      "notes": "Mac intake pending; uniform <=512 runtime derivative needed."
+    }
+  ],
+  "bird_clip_matrix": [
+    {
+      "species": "blue_jay",
+      "action": "idle",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "blink",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "generated_candidate_clip",
+      "evidence": "[private-source-reference-retained-locally]",
+      "frame_count": 4,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "look_up",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "generated_static_pose_only",
+      "evidence": "[private-source-reference-retained-locally]",
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "look_down",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "generated_static_pose_only",
+      "evidence": "[private-source-reference-retained-locally]",
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "look_toward_viewer",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "generated_static_pose_only",
+      "evidence": "[private-source-reference-retained-locally]",
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "look_back",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "generated_static_pose_only",
+      "evidence": "[private-source-reference-retained-locally]",
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "look_other_directions",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "hop",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "packaged_reviewed_candidate_clip",
+      "evidence": "[private-source-reference-retained-locally]",
+      "frame_count": 6,
+      "runtime_playback_verified": null,
+      "latest_reported_candidate": {
+        "state": "packaged_reviewed_candidate_clip",
+        "timestamp": "2026-10-17T13:53:00Z",
+        "packaged": true,
+        "review": "Parent inspected contact sheets and actual body poses",
+        "production_approved": false,
+        "staged": null,
+        "integrated": null,
+        "evidence": "[private-source-reference-retained-locally]"
+      }
+    },
+    {
+      "species": "blue_jay",
+      "action": "walk_or_ground_locomotion",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "takeoff",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "flight",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "landing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "seed_feeding",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "insect_feeding",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "drinking",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "packaged_reviewed_candidate_clip",
+      "evidence": "[private-source-reference-retained-locally]",
+      "frame_count": 6,
+      "runtime_playback_verified": null,
+      "latest_reported_candidate": {
+        "state": "packaged_reviewed_candidate_clip",
+        "timestamp": "2026-10-17T13:53:00Z",
+        "packaged": true,
+        "review": "Parent inspected contact sheets and actual body poses",
+        "production_approved": false,
+        "staged": null,
+        "integrated": null,
+        "evidence": "[private-source-reference-retained-locally]"
+      }
+    },
+    {
+      "species": "blue_jay",
+      "action": "bathing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "preening",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "feather_twitch",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "singing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "sleeping",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "playing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "nest_building",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "alert_escape",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "blue_jay",
+      "action": "return_arrival",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "idle",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "blink",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "look_up",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "look_down",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "look_toward_viewer",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "look_back",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "look_other_directions",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "hop",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "walk_or_ground_locomotion",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "takeoff",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "flight",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "landing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "seed_feeding",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "packaged_reviewed_candidate_clip",
+      "evidence": "[private-source-reference-retained-locally]",
+      "frame_count": 6,
+      "runtime_playback_verified": null,
+      "latest_reported_candidate": {
+        "state": "packaged_reviewed_candidate_clip",
+        "timestamp": "2026-10-17T13:53:00Z",
+        "packaged": true,
+        "review": "Parent inspected contact sheets and actual body poses",
+        "production_approved": false,
+        "staged": null,
+        "integrated": null,
+        "evidence": "[private-source-reference-retained-locally]"
+      }
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "insect_feeding",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "drinking",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "bathing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "preening",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "packaged_reviewed_candidate_clip",
+      "evidence": "[private-source-reference-retained-locally]",
+      "frame_count": 6,
+      "runtime_playback_verified": null,
+      "latest_reported_candidate": {
+        "state": "packaged_reviewed_candidate_clip",
+        "timestamp": "2026-10-17T13:53:00Z",
+        "packaged": true,
+        "review": "Parent inspected contact sheets and actual body poses",
+        "production_approved": false,
+        "staged": null,
+        "integrated": null,
+        "evidence": "[private-source-reference-retained-locally]"
+      }
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "feather_twitch",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "singing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "sleeping",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "playing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "nest_building",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "alert_escape",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "northern_cardinal",
+      "action": "return_arrival",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "idle",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "blink",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "look_up",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "look_down",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "look_toward_viewer",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "look_back",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "look_other_directions",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "hop",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "walk_or_ground_locomotion",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "takeoff",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "flight",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "landing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "seed_feeding",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "insect_feeding",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "drinking",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "bathing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "preening",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "feather_twitch",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "singing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "sleeping",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "playing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "nest_building",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "alert_escape",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "mourning_dove",
+      "action": "return_arrival",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "idle",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "blink",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "look_up",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "look_down",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "look_toward_viewer",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "look_back",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "look_other_directions",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "hop",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "walk_or_ground_locomotion",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "takeoff",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "flight",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "landing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "seed_feeding",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "insect_feeding",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "drinking",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "bathing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "preening",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "feather_twitch",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "singing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "sleeping",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "playing",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "nest_building",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "alert_escape",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    },
+    {
+      "species": "american_robin",
+      "action": "return_arrival",
+      "requested_at_product_level": true,
+      "biological_applicability": "needs_species_review",
+      "coverage": "not_evidenced",
+      "evidence": null,
+      "frame_count": null,
+      "runtime_playback_verified": null
+    }
+  ],
+  "recommended_inventory_contract": {
+    "asset_identity": [
+      "asset_id",
+      "family_id",
+      "variant_id",
+      "species_or_plant_taxon",
+      "semantic_role",
+      "schema_version",
+      "content_version",
+      "parent_asset_ids",
+      "supersedes"
+    ],
+    "source_and_rights": [
+      "reference_id",
+      "reference_url",
+      "retrieved_at",
+      "creator",
+      "license_id",
+      "license_url",
+      "attribution_text",
+      "modification_notice",
+      "share_alike_obligations",
+      "commercial_use_status",
+      "original_file_hash"
+    ],
+    "generation": [
+      "job_id",
+      "visible_task_url",
+      "prompt_exact",
+      "negative_prompt_if_supported",
+      "reference_asset_ids",
+      "tool",
+      "model_if_exposed",
+      "model_revision_if_exposed",
+      "settings_if_exposed",
+      "seed_if_exposed",
+      "generation_timestamp",
+      "original_output_paths",
+      "original_hashes",
+      "edit_history",
+      "failed_attempts"
+    ],
+    "geometry": [
+      "source_dimensions_px",
+      "frame_canvas_dimensions_px",
+      "alpha_bounds",
+      "trim_offset",
+      "world_units",
+      "physical_measurement_basis",
+      "species_size_range",
+      "chosen_instance_size",
+      "pixels_per_world_unit",
+      "root_pivot",
+      "feet_contact_points",
+      "beak_anchor",
+      "perches",
+      "collision_shapes",
+      "occluders",
+      "layer_depth",
+      "material_surface"
+    ],
+    "clips": [
+      "clip_id",
+      "action",
+      "body_heading",
+      "gaze_direction",
+      "frames",
+      "frame_durations_ms",
+      "loop_mode",
+      "start_end_pose",
+      "transition_rules",
+      "interruptibility",
+      "contact_events",
+      "sound_events",
+      "reduced_motion_alternative",
+      "visual_review_receipt"
+    ],
+    "interaction": [
+      "affordances",
+      "diet_compatibility",
+      "plant_habitat",
+      "perch_capacity",
+      "water_capacity",
+      "inflow_outflow",
+      "wetness",
+      "snow_attachment_surfaces",
+      "wind_response",
+      "leaf_emitters",
+      "holiday_theme",
+      "season_applicability"
+    ],
+    "runtime": [
+      "package_manifest",
+      "loader_profile",
+      "derived_atlas",
+      "atlas_hash",
+      "shader_or_procedural_effect",
+      "scene_preset_ids",
+      "application_route",
+      "served_asset_hash",
+      "build_commit",
+      "feature_flag",
+      "fallback",
+      "saved_layout_migration"
+    ],
+    "evidence": [
+      "requirement_ids",
+      "source_message_ids",
+      "state",
+      "owner",
+      "last_verified_at",
+      "test_command",
+      "test_result",
+      "screenshot_or_playback_receipt",
+      "reviewer",
+      "known_defects",
+      "next_action"
+    ]
+  },
+  "unknowns": [
+    "Complete starter species roster and count",
+    "Full region/theme/plant roster",
+    "Approved biological calibration/scale sources",
+    "Exact target frame counts, directions and animation FPS per clip",
+    "Which assets Alice’s current served yard actually loads",
+    "Latest post-handoff code/runtime status",
+    "Final art-direction approval and performance budgets",
+    "Unseen attachment requirements and prior assistant promises unavailable to this worker"
+  ],
+  "latest_report": {
+    "reported_at": "2026-10-17T13:53:00Z",
+    "source": "Parent relay of 13:50 production deliveries and parent contact-sheet inspection",
+    "visible_production_thread_id": "01a14a1c-7f08-72bb-b614-4ae3ea673010",
+    "outputs": [
+      {
+        "species": "blue_jay",
+        "actions": [
+          "hop",
+          "drinking"
+        ],
+        "frames": 12,
+        "frames_per_clip": 6,
+        "bundle": "[private-source-reference-retained-locally]",
+        "previews": [
+          "[private-source-reference-retained-locally]",
+          "[private-source-reference-retained-locally]"
+        ],
+        "source_frame_dimensions": [
+          704,
+          640
+        ]
+      },
+      {
+        "species": "northern_cardinal",
+        "actions": [
+          "seed_feeding",
+          "preening"
+        ],
+        "frames": 12,
+        "frames_per_clip": 6,
+        "bundle": "[private-source-reference-retained-locally]",
+        "previews": [
+          "[private-source-reference-retained-locally]",
+          "[private-source-reference-retained-locally]"
+        ],
+        "source_frame_dimensions": [
+          600,
+          540
+        ]
+      }
+    ],
+    "state": "packaged and parent-reviewed animation candidates; handed to Mac intake; staging/integration not verified",
+    "next_generation_reported": [
+      "blue_jay flight/takeoff/landing",
+      "northern_cardinal hop/sleep"
+    ],
+    "runtime_derivative_needed": "Uniform fit to frame dimensions <=512 pixels; preserve anchors/scale."
+  }
+}
