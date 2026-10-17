@@ -49,6 +49,19 @@ for b in overlay['batches']:
      if ci.width!=ci.height or ci.width>512 or si.width!=si.height:continue
      resized=si.resize(ci.size,Image.Resampling.NEAREST)
      if resized.tobytes()==ci.tobytes():add(str(parent/candidate),sid,path,source,f.get('pose'),'exact full-source nearest resize matches declared export RGBA')
+# Explicit source-to-render action maps include declared registered derivatives without new IDs.
+for batch in overlay['batches']:
+ if not batch.get('frameToActionMap'):continue
+ path=batch['frameToActionMap'];mp=read(path);parent=Path(path).parent;primary=primaries[batch['primaryManifest']];known={f['sourceFrameId']:f for f in primary['frames']+primary.get('reusedFrames',[])}
+ variants=mp.get('variants',[mp])
+ for variant in variants:
+  for frame in variant.get('frames',[]):
+   sid=frame.get('sourceFrameId');export=frame.get('individualPNG',frame.get('outputPNG'))
+   if not sid or not export:continue
+   assert sid in known,(path,sid)
+   source=str(Path(batch['primaryManifest']).parent/known[sid]['sourcePNG']);ep=safe(str(parent/export));expected=frame.get('individualPNGsha256',frame.get('outputPNGsha256'))
+   if expected:assert sha(ep.read_bytes())==expected,(path,export)
+   add(str(parent/export),sid,path,source,frame.get('renderId',frame.get('outputFrameId')),'explicit reviewed source-to-render mapping; registered derivative is not a new drawing')
 # Manifest source.sha256 is the exact atlas file hash. Resolve actual files by that hash.
 for p in sorted(root.rglob('*.png')):pngsByHash[sha(p.read_bytes())].append(str(p.relative_to(root)))
 packages={}
@@ -156,11 +169,11 @@ for b in overlay['batches']:
    ids=list(dict.fromkeys(s['sourceFrameId'] for s in seq));assign(rows['locomotion'],ids,seq,[b['primaryManifest'],motionPath,b['review']]);rows['locomotion'].update(state='provisional-drawn-one-shot-hop-study-contact-unbound',provisionalUsefulSourceForThisSemanticSlot=True,batchNewDrawings=len(newIDs),newSourceFrameIds=newIDs,reusedSourceFrameIds=[i for i in ids if i not in newIDs],motionClipId=motion.get('clipId',motion.get('action')),tickRate=motion['tickRate'],durationTicks=motion['totalTicks'],loop=False,packetBindingReady=False,remainingPhasesOrReview=[b['scope'],'Canonical Mac admission, actor binding and actual-yard verification unknown here.'])
    assert sum(s['durationTicks'] for s in seq)==motion['totalTicks']
   else:
-   man=render_manifest(b,primary,parent);pkg=package(man);c=clip(pkg);first=c['orderedSourceFrameSequence'][0];isStudy=sid=='nuttall_s_woodpecker';hasNewNeutral=any(any(t in f.get('pose','').lower() for t in ['neutral','awake','open-eye']) and not any(t in f.get('pose','').lower() for t in ['closed','blink']) for f in new)
+   man=render_manifest(b,primary,parent);pkg=package(man);c=clip(pkg,b.get('renderClipId','idle'));first=c['orderedSourceFrameSequence'][0];isStudy=sid=='nuttall_s_woodpecker';hasNewNeutral=any(any(t in f.get('pose','').lower() for t in ['neutral','awake','open-eye']) and not any(t in f.get('pose','').lower() for t in ['closed','blink']) for f in new)
    held=b.get('newSourceHeld') is True or primary.get('newSourceHeld') is True or b.get('sourceHeld') is True or primary.get('sourceHeld') is True or('usefulSourceSlotsCompleted' in b and b['usefulSourceSlotsCompleted']==[])
    affected=['blink'] if held else ['neutral','look'] if isStudy else ['neutral','blink'] if hasNewNeutral else ['blink']
    for action in affected:
-    row=rows[action];row['baselineState']=row['state'];seq=[first] if action=='neutral' else c['orderedSourceFrameSequence'];assign(row,[s['sourceFrameId'] for s in seq],seq,[b['primaryManifest'],man,b['review']],pkg,c);row['remainingPhasesOrReview']=[b['scope'],'Canonical Mac admission, actor binding and actual-yard verification unknown here.'];row['newSourceFrameIds']=[i for i in row['sourceFrameIds'] if i in newIDs];row['reusedSourceFrameIds']=[i for i in row['sourceFrameIds'] if i not in newIDs]
+    row=rows[action];row['baselineState']=row['state'];seq=[first] if action=='neutral' else c['orderedSourceFrameSequence'];assign(row,[s['sourceFrameId'] for s in seq],seq,[b['primaryManifest'],man,b['review']],pkg,c);row['selectedClipId']=c['id'];row['remainingPhasesOrReview']=[b['scope'],'Canonical Mac admission, actor binding and actual-yard verification unknown here.'];row['newSourceFrameIds']=[i for i in row['sourceFrameIds'] if i in newIDs];row['reusedSourceFrameIds']=[i for i in row['sourceFrameIds'] if i not in newIDs]
     if held:
      row.update(state='new-drawn-blink-held-source-study',provisionalUsefulSourceForThisSemanticSlot=False,newSourceHeld=True,sourceHeld=True)
      for rb in row['renderBindings']:rb.update(held=True,useAsActiveSource=False)
@@ -183,7 +196,7 @@ for bird in baseline['species']:
    if man:
     lp=package(man);lc=clip(lp);seq=semantic_sequence(lc,'look',row['sourceFrameIds']);row['orderedSourceFrameSequence']=seq;row['renderBindings']=[binding(lp,lc)]
   if row['slot']=='blink' and row['state']=='provisional-drawn-blink' :
-   seq=semantic_sequence(c,'blink',row['sourceFrameIds']);row['orderedSourceFrameSequence']=seq;row['renderBindings']=[binding(pkg,c)]
+   bc=clip(pkg,row.get('selectedClipId','idle'));seq=semantic_sequence(bc,'blink',row['sourceFrameIds']);row['orderedSourceFrameSequence']=seq;row['renderBindings']=[binding(pkg,bc)]
   if row['slot'] not in ['neutral','look','blink'] and not row.get('renderBindings'):
    bindings=[]
    for man in row.get('evidencePaths',[]):
@@ -198,7 +211,11 @@ for bird in baseline['species']:
  # Check every referenced source/evidence path resolves within canonical source root.
  for row in bird['slots']:
   for p in row.get('evidencePaths',[]):safe(p)
-slots=[s for b in baseline['species'] for s in b['slots']];idle=Counter(s['slot'] for s in slots if s['provisionalUsefulSourceForThisSemanticSlot'] and s['slot'] in ['neutral','look','blink']);baseline['kind']='Current source-only slot overlay with verified atlas/source sequence projections';baseline['currentOverlay']=release+'/intake-overlay.json';baseline['projectionAsOfUTC']=datetime.datetime.now(datetime.timezone.utc).isoformat();baseline['preparedPackages']=packages;baseline['currentCounts']={'registeredPrimaryDrawingIDs':overlay['registeredDrawings'],'registeredNativeOriginals':overlay['registeredOriginals'],'newNativeCalls':overlay['newNativeCalls'],'newDrawings':overlay['newDrawings'],'semanticQuestions':len(slots),'usefulProvisionalIdleSemanticUses':sum(idle.values()),'usefulIdleUsesByAction':dict(idle),'reviewedOneShotHopStudies':sum(s['state']=='provisional-drawn-one-shot-hop-study-contact-unbound' for s in slots),'sourceAcceptedFullLocomotionSlots':0,'appBindingsVerifiedHere':0,'appBindingCurrentState':'UNKNOWN','states':dict(Counter(s['state'] for s in slots))}
+slots=[s for b in baseline['species'] for s in b['slots']]
+for row in slots:
+ if row['slot']=='blink' and row['state']=='provisional-drawn-blink':
+  seq=row.get('orderedSourceFrameSequence',[]);assert len({x['sourceFrameId'] for x in seq})>=2 and seq[0]['sourceFrameId']==seq[-1]['sourceFrameId'],('blink schedule missing closure/return',row['speciesId'])
+idle=Counter(s['slot'] for s in slots if s['provisionalUsefulSourceForThisSemanticSlot'] and s['slot'] in ['neutral','look','blink']);baseline['kind']='Current source-only slot overlay with verified atlas/source sequence projections';baseline['currentOverlay']=release+'/intake-overlay.json';baseline['projectionAsOfUTC']=datetime.datetime.now(datetime.timezone.utc).isoformat();baseline['preparedPackages']=packages;baseline['currentCounts']={'registeredPrimaryDrawingIDs':overlay['registeredDrawings'],'registeredNativeOriginals':overlay['registeredOriginals'],'newNativeCalls':overlay['newNativeCalls'],'newDrawings':overlay['newDrawings'],'semanticQuestions':len(slots),'usefulProvisionalIdleSemanticUses':sum(idle.values()),'usefulIdleUsesByAction':dict(idle),'reviewedOneShotHopStudies':sum(s['state']=='provisional-drawn-one-shot-hop-study-contact-unbound' for s in slots),'sourceAcceptedFullLocomotionSlots':0,'appBindingsVerifiedHere':0,'appBindingCurrentState':'UNKNOWN','states':dict(Counter(s['state'] for s in slots))}
 # Report actual byte-pair problems in the existing projection, independent of proposed changes.
 for old in current['species']:
  man=old['primaryManifest'];p=safe(man);j=read(man);a=safe(old['primaryAtlas']);actual=sha(a.read_bytes());expected=j['source']['sha256'];pkg=package(man)

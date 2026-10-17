@@ -1,0 +1,70 @@
+{
+  "batchId": "sd20-california-scrub-jay-blink-v1",
+  "nativeCalls": 1,
+  "original": "original.png",
+  "originalSHA256": "ae90a2ed3b319b299ccb5c62413504cc0491ea47121b0fec8400017679f9cda0",
+  "prompt": "prompt.txt",
+  "promptSHA256": "3abf300300bb69573856f7ab35f25ee28bfd36bacf531bc01465601d0748de83",
+  "frames": [
+    {
+      "sourceFrameId": "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82",
+      "sourcePNG": "closed-native.png",
+      "sourcePNGsha256": "ae90a2ed3b319b299ccb5c62413504cc0491ea47121b0fec8400017679f9cda0",
+      "speciesId": "california_scrub_jay",
+      "pose": "closed-eye blink",
+      "registration": {
+        "nativeCanvas": [
+          1254,
+          1254
+        ],
+        "pixelRegistration": "none; native source PNG retained byte-identical",
+        "wholeCallCanvasDensityConversion": {
+          "requestedCanvas": [
+            1024,
+            1024
+          ],
+          "actualNativeCanvas": [
+            1254,
+            1254
+          ],
+          "nativeToReferenceCanvasRatio": 0.8165869218500797,
+          "nativeToOutputRatio": 0.15311004784688995
+        },
+        "perPoseFit": false,
+        "paintOrWarp": false,
+        "alphaErasure": false
+      },
+      "outputPNG": "closed192.png",
+      "outputPNGsha256": "8aac56f0b4ac8e08e735d1a818e7873192c00441e6c2c1ac043a77e71882bd6d"
+    }
+  ],
+  "reusedFrames": [
+    {
+      "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+      "sourcePNG": "reused-awake-source1024.png",
+      "sourcePNGsha256": "d67072fd9da8c8600d4eec206307a2c624d2249f07fc1631beca5d933ba863b7",
+      "speciesId": "california_scrub_jay",
+      "pose": "existing awake neutral unchanged",
+      "outputPNG": "reused-awake192.png",
+      "outputPNGsha256": "521a01751896947095e5ad1fc36eea9cdb4ca34c7b3155025fe987b718d20f3d",
+      "newDrawing": false
+    }
+  ],
+  "outputMetadata": [
+    "texture-review-manifest.json",
+    "static-review-manifest.json",
+    "scale-contact-measurements.json",
+    "behavior-handoff.json",
+    "verification.json",
+    "browser-verification.json",
+    "independent-review.json",
+    "frame-to-action-map.json",
+    "review-target-hashes.json"
+  ],
+  "sourceStatus": "stable-source-awaiting-independent-compatibility-review",
+  "notes": [
+    "Exactly ONE new closed-eye drawing; existing awake reused unchanged. No new neutral, crop, rescale or trajectory counted as another drawing.",
+    "Canvas conversion is whole-native-call density normalization1254 to reference1024 coordinates/output192, never perpose silhouette fitting.",
+    "If normal-size identity/contact compatibility fails, retain closure as study; no automatic retry."
+  ]
+}
