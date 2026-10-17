@@ -1,0 +1,90 @@
+{
+  "batchId": "sd20-mourning-dove-look-v1",
+  "speciesId": "mourning_dove",
+  "lookOnlyNewDrawing": true,
+  "renderClipId": "look",
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "95263492a90eeeb0c99607f68e584d6f2adfee6ff47d4d055a83e9e810c2542c",
+    "profile": "chirp-texture-review-v1"
+  },
+  "atlasBinding": {
+    "file": "look-atlas192.png",
+    "sha256": "679eeb1b6fd59ddfb5de4948812ab401f7522b6e1f3f42b46e58144ae34b7156",
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8",
+    "bindRule": "wrapper PNG filename/sha/dimensions explicitly bound; strict profile has no atlas filename field"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+      "primarySourcePNG": "reused-awake-source768.png",
+      "primarySourcePNGsha256": "fcd7f00ce5336aa16f73777761a45c920bfe338628f546d1c3d5fd80351dc7a9",
+      "newDrawing": false,
+      "lookOnlyNewDrawing": false,
+      "renderFrameId": "dove-standing-0",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "outputPNG": "reused-awake192.png",
+      "outputPNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.c8cdf30829ae47720e66fc65cc44abd25574445fb5d2c35401c4ef74e59cce98",
+      "primarySourcePNG": "look-native.png",
+      "primarySourcePNGsha256": "35415b51ae1fac8ec4723ef5ff4d31296ac53d5709df384b4bf2113b93fd30c0",
+      "newDrawing": true,
+      "lookOnlyNewDrawing": true,
+      "renderFrameId": "mourning-dove-look-viewer-192",
+      "atlasRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "outputPNG": "look192.png",
+      "outputPNGsha256": "f99ec8751eb68d49d2c097e21efe2f4d5fbbc0cda59560ce43506fe39fbc297a"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "dove-standing-0",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "dove-standing-0",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "mourning-dove-look-viewer-192",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "dove-standing-0",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ],
+  "projectionScope": "look-only overlay candidate; exact awake idle fallback; existing standing/walk/drink intake untouched",
+  "canonicalSchemaValidation": "NOT_RUN",
+  "currentMacContract": "UNKNOWN",
+  "packetBindingReady": false,
+  "appBound": false
+}
