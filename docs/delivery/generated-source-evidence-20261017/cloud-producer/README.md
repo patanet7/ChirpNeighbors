@@ -1,8 +1,8 @@
 # Cloud-produced source artwork — exact-byte preservation
 
 This directory retains actual project source bytes for the canonical repository.
-It contains 12 native generated originals and their exact prompts, 63 registered
-drawings, separate PNG frames, ten APNG/GIF review clips, atlases, contact sheets,
+It contains 13 native generated originals and their exact prompts, 64 immutable
+drawing records, separate PNG frames, ten APNG/GIF review clips plus one control comparison, atlases, contact sheets,
 current candidate manifests, review findings and technical processing sources.
 These are source evidence: **zero local batches are admitted, integrated into the
 Mac app, or accepted as production artwork.** No catalog/default/pin, renderer,
@@ -105,3 +105,11 @@ passing and crossed-leg outputs remain source candidates; gait/contact/scale
 acceptance and source-specific motion measurement remain open. No new crow
 generation or human-pose-model claim was made. Current production stays with
 House Finch; the species matrix distinguishes storage, review and yard gates.
+
+## Single-canvas finch control V2 — failed, retained
+
+PR12 merged the preceding source checkpoint at d47d0d836df74a350dc1f0dc7fa2848bc2dd6101. This continuation is one actual native image edit on the existing neutral, not another six-frame grid. It creates one real backward head/bill preen drawing. The native output is1254 square instead of1024; lowerbody/feet preservation fails. A whole-canvas1024 diagnostic (no translation or body fitting) measures52.15px foot displacement,3.19% band-width difference,0.528 protected maskIoU and61.49 visible RGBMAD. Exact visible protectedRGBA equality is0%;83% all-region equality is mostly transparent background. Independent review recomputes the failure.
+
+`batches/house-finch-female-preen-contact-v2/` retains exact prompt/original, metrics, comparisonGIF/APNG, reviewHTML, nativeframe identity, and independent findings. The three800ms comparison phases are a diagnostic toggle, **not a new finished animation**. All five preservation targets fail. No second call is running. No assembly has been performed. The next queued proposal requires actual fixed-body/feet pixel preservation plus anatomical seam/contact/transition review; text guidance alone has not supplied this control. Zero art/contact/normal-yard admission is claimed.
+
+`lessons-and-experiments.json` and the species matrix are explicitly public metadata projections with private Library handles omitted. Source prompts and media are unchanged. Storage via a merged PR does not pass art/runtime gates.

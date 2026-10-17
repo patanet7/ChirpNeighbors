@@ -1,0 +1,271 @@
+{
+  "format": "chirp-independent-source-review@0.2",
+  "batch": "house-finch-female-preen-contact-v2",
+  "reviewer": "independent review subagent /root/preen_independent_review",
+  "reviewedAtUTC": "2026-10-17T16:49:47.279896+00:00",
+  "classification": "one-new-contact-pose-generated-reviewed-preservation-control-failed",
+  "generatedNewDrawings": 1,
+  "artAccepted": false,
+  "sourceGeometryAccepted": false,
+  "contactAccepted": false,
+  "fullSequenceAccepted": false,
+  "normalYardPlaybackObserved": false,
+  "scope": {
+    "readOnlySources": true,
+    "writtenFileOnly": "independent-review.json",
+    "actualVisualInputs": [
+      "original.png",
+      "before-after-contact-sheet.png",
+      "whole-canvas-diagnostic1024.png in-memory alpha composite on blue-gray",
+      "2x nearest diagnostic head-region crop with coordinate grid"
+    ],
+    "numericInputs": [
+      "actual local RGBA pixels",
+      "production-plan.json",
+      "prompt.txt",
+      "quality-review.json",
+      "reference-neutral.png"
+    ],
+    "comparisonPixelEvidence": "whole-canvas1024 diagnostic compared with byte-identical copy of existing canonical female neutral",
+    "noNativeGeometryFittingForAcceptance": true,
+    "nativeOutputDimensions": [
+      1254,
+      1254
+    ],
+    "requestedDimensions": [
+      1024,
+      1024
+    ],
+    "appRuntimeNotInspected": true
+  },
+  "inputFileHashes": {
+    "original.png": "207e88f9739c3a4a2bfb037ff8873e0e0beb522bd2da59b5a60caf3874dda7f6",
+    "production-plan.json": "dfbc3a2d8200c6f456cf3fb85849ec00c9dd36490baacf2e6b230b0dfc400b7a",
+    "prompt.txt": "1d2eb9d550b9c5b3dd72f8b97a3ca31a9345fb157664bf97141f33427dab2933",
+    "quality-review.json": "f729096a415be0beb2de6025f2af471dae2ff40529fca8a6349a69ca27f57307",
+    "reference-neutral.png": "ed79704dca763d6ef32beb6ff6a7a9e0d7cf26e3069619e25f2c7539d14fb605",
+    "whole-canvas-diagnostic1024.png": "bc29edc5c62e0deb43626c7e34a964bee16ce1e69c13a95a1a2000246349f0a2",
+    "before-after-contact-sheet.png": "ed72e6189c5df09a57f6a543c577645085e12315fc49d6c78f7c8b5c5ec8df34"
+  },
+  "independentDerivationChecks": {
+    "referenceBytesEqualExistingNeutralSource": true,
+    "diagnosticExactlyWholeCanvas1254to1024Nearest": true,
+    "diagnosticScale": 0.8165869218500797,
+    "diagnosticHasTranslationOrBodyFit": false
+  },
+  "manualArtFindings": [
+    {
+      "finding": "actual-new-head-neck-bill-preening-change",
+      "result": "visible-source-evidence",
+      "evidence": "Head turns backward/down from the original right-profile neutral. The neck/head silhouette becomes rounded over the shoulder, the visible eye rotates with the head, and the closed conical bill reaches its own upper folded-wing/scapular feather boundary. This is a new drawn pose, not a translated neutral sprite."
+    },
+    {
+      "finding": "bill-feather-contact",
+      "result": "plausible-projected-contact-candidate-only",
+      "evidence": "Bill tip visibly meets or nearly meets attached upper-wing feather tips; no object is held. Still-image overlap cannot prove3D contact, depth/occlusion, a grooming stroke or anatomical correctness."
+    },
+    {
+      "finding": "female-identity",
+      "result": "broad-identity-retained-details-not-preserved",
+      "evidence": "Brown/cream streaked female plumage, folded patterned wing, long tail, conical dark bill, dark eye and two pink legs remain recognizable. No male-red patch or obvious extra limb is visible. Feather pattern, body/chest contour, tail, toes, appearance and lighting have been redrawn outside the requested edit region."
+    },
+    {
+      "finding": "lower-body-feet-preservation",
+      "result": "fail",
+      "evidence": "The properly normalized whole-canvas comparison shows a lower/right-shifted stance, changed foot/toe shapes and changed torso/wing/tail pixels. Feet remain a plausible general ground stance, but the existing anchors and protected body were not preserved."
+    },
+    {
+      "finding": "edge-alpha",
+      "result": "review-scale-composite-usable-full-scale-unaccepted",
+      "evidence": "Native RGBA alpha spans0..255. In-memory blue-gray composite at768x768 shows no conspicuous red/green or brown edge field. Colored hidden/low-alpha RGB in the direct image view must not be treated as an opaque background. Low-alpha residue counts are recorded; full-scale contrasting-background/target-renderer edge acceptance remains open."
+    }
+  ],
+  "manualBillFeatherAnnotation": {
+    "coordinateSpace": "whole-canvas1024 nearest diagnostic; x right,y down; approximate visual pixel positions",
+    "billTipXY": [
+      487,
+      506
+    ],
+    "attachedShoulderFeatherCandidateXY": [
+      487,
+      509
+    ],
+    "uncertaintyDiagnosticPx": 6,
+    "approximateNative1254BillTipXY": [
+      596,
+      620
+    ],
+    "uncertaintyNativePx": 8,
+    "method": "manual coordinate-grid and2x nearest head-crop review of actual RGBA alpha composite",
+    "targetEnvelopeFromPlan1024": [
+      470,
+      515,
+      540,
+      575
+    ],
+    "targetAssessment": "estimated bill tip lies about9px above requested contact envelope; uncertainty6px and projected-point semantics prevent precise anatomical inference",
+    "physicalContactAccepted": false,
+    "anatomicalLeftRightUnresolved": true
+  },
+  "independentlyRecomputedMetrics": {
+    "reference": {
+      "bboxAlpha128": [
+        177,
+        401,
+        653,
+        801
+      ],
+      "feetLowerAlpha28pxSplitHeuristic": [
+        [
+          483.0,
+          792
+        ],
+        [
+          535.0,
+          800
+        ]
+      ],
+      "lowerBodyY600to720BandWidth": 439
+    },
+    "candidateWholeCanvas1024Diagnostic": {
+      "bboxAlpha128": [
+        162,
+        388,
+        674,
+        844
+      ],
+      "feetLowerAlpha28pxSplitHeuristic": [
+        [
+          511.0,
+          836
+        ],
+        [
+          561.0,
+          843
+        ]
+      ],
+      "lowerBodyY600to720BandWidth": 453
+    },
+    "maximumFootHeuristicDisplacementSourcePx": 52.15361924162119,
+    "lowerBodyBandWidthRelativeDifference": 0.03189066059225513,
+    "protectedLowerBodyAlpha128MaskIoU": 0.5281834290602468,
+    "visibleProtectedOverlapRGBMeanAbsoluteDifferenceByteValues": 61.48546721809295,
+    "allProtectedRGBAExactFraction": 0.8311399063974056,
+    "visibleProtectedOverlapRGBAExactFraction": 0.0,
+    "visibleProtectedUnionRGBAExactFraction": 0.0,
+    "visibleProtectedOverlapPixels": 34577,
+    "visibleProtectedUnionPixels": 65464,
+    "nativeAlphaMinimum": 0,
+    "nativeAlphaMaximum": 255,
+    "nativeAlpha1to31Pixels": 11858,
+    "nativeAlpha32to127Pixels": 2799
+  },
+  "gateResults": [
+    {
+      "gate": "native-canvas-exact1024",
+      "passed": false,
+      "actual": [
+        1254,
+        1254
+      ],
+      "target": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "gate": "wholecanvas-diagnostic-foot-displacement-at-most4px",
+      "passed": false,
+      "actual": 52.15361924162119,
+      "targetMax": 4
+    },
+    {
+      "gate": "wholecanvas-diagnostic-lowerbody-band-width-difference-at-most3percent",
+      "passed": false,
+      "actual": 0.03189066059225513,
+      "targetMax": 0.03
+    },
+    {
+      "gate": "wholecanvas-diagnostic-protected-alpha128-mask-IoU-at-least0.99",
+      "passed": false,
+      "actual": 0.5281834290602468,
+      "targetMin": 0.99
+    },
+    {
+      "gate": "wholecanvas-diagnostic-visible-protected-RGB-MAD-at-most3",
+      "passed": false,
+      "actual": 61.48546721809295,
+      "targetMax": 3
+    },
+    {
+      "gate": "actual-new-head-bill-drawing",
+      "passed": true,
+      "evidence": "manual-source-pixel-review-only"
+    },
+    {
+      "gate": "full-animation-contact-loop-transitions-normal-yard",
+      "passed": null,
+      "reason": "one new contact drawing and comparison toggle only; no full new sequence or app playback evidence"
+    }
+  ],
+  "measurementCaveats": [
+    "Native1254canvas fails before normalization. The1024 resize is only an explicitly labeled diagnostic and does not repair native canvas compliance.",
+    "Foot coordinates use alpha>=128 bottom28px divided by horizontal median, not anatomical foot-center tracking or biological contact validation.",
+    "Body-band width is alpha>=128 silhouette width over y600..719, not isolated torso anatomy or world calibration.",
+    "Protected region is y600..1023 over full1024 width. The83.11% exactRGBA figure is dominated by common transparent background; exact equality among visible protected pixels at alpha>=128 is0% in both intersection and union. Do not present83.11% as preserved bird pixels.",
+    "RGB-MAD61.4855 is calculated over the visible alpha>=128 intersection within protected region; maskIoU separately accounts for displaced nonoverlap.",
+    "All numeric QA values recompute from actual local bytes. File/pixel identity, delivery and commit state cannot pass art, contact, transition or normal-yard gates.",
+    "One new contact drawing cannot establish species slice completeness, dynamic preening anatomy, loop continuity, entry/exit transitions, or runtime integration."
+  ],
+  "clipDecodeEvidence": [
+    {
+      "file": "comparison.apng",
+      "sha256": "9e50739954c9d686c5874c61a7e2425e3aae7c54e988af9aa4c530b9d542a0c6",
+      "canvas": [
+        1024,
+        1024
+      ],
+      "decodedFrameCount": 3,
+      "decodedDurationsMs": [
+        800.0,
+        800.0,
+        800.0
+      ],
+      "classification": "comparison-toggle-control-review-not-new-animation",
+      "liveTemporalPlaybackObserved": false
+    },
+    {
+      "file": "comparison.gif",
+      "sha256": "1051bf121933470a201798325faaba090e608980745f3413d1ba37daccf56deb",
+      "canvas": [
+        384,
+        384
+      ],
+      "decodedFrameCount": 3,
+      "decodedDurationsMs": [
+        800,
+        800,
+        800
+      ],
+      "classification": "comparison-toggle-control-review-not-new-animation",
+      "liveTemporalPlaybackObserved": false
+    }
+  ],
+  "outcome": "useful actual preen contact drawing retained as evidence; single-canvas lower-body preservation control failed, no art approval and no repeat call",
+  "nextStep": "Preserve original, exact prompt, diagnostic and measured failure. Do not proceed to a full sequence from this failed control. A method that actually protects fixed lower-body source geometry is needed before another controlled revision; keep storage/PR intake separate from art/contact and normal-yard playback gates.",
+  "qaInputHashRefresh": {
+    "previousInputSha256": "e38c5ecac1fa3e3fc58ada07a68aa686769955edc544cee57b5c620f83fb52f9",
+    "currentInputSha256": "f729096a415be0beb2de6025f2af471dae2ff40529fca8a6349a69ca27f57307",
+    "reason": "QA input gained additive visible-protected exact-overlap/union0% caveat after independent review started. Hash refreshed against current actual bytes.",
+    "metricComparisonsUnchangedWithin1eMinus12": {
+      "maximumFootDisplacementSourcePx": true,
+      "lowerBodyBandWidthRelativeDifference": true,
+      "protectedLowerBodyMaskIoU": true,
+      "visibleProtectedRGBMeanAbsoluteDifferenceByteValues": true,
+      "exactProtectedRGBAFraction": true
+    },
+    "assessmentChanged": false,
+    "sourceArtChangedByThisRefresh": false,
+    "scope": "Only current quality-review.json was read as the changed input; only independent-review.json was written."
+  }
+}

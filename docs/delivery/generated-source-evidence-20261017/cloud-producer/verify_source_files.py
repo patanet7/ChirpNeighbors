@@ -16,7 +16,7 @@ for item in index['files']:
     assert len(payload) == item['bytes'], item['file']
     assert hashlib.sha256(payload).hexdigest() == item['sha256'], item['file']
 originals = json.loads((root / 'original-source-inventory.json').read_text())
-assert len(originals['originals']) == 12
+assert len(originals['originals']) == 13
 for item in originals['originals']:
     for path_key, hash_key in [('file', 'sha256'), ('promptFile', 'promptSha256')]:
         assert hashlib.sha256((root / item[path_key]).read_bytes()).hexdigest() == item[hash_key]
@@ -25,7 +25,7 @@ animation_pairs = None
 if args.pixel_checks:
     from PIL import Image
     bank = json.loads((root / 'frame-bank.json').read_text())
-    assert len(bank['frames']) == 63
+    assert len(bank['frames']) == 64
     for frame in bank['frames']:
         with Image.open(root / frame['file']) as source:
             rgba = source.convert('RGBA')
@@ -52,11 +52,20 @@ if args.pixel_checks:
                 image.load()
         animation_pairs += 1
     assert animation_pairs == 10
-    pixel_count = 63
+    control = root / 'batches/house-finch-female-preen-contact-v2'
+    for name in ['comparison.gif', 'comparison.apng']:
+        with Image.open(control / name) as image:
+            assert image.n_frames == 3
+            for i in range(3):
+                image.seek(i)
+                image.load()
+                assert image.info['duration'] == 800
+    assert not json.loads((control / 'manifest.json').read_text())['comparison']['isFinishedAnimation']
+    pixel_count = 64
 print(json.dumps({
     'passed': True,
     'byteHashedFiles': len(index['files']),
-    'originalPromptPairs': 12,
+    'originalPromptPairs': 13,
     'decodedFrameIdentities': pixel_count,
     'decodedReviewApngGifPairs': animation_pairs,
     'runtimeIntegrationChecked': False,
