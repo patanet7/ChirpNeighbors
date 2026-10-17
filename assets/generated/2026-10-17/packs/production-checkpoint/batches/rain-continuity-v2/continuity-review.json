@@ -1,0 +1,74 @@
+{
+  "method": "threshold native alpha>=32; compare each next frame with prior shifted(+4,+32), wrapping within512px",
+  "measurements": [
+    {
+      "edge": [
+        0,
+        1
+      ],
+      "expectedShift": [
+        4,
+        32
+      ],
+      "streakAlphaMaskIoU": 0.054323594978294025
+    },
+    {
+      "edge": [
+        1,
+        2
+      ],
+      "expectedShift": [
+        4,
+        32
+      ],
+      "streakAlphaMaskIoU": 0.08673989355678859
+    },
+    {
+      "edge": [
+        2,
+        3
+      ],
+      "expectedShift": [
+        4,
+        32
+      ],
+      "streakAlphaMaskIoU": 0.02986357288645397
+    },
+    {
+      "edge": [
+        3,
+        4
+      ],
+      "expectedShift": [
+        4,
+        32
+      ],
+      "streakAlphaMaskIoU": 0.07816934720908231
+    },
+    {
+      "edge": [
+        4,
+        5
+      ],
+      "expectedShift": [
+        4,
+        32
+      ],
+      "streakAlphaMaskIoU": 0.0568897178829564
+    },
+    {
+      "edge": [
+        5,
+        0
+      ],
+      "expectedShift": [
+        4,
+        32
+      ],
+      "streakAlphaMaskIoU": 0.0
+    }
+  ],
+  "meanIoU": 0.050997687752262544,
+  "interpretation": "Requested exact advected rain field was not produced. Low overlap is a failed continuity requirement; no clean-loop acceptance. Alpha/pixel extraction can still pass separately.",
+  "qualityStatus": "needs-revision; temporal correction not established"
+}

@@ -1,0 +1,261 @@
+{
+  "formatVersion": "chirp-contract-review-evidence@0.1",
+  "status": "UNAGREED_PROPOSAL_NOT_RUNTIME_INPUT",
+  "purpose": "Minimal decisions/required evidence for existing canonical contracts; not a renderer, physics engine, replacement catalog or schema to import blindly.",
+  "auditTask": "01a14a5d-c263-774f-886d-a9c4d29c4012",
+  "canonicalOwnerTask": "01a14730-019a-7062-a294-ba507c06f004",
+  "implementationFrozen": true,
+  "runtimeChangesAuthorizedByThisPacket": false,
+  "producerFrameRegisterRef": {
+    "file": "frame-bank.json",
+    "sha256": "1a6b224a78ef1c07c02b512506f548c9cb44a2f822018264e1ff2a1307adc33a",
+    "canonicalMappingAgreed": false
+  },
+  "requiredFieldGroups": [
+    {
+      "group": "identity-and-lineage",
+      "required": [
+        "canonicalFrameRef/version",
+        "decodedPixelIdentity/format/nativeCanvas",
+        "originalFileDigest",
+        "species/variant/appearanceRevision/direction refs",
+        "source/rights/derivation evidence refs"
+      ],
+      "existingSnapshotMapping": [
+        "poseId\u2194exact frame",
+        "immutable animation pin/digest",
+        "speciesId/reference pins"
+      ],
+      "decisionNeeded": "Map production content IDs to existing canonical IDs. Pixel edits require new identity; annotation/review append needs versioned evidence, not silently replaced pixels."
+    },
+    {
+      "group": "coordinate-and-scale",
+      "required": [
+        "coordinateSpaceRef and origin/axis/pixel-center-or-edge convention",
+        "sourceCanvas and explicit source\u2192review\u2192world transform-chain ref",
+        "pivot/landmark units",
+        "physical calibration ref/status and matched source endpoints"
+      ],
+      "existingSnapshotMapping": [
+        "pose.pivot",
+        "shape.support/landmarks/visualBounds",
+        "presentation.sourcePixelsPerWorldUnit"
+      ],
+      "decisionNeeded": "Confirm current profile and exactly-once transforms/mirroring. A canvas fit is not biological scale; published endpoints currently unspecified."
+    },
+    {
+      "group": "support-geometry",
+      "required": [
+        "canonicalSupportRef/version and supported-kind ref",
+        "surface geometry/orientation and coordinate space",
+        "usable footprint/depth or cross-section/radius",
+        "support-motion ref or explicit static"
+      ],
+      "existingSnapshotMapping": [
+        "shape.footprint",
+        "shape.support",
+        "scene/object support identity: current Mac mapping unknown"
+      ],
+      "decisionNeeded": "Distinguish flat platform, ground and round branch. Authored test cylinder is diagnostic, not the runtime support contract."
+    },
+    {
+      "group": "contact-usage",
+      "required": [
+        "intrinsic landmark ref and foot-identity convention",
+        "usage-specific contact state/support ref",
+        "stance interval/timebase and root-motion ref",
+        "measurement method/uncertainty and tolerance-profile ref"
+      ],
+      "existingSnapshotMapping": [
+        "pose.contacts kind/point",
+        "pose.durationTicks",
+        "clip loop/pose graph"
+      ],
+      "decisionNeeded": "Points/placement alone do not prove grip or stance. Define anatomical left/right vs near/far and mirror handling; world-foot residual must include root and support motion."
+    },
+    {
+      "group": "occlusion-usage",
+      "required": [
+        "support-specific occlusion policy/capability ref",
+        "near/far ordering or mask refs when required",
+        "reviewed support+appearance version compatibility"
+      ],
+      "existingSnapshotMapping": [
+        "No equivalent verified in available October12 snapshot"
+      ],
+      "decisionNeeded": "Can current renderer express rear hallux behind support and near digits in front? If not, mark capability missing or choose an explicitly supported representation; do not infer from whole-sprite z-order."
+    },
+    {
+      "group": "frame-reuse-and-events",
+      "required": [
+        "clip/pose-use ref\u2192immutable frame refs",
+        "species/variant/appearance/direction compatibility decision",
+        "support/scale/contact/occlusion compatibility decision",
+        "entry/exit/loop evidence refs",
+        "semantic-event binding ref or explicit none"
+      ],
+      "existingSnapshotMapping": [
+        "closed clip action schema",
+        "exact pose/frame binding",
+        "pose graph and loop metrics"
+      ],
+      "decisionNeeded": "Reuse is many-to-many and purpose-specific. A rejected sequence can retain useful frames; unchanged pixels do not inherit contact, transitions or gameplay consumption events."
+    },
+    {
+      "group": "admission-and-evidence",
+      "required": [
+        "canonical schema/profile/version and source/build refs",
+        "source/rights review refs",
+        "art/geometry/contact/reuse review decisions kept separate",
+        "test method/units and receipt ref",
+        "served-demo integration receipt or explicit unverified"
+      ],
+      "existingSnapshotMapping": [
+        "source review vs manifest review vs exact selection",
+        "shape review",
+        "pinned artifact digest"
+      ],
+      "decisionNeeded": "Agree which checks are structural/diagnostic/enforced. Preserve source candidates and failed attempts; no automatic production promotion from generation or parent-reported demo observation."
+    }
+  ],
+  "minimalQuestions": [
+    {
+      "id": "Q1",
+      "priority": "blocking",
+      "question": "Which current canonical IDs, schema/profile versions, source-pixel conventions and transform/mirroring chain should producer receipts bind to?",
+      "groups": [
+        "identity-and-lineage",
+        "coordinate-and-scale"
+      ],
+      "evidence": [
+        "F04",
+        "F05",
+        "F06"
+      ],
+      "answerNeeded": [
+        "schema/profile refs",
+        "canonical alias mapping",
+        "pixel centers vs edges",
+        "exactly-once transform order"
+      ]
+    },
+    {
+      "id": "Q2",
+      "priority": "blocking",
+      "question": "Which support kinds/geometries are actually representable, and where do intrinsic landmarks end and support-specific contact assertions begin?",
+      "groups": [
+        "support-geometry",
+        "contact-usage"
+      ],
+      "evidence": [
+        "F02",
+        "F03"
+      ],
+      "answerNeeded": [
+        "support schema/ref",
+        "foot identity convention",
+        "diagnostic vs enforced semantics"
+      ]
+    },
+    {
+      "id": "Q3",
+      "priority": "blocking",
+      "question": "How is foot/support occlusion represented and validated for round perches?",
+      "groups": [
+        "occlusion-usage"
+      ],
+      "evidence": [
+        "F02",
+        "F04",
+        "F07"
+      ],
+      "answerNeeded": [
+        "current capability",
+        "supported mask/order or baked-specific-support policy",
+        "failure behavior when unsupported"
+      ]
+    },
+    {
+      "id": "Q4",
+      "priority": "blocking-for-biological-scale-acceptance",
+      "question": "What measurement endpoints and matched asset landmarks permit per-species/variant world-scale calibration, and how is provisional scale labelled?",
+      "groups": [
+        "coordinate-and-scale"
+      ],
+      "evidence": [
+        "F04"
+      ],
+      "answerNeeded": [
+        "calibration authority/status",
+        "sex/age scope",
+        "provisional display policy; no invented body-only conversion"
+      ]
+    },
+    {
+      "id": "Q5",
+      "priority": "blocking-for-walk-acceptance",
+      "question": "What timebase, root/support motion and world-contact tolerance profile define stance stability, separately from toe-role alternation and natural walk-hop amplitude?",
+      "groups": [
+        "contact-usage"
+      ],
+      "evidence": [
+        "F08"
+      ],
+      "answerNeeded": [
+        "canonical stance/root-motion bindings",
+        "metric units/tolerance",
+        "upright short-step amplitude/pauses target",
+        "source refs for reported crow test"
+      ]
+    },
+    {
+      "id": "Q6",
+      "priority": "blocking-for-reuse-promotion",
+      "question": "How are frame identity, use-specific compatibility/reviews, transitions and semantic events shared without duplicating images or accepting a pose for an unvalidated purpose?",
+      "groups": [
+        "frame-reuse-and-events"
+      ],
+      "evidence": [
+        "F01",
+        "F09",
+        "F10",
+        "F11"
+      ],
+      "answerNeeded": [
+        "canonical frame/use IDs",
+        "compatibility review placement",
+        "event binding scope; no event inferred from pixels"
+      ]
+    },
+    {
+      "id": "Q7",
+      "priority": "blocking-for-runtime-intake",
+      "question": "Which source/rights, art, shape/contact, reuse and served-demo receipts constitute each admission stage during and after this audit freeze?",
+      "groups": [
+        "admission-and-evidence"
+      ],
+      "evidence": [
+        "F01",
+        "F08"
+      ],
+      "answerNeeded": [
+        "current admission/selection rules",
+        "exact build/QA receipts",
+        "source candidates vs approved production distinction"
+      ]
+    }
+  ],
+  "decisionSeparation": [
+    "pixel identity",
+    "source/rights",
+    "art/appearance",
+    "usage geometry/contact/occlusion",
+    "clip/timing/events",
+    "observed demo integration"
+  ],
+  "unknownsStayUnknown": true,
+  "noToleranceOrCurrentRuntimeProfileInvented": true,
+  "referenceIndex": "frame-reference-projection.json",
+  "fixtures": "acceptance-fixtures.json",
+  "conformanceRunner": "Not implemented; auditor binds expectations to canonical validators after agreement. verify_packet.py checks only packet/reference integrity."
+}

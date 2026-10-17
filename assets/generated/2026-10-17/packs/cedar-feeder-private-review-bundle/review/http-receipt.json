@@ -1,0 +1,100 @@
+{
+  "rows": [
+    {
+      "label": "synthetic local Bob identity",
+      "status": 303,
+      "expected": 303,
+      "passed": true
+    },
+    {
+      "label": "isolated texture page",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "label": "actual supplied feeder RGBA intake",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "label": "same feeder supplied byte repeat",
+      "status": 200,
+      "expected": 200,
+      "passed": true
+    },
+    {
+      "label": "wrong feeder source SHA refused",
+      "status": 400,
+      "expected": 400,
+      "passed": true
+    },
+    {
+      "label": "wrong feeder origin refused",
+      "status": 403,
+      "expected": 403,
+      "passed": true
+    },
+    {
+      "label": "absent document binding refused",
+      "status": 409,
+      "expected": 409,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "canonicalRepeatIdentical": true,
+  "receipt": {
+    "profile": "chirp-texture-review-v1",
+    "activation": "none",
+    "approved": false,
+    "original": {
+      "sha256": "b9338c4a4dfb7887fb639536b6c6afa1db1377b827fd5b514d90ac2a2ce45d45",
+      "bytes": 115622
+    },
+    "canonical": {
+      "sha256": "2b104c452df041cb294c810118c6991f76d222728e62d7be309077bb1c14de24",
+      "bytes": 88480,
+      "rgbaSha256": "975dbe5958a80d37883cf756839e5d30f8cf365c70fe0bdd1ff97fccc5b31051",
+      "width": 512,
+      "height": 256
+    },
+    "alpha": "straight-rgba8",
+    "normalization": "zero-hidden-rgb-only-v1",
+    "contactRule": "alpha-greater-than-zero-only-not-physical-review",
+    "metrics": {
+      "partialAlphaPixels": 39498,
+      "transparentPixels": 90559,
+      "hiddenRgbPixelsZeroed": 0,
+      "visibleRgbColors": 19840,
+      "frames": 1,
+      "uniqueSourceFramePixels": 1,
+      "knownDecodedRgbaBytes": 524288,
+      "knownSanitizedPngBytes": 115601,
+      "pngChunks": 18,
+      "knownCanonicalPngBytes": 88480
+    },
+    "frameDigests": [
+      {
+        "id": "cedar-feeder-static",
+        "rgbaSha256": "975dbe5958a80d37883cf756839e5d30f8cf365c70fe0bdd1ff97fccc5b31051"
+      }
+    ],
+    "decoder": {
+      "id": "sharp",
+      "version": "0.35.5",
+      "libvips": "8.18.7"
+    },
+    "timings": {
+      "scope": "cpu-wall-time-not-gpu-or-peak-memory",
+      "decodeMs": 1.2402919996529818,
+      "validationMs": 3.707499999552965,
+      "encodeMs": 4.173874999396503,
+      "totalMs": 10.040874999947846
+    }
+  },
+  "browserAppearance": "pending native QA",
+  "sourceRightsAndAppearance": "unapproved",
+  "yardActivation": "none"
+}

@@ -1,0 +1,169 @@
+{
+  "id": "bath-limestone-mask-proposal-v1",
+  "status": "unreviewed-source-coordinate-annotation",
+  "sourceCanvas": [
+    1402,
+    1122
+  ],
+  "sourceFile": "sources/bath-empty-v1.png",
+  "sourceSHA256": "d83b6c3dc9004829c247c4f66781124ab2e8778493cb6cf2fe7411d61a6fdb99",
+  "groundPivotPx": [
+    701,
+    1029
+  ],
+  "waterAreaProposal": {
+    "type": "ellipse",
+    "centerPx": [
+      700,
+      350
+    ],
+    "radiusPx": [
+      510,
+      99
+    ],
+    "basis": "Visual annotation of supplied filled-bath water boundary; not a physical bowl volume or calibrated waterline."
+  },
+  "foregroundRimProposal": {
+    "type": "polygon",
+    "pointsPx": [
+      [
+        177,
+        353
+      ],
+      [
+        229,
+        385
+      ],
+      [
+        332,
+        417
+      ],
+      [
+        500,
+        439
+      ],
+      [
+        700,
+        451
+      ],
+      [
+        900,
+        439
+      ],
+      [
+        1070,
+        416
+      ],
+      [
+        1175,
+        385
+      ],
+      [
+        1228,
+        353
+      ],
+      [
+        1305,
+        382
+      ],
+      [
+        1275,
+        440
+      ],
+      [
+        1172,
+        491
+      ],
+      [
+        1000,
+        524
+      ],
+      [
+        700,
+        539
+      ],
+      [
+        400,
+        524
+      ],
+      [
+        228,
+        491
+      ],
+      [
+        125,
+        440
+      ],
+      [
+        95,
+        382
+      ]
+    ],
+    "basis": "Approximate frontal stone lip only; requires exact local visual review and source-mask extraction. Not yet an accepted occlusion mask."
+  },
+  "renderOrderProposal": [
+    "empty-bath-base",
+    "dynamic-water-within-reviewed-mask",
+    "bird-at-existing-support",
+    "foreground-rim-reuse"
+  ],
+  "runtimeCatalog": {
+    "kind": "bath",
+    "footprintWorld": [
+      100,
+      54
+    ],
+    "heightWorld": 80,
+    "slots": [
+      {
+        "id": "left",
+        "affordance": "bath",
+        "dx": -18,
+        "dy": -68
+      },
+      {
+        "id": "right",
+        "affordance": "bath",
+        "dx": 18,
+        "dy": -68
+      }
+    ]
+  },
+  "sourceToRuntimeFit": null,
+  "fitBlockers": [
+    "Source silhouette is about 100\u00d768.7 world units if uniformly fitted to 100-world-unit width; no exact 100\u00d780 fit is claimed.",
+    "The image is not yet fitted to the existing supports at\u00b118,-68.",
+    "Filled and empty variants have 99.47% thresholded silhouette IoU, not identical geometry.",
+    "Raw PNG alpha is not binary and source canvas exceeds bird budgets; object admission is separate."
+  ],
+  "registrationReceipt": {
+    "sameCanvas": true,
+    "silhouetteIoUAt128": 0.9946586464448844,
+    "alpha128ChangedPixels": 3369,
+    "filledBBoxAt128": [
+      74,
+      168,
+      1327,
+      1029
+    ],
+    "emptyBBoxAt128": [
+      74,
+      166,
+      1328,
+      1029
+    ],
+    "requiredTolerance": {
+      "status": "proposal-not-current-engine-contract",
+      "maxGroundPivotDeviationWorld": 0.5,
+      "maxFootSupportDeviationWorld": 0.5,
+      "maxWaterBoundaryEscapePackedPixel": 0,
+      "maxRimSeamPackedPixel": 1,
+      "acceptanceOwner": "local Chirp visual/physics review",
+      "note": "Review thresholds are proposals, not a claim these sources pass. Registration must be evaluated after one shared crop/scale/pivot mapping."
+    },
+    "exactRGBAAgreementReportedByLocalAudit": 0.0057,
+    "exactRGBAAgreementCaveat": "Parent-reported local audit; denominator/ROI not supplied. Not independently reproduced here."
+  },
+  "physicalWaterReady": false,
+  "productionApproved": false
+}

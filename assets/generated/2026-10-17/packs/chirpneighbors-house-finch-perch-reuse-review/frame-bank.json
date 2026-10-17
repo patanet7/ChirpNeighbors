@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "projectionOf": "local-production-frame-evidence@1",
+  "sourceRegistrySha256": "1a6b224a78ef1c07c02b512506f548c9cb44a2f822018264e1ff2a1307adc33a",
+  "projectionOnly": true,
+  "frames": [
+    {
+      "frameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "file": "frames/fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b.png",
+      "fileSha256": "bab4bfb8ffc82f533f776b1b6596b76b59c7fef2354615fc7fe0dfc495db1bca",
+      "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+      "dimensions": [
+        1024,
+        1024
+      ],
+      "species": "house_finch",
+      "variant": "adult-male",
+      "appearanceVersion": "house-finch-canon-v1",
+      "poseTags": [
+        "neutral",
+        "idle",
+        "right-facing"
+      ],
+      "sourceAtlas": "batches/house-finch-male-idle-v1/original.png",
+      "sourceAtlasSha256": "d6bd1ef56569261692c9201e03a56ded55054a91fc29e7870967393240794eb1",
+      "sourceComponentId": 2,
+      "sourceCoreBBox": [
+        10,
+        95,
+        536,
+        504
+      ],
+      "derivation": {
+        "method": "6 principal alpha>=32 components; nearest-component assignment of all alpha>=2 pixels; integer translation only",
+        "alphaOneResidueDiscardedInDerivative": true,
+        "originalRetainedUnchanged": true,
+        "translation": [
+          154,
+          297
+        ],
+        "sourceScale": 1,
+        "perFrameRescale": false
+      },
+      "supportRoot": [
+        512,
+        800
+      ],
+      "feetContactsApprox": [
+        [
+          480,
+          794
+        ],
+        [
+          543,
+          800
+        ]
+      ],
+      "contactAnnotationMethod": "manual-review-needed pixel heuristic: lower28px median foot groups; not anatomical tracking",
+      "beakAnchorApprox": [
+        689,
+        460
+      ],
+      "scaleCalibrationRef": "scale.house_finch",
+      "anatomyScaleAccepted": false,
+      "rootContactAccepted": false,
+      "originalCoreEdgeContacts": 0,
+      "technicalSourcePixelCopyExact": true,
+      "acceptedUses": [],
+      "rejectedUses": [],
+      "candidateUses": [
+        "idle",
+        "perching"
+      ],
+      "reuseStatus": "suggestion only; appearance/anchor/transition validation required",
+      "sourcePrompt": "batches/house-finch-male-idle-v1/prompt.txt",
+      "generator": "OpenAI image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "beakAnchorMethod": "rightmost principal silhouette above toe band; may include held food tip; manual anatomical review pending",
+      "perchReuseReview": {
+        "reviewFile": "batches/house-finch-perching-review-v1/reuse-review.json",
+        "roundBranch": "unverified; source ground feet do not demonstrate grip",
+        "flatPlatform": "candidate only",
+        "verified": false
+      }
+    },
+    {
+      "frameId": "frame.sha256.7ca9963d153692aba5ed322a3b3a6348ae0d55d900054c5a726d0afd6b4dd7f0",
+      "file": "batches/house-finch-perching-candidate-v1/original.png",
+      "fileSha256": "0eccff694a61f7ce38b09b93bfe151c13fa646efc6d950ee3926f25c34182a24",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "species": "house_finch",
+      "variant": "adult-male",
+      "appearanceVersion": "house-finch-perching-candidate-v1-unaccepted",
+      "parentAppearanceVersion": "house-finch-canon-v1",
+      "poseTags": [
+        "perching-still-candidate",
+        "curled-toes",
+        "upright",
+        "right-facing"
+      ],
+      "sourceAtlas": "batches/house-finch-perching-candidate-v1/original.png",
+      "sourcePrompt": "batches/house-finch-perching-candidate-v1/prompt.txt",
+      "sourceReferenceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "geometrySource": "batches/house-finch-perching-review-v1/perch-geometry.json",
+      "supportRoot": null,
+      "feetContactsApprox": null,
+      "beakAnchorApprox": null,
+      "rootContactAccepted": false,
+      "scaleCalibrationRef": "scale.house_finch",
+      "acceptedUses": [],
+      "rejectedUses": [
+        "as-is registered grip on authored-round-perch-test-1024@1"
+      ],
+      "candidateUses": [
+        "perch-grip reference after appearance/scale/contact correction"
+      ],
+      "reuseStatus": "not verified",
+      "generator": "OpenAI image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "nativeCanvasPreserved": false
+    }
+  ],
+  "verifiedReuseCount": 0
+}

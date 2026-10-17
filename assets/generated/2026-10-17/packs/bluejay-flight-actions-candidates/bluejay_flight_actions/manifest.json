@@ -1,0 +1,629 @@
+{
+  "schemaVersion": 1,
+  "status": "review_candidate_not_integrated",
+  "masterCanvas": {
+    "width": 768,
+    "height": 768
+  },
+  "runtimeCanvas": {
+    "width": 512,
+    "height": 512
+  },
+  "runtimeTransform": {
+    "scaleX": 0.6666666666666666,
+    "scaleY": 0.6666666666666666,
+    "translationX": 0,
+    "translationY": 0,
+    "resampling": "nearest-neighbor",
+    "sharedAcrossEveryFrame": true
+  },
+  "anchor": {
+    "kind": "estimated_hip_body_root",
+    "masterPx": [
+      430,
+      420
+    ],
+    "runtimePx": [
+      286.6666666666667,
+      280
+    ]
+  },
+  "rootMotionPolicy": "Root movement is separate metadata, NOT baked into master/runtime frames or preview GIFs. Apply suggested world offsets externally after scaling, or use scene-specific flight path. Offsets are illustrative, not ground-calibrated.",
+  "scalePolicy": "Master source pixels at 1x with translation only; runtime exact shared 2/3 scale. Never per-bbox resize. Wingspan is not used for body normalization.",
+  "actions": {
+    "takeoff": {
+      "frameCount": 6,
+      "durationMs": 940,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "pose": "stand",
+          "durationMs": 350,
+          "source": "originals/takeoff-generated.png",
+          "sourceComponent": 395,
+          "sourceBounds": [
+            0,
+            127,
+            507,
+            490
+          ],
+          "sourceHipPx": [
+            310,
+            370
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": 120,
+            "translateY": 50
+          },
+          "masterFrame": "frames/takeoff-00-stand.png",
+          "runtimeFrame": "runtime/takeoff-00-stand.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            0,
+            0
+          ],
+          "groundContact": true,
+          "estimatedFootContactMasterPx": [
+            436.0,
+            529
+          ]
+        },
+        {
+          "index": 1,
+          "pose": "crouch",
+          "durationMs": 150,
+          "source": "originals/takeoff-generated.png",
+          "sourceComponent": 547,
+          "sourceBounds": [
+            509,
+            157,
+            1040,
+            484
+          ],
+          "sourceHipPx": [
+            815,
+            390
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -385,
+            "translateY": 30
+          },
+          "masterFrame": "frames/takeoff-01-crouch.png",
+          "runtimeFrame": "runtime/takeoff-01-crouch.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            0,
+            15
+          ],
+          "groundContact": true,
+          "estimatedFootContactMasterPx": [
+            464.0,
+            497
+          ]
+        },
+        {
+          "index": 2,
+          "pose": "push_off",
+          "durationMs": 100,
+          "source": "originals/takeoff-generated.png",
+          "sourceComponent": 1,
+          "sourceBounds": [
+            1025,
+            13,
+            1533,
+            512
+          ],
+          "sourceHipPx": [
+            1280,
+            365
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -850,
+            "translateY": 55
+          },
+          "masterFrame": "frames/takeoff-02-push_off.png",
+          "runtimeFrame": "runtime/takeoff-02-push_off.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            8,
+            -25
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 3,
+          "pose": "downstroke",
+          "durationMs": 100,
+          "source": "originals/takeoff-generated.png",
+          "sourceComponent": 1303,
+          "sourceBounds": [
+            0,
+            592,
+            546,
+            991
+          ],
+          "sourceHipPx": [
+            267,
+            744
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": 163,
+            "translateY": -324
+          },
+          "masterFrame": "frames/takeoff-03-downstroke.png",
+          "runtimeFrame": "runtime/takeoff-03-downstroke.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            22,
+            -70
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 4,
+          "pose": "climb",
+          "durationMs": 120,
+          "source": "originals/takeoff-generated.png",
+          "sourceComponent": 1237,
+          "sourceBounds": [
+            513,
+            498,
+            1040,
+            916
+          ],
+          "sourceHipPx": [
+            801,
+            785
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -371,
+            "translateY": -365
+          },
+          "masterFrame": "frames/takeoff-04-climb.png",
+          "runtimeFrame": "runtime/takeoff-04-climb.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            40,
+            -110
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 5,
+          "pose": "enter_flight",
+          "durationMs": 120,
+          "source": "originals/takeoff-generated.png",
+          "sourceComponent": 1370,
+          "sourceBounds": [
+            1003,
+            637,
+            1536,
+            980
+          ],
+          "sourceHipPx": [
+            1260,
+            767
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -830,
+            "translateY": -347
+          },
+          "masterFrame": "frames/takeoff-05-enter_flight.png",
+          "runtimeFrame": "runtime/takeoff-05-enter_flight.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            62,
+            -135
+          ],
+          "groundContact": false
+        }
+      ],
+      "next": "flight"
+    },
+    "flight": {
+      "frameCount": 6,
+      "durationMs": 480,
+      "loop": true,
+      "frames": [
+        {
+          "index": 0,
+          "pose": "upstroke_peak",
+          "durationMs": 90,
+          "source": "originals/flight-generated.png",
+          "sourceComponent": 1,
+          "sourceBounds": [
+            17,
+            15,
+            560,
+            406
+          ],
+          "sourceHipPx": [
+            300,
+            350
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": 130,
+            "translateY": 70
+          },
+          "masterFrame": "frames/flight-00-upstroke_peak.png",
+          "runtimeFrame": "runtime/flight-00-upstroke_peak.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            0,
+            0
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 1,
+          "pose": "downstroke_begin",
+          "durationMs": 75,
+          "source": "originals/flight-generated.png",
+          "sourceComponent": 181,
+          "sourceBounds": [
+            511,
+            113,
+            1043,
+            404
+          ],
+          "sourceHipPx": [
+            795,
+            350
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -365,
+            "translateY": 70
+          },
+          "masterFrame": "frames/flight-01-downstroke_begin.png",
+          "runtimeFrame": "runtime/flight-01-downstroke_begin.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            0,
+            0
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 2,
+          "pose": "downstroke_peak",
+          "durationMs": 90,
+          "source": "originals/flight-generated.png",
+          "sourceComponent": 365,
+          "sourceBounds": [
+            1003,
+            191,
+            1536,
+            562
+          ],
+          "sourceHipPx": [
+            1287,
+            350
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -857,
+            "translateY": 70
+          },
+          "masterFrame": "frames/flight-02-downstroke_peak.png",
+          "runtimeFrame": "runtime/flight-02-downstroke_peak.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            0,
+            0
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 3,
+          "pose": "recovery_begin",
+          "durationMs": 75,
+          "source": "originals/flight-generated.png",
+          "sourceComponent": 1548,
+          "sourceBounds": [
+            16,
+            654,
+            563,
+            1005
+          ],
+          "sourceHipPx": [
+            299,
+            818
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": 131,
+            "translateY": -398
+          },
+          "masterFrame": "frames/flight-03-recovery_begin.png",
+          "runtimeFrame": "runtime/flight-03-recovery_begin.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            0,
+            0
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 4,
+          "pose": "recovery_mid",
+          "durationMs": 75,
+          "source": "originals/flight-generated.png",
+          "sourceComponent": 1293,
+          "sourceBounds": [
+            510,
+            576,
+            1041,
+            879
+          ],
+          "sourceHipPx": [
+            795,
+            818
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -365,
+            "translateY": -398
+          },
+          "masterFrame": "frames/flight-04-recovery_mid.png",
+          "runtimeFrame": "runtime/flight-04-recovery_mid.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            0,
+            0
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 5,
+          "pose": "upstroke_end",
+          "durationMs": 75,
+          "source": "originals/flight-generated.png",
+          "sourceComponent": 957,
+          "sourceBounds": [
+            993,
+            507,
+            1536,
+            873
+          ],
+          "sourceHipPx": [
+            1287,
+            818
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -857,
+            "translateY": -398
+          },
+          "masterFrame": "frames/flight-05-upstroke_end.png",
+          "runtimeFrame": "runtime/flight-05-upstroke_end.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            0,
+            0
+          ],
+          "groundContact": false
+        }
+      ],
+      "next": "flight or landing"
+    },
+    "landing": {
+      "frameCount": 6,
+      "durationMs": 1150,
+      "loop": false,
+      "frames": [
+        {
+          "index": 0,
+          "pose": "approach",
+          "durationMs": 140,
+          "source": "originals/landing-generated.png",
+          "sourceComponent": 438,
+          "sourceBounds": [
+            15,
+            209,
+            579,
+            562
+          ],
+          "sourceHipPx": [
+            310,
+            360
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": 120,
+            "translateY": 60
+          },
+          "masterFrame": "frames/landing-00-approach.png",
+          "runtimeFrame": "runtime/landing-00-approach.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            0,
+            -130
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 1,
+          "pose": "brake",
+          "durationMs": 130,
+          "source": "originals/landing-generated.png",
+          "sourceComponent": 171,
+          "sourceBounds": [
+            577,
+            95,
+            1058,
+            531
+          ],
+          "sourceHipPx": [
+            855,
+            401
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -425,
+            "translateY": 19
+          },
+          "masterFrame": "frames/landing-01-brake.png",
+          "runtimeFrame": "runtime/landing-01-brake.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            18,
+            -90
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 2,
+          "pose": "feet_extend",
+          "durationMs": 120,
+          "source": "originals/landing-generated.png",
+          "sourceComponent": 75,
+          "sourceBounds": [
+            1073,
+            47,
+            1536,
+            544
+          ],
+          "sourceHipPx": [
+            1348,
+            412
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -918,
+            "translateY": 8
+          },
+          "masterFrame": "frames/landing-02-feet_extend.png",
+          "runtimeFrame": "runtime/landing-02-feet_extend.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            30,
+            -45
+          ],
+          "groundContact": false
+        },
+        {
+          "index": 3,
+          "pose": "contact",
+          "durationMs": 130,
+          "source": "originals/landing-generated.png",
+          "sourceComponent": 1147,
+          "sourceBounds": [
+            16,
+            639,
+            564,
+            964
+          ],
+          "sourceHipPx": [
+            313,
+            857
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": 117,
+            "translateY": -437
+          },
+          "masterFrame": "frames/landing-03-contact.png",
+          "runtimeFrame": "runtime/landing-03-contact.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            38,
+            0
+          ],
+          "groundContact": true,
+          "estimatedFootContactMasterPx": [
+            472.0,
+            520
+          ]
+        },
+        {
+          "index": 4,
+          "pose": "settle",
+          "durationMs": 180,
+          "source": "originals/landing-generated.png",
+          "sourceComponent": 1165,
+          "sourceBounds": [
+            527,
+            657,
+            1054,
+            958
+          ],
+          "sourceHipPx": [
+            815,
+            867
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -385,
+            "translateY": -447
+          },
+          "masterFrame": "frames/landing-04-settle.png",
+          "runtimeFrame": "runtime/landing-04-settle.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            38,
+            10
+          ],
+          "groundContact": true,
+          "estimatedFootContactMasterPx": [
+            456.0,
+            502
+          ]
+        },
+        {
+          "index": 5,
+          "pose": "stand",
+          "durationMs": 450,
+          "source": "originals/landing-generated.png",
+          "sourceComponent": 1142,
+          "sourceBounds": [
+            1037,
+            635,
+            1520,
+            978
+          ],
+          "sourceHipPx": [
+            1321,
+            883
+          ],
+          "sourceToMaster": {
+            "scaleX": 1,
+            "scaleY": 1,
+            "translateX": -891,
+            "translateY": -463
+          },
+          "masterFrame": "frames/landing-05-stand.png",
+          "runtimeFrame": "runtime/landing-05-stand.png",
+          "suggestedWorldRootOffsetMasterPx": [
+            38,
+            0
+          ],
+          "groundContact": true,
+          "estimatedFootContactMasterPx": [
+            462.0,
+            504
+          ]
+        }
+      ],
+      "next": "idle"
+    }
+  },
+  "review": [
+    "Genuine generated body/wing/leg poses; three image_gen calls, six drawings each.",
+    "Flight loop has high and low wing phases; body remains aligned at hip but anatomy and feather patterns visibly drift.",
+    "Flight phases 3 and 4 are similar downstroke shapes; cadence is stepped.",
+    "Transitions between independently generated clips are logical but not pixel-identical; endpoint popping remains.",
+    "Landing raised wings have possible duplicated-looking feather layers and should receive anatomy review.",
+    "Generated wings use simplified broad white-tipped feathers compared with canonical wing markings.",
+    "Estimated hip anchors require garden-scale placement review.",
+    "Some low-alpha edge fringe reaches original sheet boundaries; source originals retained."
+  ]
+}

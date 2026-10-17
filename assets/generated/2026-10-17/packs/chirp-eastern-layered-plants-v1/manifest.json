@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "region": "Eastern North America reference candidates; NOT San Diego local pack",
+  "status": "unapproved candidates; not runtime integrated",
+  "species": [
+    {
+      "id": "acer_rubrum",
+      "name": "Red maple",
+      "source": "https://plants.ces.ncsu.edu/plants/acer-rubrum/",
+      "states": [
+        "bare wood/winter",
+        "summer foliage layer",
+        "autumn foliage layer",
+        "3 detached leaf poses"
+      ]
+    },
+    {
+      "id": "viburnum_dentatum",
+      "name": "Southern arrowwood",
+      "source": "https://plants.ces.ncsu.edu/plants/viburnum-dentatum/",
+      "states": [
+        "healthy spring flowering complete shrub",
+        "drought-stressed complete shrub"
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "id": "arrowwood-healthy",
+      "path": "source/arrowwood-healthy.png",
+      "sha256": "7114f5aab96ffcc2b0cf06a2fefe1a8a027249670ffef81c4b7431855b83f233",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        38,
+        68,
+        1214,
+        1207
+      ],
+      "transparent_fraction": 0.39002401247427687,
+      "partial_alpha_fraction": 0.6098895019192173
+    },
+    {
+      "id": "maple-summer-foliage",
+      "path": "source/maple-summer-foliage.png",
+      "sha256": "ac98bbae10d841cf0f8f37637f70534f118cf0ac6ec627617b5dcb09d6bd212c",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        29,
+        21,
+        1234,
+        948
+      ],
+      "transparent_fraction": 0.4932445838388926,
+      "partial_alpha_fraction": 0.5067458773074487
+    },
+    {
+      "id": "maple-autumn-foliage",
+      "path": "source/maple-autumn-foliage.png",
+      "sha256": "7e0ce6875e70de1f4fe686080b598c1ec6fc0c93eff19106cd2dfcb949c814da",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        30,
+        17,
+        1235,
+        947
+      ],
+      "transparent_fraction": 0.5042117218521147,
+      "partial_alpha_fraction": 0.49553327279340875
+    },
+    {
+      "id": "maple-leaf-poses",
+      "path": "source/maple-leaf-poses.png",
+      "sha256": "1da2170d9b74be5b23c606f8d6ff4a452deb4cbfa71ccb584bc3df9324fb5d7d",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha128_bbox": [
+        107,
+        39,
+        2056,
+        680
+      ],
+      "transparent_fraction": 0.7817965721437075,
+      "partial_alpha_fraction": 0.2180813314611886
+    },
+    {
+      "id": "maple-wood",
+      "path": "source/maple-wood.png",
+      "sha256": "dd541d7c56fe0ec2c4935d905a9c0ec0139db0a453b4b59503b77ff71333a71c",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        41,
+        30,
+        1222,
+        1232
+      ],
+      "transparent_fraction": 0.5649767633524874,
+      "partial_alpha_fraction": 0.43470781855319757
+    },
+    {
+      "id": "arrowwood-dry",
+      "path": "source/arrowwood-dry.png",
+      "sha256": "18575cce03b241b325d214fc2e2e35a1c76c6c18bcfba6ff8aeaeee9d477ece4",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha128_bbox": [
+        40,
+        61,
+        1219,
+        1209
+      ],
+      "transparent_fraction": 0.40752144970226056,
+      "partial_alpha_fraction": 0.5921491418847249
+    }
+  ],
+  "world_assumptions": {
+    "viewport": [
+      960,
+      540
+    ],
+    "tree_box": [
+      256,
+      320
+    ],
+    "tree_canvas_world": [
+      256,
+      256
+    ],
+    "shrub_canvas_world": [
+      100,
+      100
+    ],
+    "leaf_world": [
+      8,
+      8
+    ]
+  },
+  "anchors": {
+    "status": "proposed from visual inspection, not authored engine validation",
+    "maple_root_source": [
+      650,
+      1230
+    ],
+    "maple_branch_split": [
+      650,
+      860
+    ],
+    "maple_foliage_pivot": [
+      650,
+      780
+    ],
+    "arrowwood_root_source": [
+      634,
+      1207
+    ],
+    "leaf_cell_pivot": [
+      362,
+      362
+    ]
+  },
+  "wind": {
+    "implemented": false,
+    "proposal": "Keep wood/root stationary. Canopy mask upper y0..950 with deformation weight rising above y780. Shrub pin y1120..1254 and bend upper stems lightly. Seam test required. No independent branch cluster masks delivered."
+  },
+  "animation": {
+    "leaf": "3 generated distinct poses, ping-pong preview at 6 fps; changing shape is generated, playback only is scripted",
+    "plant": "static states only; no runtime animation"
+  },
+  "runtime_derivatives": {
+    "plant_canvas": [
+      512,
+      512
+    ],
+    "method": "uniform nearest neighbor entire canvas; no auto crop",
+    "leaf": "724-square exact cell extraction then uniform 128-square nearest neighbor",
+    "admitted": false
+  },
+  "registration": {
+    "season_alpha128_iou": 0.9118320089335378,
+    "season_identical_alpha_fraction": 0.49955167387804006,
+    "shrub_root_opaque_rgb_mean_absolute_difference": 18.980924056717136,
+    "shrub_root_pixels_equal_fraction": 0.8771632269275631,
+    "registration": "common full canvas; generated contours not pixel-invariant; shrub root approx 2px drift and bark changes; runtime admission blocked pending authored correction"
+  },
+  "rights": "OpenAI built-in generated originals; model revision and seed not exposed. Biological sources are text references only, no third-party artwork copied. Rights/exclusivity not legally certified.",
+  "missing": [
+    "San Diego local plants (next pack)",
+    "spring maple",
+    "arrowwood fruit/autumn/winter",
+    "wet and snow overlays",
+    "authored wind masks",
+    "pixel exact root correction",
+    "engine admission and QA"
+  ]
+}

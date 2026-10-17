@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "kind": "two-variant-reference-candidate",
+  "species": "house_finch",
+  "canonicalSpeciesId": null,
+  "variants": [
+    {
+      "variant": "adult-male",
+      "sourceFile": "male-source.png",
+      "sourceDimensions": [
+        768,
+        1024
+      ],
+      "referenceOnly": true,
+      "frameId": "frame.sha256.7f3664c2d7a8bfc3ea8f03e54107fb7f41e4ce5baab0545a1b98a8264c80dbbc"
+    },
+    {
+      "variant": "adult-female",
+      "sourceFile": "female-source.png",
+      "sourceDimensions": [
+        768,
+        1024
+      ],
+      "referenceOnly": true,
+      "frameId": "frame.sha256.26e496aefc1329a7f4269af852738a51af462bace92b591019842fda4185ca07"
+    }
+  ],
+  "sourceOriginal": {
+    "file": "original.png",
+    "sha256": "796189269b045c3f45a36e0879369e04e22289cff1bad6f0b6a0202ff0c5fdd3"
+  },
+  "referenceAndScale": {
+    "checkedDate": "2026-10-17",
+    "facts": [
+      {
+        "url": "https://www.allaboutbirds.org/guide/House_Finch/id",
+        "use": "paraphrased shape/sex/plumage and published measurements; no Cornell photos reused",
+        "lengthCm": [
+          13,
+          14
+        ],
+        "wingspanCm": [
+          20,
+          25
+        ],
+        "massG": [
+          16,
+          27
+        ],
+        "sexScope": "both sexes",
+        "measurementEndpointDefinition": null
+      },
+      {
+        "url": "https://www.allaboutbirds.org/guide/House_Finch/lifehistory",
+        "use": "plant-food and seed-feeding behavior brief; no media reused"
+      }
+    ],
+    "photoCandidate": {
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Male_House_Finch.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Male_House_Finch.JPG",
+      "creator": "PookieFugglestein",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourceDimensions": [
+        1200,
+        1600
+      ],
+      "licenseVerifiedFromFilePage": true,
+      "bytesDownloaded": false,
+      "imagePixelsInspected": false,
+      "sourceSha256": null,
+      "failure": "shell urllib requests returned proxy403; no photo conditioning claimed"
+    },
+    "styleReference": {
+      "path": "batches/dove-walk-v1/original.png",
+      "use": "style only, explicitly replace dove anatomy"
+    },
+    "scale": {
+      "biologicalCalibration": "not accepted; published measurement endpoints unspecified",
+      "sexSizeClaim": null,
+      "relativeToOtherSpecies": "Mac shared calibration pending; no equal-width normalization across species"
+    }
+  },
+  "review": {
+    "state": "candidate-with-issues",
+    "accepted": false,
+    "issues": [
+      "Text-grounded species identity, no photo conditioning",
+      "Smooth fine feather texture/eye rendering may miss pixel-art target",
+      "No accepted cross-species physical scale; published endpoints unspecified",
+      "Reference source scale differs from normalized animation source, so never swap as runtime pose without calibration"
+    ]
+  },
+  "staged": false,
+  "integrated": false
+}
