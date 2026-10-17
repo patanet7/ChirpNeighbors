@@ -153,3 +153,7 @@ FirstbatchSD20-reuse-01 is the existingmale96pxblink handoff fromPR17 (mergedae9
 ## Dove starter reuse batch
 
 `reuse/sd20-dove-reuse-v1` contains a portable source/reviewZIP, exact11existingdrawingIDs, three192pxRGBAintakeoptions and independent16samplebrowserreview. Standingfirst; moving/feedingclips are sourcepreviews, actualtravel/waterbindingpending. No newdrawings, no plantedcontact/art/runtimeapproval. Fullsourcebytes/prompts areinZIP; originalrootbatchcopiesremainretained.
+
+## Corvid starter reuse batch
+
+`reuse/sd20-corvid-reuse-v1` retains exactsourcebytes/prompts/IDs, a fourdrawingravenblink/lookidle at216canvas, an honestheldcrowstridepause at192canvas, and a separatecrowmovementdraft. Browserplaybacksampled3ravenstates; no actualyard/worldcontactproof. Existingdrawingreuse adds0drawings. Crowgait/interactionbindingsremainpending; sourceZIPisportable.
