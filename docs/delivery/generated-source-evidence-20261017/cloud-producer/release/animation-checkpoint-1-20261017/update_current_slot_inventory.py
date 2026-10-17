@@ -97,6 +97,15 @@ for bird in baseline['species']:
  for row in bird['slots']:row['newAssignment']=None
  package(bird['primaryManifest'],bird['primaryAtlas'])
 def clip(pkg,id='idle'):return next(c for c in pkg['clips'] if c['id']==id)
+def held_new_look_empty_contacts(frame,oldAwake,awakeID,newID,b):
+ # Ordinary/reused/useful look geometry keeps inherited contacts. Only an
+ # explicitly inactive HELD new source may disclose that no contact is claimed.
+ if frame['contacts']==oldAwake['contacts']:return False
+ assert frame['sourceFrameId']==newID and frame['sourceFrameId']!=awakeID,('Reused awake contacts must remain inherited',frame['outputFrameId'])
+ assert frame['contacts']==[],('Held contact exception permits only an empty list',frame['outputFrameId'])
+ assert b.get('sourceHeld') is True and b.get('useAsActiveSource') is False and b.get('usefulSourceSlotsCompleted')==[],('Empty new look contacts require explicitly held inactive metadata with no useful completed slot',b.get('batchId'))
+ return True
+
 def binding(pkg,c,neutralHold=False):
  result={'manifest':pkg['manifest'],'atlasPNG':pkg['atlasPNG'],'clipId':c['id'],'tickRate':c['tickRate'],'loop':c['loop'],'durationTicks':c['durationTicks'],'orderedSourceFrameSequence':c['orderedSourceFrameSequence'],'contactsMeaning':'technical alpha markers, not physical support approval','appBinding':'UNKNOWN','actualYardVerification':'UNKNOWN'}
  if neutralHold:
@@ -187,9 +196,13 @@ for b in overlay['batches']:
    lookAwake=next(f for f in pkg['frames'] if f['sourceFrameId']==awakeID)
    assert lookAwake['outputRGBAId']==oldAwake['outputRGBAId'],('Reused awake render pixels must remain unchanged',awakeID)
    assert len(pkg['frames'])==2 and {f['sourceFrameId'] for f in pkg['frames']}=={awakeID,newIDs[0]}
+   heldContactExceptions=[]
    for frame in pkg['frames']:
-    for geometry in ['canvas','world','sourcePixelsPerWorldUnit','pivot','contacts']:
+    for geometry in ['canvas','world','sourcePixelsPerWorldUnit','pivot']:
      assert frame[geometry]==oldAwake[geometry],('Look must retain actual selected awake family geometry',frame['outputFrameId'],geometry)
+    if held_new_look_empty_contacts(frame,oldAwake,awakeID,newIDs[0],b):
+     r=frame['sourceRect'];tile=rgba(root/pkg['atlasPNG']).crop((r['x'],r['y'],r['x']+r['width'],r['y']+r['height']))
+     heldContactExceptions.append({'sourceFrameId':frame['sourceFrameId'],'outputFrameId':frame['outputFrameId'],'contacts':[],'reason':'HELD new source has no supported inherited contact claim; unchanged registration, no snapping or fitting','inheritedProbeDiagnostics':[{**probe,'sampledAlpha':tile.getpixel((probe['x'],probe['y']))[3],'isContactClaim':False} for probe in oldAwake['contacts']]})
    seq=c['orderedSourceFrameSequence'];phases=[]
    for step in seq:
     if not phases or phases[-1]!=step['sourceFrameId']:phases.append(step['sourceFrameId'])
@@ -199,6 +212,9 @@ for b in overlay['batches']:
    held=any(b.get(k) is True or primary.get(k) is True for k in ['sourceHeld','newSourceHeld'])
    pendingReview=not b.get('review')
    candidate={'batchId':b.get('batchId',primary.get('batchId')),'kind':'look-only-new-drawing-source-candidate','canonicalSchemaValidation':'NOT_RUN; explicit look clip needs current Mac contract confirmation','profileLabelIsRuntimeAdmission':False,'primaryManifest':b['primaryManifest'],'manifest':man,'atlasPNG':pkg['atlasPNG'],'manifestSHA256':pkg['manifestSHA256'],'atlasSHA256':pkg['atlasSHA256'],'sourceFrameIds':c['uniqueSourceFrameIds'],'newSourceFrameIds':newIDs,'reusedSourceFrameIds':[awakeID],'newDrawingCount':1,'reusedDrawingCount':1,'newNeutralDrawings':0,'newBlinkDrawings':0,'clipId':'look','orderedSourceFrameSequence':seq,'renderBinding':binding(pkg,c),'evidencePaths':paths,'sourceHeld':held,'sourceReviewState':'held' if held else 'pending-independent-source-review' if pendingReview else 'reviewed-source-look-with-qualifications','productionAccepted':False,'runtimeAdmission':False,'packetBindingReady':False,'appBinding':'UNKNOWN','actualYardVerification':'UNKNOWN'}
+   if heldContactExceptions:
+    assert held
+    candidate['heldNewLookContactExceptions']=heldContactExceptions
    if b.get('review'):candidate['reviewReceipt']={'path':b['review'],'sha256':b['reviewSHA256']}
    if held or pendingReview:
     candidate['renderBinding'].update(held=True,useAsActiveSource=False)

@@ -1,0 +1,7 @@
+Dove look independent source technical review
+
+PASS for retained source identity, exact old awake reuse, direct full-canvas192 NEAREST export, atlas/map coupling and authored clock. Frozen47 targets remain unchanged. One new look drawing, one unchanged awake; zero new neutral/blink. Prompt1898bytes includes trailingLF; saved bytes/hash match producer receipts (dispatch-string equality producer-attested).
+
+World192, density1, pivot105/150 preserved. Old contacts97/149 and116/149 have alpha206/133; the same new-frame pixels are0/0, so new contacts[] is correct. Positive new toe probes246/253 are separate diagnostics, not admitted physical support. Alpha128 envelope118×68→132×85; footROI baseline+10world and maximum centroid8.82528world are disclosed raster proxies. Native enlargement/body/feet redraw is retained. No per-pose fitting, painting, threshold or contact snapping. Old warm fractional-alpha field remains in exact awake; native model output difference is not export cleanup.
+
+Named look30Hz awake30/look12/awake30 and terminal awake hold pass source-clock checks; separate idle remains awake-only. Technical pass grants no visual acceptance or smooth turn claim. Older Library candidate download failed exit1 with no HTTP status; those pixels remain uninspected. Canonical Zod/Sharp NOT_RUN; current Mac named-look UNKNOWN; bindingfalse. No source/Git/global writes, generation or embedded browser captures.
