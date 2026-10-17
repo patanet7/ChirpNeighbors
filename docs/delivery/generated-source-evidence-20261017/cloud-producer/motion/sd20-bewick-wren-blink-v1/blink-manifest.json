@@ -1,0 +1,135 @@
+{
+  "schema": "chirp-source-blink-study-v1",
+  "batchId": "sd20-bewick-wren-blink-v1",
+  "speciesId": "bewick_s_wren",
+  "tickRate": 30,
+  "loop": true,
+  "clips": [
+    {
+      "id": "blink-study",
+      "frames": [
+        {
+          "frame": "awake",
+          "durationTicks": 60
+        },
+        {
+          "frame": "closed",
+          "durationTicks": 3
+        },
+        {
+          "frame": "awake",
+          "durationTicks": 27
+        }
+      ]
+    }
+  ],
+  "sourcePoseChange": "Actual native closed eyelid versus exact existing awake; body redraw is not an authored body animation.",
+  "trajectory": {
+    "rootWorld": [
+      0,
+      0
+    ],
+    "bodyBob": false,
+    "rigTranslation": [
+      0,
+      0
+    ],
+    "newDrawingsFromRig": 0
+  },
+  "newDrawings": 1,
+  "reusedDrawings": 1,
+  "frames": [
+    {
+      "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+      "sourcePNG": "frames/closed-source1254.png",
+      "sourcePNGsha256": "d2d59072fa430225258513d39be3276c81588614e790834430605e2f23ade0e3",
+      "speciesId": "bewick_s_wren",
+      "pose": "closed-eyelid-study",
+      "registration": {
+        "sourceCanvas": [
+          1254,
+          1254
+        ],
+        "originalSourceCanvas": [
+          1254,
+          1254
+        ],
+        "method": "Whole native RGBA canvas retained unchanged; output resizes full canvas nearest. No crop, body fit, body translation, alpha repair or pixel painting.",
+        "wholeCallCanvasConversionToReference": 0.8165869218500797,
+        "referenceCanvas": [
+          1024,
+          1024
+        ],
+        "sourceToOutputScale": 0.07655502392344497,
+        "perPoseBodyFit": false,
+        "sourceRootInheritedReferenceNormalized": [
+          744.5625,
+          979.6875
+        ],
+        "rootQualification": "Inherited normalized technical pivot; not shifted to hide native redraw or foot mismatch."
+      },
+      "outputPNG": "frames/closed96.png",
+      "outputPNGsha256": "74cb5b2e09978d12cf108f25c6c0b7da5f167aea8a40db6a76d82ac9dd088076",
+      "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989",
+      "outputCanvas": [
+        96,
+        96
+      ],
+      "sourcePixelsPerWorldUnit": 0.7954545454545454,
+      "worldCanvas": [
+        120.6857142857143,
+        120.6857142857143
+      ],
+      "outputPivot": [
+        57,
+        75
+      ],
+      "expectedSupportContacts": [
+        {
+          "id": "inherited-foot-1",
+          "x": 56,
+          "y": 74,
+          "actualAlpha": 246
+        },
+        {
+          "id": "inherited-foot-2",
+          "x": 57,
+          "y": 74,
+          "actualAlpha": 246
+        }
+      ],
+      "supportQualification": "Expected old-frame anchors, not accepted closed-frame contacts; actual native redraw measured separately.",
+      "approxBeakOutput": [
+        71,
+        50.0
+      ]
+    }
+  ],
+  "reusedFrames": [
+    {
+      "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+      "sourcePNG": "reused/awake-source1024.png",
+      "sourcePNGsha256": "eacdcb7903820a0bc84758973848bc5638f28ca6450478b5d18f4d1b16977cbe",
+      "speciesId": "bewick_s_wren",
+      "pose": "awake-neutral",
+      "newDrawing": false,
+      "outputPNG": "reused/awake96.png",
+      "outputPNGsha256": "5c146a57610697a3980494fb332cd8bb5c22567e57a540344fadb4bac555046f",
+      "sourcePixelsPerWorldUnit": 0.7954545454545454,
+      "outputPivot": [
+        57,
+        75
+      ],
+      "originBatch": "sd20-bushtit-wren-sparrow-v1",
+      "originOriginalSHA256": "7ab145463ec3c721a9188eb5a09175d27d4003c1cc9686bef671a5bc4575b7af",
+      "originPromptSHA256": "e4948a0eb25695f085d3f47c1a6b84db9dfe90caee22a8bcacac3abb32dbba9a",
+      "originalReferencePath": "/workspace/asset-production/new-species/sd20-bushtit-wren-sparrow-v1/bewick_s_wren/neutral-source1024.png"
+    }
+  ],
+  "packetBindingReady": false,
+  "runtimeBound": false,
+  "ownerApproved": false,
+  "blinkCompletionClaimed": false,
+  "canonicalSharpReceipt": null,
+  "sourceStatus": "closure study; native outside-eye redraw and support mismatch require independent review"
+}

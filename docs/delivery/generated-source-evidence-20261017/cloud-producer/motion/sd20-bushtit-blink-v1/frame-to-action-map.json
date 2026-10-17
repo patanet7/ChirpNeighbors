@@ -1,0 +1,120 @@
+{
+  "batchId": "sd20-bushtit-blink-v1",
+  "profile": "chirp-texture-review-v1",
+  "atlas": {
+    "file": "blink-atlas96.png",
+    "sha256": "c344f88286468808cd35759d3de27d072a618e4c0a272bc4f840a1da557f75d5",
+    "width": 192,
+    "height": 96
+  },
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "5552b6cc6145c8fefb94aa4b08048f3e42a51504143c8cddaf0b04bbb5cd3005"
+  },
+  "primarySourceManifest": {
+    "file": "PRIMARY-SOURCE-MANIFEST.json"
+  },
+  "frames": [
+    {
+      "kind": "reused-existing-awake",
+      "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+      "sourcePNG": "reused-open-source1024.png",
+      "sourcePNGsha256": "46d5b589ce3d82571cb7863a6d5c5a12dd267f63ec99bdfbce5713fdcd2f2e8a",
+      "renderFrameId": "bushtit-open-96",
+      "outputRgbaFrameId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317",
+      "outputPNG": "open96.png",
+      "outputPNGsha256": "4831f8da8ff065e186613859a6328384ea044881723305fc8e60d1f2c4c8629e",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "actionId": "idle",
+      "semanticPhase": "open"
+    },
+    {
+      "kind": "new-native-closed-eye",
+      "sourceFrameId": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+      "sourcePNG": "original.png",
+      "sourcePNGsha256": "0a56de1b47b3614b9bf02a42c3c9261a5e86af25a49696b864530024278757ff",
+      "renderFrameId": "bushtit-closed-96",
+      "outputRgbaFrameId": "frame.sha256.52593b462aa64cf8c787237c8632c06becb09166b704c47ae1f2eb4234bca269",
+      "outputPNG": "closed96.png",
+      "outputPNGsha256": "0a9a95130b8b94be6cfe472f9cf15c7a2b0c1b788a2f8b68ac478a36fa5a73e1",
+      "atlasRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "actionId": "idle",
+      "semanticPhase": "closed"
+    }
+  ],
+  "clip": {
+    "id": "idle",
+    "semanticAction": "blink-candidate-study",
+    "tickRate": 30,
+    "loop": true,
+    "durationTicks": 90,
+    "schedule": [
+      {
+        "phase": "open",
+        "startTickInclusive": 0,
+        "endTickExclusive": 60,
+        "durationTicks": 60,
+        "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+        "renderFrameId": "bushtit-open-96"
+      },
+      {
+        "phase": "closed",
+        "startTickInclusive": 60,
+        "endTickExclusive": 63,
+        "durationTicks": 3,
+        "sourceFrameId": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+        "renderFrameId": "bushtit-closed-96"
+      },
+      {
+        "phase": "open",
+        "startTickInclusive": 63,
+        "endTickExclusive": 90,
+        "durationTicks": 27,
+        "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+        "renderFrameId": "bushtit-open-96"
+      }
+    ]
+  },
+  "sourceCounts": {
+    "nativeCalls": 1,
+    "newClosedDrawings": 1,
+    "reusedAwakeDrawings": 1,
+    "newNeutralDrawings": 0,
+    "newLookDrawings": 0,
+    "riggedDrawings": 0
+  },
+  "sourcePacketBound": true,
+  "appBound": false,
+  "slotAccepted": false,
+  "state": "Candidate/study pending independent actual64world-canvas eye-read and animation compatibility.",
+  "fallback": "Existingawake/idle-look canon stays unchanged. Holdclosure if unreadable or distracting atsmallbirdsize;noautotry.",
+  "presentation": {
+    "nativeToRegisteredScale": 0.8165869218500797,
+    "registeredToOutputScale": 0.09375,
+    "translation": [
+      0,
+      0
+    ],
+    "densityOutputPixelsPerWorldUnit": 1.5,
+    "worldCanvas": [
+      64.0,
+      64.0
+    ],
+    "pivotOutputXY": [
+      57,
+      75
+    ]
+  },
+  "canonicalSharpReceipt": null,
+  "rightsFidelityApproval": false
+}

@@ -5012,6 +5012,7 @@
               "actualYardVerification": "UNKNOWN"
             }
           ],
+          "selectedClipId": "idle",
           "newSourceFrameIds": [
             "frame.sha256.f23ab8898138c681423956648b468d7182fdc890be193d0595c8ac6d95fd550a"
           ],
@@ -8297,13 +8298,13 @@
       "id": "northern_mockingbird",
       "name": "Northern Mockingbird",
       "primaryIntakeStatus": "provisional-source-review-candidate",
-      "primaryManifest": "new-species/sd20-next-three-canon-v1/northern_mockingbird/texture-review-manifest.json",
-      "primaryAtlas": "new-species/sd20-next-three-canon-v1/northern_mockingbird/idle-look-atlas192.png",
+      "primaryManifest": "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+      "primaryAtlas": "motion/sd20-northern-mockingbird-blink-v1/blink-atlas192.png",
       "selectedIdleSourceIDs": [
         "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
-        "frame.sha256.226e1235be06d235fce4a7f234fe97fe95b45db252270aca3e8c587c2f74acae"
+        "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
@@ -8412,6 +8413,54 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+          "file": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+          "fileSha256": "ae832a000f4a278d92f9df1ce37963425696b2643cb3ace298e973e9b76adc8c",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "northern_mockingbird",
+          "appearanceVersion": "sd20-northern-mockingbird-blink-v1",
+          "poseTags": [
+            "fully-closed-eye",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+          "sourceAtlasSha256": "ae832a000f4a278d92f9df1ce37963425696b2643cb3ace298e973e9b76adc8c",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "registeredCanvas": [
+              1024,
+              1024
+            ],
+            "wholeCallScale": 0.8165869218500797,
+            "translation": [
+              0,
+              0
+            ],
+            "method": "One explicit whole-canvas nearest1254→1024,then nearest1024→192. No local fit,paint,warp,alpha change or per-pose scale.",
+            "perPoseFit": false
+          },
+          "sourcePrompt": "motion/sd20-northern-mockingbird-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-northern-mockingbird-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; One new closed-eye drawing with unchanged old awake; no new neutral slot, source-only blink candidate.",
+          "sourceReview": "motion/sd20-northern-mockingbird-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -8421,7 +8470,9 @@
         "new-species/sd20-next-three-canon-v1/independent-review.json",
         "new-species/sd20-next-three-canon-v1/README.md"
       ],
-      "sourceIssues": [],
+      "sourceIssues": [
+        "Current checkpoint: One new closed-eye drawing with unchanged old awake; no new neutral slot, source-only blink candidate."
+      ],
       "nextAssignedTask": null,
       "slots": [
         {
@@ -8450,7 +8501,7 @@
           "actualYardVerification": "UNKNOWN",
           "orderedSourceFrameSequence": [
             {
-              "frameId": "northern_mockingbird-neutral-192",
+              "frameId": "northern-mockingbird-open-192",
               "durationTicks": 60,
               "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
               "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
@@ -8458,15 +8509,15 @@
           ],
           "renderBindings": [
             {
-              "manifest": "new-species/sd20-next-three-canon-v1/northern_mockingbird/texture-review-manifest.json",
-              "atlasPNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/idle-look-atlas192.png",
+              "manifest": "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-northern-mockingbird-blink-v1/blink-atlas192.png",
               "clipId": "idle",
               "tickRate": 30,
               "loop": false,
               "durationTicks": null,
               "orderedSourceFrameSequence": [
                 {
-                  "frameId": "northern_mockingbird-neutral-192",
+                  "frameId": "northern-mockingbird-open-192",
                   "durationTicks": null,
                   "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
                   "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
@@ -8569,19 +8620,90 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "upright look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-blink",
+          "sourceFrameIds": [
+            "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+            "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+            "motion/sd20-northern-mockingbird-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye→closed lid→same open state; half lid only if useful."
+            "One new closed-eye drawing with unchanged old awake; no new neutral slot, source-only blink candidate.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+            },
+            {
+              "frameId": "northern-mockingbird-closed-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e"
+            },
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-northern-mockingbird-blink-v1/blink-atlas192.png",
+              "clipId": "idle",
+              "tickRate": 30,
+              "loop": true,
+              "durationTicks": 90,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "northern-mockingbird-open-192",
+                  "durationTicks": 60,
+                  "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+                  "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+                },
+                {
+                  "frameId": "northern-mockingbird-closed-192",
+                  "durationTicks": 3,
+                  "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+                  "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e"
+                },
+                {
+                  "frameId": "northern-mockingbird-open-192",
+                  "durationTicks": 27,
+                  "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+                  "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "selectedClipId": "idle",
+          "newSourceFrameIds": [
+            "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855"
+          ]
         },
         {
           "speciesId": "northern_mockingbird",
@@ -8732,13 +8854,18 @@
         }
       ],
       "baselineSourceIssues": [],
-      "currentSourceIssues": [],
-      "primaryManifestSHA256": "c06fbbc4de5d366583a97c28ab55c98bd14cbe1d314d8a4f6e4ae3ca48696ff6",
-      "primaryAtlasSHA256": "acd9232840bdfbbd35399c7693fe886c963f3dbd60c1a29671b709c6c0fef84b",
+      "currentSourceIssues": [
+        "One new closed-eye drawing with unchanged old awake; no new neutral slot, source-only blink candidate."
+      ],
+      "overlayQualifications": [
+        "Closure-only source batch: existing awake source reused; neutral coverage unchanged; no new neutral drawing counted."
+      ],
+      "primaryManifestSHA256": "0c48c90df8e3c9167c34fb93d6137bf677e9cfcbd54d0e930cc516c36d9a0dd0",
+      "primaryAtlasSHA256": "34de807f223db0f2155f5cfbc1de43b21ebb853cd9c3b9e81762f7ad517328c8",
       "primaryClipId": "idle",
       "primaryFrameMappings": [
         {
-          "outputFrameId": "northern_mockingbird-neutral-192",
+          "outputFrameId": "northern-mockingbird-open-192",
           "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
           "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
           "exactExportMappings": [
@@ -8751,6 +8878,26 @@
               "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -8802,19 +8949,29 @@
           ]
         },
         {
-          "outputFrameId": "northern_mockingbird-look-192",
-          "outputRGBAId": "frame.sha256.2be403548c3624f4866834a8056d79109b965948edc3364b384bf730bfef05b0",
-          "sourceFrameId": "frame.sha256.226e1235be06d235fce4a7f234fe97fe95b45db252270aca3e8c587c2f74acae",
+          "outputFrameId": "northern-mockingbird-closed-192",
+          "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+          "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
           "exactExportMappings": [
             {
-              "sourceFrameId": "frame.sha256.226e1235be06d235fce4a7f234fe97fe95b45db252270aca3e8c587c2f74acae",
-              "sourcePNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/look-source1024.png",
-              "outputPNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/look192.png",
-              "outputPNGsha256": "e85c41340840aab347fd9472c7801e51c986d392116b566094efcfe1abd39e3a",
-              "outputRGBAId": "frame.sha256.2be403548c3624f4866834a8056d79109b965948edc3364b384bf730bfef05b0",
-              "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
-              "phase": "look",
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/closed192.png",
+              "outputPNGsha256": "72995d91a98f2cc03fad228a1d69ad7182a009614aab87980314bb94f883e924",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "fully-closed-eye",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/closed192.png",
+              "outputPNGsha256": "72995d91a98f2cc03fad228a1d69ad7182a009614aab87980314bb94f883e924",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -8853,14 +9010,14 @@
               "id": "foot-1",
               "x": 113,
               "y": 148,
-              "sampledAlpha": 248,
+              "sampledAlpha": 251,
               "anatomicallyApproved": false
             },
             {
               "id": "foot-2",
               "x": 115,
               "y": 149,
-              "sampledAlpha": 136,
+              "sampledAlpha": 226,
               "anatomicallyApproved": false
             }
           ]
@@ -8871,13 +9028,13 @@
       "id": "california_scrub_jay",
       "name": "California Scrub-Jay",
       "primaryIntakeStatus": "provisional-source-review-candidate",
-      "primaryManifest": "new-species/sd20-next-three-canon-v1/california_scrub_jay/texture-review-manifest.json",
-      "primaryAtlas": "new-species/sd20-next-three-canon-v1/california_scrub_jay/idle-look-atlas192.png",
+      "primaryManifest": "motion/sd20-california-scrub-jay-blink-v1/texture-review-manifest.json",
+      "primaryAtlas": "motion/sd20-california-scrub-jay-blink-v1/idle-blink-atlas192.png",
       "selectedIdleSourceIDs": [
         "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
-        "frame.sha256.c38d4bf8496a859c666729ff82530faea12bd539858a83c2ab102e2e38359b48"
+        "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
@@ -8986,6 +9143,59 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82",
+          "file": "motion/sd20-california-scrub-jay-blink-v1/closed-native.png",
+          "fileSha256": "ae90a2ed3b319b299ccb5c62413504cc0491ea47121b0fec8400017679f9cda0",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "california_scrub_jay",
+          "appearanceVersion": "sd20-california-scrub-jay-blink-v1",
+          "poseTags": [
+            "closed-eye blink",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-california-scrub-jay-blink-v1/original.png",
+          "sourceAtlasSha256": "ae90a2ed3b319b299ccb5c62413504cc0491ea47121b0fec8400017679f9cda0",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "pixelRegistration": "none; native source PNG retained byte-identical",
+            "wholeCallCanvasDensityConversion": {
+              "requestedCanvas": [
+                1024,
+                1024
+              ],
+              "actualNativeCanvas": [
+                1254,
+                1254
+              ],
+              "nativeToReferenceCanvasRatio": 0.8165869218500797,
+              "nativeToOutputRatio": 0.15311004784688995
+            },
+            "perPoseFit": false,
+            "paintOrWarp": false,
+            "alphaErasure": false
+          },
+          "sourcePrompt": "motion/sd20-california-scrub-jay-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-california-scrub-jay-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; One actual closure paired with unchanged awake; minor crown/belly/toe redraw retained; no new neutral coverage.",
+          "sourceReview": "motion/sd20-california-scrub-jay-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -8995,7 +9205,9 @@
         "new-species/sd20-next-three-canon-v1/independent-review.json",
         "new-species/sd20-next-three-canon-v1/README.md"
       ],
-      "sourceIssues": [],
+      "sourceIssues": [
+        "Current checkpoint: One actual closure paired with unchanged awake; minor crown/belly/toe redraw retained; no new neutral coverage."
+      ],
       "nextAssignedTask": null,
       "slots": [
         {
@@ -9032,8 +9244,8 @@
           ],
           "renderBindings": [
             {
-              "manifest": "new-species/sd20-next-three-canon-v1/california_scrub_jay/texture-review-manifest.json",
-              "atlasPNG": "new-species/sd20-next-three-canon-v1/california_scrub_jay/idle-look-atlas192.png",
+              "manifest": "motion/sd20-california-scrub-jay-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-california-scrub-jay-blink-v1/idle-blink-atlas192.png",
               "clipId": "idle",
               "tickRate": 30,
               "loop": false,
@@ -9143,19 +9355,90 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "upright branch look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-blink",
+          "sourceFrameIds": [
+            "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+            "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-california-scrub-jay-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-california-scrub-jay-blink-v1/texture-review-manifest.json",
+            "motion/sd20-california-scrub-jay-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-california-scrub-jay-blink-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye→closed lid→same open state; half lid only if useful."
+            "One actual closure paired with unchanged awake; minor crown/belly/toe redraw retained; no new neutral coverage.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "california_scrub_jay-neutral-192",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+              "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383"
+            },
+            {
+              "frameId": "california_scrub_jay-closed-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82",
+              "outputRGBAId": "frame.sha256.7799afb04dbdfa01f871b0ee451bb07ee33fe8b419ccec2937794644b776c433"
+            },
+            {
+              "frameId": "california_scrub_jay-neutral-192",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+              "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-california-scrub-jay-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-california-scrub-jay-blink-v1/idle-blink-atlas192.png",
+              "clipId": "idle",
+              "tickRate": 30,
+              "loop": true,
+              "durationTicks": 90,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "california_scrub_jay-neutral-192",
+                  "durationTicks": 60,
+                  "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+                  "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383"
+                },
+                {
+                  "frameId": "california_scrub_jay-closed-192",
+                  "durationTicks": 3,
+                  "sourceFrameId": "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82",
+                  "outputRGBAId": "frame.sha256.7799afb04dbdfa01f871b0ee451bb07ee33fe8b419ccec2937794644b776c433"
+                },
+                {
+                  "frameId": "california_scrub_jay-neutral-192",
+                  "durationTicks": 27,
+                  "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+                  "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "selectedClipId": "idle",
+          "newSourceFrameIds": [
+            "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368"
+          ]
         },
         {
           "speciesId": "california_scrub_jay",
@@ -9306,9 +9589,14 @@
         }
       ],
       "baselineSourceIssues": [],
-      "currentSourceIssues": [],
-      "primaryManifestSHA256": "440b80eeb0c438aed9ac15050ba01fb9aada95c1105c32957661bd9b4505c1df",
-      "primaryAtlasSHA256": "758227793ee27c08f36ee084cfef9b5137bd92697c1a8855e7c9eae8caff09af",
+      "currentSourceIssues": [
+        "One actual closure paired with unchanged awake; minor crown/belly/toe redraw retained; no new neutral coverage."
+      ],
+      "overlayQualifications": [
+        "Closure-only source batch: existing awake source reused; neutral coverage unchanged; no new neutral drawing counted."
+      ],
+      "primaryManifestSHA256": "0d1ab66350d13b13e037ac802ae8bea75971a938b66b2dc26716f3d64ccce8bc",
+      "primaryAtlasSHA256": "c8bbd761cbdd0e54156c7fc4b8509aef55e1eafc7612e7a88789f38ffa3c6432",
       "primaryClipId": "idle",
       "primaryFrameMappings": [
         {
@@ -9324,6 +9612,16 @@
               "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383",
               "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+              "sourcePNG": "motion/sd20-california-scrub-jay-blink-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-california-scrub-jay-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "521a01751896947095e5ad1fc36eea9cdb4ca34c7b3155025fe987b718d20f3d",
+              "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383",
+              "evidence": "motion/sd20-california-scrub-jay-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -9376,18 +9674,18 @@
           ]
         },
         {
-          "outputFrameId": "california_scrub_jay-look-192",
-          "outputRGBAId": "frame.sha256.ec43cc579d3e2e3632080dd982850162cfc361978ecba3da15fc9e5951a3abe0",
-          "sourceFrameId": "frame.sha256.c38d4bf8496a859c666729ff82530faea12bd539858a83c2ab102e2e38359b48",
+          "outputFrameId": "california_scrub_jay-closed-192",
+          "outputRGBAId": "frame.sha256.7799afb04dbdfa01f871b0ee451bb07ee33fe8b419ccec2937794644b776c433",
+          "sourceFrameId": "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82",
           "exactExportMappings": [
             {
-              "sourceFrameId": "frame.sha256.c38d4bf8496a859c666729ff82530faea12bd539858a83c2ab102e2e38359b48",
-              "sourcePNG": "new-species/sd20-next-three-canon-v1/california_scrub_jay/look-source1024.png",
-              "outputPNG": "new-species/sd20-next-three-canon-v1/california_scrub_jay/look192.png",
-              "outputPNGsha256": "5817d06a5aaa8d20e732149c02a5be53cb4e72b469d9ebf2624e88304bb70967",
-              "outputRGBAId": "frame.sha256.ec43cc579d3e2e3632080dd982850162cfc361978ecba3da15fc9e5951a3abe0",
-              "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
-              "phase": "look",
+              "sourceFrameId": "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82",
+              "sourcePNG": "motion/sd20-california-scrub-jay-blink-v1/closed-native.png",
+              "outputPNG": "motion/sd20-california-scrub-jay-blink-v1/closed192.png",
+              "outputPNGsha256": "8aac56f0b4ac8e08e735d1a818e7873192c00441e6c2c1ac043a77e71882bd6d",
+              "outputRGBAId": "frame.sha256.7799afb04dbdfa01f871b0ee451bb07ee33fe8b419ccec2937794644b776c433",
+              "evidence": "motion/sd20-california-scrub-jay-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "closed-eye blink",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -9434,7 +9732,7 @@
               "id": "foot-2",
               "x": 115,
               "y": 149,
-              "sampledAlpha": 233,
+              "sampledAlpha": 245,
               "anatomicallyApproved": false
             }
           ]
@@ -9451,7 +9749,7 @@
         "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
         "frame.sha256.70314a70a0d69da644906b8375bd033bac0b2d48ac3d6192c9b39342497c0bc7"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
@@ -9560,6 +9858,54 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+          "file": "motion/sd20-bushtit-blink-v1/original.png",
+          "fileSha256": "0a56de1b47b3614b9bf02a42c3c9261a5e86af25a49696b864530024278757ff",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "bushtit",
+          "appearanceVersion": "sd20-bushtit-blink-v1",
+          "poseTags": [
+            "fully-closed-eye",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-bushtit-blink-v1/original.png",
+          "sourceAtlasSha256": "0a56de1b47b3614b9bf02a42c3c9261a5e86af25a49696b864530024278757ff",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "registeredCanvas": [
+              1024,
+              1024
+            ],
+            "wholeCallScale": 0.8165869218500797,
+            "translation": [
+              0,
+              0
+            ],
+            "method": "One explicit whole-canvas nearest1254→1024,then nearest1024→96. No local fit,paint,warp,alpha change or per-pose scale.",
+            "perPoseFit": false
+          },
+          "sourcePrompt": "motion/sd20-bushtit-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-bushtit-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; HELD closure-only study; useful blink completion not established. One actual closure with exact oldawake reuse; tiny28world eye readability assessed independently, no new neutral.",
+          "sourceReview": "motion/sd20-bushtit-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -9570,7 +9916,8 @@
         "new-species/sd20-bushtit-wren-sparrow-v1/README.md"
       ],
       "sourceIssues": [
-        "28worldpxneutral; tinytoes/eyes unresolved; footboundary1outputpx=.667world, centroid.173world."
+        "Baseline PR33: 28worldpxneutral; tinytoes/eyes unresolved; footboundary1outputpx=.667world, centroid.173world.",
+        "Current checkpoint: HELD closure-only study; useful blink completion not established. One actual closure with exact oldawake reuse; tiny28world eye readability assessed independently, no new neutral."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -9719,19 +10066,94 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "twig-perch look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
+          "state": "new-drawn-blink-held-source-study",
+          "sourceFrameIds": [
+            "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+            "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b"
+          ],
+          "uniqueKnownSourceIDs": 2,
           "provisionalUsefulSourceForThisSemanticSlot": false,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-bushtit-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-bushtit-blink-v1/texture-review-manifest.json",
+            "motion/sd20-bushtit-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-bushtit-blink-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye→closed lid→same open state; half lid only if useful."
+            "HELD closure-only study; useful blink completion not established. One actual closure with exact oldawake reuse; tiny28world eye readability assessed independently, no new neutral.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "bushtit-open-96",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317"
+            },
+            {
+              "frameId": "bushtit-closed-96",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+              "outputRGBAId": "frame.sha256.52593b462aa64cf8c787237c8632c06becb09166b704c47ae1f2eb4234bca269"
+            },
+            {
+              "frameId": "bushtit-open-96",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-bushtit-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-bushtit-blink-v1/blink-atlas96.png",
+              "clipId": "idle",
+              "tickRate": 30,
+              "loop": true,
+              "durationTicks": 90,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "bushtit-open-96",
+                  "durationTicks": 60,
+                  "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+                  "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317"
+                },
+                {
+                  "frameId": "bushtit-closed-96",
+                  "durationTicks": 3,
+                  "sourceFrameId": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+                  "outputRGBAId": "frame.sha256.52593b462aa64cf8c787237c8632c06becb09166b704c47ae1f2eb4234bca269"
+                },
+                {
+                  "frameId": "bushtit-open-96",
+                  "durationTicks": 27,
+                  "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+                  "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN",
+              "held": true,
+              "useAsActiveSource": false
+            }
+          ],
+          "selectedClipId": "idle",
+          "newSourceFrameIds": [
+            "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2"
+          ],
+          "newSourceHeld": true,
+          "sourceHeld": true
         },
         {
           "speciesId": "bushtit",
@@ -9884,7 +10306,9 @@
       "baselineSourceIssues": [
         "28worldpxneutral; tinytoes/eyes unresolved; footboundary1outputpx=.667world, centroid.173world."
       ],
-      "currentSourceIssues": [],
+      "currentSourceIssues": [
+        "HELD closure-only study; useful blink completion not established. One actual closure with exact oldawake reuse; tiny28world eye readability assessed independently, no new neutral."
+      ],
       "primaryManifestSHA256": "7336c16b0fbb688850479953ce1571d9591a79c7037810763939bb9650bfa67d",
       "primaryAtlasSHA256": "b48534acab139ddfabe0edb95b0d5bfca40a03d5d7417df803bd8dab6d16ba8c",
       "primaryClipId": "idle",
@@ -9903,6 +10327,26 @@
               "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "sourcePNG": "motion/sd20-bushtit-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-bushtit-blink-v1/open96.png",
+              "outputPNGsha256": "4831f8da8ff065e186613859a6328384ea044881723305fc8e60d1f2c4c8629e",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317",
+              "evidence": "motion/sd20-bushtit-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "sourcePNG": "motion/sd20-bushtit-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-bushtit-blink-v1/open96.png",
+              "outputPNGsha256": "4831f8da8ff065e186613859a6328384ea044881723305fc8e60d1f2c4c8629e",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317",
+              "evidence": "motion/sd20-bushtit-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -10212,6 +10656,7 @@
               "projectionOnly": true
             }
           ],
+          "selectedClipId": "idle",
           "newSourceFrameIds": [
             "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5"
           ],
@@ -10322,6 +10767,7 @@
               "actualYardVerification": "UNKNOWN"
             }
           ],
+          "selectedClipId": "idle",
           "newSourceFrameIds": [
             "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
             "frame.sha256.5e7db50d969fde6d366ab3dbec44b7fc93b28b1857d83f1bb4b5a2c1179d10c5"
@@ -11705,6 +12151,7 @@
               "projectionOnly": true
             }
           ],
+          "selectedClipId": "idle",
           "newSourceFrameIds": [
             "frame.sha256.d6195090c068b8de02dca04caaf49b210cc3356d0d985f41fdcdff21b9f589f7"
           ],
@@ -11794,6 +12241,7 @@
               "actualYardVerification": "UNKNOWN"
             }
           ],
+          "selectedClipId": "idle",
           "newSourceFrameIds": [
             "frame.sha256.d6195090c068b8de02dca04caaf49b210cc3356d0d985f41fdcdff21b9f589f7",
             "frame.sha256.99c19131676644273b595b8ca26c5d51d84f49e443810d1ba8de6dedc66566c7"
@@ -13875,13 +14323,13 @@
       "id": "western_bluebird",
       "name": "Western Bluebird",
       "primaryIntakeStatus": "provisional-source-review-candidate",
-      "primaryManifest": "new-species/sd20-final-four-v1/western_bluebird/texture-review-manifest.json",
-      "primaryAtlas": "new-species/sd20-final-four-v1/western_bluebird/idle-look-atlas192.png",
+      "primaryManifest": "motion/sd20-western-bluebird-blink-v1/annex/registered-texture-review-manifest.json",
+      "primaryAtlas": "motion/sd20-western-bluebird-blink-v1/blink-registered-study-atlas192.png",
       "selectedIdleSourceIDs": [
         "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
-        "frame.sha256.2ddf0cef081c9ae7dd279283fe6df4210048a4160d01ea7c20f610af9ff3a174"
+        "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2"
       ],
-      "nativeBankDrawings": 6,
+      "nativeBankDrawings": 7,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
@@ -14234,6 +14682,60 @@
           ],
           "reuseStatus": "independently reviewed source candidate; Four actual hop poses; authored airborne root trajectory; one-shot source study, resident-neutral splice and physical toe lock unapproved.",
           "sourceReview": "motion/sd20-western-bluebird-hop-v1/independent-review.json"
+        },
+        {
+          "frameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
+          "file": "motion/sd20-western-bluebird-blink-v1/frames/closed-source1254.png",
+          "fileSha256": "6ccb18b932200a93741fd89225e2edd999681c6f7aa11a99fbe831cdb2b7065c",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "western_bluebird",
+          "appearanceVersion": "sd20-western-bluebird-blink-v1",
+          "poseTags": [
+            "closed-eyelid-study",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-western-bluebird-blink-v1/original.png",
+          "sourceAtlasSha256": "6ccb18b932200a93741fd89225e2edd999681c6f7aa11a99fbe831cdb2b7065c",
+          "derivation": {
+            "sourceCanvas": [
+              1254,
+              1254
+            ],
+            "originalSourceCanvas": [
+              1254,
+              1254
+            ],
+            "method": "Whole native RGBA canvas retained unchanged; output resizes full canvas nearest. No crop, body fit, body translation, alpha repair or pixel painting.",
+            "wholeCallCanvasConversionToReference": 0.8165869218500797,
+            "referenceCanvas": [
+              1024,
+              1024
+            ],
+            "sourceToOutputScale": 0.15311004784688995,
+            "perPoseBodyFit": false,
+            "sourceRootInheritedReferenceNormalized": [
+              744.5625,
+              979.6875
+            ],
+            "rootQualification": "Inherited normalized technical pivot; not shifted to hide native redraw or foot mismatch."
+          },
+          "sourcePrompt": "motion/sd20-western-bluebird-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-western-bluebird-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; One new closed-eye drawing with unchanged existing awake neutral reused; source-only blink candidate; native canvas normalization and redraw limits retained.",
+          "sourceReview": "motion/sd20-western-bluebird-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -14247,7 +14749,8 @@
         "new-species/sd20-final-four-v1/README.md"
       ],
       "sourceIssues": [
-        "Current checkpoint: Four actual hop poses; authored airborne root trajectory; one-shot source study, resident-neutral splice and physical toe lock unapproved."
+        "Current checkpoint: Four actual hop poses; authored airborne root trajectory; one-shot source study, resident-neutral splice and physical toe lock unapproved.",
+        "Current checkpoint: One new closed-eye drawing with unchanged existing awake neutral reused; source-only blink candidate; native canvas normalization and redraw limits retained."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -14277,7 +14780,7 @@
           "actualYardVerification": "UNKNOWN",
           "orderedSourceFrameSequence": [
             {
-              "frameId": "western_bluebird-neutral-192",
+              "frameId": "western-bluebird-awake-reused",
               "durationTicks": 60,
               "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
               "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3"
@@ -14285,15 +14788,15 @@
           ],
           "renderBindings": [
             {
-              "manifest": "new-species/sd20-final-four-v1/western_bluebird/texture-review-manifest.json",
-              "atlasPNG": "new-species/sd20-final-four-v1/western_bluebird/idle-look-atlas192.png",
+              "manifest": "motion/sd20-western-bluebird-blink-v1/annex/registered-texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-western-bluebird-blink-v1/blink-registered-study-atlas192.png",
               "clipId": "idle",
               "tickRate": 30,
               "loop": false,
               "durationTicks": null,
               "orderedSourceFrameSequence": [
                 {
-                  "frameId": "western_bluebird-neutral-192",
+                  "frameId": "western-bluebird-awake-reused",
                   "durationTicks": null,
                   "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
                   "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3"
@@ -14396,19 +14899,90 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "perch scan",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-blink",
+          "sourceFrameIds": [
+            "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+            "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-western-bluebird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-western-bluebird-blink-v1/annex/registered-texture-review-manifest.json",
+            "motion/sd20-western-bluebird-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-western-bluebird-blink-v1/annex/registered-texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye→closed lid→same open state; half lid only if useful."
+            "One new closed-eye drawing with unchanged existing awake neutral reused; source-only blink candidate; native canvas normalization and redraw limits retained.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "western-bluebird-awake-reused",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3"
+            },
+            {
+              "frameId": "western-bluebird-closed-registered-study",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
+              "outputRGBAId": "frame.sha256.4b937cc9a00552490a717b3691830540c872c7d22664d2a4023fbf3358fad188"
+            },
+            {
+              "frameId": "western-bluebird-awake-reused",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-western-bluebird-blink-v1/annex/registered-texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-western-bluebird-blink-v1/blink-registered-study-atlas192.png",
+              "clipId": "idle",
+              "tickRate": 30,
+              "loop": true,
+              "durationTicks": 90,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "western-bluebird-awake-reused",
+                  "durationTicks": 60,
+                  "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+                  "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3"
+                },
+                {
+                  "frameId": "western-bluebird-closed-registered-study",
+                  "durationTicks": 3,
+                  "sourceFrameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
+                  "outputRGBAId": "frame.sha256.4b937cc9a00552490a717b3691830540c872c7d22664d2a4023fbf3358fad188"
+                },
+                {
+                  "frameId": "western-bluebird-awake-reused",
+                  "durationTicks": 27,
+                  "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+                  "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "selectedClipId": "idle",
+          "newSourceFrameIds": [
+            "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1"
+          ]
         },
         {
           "speciesId": "western_bluebird",
@@ -14620,14 +15194,18 @@
       ],
       "baselineSourceIssues": [],
       "currentSourceIssues": [
-        "Four actual hop poses; authored airborne root trajectory; one-shot source study, resident-neutral splice and physical toe lock unapproved."
+        "Four actual hop poses; authored airborne root trajectory; one-shot source study, resident-neutral splice and physical toe lock unapproved.",
+        "One new closed-eye drawing with unchanged existing awake neutral reused; source-only blink candidate; native canvas normalization and redraw limits retained."
       ],
-      "primaryManifestSHA256": "13564da1c6d636304a86168f12746349fef5126bedab310b9c05569f4b86787e",
-      "primaryAtlasSHA256": "16e4bded0d6b5eb83614d4a5282d5ea5cc15f39854463567412f9185ff7b93c5",
+      "overlayQualifications": [
+        "Closure-only source batch: existing awake source reused; neutral coverage unchanged; no new neutral drawing counted."
+      ],
+      "primaryManifestSHA256": "5266e6101c4173e899919fa46f1be4f93ac6181e2e5df978531a2cea9209959c",
+      "primaryAtlasSHA256": "7fdfd1f8afc56faa9e3e6cb99f2e79b58259c7202fa33a9b5d9292a801e8901a",
       "primaryClipId": "idle",
       "primaryFrameMappings": [
         {
-          "outputFrameId": "western_bluebird-neutral-192",
+          "outputFrameId": "western-bluebird-awake-reused",
           "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
           "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
           "exactExportMappings": [
@@ -14650,6 +15228,26 @@
               "evidence": "motion/sd20-western-bluebird-hop-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": null,
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "sourcePNG": "motion/sd20-western-bluebird-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-western-bluebird-blink-v1/reused/awake192.png",
+              "outputPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
+              "evidence": "motion/sd20-western-bluebird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "awake-neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "sourcePNG": "motion/sd20-western-bluebird-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-western-bluebird-blink-v1/reused/awake192.png",
+              "outputPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
+              "evidence": "motion/sd20-western-bluebird-blink-v1/frame-to-action-map.json",
+              "phase": "western-bluebird-awake-reused",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -14701,19 +15299,19 @@
           ]
         },
         {
-          "outputFrameId": "western_bluebird-look-192",
-          "outputRGBAId": "frame.sha256.d92b811fd08c15b6642360fb5810711db3de811e877cd1d8481af33caf0a1024",
-          "sourceFrameId": "frame.sha256.2ddf0cef081c9ae7dd279283fe6df4210048a4160d01ea7c20f610af9ff3a174",
+          "outputFrameId": "western-bluebird-closed-registered-study",
+          "outputRGBAId": "frame.sha256.4b937cc9a00552490a717b3691830540c872c7d22664d2a4023fbf3358fad188",
+          "sourceFrameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
           "exactExportMappings": [
             {
-              "sourceFrameId": "frame.sha256.2ddf0cef081c9ae7dd279283fe6df4210048a4160d01ea7c20f610af9ff3a174",
-              "sourcePNG": "new-species/sd20-final-four-v1/western_bluebird/look-source1024.png",
-              "outputPNG": "new-species/sd20-final-four-v1/western_bluebird/look192.png",
-              "outputPNGsha256": "fcbd71b2e9cf4441d88b7ef17ecccf47a136670d082bcc32a21bf2a1d6b2dcba",
-              "outputRGBAId": "frame.sha256.d92b811fd08c15b6642360fb5810711db3de811e877cd1d8481af33caf0a1024",
-              "evidence": "new-species/sd20-final-four-v1/intake-manifest.json",
-              "phase": "look",
-              "mappingMethod": "recorded explicit export verified by pixels"
+              "sourceFrameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
+              "sourcePNG": "motion/sd20-western-bluebird-blink-v1/frames/closed-source1254.png",
+              "outputPNG": "motion/sd20-western-bluebird-blink-v1/derivatives/closed-registered192.png",
+              "outputPNGsha256": "350eb39bddc5977148541f9ecd6fbe6073b5b5ff4f97c34c2e740f0ec6bfb2eb",
+              "outputRGBAId": "frame.sha256.4b937cc9a00552490a717b3691830540c872c7d22664d2a4023fbf3358fad188",
+              "evidence": "motion/sd20-western-bluebird-blink-v1/frame-to-action-map.json",
+              "phase": "western-bluebird-closed-registered-study",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -14752,14 +15350,14 @@
               "id": "foot-1",
               "x": 112,
               "y": 148,
-              "sampledAlpha": 247,
+              "sampledAlpha": 250,
               "anatomicallyApproved": false
             },
             {
               "id": "foot-2",
               "x": 115,
               "y": 148,
-              "sampledAlpha": 179,
+              "sampledAlpha": 74,
               "anatomicallyApproved": false
             }
           ]
@@ -14770,13 +15368,12 @@
       "id": "bewick_s_wren",
       "name": "Bewick's Wren",
       "primaryIntakeStatus": "provisional-source-review-candidate",
-      "primaryManifest": "new-species/sd20-bushtit-wren-sparrow-v1/bewick_s_wren/texture-review-manifest.json",
-      "primaryAtlas": "new-species/sd20-bushtit-wren-sparrow-v1/bewick_s_wren/idle-look-atlas96.png",
+      "primaryManifest": "motion/sd20-bewick-wren-blink-v1/texture-review-manifest.json",
+      "primaryAtlas": "motion/sd20-bewick-wren-blink-v1/blink-study-atlas96.png",
       "selectedIdleSourceIDs": [
-        "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
-        "frame.sha256.fae89eb159b69b264ba8278f02fb7f2306342c4b9103b394e59a425c16b5509b"
+        "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
@@ -14885,6 +15482,60 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+          "file": "motion/sd20-bewick-wren-blink-v1/frames/closed-source1254.png",
+          "fileSha256": "d2d59072fa430225258513d39be3276c81588614e790834430605e2f23ade0e3",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "bewick_s_wren",
+          "appearanceVersion": "sd20-bewick-wren-blink-v1",
+          "poseTags": [
+            "closed-eyelid-study",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-bewick-wren-blink-v1/original.png",
+          "sourceAtlasSha256": "d2d59072fa430225258513d39be3276c81588614e790834430605e2f23ade0e3",
+          "derivation": {
+            "sourceCanvas": [
+              1254,
+              1254
+            ],
+            "originalSourceCanvas": [
+              1254,
+              1254
+            ],
+            "method": "Whole native RGBA canvas retained unchanged; output resizes full canvas nearest. No crop, body fit, body translation, alpha repair or pixel painting.",
+            "wholeCallCanvasConversionToReference": 0.8165869218500797,
+            "referenceCanvas": [
+              1024,
+              1024
+            ],
+            "sourceToOutputScale": 0.07655502392344497,
+            "perPoseBodyFit": false,
+            "sourceRootInheritedReferenceNormalized": [
+              744.5625,
+              979.6875
+            ],
+            "rootQualification": "Inherited normalized technical pivot; not shifted to hide native redraw or foot mismatch."
+          },
+          "sourcePrompt": "motion/sd20-bewick-wren-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-bewick-wren-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; One actual closure with exact oldawake reuse; subtle44world blink clip remains separate from awake-only idle.",
+          "sourceReview": "motion/sd20-bewick-wren-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -14894,7 +15545,9 @@
         "new-species/sd20-bushtit-wren-sparrow-v1/independent-review.json",
         "new-species/sd20-bushtit-wren-sparrow-v1/README.md"
       ],
-      "sourceIssues": [],
+      "sourceIssues": [
+        "Current checkpoint: One actual closure with exact oldawake reuse; subtle44world blink clip remains separate from awake-only idle."
+      ],
       "nextAssignedTask": null,
       "slots": [
         {
@@ -14924,15 +15577,15 @@
           "orderedSourceFrameSequence": [
             {
               "frameId": "bewick_s_wren-neutral-96",
-              "durationTicks": 60,
+              "durationTicks": 90,
               "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
               "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264"
             }
           ],
           "renderBindings": [
             {
-              "manifest": "new-species/sd20-bushtit-wren-sparrow-v1/bewick_s_wren/texture-review-manifest.json",
-              "atlasPNG": "new-species/sd20-bushtit-wren-sparrow-v1/bewick_s_wren/idle-look-atlas96.png",
+              "manifest": "motion/sd20-bewick-wren-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-bewick-wren-blink-v1/blink-study-atlas96.png",
               "clipId": "idle",
               "tickRate": 30,
               "loop": false,
@@ -14951,7 +15604,7 @@
               "selectionMode": "single-open-frame-hold-only",
               "sourceClipId": "idle",
               "sourceClipScheduleUsed": false,
-              "sourceClipFirstStepDurationTicks": 60,
+              "sourceClipFirstStepDurationTicks": 90,
               "projectionOnly": true
             }
           ]
@@ -15042,19 +15695,90 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "tail-cocked look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-blink",
+          "sourceFrameIds": [
+            "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+            "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-bewick-wren-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-bewick-wren-blink-v1/texture-review-manifest.json",
+            "motion/sd20-bewick-wren-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-bewick-wren-blink-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye→closed lid→same open state; half lid only if useful."
+            "One actual closure with exact oldawake reuse; subtle44world blink clip remains separate from awake-only idle.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "bewick_s_wren-neutral-96",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264"
+            },
+            {
+              "frameId": "bewick_s_wren-closed-blink-study-96",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+              "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989"
+            },
+            {
+              "frameId": "bewick_s_wren-neutral-96",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-bewick-wren-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-bewick-wren-blink-v1/blink-study-atlas96.png",
+              "clipId": "blink",
+              "tickRate": 30,
+              "loop": true,
+              "durationTicks": 90,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "bewick_s_wren-neutral-96",
+                  "durationTicks": 60,
+                  "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+                  "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264"
+                },
+                {
+                  "frameId": "bewick_s_wren-closed-blink-study-96",
+                  "durationTicks": 3,
+                  "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+                  "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989"
+                },
+                {
+                  "frameId": "bewick_s_wren-neutral-96",
+                  "durationTicks": 27,
+                  "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+                  "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "selectedClipId": "blink",
+          "newSourceFrameIds": [
+            "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478"
+          ]
         },
         {
           "speciesId": "bewick_s_wren",
@@ -15205,9 +15929,14 @@
         }
       ],
       "baselineSourceIssues": [],
-      "currentSourceIssues": [],
-      "primaryManifestSHA256": "3e32802040a8419eff5fdb0bc7a859bf25e7cc23fb27cae3010c6aa7fb717447",
-      "primaryAtlasSHA256": "f3b9edad4547b5eff5ac843bd389b5d055d24cd66a05cdfb5c36045ceb13752f",
+      "currentSourceIssues": [
+        "One actual closure with exact oldawake reuse; subtle44world blink clip remains separate from awake-only idle."
+      ],
+      "overlayQualifications": [
+        "Closure-only source batch: existing awake source reused; neutral coverage unchanged; no new neutral drawing counted."
+      ],
+      "primaryManifestSHA256": "26b998f207ef718d13cac439a7a75d4f78626d1dc9c6fa72e6c7555947e1c553",
+      "primaryAtlasSHA256": "c92a16642cb44ef7367886621d0bbaa507245c3be2996c064d186f82c367bf04",
       "primaryClipId": "idle",
       "primaryFrameMappings": [
         {
@@ -15224,6 +15953,26 @@
               "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/reused/awake96.png",
+              "outputPNGsha256": "5c146a57610697a3980494fb332cd8bb5c22567e57a540344fadb4bac555046f",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "awake-neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/reused/awake96.png",
+              "outputPNGsha256": "5c146a57610697a3980494fb332cd8bb5c22567e57a540344fadb4bac555046f",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/frame-to-action-map.json",
+              "phase": "bewick_s_wren-neutral-96",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -15275,19 +16024,29 @@
           ]
         },
         {
-          "outputFrameId": "bewick_s_wren-look-96",
-          "outputRGBAId": "frame.sha256.ac3365db27cea63ddee8b83fbd56d5cb1ab6e75841cbdc24ca008fa9d9f2a741",
-          "sourceFrameId": "frame.sha256.fae89eb159b69b264ba8278f02fb7f2306342c4b9103b394e59a425c16b5509b",
+          "outputFrameId": "bewick_s_wren-closed-blink-study-96",
+          "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989",
+          "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
           "exactExportMappings": [
             {
-              "sourceFrameId": "frame.sha256.fae89eb159b69b264ba8278f02fb7f2306342c4b9103b394e59a425c16b5509b",
-              "sourcePNG": "new-species/sd20-bushtit-wren-sparrow-v1/bewick_s_wren/look-source1024.png",
-              "outputPNG": "new-species/sd20-bushtit-wren-sparrow-v1/bewick_s_wren/look96.png",
-              "outputPNGsha256": "e6d2bc646d6beaca07f9a1c02a6528c2829f18761a6713b95f8e8b92d5a8cca2",
-              "outputRGBAId": "frame.sha256.ac3365db27cea63ddee8b83fbd56d5cb1ab6e75841cbdc24ca008fa9d9f2a741",
-              "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
-              "phase": "look",
+              "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/frames/closed-source1254.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/frames/closed96.png",
+              "outputPNGsha256": "74cb5b2e09978d12cf108f25c6c0b7da5f167aea8a40db6a76d82ac9dd088076",
+              "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "closed-eyelid-study",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/frames/closed-source1254.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/frames/closed96.png",
+              "outputPNGsha256": "74cb5b2e09978d12cf108f25c6c0b7da5f167aea8a40db6a76d82ac9dd088076",
+              "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/frame-to-action-map.json",
+              "phase": "bewick_s_wren-closed-blink-study-96",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -15326,14 +16085,14 @@
               "id": "foot-1",
               "x": 56,
               "y": 74,
-              "sampledAlpha": 249,
+              "sampledAlpha": 246,
               "anatomicallyApproved": false
             },
             {
               "id": "foot-2",
               "x": 57,
               "y": 74,
-              "sampledAlpha": 196,
+              "sampledAlpha": 246,
               "anatomicallyApproved": false
             }
           ]
@@ -15644,6 +16403,7 @@
               "projectionOnly": true
             }
           ],
+          "selectedClipId": "idle",
           "newSourceFrameIds": [
             "frame.sha256.01ac00da7b029fd3dfe0daf1851a2fe6af58b2ae1775c9e25b5a289b58919b9e"
           ],
@@ -15812,6 +16572,7 @@
               "actualYardVerification": "UNKNOWN"
             }
           ],
+          "selectedClipId": "idle",
           "newSourceFrameIds": [
             "frame.sha256.01ac00da7b029fd3dfe0daf1851a2fe6af58b2ae1775c9e25b5a289b58919b9e",
             "frame.sha256.418285064b6193212075642545d2118f0cf6fd7af2cf25987834ef6ff5891142"
@@ -16409,6 +17170,7 @@
               "projectionOnly": true
             }
           ],
+          "selectedClipId": "idle",
           "newSourceFrameIds": [
             "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7"
           ],
@@ -16519,6 +17281,7 @@
               "actualYardVerification": "UNKNOWN"
             }
           ],
+          "selectedClipId": "idle",
           "newSourceFrameIds": [
             "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
             "frame.sha256.aa40dd8caa67c9fe0db6b6c822413257d553f0b7500dcee99bdfaa05bf339c0c"
@@ -18700,6 +19463,26 @@
               "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -18893,6 +19676,16 @@
               "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383",
               "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+              "sourcePNG": "motion/sd20-california-scrub-jay-blink-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-california-scrub-jay-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "521a01751896947095e5ad1fc36eea9cdb4ca34c7b3155025fe987b718d20f3d",
+              "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383",
+              "evidence": "motion/sd20-california-scrub-jay-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -19088,6 +19881,26 @@
               "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "sourcePNG": "motion/sd20-bushtit-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-bushtit-blink-v1/open96.png",
+              "outputPNGsha256": "4831f8da8ff065e186613859a6328384ea044881723305fc8e60d1f2c4c8629e",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317",
+              "evidence": "motion/sd20-bushtit-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "sourcePNG": "motion/sd20-bushtit-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-bushtit-blink-v1/open96.png",
+              "outputPNGsha256": "4831f8da8ff065e186613859a6328384ea044881723305fc8e60d1f2c4c8629e",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317",
+              "evidence": "motion/sd20-bushtit-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -20555,6 +21368,26 @@
               "evidence": "motion/sd20-western-bluebird-hop-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": null,
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "sourcePNG": "motion/sd20-western-bluebird-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-western-bluebird-blink-v1/reused/awake192.png",
+              "outputPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
+              "evidence": "motion/sd20-western-bluebird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "awake-neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "sourcePNG": "motion/sd20-western-bluebird-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-western-bluebird-blink-v1/reused/awake192.png",
+              "outputPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
+              "evidence": "motion/sd20-western-bluebird-blink-v1/frame-to-action-map.json",
+              "phase": "western-bluebird-awake-reused",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -20749,6 +21582,26 @@
               "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/reused/awake96.png",
+              "outputPNGsha256": "5c146a57610697a3980494fb332cd8bb5c22567e57a540344fadb4bac555046f",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "awake-neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/reused/awake96.png",
+              "outputPNGsha256": "5c146a57610697a3980494fb332cd8bb5c22567e57a540344fadb4bac555046f",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/frame-to-action-map.json",
+              "phase": "bewick_s_wren-neutral-96",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -24252,6 +25105,1130 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+      "manifestSHA256": "0c48c90df8e3c9167c34fb93d6137bf677e9cfcbd54d0e930cc516c36d9a0dd0",
+      "atlasPNG": "motion/sd20-northern-mockingbird-blink-v1/blink-atlas192.png",
+      "atlasSHA256": "34de807f223db0f2155f5cfbc1de43b21ebb853cd9c3b9e81762f7ad517328c8",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "northern-mockingbird-open-192",
+          "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+          "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/neutral192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 156.734693877551,
+            "height": 156.734693877551
+          },
+          "sourcePixelsPerWorldUnit": 1.225,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148,
+              "sampledAlpha": 249,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149,
+              "sampledAlpha": 159,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "northern-mockingbird-closed-192",
+          "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+          "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/closed192.png",
+              "outputPNGsha256": "72995d91a98f2cc03fad228a1d69ad7182a009614aab87980314bb94f883e924",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "fully-closed-eye",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/closed192.png",
+              "outputPNGsha256": "72995d91a98f2cc03fad228a1d69ad7182a009614aab87980314bb94f883e924",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 156.734693877551,
+            "height": 156.734693877551
+          },
+          "sourcePixelsPerWorldUnit": 1.225,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148,
+              "sampledAlpha": 251,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149,
+              "sampledAlpha": 226,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 60
+            },
+            {
+              "frameId": "northern-mockingbird-closed-192",
+              "durationTicks": 3
+            },
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 27
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+            },
+            {
+              "frameId": "northern-mockingbird-closed-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e"
+            },
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+            "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-western-bluebird-blink-v1/annex/registered-texture-review-manifest.json": {
+      "manifest": "motion/sd20-western-bluebird-blink-v1/annex/registered-texture-review-manifest.json",
+      "manifestSHA256": "5266e6101c4173e899919fa46f1be4f93ac6181e2e5df978531a2cea9209959c",
+      "atlasPNG": "motion/sd20-western-bluebird-blink-v1/blink-registered-study-atlas192.png",
+      "atlasSHA256": "7fdfd1f8afc56faa9e3e6cb99f2e79b58259c7202fa33a9b5d9292a801e8901a",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "western-bluebird-awake-reused",
+          "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
+          "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "sourcePNG": "new-species/sd20-final-four-v1/western_bluebird/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-final-four-v1/western_bluebird/neutral192.png",
+              "outputPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
+              "evidence": "new-species/sd20-final-four-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "sourcePNG": "motion/sd20-western-bluebird-hop-v1/reused/neutral-source1024.png",
+              "outputPNG": "motion/sd20-western-bluebird-hop-v1/reused/neutral192.png",
+              "outputPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
+              "evidence": "motion/sd20-western-bluebird-hop-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": null,
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "sourcePNG": "motion/sd20-western-bluebird-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-western-bluebird-blink-v1/reused/awake192.png",
+              "outputPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
+              "evidence": "motion/sd20-western-bluebird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "awake-neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "sourcePNG": "motion/sd20-western-bluebird-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-western-bluebird-blink-v1/reused/awake192.png",
+              "outputPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3",
+              "evidence": "motion/sd20-western-bluebird-blink-v1/frame-to-action-map.json",
+              "phase": "western-bluebird-awake-reused",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 174.54545454545453,
+            "height": 174.54545454545453
+          },
+          "sourcePixelsPerWorldUnit": 1.1,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 112,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 148
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 112,
+              "y": 148,
+              "sampledAlpha": 248,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 148,
+              "sampledAlpha": 231,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "western-bluebird-closed-registered-study",
+          "outputRGBAId": "frame.sha256.4b937cc9a00552490a717b3691830540c872c7d22664d2a4023fbf3358fad188",
+          "sourceFrameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
+              "sourcePNG": "motion/sd20-western-bluebird-blink-v1/frames/closed-source1254.png",
+              "outputPNG": "motion/sd20-western-bluebird-blink-v1/derivatives/closed-registered192.png",
+              "outputPNGsha256": "350eb39bddc5977148541f9ecd6fbe6073b5b5ff4f97c34c2e740f0ec6bfb2eb",
+              "outputRGBAId": "frame.sha256.4b937cc9a00552490a717b3691830540c872c7d22664d2a4023fbf3358fad188",
+              "evidence": "motion/sd20-western-bluebird-blink-v1/frame-to-action-map.json",
+              "phase": "western-bluebird-closed-registered-study",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 174.54545454545453,
+            "height": 174.54545454545453
+          },
+          "sourcePixelsPerWorldUnit": 1.1,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 112,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 148
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 112,
+              "y": 148,
+              "sampledAlpha": 250,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 148,
+              "sampledAlpha": 74,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "western-bluebird-awake-reused",
+              "durationTicks": 60
+            },
+            {
+              "frameId": "western-bluebird-closed-registered-study",
+              "durationTicks": 3
+            },
+            {
+              "frameId": "western-bluebird-awake-reused",
+              "durationTicks": 27
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "western-bluebird-awake-reused",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3"
+            },
+            {
+              "frameId": "western-bluebird-closed-registered-study",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
+              "outputRGBAId": "frame.sha256.4b937cc9a00552490a717b3691830540c872c7d22664d2a4023fbf3358fad188"
+            },
+            {
+              "frameId": "western-bluebird-awake-reused",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+              "outputRGBAId": "frame.sha256.5527497c7410fce6807b8735cd37e2084e4dc31bc5a4a38408145445763961e3"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+            "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-california-scrub-jay-blink-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-california-scrub-jay-blink-v1/texture-review-manifest.json",
+      "manifestSHA256": "0d1ab66350d13b13e037ac802ae8bea75971a938b66b2dc26716f3d64ccce8bc",
+      "atlasPNG": "motion/sd20-california-scrub-jay-blink-v1/idle-blink-atlas192.png",
+      "atlasSHA256": "c8bbd761cbdd0e54156c7fc4b8509aef55e1eafc7612e7a88789f38ffa3c6432",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "california_scrub_jay-neutral-192",
+          "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383",
+          "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+              "sourcePNG": "new-species/sd20-next-three-canon-v1/california_scrub_jay/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-next-three-canon-v1/california_scrub_jay/neutral192.png",
+              "outputPNGsha256": "521a01751896947095e5ad1fc36eea9cdb4ca34c7b3155025fe987b718d20f3d",
+              "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383",
+              "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+              "sourcePNG": "motion/sd20-california-scrub-jay-blink-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-california-scrub-jay-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "521a01751896947095e5ad1fc36eea9cdb4ca34c7b3155025fe987b718d20f3d",
+              "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383",
+              "evidence": "motion/sd20-california-scrub-jay-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 200.17021276595744,
+            "height": 200.17021276595744
+          },
+          "sourcePixelsPerWorldUnit": 0.9591836734693877,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148,
+              "sampledAlpha": 249,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149,
+              "sampledAlpha": 175,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "california_scrub_jay-closed-192",
+          "outputRGBAId": "frame.sha256.7799afb04dbdfa01f871b0ee451bb07ee33fe8b419ccec2937794644b776c433",
+          "sourceFrameId": "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82",
+              "sourcePNG": "motion/sd20-california-scrub-jay-blink-v1/closed-native.png",
+              "outputPNG": "motion/sd20-california-scrub-jay-blink-v1/closed192.png",
+              "outputPNGsha256": "8aac56f0b4ac8e08e735d1a818e7873192c00441e6c2c1ac043a77e71882bd6d",
+              "outputRGBAId": "frame.sha256.7799afb04dbdfa01f871b0ee451bb07ee33fe8b419ccec2937794644b776c433",
+              "evidence": "motion/sd20-california-scrub-jay-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "closed-eye blink",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 200.17021276595744,
+            "height": 200.17021276595744
+          },
+          "sourcePixelsPerWorldUnit": 0.9591836734693877,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148,
+              "sampledAlpha": 250,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149,
+              "sampledAlpha": 245,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "california_scrub_jay-neutral-192",
+              "durationTicks": 60
+            },
+            {
+              "frameId": "california_scrub_jay-closed-192",
+              "durationTicks": 3
+            },
+            {
+              "frameId": "california_scrub_jay-neutral-192",
+              "durationTicks": 27
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "california_scrub_jay-neutral-192",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+              "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383"
+            },
+            {
+              "frameId": "california_scrub_jay-closed-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82",
+              "outputRGBAId": "frame.sha256.7799afb04dbdfa01f871b0ee451bb07ee33fe8b419ccec2937794644b776c433"
+            },
+            {
+              "frameId": "california_scrub_jay-neutral-192",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+              "outputRGBAId": "frame.sha256.f3d71fc6263a058465dea9f3c9285d15bf0bbd7fbe50a159efb1f07ea05c7383"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.fea21dba53c4125ce4e1f47c3114e4d4b63cb8a01467fba58d769cf621da5368",
+            "frame.sha256.26e50f78995d4760aa64d96d49c8132f3a8c3e4e54753b62146c84cef0110a82"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-bewick-wren-blink-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-bewick-wren-blink-v1/texture-review-manifest.json",
+      "manifestSHA256": "26b998f207ef718d13cac439a7a75d4f78626d1dc9c6fa72e6c7555947e1c553",
+      "atlasPNG": "motion/sd20-bewick-wren-blink-v1/blink-study-atlas96.png",
+      "atlasSHA256": "c92a16642cb44ef7367886621d0bbaa507245c3be2996c064d186f82c367bf04",
+      "atlasDimensions": [
+        192,
+        96
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "bewick_s_wren-neutral-96",
+          "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264",
+          "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "sourcePNG": "new-species/sd20-bushtit-wren-sparrow-v1/bewick_s_wren/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-bushtit-wren-sparrow-v1/bewick_s_wren/neutral96.png",
+              "outputPNGsha256": "5c146a57610697a3980494fb332cd8bb5c22567e57a540344fadb4bac555046f",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264",
+              "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/reused/awake96.png",
+              "outputPNGsha256": "5c146a57610697a3980494fb332cd8bb5c22567e57a540344fadb4bac555046f",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "awake-neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/reused/awake-source1024.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/reused/awake96.png",
+              "outputPNGsha256": "5c146a57610697a3980494fb332cd8bb5c22567e57a540344fadb4bac555046f",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/frame-to-action-map.json",
+              "phase": "bewick_s_wren-neutral-96",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 120.6857142857143,
+            "height": 120.6857142857143
+          },
+          "sourcePixelsPerWorldUnit": 0.7954545454545454,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74
+            },
+            {
+              "id": "foot-2",
+              "x": 57,
+              "y": 74
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74,
+              "sampledAlpha": 204,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 57,
+              "y": 74,
+              "sampledAlpha": 236,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "bewick_s_wren-closed-blink-study-96",
+          "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989",
+          "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/frames/closed-source1254.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/frames/closed96.png",
+              "outputPNGsha256": "74cb5b2e09978d12cf108f25c6c0b7da5f167aea8a40db6a76d82ac9dd088076",
+              "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "closed-eyelid-study",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+              "sourcePNG": "motion/sd20-bewick-wren-blink-v1/frames/closed-source1254.png",
+              "outputPNG": "motion/sd20-bewick-wren-blink-v1/frames/closed96.png",
+              "outputPNGsha256": "74cb5b2e09978d12cf108f25c6c0b7da5f167aea8a40db6a76d82ac9dd088076",
+              "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989",
+              "evidence": "motion/sd20-bewick-wren-blink-v1/frame-to-action-map.json",
+              "phase": "bewick_s_wren-closed-blink-study-96",
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 96,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 120.6857142857143,
+            "height": 120.6857142857143
+          },
+          "sourcePixelsPerWorldUnit": 0.7954545454545454,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74
+            },
+            {
+              "id": "foot-2",
+              "x": 57,
+              "y": 74
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74,
+              "sampledAlpha": 246,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 57,
+              "y": 74,
+              "sampledAlpha": 246,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "bewick_s_wren-neutral-96",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "bewick_s_wren-neutral-96",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478"
+          ]
+        },
+        {
+          "id": "blink",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "bewick_s_wren-neutral-96",
+              "durationTicks": 60
+            },
+            {
+              "frameId": "bewick_s_wren-closed-blink-study-96",
+              "durationTicks": 3
+            },
+            {
+              "frameId": "bewick_s_wren-neutral-96",
+              "durationTicks": 27
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "bewick_s_wren-neutral-96",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264"
+            },
+            {
+              "frameId": "bewick_s_wren-closed-blink-study-96",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6",
+              "outputRGBAId": "frame.sha256.8347d78d984b449959086ff153b75c5e88f6bd8a433cf1439fec84572f026989"
+            },
+            {
+              "frameId": "bewick_s_wren-neutral-96",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+              "outputRGBAId": "frame.sha256.c76ce59f5a02807c0df90eb9b868848b020edee6c7850036f62341b9bbc8f264"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.7de57c33002e485a53797df28ede26b73b0b75be9cd270891dc926eb291ae478",
+            "frame.sha256.d9e74f964979792761f97ecc52a96d30b7dbd70dac6cfdf1bc916ca5a8b809c6"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-bushtit-blink-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-bushtit-blink-v1/texture-review-manifest.json",
+      "manifestSHA256": "5552b6cc6145c8fefb94aa4b08048f3e42a51504143c8cddaf0b04bbb5cd3005",
+      "atlasPNG": "motion/sd20-bushtit-blink-v1/blink-atlas96.png",
+      "atlasSHA256": "c344f88286468808cd35759d3de27d072a618e4c0a272bc4f840a1da557f75d5",
+      "atlasDimensions": [
+        192,
+        96
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "bushtit-open-96",
+          "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317",
+          "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "sourcePNG": "new-species/sd20-bushtit-wren-sparrow-v1/bushtit/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-bushtit-wren-sparrow-v1/bushtit/neutral96.png",
+              "outputPNGsha256": "4831f8da8ff065e186613859a6328384ea044881723305fc8e60d1f2c4c8629e",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317",
+              "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "sourcePNG": "motion/sd20-bushtit-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-bushtit-blink-v1/open96.png",
+              "outputPNGsha256": "4831f8da8ff065e186613859a6328384ea044881723305fc8e60d1f2c4c8629e",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317",
+              "evidence": "motion/sd20-bushtit-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "sourcePNG": "motion/sd20-bushtit-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-bushtit-blink-v1/open96.png",
+              "outputPNGsha256": "4831f8da8ff065e186613859a6328384ea044881723305fc8e60d1f2c4c8629e",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317",
+              "evidence": "motion/sd20-bushtit-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 64.0,
+            "height": 64.0
+          },
+          "sourcePixelsPerWorldUnit": 1.5,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 73
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 73
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 73,
+              "sampledAlpha": 247,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 73,
+              "sampledAlpha": 241,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "bushtit-closed-96",
+          "outputRGBAId": "frame.sha256.52593b462aa64cf8c787237c8632c06becb09166b704c47ae1f2eb4234bca269",
+          "sourceFrameId": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+              "sourcePNG": "motion/sd20-bushtit-blink-v1/original.png",
+              "outputPNG": "motion/sd20-bushtit-blink-v1/closed96.png",
+              "outputPNGsha256": "0a9a95130b8b94be6cfe472f9cf15c7a2b0c1b788a2f8b68ac478a36fa5a73e1",
+              "outputRGBAId": "frame.sha256.52593b462aa64cf8c787237c8632c06becb09166b704c47ae1f2eb4234bca269",
+              "evidence": "motion/sd20-bushtit-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "fully-closed-eye",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+              "sourcePNG": "motion/sd20-bushtit-blink-v1/original.png",
+              "outputPNG": "motion/sd20-bushtit-blink-v1/closed96.png",
+              "outputPNGsha256": "0a9a95130b8b94be6cfe472f9cf15c7a2b0c1b788a2f8b68ac478a36fa5a73e1",
+              "outputRGBAId": "frame.sha256.52593b462aa64cf8c787237c8632c06becb09166b704c47ae1f2eb4234bca269",
+              "evidence": "motion/sd20-bushtit-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 96,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 64.0,
+            "height": 64.0
+          },
+          "sourcePixelsPerWorldUnit": 1.5,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 73
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 73
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 73,
+              "sampledAlpha": 252,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 73,
+              "sampledAlpha": 250,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "bushtit-open-96",
+              "durationTicks": 60
+            },
+            {
+              "frameId": "bushtit-closed-96",
+              "durationTicks": 3
+            },
+            {
+              "frameId": "bushtit-open-96",
+              "durationTicks": 27
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "bushtit-open-96",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317"
+            },
+            {
+              "frameId": "bushtit-closed-96",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+              "outputRGBAId": "frame.sha256.52593b462aa64cf8c787237c8632c06becb09166b704c47ae1f2eb4234bca269"
+            },
+            {
+              "frameId": "bushtit-open-96",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+              "outputRGBAId": "frame.sha256.a8afb523172caf3ba1ca35af81d9e950676505140b3bc6dde5e4700f4cf60317"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+            "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -25714,17 +27691,17 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-17T22:24:15.080102+00:00",
+  "projectionAsOfUTC": "2026-10-17T22:33:02.870472+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 122,
-    "registeredNativeOriginals": 29,
-    "newNativeCalls": 8,
-    "newDrawings": 20,
+    "registeredPrimaryDrawingIDs": 127,
+    "registeredNativeOriginals": 34,
+    "newNativeCalls": 13,
+    "newDrawings": 25,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 40,
+    "usefulProvisionalIdleSemanticUses": 44,
     "usefulIdleUsesByAction": {
       "neutral": 19,
-      "blink": 11,
+      "blink": 15,
       "look": 10
     },
     "reviewedOneShotHopStudies": 2,
@@ -25734,9 +27711,9 @@
     "states": {
       "provisional-drawn-neutral": 17,
       "single-open-look-pose-no-matched-turn": 1,
-      "provisional-drawn-blink": 11,
+      "provisional-drawn-blink": 15,
       "two-drawn-hover-wing-study-only": 1,
-      "missing": 143,
+      "missing": 138,
       "older-drawn-look-study-drift": 1,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,
@@ -25747,6 +27724,7 @@
       "provisional-held-static-fallback": 2,
       "drawn-walk-candidate-contact-unbound": 1,
       "drawn-drink-candidate-water-contact-unbound": 1,
+      "new-drawn-blink-held-source-study": 1,
       "weak-drawn-walk-draft-contact-unbound": 1,
       "drawn-hop-source-study-unpackaged": 1,
       "inclined-support-endpoint-hypothesis-vertical-unresolved": 2,

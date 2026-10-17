@@ -1,0 +1,140 @@
+{
+  "schema": "chirp-source-frame-action-map-v1",
+  "batchId": "sd20-western-bluebird-blink-v1",
+  "newPrimaryDrawings": 1,
+  "reusedPrimaryDrawings": 1,
+  "derivativeRegistrationDrawings": 0,
+  "scope": "Source studies only; exact atlas filenames and hashes, no canonical Sharp/runtime admission.",
+  "variants": [
+    {
+      "variant": "native",
+      "atlasFile": "blink-study-atlas192.png",
+      "atlasSHA256": "4420f4a7a777f052c37d765f5ea684bd4db95d87198db1a258b881c579bd905c",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "manifestFile": "blink-manifest.json",
+      "manifestSHA256": "bd3aad4efc206b4c4c7d0c93d2ccac8d0cb3ea079a2cb222479b1a8e1fcea6ce",
+      "frames": [
+        {
+          "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+          "sourceStatus": "exact-reuse-not-new",
+          "renderId": "western-bluebird-awake-reused",
+          "individualPNG": "reused/awake192.png",
+          "individualPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          }
+        },
+        {
+          "sourceFrameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
+          "sourceStatus": "one-new-native-drawing",
+          "renderId": "western-bluebird-closed-native-study",
+          "individualPNG": "frames/closed192.png",
+          "individualPNGsha256": "f1521b2c7f8eae7a0dbbf95bbbfe2f71b6c70d976d80d14768425e1876d1cefb",
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "nativeIntegerTranslation": [
+            0,
+            0
+          ]
+        }
+      ],
+      "tickRate": 30,
+      "clips": [
+        {
+          "id": "blink-native-study",
+          "loop": true,
+          "steps": [
+            {
+              "renderId": "western-bluebird-awake-reused",
+              "durationTicks": 60
+            },
+            {
+              "renderId": "western-bluebird-closed-native-study",
+              "durationTicks": 3
+            },
+            {
+              "renderId": "western-bluebird-awake-reused",
+              "durationTicks": 27
+            }
+          ]
+        }
+      ],
+      "packetBindingReady": false
+    },
+    {
+      "variant": "registered",
+      "atlasFile": "blink-registered-study-atlas192.png",
+      "atlasSHA256": "7fdfd1f8afc56faa9e3e6cb99f2e79b58259c7202fa33a9b5d9292a801e8901a",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "manifestFile": "blink-manifest.json",
+      "manifestSHA256": "bd3aad4efc206b4c4c7d0c93d2ccac8d0cb3ea079a2cb222479b1a8e1fcea6ce",
+      "frames": [
+        {
+          "sourceFrameId": "frame.sha256.24a02da98761343f9e3a5abcec7e5b0d4211fd27e7d312969005ae674cefaed1",
+          "sourceStatus": "exact-reuse-not-new",
+          "renderId": "western-bluebird-awake-reused",
+          "individualPNG": "reused/awake192.png",
+          "individualPNGsha256": "06566abdd30f64980774307589364d8cd26ed943566333743506366a1988d1af",
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          }
+        },
+        {
+          "sourceFrameId": "frame.sha256.16c0ded6133817e05cec45cbf85e8b7f5dafd8a5890aa84263cd148023f8d6e2",
+          "sourceStatus": "registered-derivative-of-same-new-native-drawing-not-additional-art",
+          "renderId": "western-bluebird-closed-registered-study",
+          "individualPNG": "derivatives/closed-registered192.png",
+          "individualPNGsha256": "350eb39bddc5977148541f9ecd6fbe6073b5b5ff4f97c34c2e740f0ec6bfb2eb",
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "nativeIntegerTranslation": [
+            -1,
+            -4
+          ]
+        }
+      ],
+      "tickRate": 30,
+      "clips": [
+        {
+          "id": "blink-registered-study",
+          "loop": true,
+          "steps": [
+            {
+              "renderId": "western-bluebird-awake-reused",
+              "durationTicks": 60
+            },
+            {
+              "renderId": "western-bluebird-closed-registered-study",
+              "durationTicks": 3
+            },
+            {
+              "renderId": "western-bluebird-awake-reused",
+              "durationTicks": 27
+            }
+          ]
+        }
+      ],
+      "packetBindingReady": false
+    }
+  ]
+}

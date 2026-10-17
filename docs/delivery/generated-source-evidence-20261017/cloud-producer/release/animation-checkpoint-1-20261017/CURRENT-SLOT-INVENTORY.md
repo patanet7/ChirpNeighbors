@@ -1,6 +1,6 @@
 # Current per-species source slots
 
-122 registered primary source IDs across 29 retained originals. Useful provisional idle semantic uses: 19 neutral, 11 blink, 10 look. These uses overlap drawings. Source studies do not complete species action sets.
+127 registered primary source IDs across 34 retained originals. Useful provisional idle semantic uses: 19 neutral, 15 blink, 10 look. These uses overlap drawings. Source studies do not complete species action sets.
 
 | Species | Neutral | Look | Blink | Locomotion | Feed / drink / preen | Flight |
 |---|---|---|---|---|---|---|
@@ -10,17 +10,17 @@
 | Black Phoebe | provisional source | missing | provisional source | rig-only-static-translation-proof | missing / missing / missing | missing |
 | California Towhee | provisional source | provisional source | provisional source | reviewed one-shot study | missing / missing / missing | missing |
 | Mourning Dove | provisional still | missing | missing | drawn-walk-candidate-contact-unbound | missing / drawn-drink-candidate-water-contact-unbound / missing | missing |
-| Northern Mockingbird | provisional source | provisional source | missing | missing | missing / missing / missing | missing |
-| California Scrub-Jay | provisional source | provisional source | missing | missing | missing / missing / missing | missing |
-| Bushtit | provisional source | provisional source | missing | missing | missing / missing / missing | missing |
+| Northern Mockingbird | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
+| California Scrub-Jay | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
+| Bushtit | provisional source | provisional source | new source held | missing | missing / missing / missing | missing |
 | American Crow | provisional source | missing | provisional source | weak-drawn-walk-draft-contact-unbound | missing / missing / missing | missing |
 | Common Raven | provisional source | provisional source | provisional source | drawn-hop-source-study-unpackaged | missing / missing / missing | missing |
 | Nuttall's Woodpecker | inclined-support-endpoint-hypothesis-vertical-unresolved | inclined-support-endpoint-hypothesis-vertical-unresolved | missing | missing | missing / missing / missing | missing |
 | White-crowned Sparrow | provisional source | missing | provisional source | missing | missing / missing / missing | missing |
 | Yellow-rumped Warbler | provisional source | missing | provisional source | missing | missing / missing / missing | missing |
 | Hooded Oriole | provisional source | provisional source | missing | missing | missing / missing / missing | missing |
-| Western Bluebird | provisional source | provisional source | missing | reviewed one-shot study | missing / missing / missing | missing |
-| Bewick's Wren | provisional source | provisional source | missing | missing | missing / missing / missing | missing |
+| Western Bluebird | provisional source | provisional source | provisional source | reviewed one-shot study | missing / missing / missing | missing |
+| Bewick's Wren | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
 | Spotted Towhee | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
 | Dark-eyed Junco | provisional source | missing | provisional source | missing | missing / missing / missing | missing |
 | California Quail | provisional still | study-only-stance-or-support-defect | missing | missing | missing / missing / missing | missing |
