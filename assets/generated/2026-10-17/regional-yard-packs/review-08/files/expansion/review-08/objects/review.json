@@ -1,0 +1,1194 @@
+{
+  "schema_version": "1.0.0",
+  "report_type": "review_only_not_new_inventory",
+  "review_id": "CN-REVIEW08-REPAIR07-OBJECTS",
+  "created_at": "2026-10-17T22:42:39.589497+00:00",
+  "source_intake": {
+    "path": "source-unpublished/expansion/repair-07/objects/intake.json",
+    "sha256": "fd9330834f89dec494c765e777857bff1e3d687cba7b2f489aaef0bff716fd32",
+    "bytes": 108655
+  },
+  "reviewer": "Objects production agent; explicit follow-up scoped source review, not independent owner acceptance",
+  "status_definitions": {
+    "accepted-for-scoped-source-review": "Static source completeness, silhouette and alpha presentation pass this review; noted minor defects remain; no runtime/owner acceptance.",
+    "provisional": "Source retained but a specific presentation/contact issue needs review before ready-to-place approval.",
+    "held": "Only a named unresolved scope is withheld; no whole asset art is held in this pass."
+  },
+  "assets": [
+    {
+      "asset_id": "object.wall_tool_rail",
+      "variant_id": "repair07_sage_cedar_v1",
+      "source_review_status": "provisional",
+      "pixel_style_checkpoint": "provisional_for_strict_cluster_grid; practical_textured_source_candidate",
+      "status_basis": "Complete coherent rail silhouette/real alpha accepted as isolated source art; current wall-placement projection and hook-load-point semantics need review before ready-to-place approval.",
+      "owner_acceptance": false,
+      "runtime_acceptance": false,
+      "source_sprite": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/objects/sprites/object.wall_tool_rail.repair07_sage_cedar_v1.png",
+        "sha256": "3155eb5869e2522f1c52192ccc9decbc4690d24fc07cdef28d00610d929e565e",
+        "bytes": 320304,
+        "dimensions_px": [
+          746,
+          316
+        ],
+        "mode": "RGBA"
+      },
+      "placement_anchor_exact_source": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          359,
+          157
+        ],
+        "mode": "wall_mount_center",
+        "status": "provisional_manual_observed_point"
+      },
+      "ground_contact_footprint_exact_source": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygons": [],
+        "suspended_no_ground_contact": true,
+        "status": "proposed_contact_geometry_not_collision",
+        "note": "Wall rail attaches to wall and has no ground base."
+      },
+      "functional_points_exact_source": [
+        {
+          "id": "wall_mount_left",
+          "position_px": [
+            60,
+            102
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "wall_mount_right",
+          "position_px": [
+            658,
+            213
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "hook_seat_1",
+          "position_px": [
+            97,
+            181
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "hook_seat_2",
+          "position_px": [
+            244,
+            211
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "hook_seat_3",
+          "position_px": [
+            399,
+            242
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "hook_seat_4",
+          "position_px": [
+            561,
+            272
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        }
+      ],
+      "point_pixel_checks": [
+        {
+          "id": "wall_mount_left",
+          "position_px": [
+            60,
+            102
+          ],
+          "sample_alpha": 253,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "wall_mount_right",
+          "position_px": [
+            658,
+            213
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "hook_seat_1",
+          "position_px": [
+            97,
+            181
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "hook_seat_2",
+          "position_px": [
+            244,
+            211
+          ],
+          "sample_alpha": 251,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "hook_seat_3",
+          "position_px": [
+            399,
+            242
+          ],
+          "sample_alpha": 250,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "hook_seat_4",
+          "position_px": [
+            561,
+            272
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        }
+      ],
+      "visual_findings": {
+        "silhouette": "Four complete J-hooks, two visible mount screws and cedar board intact; empty rail reads as intended.",
+        "pixel_style": "Wood grain/contours match inspected cedar baseline broadly. Fine antialiased grain has no proven common logical pixel grid.",
+        "alpha": "Realalpha0 exterior; no visible broad halo on actual light/dark/checker contacts. Board behind hooks correctly stays opaque.",
+        "functional": "Both mount points coincide with visible screw heads. Hook-seat points coincide with outer lower hook faces, not demonstrated inner tool-support contacts; useful markers, provisional hang slots."
+      },
+      "actual_defects": [
+        {
+          "priority": "P1",
+          "issue": "Current yard demo retains a downward-right rail projection while rear wall cap is nearly level. Mount screw delta598,111 implies~10.52deg slope; horizontal wall registration not established.",
+          "action": "Review projected wall plane/rail orientation and mount transform in the next authorized placement pass; retain original art."
+        },
+        {
+          "priority": "P1",
+          "issue": "Hook-seat markers are on low outer curve faces; tool-resting cradle/contact alignment is not validated.",
+          "action": "Hold tool-hanging interaction slots until a contact example confirms inner cradle geometry. No new imagegen needed for this metadata question."
+        }
+      ],
+      "held_scope": [
+        "wall_normal_and_mount_transform",
+        "hook_load_contact_and_capacity"
+      ],
+      "alpha_metrics": {
+        "extrema": [
+          0,
+          254
+        ],
+        "zero_alpha_pixels": 126476,
+        "zero_alpha_fraction": 0.53652,
+        "partial_alpha_pixels": 109260,
+        "scope": "Real alpha verified; counts are not perceptual style/halo/contact classification."
+      },
+      "existing_yard_scale": {
+        "diagnostic_viewport_px_per_m": 100,
+        "native_source_to_960_uniform_scale": 0.11730205278592376,
+        "normal_canvas_size_px": [
+          88,
+          37
+        ],
+        "mobile_canvas_size_px": [
+          35,
+          15
+        ],
+        "physical_scale_calibrated": false,
+        "projection": "Existing demo is a three-quarter art placement review. Current runtime is side-view orthographic; mapping not admitted."
+      },
+      "seasonal_state_gaps_exact_source": [
+        {
+          "id": "wet",
+          "status": "needs_art"
+        },
+        {
+          "id": "fresh_paint",
+          "status": "needs_art"
+        },
+        {
+          "id": "heavily_weathered",
+          "status": "needs_art"
+        },
+        {
+          "id": "tools_hanging",
+          "status": "needs_art"
+        }
+      ],
+      "wind_gap": {
+        "source_contract": {
+          "type": "rigid",
+          "wind_amplitude": 0,
+          "implemented": false,
+          "attachments": [],
+          "separate_rigged_parts": []
+        },
+        "review": "Rigid zero wind is appropriate for these static props. No need to animate heavy bodies; any moving handle/lid/tool suspension needs separate source parts and explicit authorization."
+      },
+      "annotated_evidence": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/wall_tool_rail-functional-review.png",
+        "sha256": "cabd57060d923238b99514228785881bdd5bd6335a2b2aa810cb96bbbcaa73cf",
+        "bytes": 189647,
+        "dimensions_px": [
+          746,
+          316
+        ],
+        "mode": "RGB"
+      }
+    },
+    {
+      "asset_id": "object.garden_step_stool",
+      "variant_id": "repair07_sage_cedar_v1",
+      "source_review_status": "accepted-for-scoped-source-review",
+      "pixel_style_checkpoint": "provisional_for_strict_cluster_grid; practical_textured_source_candidate",
+      "status_basis": "Complete four-foot silhouette, transparent open underframe, coherent cedar/metal and plausible surface/foot markers; source candidate usable for further placement review.",
+      "owner_acceptance": false,
+      "runtime_acceptance": false,
+      "source_sprite": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/objects/sprites/object.garden_step_stool.repair07_sage_cedar_v1.png",
+        "sha256": "0e140d9c6e7d325e53b27f746ca1fd2690525c90f9284007266a118ebedf1835",
+        "bytes": 409071,
+        "dimensions_px": [
+          646,
+          466
+        ],
+        "mode": "RGBA"
+      },
+      "placement_anchor_exact_source": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          324,
+          392
+        ],
+        "mode": "ground_root",
+        "status": "provisional_manual_observed_point"
+      },
+      "ground_contact_footprint_exact_source": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygons": [
+          [
+            [
+              38,
+              325
+            ],
+            [
+              63,
+              313
+            ],
+            [
+              90,
+              326
+            ],
+            [
+              64,
+              344
+            ]
+          ],
+          [
+            [
+              199,
+              245
+            ],
+            [
+              223,
+              236
+            ],
+            [
+              249,
+              248
+            ],
+            [
+              227,
+              267
+            ]
+          ],
+          [
+            [
+              386,
+              420
+            ],
+            [
+              413,
+              409
+            ],
+            [
+              440,
+              422
+            ],
+            [
+              416,
+              441
+            ]
+          ],
+          [
+            [
+              553,
+              344
+            ],
+            [
+              578,
+              333
+            ],
+            [
+              601,
+              348
+            ],
+            [
+              580,
+              366
+            ]
+          ]
+        ],
+        "suspended_no_ground_contact": false,
+        "status": "proposed_contact_geometry_not_collision",
+        "note": "Ground footprint uses visible feet/base ellipse; perspective and collision calibration pending."
+      },
+      "functional_points_exact_source": [
+        {
+          "id": "step_surface",
+          "position_px": [
+            326,
+            145
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "front_grip_edge",
+          "position_px": [
+            430,
+            228
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "foot_front_left",
+          "position_px": [
+            64,
+            341
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "foot_back_left",
+          "position_px": [
+            227,
+            264
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "foot_front_right",
+          "position_px": [
+            416,
+            438
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "foot_back_right",
+          "position_px": [
+            580,
+            362
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        }
+      ],
+      "point_pixel_checks": [
+        {
+          "id": "step_surface",
+          "position_px": [
+            326,
+            145
+          ],
+          "sample_alpha": 253,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "front_grip_edge",
+          "position_px": [
+            430,
+            228
+          ],
+          "sample_alpha": 253,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "foot_front_left",
+          "position_px": [
+            64,
+            341
+          ],
+          "sample_alpha": 251,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "foot_back_left",
+          "position_px": [
+            227,
+            264
+          ],
+          "sample_alpha": 251,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "foot_front_right",
+          "position_px": [
+            416,
+            438
+          ],
+          "sample_alpha": 250,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "foot_back_right",
+          "position_px": [
+            580,
+            362
+          ],
+          "sample_alpha": 249,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        }
+      ],
+      "visual_findings": {
+        "silhouette": "One low platform with two planks, four complete capped feet and braces; reads as a small step in normal demo, generic tiny low furniture atmobile.",
+        "pixel_style": "Cedar top follows existing potting-bench grain and stepped contour language; restrained small hardware highlights. Strict grid not established.",
+        "alpha": "Realalpha0 underframe/exterior; no visible broad halo on inspected light/dark/checker composites.",
+        "functional": "Step and front grip points land on visible plank/edge. Four foot markers land on visible feet. Transparent central root is a proposed construction origin between feet, not a missing-foot error."
+      },
+      "actual_defects": [
+        {
+          "priority": "P2",
+          "issue": "Footprint polygons encompass projected foot-cap regions rather than calibrated contact soles; they are not physical collision/contact masks.",
+          "action": "Keep proposed geometry label and calibrate actual sole/world contacts when admitted; do not use masks as implemented collision."
+        },
+        {
+          "priority": "P2",
+          "issue": "Mobile demo is about17x12px including padding, so step/foot details cannot be functionally judged there.",
+          "action": "Use actual target-scale placement and hit/contact review later; do not infer load or actor alignment from the source contact sheet."
+        }
+      ],
+      "held_scope": [
+        "load_rating",
+        "runtime_kind_admission",
+        "collision_and_actor_contact"
+      ],
+      "alpha_metrics": {
+        "extrema": [
+          0,
+          253
+        ],
+        "zero_alpha_pixels": 167173,
+        "zero_alpha_fraction": 0.55533,
+        "partial_alpha_pixels": 133863,
+        "scope": "Real alpha verified; counts are not perceptual style/halo/contact classification."
+      },
+      "existing_yard_scale": {
+        "diagnostic_viewport_px_per_m": 100,
+        "native_source_to_960_uniform_scale": 0.06730769230769232,
+        "normal_canvas_size_px": [
+          43,
+          31
+        ],
+        "mobile_canvas_size_px": [
+          17,
+          12
+        ],
+        "physical_scale_calibrated": false,
+        "projection": "Existing demo is a three-quarter art placement review. Current runtime is side-view orthographic; mapping not admitted."
+      },
+      "seasonal_state_gaps_exact_source": [
+        {
+          "id": "wet",
+          "status": "needs_art"
+        },
+        {
+          "id": "fresh_paint",
+          "status": "needs_art"
+        },
+        {
+          "id": "heavily_weathered",
+          "status": "needs_art"
+        }
+      ],
+      "wind_gap": {
+        "source_contract": {
+          "type": "rigid",
+          "wind_amplitude": 0,
+          "implemented": false,
+          "attachments": [],
+          "separate_rigged_parts": []
+        },
+        "review": "Rigid zero wind is appropriate for these static props. No need to animate heavy bodies; any moving handle/lid/tool suspension needs separate source parts and explicit authorization."
+      },
+      "annotated_evidence": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/garden_step_stool-functional-review.png",
+        "sha256": "2fbd15c923a4f5b262795db2b7b695e9a8dc33fb222915f3e3a7d35b1076306c",
+        "bytes": 239290,
+        "dimensions_px": [
+          646,
+          466
+        ],
+        "mode": "RGB"
+      }
+    },
+    {
+      "asset_id": "object.seed_storage_canister",
+      "variant_id": "repair07_sage_cedar_v1",
+      "source_review_status": "accepted-for-scoped-source-review",
+      "pixel_style_checkpoint": "provisional_for_strict_cluster_grid; practical_textured_source_candidate",
+      "status_basis": "Closed container silhouette, lid/latch/grips and real transparency sufficient for scoped static-source review; requested matte sage finish deviates but is a disclosed minor material-direction issue.",
+      "owner_acceptance": false,
+      "runtime_acceptance": false,
+      "source_sprite": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/objects/sprites/object.seed_storage_canister.repair07_sage_cedar_v1.png",
+        "sha256": "ad075aa0e735fa5628fb912fd27ba453b219a3887ba8f9dc7ce2ead23d497c7f",
+        "bytes": 413473,
+        "dimensions_px": [
+          501,
+          556
+        ],
+        "mode": "RGBA"
+      },
+      "placement_anchor_exact_source": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          282,
+          509
+        ],
+        "mode": "ground_root",
+        "status": "provisional_manual_observed_point"
+      },
+      "ground_contact_footprint_exact_source": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygons": [
+          [
+            [
+              131,
+              479
+            ],
+            [
+              282,
+              454
+            ],
+            [
+              444,
+              479
+            ],
+            [
+              425,
+              505
+            ],
+            [
+              282,
+              521
+            ],
+            [
+              143,
+              503
+            ]
+          ]
+        ],
+        "suspended_no_ground_contact": false,
+        "status": "proposed_contact_geometry_not_collision",
+        "note": "Ground footprint uses visible feet/base ellipse; perspective and collision calibration pending."
+      },
+      "functional_points_exact_source": [
+        {
+          "id": "lid_grip",
+          "position_px": [
+            285,
+            61
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "closed_lid_surface",
+          "position_px": [
+            286,
+            109
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "front_lid_latch",
+          "position_px": [
+            286,
+            194
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "carry_grip",
+          "position_px": [
+            115,
+            292
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        }
+      ],
+      "point_pixel_checks": [
+        {
+          "id": "lid_grip",
+          "position_px": [
+            285,
+            61
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "closed_lid_surface",
+          "position_px": [
+            286,
+            109
+          ],
+          "sample_alpha": 253,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "front_lid_latch",
+          "position_px": [
+            286,
+            194
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "carry_grip",
+          "position_px": [
+            115,
+            292
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        }
+      ],
+      "visual_findings": {
+        "silhouette": "Complete closed cylindrical container with latched lid, top knob and front carry bail. Storage role is intended; hidden contents cannot identify seed/fullness from pixels.",
+        "pixel_style": "Green weathering and broad sheen resemble existing seed-tube baseline, but are darker/glossier/more mottled than the requested matte sage collection direction. Fine shading not strict-grid verified.",
+        "alpha": "Zero-alpha exterior and parts of bail gap; retained sampled gapalpha3 is nearly transparent, not fully zero. No visible broad matte on light/dark/checker views.",
+        "functional": "Knob, closed lid, latch and cedar carry grip markers match visible materials. No anchor demonstrates actual lid opening, contents or capacity."
+      },
+      "actual_defects": [
+        {
+          "priority": "P2",
+          "issue": "Specular banding/rustlike mottling is stronger than intended matte sage; continuous body shading makes this most noticeable on the storage canister.",
+          "action": "Retain as weathered-green static candidate under allowed minor imperfections; if a strict matte-sage pass is later required, use a targeted controlled material revision rather than a new family."
+        },
+        {
+          "priority": "P3",
+          "issue": "Bail air-gap sample hasalpha3 and retained antialias/fringe; clean alpha presentation passes visually, not every gap pixel is exactly0.",
+          "action": "Preserve source. Revisit only if a target renderer exposes a visible fringe; do not silently alpha-key."
+        }
+      ],
+      "held_scope": [
+        "storage_runtime_kind_admission",
+        "contents_identity_and_capacity",
+        "lid_opening_and_latch_mechanics"
+      ],
+      "alpha_metrics": {
+        "extrema": [
+          0,
+          254
+        ],
+        "zero_alpha_pixels": 108415,
+        "zero_alpha_fraction": 0.3892,
+        "partial_alpha_pixels": 170141,
+        "scope": "Real alpha verified; counts are not perceptual style/halo/contact classification."
+      },
+      "existing_yard_scale": {
+        "diagnostic_viewport_px_per_m": 100,
+        "native_source_to_960_uniform_scale": 0.07377049180327869,
+        "normal_canvas_size_px": [
+          37,
+          41
+        ],
+        "mobile_canvas_size_px": [
+          15,
+          16
+        ],
+        "physical_scale_calibrated": false,
+        "projection": "Existing demo is a three-quarter art placement review. Current runtime is side-view orthographic; mapping not admitted."
+      },
+      "seasonal_state_gaps_exact_source": [
+        {
+          "id": "wet",
+          "status": "needs_art"
+        },
+        {
+          "id": "fresh_paint",
+          "status": "needs_art"
+        },
+        {
+          "id": "heavily_weathered",
+          "status": "needs_art"
+        },
+        {
+          "id": "lid_open",
+          "status": "needs_art"
+        },
+        {
+          "id": "contents_full",
+          "status": "needs_art"
+        },
+        {
+          "id": "contents_empty",
+          "status": "needs_art"
+        }
+      ],
+      "wind_gap": {
+        "source_contract": {
+          "type": "rigid",
+          "wind_amplitude": 0,
+          "implemented": false,
+          "attachments": [],
+          "separate_rigged_parts": []
+        },
+        "review": "Rigid zero wind is appropriate for these static props. No need to animate heavy bodies; any moving handle/lid/tool suspension needs separate source parts and explicit authorization."
+      },
+      "annotated_evidence": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/seed_storage_canister-functional-review.png",
+        "sha256": "69bc396fd7e12857523dddc4964d62e012d99bf9c98ca18f8d1d0966057486bd",
+        "bytes": 279687,
+        "dimensions_px": [
+          501,
+          556
+        ],
+        "mode": "RGB"
+      }
+    },
+    {
+      "asset_id": "object.garden_watering_can",
+      "variant_id": "repair07_sage_cedar_v1",
+      "source_review_status": "accepted-for-scoped-source-review",
+      "pixel_style_checkpoint": "provisional_for_strict_cluster_grid; practical_textured_source_candidate",
+      "status_basis": "Complete handle/spout/rose and genuine alpha opening, coherent material palette and plausible visible source points; static source candidate accepted for this review only.",
+      "owner_acceptance": false,
+      "runtime_acceptance": false,
+      "source_sprite": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/objects/sprites/object.garden_watering_can.repair07_sage_cedar_v1.png",
+        "sha256": "c202425ddd4cb71831cf8c12fa0c470a69ee9fb3337141db7e12c846416ae64f",
+        "bytes": 473720,
+        "dimensions_px": [
+          731,
+          481
+        ],
+        "mode": "RGBA"
+      },
+      "placement_anchor_exact_source": {
+        "coordinate_system": "sprite_canvas_px",
+        "point": [
+          490,
+          441
+        ],
+        "mode": "ground_root",
+        "status": "provisional_manual_observed_point"
+      },
+      "ground_contact_footprint_exact_source": {
+        "coordinate_system": "sprite_canvas_px",
+        "polygons": [
+          [
+            [
+              337,
+              407
+            ],
+            [
+              490,
+              388
+            ],
+            [
+              638,
+              404
+            ],
+            [
+              622,
+              434
+            ],
+            [
+              490,
+              449
+            ],
+            [
+              355,
+              432
+            ]
+          ]
+        ],
+        "suspended_no_ground_contact": false,
+        "status": "proposed_contact_geometry_not_collision",
+        "note": "Ground footprint uses visible feet/base ellipse; perspective and collision calibration pending."
+      },
+      "functional_points_exact_source": [
+        {
+          "id": "carry_grip",
+          "position_px": [
+            520,
+            41
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "fill_mouth",
+          "position_px": [
+            531,
+            158
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "rose_outlet",
+          "position_px": [
+            93,
+            140
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        },
+        {
+          "id": "spout_body_attachment",
+          "position_px": [
+            349,
+            370
+          ],
+          "coordinate_status": "provisional_manual_observed_native_sprite_px",
+          "implemented": false
+        }
+      ],
+      "point_pixel_checks": [
+        {
+          "id": "carry_grip",
+          "position_px": [
+            520,
+            41
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "fill_mouth",
+          "position_px": [
+            531,
+            158
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "rose_outlet",
+          "position_px": [
+            93,
+            140
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        },
+        {
+          "id": "spout_body_attachment",
+          "position_px": [
+            349,
+            370
+          ],
+          "sample_alpha": 252,
+          "assessment": "visible source material sample; semantic/physical contact remains provisional"
+        }
+      ],
+      "visual_findings": {
+        "silhouette": "Readable watering-can arch/body/spout/rose atnormal demo; very small atmobile. Complete negative space through handle; no liquid stream.",
+        "pixel_style": "Stepped outline, cedar grip and weathered green body cohere with utility set/green metal baseline; glossier than intended matte sage, not strict-grid verified.",
+        "alpha": "Handle interior sample[515,103] is actualalpha0. Exterior and spout/body gaps clear on light/dark/checker composites; no visible broad halo.",
+        "functional": "Carry grip on wood, fill point on dark mouth, outlet marker on rose face, attachment marker on visible spout/body join. Outlet does not validate a fluid direction, fill state or pouring mechanics."
+      },
+      "actual_defects": [
+        {
+          "priority": "P2",
+          "issue": "Matte-sage finish target not met literally: metal carries visible highlights and mottled weathering.",
+          "action": "Document observed weathered-green finish; no immediate regeneration needed for static candidate use."
+        },
+        {
+          "priority": "P2",
+          "issue": "Normal demo~58x38px and mobile~23x15px; rose holes and mouth/grip details do not remain interaction-verifiable atmobile.",
+          "action": "Validate proposed grip/pour/fill contact and picking against admitted runtime projection; never classify as a bath to obtain a runtime slot."
+        }
+      ],
+      "held_scope": [
+        "utility_runtime_kind_admission",
+        "water_capacity_and_fill_level",
+        "pour_flow_tilt_and_splash_behavior"
+      ],
+      "alpha_metrics": {
+        "extrema": [
+          0,
+          254
+        ],
+        "zero_alpha_pixels": 188160,
+        "zero_alpha_fraction": 0.53514,
+        "partial_alpha_pixels": 163451,
+        "scope": "Real alpha verified; counts are not perceptual style/halo/contact classification."
+      },
+      "existing_yard_scale": {
+        "diagnostic_viewport_px_per_m": 100,
+        "native_source_to_960_uniform_scale": 0.07972665148063782,
+        "normal_canvas_size_px": [
+          58,
+          38
+        ],
+        "mobile_canvas_size_px": [
+          23,
+          15
+        ],
+        "physical_scale_calibrated": false,
+        "projection": "Existing demo is a three-quarter art placement review. Current runtime is side-view orthographic; mapping not admitted."
+      },
+      "seasonal_state_gaps_exact_source": [
+        {
+          "id": "wet",
+          "status": "needs_art"
+        },
+        {
+          "id": "fresh_paint",
+          "status": "needs_art"
+        },
+        {
+          "id": "heavily_weathered",
+          "status": "needs_art"
+        },
+        {
+          "id": "water_full",
+          "status": "needs_art"
+        },
+        {
+          "id": "pouring",
+          "status": "needs_art"
+        },
+        {
+          "id": "tilted",
+          "status": "needs_art"
+        }
+      ],
+      "wind_gap": {
+        "source_contract": {
+          "type": "rigid",
+          "wind_amplitude": 0,
+          "implemented": false,
+          "attachments": [],
+          "separate_rigged_parts": []
+        },
+        "review": "Rigid zero wind is appropriate for these static props. No need to animate heavy bodies; any moving handle/lid/tool suspension needs separate source parts and explicit authorization."
+      },
+      "annotated_evidence": {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/garden_watering_can-functional-review.png",
+        "sha256": "98368240257cd19709a4414379ee17eafe9e7cbfc55406dc9bbe2e4aee077fad",
+        "bytes": 274497,
+        "dimensions_px": [
+          731,
+          481
+        ],
+        "mode": "RGB"
+      }
+    }
+  ],
+  "scope_counts": {
+    "accepted-for-scoped-source-review": 3,
+    "provisional": 1,
+    "held_whole_assets": 0,
+    "runtime_kind_admissions_held": 4
+  },
+  "baseline_style_comparison": {
+    "actual_inspected_files": [
+      {
+        "path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/objects/sprites/object.cedar_potting_bench.san_diego_20261017_theme_v1.png",
+        "sha256": "25d63a05c304626c7cb5ca49d9b3083c877923b8a47facde6f7ceab1e3a82c26",
+        "bytes": 376310,
+        "dimensions_px": [
+          645,
+          473
+        ],
+        "mode": "RGBA"
+      },
+      {
+        "path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-1-20261017/sprites/object.seed_tube_feeder.san_diego_20261017_candidate_v1.png",
+        "sha256": "445f5be88ef70756c07a5fb803d7074ba14c12027ab566efff690262533bd886",
+        "bytes": 183991,
+        "dimensions_px": [
+          319,
+          531
+        ],
+        "mode": "RGBA"
+      }
+    ],
+    "conclusion": "Cedar contour/grain broadly consistent with potting bench; darker weathered green/highlights follow seed-tube baseline. That inheritance explains collection coherence but does not prove the requested matte sage finish or a strict shared pixel grid."
+  },
+  "runtime_boundary": {
+    "snapshot_head_commit_parent_reported": "f585236c1bc2b89de5212a306f2e471e05cf115b",
+    "file_declared_source_commit": "d4697d34772824d1bb86aa19f0ba8e1b057d7238",
+    "evidence": [
+      {
+        "path": "source-unpublished/publication-audit/review-08/runtime-snapshot/canonical-yard.ts",
+        "sha256": "2a7215aa417391b41bf7161628dd28e7cb25ddd6ad7a23e4310ce5dc73e65f45",
+        "bytes": 2027
+      },
+      {
+        "path": "source-unpublished/publication-audit/review-08/runtime-snapshot/canonical-yard-data.json",
+        "sha256": "392cfed5f2919f60a46c90b243c73004c1ed50fc214a631d8d77dcda0f90f939",
+        "bytes": 9284
+      },
+      {
+        "path": "source-unpublished/publication-audit/review-08/runtime-snapshot/scene.ts",
+        "sha256": "a70eeca583b61bf15b422c21aa03789ec510a10b3caf09dd42ae387a8c9e33d6",
+        "bytes": 12799
+      }
+    ],
+    "source_scope": "Local read-only files supplied by parent from GitHub snapshot; no paused runtime worker or live app accessed.",
+    "kinds": [
+      "perch",
+      "feeder",
+      "bath",
+      "nest",
+      "plant"
+    ],
+    "canonical_entry_count": 11,
+    "none_of_four_new_utility_ids_admitted": true,
+    "canonical_reference_sizes": [
+      {
+        "id": "cedar_feeder",
+        "width": 158,
+        "height": 186,
+        "source_width": 449,
+        "source_height": 528
+      },
+      {
+        "id": "platform_feeder",
+        "width": 116,
+        "height": 60,
+        "source_width": 646,
+        "source_height": 334
+      },
+      {
+        "id": "bench",
+        "width": 140,
+        "height": 94,
+        "source_width": 761,
+        "source_height": 511
+      },
+      {
+        "id": "pedestal_birdbath",
+        "width": 122,
+        "height": 97,
+        "source_width": 612,
+        "source_height": 487
+      }
+    ],
+    "classification_rule": "Runtime kind/catalog admission is held separately. Closed storage is not a feeder; watering can is not a bath. Do not repurpose plant/perch kinds merely to load utility art.",
+    "projection_parent_reported": "side-view orthographic960x540",
+    "scale_conclusion": "Source dimensions and diagnostic100px/m do not establish canonical runtime geometry or a shared calibrated perspective."
+  },
+  "evidence_views": [
+    {
+      "path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/objects/previews/objects-contact-light.png",
+      "sha256": "42390b9ea91cfdac8c10594a03608114aab23fb9093aa2cee4dd7b6207d15613",
+      "bytes": 997236,
+      "dimensions_px": [
+        1600,
+        1140
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/objects/previews/objects-contact-dark.png",
+      "sha256": "199239c02211f0ecdb836da85a2ca5f021b389e8086c555b8c25292a2dd2b140",
+      "bytes": 930655,
+      "dimensions_px": [
+        1600,
+        1140
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/objects/previews/objects-contact-checker.png",
+      "sha256": "a436b1a7700ad1fa9af4e78af7aa7064caf0a67237cd14d1fc00a5bb1311032c",
+      "bytes": 998484,
+      "dimensions_px": [
+        1600,
+        1140
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/objects/previews/yard-scale-group-960.png",
+      "sha256": "795e20a5f60decf8adbc990903d9ef493ef60e80dcdf59da03a81217508dca3d",
+      "bytes": 986397,
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/objects/previews/yard-scale-group-384.png",
+      "sha256": "64b8e198b5ab58aab3dd05eb95f2312d4d9d62279b18adf61d73f03016f576fd",
+      "bytes": 180845,
+      "dimensions_px": [
+        384,
+        216
+      ],
+      "mode": "RGB"
+    },
+    {
+      "path": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/native-texture-detail-3x.png",
+      "sha256": "2dc75ea10a60ebfcff1e28733012f3cd1e050717645cec5640296042dcca097f",
+      "bytes": 105022,
+      "dimensions_px": [
+        1200,
+        335
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "recommendations_in_priority_order": [
+    "Calibrate rail wall-plane placement and inner hook cradles in a separately authorized placement/metadata pass; no new art call needed now.",
+    "Keep all four source sprites and their exact hashes. Stool/canister/watering can pass scoped static-source review under disclosed minor finish differences.",
+    "Hold utility runtime-kind/catalog admission separately for all four; do not map storage to feeder or watering can to bath.",
+    "Validate actual target-scale picking/contact/projection using canonical runtime sizes. Mobile demo does not validate tiny hook/latch/rose behavior; do not enlarge props arbitrarily to expose details.",
+    "Only commission wet/open/pouring/tool-hanging variants when those behaviors are explicitly prioritized; source bodies are rigid, zero wind appropriate."
+  ],
+  "constraints": {
+    "no_generation": true,
+    "repair07_edited": false,
+    "git_or_app_changed": false,
+    "new_canonical_inventory_created": false
+  },
+  "pixel_style_checkpoint": {
+    "actual_3x_detail_observation": "Fine grain, near-continuous value gradients and antialiased material boundaries dominate inside the stepped silhouettes. The practical project baseline is similarly detailed; a deliberate shared logical pixel grid/cluster size is not demonstrated.",
+    "status": "provisional_for_strict_pixel_style_conformity",
+    "source_review_acceptance_scope": "Three assets accepted as usable static source candidates under existing minor-imperfection allowance, not a strict pixel-grid/material-direction signoff.",
+    "recommended_action": "Keep source bytes and current candidate status. Resolve a shared texture/cluster target before any optional future material/style revision; do not repeatedly regenerate otherwise complete objects."
+  },
+  "source_preservation": {
+    "repair07_file_count": 35,
+    "all_hashes_unchanged": true,
+    "baseline": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/objects/source-preservation-baseline.json"
+  }
+}

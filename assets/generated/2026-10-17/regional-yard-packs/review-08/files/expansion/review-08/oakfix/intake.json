@@ -1,0 +1,455 @@
+{
+  "schema_version": "1.0.0",
+  "batch": "review08_oak_leaf_correction",
+  "assets": [
+    {
+      "asset_id": "coast-live-oak-foliage",
+      "variant_id": "review08_leaf_correction_v1",
+      "family_id": "quercus_agrifolia",
+      "species": "Quercus agrifolia",
+      "review_status": "HOLD",
+      "rejection_reason": "Dominant repeated narrow radial/starburst clusters and bright luminous tips persist. Some individual blades broadened, but whole-canopy botanical correction not achieved.",
+      "eligible_for_production": false,
+      "states": {
+        "generated": true,
+        "reviewed": true,
+        "staged": false,
+        "integrated": false,
+        "accepted": false
+      },
+      "generated_art_count": 1,
+      "accepted_art_count": 0,
+      "production_asset_count": 0,
+      "derived_from": {
+        "asset_id": "coast-live-oak-foliage",
+        "variant_id": "repair07_healthy_canopy_v1",
+        "reference_file": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/oak/originals/healthy-canopy-r1.png",
+        "sha256": "5e2277443e522c9ea0c2fa645e862e4e664d1e6dd66520c8a022fa8311e1c50d",
+        "status": "HOLD unchanged"
+      },
+      "original": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/originals/leaf-correction-r1.png",
+        "sha256": "7625936664369e48bb4ecc5a6352ddac621dd67b7ff162cd985e32551bf3de20",
+        "dimensions_px": [
+          1254,
+          1254
+        ],
+        "mode": "RGBA"
+      },
+      "generation": {
+        "tool": "image_gen.imagegen",
+        "calls_submitted": 1,
+        "calls_completed": 1,
+        "active": 0,
+        "budget": 1,
+        "retries": 0,
+        "exact_prompt": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/prompts/leaf-correction-r1.txt",
+        "input": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/oak/originals/healthy-canopy-r1.png",
+        "transparent_background": true,
+        "receipt": "originals/generation-receipt.json"
+      },
+      "rights": {
+        "image_inputs": "Project-generated owned conditioning canopy; applicable project/service terms; no third-party image license asserted",
+        "primary_text_source": "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_quag.pdf",
+        "external_photo_pixels_used": false,
+        "USDA_text_only": true
+      },
+      "selected_held_derivative": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/sprites/corrected-canopy-common.png",
+        "sha256": "b0127fb7ad4a2eb2e31e7f46772c087b7af6be0f21caf3860fe218f2e702e3c8",
+        "dimensions_px": [
+          1536,
+          1536
+        ],
+        "operations": [
+          "Remove alpha<=1 contamination on derivative only",
+          "Uniform full-source nearest resize1254→1408",
+          "Translate[64,0] on1536 canvas"
+        ],
+        "alpha_le1_pixels_removed": 19679,
+        "approval": false
+      },
+      "assembly": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/sprites/held-tree-rest.png",
+        "new_generated_art": false,
+        "wood_dependency": {
+          "asset_id": "coast-live-oak-wood",
+          "variant_id": "depth06_modules_v1",
+          "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/tree-wind/originals/wood-scaffold-v1.png",
+          "sha256": "c500ff6a90297eae246bfe76af8033b8271ac6534956adb451a1044046e92b7e",
+          "dimensions_px": [
+            1254,
+            1254
+          ],
+          "byte_identity_preserved": true,
+          "translation": [
+            141,
+            141
+          ]
+        },
+        "anchor_px": [
+          794,
+          1319
+        ],
+        "footprint": {
+          "center": [
+            794,
+            1319
+          ],
+          "radii": [
+            160,
+            12
+          ],
+          "units": "common source pixels",
+          "status": "provisional visual root flare, not collision physics"
+        },
+        "z_order": [
+          "wood",
+          "foliage"
+        ],
+        "pin_anchors_px": [
+          [
+            315,
+            554
+          ],
+          [
+            697,
+            333
+          ],
+          [
+            1084,
+            417
+          ],
+          [
+            1319,
+            727
+          ]
+        ],
+        "registration": "Inherited exact wood placement; canopy alphaIoU0.97956; hidden twig attachment remains unverified. Mechanical fixed cores alone are not botanical proof."
+      },
+      "scale": {
+        "tree_scale": 0.5,
+        "tree_offset_source_px": [
+          23,
+          231
+        ],
+        "root_source_px": [
+          420,
+          890.5
+        ],
+        "viewport": [
+          0,
+          160,
+          1536,
+          1024
+        ],
+        "tree_height_metres_illustrative": 6,
+        "physical_calibration": "Provisional illustrative scale, not surveyed metres.",
+        "contact_ellipse_source_px": [
+          78,
+          6
+        ],
+        "layer": "above flattened existing review plate; foreground occlusion not dynamically solved",
+        "root_normal_px": [
+          262.5,
+          456.5625
+        ],
+        "root_mobile_px": [
+          105,
+          182.625
+        ]
+      },
+      "wind": {
+        "proof": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/gentle-wind.gif",
+        "implementation": "Existing source renderer via isolated stage; same compound deformation math",
+        "renderer_lineage": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/renderer-lineage.json",
+        "pin_core_radius_px": 48,
+        "weights": "0 within48px, smoothstep to1 by228px from nearest fixed point",
+        "wood_weight": 0,
+        "anatomical_segmentation": false,
+        "runtime_implemented": false,
+        "decoded_frames": 33,
+        "decoded_unique_frames": 31,
+        "exact_loop_closure": true,
+        "all_pin_core_changed_pixels": 0,
+        "all_root_changed_pixels": 0,
+        "always_unoccluded_wood_tested_display_pixels": 6643,
+        "always_unoccluded_wood_changed_pixels": 0,
+        "leaf_edge_occludes_initially_exposed_wood_samples": 89,
+        "qa": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/motion-qa.json",
+        "ledger": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/frame-ledger.json"
+      },
+      "state_art": {
+        "healthy_leaf_on": "actual generated attempted correction, held for leaf identity"
+      },
+      "pending_state_needs": [
+        "dry/stress",
+        "wet",
+        "spring flush/reproductive",
+        "summer stress as appropriate",
+        "autumn evergreen turnover/litter; no blanket orange crown",
+        "winter moisture appearance; no default snow"
+      ],
+      "state_choices": "Alternative states mutually exclusive per instance; no simultaneous healthy/dry spawn",
+      "pending_reviews": [
+        "botanical identity correction",
+        "strict pixel-style consistency",
+        "owner acceptance",
+        "hidden attachment anatomy",
+        "runtime admission"
+      ]
+    }
+  ],
+  "counts": {
+    "submitted_imagegen_calls": 1,
+    "completed_imagegen_calls": 1,
+    "new_generated_originals": 1,
+    "new_primary_ids": 0,
+    "accepted_assets": 0,
+    "production_assets": 0,
+    "held_variants": 1,
+    "composites_count_as_new_art": 0
+  },
+  "tool_state": {
+    "active_calls": 0,
+    "blocked_calls": 0,
+    "uncertain_calls": 0,
+    "budget_exhausted": true
+  },
+  "existing_variant_reviews": [
+    {
+      "asset_id": "coast-live-oak-foliage",
+      "variant_id": "repair07_healthy_canopy_v1",
+      "status": "original botanical HOLD unchanged"
+    },
+    {
+      "asset_id": "coast-live-oak-wood",
+      "variant_id": "depth06_modules_v1",
+      "source_identity_preserved": true,
+      "new_asset_record": false
+    }
+  ],
+  "preservation": {
+    "old_files_edited": false,
+    "Engelmann_HOLD": "unchanged"
+  },
+  "files": [
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/README.md",
+      "sha256": "35895692893e340cd28b9aff4612fbfac81edd25efdf8311926a880eb2c385ba",
+      "bytes": 3306
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/rig.json",
+      "sha256": "7b1914666cafdc5a914d1e97d74c754cf82a97ff44a7f20b95185f5700a0b219",
+      "bytes": 1372
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/originals/leaf-correction-r1.png",
+      "sha256": "7625936664369e48bb4ecc5a6352ddac621dd67b7ff162cd985e32551bf3de20",
+      "bytes": 1938160,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "frames": 1
+    },
+    {
+      "file": "originals/generation-receipt.json",
+      "sha256": "e17cea74011e1f58c95f1366e8cf452ac6b1e00345e892b4535f7f1775a8941e",
+      "bytes": 786
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/prompts/leaf-correction-r1.txt",
+      "sha256": "ee152fc773e113a9fd6965c2cd8ffea2f076b01524241ca85405484c8e02b04c",
+      "bytes": 2430
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/oak/originals/healthy-canopy-r1.png",
+      "sha256": "5e2277443e522c9ea0c2fa645e862e4e664d1e6dd66520c8a022fa8311e1c50d",
+      "bytes": 2260089,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/tree-wind/originals/wood-scaffold-v1.png",
+      "sha256": "c500ff6a90297eae246bfe76af8033b8271ac6534956adb451a1044046e92b7e",
+      "bytes": 808619,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/sprites/corrected-canopy-common.png",
+      "sha256": "b0127fb7ad4a2eb2e31e7f46772c087b7af6be0f21caf3860fe218f2e702e3c8",
+      "bytes": 1931484,
+      "dimensions_px": [
+        1536,
+        1536
+      ],
+      "mode": "RGBA",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/sprites/held-tree-rest.png",
+      "sha256": "2ff691a6e5934df2154d62c3133e15b25a44d65b4992fcda4a522b1f06a49592",
+      "bytes": 2181638,
+      "dimensions_px": [
+        1536,
+        1536
+      ],
+      "mode": "RGBA",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/corrected-canopy-light.jpg",
+      "sha256": "630ea853dedd8e48e9aaa683c811a17eadb1ded4c71cbd5026fadcf9406ff814",
+      "bytes": 442883,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/decoded-motion-contact.jpg",
+      "sha256": "beaf6a5f402bd09730f84fc27df31824fcbe79403daf2b9cbd9074acc217d04d",
+      "bytes": 270176,
+      "dimensions_px": [
+        1152,
+        820
+      ],
+      "mode": "RGB",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/gentle-wind.gif",
+      "sha256": "f1f7cfd924513b8ad59c3c711b1d5b947299a94eeac12611323745773587d82f",
+      "bytes": 4236353,
+      "dimensions_px": [
+        512,
+        512
+      ],
+      "mode": "P",
+      "frames": 33
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/leaf-detail-comparison.jpg",
+      "sha256": "ecf9a9f3de02d13e6f928ec59ab191974dfabcc3c92526b45f6d1efcd0a24d61",
+      "bytes": 757661,
+      "dimensions_px": [
+        1000,
+        1575
+      ],
+      "mode": "RGB",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/pin-overlay.png",
+      "sha256": "a35506513a800664365a1b78c587d13c4a37eb92006382ad6882411158722e94",
+      "bytes": 722201,
+      "dimensions_px": [
+        768,
+        768
+      ],
+      "mode": "RGBA",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/whole-tree-before-after.jpg",
+      "sha256": "8669eecf9a3b21be9e146a7faad592f75860a80c61c41684c141561d3f47f712",
+      "bytes": 168244,
+      "dimensions_px": [
+        1024,
+        540
+      ],
+      "mode": "RGB",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/whole-tree-dark.jpg",
+      "sha256": "33dc54d87a6d983aba15a800e44c597e3f5435c30ad7a2cb07619b30d1924c3d",
+      "bytes": 150430,
+      "dimensions_px": [
+        768,
+        768
+      ],
+      "mode": "RGB",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/whole-tree-light.jpg",
+      "sha256": "28f2994fd729a646b546aad5ed1d9c9a9221317a8a374e0f6d162cc35f99937d",
+      "bytes": 156568,
+      "dimensions_px": [
+        768,
+        768
+      ],
+      "mode": "RGB",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/yard-384.png",
+      "sha256": "38d116d8d1c610a1a1686db4039ac358b83ef692d89919858a7f3019d9192b0c",
+      "bytes": 188833,
+      "dimensions_px": [
+        384,
+        216
+      ],
+      "mode": "RGB",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/previews/yard-960.png",
+      "sha256": "c2d6aeb861b1d1651f85ab629f01a66017417b500ad92dfeaee2866a46e61890",
+      "bytes": 1008844,
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "mode": "RGB",
+      "frames": 1
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/call-state.json",
+      "sha256": "8ef85a392b132f0c8e4c83c7b8284bf4555ea6eb0de4588cc0145137c7bd84a3",
+      "bytes": 264
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/correction-review.json",
+      "sha256": "035418602a10ac6981975f4609dd40b3bab7c12e4915476934a0d53ca12fe497",
+      "bytes": 1166
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/frame-ledger.json",
+      "sha256": "c59be36a8c636b0bfd0cb0784f0d05ae6eeeb67f616b0b8a703d42dc7cbe83ee",
+      "bytes": 27103
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/motion-qa.json",
+      "sha256": "d04c5850bb4279a90077c00a0baa12fd7631e562fb395ef093b6c90c063bb299",
+      "bytes": 1793
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/renderer-lineage.json",
+      "sha256": "8236851b8fe171b857230567bab0b846058b478d9774cf7f218cab1143e01f59",
+      "bytes": 727
+    },
+    {
+      "file": "assets/generated/2026-10-17/regional-yard-packs/review-08/files/expansion/review-08/oakfix/reports/source-brief.json",
+      "sha256": "f3b6b34fad5dbdf1d4abc53832c52d6f9e96384cd2fa6f94e15ac4621de36d5e",
+      "bytes": 585
+    }
+  ],
+  "archives": "None requested; no ZIP produced",
+  "scratch_stage_not_admission_metadata": true
+}
