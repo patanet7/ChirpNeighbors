@@ -1,0 +1,59 @@
+{
+  "$ref": "#/definitions/LosslessPixelPolicyV1",
+  "definitions": {
+    "LosslessPixelPolicyV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+        },
+        "version": {
+          "$ref": "#/definitions/LosslessPixelPolicyV1/properties/id"
+        },
+        "alpha": {
+          "type": "string",
+          "const": "binary-required"
+        },
+        "palette": {
+          "type": "string",
+          "const": "preserve"
+        },
+        "logicalPixelSize": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
+        "paletteLimit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "crop": {
+          "type": "string",
+          "const": "stable-union-including-anchors"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "id",
+        "version",
+        "alpha",
+        "palette",
+        "logicalPixelSize",
+        "paletteLimit",
+        "crop"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/lossless-pixel-policy-v1.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

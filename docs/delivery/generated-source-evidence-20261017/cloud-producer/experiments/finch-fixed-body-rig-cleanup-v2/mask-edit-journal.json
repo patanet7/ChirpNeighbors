@@ -1,0 +1,22 @@
+{
+  "workflow": "explicit source-pixel overlap masks, no generation",
+  "edits": [
+    {
+      "step": 1,
+      "operation": "retain source neck overlap inside originalheadmask and rectangle445475635575"
+    },
+    {
+      "step": 2,
+      "operation": "exclude original bill/lower-jaw from stationary underpaint to avoid doublebill",
+      "rectangle": [
+        595,
+        465,
+        650,
+        492
+      ],
+      "removedMaskPixels": 680
+    }
+  ],
+  "qualityGateUnchanged": "sourceprotectedregion and originalneckROI metrics retained, not retargeted",
+  "ownerReviewRequired": true
+}
