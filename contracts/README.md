@@ -6,6 +6,12 @@ by both TypeScript imports and this repository's standalone Python adapter.
 Change the source schema and regenerate the checked-in contract; do not maintain
 a separate set of Python validation rules or hand-edit the JSON copy.
 
+The [2026-10-17 compatibility floor](../docs/api/contract-compatibility-20261017.md)
+records synchronized yard/plant/starter/workbench readers and the explicit
+stale-reader rejection policy. New private V2 exports require both mirrors and
+generated declarations to upgrade together; old strict readers are not claimed
+to accept additive fields.
+
 From the sibling UI repository, regenerate or check both copies explicitly:
 
 ```sh

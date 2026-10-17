@@ -1,0 +1,78 @@
+{
+  "$ref": "#/definitions/PhysicalSurfaceOptionsV1",
+  "definitions": {
+    "PhysicalSurfaceOptionsV1": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "precipitationMmPerHour": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 500
+        },
+        "snowFraction": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "temperatureC": {
+          "type": "number",
+          "minimum": -30,
+          "maximum": 40
+        },
+        "speed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 60
+        },
+        "replayRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "showBounds": {
+          "type": "boolean"
+        },
+        "initialBathLitres": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 6
+        },
+        "resumeRevision": {
+          "$ref": "#/definitions/PhysicalSurfaceOptionsV1/properties/replayRevision"
+        },
+        "pumpLitresPerMinute": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 12
+        },
+        "drainLitresPerMinute": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 12
+        },
+        "initialReservoirLitres": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 12
+        }
+      },
+      "required": [
+        "enabled",
+        "precipitationMmPerHour",
+        "snowFraction",
+        "temperatureC",
+        "speed",
+        "replayRevision",
+        "showBounds",
+        "initialBathLitres"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/physical-surface-options-v1.schema.json",
+  "description": "Structural developer scenario and shared runtime boundaries. The strict production Zod/domain authorities additionally enforce owner/session binding, exact immutable source pins, cross-record matching, CAS/idempotency, version/seed semantics, selection intent identity and bounded fixed-tick execution. Generated schemas never authorize execution; application semantic validation is mandatory. Scenario storage is isolated and cannot write back to an owner yard."
+}

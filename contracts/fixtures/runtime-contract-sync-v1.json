@@ -1,0 +1,3694 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "schema": "yard-backup-v2",
+      "name": "actual fresh runtime export includes plant inventory",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": []
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "plant with canonical catalog identity",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-bath",
+              "kind": "bath",
+              "x": 700,
+              "y": 445
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "place",
+          "kind": "plant",
+          "catalogId": "blue_eyed_grass"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "actual export after canonical plant placement",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "blue_eyed_grass",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "supplied zero plant stock is not replaced by a default",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 0
+              }
+            },
+            "objectReceipts": []
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "legacy V2 missing plant remains admitted",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3
+              }
+            },
+            "objectReceipts": []
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "saved personality and starter binding receipts",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "cn-species-passer-domesticus",
+              "commonName": "House Sparrow",
+              "scientificName": "Passer domesticus"
+            }
+          ],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [
+            {
+              "id": "synthetic-resident",
+              "speciesId": "cn-species-passer-domesticus",
+              "name": "Synthetic contract resident",
+              "lifecycle": "permanent",
+              "createdAt": "2026-10-17T12:00:00.000Z",
+              "expiresAt": null,
+              "promotedAt": "2026-10-17T12:00:00.000Z",
+              "artworkId": null,
+              "originEventId": null,
+              "behavior": {
+                "schemaVersion": 1,
+                "revision": 1,
+                "source": "owner-authored",
+                "traits": {
+                  "schemaVersion": 1,
+                  "provenance": {
+                    "kind": "fictional-individual",
+                    "version": 1,
+                    "observationDerived": false,
+                    "seedBasis": "decorative-resident-id"
+                  },
+                  "seed": 3752527597,
+                  "curiosity": 0.09957484344476249,
+                  "sociability": 0.075351354916429,
+                  "boldness": 0.03322969540796003
+                }
+              },
+              "starterArt": {
+                "schemaVersion": 1,
+                "revision": 0,
+                "mode": "fixed",
+                "channel": {
+                  "kind": "bird",
+                  "subjectId": "cn-species-passer-domesticus",
+                  "styleId": "synthetic",
+                  "variantId": "default",
+                  "compatibilityMajor": 1
+                },
+                "compatibility": {
+                  "rendererContract": "rgba-pose-v1",
+                  "anchorConvention": "feet",
+                  "scaleConvention": "world",
+                  "geometrySha256": null
+                },
+                "previousArtworkId": null
+              }
+            }
+          ],
+          "artworks": [],
+          "starterUpdateReceipts": [
+            {
+              "requestId": "0c04821e-2140-4dbb-89f9-5ac6b340c358",
+              "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "starter-art-policy",
+              "changedBirdIds": [
+                "synthetic-resident"
+              ],
+              "createdAt": "2026-10-17T12:00:00.000Z"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "blue_eyed_grass",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "unknown owner field",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "cn-species-passer-domesticus",
+              "commonName": "House Sparrow",
+              "scientificName": "Passer domesticus"
+            }
+          ],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [
+            {
+              "id": "synthetic-resident",
+              "speciesId": "cn-species-passer-domesticus",
+              "name": "Synthetic contract resident",
+              "lifecycle": "permanent",
+              "createdAt": "2026-10-17T12:00:00.000Z",
+              "expiresAt": null,
+              "promotedAt": "2026-10-17T12:00:00.000Z",
+              "artworkId": null,
+              "originEventId": null,
+              "behavior": {
+                "schemaVersion": 1,
+                "revision": 1,
+                "source": "owner-authored",
+                "traits": {
+                  "schemaVersion": 1,
+                  "provenance": {
+                    "kind": "fictional-individual",
+                    "version": 1,
+                    "observationDerived": false,
+                    "seedBasis": "decorative-resident-id"
+                  },
+                  "seed": 3752527597,
+                  "curiosity": 0.09957484344476249,
+                  "sociability": 0.075351354916429,
+                  "boldness": 0.03322969540796003
+                }
+              },
+              "starterArt": {
+                "schemaVersion": 1,
+                "revision": 0,
+                "mode": "fixed",
+                "channel": {
+                  "kind": "bird",
+                  "subjectId": "cn-species-passer-domesticus",
+                  "styleId": "synthetic",
+                  "variantId": "default",
+                  "compatibilityMajor": 1
+                },
+                "compatibility": {
+                  "rendererContract": "rgba-pose-v1",
+                  "anchorConvention": "feet",
+                  "scaleConvention": "world",
+                  "geometrySha256": null
+                },
+                "previousArtworkId": null
+              }
+            }
+          ],
+          "artworks": [],
+          "starterUpdateReceipts": [
+            {
+              "requestId": "0c04821e-2140-4dbb-89f9-5ac6b340c358",
+              "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "starter-art-policy",
+              "changedBirdIds": [
+                "synthetic-resident"
+              ],
+              "createdAt": "2026-10-17T12:00:00.000Z"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "blue_eyed_grass",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        },
+        "ownerId": "not-authority"
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "future backup version",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 99,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "cn-species-passer-domesticus",
+              "commonName": "House Sparrow",
+              "scientificName": "Passer domesticus"
+            }
+          ],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [
+            {
+              "id": "synthetic-resident",
+              "speciesId": "cn-species-passer-domesticus",
+              "name": "Synthetic contract resident",
+              "lifecycle": "permanent",
+              "createdAt": "2026-10-17T12:00:00.000Z",
+              "expiresAt": null,
+              "promotedAt": "2026-10-17T12:00:00.000Z",
+              "artworkId": null,
+              "originEventId": null,
+              "behavior": {
+                "schemaVersion": 1,
+                "revision": 1,
+                "source": "owner-authored",
+                "traits": {
+                  "schemaVersion": 1,
+                  "provenance": {
+                    "kind": "fictional-individual",
+                    "version": 1,
+                    "observationDerived": false,
+                    "seedBasis": "decorative-resident-id"
+                  },
+                  "seed": 3752527597,
+                  "curiosity": 0.09957484344476249,
+                  "sociability": 0.075351354916429,
+                  "boldness": 0.03322969540796003
+                }
+              },
+              "starterArt": {
+                "schemaVersion": 1,
+                "revision": 0,
+                "mode": "fixed",
+                "channel": {
+                  "kind": "bird",
+                  "subjectId": "cn-species-passer-domesticus",
+                  "styleId": "synthetic",
+                  "variantId": "default",
+                  "compatibilityMajor": 1
+                },
+                "compatibility": {
+                  "rendererContract": "rgba-pose-v1",
+                  "anchorConvention": "feet",
+                  "scaleConvention": "world",
+                  "geometrySha256": null
+                },
+                "previousArtworkId": null
+              }
+            }
+          ],
+          "artworks": [],
+          "starterUpdateReceipts": [
+            {
+              "requestId": "0c04821e-2140-4dbb-89f9-5ac6b340c358",
+              "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "starter-art-policy",
+              "changedBirdIds": [
+                "synthetic-resident"
+              ],
+              "createdAt": "2026-10-17T12:00:00.000Z"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "blue_eyed_grass",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "negative plant stock",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "cn-species-passer-domesticus",
+              "commonName": "House Sparrow",
+              "scientificName": "Passer domesticus"
+            }
+          ],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [
+            {
+              "id": "synthetic-resident",
+              "speciesId": "cn-species-passer-domesticus",
+              "name": "Synthetic contract resident",
+              "lifecycle": "permanent",
+              "createdAt": "2026-10-17T12:00:00.000Z",
+              "expiresAt": null,
+              "promotedAt": "2026-10-17T12:00:00.000Z",
+              "artworkId": null,
+              "originEventId": null,
+              "behavior": {
+                "schemaVersion": 1,
+                "revision": 1,
+                "source": "owner-authored",
+                "traits": {
+                  "schemaVersion": 1,
+                  "provenance": {
+                    "kind": "fictional-individual",
+                    "version": 1,
+                    "observationDerived": false,
+                    "seedBasis": "decorative-resident-id"
+                  },
+                  "seed": 3752527597,
+                  "curiosity": 0.09957484344476249,
+                  "sociability": 0.075351354916429,
+                  "boldness": 0.03322969540796003
+                }
+              },
+              "starterArt": {
+                "schemaVersion": 1,
+                "revision": 0,
+                "mode": "fixed",
+                "channel": {
+                  "kind": "bird",
+                  "subjectId": "cn-species-passer-domesticus",
+                  "styleId": "synthetic",
+                  "variantId": "default",
+                  "compatibilityMajor": 1
+                },
+                "compatibility": {
+                  "rendererContract": "rgba-pose-v1",
+                  "anchorConvention": "feet",
+                  "scaleConvention": "world",
+                  "geometrySha256": null
+                },
+                "previousArtworkId": null
+              }
+            }
+          ],
+          "artworks": [],
+          "starterUpdateReceipts": [
+            {
+              "requestId": "0c04821e-2140-4dbb-89f9-5ac6b340c358",
+              "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "starter-art-policy",
+              "changedBirdIds": [
+                "synthetic-resident"
+              ],
+              "createdAt": "2026-10-17T12:00:00.000Z"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "blue_eyed_grass",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": -1
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "unknown catalog identity",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "cn-species-passer-domesticus",
+              "commonName": "House Sparrow",
+              "scientificName": "Passer domesticus"
+            }
+          ],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [
+            {
+              "id": "synthetic-resident",
+              "speciesId": "cn-species-passer-domesticus",
+              "name": "Synthetic contract resident",
+              "lifecycle": "permanent",
+              "createdAt": "2026-10-17T12:00:00.000Z",
+              "expiresAt": null,
+              "promotedAt": "2026-10-17T12:00:00.000Z",
+              "artworkId": null,
+              "originEventId": null,
+              "behavior": {
+                "schemaVersion": 1,
+                "revision": 1,
+                "source": "owner-authored",
+                "traits": {
+                  "schemaVersion": 1,
+                  "provenance": {
+                    "kind": "fictional-individual",
+                    "version": 1,
+                    "observationDerived": false,
+                    "seedBasis": "decorative-resident-id"
+                  },
+                  "seed": 3752527597,
+                  "curiosity": 0.09957484344476249,
+                  "sociability": 0.075351354916429,
+                  "boldness": 0.03322969540796003
+                }
+              },
+              "starterArt": {
+                "schemaVersion": 1,
+                "revision": 0,
+                "mode": "fixed",
+                "channel": {
+                  "kind": "bird",
+                  "subjectId": "cn-species-passer-domesticus",
+                  "styleId": "synthetic",
+                  "variantId": "default",
+                  "compatibilityMajor": 1
+                },
+                "compatibility": {
+                  "rendererContract": "rgba-pose-v1",
+                  "anchorConvention": "feet",
+                  "scaleConvention": "world",
+                  "geometrySha256": null
+                },
+                "previousArtworkId": null
+              }
+            }
+          ],
+          "artworks": [],
+          "starterUpdateReceipts": [
+            {
+              "requestId": "0c04821e-2140-4dbb-89f9-5ac6b340c358",
+              "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "starter-art-policy",
+              "changedBirdIds": [
+                "synthetic-resident"
+              ],
+              "createdAt": "2026-10-17T12:00:00.000Z"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "unknown",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "personality beyond bounds",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "cn-species-passer-domesticus",
+              "commonName": "House Sparrow",
+              "scientificName": "Passer domesticus"
+            }
+          ],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [
+            {
+              "id": "synthetic-resident",
+              "speciesId": "cn-species-passer-domesticus",
+              "name": "Synthetic contract resident",
+              "lifecycle": "permanent",
+              "createdAt": "2026-10-17T12:00:00.000Z",
+              "expiresAt": null,
+              "promotedAt": "2026-10-17T12:00:00.000Z",
+              "artworkId": null,
+              "originEventId": null,
+              "behavior": {
+                "schemaVersion": 1,
+                "revision": 1,
+                "source": "owner-authored",
+                "traits": {
+                  "schemaVersion": 1,
+                  "provenance": {
+                    "kind": "fictional-individual",
+                    "version": 1,
+                    "observationDerived": false,
+                    "seedBasis": "decorative-resident-id"
+                  },
+                  "seed": 3752527597,
+                  "curiosity": 0.09957484344476249,
+                  "sociability": 0.075351354916429,
+                  "boldness": 2
+                }
+              },
+              "starterArt": {
+                "schemaVersion": 1,
+                "revision": 0,
+                "mode": "fixed",
+                "channel": {
+                  "kind": "bird",
+                  "subjectId": "cn-species-passer-domesticus",
+                  "styleId": "synthetic",
+                  "variantId": "default",
+                  "compatibilityMajor": 1
+                },
+                "compatibility": {
+                  "rendererContract": "rgba-pose-v1",
+                  "anchorConvention": "feet",
+                  "scaleConvention": "world",
+                  "geometrySha256": null
+                },
+                "previousArtworkId": null
+              }
+            }
+          ],
+          "artworks": [],
+          "starterUpdateReceipts": [
+            {
+              "requestId": "0c04821e-2140-4dbb-89f9-5ac6b340c358",
+              "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "starter-art-policy",
+              "changedBirdIds": [
+                "synthetic-resident"
+              ],
+              "createdAt": "2026-10-17T12:00:00.000Z"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "blue_eyed_grass",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "future starter binding",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "cn-species-passer-domesticus",
+              "commonName": "House Sparrow",
+              "scientificName": "Passer domesticus"
+            }
+          ],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [
+            {
+              "id": "synthetic-resident",
+              "speciesId": "cn-species-passer-domesticus",
+              "name": "Synthetic contract resident",
+              "lifecycle": "permanent",
+              "createdAt": "2026-10-17T12:00:00.000Z",
+              "expiresAt": null,
+              "promotedAt": "2026-10-17T12:00:00.000Z",
+              "artworkId": null,
+              "originEventId": null,
+              "behavior": {
+                "schemaVersion": 1,
+                "revision": 1,
+                "source": "owner-authored",
+                "traits": {
+                  "schemaVersion": 1,
+                  "provenance": {
+                    "kind": "fictional-individual",
+                    "version": 1,
+                    "observationDerived": false,
+                    "seedBasis": "decorative-resident-id"
+                  },
+                  "seed": 3752527597,
+                  "curiosity": 0.09957484344476249,
+                  "sociability": 0.075351354916429,
+                  "boldness": 0.03322969540796003
+                }
+              },
+              "starterArt": {
+                "schemaVersion": 99,
+                "revision": 0,
+                "mode": "fixed",
+                "channel": {
+                  "kind": "bird",
+                  "subjectId": "cn-species-passer-domesticus",
+                  "styleId": "synthetic",
+                  "variantId": "default",
+                  "compatibilityMajor": 1
+                },
+                "compatibility": {
+                  "rendererContract": "rgba-pose-v1",
+                  "anchorConvention": "feet",
+                  "scaleConvention": "world",
+                  "geometrySha256": null
+                },
+                "previousArtworkId": null
+              }
+            }
+          ],
+          "artworks": [],
+          "starterUpdateReceipts": [
+            {
+              "requestId": "0c04821e-2140-4dbb-89f9-5ac6b340c358",
+              "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "starter-art-policy",
+              "changedBirdIds": [
+                "synthetic-resident"
+              ],
+              "createdAt": "2026-10-17T12:00:00.000Z"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "blue_eyed_grass",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "invalid starter receipt UUID",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "cn-species-passer-domesticus",
+              "commonName": "House Sparrow",
+              "scientificName": "Passer domesticus"
+            }
+          ],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [
+            {
+              "id": "synthetic-resident",
+              "speciesId": "cn-species-passer-domesticus",
+              "name": "Synthetic contract resident",
+              "lifecycle": "permanent",
+              "createdAt": "2026-10-17T12:00:00.000Z",
+              "expiresAt": null,
+              "promotedAt": "2026-10-17T12:00:00.000Z",
+              "artworkId": null,
+              "originEventId": null,
+              "behavior": {
+                "schemaVersion": 1,
+                "revision": 1,
+                "source": "owner-authored",
+                "traits": {
+                  "schemaVersion": 1,
+                  "provenance": {
+                    "kind": "fictional-individual",
+                    "version": 1,
+                    "observationDerived": false,
+                    "seedBasis": "decorative-resident-id"
+                  },
+                  "seed": 3752527597,
+                  "curiosity": 0.09957484344476249,
+                  "sociability": 0.075351354916429,
+                  "boldness": 0.03322969540796003
+                }
+              },
+              "starterArt": {
+                "schemaVersion": 1,
+                "revision": 0,
+                "mode": "fixed",
+                "channel": {
+                  "kind": "bird",
+                  "subjectId": "cn-species-passer-domesticus",
+                  "styleId": "synthetic",
+                  "variantId": "default",
+                  "compatibilityMajor": 1
+                },
+                "compatibility": {
+                  "rendererContract": "rgba-pose-v1",
+                  "anchorConvention": "feet",
+                  "scaleConvention": "world",
+                  "geometrySha256": null
+                },
+                "previousArtworkId": null
+              }
+            }
+          ],
+          "artworks": [],
+          "starterUpdateReceipts": [
+            {
+              "requestId": "invalid",
+              "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "starter-art-policy",
+              "changedBirdIds": [
+                "synthetic-resident"
+              ],
+              "createdAt": "2026-10-17T12:00:00.000Z"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "blue_eyed_grass",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "unknown catalog rejected",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-bath",
+              "kind": "bath",
+              "x": 700,
+              "y": 445
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "place",
+          "kind": "plant",
+          "catalogId": "unknown"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "restyle canonical identity",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-bath",
+              "kind": "bath",
+              "x": 700,
+              "y": 445
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "restyle",
+          "objectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+          "catalogId": "san_diego_monkeyflower"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "regional defaults canonical command",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-bath",
+              "kind": "bath",
+              "x": 700,
+              "y": 445
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "regional-defaults"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "dev-workbench-playback-v1",
+      "name": "seed consistency remains an authoritative semantic check",
+      "value": {
+        "initial": {
+          "control": {
+            "seed": 42,
+            "paused": false,
+            "speed": 1
+          },
+          "physical": {
+            "enabled": false,
+            "precipitationMmPerHour": 12,
+            "snowFraction": 0,
+            "temperatureC": 8,
+            "speed": 1,
+            "replayRevision": 0,
+            "showBounds": false,
+            "initialBathLitres": 3,
+            "initialReservoirLitres": 0,
+            "pumpLitresPerMinute": 0,
+            "drainLitresPerMinute": 0
+          },
+          "environment": {
+            "schemaVersion": 1,
+            "condition": "follow-weather",
+            "hour": null,
+            "effects": {
+              "cloud": null,
+              "rain": null,
+              "snow": null,
+              "fog": null,
+              "wind": null
+            },
+            "transitionSeconds": 4
+          },
+          "selection": {
+            "actorId": null,
+            "targetObjectId": null
+          }
+        },
+        "current": {
+          "control": {
+            "seed": 43,
+            "paused": false,
+            "speed": 1
+          },
+          "physical": {
+            "enabled": false,
+            "precipitationMmPerHour": 12,
+            "snowFraction": 0,
+            "temperatureC": 8,
+            "speed": 1,
+            "replayRevision": 0,
+            "showBounds": false,
+            "initialBathLitres": 3,
+            "initialReservoirLitres": 0,
+            "pumpLitresPerMinute": 0,
+            "drainLitresPerMinute": 0
+          },
+          "environment": {
+            "schemaVersion": 1,
+            "condition": "follow-weather",
+            "hour": null,
+            "effects": {
+              "cloud": null,
+              "rain": null,
+              "snow": null,
+              "fog": null,
+              "wind": null
+            },
+            "transitionSeconds": 4
+          },
+          "selection": {
+            "actorId": null,
+            "targetObjectId": null
+          }
+        },
+        "timeline": [
+          {
+            "type": "step",
+            "ticks": 1
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "dev-workbench-scenario-v1",
+      "name": "scenario seed binding remains an authoritative semantic check",
+      "value": {
+        "format": "chirpneighbors-dev-workbench",
+        "version": 1,
+        "ownerId": "synthetic-contract-sync",
+        "frozenAt": "2026-10-17T12:00:00.000Z",
+        "sessionSeed": 43,
+        "initialBackup": {
+          "format": "chirpneighbors-yard",
+          "version": 2,
+          "exportedAt": "2026-10-17T12:00:00.000Z",
+          "data": {
+            "version": 2,
+            "species": [],
+            "events": [],
+            "corrections": [],
+            "collection": [],
+            "birds": [],
+            "artworks": [],
+            "preferences": {
+              "palette": "twilight",
+              "scene": "garden",
+              "scenePin": null,
+              "regionPreference": "unspecified",
+              "reducedMotion": false,
+              "visitorTtlHours": 24
+            },
+            "environment": {
+              "version": 1,
+              "objects": [
+                {
+                  "id": "fixture-perch",
+                  "kind": "perch",
+                  "x": 180,
+                  "y": 420
+                },
+                {
+                  "id": "fixture-feeder",
+                  "kind": "feeder",
+                  "x": 400,
+                  "y": 465
+                },
+                {
+                  "id": "fixture-bath",
+                  "kind": "bath",
+                  "x": 700,
+                  "y": 445
+                },
+                {
+                  "id": "fixture-nest",
+                  "kind": "nest",
+                  "x": 820,
+                  "y": 475
+                }
+              ],
+              "weather": {
+                "mode": "simulated",
+                "manual": {
+                  "condition": "clear",
+                  "hour": 12
+                },
+                "simulation": {
+                  "seed": 17,
+                  "dayLengthSeconds": 600,
+                  "epoch": "2026-01-01T00:00:00Z"
+                }
+              },
+              "inventory": {
+                "version": 1,
+                "owned": {
+                  "perch": 3,
+                  "feeder": 3,
+                  "bath": 3,
+                  "nest": 3,
+                  "plant": 3
+                }
+              },
+              "objectReceipts": []
+            }
+          }
+        },
+        "backup": {
+          "format": "chirpneighbors-yard",
+          "version": 2,
+          "exportedAt": "2026-10-17T12:00:00.000Z",
+          "data": {
+            "version": 2,
+            "species": [],
+            "events": [],
+            "corrections": [],
+            "collection": [],
+            "birds": [],
+            "artworks": [],
+            "preferences": {
+              "palette": "twilight",
+              "scene": "garden",
+              "scenePin": null,
+              "regionPreference": "unspecified",
+              "reducedMotion": false,
+              "visitorTtlHours": 24
+            },
+            "environment": {
+              "version": 1,
+              "objects": [
+                {
+                  "id": "fixture-perch",
+                  "kind": "perch",
+                  "x": 180,
+                  "y": 420
+                },
+                {
+                  "id": "fixture-feeder",
+                  "kind": "feeder",
+                  "x": 400,
+                  "y": 465
+                },
+                {
+                  "id": "fixture-bath",
+                  "kind": "bath",
+                  "x": 700,
+                  "y": 445
+                },
+                {
+                  "id": "fixture-nest",
+                  "kind": "nest",
+                  "x": 820,
+                  "y": 475
+                },
+                {
+                  "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                  "kind": "plant",
+                  "catalogId": "blue_eyed_grass",
+                  "x": 480,
+                  "y": 430
+                }
+              ],
+              "weather": {
+                "mode": "simulated",
+                "manual": {
+                  "condition": "clear",
+                  "hour": 12
+                },
+                "simulation": {
+                  "seed": 17,
+                  "dayLengthSeconds": 600,
+                  "epoch": "2026-01-01T00:00:00Z"
+                }
+              },
+              "inventory": {
+                "version": 1,
+                "owned": {
+                  "perch": 3,
+                  "feeder": 3,
+                  "bath": 3,
+                  "nest": 3,
+                  "plant": 3
+                }
+              },
+              "objectReceipts": [
+                {
+                  "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                  "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                  "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+                }
+              ]
+            }
+          }
+        },
+        "playback": {
+          "initial": {
+            "control": {
+              "seed": 42,
+              "paused": false,
+              "speed": 1
+            },
+            "physical": {
+              "enabled": false,
+              "precipitationMmPerHour": 12,
+              "snowFraction": 0,
+              "temperatureC": 8,
+              "speed": 1,
+              "replayRevision": 0,
+              "showBounds": false,
+              "initialBathLitres": 3,
+              "initialReservoirLitres": 0,
+              "pumpLitresPerMinute": 0,
+              "drainLitresPerMinute": 0
+            },
+            "environment": {
+              "schemaVersion": 1,
+              "condition": "follow-weather",
+              "hour": null,
+              "effects": {
+                "cloud": null,
+                "rain": null,
+                "snow": null,
+                "fog": null,
+                "wind": null
+              },
+              "transitionSeconds": 4
+            },
+            "selection": {
+              "actorId": null,
+              "targetObjectId": null
+            }
+          },
+          "current": {
+            "control": {
+              "seed": 42,
+              "paused": false,
+              "speed": 1
+            },
+            "physical": {
+              "enabled": false,
+              "precipitationMmPerHour": 12,
+              "snowFraction": 0,
+              "temperatureC": 8,
+              "speed": 1,
+              "replayRevision": 0,
+              "showBounds": false,
+              "initialBathLitres": 3,
+              "initialReservoirLitres": 0,
+              "pumpLitresPerMinute": 0,
+              "drainLitresPerMinute": 0
+            },
+            "environment": {
+              "schemaVersion": 1,
+              "condition": "follow-weather",
+              "hour": null,
+              "effects": {
+                "cloud": null,
+                "rain": null,
+                "snow": null,
+                "fog": null,
+                "wind": null
+              },
+              "transitionSeconds": 4
+            },
+            "selection": {
+              "actorId": null,
+              "targetObjectId": null
+            }
+          },
+          "timeline": [
+            {
+              "type": "step",
+              "ticks": 1
+            }
+          ]
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-backup-v2",
+      "name": "catalog kind matching remains authoritative beyond enum structure",
+      "value": {
+        "format": "chirpneighbors-yard",
+        "version": 2,
+        "exportedAt": "2026-10-17T12:00:00.000Z",
+        "data": {
+          "version": 2,
+          "species": [
+            {
+              "id": "cn-species-passer-domesticus",
+              "commonName": "House Sparrow",
+              "scientificName": "Passer domesticus"
+            }
+          ],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [
+            {
+              "id": "synthetic-resident",
+              "speciesId": "cn-species-passer-domesticus",
+              "name": "Synthetic contract resident",
+              "lifecycle": "permanent",
+              "createdAt": "2026-10-17T12:00:00.000Z",
+              "expiresAt": null,
+              "promotedAt": "2026-10-17T12:00:00.000Z",
+              "artworkId": null,
+              "originEventId": null,
+              "behavior": {
+                "schemaVersion": 1,
+                "revision": 1,
+                "source": "owner-authored",
+                "traits": {
+                  "schemaVersion": 1,
+                  "provenance": {
+                    "kind": "fictional-individual",
+                    "version": 1,
+                    "observationDerived": false,
+                    "seedBasis": "decorative-resident-id"
+                  },
+                  "seed": 3752527597,
+                  "curiosity": 0.09957484344476249,
+                  "sociability": 0.075351354916429,
+                  "boldness": 0.03322969540796003
+                }
+              },
+              "starterArt": {
+                "schemaVersion": 1,
+                "revision": 0,
+                "mode": "fixed",
+                "channel": {
+                  "kind": "bird",
+                  "subjectId": "cn-species-passer-domesticus",
+                  "styleId": "synthetic",
+                  "variantId": "default",
+                  "compatibilityMajor": 1
+                },
+                "compatibility": {
+                  "rendererContract": "rgba-pose-v1",
+                  "anchorConvention": "feet",
+                  "scaleConvention": "world",
+                  "geometrySha256": null
+                },
+                "previousArtworkId": null
+              }
+            }
+          ],
+          "artworks": [],
+          "starterUpdateReceipts": [
+            {
+              "requestId": "0c04821e-2140-4dbb-89f9-5ac6b340c358",
+              "commandDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "action": "starter-art-policy",
+              "changedBirdIds": [
+                "synthetic-resident"
+              ],
+              "createdAt": "2026-10-17T12:00:00.000Z"
+            }
+          ],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                "kind": "plant",
+                "catalogId": "bench",
+                "x": 480,
+                "y": 430
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+              }
+            ]
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "runtime-control-v1",
+      "name": "runtime-control-v1 actual authority seed",
+      "value": {
+        "seed": 42,
+        "paused": false,
+        "speed": 1
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "runtime-control-v1",
+      "name": "runtime-control-v1 rejects unknown field",
+      "value": {
+        "seed": 42,
+        "paused": false,
+        "speed": 1,
+        "unknown": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "physical-surface-options-v1",
+      "name": "physical-surface-options-v1 actual authority seed",
+      "value": {
+        "enabled": false,
+        "precipitationMmPerHour": 12,
+        "snowFraction": 0,
+        "temperatureC": 8,
+        "speed": 1,
+        "replayRevision": 0,
+        "showBounds": false,
+        "initialBathLitres": 3,
+        "initialReservoirLitres": 0,
+        "pumpLitresPerMinute": 0,
+        "drainLitresPerMinute": 0
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "physical-surface-options-v1",
+      "name": "physical-surface-options-v1 rejects unknown field",
+      "value": {
+        "enabled": false,
+        "precipitationMmPerHour": 12,
+        "snowFraction": 0,
+        "temperatureC": 8,
+        "speed": 1,
+        "replayRevision": 0,
+        "showBounds": false,
+        "initialBathLitres": 3,
+        "initialReservoirLitres": 0,
+        "pumpLitresPerMinute": 0,
+        "drainLitresPerMinute": 0,
+        "unknown": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-runtime-selection-v1",
+      "name": "yard-runtime-selection-v1 actual authority seed",
+      "value": {
+        "runtimeId": "synthetic-runtime",
+        "actorId": null,
+        "targetObjectId": null
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-runtime-selection-v1",
+      "name": "yard-runtime-selection-v1 rejects unknown field",
+      "value": {
+        "runtimeId": "synthetic-runtime",
+        "actorId": null,
+        "targetObjectId": null,
+        "unknown": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-runtime-advance-v1",
+      "name": "yard-runtime-advance-v1 actual authority seed",
+      "value": {
+        "schemaVersion": 1,
+        "physical": {
+          "enabled": false,
+          "precipitationMmPerHour": 12,
+          "snowFraction": 0,
+          "temperatureC": 8,
+          "speed": 1,
+          "replayRevision": 0,
+          "showBounds": false,
+          "initialBathLitres": 3,
+          "initialReservoirLitres": 0,
+          "pumpLitresPerMinute": 0,
+          "drainLitresPerMinute": 0
+        },
+        "delta": 0,
+        "interactionRequest": {
+          "revision": 1,
+          "action": "cancel",
+          "origin": {
+            "runtimeId": "synthetic-runtime",
+            "actorId": null,
+            "targetObjectId": null,
+            "selectionRevision": 0
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-runtime-advance-v1",
+      "name": "yard-runtime-advance-v1 rejects unknown field",
+      "value": {
+        "schemaVersion": 1,
+        "physical": {
+          "enabled": false,
+          "precipitationMmPerHour": 12,
+          "snowFraction": 0,
+          "temperatureC": 8,
+          "speed": 1,
+          "replayRevision": 0,
+          "showBounds": false,
+          "initialBathLitres": 3,
+          "initialReservoirLitres": 0,
+          "pumpLitresPerMinute": 0,
+          "drainLitresPerMinute": 0
+        },
+        "delta": 0,
+        "interactionRequest": {
+          "revision": 1,
+          "action": "cancel",
+          "origin": {
+            "runtimeId": "synthetic-runtime",
+            "actorId": null,
+            "targetObjectId": null,
+            "selectionRevision": 0
+          }
+        },
+        "unknown": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "dev-workbench-playback-v1",
+      "name": "dev-workbench-playback-v1 actual authority seed",
+      "value": {
+        "initial": {
+          "control": {
+            "seed": 42,
+            "paused": false,
+            "speed": 1
+          },
+          "physical": {
+            "enabled": false,
+            "precipitationMmPerHour": 12,
+            "snowFraction": 0,
+            "temperatureC": 8,
+            "speed": 1,
+            "replayRevision": 0,
+            "showBounds": false,
+            "initialBathLitres": 3,
+            "initialReservoirLitres": 0,
+            "pumpLitresPerMinute": 0,
+            "drainLitresPerMinute": 0
+          },
+          "environment": {
+            "schemaVersion": 1,
+            "condition": "follow-weather",
+            "hour": null,
+            "effects": {
+              "cloud": null,
+              "rain": null,
+              "snow": null,
+              "fog": null,
+              "wind": null
+            },
+            "transitionSeconds": 4
+          },
+          "selection": {
+            "actorId": null,
+            "targetObjectId": null
+          }
+        },
+        "current": {
+          "control": {
+            "seed": 42,
+            "paused": false,
+            "speed": 1
+          },
+          "physical": {
+            "enabled": false,
+            "precipitationMmPerHour": 12,
+            "snowFraction": 0,
+            "temperatureC": 8,
+            "speed": 1,
+            "replayRevision": 0,
+            "showBounds": false,
+            "initialBathLitres": 3,
+            "initialReservoirLitres": 0,
+            "pumpLitresPerMinute": 0,
+            "drainLitresPerMinute": 0
+          },
+          "environment": {
+            "schemaVersion": 1,
+            "condition": "follow-weather",
+            "hour": null,
+            "effects": {
+              "cloud": null,
+              "rain": null,
+              "snow": null,
+              "fog": null,
+              "wind": null
+            },
+            "transitionSeconds": 4
+          },
+          "selection": {
+            "actorId": null,
+            "targetObjectId": null
+          }
+        },
+        "timeline": [
+          {
+            "type": "step",
+            "ticks": 1
+          }
+        ]
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "dev-workbench-playback-v1",
+      "name": "dev-workbench-playback-v1 rejects unknown field",
+      "value": {
+        "initial": {
+          "control": {
+            "seed": 42,
+            "paused": false,
+            "speed": 1
+          },
+          "physical": {
+            "enabled": false,
+            "precipitationMmPerHour": 12,
+            "snowFraction": 0,
+            "temperatureC": 8,
+            "speed": 1,
+            "replayRevision": 0,
+            "showBounds": false,
+            "initialBathLitres": 3,
+            "initialReservoirLitres": 0,
+            "pumpLitresPerMinute": 0,
+            "drainLitresPerMinute": 0
+          },
+          "environment": {
+            "schemaVersion": 1,
+            "condition": "follow-weather",
+            "hour": null,
+            "effects": {
+              "cloud": null,
+              "rain": null,
+              "snow": null,
+              "fog": null,
+              "wind": null
+            },
+            "transitionSeconds": 4
+          },
+          "selection": {
+            "actorId": null,
+            "targetObjectId": null
+          }
+        },
+        "current": {
+          "control": {
+            "seed": 42,
+            "paused": false,
+            "speed": 1
+          },
+          "physical": {
+            "enabled": false,
+            "precipitationMmPerHour": 12,
+            "snowFraction": 0,
+            "temperatureC": 8,
+            "speed": 1,
+            "replayRevision": 0,
+            "showBounds": false,
+            "initialBathLitres": 3,
+            "initialReservoirLitres": 0,
+            "pumpLitresPerMinute": 0,
+            "drainLitresPerMinute": 0
+          },
+          "environment": {
+            "schemaVersion": 1,
+            "condition": "follow-weather",
+            "hour": null,
+            "effects": {
+              "cloud": null,
+              "rain": null,
+              "snow": null,
+              "fog": null,
+              "wind": null
+            },
+            "transitionSeconds": 4
+          },
+          "selection": {
+            "actorId": null,
+            "targetObjectId": null
+          }
+        },
+        "timeline": [
+          {
+            "type": "step",
+            "ticks": 1
+          }
+        ],
+        "unknown": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "dev-workbench-scenario-v1",
+      "name": "dev-workbench-scenario-v1 actual authority seed",
+      "value": {
+        "format": "chirpneighbors-dev-workbench",
+        "version": 1,
+        "ownerId": "synthetic-contract-sync",
+        "frozenAt": "2026-10-17T12:00:00.000Z",
+        "sessionSeed": 42,
+        "initialBackup": {
+          "format": "chirpneighbors-yard",
+          "version": 2,
+          "exportedAt": "2026-10-17T12:00:00.000Z",
+          "data": {
+            "version": 2,
+            "species": [],
+            "events": [],
+            "corrections": [],
+            "collection": [],
+            "birds": [],
+            "artworks": [],
+            "preferences": {
+              "palette": "twilight",
+              "scene": "garden",
+              "scenePin": null,
+              "regionPreference": "unspecified",
+              "reducedMotion": false,
+              "visitorTtlHours": 24
+            },
+            "environment": {
+              "version": 1,
+              "objects": [
+                {
+                  "id": "fixture-perch",
+                  "kind": "perch",
+                  "x": 180,
+                  "y": 420
+                },
+                {
+                  "id": "fixture-feeder",
+                  "kind": "feeder",
+                  "x": 400,
+                  "y": 465
+                },
+                {
+                  "id": "fixture-bath",
+                  "kind": "bath",
+                  "x": 700,
+                  "y": 445
+                },
+                {
+                  "id": "fixture-nest",
+                  "kind": "nest",
+                  "x": 820,
+                  "y": 475
+                }
+              ],
+              "weather": {
+                "mode": "simulated",
+                "manual": {
+                  "condition": "clear",
+                  "hour": 12
+                },
+                "simulation": {
+                  "seed": 17,
+                  "dayLengthSeconds": 600,
+                  "epoch": "2026-01-01T00:00:00Z"
+                }
+              },
+              "inventory": {
+                "version": 1,
+                "owned": {
+                  "perch": 3,
+                  "feeder": 3,
+                  "bath": 3,
+                  "nest": 3,
+                  "plant": 3
+                }
+              },
+              "objectReceipts": []
+            }
+          }
+        },
+        "backup": {
+          "format": "chirpneighbors-yard",
+          "version": 2,
+          "exportedAt": "2026-10-17T12:00:00.000Z",
+          "data": {
+            "version": 2,
+            "species": [],
+            "events": [],
+            "corrections": [],
+            "collection": [],
+            "birds": [],
+            "artworks": [],
+            "preferences": {
+              "palette": "twilight",
+              "scene": "garden",
+              "scenePin": null,
+              "regionPreference": "unspecified",
+              "reducedMotion": false,
+              "visitorTtlHours": 24
+            },
+            "environment": {
+              "version": 1,
+              "objects": [
+                {
+                  "id": "fixture-perch",
+                  "kind": "perch",
+                  "x": 180,
+                  "y": 420
+                },
+                {
+                  "id": "fixture-feeder",
+                  "kind": "feeder",
+                  "x": 400,
+                  "y": 465
+                },
+                {
+                  "id": "fixture-bath",
+                  "kind": "bath",
+                  "x": 700,
+                  "y": 445
+                },
+                {
+                  "id": "fixture-nest",
+                  "kind": "nest",
+                  "x": 820,
+                  "y": 475
+                },
+                {
+                  "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                  "kind": "plant",
+                  "catalogId": "blue_eyed_grass",
+                  "x": 480,
+                  "y": 430
+                }
+              ],
+              "weather": {
+                "mode": "simulated",
+                "manual": {
+                  "condition": "clear",
+                  "hour": 12
+                },
+                "simulation": {
+                  "seed": 17,
+                  "dayLengthSeconds": 600,
+                  "epoch": "2026-01-01T00:00:00Z"
+                }
+              },
+              "inventory": {
+                "version": 1,
+                "owned": {
+                  "perch": 3,
+                  "feeder": 3,
+                  "bath": 3,
+                  "nest": 3,
+                  "plant": 3
+                }
+              },
+              "objectReceipts": [
+                {
+                  "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                  "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                  "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+                }
+              ]
+            }
+          }
+        },
+        "playback": {
+          "initial": {
+            "control": {
+              "seed": 42,
+              "paused": false,
+              "speed": 1
+            },
+            "physical": {
+              "enabled": false,
+              "precipitationMmPerHour": 12,
+              "snowFraction": 0,
+              "temperatureC": 8,
+              "speed": 1,
+              "replayRevision": 0,
+              "showBounds": false,
+              "initialBathLitres": 3,
+              "initialReservoirLitres": 0,
+              "pumpLitresPerMinute": 0,
+              "drainLitresPerMinute": 0
+            },
+            "environment": {
+              "schemaVersion": 1,
+              "condition": "follow-weather",
+              "hour": null,
+              "effects": {
+                "cloud": null,
+                "rain": null,
+                "snow": null,
+                "fog": null,
+                "wind": null
+              },
+              "transitionSeconds": 4
+            },
+            "selection": {
+              "actorId": null,
+              "targetObjectId": null
+            }
+          },
+          "current": {
+            "control": {
+              "seed": 42,
+              "paused": false,
+              "speed": 1
+            },
+            "physical": {
+              "enabled": false,
+              "precipitationMmPerHour": 12,
+              "snowFraction": 0,
+              "temperatureC": 8,
+              "speed": 1,
+              "replayRevision": 0,
+              "showBounds": false,
+              "initialBathLitres": 3,
+              "initialReservoirLitres": 0,
+              "pumpLitresPerMinute": 0,
+              "drainLitresPerMinute": 0
+            },
+            "environment": {
+              "schemaVersion": 1,
+              "condition": "follow-weather",
+              "hour": null,
+              "effects": {
+                "cloud": null,
+                "rain": null,
+                "snow": null,
+                "fog": null,
+                "wind": null
+              },
+              "transitionSeconds": 4
+            },
+            "selection": {
+              "actorId": null,
+              "targetObjectId": null
+            }
+          },
+          "timeline": [
+            {
+              "type": "step",
+              "ticks": 1
+            }
+          ]
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "dev-workbench-scenario-v1",
+      "name": "dev-workbench-scenario-v1 rejects unknown field",
+      "value": {
+        "format": "chirpneighbors-dev-workbench",
+        "version": 1,
+        "ownerId": "synthetic-contract-sync",
+        "frozenAt": "2026-10-17T12:00:00.000Z",
+        "sessionSeed": 42,
+        "initialBackup": {
+          "format": "chirpneighbors-yard",
+          "version": 2,
+          "exportedAt": "2026-10-17T12:00:00.000Z",
+          "data": {
+            "version": 2,
+            "species": [],
+            "events": [],
+            "corrections": [],
+            "collection": [],
+            "birds": [],
+            "artworks": [],
+            "preferences": {
+              "palette": "twilight",
+              "scene": "garden",
+              "scenePin": null,
+              "regionPreference": "unspecified",
+              "reducedMotion": false,
+              "visitorTtlHours": 24
+            },
+            "environment": {
+              "version": 1,
+              "objects": [
+                {
+                  "id": "fixture-perch",
+                  "kind": "perch",
+                  "x": 180,
+                  "y": 420
+                },
+                {
+                  "id": "fixture-feeder",
+                  "kind": "feeder",
+                  "x": 400,
+                  "y": 465
+                },
+                {
+                  "id": "fixture-bath",
+                  "kind": "bath",
+                  "x": 700,
+                  "y": 445
+                },
+                {
+                  "id": "fixture-nest",
+                  "kind": "nest",
+                  "x": 820,
+                  "y": 475
+                }
+              ],
+              "weather": {
+                "mode": "simulated",
+                "manual": {
+                  "condition": "clear",
+                  "hour": 12
+                },
+                "simulation": {
+                  "seed": 17,
+                  "dayLengthSeconds": 600,
+                  "epoch": "2026-01-01T00:00:00Z"
+                }
+              },
+              "inventory": {
+                "version": 1,
+                "owned": {
+                  "perch": 3,
+                  "feeder": 3,
+                  "bath": 3,
+                  "nest": 3,
+                  "plant": 3
+                }
+              },
+              "objectReceipts": []
+            }
+          }
+        },
+        "backup": {
+          "format": "chirpneighbors-yard",
+          "version": 2,
+          "exportedAt": "2026-10-17T12:00:00.000Z",
+          "data": {
+            "version": 2,
+            "species": [],
+            "events": [],
+            "corrections": [],
+            "collection": [],
+            "birds": [],
+            "artworks": [],
+            "preferences": {
+              "palette": "twilight",
+              "scene": "garden",
+              "scenePin": null,
+              "regionPreference": "unspecified",
+              "reducedMotion": false,
+              "visitorTtlHours": 24
+            },
+            "environment": {
+              "version": 1,
+              "objects": [
+                {
+                  "id": "fixture-perch",
+                  "kind": "perch",
+                  "x": 180,
+                  "y": 420
+                },
+                {
+                  "id": "fixture-feeder",
+                  "kind": "feeder",
+                  "x": 400,
+                  "y": 465
+                },
+                {
+                  "id": "fixture-bath",
+                  "kind": "bath",
+                  "x": 700,
+                  "y": 445
+                },
+                {
+                  "id": "fixture-nest",
+                  "kind": "nest",
+                  "x": 820,
+                  "y": 475
+                },
+                {
+                  "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                  "kind": "plant",
+                  "catalogId": "blue_eyed_grass",
+                  "x": 480,
+                  "y": 430
+                }
+              ],
+              "weather": {
+                "mode": "simulated",
+                "manual": {
+                  "condition": "clear",
+                  "hour": 12
+                },
+                "simulation": {
+                  "seed": 17,
+                  "dayLengthSeconds": 600,
+                  "epoch": "2026-01-01T00:00:00Z"
+                }
+              },
+              "inventory": {
+                "version": 1,
+                "owned": {
+                  "perch": 3,
+                  "feeder": 3,
+                  "bath": 3,
+                  "nest": 3,
+                  "plant": 3
+                }
+              },
+              "objectReceipts": [
+                {
+                  "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                  "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                  "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+                }
+              ]
+            }
+          }
+        },
+        "playback": {
+          "initial": {
+            "control": {
+              "seed": 42,
+              "paused": false,
+              "speed": 1
+            },
+            "physical": {
+              "enabled": false,
+              "precipitationMmPerHour": 12,
+              "snowFraction": 0,
+              "temperatureC": 8,
+              "speed": 1,
+              "replayRevision": 0,
+              "showBounds": false,
+              "initialBathLitres": 3,
+              "initialReservoirLitres": 0,
+              "pumpLitresPerMinute": 0,
+              "drainLitresPerMinute": 0
+            },
+            "environment": {
+              "schemaVersion": 1,
+              "condition": "follow-weather",
+              "hour": null,
+              "effects": {
+                "cloud": null,
+                "rain": null,
+                "snow": null,
+                "fog": null,
+                "wind": null
+              },
+              "transitionSeconds": 4
+            },
+            "selection": {
+              "actorId": null,
+              "targetObjectId": null
+            }
+          },
+          "current": {
+            "control": {
+              "seed": 42,
+              "paused": false,
+              "speed": 1
+            },
+            "physical": {
+              "enabled": false,
+              "precipitationMmPerHour": 12,
+              "snowFraction": 0,
+              "temperatureC": 8,
+              "speed": 1,
+              "replayRevision": 0,
+              "showBounds": false,
+              "initialBathLitres": 3,
+              "initialReservoirLitres": 0,
+              "pumpLitresPerMinute": 0,
+              "drainLitresPerMinute": 0
+            },
+            "environment": {
+              "schemaVersion": 1,
+              "condition": "follow-weather",
+              "hour": null,
+              "effects": {
+                "cloud": null,
+                "rain": null,
+                "snow": null,
+                "fog": null,
+                "wind": null
+              },
+              "transitionSeconds": 4
+            },
+            "selection": {
+              "actorId": null,
+              "targetObjectId": null
+            }
+          },
+          "timeline": [
+            {
+              "type": "step",
+              "ticks": 1
+            }
+          ]
+        },
+        "unknown": true
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "runtime-control-v1",
+      "name": "string boolean cannot unpause clock",
+      "value": {
+        "seed": 42,
+        "paused": "false",
+        "speed": 1
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "physical-surface-options-v1",
+      "name": "unbounded rainfall rejected",
+      "value": {
+        "enabled": false,
+        "precipitationMmPerHour": 501,
+        "snowFraction": 0,
+        "temperatureC": 8,
+        "speed": 1,
+        "replayRevision": 0,
+        "showBounds": false,
+        "initialBathLitres": 3,
+        "initialReservoirLitres": 0,
+        "pumpLitresPerMinute": 0,
+        "drainLitresPerMinute": 0
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-runtime-advance-v1",
+      "name": "versioned request must bind exact runtime selection",
+      "value": {
+        "schemaVersion": 1,
+        "physical": {
+          "enabled": false,
+          "precipitationMmPerHour": 12,
+          "snowFraction": 0,
+          "temperatureC": 8,
+          "speed": 1,
+          "replayRevision": 0,
+          "showBounds": false,
+          "initialBathLitres": 3,
+          "initialReservoirLitres": 0,
+          "pumpLitresPerMinute": 0,
+          "drainLitresPerMinute": 0
+        },
+        "delta": 0,
+        "interactionRequest": {
+          "revision": 1,
+          "action": "cancel"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-runtime-advance-v1",
+      "name": "unknown action cannot become a bath request",
+      "value": {
+        "schemaVersion": 1,
+        "physical": {
+          "enabled": false,
+          "precipitationMmPerHour": 12,
+          "snowFraction": 0,
+          "temperatureC": 8,
+          "speed": 1,
+          "replayRevision": 0,
+          "showBounds": false,
+          "initialBathLitres": 3,
+          "initialReservoirLitres": 0,
+          "pumpLitresPerMinute": 0,
+          "drainLitresPerMinute": 0
+        },
+        "delta": 0,
+        "interactionRequest": {
+          "revision": 1,
+          "action": "typo",
+          "origin": {
+            "runtimeId": "synthetic-runtime",
+            "actorId": null,
+            "targetObjectId": null,
+            "selectionRevision": 0
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "dev-workbench-request-v1",
+      "name": "canonical plant command in workbench envelope",
+      "value": {
+        "schemaVersion": 1,
+        "op": "command",
+        "scenarioId": "a328182e-26e8-443b-a58b-5a00cb3614ab",
+        "requestId": "ae36ab79-ae03-40b4-aedc-cb1187276694",
+        "expectedRevision": 0,
+        "command": {
+          "action": "object-inventory",
+          "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+          "expected": {
+            "scene": "garden",
+            "scenePin": null,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ]
+          },
+          "payload": {
+            "operation": "place",
+            "kind": "plant",
+            "catalogId": "blue_eyed_grass"
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "dev-workbench-request-v1",
+      "name": "workbench exact saved document load",
+      "value": {
+        "schemaVersion": 1,
+        "op": "load",
+        "requestId": "ae36ab79-ae03-40b4-aedc-cb1187276694",
+        "document": {
+          "format": "chirpneighbors-dev-workbench",
+          "version": 1,
+          "ownerId": "synthetic-contract-sync",
+          "frozenAt": "2026-10-17T12:00:00.000Z",
+          "sessionSeed": 42,
+          "initialBackup": {
+            "format": "chirpneighbors-yard",
+            "version": 2,
+            "exportedAt": "2026-10-17T12:00:00.000Z",
+            "data": {
+              "version": 2,
+              "species": [],
+              "events": [],
+              "corrections": [],
+              "collection": [],
+              "birds": [],
+              "artworks": [],
+              "preferences": {
+                "palette": "twilight",
+                "scene": "garden",
+                "scenePin": null,
+                "regionPreference": "unspecified",
+                "reducedMotion": false,
+                "visitorTtlHours": 24
+              },
+              "environment": {
+                "version": 1,
+                "objects": [
+                  {
+                    "id": "fixture-perch",
+                    "kind": "perch",
+                    "x": 180,
+                    "y": 420
+                  },
+                  {
+                    "id": "fixture-feeder",
+                    "kind": "feeder",
+                    "x": 400,
+                    "y": 465
+                  },
+                  {
+                    "id": "fixture-bath",
+                    "kind": "bath",
+                    "x": 700,
+                    "y": 445
+                  },
+                  {
+                    "id": "fixture-nest",
+                    "kind": "nest",
+                    "x": 820,
+                    "y": 475
+                  }
+                ],
+                "weather": {
+                  "mode": "simulated",
+                  "manual": {
+                    "condition": "clear",
+                    "hour": 12
+                  },
+                  "simulation": {
+                    "seed": 17,
+                    "dayLengthSeconds": 600,
+                    "epoch": "2026-01-01T00:00:00Z"
+                  }
+                },
+                "inventory": {
+                  "version": 1,
+                  "owned": {
+                    "perch": 3,
+                    "feeder": 3,
+                    "bath": 3,
+                    "nest": 3,
+                    "plant": 3
+                  }
+                },
+                "objectReceipts": []
+              }
+            }
+          },
+          "backup": {
+            "format": "chirpneighbors-yard",
+            "version": 2,
+            "exportedAt": "2026-10-17T12:00:00.000Z",
+            "data": {
+              "version": 2,
+              "species": [],
+              "events": [],
+              "corrections": [],
+              "collection": [],
+              "birds": [],
+              "artworks": [],
+              "preferences": {
+                "palette": "twilight",
+                "scene": "garden",
+                "scenePin": null,
+                "regionPreference": "unspecified",
+                "reducedMotion": false,
+                "visitorTtlHours": 24
+              },
+              "environment": {
+                "version": 1,
+                "objects": [
+                  {
+                    "id": "fixture-perch",
+                    "kind": "perch",
+                    "x": 180,
+                    "y": 420
+                  },
+                  {
+                    "id": "fixture-feeder",
+                    "kind": "feeder",
+                    "x": 400,
+                    "y": 465
+                  },
+                  {
+                    "id": "fixture-bath",
+                    "kind": "bath",
+                    "x": 700,
+                    "y": 445
+                  },
+                  {
+                    "id": "fixture-nest",
+                    "kind": "nest",
+                    "x": 820,
+                    "y": 475
+                  },
+                  {
+                    "id": "8d7f497e-581f-47b3-87cb-258cc5dd00fd",
+                    "kind": "plant",
+                    "catalogId": "blue_eyed_grass",
+                    "x": 480,
+                    "y": 430
+                  }
+                ],
+                "weather": {
+                  "mode": "simulated",
+                  "manual": {
+                    "condition": "clear",
+                    "hour": 12
+                  },
+                  "simulation": {
+                    "seed": 17,
+                    "dayLengthSeconds": 600,
+                    "epoch": "2026-01-01T00:00:00Z"
+                  }
+                },
+                "inventory": {
+                  "version": 1,
+                  "owned": {
+                    "perch": 3,
+                    "feeder": 3,
+                    "bath": 3,
+                    "nest": 3,
+                    "plant": 3
+                  }
+                },
+                "objectReceipts": [
+                  {
+                    "requestId": "c73bbd65-f29a-4933-8f91-dc12e258f580",
+                    "commandDigest": "47bdc9fe1c0a22b3f3c9f3aa89efecb509de2a23e53cc6962d98b6bec6679c47",
+                    "resultObjectId": "8d7f497e-581f-47b3-87cb-258cc5dd00fd"
+                  }
+                ]
+              }
+            }
+          },
+          "playback": {
+            "initial": {
+              "control": {
+                "seed": 42,
+                "paused": false,
+                "speed": 1
+              },
+              "physical": {
+                "enabled": false,
+                "precipitationMmPerHour": 12,
+                "snowFraction": 0,
+                "temperatureC": 8,
+                "speed": 1,
+                "replayRevision": 0,
+                "showBounds": false,
+                "initialBathLitres": 3,
+                "initialReservoirLitres": 0,
+                "pumpLitresPerMinute": 0,
+                "drainLitresPerMinute": 0
+              },
+              "environment": {
+                "schemaVersion": 1,
+                "condition": "follow-weather",
+                "hour": null,
+                "effects": {
+                  "cloud": null,
+                  "rain": null,
+                  "snow": null,
+                  "fog": null,
+                  "wind": null
+                },
+                "transitionSeconds": 4
+              },
+              "selection": {
+                "actorId": null,
+                "targetObjectId": null
+              }
+            },
+            "current": {
+              "control": {
+                "seed": 42,
+                "paused": false,
+                "speed": 1
+              },
+              "physical": {
+                "enabled": false,
+                "precipitationMmPerHour": 12,
+                "snowFraction": 0,
+                "temperatureC": 8,
+                "speed": 1,
+                "replayRevision": 0,
+                "showBounds": false,
+                "initialBathLitres": 3,
+                "initialReservoirLitres": 0,
+                "pumpLitresPerMinute": 0,
+                "drainLitresPerMinute": 0
+              },
+              "environment": {
+                "schemaVersion": 1,
+                "condition": "follow-weather",
+                "hour": null,
+                "effects": {
+                  "cloud": null,
+                  "rain": null,
+                  "snow": null,
+                  "fog": null,
+                  "wind": null
+                },
+                "transitionSeconds": 4
+              },
+              "selection": {
+                "actorId": null,
+                "targetObjectId": null
+              }
+            },
+            "timeline": [
+              {
+                "type": "step",
+                "ticks": 1
+              }
+            ]
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "dev-workbench-request-v1",
+      "name": "workbench excludes unsafe direct alias fixtures",
+      "value": {
+        "schemaVersion": 1,
+        "op": "command",
+        "scenarioId": "a328182e-26e8-443b-a58b-5a00cb3614ab",
+        "requestId": "ae36ab79-ae03-40b4-aedc-cb1187276694",
+        "expectedRevision": 0,
+        "command": {
+          "action": "fixtures"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "dev-workbench-request-v1",
+      "name": "workbench excludes unsafe direct alias import",
+      "value": {
+        "schemaVersion": 1,
+        "op": "command",
+        "scenarioId": "a328182e-26e8-443b-a58b-5a00cb3614ab",
+        "requestId": "ae36ab79-ae03-40b4-aedc-cb1187276694",
+        "expectedRevision": 0,
+        "command": {
+          "action": "import"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "dev-workbench-request-v1",
+      "name": "workbench excludes unsafe direct alias restore",
+      "value": {
+        "schemaVersion": 1,
+        "op": "command",
+        "scenarioId": "a328182e-26e8-443b-a58b-5a00cb3614ab",
+        "requestId": "ae36ab79-ae03-40b4-aedc-cb1187276694",
+        "expectedRevision": 0,
+        "command": {
+          "action": "restore"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "dev-workbench-request-v1",
+      "name": "workbench excludes unsafe direct alias pin-animation",
+      "value": {
+        "schemaVersion": 1,
+        "op": "command",
+        "scenarioId": "a328182e-26e8-443b-a58b-5a00cb3614ab",
+        "requestId": "ae36ab79-ae03-40b4-aedc-cb1187276694",
+        "expectedRevision": 0,
+        "command": {
+          "action": "pin-animation"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "dev-workbench-request-v1",
+      "name": "workbench excludes unsafe direct alias move-object",
+      "value": {
+        "schemaVersion": 1,
+        "op": "command",
+        "scenarioId": "a328182e-26e8-443b-a58b-5a00cb3614ab",
+        "requestId": "ae36ab79-ae03-40b4-aedc-cb1187276694",
+        "expectedRevision": 0,
+        "command": {
+          "action": "move-object"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "png-file-review-command-v1",
+      "name": "explicit candidate review scope survives canonical reader",
+      "value": {
+        "requestId": "17746f92-24ae-44c5-b8db-fb0e2777c005",
+        "decision": "approved",
+        "source": {
+          "schemaVersion": 1,
+          "speciesId": "cn-species-erithacus-rubecula",
+          "representation": "Structural 3x3 crop of existing fixture pixels; no replacement art or fidelity claim.",
+          "source": "deterministic_fixture",
+          "creator": "builtin-fixture",
+          "sourceVersion": "1",
+          "license": {
+            "id": "project-authored-development-fixture",
+            "status": "development-only",
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "evidenceId": null,
+            "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "speciesId": "cn-species-erithacus-rubecula",
+              "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337",
+              "role": "technical-fixture"
+            }
+          ],
+          "fidelityReview": null,
+          "reviewScope": "development-candidate"
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "png-file-review-command-v1",
+      "name": "candidate scope cannot assert production approval",
+      "value": {
+        "requestId": "17746f92-24ae-44c5-b8db-fb0e2777c005",
+        "decision": "approved",
+        "source": {
+          "schemaVersion": 1,
+          "speciesId": "cn-species-erithacus-rubecula",
+          "representation": "Structural 3x3 crop of existing fixture pixels; no replacement art or fidelity claim.",
+          "source": "deterministic_fixture",
+          "creator": "builtin-fixture",
+          "sourceVersion": "1",
+          "license": {
+            "id": "project-authored-development-fixture",
+            "status": "development-only",
+            "derivativesAllowed": true,
+            "redistributionAllowed": true,
+            "evidenceId": null,
+            "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+          },
+          "references": [
+            {
+              "id": "reviewed-fixture-reference",
+              "speciesId": "cn-species-erithacus-rubecula",
+              "contentDigest": "46ebef70b26f5005bb6385b1cd87f3b9cdbb1d05d0abf9f80888641019297337",
+              "role": "technical-fixture"
+            }
+          ],
+          "fidelityReview": null,
+          "reviewScope": "production"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    }
+  ],
+  "migration": {
+    "missingPlantDefaultsTo": 3,
+    "staleReaderRejectsPlant": true,
+    "readerAppliesDefaults": "Zod backup admission; JSON Schema validation does not mutate data"
+  },
+  "roundtrip": "exact actual plant backup -> separate in-memory repository -> export"
+}

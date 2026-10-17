@@ -11,10 +11,76 @@ from typing_extensions import TypedDict
 ScientificName: TypeAlias = str
 
 
+class Provenance(TypedDict, closed=True):
+    kind: Literal["fictional-individual"]
+    version: Literal[1]
+    observationDerived: Literal[False]
+    seedBasis: Literal["decorative-resident-id"]
+
+
 class CatalogPin(TypedDict, closed=True):
     catalogKey: str
     releaseVersion: int
     renderSha256: str
+
+
+class World(TypedDict, closed=True):
+    width: Literal[960]
+    height: Literal[540]
+
+
+SourceDigest: TypeAlias = str
+
+
+class Provenance1(TypedDict, closed=True):
+    creator: str
+    tool: str
+    toolVersion: str
+    originality: Literal["claimed-original-unreviewed"]
+    rightsReview: Literal["unreviewed"]
+    licenseId: str
+    licenseEvidence: str
+    sourceDigests: list[SourceDigest]
+
+
+FileName: TypeAlias = str
+
+
+class Operation(TypedDict, closed=True):
+    operation: Literal[
+        "crop", "nearest-neighbor-downsample", "palette-quantize", "binary-alpha"
+    ]
+    tool: str
+    version: str
+    details: str
+
+
+class Pivot(TypedDict, closed=True):
+    x: Literal[0]
+    y: Literal[0]
+
+
+class Pivot1(TypedDict, closed=True):
+    x: int
+    y: int
+
+
+class Placement(TypedDict, closed=True):
+    x: int
+    y: int
+
+
+class Physics(TypedDict, closed=True):
+    collision: Literal[False]
+    supports: Literal[False]
+    shelter: Literal[False]
+    wind: Literal[False]
+
+
+class Decoder(TypedDict, closed=True):
+    id: Literal["sharp"]
+    version: str
+    libvips: str
 
 
 class Manual(TypedDict, closed=True):
@@ -39,6 +105,7 @@ class Owned(TypedDict, closed=True):
     feeder: int
     bath: int
     nest: int
+    plant: NotRequired[int]
 
 
 class Inventory(TypedDict, closed=True):
@@ -49,7 +116,85 @@ class Inventory(TypedDict, closed=True):
 JobId: TypeAlias = str
 
 
+Curiosity: TypeAlias = float
+
+
+SubjectId: TypeAlias = str
+
+
+X: TypeAlias = int
+
+
+Approval: TypeAlias = Literal["unreviewed"]
+
+
+Alpha: TypeAlias = Literal["opaque", "binary"]
+
+
+Height: TypeAlias = Literal[135]
+
+
+class PivotModel(TypedDict, closed=True):
+    x: Literal[0]
+    y: Literal[0]
+
+
+Role: TypeAlias = Literal["background", "ground", "foreground"]
+
+
+Season: TypeAlias = Literal["base", "spring", "summer", "autumn", "winter"]
+
+
+Width: TypeAlias = Literal[240]
+
+
+HeightModel: TypeAlias = int
+
+
+Kind: TypeAlias = Literal["perch", "feeder", "bath", "nest", "plant"]
+
+
+class PivotModel1(TypedDict, closed=True):
+    x: int
+    y: int
+
+
+RoleModel: TypeAlias = Literal["object"]
+
+
+WidthModel: TypeAlias = int
+
+
 Id: TypeAlias = str
+
+
+KindModel: TypeAlias = Literal["workbench-review-package"]
+
+
+ProductionApproved: TypeAlias = Literal[False]
+
+
+Projection: TypeAlias = Literal["side-view-orthographic"]
+
+
+class ProvenanceModel(TypedDict, closed=True):
+    creator: str
+    tool: str
+    toolVersion: str
+    originality: Literal["claimed-original-unreviewed"]
+    rightsReview: Literal["unreviewed"]
+    licenseId: str
+    licenseEvidence: str
+    sourceDigests: list[SourceDigest]
+
+
+Items: TypeAlias = str
+
+
+Scope: TypeAlias = Literal["local-review-only"]
+
+
+Version: TypeAlias = int
 
 
 AdditionalProperties: TypeAlias = (
@@ -103,6 +248,46 @@ class CollectionItem(TypedDict, closed=True):
     collectedAt: ExportedAt
 
 
+class Traits(TypedDict, closed=True):
+    schemaVersion: Literal[1]
+    provenance: Provenance
+    seed: int
+    curiosity: float
+    sociability: Curiosity
+    boldness: Curiosity
+
+
+class Behavior(TypedDict, closed=True):
+    schemaVersion: Literal[1]
+    revision: int
+    source: Literal["owner-authored", "decorative-default"]
+    traits: Traits
+
+
+class Channel(TypedDict, closed=True):
+    kind: Literal["bird", "background", "object-art"]
+    subjectId: str
+    styleId: SubjectId
+    variantId: SubjectId
+    compatibilityMajor: int
+
+
+class Compatibility(TypedDict, closed=True):
+    rendererContract: Literal["palette-pose-v1", "rgba-pose-v1", "scene-rgba-v1"]
+    anchorConvention: SubjectId
+    scaleConvention: SubjectId
+    geometrySha256: str | None
+
+
+class StarterArt(TypedDict, closed=True):
+    schemaVersion: Literal[1]
+    revision: int
+    mode: Literal["fixed", "follow-compatible"]
+    channel: Channel
+    compatibility: Compatibility
+    previousArtworkId: Id | None
+
+
 class Bird(TypedDict, closed=True):
     id: Id
     speciesId: Id
@@ -113,6 +298,8 @@ class Bird(TypedDict, closed=True):
     promotedAt: ExportedAt | None
     artworkId: Id | None
     originEventId: Id | None
+    behavior: NotRequired[Behavior]
+    starterArt: NotRequired[StarterArt]
 
 
 class AnimationPin(TypedDict, closed=True):
@@ -126,7 +313,7 @@ class Artwork(TypedDict, closed=True):
     id: Id
     speciesId: Id
     version: int
-    status: Literal["fixture", "reviewed"]
+    status: Literal["fixture", "reviewed", "candidate"]
     animationPin: NotRequired[AnimationPin]
     catalogPin: NotRequired[CatalogPin]
     imageUrl: str
@@ -138,33 +325,80 @@ class Artwork(TypedDict, closed=True):
     ]
 
 
+class StarterUpdateReceipt(TypedDict, closed=True):
+    requestId: str
+    commandDigest: str
+    action: Literal["starter-art-policy", "revert-starter-art", "refresh-starter-art"]
+    changedBirdIds: list[Id]
+    createdAt: ExportedAt
+
+
 class ScenePin(TypedDict, closed=True):
     id: Id
     version: int
 
 
-class Preferences(TypedDict, closed=True):
-    palette: Literal["twilight", "fieldnotes", "moonlit"]
-    scene: Literal["garden", "courtyard"]
-    scenePin: NotRequired[ScenePin | None]
-    regionPreference: NotRequired[
-        Literal[
-            "unspecified",
-            "europe",
-            "north-america",
-            "south-america",
-            "africa",
-            "asia",
-            "oceania",
-        ]
-    ]
-    reducedMotion: bool
-    visitorTtlHours: int
+class Derivation(TypedDict, closed=True):
+    sourceSha256: Items
+    operations: list[Operation]
+
+
+class Files(TypedDict, closed=True):
+    id: Id
+    fileName: FileName
+    sha256: Items
+    season: Literal["base", "spring", "summer", "autumn", "winter"]
+    alpha: Literal["opaque", "binary"]
+    derivation: Derivation
+    role: Literal["background", "ground", "foreground"]
+    width: Literal[240]
+    height: Literal[135]
+    pivot: Pivot
+
+
+class Anchor(TypedDict, closed=True):
+    id: Id
+    affordance: Literal["perch", "feed", "bath", "nest"]
+    dx: int
+    dy: int
+    capability: NotRequired[Literal["play", "nest-building"]]
+
+
+class Rectangle(TypedDict, closed=True):
+    x: int
+    y: X
+    width: int
+    height: int
+    color: int
+
+
+class Asset(TypedDict, closed=True):
+    fileId: Id
+    canonicalSha256: Items
+    rgbaSha256: Items
+    decoder: Decoder
+    normalization: Literal["chirp-png-straight-srgb8-hidden-rgb-zero-v1"]
+    rectangles: list[Rectangle]
 
 
 class Object(TypedDict, closed=True):
     id: Id
-    kind: Literal["perch", "feeder", "bath", "nest"]
+    kind: Kind
+    catalogId: NotRequired[
+        Literal[
+            "california_bush_sunflower",
+            "san_diego_monkeyflower",
+            "blue_eyed_grass",
+            "crassula_ovata",
+            "hollyleaf_cherry",
+            "torrey_pine",
+            "cedar_feeder",
+            "platform_feeder",
+            "bench",
+            "pedestal_birdbath",
+            "cedar_fence",
+        ]
+    ]
     x: float
     y: float
 
@@ -186,7 +420,49 @@ class Environment(TypedDict, closed=True):
 ObservedAt: TypeAlias = ExportedAt | None
 
 
-class Items(TypedDict, closed=True):
+class DerivationModel(TypedDict, closed=True):
+    sourceSha256: Items
+    operations: list[Operation]
+
+
+Anchors: TypeAlias = list[Anchor]
+
+
+class Field0(TypedDict, closed=True):
+    id: Id
+    fileName: FileName
+    sha256: Items
+    season: Season
+    alpha: Alpha
+    derivation: DerivationModel
+    role: Role
+    width: Width
+    height: Height
+    pivot: PivotModel
+    family: Literal["scene-layer"]
+    state: Literal["default"]
+    coverageMask: Literal["png-alpha"]
+
+
+class Field1(TypedDict, closed=True):
+    id: Id
+    fileName: FileName
+    sha256: Items
+    season: Season
+    alpha: Alpha
+    derivation: DerivationModel
+    role: RoleModel
+    kind: Kind
+    width: WidthModel
+    height: HeightModel
+    pivot: PivotModel1
+    anchors: Anchors
+    family: Literal["catalog-object"]
+    state: Literal["default"]
+    coverageMask: Literal["png-alpha"]
+
+
+class ItemsModel(TypedDict, closed=True):
     id: str
     commonName: str
     scientificName: ScientificName
@@ -207,7 +483,7 @@ class Items(TypedDict, closed=True):
 class Event(TypedDict, closed=True):
     schemaVersion: Literal[2]
     id: Id
-    species: Items
+    species: ItemsModel
     observedAt: ExportedAt | None
     ingestedAt: ExportedAt
     source: Source
@@ -231,6 +507,179 @@ class Correction(TypedDict, closed=True):
     recordedAt: ExportedAt
 
 
+class Files1(TypedDict, closed=True):
+    id: Id
+    fileName: FileName
+    sha256: Items
+    season: Season
+    alpha: Alpha
+    derivation: DerivationModel
+    role: Literal["object"]
+    kind: Literal["perch", "feeder", "bath", "nest", "plant"]
+    width: int
+    height: int
+    pivot: Pivot1
+    anchors: list[Anchor]
+
+
+class Metadata(TypedDict, closed=True):
+    schemaVersion: Literal[1]
+    kind: Literal["workbench-review-package"]
+    id: str
+    version: int
+    scope: Literal["local-review-only"]
+    approval: Literal["unreviewed"]
+    productionApproved: Literal[False]
+    projection: Literal["side-view-orthographic"]
+    world: World
+    provenance: Provenance1
+    files: list[Files | Files1]
+
+
+class Files2(TypedDict, closed=True):
+    id: Id
+    fileName: FileName
+    sha256: Items
+    season: Season
+    alpha: Alpha
+    derivation: DerivationModel
+    role: Role
+    width: Width
+    height: Height
+    pivot: PivotModel
+    family: Literal["scene-layer"]
+    state: Literal["default"]
+    coverageMask: Literal["png-alpha"]
+
+
+class Files3(TypedDict, closed=True):
+    id: Id
+    fileName: FileName
+    sha256: Items
+    season: Season
+    alpha: Alpha
+    derivation: DerivationModel
+    role: RoleModel
+    kind: Kind
+    width: WidthModel
+    height: HeightModel
+    pivot: PivotModel1
+    anchors: Anchors
+    family: Literal["catalog-object"]
+    state: Literal["default"]
+    coverageMask: Literal["png-alpha"]
+
+
+class Metadata1(TypedDict, closed=True):
+    schemaVersion: Literal[2]
+    kind: KindModel
+    id: Id
+    version: Version
+    scope: Scope
+    approval: Approval
+    productionApproved: ProductionApproved
+    projection: Projection
+    world: World
+    provenance: ProvenanceModel
+    files: list[Files2 | Files3]
+
+
+class Files4(TypedDict, closed=True):
+    id: Id
+    fileName: FileName
+    sha256: Items
+    season: Season
+    alpha: Literal["binary"]
+    derivation: DerivationModel
+    foliageId: Id
+    themeId: Id
+    width: int
+    height: int
+    pivot: PivotModel1
+    placement: Placement
+    scale: Literal[1, 2, 4]
+    depth: Literal["background", "foreground"]
+    physics: Physics
+    family: Literal["foliage"]
+    state: Literal["default"]
+    coverageMask: Literal["png-alpha"]
+    role: Literal["foliage"]
+
+
+class Metadata2(TypedDict, closed=True):
+    schemaVersion: Literal[3]
+    kind: KindModel
+    id: Id
+    version: Version
+    scope: Scope
+    approval: Approval
+    productionApproved: ProductionApproved
+    projection: Projection
+    world: World
+    provenance: ProvenanceModel
+    files: list[Field0 | Field1 | Files4]
+
+
+class Package(TypedDict, closed=True):
+    metadata: Metadata | Metadata1 | Metadata2
+    assets: list[Asset]
+
+
+class CandidateObjectArt(TypedDict, closed=True):
+    objectId: Id
+    package: Package
+
+
+class Preferences(TypedDict, closed=True):
+    palette: Literal["twilight", "fieldnotes", "moonlit"]
+    scene: Literal["garden", "courtyard"]
+    scenePin: NotRequired[ScenePin | None]
+    regionPreference: NotRequired[
+        Literal[
+            "unspecified",
+            "europe",
+            "north-america",
+            "south-america",
+            "africa",
+            "asia",
+            "oceania",
+        ]
+    ]
+    reducedMotion: bool
+    developmentCandidateArt: NotRequired[bool]
+    hideLegacyShowcaseSamples: NotRequired[bool]
+    candidateRegionalBackground: NotRequired[
+        Literal[
+            "coastal",
+            "oak",
+            "courtyard",
+            "sd-coastal-spring-v1",
+            "sd-coastal-summer-v1",
+            "sd-coastal-autumn-v1",
+            "sd-coastal-winter-v1",
+            "sd-oak-spring-v1",
+            "sd-oak-summer-v1",
+            "sd-oak-autumn-v1",
+            "sd-oak-winter-v1",
+            "sd-courtyard-spring-v1",
+            "sd-courtyard-summer-v1",
+            "sd-courtyard-autumn-v1",
+            "sd-courtyard-winter-v1",
+            "sd-inland-spring-v1",
+            "sd-inland-summer-v1",
+            "sd-inland-autumn-v1",
+            "sd-inland-winter-v1",
+            "sd-patio-spring-v1",
+            "sd-patio-summer-v1",
+            "sd-patio-autumn-v1",
+            "sd-patio-winter-v1",
+        ]
+        | None
+    ]
+    candidateObjectArt: NotRequired[CandidateObjectArt]
+    visitorTtlHours: int
+
+
 class Data(TypedDict, closed=True):
     version: Literal[2]
     species: list[Species]
@@ -239,6 +688,7 @@ class Data(TypedDict, closed=True):
     collection: list[CollectionItem]
     birds: list[Bird]
     artworks: list[Artwork]
+    starterUpdateReceipts: NotRequired[list[StarterUpdateReceipt]]
     preferences: Preferences
     environment: NotRequired[Environment]
 

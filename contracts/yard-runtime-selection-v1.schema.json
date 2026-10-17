@@ -1,0 +1,56 @@
+{
+  "$ref": "#/definitions/YardRuntimeSelectionV1",
+  "definitions": {
+    "YardRuntimeSelectionV1": {
+      "type": "object",
+      "properties": {
+        "actorId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+              "not": {
+                "enum": [
+                  "__proto__",
+                  "prototype",
+                  "constructor"
+                ]
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "targetObjectId": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/YardRuntimeSelectionV1/properties/actorId/anyOf/0"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "runtimeId": {
+          "$ref": "#/definitions/YardRuntimeSelectionV1/properties/actorId/anyOf/0"
+        },
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        }
+      },
+      "required": [
+        "actorId",
+        "targetObjectId",
+        "runtimeId"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/yard-runtime-selection-v1.schema.json",
+  "description": "Structural developer scenario and shared runtime boundaries. The strict production Zod/domain authorities additionally enforce owner/session binding, exact immutable source pins, cross-record matching, CAS/idempotency, version/seed semantics, selection intent identity and bounded fixed-tick execution. Generated schemas never authorize execution; application semantic validation is mandatory. Scenario storage is isolated and cannot write back to an owner yard."
+}
