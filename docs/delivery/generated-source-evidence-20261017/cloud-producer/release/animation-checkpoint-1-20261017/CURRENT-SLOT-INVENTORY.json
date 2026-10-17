@@ -8297,13 +8297,13 @@
       "id": "northern_mockingbird",
       "name": "Northern Mockingbird",
       "primaryIntakeStatus": "provisional-source-review-candidate",
-      "primaryManifest": "new-species/sd20-next-three-canon-v1/northern_mockingbird/texture-review-manifest.json",
-      "primaryAtlas": "new-species/sd20-next-three-canon-v1/northern_mockingbird/idle-look-atlas192.png",
+      "primaryManifest": "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+      "primaryAtlas": "motion/sd20-northern-mockingbird-blink-v1/blink-atlas192.png",
       "selectedIdleSourceIDs": [
         "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
-        "frame.sha256.226e1235be06d235fce4a7f234fe97fe95b45db252270aca3e8c587c2f74acae"
+        "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
@@ -8412,6 +8412,54 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+          "file": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+          "fileSha256": "ae832a000f4a278d92f9df1ce37963425696b2643cb3ace298e973e9b76adc8c",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "northern_mockingbird",
+          "appearanceVersion": "sd20-northern-mockingbird-blink-v1",
+          "poseTags": [
+            "fully-closed-eye",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+          "sourceAtlasSha256": "ae832a000f4a278d92f9df1ce37963425696b2643cb3ace298e973e9b76adc8c",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "registeredCanvas": [
+              1024,
+              1024
+            ],
+            "wholeCallScale": 0.8165869218500797,
+            "translation": [
+              0,
+              0
+            ],
+            "method": "One explicit whole-canvas nearest1254→1024,then nearest1024→192. No local fit,paint,warp,alpha change or per-pose scale.",
+            "perPoseFit": false
+          },
+          "sourcePrompt": "motion/sd20-northern-mockingbird-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-northern-mockingbird-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; One new closed-eye drawing with unchanged old awake; no new neutral slot, source-only blink candidate.",
+          "sourceReview": "motion/sd20-northern-mockingbird-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -8421,7 +8469,9 @@
         "new-species/sd20-next-three-canon-v1/independent-review.json",
         "new-species/sd20-next-three-canon-v1/README.md"
       ],
-      "sourceIssues": [],
+      "sourceIssues": [
+        "Current checkpoint: One new closed-eye drawing with unchanged old awake; no new neutral slot, source-only blink candidate."
+      ],
       "nextAssignedTask": null,
       "slots": [
         {
@@ -8450,7 +8500,7 @@
           "actualYardVerification": "UNKNOWN",
           "orderedSourceFrameSequence": [
             {
-              "frameId": "northern_mockingbird-neutral-192",
+              "frameId": "northern-mockingbird-open-192",
               "durationTicks": 60,
               "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
               "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
@@ -8458,15 +8508,15 @@
           ],
           "renderBindings": [
             {
-              "manifest": "new-species/sd20-next-three-canon-v1/northern_mockingbird/texture-review-manifest.json",
-              "atlasPNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/idle-look-atlas192.png",
+              "manifest": "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-northern-mockingbird-blink-v1/blink-atlas192.png",
               "clipId": "idle",
               "tickRate": 30,
               "loop": false,
               "durationTicks": null,
               "orderedSourceFrameSequence": [
                 {
-                  "frameId": "northern_mockingbird-neutral-192",
+                  "frameId": "northern-mockingbird-open-192",
                   "durationTicks": null,
                   "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
                   "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
@@ -8569,19 +8619,89 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "upright look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-blink",
+          "sourceFrameIds": [
+            "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+            "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+            "motion/sd20-northern-mockingbird-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye→closed lid→same open state; half lid only if useful."
+            "One new closed-eye drawing with unchanged old awake; no new neutral slot, source-only blink candidate.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+            },
+            {
+              "frameId": "northern-mockingbird-closed-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e"
+            },
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-northern-mockingbird-blink-v1/blink-atlas192.png",
+              "clipId": "idle",
+              "tickRate": 30,
+              "loop": true,
+              "durationTicks": 90,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "northern-mockingbird-open-192",
+                  "durationTicks": 60,
+                  "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+                  "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+                },
+                {
+                  "frameId": "northern-mockingbird-closed-192",
+                  "durationTicks": 3,
+                  "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+                  "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e"
+                },
+                {
+                  "frameId": "northern-mockingbird-open-192",
+                  "durationTicks": 27,
+                  "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+                  "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "newSourceFrameIds": [
+            "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855"
+          ]
         },
         {
           "speciesId": "northern_mockingbird",
@@ -8732,13 +8852,18 @@
         }
       ],
       "baselineSourceIssues": [],
-      "currentSourceIssues": [],
-      "primaryManifestSHA256": "c06fbbc4de5d366583a97c28ab55c98bd14cbe1d314d8a4f6e4ae3ca48696ff6",
-      "primaryAtlasSHA256": "acd9232840bdfbbd35399c7693fe886c963f3dbd60c1a29671b709c6c0fef84b",
+      "currentSourceIssues": [
+        "One new closed-eye drawing with unchanged old awake; no new neutral slot, source-only blink candidate."
+      ],
+      "overlayQualifications": [
+        "Closure-only source batch: existing awake source reused; neutral coverage unchanged; no new neutral drawing counted."
+      ],
+      "primaryManifestSHA256": "0c48c90df8e3c9167c34fb93d6137bf677e9cfcbd54d0e930cc516c36d9a0dd0",
+      "primaryAtlasSHA256": "34de807f223db0f2155f5cfbc1de43b21ebb853cd9c3b9e81762f7ad517328c8",
       "primaryClipId": "idle",
       "primaryFrameMappings": [
         {
-          "outputFrameId": "northern_mockingbird-neutral-192",
+          "outputFrameId": "northern-mockingbird-open-192",
           "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
           "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
           "exactExportMappings": [
@@ -8751,6 +8876,26 @@
               "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -8802,19 +8947,29 @@
           ]
         },
         {
-          "outputFrameId": "northern_mockingbird-look-192",
-          "outputRGBAId": "frame.sha256.2be403548c3624f4866834a8056d79109b965948edc3364b384bf730bfef05b0",
-          "sourceFrameId": "frame.sha256.226e1235be06d235fce4a7f234fe97fe95b45db252270aca3e8c587c2f74acae",
+          "outputFrameId": "northern-mockingbird-closed-192",
+          "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+          "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
           "exactExportMappings": [
             {
-              "sourceFrameId": "frame.sha256.226e1235be06d235fce4a7f234fe97fe95b45db252270aca3e8c587c2f74acae",
-              "sourcePNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/look-source1024.png",
-              "outputPNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/look192.png",
-              "outputPNGsha256": "e85c41340840aab347fd9472c7801e51c986d392116b566094efcfe1abd39e3a",
-              "outputRGBAId": "frame.sha256.2be403548c3624f4866834a8056d79109b965948edc3364b384bf730bfef05b0",
-              "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
-              "phase": "look",
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/closed192.png",
+              "outputPNGsha256": "72995d91a98f2cc03fad228a1d69ad7182a009614aab87980314bb94f883e924",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "fully-closed-eye",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/closed192.png",
+              "outputPNGsha256": "72995d91a98f2cc03fad228a1d69ad7182a009614aab87980314bb94f883e924",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -8853,14 +9008,14 @@
               "id": "foot-1",
               "x": 113,
               "y": 148,
-              "sampledAlpha": 248,
+              "sampledAlpha": 251,
               "anatomicallyApproved": false
             },
             {
               "id": "foot-2",
               "x": 115,
               "y": 149,
-              "sampledAlpha": 136,
+              "sampledAlpha": 226,
               "anatomicallyApproved": false
             }
           ]
@@ -18700,6 +18855,26 @@
               "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
             }
           ],
           "sourceRect": {
@@ -24252,6 +24427,230 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-northern-mockingbird-blink-v1/texture-review-manifest.json",
+      "manifestSHA256": "0c48c90df8e3c9167c34fb93d6137bf677e9cfcbd54d0e930cc516c36d9a0dd0",
+      "atlasPNG": "motion/sd20-northern-mockingbird-blink-v1/blink-atlas192.png",
+      "atlasSHA256": "34de807f223db0f2155f5cfbc1de43b21ebb853cd9c3b9e81762f7ad517328c8",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "northern-mockingbird-open-192",
+          "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+          "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-next-three-canon-v1/northern_mockingbird/neutral192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "new-species/sd20-next-three-canon-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/reused-open-source1024.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/open192.png",
+              "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 156.734693877551,
+            "height": 156.734693877551
+          },
+          "sourcePixelsPerWorldUnit": 1.225,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148,
+              "sampledAlpha": 249,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149,
+              "sampledAlpha": 159,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "northern-mockingbird-closed-192",
+          "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+          "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/closed192.png",
+              "outputPNGsha256": "72995d91a98f2cc03fad228a1d69ad7182a009614aab87980314bb94f883e924",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "fully-closed-eye",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "sourcePNG": "motion/sd20-northern-mockingbird-blink-v1/original.png",
+              "outputPNG": "motion/sd20-northern-mockingbird-blink-v1/closed192.png",
+              "outputPNGsha256": "72995d91a98f2cc03fad228a1d69ad7182a009614aab87980314bb94f883e924",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+              "evidence": "motion/sd20-northern-mockingbird-blink-v1/frame-to-action-map.json",
+              "phase": null,
+              "mappingMethod": "explicit reviewed source-to-render mapping; registered derivative is not a new drawing"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 156.734693877551,
+            "height": 156.734693877551
+          },
+          "sourcePixelsPerWorldUnit": 1.225,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148,
+              "sampledAlpha": 251,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 115,
+              "y": 149,
+              "sampledAlpha": 226,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 60
+            },
+            {
+              "frameId": "northern-mockingbird-closed-192",
+              "durationTicks": 3
+            },
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 27
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+            },
+            {
+              "frameId": "northern-mockingbird-closed-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+              "outputRGBAId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e"
+            },
+            {
+              "frameId": "northern-mockingbird-open-192",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+              "outputRGBAId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+            "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -25714,17 +26113,17 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-17T22:24:15.080102+00:00",
+  "projectionAsOfUTC": "2026-10-17T22:26:57.699990+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 122,
-    "registeredNativeOriginals": 29,
-    "newNativeCalls": 8,
-    "newDrawings": 20,
+    "registeredPrimaryDrawingIDs": 123,
+    "registeredNativeOriginals": 30,
+    "newNativeCalls": 9,
+    "newDrawings": 21,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 40,
+    "usefulProvisionalIdleSemanticUses": 41,
     "usefulIdleUsesByAction": {
       "neutral": 19,
-      "blink": 11,
+      "blink": 12,
       "look": 10
     },
     "reviewedOneShotHopStudies": 2,
@@ -25734,9 +26133,9 @@
     "states": {
       "provisional-drawn-neutral": 17,
       "single-open-look-pose-no-matched-turn": 1,
-      "provisional-drawn-blink": 11,
+      "provisional-drawn-blink": 12,
       "two-drawn-hover-wing-study-only": 1,
-      "missing": 143,
+      "missing": 142,
       "older-drawn-look-study-drift": 1,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,

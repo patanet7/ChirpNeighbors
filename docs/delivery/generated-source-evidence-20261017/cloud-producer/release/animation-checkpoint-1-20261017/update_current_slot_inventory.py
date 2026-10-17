@@ -49,6 +49,19 @@ for b in overlay['batches']:
      if ci.width!=ci.height or ci.width>512 or si.width!=si.height:continue
      resized=si.resize(ci.size,Image.Resampling.NEAREST)
      if resized.tobytes()==ci.tobytes():add(str(parent/candidate),sid,path,source,f.get('pose'),'exact full-source nearest resize matches declared export RGBA')
+# Explicit source-to-render action maps include declared registered derivatives without new IDs.
+for batch in overlay['batches']:
+ if not batch.get('frameToActionMap'):continue
+ path=batch['frameToActionMap'];mp=read(path);parent=Path(path).parent;primary=primaries[batch['primaryManifest']];known={f['sourceFrameId']:f for f in primary['frames']+primary.get('reusedFrames',[])}
+ variants=mp.get('variants',[mp])
+ for variant in variants:
+  for frame in variant.get('frames',[]):
+   sid=frame.get('sourceFrameId');export=frame.get('individualPNG',frame.get('outputPNG'))
+   if not sid or not export:continue
+   assert sid in known,(path,sid)
+   source=str(Path(batch['primaryManifest']).parent/known[sid]['sourcePNG']);ep=safe(str(parent/export));expected=frame.get('individualPNGsha256',frame.get('outputPNGsha256'))
+   if expected:assert sha(ep.read_bytes())==expected,(path,export)
+   add(str(parent/export),sid,path,source,frame.get('renderId',frame.get('outputFrameId')),'explicit reviewed source-to-render mapping; registered derivative is not a new drawing')
 # Manifest source.sha256 is the exact atlas file hash. Resolve actual files by that hash.
 for p in sorted(root.rglob('*.png')):pngsByHash[sha(p.read_bytes())].append(str(p.relative_to(root)))
 packages={}

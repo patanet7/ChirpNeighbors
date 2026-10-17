@@ -1,0 +1,116 @@
+{
+  "batchId": "sd20-northern-mockingbird-blink-v1",
+  "profile": "chirp-texture-review-v1",
+  "atlas": {
+    "file": "blink-atlas192.png",
+    "sha256": "34de807f223db0f2155f5cfbc1de43b21ebb853cd9c3b9e81762f7ad517328c8",
+    "width": 384,
+    "height": 192
+  },
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "0c48c90df8e3c9167c34fb93d6137bf677e9cfcbd54d0e930cc516c36d9a0dd0"
+  },
+  "primarySourceManifest": {
+    "file": "PRIMARY-SOURCE-MANIFEST.json",
+    "note": "See primary immutable source IDs;thiswrapperadds filenames/actionmapping missingfrom texturemanifest."
+  },
+  "frames": [
+    {
+      "kind": "reused-existing-awake",
+      "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+      "sourcePNG": "reused-open-source1024.png",
+      "sourcePNGsha256": "ab1f3f93cc9e3bdc4a3366808f3f959afc392f08bbdb329b084ba6e0b8f19d21",
+      "renderFrameId": "northern-mockingbird-open-192",
+      "outputRgbaFrameId": "frame.sha256.0b855a3c5065fdb2a2b3f046994fe15c2537924c380dc995c3c025dde68ad842",
+      "outputPNG": "open192.png",
+      "outputPNGsha256": "ca0684676babe933944c07228867e48a4fd6ba7ead48ca918a4f1a04d7d8d9d5",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "actionId": "idle",
+      "semanticPhase": "open"
+    },
+    {
+      "kind": "new-native-closed-eye",
+      "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+      "sourcePNG": "original.png",
+      "sourcePNGsha256": "ae832a000f4a278d92f9df1ce37963425696b2643cb3ace298e973e9b76adc8c",
+      "renderFrameId": "northern-mockingbird-closed-192",
+      "outputRgbaFrameId": "frame.sha256.b86e92b47a9f3647c3f1f9fb294ba68eb4885065556ad3e8ac94c0a0d77ef69e",
+      "outputPNG": "closed192.png",
+      "outputPNGsha256": "72995d91a98f2cc03fad228a1d69ad7182a009614aab87980314bb94f883e924",
+      "atlasRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "actionId": "idle",
+      "semanticPhase": "closed"
+    }
+  ],
+  "clip": {
+    "id": "idle",
+    "semanticAction": "blink-candidate-study",
+    "tickRate": 30,
+    "loop": true,
+    "durationTicks": 90,
+    "schedule": [
+      {
+        "phase": "open",
+        "startTickInclusive": 0,
+        "endTickExclusive": 60,
+        "durationTicks": 60,
+        "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+        "renderFrameId": "northern-mockingbird-open-192"
+      },
+      {
+        "phase": "closed",
+        "startTickInclusive": 60,
+        "endTickExclusive": 63,
+        "durationTicks": 3,
+        "sourceFrameId": "frame.sha256.b3f3357a14cfcc73eb8f457252d119f25a6b17d1e883b259d23b26792996bd6c",
+        "renderFrameId": "northern-mockingbird-closed-192"
+      },
+      {
+        "phase": "open",
+        "startTickInclusive": 63,
+        "endTickExclusive": 90,
+        "durationTicks": 27,
+        "sourceFrameId": "frame.sha256.bd7184a468371d79989a4875534e987db18997845190ba90c2ee11051f844855",
+        "renderFrameId": "northern-mockingbird-open-192"
+      }
+    ]
+  },
+  "sourceCounts": {
+    "nativeCalls": 1,
+    "newClosedDrawings": 1,
+    "reusedAwakeDrawings": 1,
+    "newNeutralDrawings": 0,
+    "newLookDrawings": 0,
+    "riggedDrawings": 0
+  },
+  "sourcePacketBound": true,
+  "appBound": false,
+  "slotAccepted": false,
+  "state": "candidate-or-study pending independent actual-yard-size visual compatibility review",
+  "fallback": "Existingawake/idle-look canon remains unchanged;hold closure asstudy if incompatible.",
+  "presentation": {
+    "sourceNormalization": "Newnative1254\u00b2\u21921024\u00b2 wholecanvasnearest,then192\u00b2nearest;existingawake1024\u00b2\u2192192\u00b2unchanged. No per-posefit,translation,warp or paint.",
+    "densityOutputPixelsPerWorldUnit": 1.225,
+    "worldCanvas": [
+      156.734693877551,
+      156.734693877551
+    ],
+    "pivotOutputXY": [
+      114,
+      150
+    ]
+  },
+  "rightsFidelityApproval": false,
+  "canonicalSharpReceipt": null
+}
