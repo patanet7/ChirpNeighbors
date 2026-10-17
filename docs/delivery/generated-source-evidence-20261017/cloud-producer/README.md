@@ -1,7 +1,7 @@
 # Cloud-produced source artwork — exact-byte preservation
 
 This directory retains actual project source bytes for the canonical repository.
-The current registered source checkpoint retains 27 native originals with exact prompts and 119 immutable primary drawing records. Animation and yard source production resumed after baseline PR33. See `release/animation-checkpoint-1-20261017/intake-overlay.json` and its `HANDOFF.md` for current additions, exact reviews and limitations.
+The current registered source checkpoint retains 28 native originals with exact prompts and 121 immutable primary drawing records. Animation and yard source production resumed after baseline PR33. See `release/animation-checkpoint-1-20261017/intake-overlay.json` and its `HANDOFF.md` for current additions, exact reviews and limitations.
 
 `release/san-diego-20-v1/All-20-Source-Intake-Index.json` is the historical PR33 baseline, containing102 drawings/21 originals; its prior stop flag is superseded by the resumed checkpoint. The baseline per-species slot audit is in `audits/animation-slot-inventory-20261017`. Source availability does not establish completed animation sets, owner approval, canonical Mac admission or actual-yard verification. This archive changes source evidence only.
 
@@ -11,7 +11,7 @@ copy in the producing workspace. `source-files.sha256.json` inventories every
 retained file with its stable byte digest; it excludes itself to avoid a circular
 hash. `frame-bank.json` is the retained producer pixel-evidence register, subordinate
 to canonical app identities and admission. Its frame IDs hash decoded RGBA plus
-dimensions; file SHA-256 is separate. None of its proposed reuses is verified.
+dimensions; file SHA-256 is separate. No proposed production reuse is admitted; exact source identity reuse is recorded separately.
 
 The source folder structure is preserved so that candidate manifests and source
 frame references resolve. Generated originals, prompts, manifests and frames are

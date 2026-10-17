@@ -6241,13 +6241,13 @@
       "id": "spotted_towhee",
       "name": "Spotted Towhee",
       "primaryIntakeStatus": "provisional-source-review-candidate",
-      "primaryManifest": "new-species/sd20-final-four-v1/spotted_towhee/texture-review-manifest.json",
+      "primaryManifest": "motion/sd20-spotted-towhee-blink-v1/texture-review-manifest.json",
       "primaryAtlas": "new-species/sd20-final-four-v1/spotted_towhee/idle-look-atlas192.png",
       "selectedIdleSourceIDs": [
-        "frame.sha256.381d1bc6c07d85d2fc2dd46903bfdb14ceef3b03b63372248f90f72a0d8d0a4c",
-        "frame.sha256.69605f1249de73bb8336cb77f58e873aaaaa755ad0bbd084c63e73b0c121428b"
+        "frame.sha256.01ac00da7b029fd3dfe0daf1851a2fe6af58b2ae1775c9e25b5a289b58919b9e",
+        "frame.sha256.418285064b6193212075642545d2118f0cf6fd7af2cf25987834ef6ff5891142"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 4,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.69605f1249de73bb8336cb77f58e873aaaaa755ad0bbd084c63e73b0c121428b",
@@ -6278,6 +6278,106 @@
           "sourceAtlas": "new-species/sd20-final-four-v1/original.png",
           "sourceAtlasSha256": "3fb92a429741d85c6c98dcf4062975e52440131112e6637b0311f1d467a274f1",
           "sourcePrompt": "new-species/sd20-final-four-v1/prompt.txt"
+        },
+        {
+          "frameId": "frame.sha256.01ac00da7b029fd3dfe0daf1851a2fe6af58b2ae1775c9e25b5a289b58919b9e",
+          "file": "motion/sd20-spotted-towhee-blink-v1/awake-source1024.png",
+          "fileSha256": "35c53ff5f5f7cae3b5ade41261dd637d844d64dae1786a0c014fb5b4540baf6c",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "species": "spotted_towhee",
+          "appearanceVersion": "sd20-spotted-towhee-blink-v1",
+          "poseTags": [
+            "awake open-eye neutral",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-spotted-towhee-blink-v1/original.png",
+          "sourceAtlasSha256": "762ec2748401d7e991b733434d1ef56db165fef8c9966967a9c33659d9233b1b",
+          "derivation": {
+            "sourceAtlasRect": [
+              0,
+              0,
+              887,
+              887
+            ],
+            "integerTranslation": [
+              64,
+              24
+            ],
+            "sourceCanvas": [
+              1024,
+              1024
+            ],
+            "sourceScale": 1,
+            "perFrameFit": false,
+            "alphaChange": "none; original RGBA samples copied exactly"
+          },
+          "sourcePrompt": "motion/sd20-spotted-towhee-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-spotted-towhee-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; Matched red-eye awake and closed blink pair; minor feather redraw disclosed, canonical app intake pending.",
+          "sourceReview": "motion/sd20-spotted-towhee-blink-v1/independent-review.json"
+        },
+        {
+          "frameId": "frame.sha256.418285064b6193212075642545d2118f0cf6fd7af2cf25987834ef6ff5891142",
+          "file": "motion/sd20-spotted-towhee-blink-v1/closed-source1024.png",
+          "fileSha256": "97d3cf82e9a56a49e048dc8c87aa27a8b521945e26190c9e49f330cd96b0b32e",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "species": "spotted_towhee",
+          "appearanceVersion": "sd20-spotted-towhee-blink-v1",
+          "poseTags": [
+            "closed-eye blink",
+            "candidate-source"
+          ],
+          "sourceAtlas": "motion/sd20-spotted-towhee-blink-v1/original.png",
+          "sourceAtlasSha256": "762ec2748401d7e991b733434d1ef56db165fef8c9966967a9c33659d9233b1b",
+          "derivation": {
+            "sourceAtlasRect": [
+              887,
+              0,
+              1774,
+              887
+            ],
+            "integerTranslation": [
+              86,
+              24
+            ],
+            "sourceCanvas": [
+              1024,
+              1024
+            ],
+            "sourceScale": 1,
+            "perFrameFit": false,
+            "alphaChange": "none; original RGBA samples copied exactly"
+          },
+          "sourcePrompt": "motion/sd20-spotted-towhee-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-spotted-towhee-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "idle_look_blink"
+          ],
+          "reuseStatus": "independently reviewed source candidate; Matched red-eye awake and closed blink pair; minor feather redraw disclosed, canonical app intake pending.",
+          "sourceReview": "motion/sd20-spotted-towhee-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -6290,7 +6390,9 @@
         "new-species/sd20-final-four-v1/independent-review.json",
         "new-species/sd20-final-four-v1/README.md"
       ],
-      "sourceIssues": [],
+      "sourceIssues": [
+        "Matched red-eye awake and closed blink pair; minor feather redraw disclosed, canonical app intake pending."
+      ],
       "nextAssignedTask": null,
       "slots": [
         {
@@ -6302,21 +6404,27 @@
           "biologicalFrequencyRank": null,
           "state": "provisional-drawn-neutral",
           "sourceFrameIds": [
-            "frame.sha256.69605f1249de73bb8336cb77f58e873aaaaa755ad0bbd084c63e73b0c121428b"
+            "frame.sha256.01ac00da7b029fd3dfe0daf1851a2fe6af58b2ae1775c9e25b5a289b58919b9e",
+            "frame.sha256.418285064b6193212075642545d2118f0cf6fd7af2cf25987834ef6ff5891142"
           ],
-          "uniqueKnownSourceIDs": 1,
+          "uniqueKnownSourceIDs": 2,
           "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
           "evidencePaths": [
-            "new-species/sd20-final-four-v1/spotted_towhee/texture-review-manifest.json"
+            "motion/sd20-spotted-towhee-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-spotted-towhee-blink-v1/independent-review.json"
           ],
           "preparedPackagePaths": [
-            "new-species/sd20-final-four-v1/spotted_towhee/texture-review-manifest.json"
+            "motion/sd20-spotted-towhee-blink-v1"
           ],
-          "remainingPhasesOrReview": [],
+          "remainingPhasesOrReview": [
+            "Matched red-eye awake and closed blink pair; minor feather redraw disclosed, canonical app intake pending.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
+          ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "provisional-drawn-neutral"
         },
         {
           "speciesId": "spotted_towhee",
@@ -6351,19 +6459,29 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "leaf-litter look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-blink",
+          "sourceFrameIds": [
+            "frame.sha256.01ac00da7b029fd3dfe0daf1851a2fe6af58b2ae1775c9e25b5a289b58919b9e",
+            "frame.sha256.418285064b6193212075642545d2118f0cf6fd7af2cf25987834ef6ff5891142"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-spotted-towhee-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-spotted-towhee-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-spotted-towhee-blink-v1"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye\u2192closed lid\u2192same open state; half lid only if useful."
+            "Matched red-eye awake and closed blink pair; minor feather redraw disclosed, canonical app intake pending.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing"
         },
         {
           "speciesId": "spotted_towhee",
@@ -13390,15 +13508,15 @@
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 119,
-    "registeredNativeOriginals": 27,
-    "newNativeCalls": 6,
-    "newDrawings": 17,
+    "registeredPrimaryDrawingIDs": 121,
+    "registeredNativeOriginals": 28,
+    "newNativeCalls": 7,
+    "newDrawings": 19,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 38,
+    "usefulProvisionalIdleSemanticUses": 39,
     "usefulIdleUsesByAction": {
       "neutral": 19,
-      "blink": 9,
+      "blink": 10,
       "look": 10
     },
     "reviewedOneShotHopStudies": 2,
@@ -13407,9 +13525,9 @@
     "states": {
       "provisional-drawn-neutral": 17,
       "single-open-look-pose-no-matched-turn": 1,
-      "provisional-drawn-blink": 9,
+      "provisional-drawn-blink": 10,
       "two-drawn-hover-wing-study-only": 1,
-      "missing": 145,
+      "missing": 144,
       "older-drawn-look-study-drift": 1,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,
