@@ -1,0 +1,40 @@
+{
+  "sourceSha256": "f18f50cd816490aba6ba011d3ef895603c9bc042933800b0d2583b39345d89fe",
+  "routeBudgets": [
+    {
+      "method": "GET",
+      "value": "reads"
+    },
+    {
+      "method": "HEAD",
+      "value": "reads"
+    }
+  ],
+  "rows": [
+    {
+      "label": "ascii-over-limit",
+      "id": "b67d39d4-3c23-4939-afcb-4d6ad05a0de6",
+      "textLength": 1000001,
+      "byteLength": 1000001,
+      "hydratedThroughGet": false,
+      "selectionBlock": "unavailable"
+    },
+    {
+      "label": "nul-over-limit",
+      "id": "313ddfc1-924e-45b3-b686-c13895f7b67b",
+      "textLength": 0,
+      "byteLength": 1000002,
+      "hydratedThroughGet": false,
+      "selectionBlock": "unavailable"
+    },
+    {
+      "label": "utf8-over-limit",
+      "id": "7fc81ef8-dbe9-40b2-9f82-fe43c977db3c",
+      "textLength": 333335,
+      "byteLength": 1000005,
+      "hydratedThroughGet": false,
+      "selectionBlock": "unavailable"
+    }
+  ],
+  "assertion": "Oversized corrupt input must be rejected before JobRepository.get performs SELECT * hydration."
+}

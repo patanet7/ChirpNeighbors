@@ -1,0 +1,94 @@
+{
+  "finished_utc": "2026-10-17T13:42:54.115380+00:00",
+  "scope": "Bounded visible native Chrome QA; no source edits, installation, service restart, asset promotion, or yard save actions.",
+  "environment": {
+    "hostname": "Mac.localdomain",
+    "requested_hostname": "MacBook-Pro.local",
+    "origin": "http://127.0.0.1:5187",
+    "readiness": "Verified rendered pages through native Chrome; existing server unchanged.",
+    "head": "911b0078d057f3ee1fe1e3ab2a7c0fa0d44c389f",
+    "working_tree": "Dirty and evolving. See observed/end source hashes. Root page changed during the audit. Development metadata/source reloads repeatedly reset candidate transient state.",
+    "browser_route": "Supported cua native Google Chrome app; browser-provider inventory empty. No alternative automation used.",
+    "runtime_data": "/Users/thomaspatane/GitHub/personal/.chirp-local/data",
+    "visible_window": "New dedicated one-tab Chrome window created for QA; closed at end. Closure verified by unrelated pre-existing Chrome window becoming active; no further interaction with it. CUA JS session reset."
+  },
+  "viewports": [
+    {
+      "css_width": 1280,
+      "css_height": 800,
+      "dpr": 2
+    },
+    {
+      "css_width": 390,
+      "css_height": 844,
+      "dpr": 2
+    }
+  ],
+  "findings": [
+    {
+      "id": "QA-CANDIDATE-EMPTY-OVERLAY",
+      "priority": "P2",
+      "route": "/candidate-yard",
+      "viewport": "390x844 CSS",
+      "steps": [
+        "Open candidate-yard with no saved fixture comparison",
+        "Click Build prepared garden",
+        "Scroll to rendered garden"
+      ],
+      "expected": "Loaded candidate composition is visible without an empty-yard/import instruction obscuring it.",
+      "observed": "6/6 collection and review-only RGBA pack ready; tree, feeder, bench, jay and fountain render. Large A little room for new neighbors / Import a finding to welcome your first visitor overlay remains across the center and conceals much of the art. Fixture art / Courtyard technical fixture labels also remain.",
+      "reproduced": "Observed after multiple fresh Build prepared garden actions, including native screenshot and browser-native PNG capture.",
+      "screenshots": [
+        "candidate-yard-overlay-mobile-390.png",
+        "candidate-yard-mobile-390.png"
+      ]
+    }
+  ],
+  "observed_checks": [
+    {
+      "route": "/",
+      "result": "Alice fixture visibly has3birds,10objects,0residents. Root uses courtyard fixture art by default; prominent Preview latest garden and full-demo link expose opt-in latest art.",
+      "screenshot": "alice-saved-yard-desktop-1280.png"
+    },
+    {
+      "route": "/ -> Preview latest garden",
+      "result": "Latest inline scene rendered8/8 layers. At390 width preview scrolls into view and AX focus moves to Latest garden preview. Controls and labels wrap within viewport. Return to saved yard restores fixture display3birds/10objects. No persistent edit controls were used.",
+      "screenshot": "alice-inline-mobile-390-reduced-motion.png"
+    },
+    {
+      "route": "/ inline preview",
+      "result": "Reduced motion checked: Automatic motion held, clock14.4seconds remained14.4 through subsequent observations and screenshot capture. Replay while held resets idle,water3.00L,clock0.0seconds."
+    },
+    {
+      "route": "/garden-demo",
+      "result": "Autoload rendered8/8 art layers: landscape,autumn tree,feeder,fountain,cardinal,dove,jay. Native screenshots actual pixels at1280 and390. No full-page horizontal overflow in390 capture (780physicalpixels atDPR2).",
+      "screenshots": [
+        "garden-demo-desktop-1280.png",
+        "garden-demo-mobile-390.png"
+      ]
+    },
+    {
+      "route": "/garden-demo",
+      "result": "Weather study Rain selected; UI rain30mm/h and visible rain streaks. Pump changed from3 to0L/min; screenshot shows0 and no incoming stream. Fountain displayed6L and reservoir/returned-overflow readouts. Natural jay bathing and Wet contact admitted observed, later moving/no contact. Missing action clips correctly disclosed as idle art. No calibrated art/contact approval inferred."
+    },
+    {
+      "route": "/candidate-yard",
+      "result": "Prepared garden6/6 and unapproved disclosure verified. Play preview changes toPause preview. Experimental fountain enabled transiently; modeltime/water advance, synthetic overlay exposed. These controls live far below scale/reference/tree sections; fullpage evidence exceeds8192CSSheight and capture is truncated at16384physicalpixels."
+    },
+    {
+      "route": "Console",
+      "result": "Default-level console displayed0visiblemessages on demo/candidate.2hiddenmessages remained; Issues reported possible improvements (4candidate,up to32root aftermounts). Hidden logs and Issues details not exhaustively inspected; no blanket clean-console certification."
+    }
+  ],
+  "limitations": [
+    "Repeated live development reloads reset candidate transient state, limiting long-running pause/cancellation/export checks. Root final inline check used newer root source hash in end snapshot.",
+    "Current pass did not re-audit asset-review/art-lab/texture-review/gallery, validation cancellation/retry/export, full keyboard traversal, or all contact/anchor overlays. Older evidence exists separately and does not certify latest source.",
+    "No saved-data equality independently asserted beyond visible fixture restoration; main engineering child separately reported snapshot equality.",
+    "No documented native cursor-move, overlay-dismiss or session-end API exists. Dedicated QA window closed and JS reset; pointer-overlay clearance cannot be confirmed. No browser/security permission or workaround requested."
+  ],
+  "earlier_reports": [
+    "/tmp/chirp-mac-visual-qa-20261017/report.json",
+    "/tmp/chirp-mac-visual-qa-resume-20261017/report.json"
+  ],
+  "outcome": "Supported visible QA completed within bounded scope; one concrete candidate workbench defect, latest demo/inline checks observed. Not an overall visual approval."
+}

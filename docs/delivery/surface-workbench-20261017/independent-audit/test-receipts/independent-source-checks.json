@@ -1,0 +1,39 @@
+{
+  "timestampUtc": "2026-10-17T15:04:21.243701+00:00",
+  "sourceHead": "911b0078d057f3ee1fe1e3ab2a7c0fa0d44c389f",
+  "sourceMatchesFrozenDirtyFiles": 43,
+  "allFrozenMatches": true,
+  "sourceDriftExcludingGeneratedSvelteKit": [],
+  "checks": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exitCode": 0,
+      "errors": 0,
+      "warnings": 0,
+      "log": "independent-svelte-check.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exitCode": 0,
+      "log": "independent-lint.log"
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "format:check"
+      ],
+      "exitCode": 0,
+      "log": "independent-format.log"
+    }
+  ],
+  "generationBoundary": "npm run check runs svelte-kit sync in the isolated snapshot; generated .svelte-kit excluded from source drift. No original checkout sync/check/format mutation."
+}

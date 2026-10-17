@@ -1,0 +1,34 @@
+PASS Anonymous history reads are denied
+PASS Legacy scan remains incomplete at 513 and omits oldest without dropping pins
+PASS 513 jobs traverse once in stable insertion order, excluding concurrent backdated insert
+PASS Restart includes new insertion
+PASS Altered, wrong-limit and cross-list cursors and owner injection are rejected
+PASS Other owner has empty history and cannot use owner cursor
+PASS Corrupt job metadata cannot prevent yard load or private retention recovery
+PASS Initial unavailable workshop Retry starts a real fresh read
+PASS Failed next page retains rows and retry uses the identical cursor
+PASS Oldest archived package is reachable through 52 keyboard-accessible pages
+PASS History stays visible after 32 MB scan overflow; whole-graph cleanup remains closed
+PASS Lost restore reply retries exact command once and refreshes current page at revision two
+PASS Confirmed write plus malformed refresh keeps stale actions disabled; read retry recovers
+PASS Archive/restore preserved resident pins and observation history
+PASS asset-history-320: no horizontal overflow
+Traceback (most recent call last):
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 328, in <module>
+    asyncio.run(main())
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 320, in main
+    await journey(directory, server)
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 273, in journey
+    await core.api(page, HISTORY + '?' + urlencode({'cursor': first['page']['cursor'], 'limit': 10}), status=400)
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/browser-checks.py", line 290, in api
+    raise AssertionError(f"{path}: expected {status}, received {result}")
+AssertionError: /api/asset-lifecycle/packages?cursor=eyJ2ZXJzaW9uIjoxLCJ3YXRlcm1hcmsiOjUxMywiYmVmb3JlIjpudWxsLCJsaW1pdCI6MTB9.52OVcuobOpI4CRGRNf38cMMH3x4IXMzhCywV0f6uBDE&limit=10: expected 400, received {'status': 401, 'payload': {'message': 'Choose a development identity first.'}, 'cache': 'private, no-store'}

@@ -1,0 +1,1525 @@
+{
+  "node": "v24.19.0",
+  "storage": "/tmp/chirp-query-audit-p6e4g0",
+  "scope": "Exact repository/domain code; no server, auth, assets, jobs, providers, or real data.",
+  "warmups": 1,
+  "repeats": 7,
+  "cases": [
+    {
+      "events": 100,
+      "residents": 1,
+      "objects": 4,
+      "storedBytes": 42088,
+      "snapshotResponseBytes": 57391,
+      "sqlLookup": {
+        "medianMs": 0.021753000000003908,
+        "minMs": 0.013861000000005674,
+        "maxMs": 0.02612999999999488,
+        "samplesMs": [
+          0.017987000000005082,
+          0.013861000000005674,
+          0.02612999999999488,
+          0.021753000000003908,
+          0.0222129999999936,
+          0.019209000000003584,
+          0.022444000000007236
+        ]
+      },
+      "jsonParse": {
+        "medianMs": 0.1078420000000051,
+        "minMs": 0.10251399999999933,
+        "maxMs": 0.2681530000000123,
+        "samplesMs": [
+          0.1078420000000051,
+          0.10672099999999318,
+          0.2681530000000123,
+          0.11924899999999639,
+          0.1357540000000057,
+          0.10463699999999676,
+          0.10251399999999933
+        ]
+      },
+      "storedValidation": {
+        "medianMs": 3.058728000000002,
+        "minMs": 2.245234999999994,
+        "maxMs": 6.231287999999992,
+        "samplesMs": [
+          5.741410999999999,
+          6.231287999999992,
+          3.9099780000000095,
+          3.058728000000002,
+          2.4558119999999946,
+          2.881812999999994,
+          2.245234999999994
+        ]
+      },
+      "snapshotDerivation": {
+        "medianMs": 0.12189400000001172,
+        "minMs": 0.09371099999999899,
+        "maxMs": 1.2016569999999973,
+        "samplesMs": [
+          0.0962949999999978,
+          0.14566900000001226,
+          0.18275500000000022,
+          1.2016569999999973,
+          0.09582400000000746,
+          0.09371099999999899,
+          0.12189400000001172
+        ]
+      },
+      "repositorySnapshot": {
+        "medianMs": 3.4600709999999992,
+        "minMs": 2.5873599999999897,
+        "maxMs": 6.50104300000001,
+        "samplesMs": [
+          6.50104300000001,
+          2.8209209999999985,
+          4.166162999999983,
+          2.5873599999999897,
+          3.4501869999999997,
+          3.5032360000000153,
+          3.4600709999999992
+        ]
+      },
+      "snapshotJsonSerialization": {
+        "medianMs": 0.07341999999999871,
+        "minMs": 0.07167799999999147,
+        "maxMs": 0.07558400000002052,
+        "samplesMs": [
+          0.07558400000002052,
+          0.07443200000000161,
+          0.07298000000000116,
+          0.07384099999998739,
+          0.07341999999999871,
+          0.07167799999999147,
+          0.07305999999999813
+        ]
+      },
+      "snapshotBoundaryValidation": {
+        "medianMs": 5.605938000000009,
+        "minMs": 4.3839710000000025,
+        "maxMs": 8.784737000000007,
+        "samplesMs": [
+          8.784737000000007,
+          4.3839710000000025,
+          5.605938000000009
+        ]
+      },
+      "pageBoundaryValidation": {
+        "medianMs": 11.332295999999985,
+        "minMs": 10.275497999999999,
+        "maxMs": 16.413936000000007,
+        "samplesMs": [
+          10.275497999999999,
+          11.332295999999985,
+          16.413936000000007
+        ]
+      },
+      "emptyArrivalList": {
+        "medianMs": 3.447022000000004,
+        "minMs": 2.508982000000003,
+        "maxMs": 5.324304000000012,
+        "samplesMs": [
+          2.5676699999999926,
+          2.508982000000003,
+          3.8353560000000186,
+          3.709868,
+          3.447022000000004,
+          5.324304000000012,
+          2.626619000000005
+        ]
+      },
+      "snapshotSql": {
+        "elapsedMs": 4.213484000000008,
+        "statements": [
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 42088
+      },
+      "arrivalSql": {
+        "elapsedMs": 4.950401999999997,
+        "statements": [
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "all",
+            "sql": "SELECT owner_id,arrival_id,event_id,substr(payload_json,1,4097) AS payload_json,length(payload_json) AS payload_length,evidence_sha256,state,retain_until FROM yard_arrivals WHERE owner_id=? AND state='pending' AND json_extract(payload_json,'$.eligibleUntil')>? ORDER BY json_extract(payload_json,'$.admittedAt'),arrival_id LIMIT ?"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 42088
+      },
+      "rename": {
+        "elapsedMs": 5.1115950000000225,
+        "statements": [
+          {
+            "method": "exec",
+            "sql": "BEGIN IMMEDIATE"
+          },
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "run",
+            "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+          },
+          {
+            "method": "exec",
+            "sql": "COMMIT"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 42088
+      },
+      "renameLatency": {
+        "medianMs": 4.930701999999997,
+        "minMs": 4.231232000000034,
+        "maxMs": 12.318028000000027,
+        "samplesMs": [
+          6.953123000000005,
+          4.930701999999997,
+          4.24160599999999,
+          4.231232000000034,
+          12.318028000000027,
+          4.852174999999988,
+          5.085825999999997
+        ]
+      },
+      "preferenceLatency": {
+        "medianMs": 5.969895000000008,
+        "minMs": 4.647927000000038,
+        "maxMs": 8.919198999999992,
+        "samplesMs": [
+          8.919198999999992,
+          5.453008000000011,
+          4.649659999999983,
+          8.629643999999985,
+          7.532273000000032,
+          5.969895000000008,
+          4.647927000000038
+        ]
+      },
+      "exactInventoryRetry": {
+        "elapsedMs": 8.209672000000012,
+        "statements": [
+          {
+            "method": "exec",
+            "sql": "BEGIN IMMEDIATE"
+          },
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "run",
+            "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+          },
+          {
+            "method": "exec",
+            "sql": "COMMIT"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 42256,
+        "rowChanges": 1
+      },
+      "exactInventoryRetryLatency": {
+        "medianMs": 7.812715999999966,
+        "minMs": 4.875039000000015,
+        "maxMs": 10.209569000000045,
+        "samplesMs": [
+          7.812715999999966,
+          9.682587000000012,
+          4.875039000000015,
+          5.222572000000014,
+          5.517924999999991,
+          8.36233199999998,
+          10.209569000000045
+        ]
+      },
+      "explainOwner": [
+        {
+          "id": 3,
+          "parent": 0,
+          "notused": 39,
+          "detail": "SEARCH yard_owners USING INDEX sqlite_autoindex_yard_owners_1 (owner_id=?)"
+        }
+      ],
+      "explainArrivals": [
+        {
+          "id": 7,
+          "parent": 0,
+          "notused": 61,
+          "detail": "SEARCH yard_arrivals USING INDEX yard_arrivals_pending (owner_id=? AND state=?)"
+        },
+        {
+          "id": 29,
+          "parent": 0,
+          "notused": 0,
+          "detail": "USE TEMP B-TREE FOR ORDER BY"
+        }
+      ],
+      "schema": [
+        {
+          "type": "table",
+          "name": "yard_arrival_migrations",
+          "sql": "CREATE TABLE yard_arrival_migrations(version INTEGER PRIMARY KEY,applied_at TEXT NOT NULL)"
+        },
+        {
+          "type": "table",
+          "name": "yard_arrivals",
+          "sql": "CREATE TABLE yard_arrivals(\n          owner_id TEXT NOT NULL, arrival_id TEXT NOT NULL, event_id TEXT NOT NULL,\n          payload_json TEXT NOT NULL CHECK(json_valid(payload_json) AND length(payload_json)<=4096),\n          evidence_sha256 TEXT NOT NULL, state TEXT NOT NULL CHECK(state IN ('pending','consumed','cancelled')),\n          retain_until TEXT NOT NULL,\n          PRIMARY KEY(owner_id,event_id), UNIQUE(owner_id,arrival_id)\n        )"
+        },
+        {
+          "type": "index",
+          "name": "yard_arrivals_pending",
+          "sql": "CREATE INDEX yard_arrivals_pending ON yard_arrivals(owner_id,state,retain_until)"
+        },
+        {
+          "type": "table",
+          "name": "yard_migrations",
+          "sql": "CREATE TABLE yard_migrations (version INTEGER PRIMARY KEY, applied_at TEXT NOT NULL)"
+        },
+        {
+          "type": "table",
+          "name": "yard_owners",
+          "sql": "CREATE TABLE yard_owners (owner_id TEXT PRIMARY KEY NOT NULL, schema_version INTEGER NOT NULL, data TEXT NOT NULL CHECK(json_valid(data)))"
+        }
+      ],
+      "pragmas": {
+        "journal": {
+          "journal_mode": "wal"
+        },
+        "busy": {
+          "timeout": 5000
+        },
+        "sqlite": {
+          "version": "3.53.3"
+        }
+      }
+    },
+    {
+      "events": 1000,
+      "residents": 1,
+      "objects": 4,
+      "storedBytes": 412889,
+      "snapshotResponseBytes": 564993,
+      "sqlLookup": {
+        "medianMs": 0.16531799999995656,
+        "minMs": 0.14582899999993515,
+        "maxMs": 0.22464800000000196,
+        "samplesMs": [
+          0.21724700000004304,
+          0.1625139999999874,
+          0.14582899999993515,
+          0.22464800000000196,
+          0.16574900000000525,
+          0.1480619999999817,
+          0.16531799999995656
+        ]
+      },
+      "jsonParse": {
+        "medianMs": 0.9994219999999814,
+        "minMs": 0.9895270000000664,
+        "maxMs": 1.0526120000000674,
+        "samplesMs": [
+          1.0526120000000674,
+          0.9954860000000281,
+          1.0089869999999337,
+          0.995115999999939,
+          1.0121609999999919,
+          0.9994219999999814,
+          0.9895270000000664
+        ]
+      },
+      "storedValidation": {
+        "medianMs": 18.717769999999973,
+        "minMs": 15.665190000000052,
+        "maxMs": 19.762901000000056,
+        "samplesMs": [
+          18.717769999999973,
+          16.08455200000003,
+          19.762901000000056,
+          15.706462999999985,
+          19.254566999999952,
+          15.665190000000052,
+          19.57923900000003
+        ]
+      },
+      "snapshotDerivation": {
+        "medianMs": 0.8675640000000158,
+        "minMs": 0.8134630000000698,
+        "maxMs": 1.0335839999999052,
+        "samplesMs": [
+          0.8331329999999753,
+          1.0335839999999052,
+          0.8138029999998935,
+          0.8675640000000158,
+          0.9255010000000539,
+          0.8134630000000698,
+          0.882156000000009
+        ]
+      },
+      "repositorySnapshot": {
+        "medianMs": 23.372027000000003,
+        "minMs": 19.300084999999967,
+        "maxMs": 25.261608000000024,
+        "samplesMs": [
+          23.447401000000013,
+          19.332333999999946,
+          24.521434999999997,
+          23.372027000000003,
+          19.300084999999967,
+          25.261608000000024,
+          19.999987000000033
+        ]
+      },
+      "snapshotJsonSerialization": {
+        "medianMs": 0.8615049999999655,
+        "minMs": 0.791590000000042,
+        "maxMs": 1.0911200000000463,
+        "samplesMs": [
+          0.8800229999999374,
+          0.8615049999999655,
+          0.8448110000000497,
+          1.0911200000000463,
+          0.791590000000042,
+          0.8327919999999267,
+          0.9042289999999866
+        ]
+      },
+      "snapshotBoundaryValidation": {
+        "medianMs": 49.50431400000002,
+        "minMs": 47.73097800000005,
+        "maxMs": 55.818325999999956,
+        "samplesMs": [
+          55.818325999999956,
+          47.73097800000005,
+          49.50431400000002
+        ]
+      },
+      "pageBoundaryValidation": {
+        "medianMs": 97.02807000000007,
+        "minMs": 87.66984100000013,
+        "maxMs": 121.385039,
+        "samplesMs": [
+          121.385039,
+          97.02807000000007,
+          87.66984100000013
+        ]
+      },
+      "emptyArrivalList": {
+        "medianMs": 22.367627000000084,
+        "minMs": 18.255995999999868,
+        "maxMs": 24.980064999999968,
+        "samplesMs": [
+          23.315942999999834,
+          18.255995999999868,
+          22.367627000000084,
+          19.031101000000035,
+          24.980064999999968,
+          21.657399999999825,
+          24.701606000000083
+        ]
+      },
+      "snapshotSql": {
+        "elapsedMs": 29.754651999999965,
+        "statements": [
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 412889
+      },
+      "arrivalSql": {
+        "elapsedMs": 25.931666000000064,
+        "statements": [
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "all",
+            "sql": "SELECT owner_id,arrival_id,event_id,substr(payload_json,1,4097) AS payload_json,length(payload_json) AS payload_length,evidence_sha256,state,retain_until FROM yard_arrivals WHERE owner_id=? AND state='pending' AND json_extract(payload_json,'$.eligibleUntil')>? ORDER BY json_extract(payload_json,'$.admittedAt'),arrival_id LIMIT ?"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 412889
+      },
+      "rename": {
+        "elapsedMs": 52.983655,
+        "statements": [
+          {
+            "method": "exec",
+            "sql": "BEGIN IMMEDIATE"
+          },
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "run",
+            "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+          },
+          {
+            "method": "exec",
+            "sql": "COMMIT"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 412889
+      },
+      "renameLatency": {
+        "medianMs": 46.91670900000008,
+        "minMs": 45.404511000000184,
+        "maxMs": 57.74525900000003,
+        "samplesMs": [
+          50.32923400000004,
+          46.91670900000008,
+          57.74525900000003,
+          46.94289299999991,
+          45.448255999999674,
+          45.70109700000012,
+          45.404511000000184
+        ]
+      },
+      "preferenceLatency": {
+        "medianMs": 45.08020299999998,
+        "minMs": 40.24327099999982,
+        "maxMs": 51.102742000000035,
+        "samplesMs": [
+          40.24327099999982,
+          40.526116999999886,
+          45.08020299999998,
+          48.82548399999996,
+          51.102742000000035,
+          46.62367099999983,
+          43.533326000000216
+        ]
+      },
+      "exactInventoryRetry": {
+        "elapsedMs": 52.305843000000095,
+        "statements": [
+          {
+            "method": "exec",
+            "sql": "BEGIN IMMEDIATE"
+          },
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "run",
+            "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+          },
+          {
+            "method": "exec",
+            "sql": "COMMIT"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 413057,
+        "rowChanges": 1
+      },
+      "exactInventoryRetryLatency": {
+        "medianMs": 52.58450300000004,
+        "minMs": 44.69248800000014,
+        "maxMs": 62.578891999999996,
+        "samplesMs": [
+          52.29085099999975,
+          47.47343899999987,
+          61.011981000000105,
+          62.578891999999996,
+          44.69248800000014,
+          56.78598299999976,
+          52.58450300000004
+        ]
+      },
+      "explainOwner": [
+        {
+          "id": 3,
+          "parent": 0,
+          "notused": 39,
+          "detail": "SEARCH yard_owners USING INDEX sqlite_autoindex_yard_owners_1 (owner_id=?)"
+        }
+      ],
+      "explainArrivals": [
+        {
+          "id": 7,
+          "parent": 0,
+          "notused": 61,
+          "detail": "SEARCH yard_arrivals USING INDEX yard_arrivals_pending (owner_id=? AND state=?)"
+        },
+        {
+          "id": 29,
+          "parent": 0,
+          "notused": 0,
+          "detail": "USE TEMP B-TREE FOR ORDER BY"
+        }
+      ],
+      "schema": [
+        {
+          "type": "table",
+          "name": "yard_arrival_migrations",
+          "sql": "CREATE TABLE yard_arrival_migrations(version INTEGER PRIMARY KEY,applied_at TEXT NOT NULL)"
+        },
+        {
+          "type": "table",
+          "name": "yard_arrivals",
+          "sql": "CREATE TABLE yard_arrivals(\n          owner_id TEXT NOT NULL, arrival_id TEXT NOT NULL, event_id TEXT NOT NULL,\n          payload_json TEXT NOT NULL CHECK(json_valid(payload_json) AND length(payload_json)<=4096),\n          evidence_sha256 TEXT NOT NULL, state TEXT NOT NULL CHECK(state IN ('pending','consumed','cancelled')),\n          retain_until TEXT NOT NULL,\n          PRIMARY KEY(owner_id,event_id), UNIQUE(owner_id,arrival_id)\n        )"
+        },
+        {
+          "type": "index",
+          "name": "yard_arrivals_pending",
+          "sql": "CREATE INDEX yard_arrivals_pending ON yard_arrivals(owner_id,state,retain_until)"
+        },
+        {
+          "type": "table",
+          "name": "yard_migrations",
+          "sql": "CREATE TABLE yard_migrations (version INTEGER PRIMARY KEY, applied_at TEXT NOT NULL)"
+        },
+        {
+          "type": "table",
+          "name": "yard_owners",
+          "sql": "CREATE TABLE yard_owners (owner_id TEXT PRIMARY KEY NOT NULL, schema_version INTEGER NOT NULL, data TEXT NOT NULL CHECK(json_valid(data)))"
+        }
+      ],
+      "pragmas": {
+        "journal": {
+          "journal_mode": "wal"
+        },
+        "busy": {
+          "timeout": 5000
+        },
+        "sqlite": {
+          "version": "3.53.3"
+        }
+      }
+    },
+    {
+      "events": 10000,
+      "residents": 1,
+      "objects": 4,
+      "storedBytes": 4138890,
+      "snapshotResponseBytes": 5676995,
+      "sqlLookup": {
+        "medianMs": 1.6432799999993222,
+        "minMs": 1.5408669999997073,
+        "maxMs": 2.0770430000002307,
+        "samplesMs": [
+          2.0770430000002307,
+          1.816330999999991,
+          1.6592250000003332,
+          1.6062640000000101,
+          1.6432799999993222,
+          1.5941570000004504,
+          1.5408669999997073
+        ]
+      },
+      "jsonParse": {
+        "medianMs": 10.292664000000514,
+        "minMs": 10.209638000000268,
+        "maxMs": 10.761347999999998,
+        "samplesMs": [
+          10.260615000000143,
+          10.761347999999998,
+          10.299713999999767,
+          10.280625000000327,
+          10.384321000000455,
+          10.209638000000268,
+          10.292664000000514
+        ]
+      },
+      "storedValidation": {
+        "medianMs": 205.5428410000004,
+        "minMs": 194.99555400000008,
+        "maxMs": 230.40193200000067,
+        "samplesMs": [
+          229.72750900000028,
+          223.55339599999934,
+          197.16050900000027,
+          205.5428410000004,
+          194.99555400000008,
+          199.4853239999993,
+          230.40193200000067
+        ]
+      },
+      "snapshotDerivation": {
+        "medianMs": 8.565067000000454,
+        "minMs": 8.423934000000372,
+        "maxMs": 9.165119000000232,
+        "samplesMs": [
+          8.565067000000454,
+          8.494149000000107,
+          8.679588000000876,
+          8.423934000000372,
+          8.469813000000613,
+          8.598817000000054,
+          9.165119000000232
+        ]
+      },
+      "repositorySnapshot": {
+        "medianMs": 239.52822800000013,
+        "minMs": 206.8914880000002,
+        "maxMs": 289.8165710000003,
+        "samplesMs": [
+          252.01162900000054,
+          239.52822800000013,
+          215.588522,
+          269.626937,
+          289.8165710000003,
+          218.2878009999995,
+          206.8914880000002
+        ]
+      },
+      "snapshotJsonSerialization": {
+        "medianMs": 10.613415999999233,
+        "minMs": 10.2569510000003,
+        "maxMs": 11.272457000000031,
+        "samplesMs": [
+          10.591252999999597,
+          10.2569510000003,
+          10.540436000000227,
+          11.272457000000031,
+          10.91490900000008,
+          10.613415999999233,
+          11.05691300000035
+        ]
+      },
+      "snapshotBoundaryValidation": {
+        "medianMs": 517.3975370000007,
+        "minMs": 506.529364,
+        "maxMs": 567.7365219999992,
+        "samplesMs": [
+          517.3975370000007,
+          567.7365219999992,
+          506.529364
+        ]
+      },
+      "pageBoundaryValidation": {
+        "medianMs": 1140.8865190000015,
+        "minMs": 1108.7938159999994,
+        "maxMs": 1189.5728359999994,
+        "samplesMs": [
+          1140.8865190000015,
+          1189.5728359999994,
+          1108.7938159999994
+        ]
+      },
+      "emptyArrivalList": {
+        "medianMs": 247.29355099999884,
+        "minMs": 219.82503499999984,
+        "maxMs": 289.43581599999925,
+        "samplesMs": [
+          247.29355099999884,
+          266.94728699999905,
+          289.43581599999925,
+          264.43853599999966,
+          219.82503499999984,
+          236.48887300000024,
+          245.75256499999887
+        ]
+      },
+      "snapshotSql": {
+        "elapsedMs": 285.77384500000016,
+        "statements": [
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 4138890
+      },
+      "arrivalSql": {
+        "elapsedMs": 387.9593539999996,
+        "statements": [
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "all",
+            "sql": "SELECT owner_id,arrival_id,event_id,substr(payload_json,1,4097) AS payload_json,length(payload_json) AS payload_length,evidence_sha256,state,retain_until FROM yard_arrivals WHERE owner_id=? AND state='pending' AND json_extract(payload_json,'$.eligibleUntil')>? ORDER BY json_extract(payload_json,'$.admittedAt'),arrival_id LIMIT ?"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 4138890
+      },
+      "rename": {
+        "elapsedMs": 493.2916350000014,
+        "statements": [
+          {
+            "method": "exec",
+            "sql": "BEGIN IMMEDIATE"
+          },
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "run",
+            "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+          },
+          {
+            "method": "exec",
+            "sql": "COMMIT"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 4138890
+      },
+      "renameLatency": {
+        "medianMs": 482.45120399999723,
+        "minMs": 408.1834520000011,
+        "maxMs": 568.5262279999988,
+        "samplesMs": [
+          461.39608299999963,
+          520.1784200000002,
+          498.0857849999993,
+          568.5262279999988,
+          482.45120399999723,
+          425.1225489999997,
+          408.1834520000011
+        ]
+      },
+      "preferenceLatency": {
+        "medianMs": 490.5292850000005,
+        "minMs": 446.7726470000016,
+        "maxMs": 559.4307140000019,
+        "samplesMs": [
+          446.7726470000016,
+          494.4965579999989,
+          485.29433900000004,
+          559.4307140000019,
+          555.1404589999984,
+          476.85077999999703,
+          490.5292850000005
+        ]
+      },
+      "exactInventoryRetry": {
+        "elapsedMs": 518.8692640000008,
+        "statements": [
+          {
+            "method": "exec",
+            "sql": "BEGIN IMMEDIATE"
+          },
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "run",
+            "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+          },
+          {
+            "method": "exec",
+            "sql": "COMMIT"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 4139058,
+        "rowChanges": 1
+      },
+      "exactInventoryRetryLatency": {
+        "medianMs": 489.8761579999991,
+        "minMs": 436.5385709999973,
+        "maxMs": 573.497582,
+        "samplesMs": [
+          486.08743700000196,
+          534.1297029999987,
+          573.497582,
+          529.9114850000005,
+          436.5385709999973,
+          489.8761579999991,
+          489.47841999999946
+        ]
+      },
+      "explainOwner": [
+        {
+          "id": 3,
+          "parent": 0,
+          "notused": 39,
+          "detail": "SEARCH yard_owners USING INDEX sqlite_autoindex_yard_owners_1 (owner_id=?)"
+        }
+      ],
+      "explainArrivals": [
+        {
+          "id": 7,
+          "parent": 0,
+          "notused": 61,
+          "detail": "SEARCH yard_arrivals USING INDEX yard_arrivals_pending (owner_id=? AND state=?)"
+        },
+        {
+          "id": 29,
+          "parent": 0,
+          "notused": 0,
+          "detail": "USE TEMP B-TREE FOR ORDER BY"
+        }
+      ],
+      "schema": [
+        {
+          "type": "table",
+          "name": "yard_arrival_migrations",
+          "sql": "CREATE TABLE yard_arrival_migrations(version INTEGER PRIMARY KEY,applied_at TEXT NOT NULL)"
+        },
+        {
+          "type": "table",
+          "name": "yard_arrivals",
+          "sql": "CREATE TABLE yard_arrivals(\n          owner_id TEXT NOT NULL, arrival_id TEXT NOT NULL, event_id TEXT NOT NULL,\n          payload_json TEXT NOT NULL CHECK(json_valid(payload_json) AND length(payload_json)<=4096),\n          evidence_sha256 TEXT NOT NULL, state TEXT NOT NULL CHECK(state IN ('pending','consumed','cancelled')),\n          retain_until TEXT NOT NULL,\n          PRIMARY KEY(owner_id,event_id), UNIQUE(owner_id,arrival_id)\n        )"
+        },
+        {
+          "type": "index",
+          "name": "yard_arrivals_pending",
+          "sql": "CREATE INDEX yard_arrivals_pending ON yard_arrivals(owner_id,state,retain_until)"
+        },
+        {
+          "type": "table",
+          "name": "yard_migrations",
+          "sql": "CREATE TABLE yard_migrations (version INTEGER PRIMARY KEY, applied_at TEXT NOT NULL)"
+        },
+        {
+          "type": "table",
+          "name": "yard_owners",
+          "sql": "CREATE TABLE yard_owners (owner_id TEXT PRIMARY KEY NOT NULL, schema_version INTEGER NOT NULL, data TEXT NOT NULL CHECK(json_valid(data)))"
+        }
+      ],
+      "pragmas": {
+        "journal": {
+          "journal_mode": "wal"
+        },
+        "busy": {
+          "timeout": 5000
+        },
+        "sqlite": {
+          "version": "3.53.3"
+        }
+      }
+    },
+    {
+      "events": 30000,
+      "residents": 1,
+      "objects": 4,
+      "storedBytes": 12458891,
+      "snapshotResponseBytes": 17116996,
+      "sqlLookup": {
+        "medianMs": 6.356996999995317,
+        "minMs": 6.227241000000504,
+        "maxMs": 15.148153000001912,
+        "samplesMs": [
+          7.262708000002021,
+          7.709240000003774,
+          6.227241000000504,
+          15.148153000001912,
+          6.356996999995317,
+          6.271308000003046,
+          6.3460809999960475
+        ]
+      },
+      "jsonParse": {
+        "medianMs": 36.32926099999895,
+        "minMs": 33.49012300000322,
+        "maxMs": 61.654755000003206,
+        "samplesMs": [
+          34.140855999998166,
+          36.32926099999895,
+          61.654755000003206,
+          33.89292299999943,
+          33.49012300000322,
+          45.02603999999701,
+          43.903903999998874
+        ]
+      },
+      "storedValidation": {
+        "medianMs": 771.8569490000009,
+        "minMs": 640.1315420000028,
+        "maxMs": 1330.7562020000041,
+        "samplesMs": [
+          640.1315420000028,
+          849.6994209999975,
+          663.6798459999991,
+          704.8234440000015,
+          813.3599800000011,
+          771.8569490000009,
+          1330.7562020000041
+        ]
+      },
+      "snapshotDerivation": {
+        "medianMs": 65.9352779999972,
+        "minMs": 47.97943899999518,
+        "maxMs": 103.60275499999989,
+        "samplesMs": [
+          64.75464800000191,
+          65.9352779999972,
+          47.97943899999518,
+          69.30561999999918,
+          80.9021339999963,
+          103.60275499999989,
+          62.52160100000037
+        ]
+      },
+      "repositorySnapshot": {
+        "medianMs": 1238.0198640000017,
+        "minMs": 1083.5521960000042,
+        "maxMs": 1535.4727239999993,
+        "samplesMs": [
+          1238.0198640000017,
+          1103.5610460000025,
+          1385.2772439999972,
+          1351.3675030000013,
+          1115.3277899999957,
+          1083.5521960000042,
+          1535.4727239999993
+        ]
+      },
+      "snapshotJsonSerialization": {
+        "medianMs": 62.38091699999495,
+        "minMs": 40.92121999999654,
+        "maxMs": 69.83101100000204,
+        "samplesMs": [
+          65.49351499999466,
+          40.92121999999654,
+          63.5775100000028,
+          62.38091699999495,
+          69.83101100000204,
+          41.20092999999906,
+          56.0837840000022
+        ]
+      },
+      "snapshotBoundaryValidation": {
+        "medianMs": 2800.728940000001,
+        "minMs": 2513.7889390000055,
+        "maxMs": 2806.1805069999973,
+        "samplesMs": [
+          2806.1805069999973,
+          2513.7889390000055,
+          2800.728940000001
+        ]
+      },
+      "pageBoundaryValidation": {
+        "medianMs": 6203.4952709999925,
+        "minMs": 5259.275817000002,
+        "maxMs": 7283.723306,
+        "samplesMs": [
+          7283.723306,
+          6203.4952709999925,
+          5259.275817000002
+        ]
+      },
+      "emptyArrivalList": {
+        "medianMs": 1299.0172179999936,
+        "minMs": 1012.6941959999967,
+        "maxMs": 1475.6618220000091,
+        "samplesMs": [
+          1040.2495380000037,
+          1474.8923639999994,
+          1012.6941959999967,
+          1109.7280239999964,
+          1408.329099999988,
+          1475.6618220000091,
+          1299.0172179999936
+        ]
+      },
+      "snapshotSql": {
+        "elapsedMs": 1044.9065770000016,
+        "statements": [
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 12458891
+      },
+      "arrivalSql": {
+        "elapsedMs": 847.2181580000033,
+        "statements": [
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "all",
+            "sql": "SELECT owner_id,arrival_id,event_id,substr(payload_json,1,4097) AS payload_json,length(payload_json) AS payload_length,evidence_sha256,state,retain_until FROM yard_arrivals WHERE owner_id=? AND state='pending' AND json_extract(payload_json,'$.eligibleUntil')>? ORDER BY json_extract(payload_json,'$.admittedAt'),arrival_id LIMIT ?"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 12458891
+      },
+      "rename": {
+        "elapsedMs": 2319.7823630000057,
+        "statements": [
+          {
+            "method": "exec",
+            "sql": "BEGIN IMMEDIATE"
+          },
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "run",
+            "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+          },
+          {
+            "method": "exec",
+            "sql": "COMMIT"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 12458891
+      },
+      "renameLatency": {
+        "medianMs": 2689.8889159999962,
+        "minMs": 1481.969195999991,
+        "maxMs": 3106.215240999998,
+        "samplesMs": [
+          2466.4430319999956,
+          2536.3629470000014,
+          2754.5438529999956,
+          2689.8889159999962,
+          2720.1061219999974,
+          3106.215240999998,
+          1481.969195999991
+        ]
+      },
+      "preferenceLatency": {
+        "medianMs": 1575.469764999987,
+        "minMs": 1305.6180010000098,
+        "maxMs": 1694.3105050000013,
+        "samplesMs": [
+          1305.6180010000098,
+          1516.0190430000075,
+          1575.469764999987,
+          1694.3105050000013,
+          1440.797470999998,
+          1597.2961810000124,
+          1619.3971660000097
+        ]
+      },
+      "exactInventoryRetry": {
+        "elapsedMs": 1397.4120990000083,
+        "statements": [
+          {
+            "method": "exec",
+            "sql": "BEGIN IMMEDIATE"
+          },
+          {
+            "method": "get",
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+          },
+          {
+            "method": "run",
+            "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+          },
+          {
+            "method": "exec",
+            "sql": "COMMIT"
+          }
+        ],
+        "returnedRows": 1,
+        "returnedTextBytes": 12459059,
+        "rowChanges": 1
+      },
+      "exactInventoryRetryLatency": {
+        "medianMs": 1449.9907079999975,
+        "minMs": 1361.9422559999803,
+        "maxMs": 1523.175389000011,
+        "samplesMs": [
+          1413.6445660000027,
+          1449.9907079999975,
+          1490.190757000004,
+          1361.9422559999803,
+          1452.6788309999974,
+          1382.6604529999895,
+          1523.175389000011
+        ]
+      },
+      "explainOwner": [
+        {
+          "id": 3,
+          "parent": 0,
+          "notused": 39,
+          "detail": "SEARCH yard_owners USING INDEX sqlite_autoindex_yard_owners_1 (owner_id=?)"
+        }
+      ],
+      "explainArrivals": [
+        {
+          "id": 7,
+          "parent": 0,
+          "notused": 61,
+          "detail": "SEARCH yard_arrivals USING INDEX yard_arrivals_pending (owner_id=? AND state=?)"
+        },
+        {
+          "id": 29,
+          "parent": 0,
+          "notused": 0,
+          "detail": "USE TEMP B-TREE FOR ORDER BY"
+        }
+      ],
+      "schema": [
+        {
+          "type": "table",
+          "name": "yard_arrival_migrations",
+          "sql": "CREATE TABLE yard_arrival_migrations(version INTEGER PRIMARY KEY,applied_at TEXT NOT NULL)"
+        },
+        {
+          "type": "table",
+          "name": "yard_arrivals",
+          "sql": "CREATE TABLE yard_arrivals(\n          owner_id TEXT NOT NULL, arrival_id TEXT NOT NULL, event_id TEXT NOT NULL,\n          payload_json TEXT NOT NULL CHECK(json_valid(payload_json) AND length(payload_json)<=4096),\n          evidence_sha256 TEXT NOT NULL, state TEXT NOT NULL CHECK(state IN ('pending','consumed','cancelled')),\n          retain_until TEXT NOT NULL,\n          PRIMARY KEY(owner_id,event_id), UNIQUE(owner_id,arrival_id)\n        )"
+        },
+        {
+          "type": "index",
+          "name": "yard_arrivals_pending",
+          "sql": "CREATE INDEX yard_arrivals_pending ON yard_arrivals(owner_id,state,retain_until)"
+        },
+        {
+          "type": "table",
+          "name": "yard_migrations",
+          "sql": "CREATE TABLE yard_migrations (version INTEGER PRIMARY KEY, applied_at TEXT NOT NULL)"
+        },
+        {
+          "type": "table",
+          "name": "yard_owners",
+          "sql": "CREATE TABLE yard_owners (owner_id TEXT PRIMARY KEY NOT NULL, schema_version INTEGER NOT NULL, data TEXT NOT NULL CHECK(json_valid(data)))"
+        }
+      ],
+      "pragmas": {
+        "journal": {
+          "journal_mode": "wal"
+        },
+        "busy": {
+          "timeout": 5000
+        },
+        "sqlite": {
+          "version": "3.53.3"
+        }
+      }
+    }
+  ],
+  "batches": [
+    {
+      "events": 100,
+      "requestedBatch": 1,
+      "actualBatch": 1,
+      "operation": "exact-duplicate-import",
+      "elapsedMs": 9.452792000000045,
+      "inserted": 0,
+      "duplicates": 1,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 42088
+    },
+    {
+      "events": 100,
+      "requestedBatch": 100,
+      "actualBatch": 100,
+      "operation": "exact-duplicate-import",
+      "elapsedMs": 20.481471999999997,
+      "inserted": 0,
+      "duplicates": 100,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 42088
+    },
+    {
+      "events": 100,
+      "requestedBatch": 1000,
+      "actualBatch": 100,
+      "operation": "exact-duplicate-import",
+      "elapsedMs": 9.878632000000039,
+      "inserted": 0,
+      "duplicates": 100,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 42088
+    },
+    {
+      "events": 100,
+      "actualBatch": 1,
+      "operation": "append-correction",
+      "elapsedMs": 5.792438000000004,
+      "inserted": 1,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 42088
+    },
+    {
+      "events": 100,
+      "actualBatch": 100,
+      "operation": "append-correction",
+      "elapsedMs": 7.733486999999968,
+      "inserted": 100,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 42088
+    },
+    {
+      "events": 10000,
+      "requestedBatch": 1,
+      "actualBatch": 1,
+      "operation": "exact-duplicate-import",
+      "elapsedMs": 509.6027240000003,
+      "inserted": 0,
+      "duplicates": 1,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 4138890
+    },
+    {
+      "events": 10000,
+      "requestedBatch": 100,
+      "actualBatch": 100,
+      "operation": "exact-duplicate-import",
+      "elapsedMs": 857.1449810000013,
+      "inserted": 0,
+      "duplicates": 100,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 4138890
+    },
+    {
+      "events": 10000,
+      "requestedBatch": 1000,
+      "actualBatch": 1000,
+      "operation": "exact-duplicate-import",
+      "elapsedMs": 4210.134539000002,
+      "inserted": 0,
+      "duplicates": 1000,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 4138890
+    },
+    {
+      "events": 10000,
+      "actualBatch": 1,
+      "operation": "append-correction",
+      "elapsedMs": 521.8243679999941,
+      "inserted": 1,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 4138890
+    },
+    {
+      "events": 10000,
+      "actualBatch": 100,
+      "operation": "append-correction",
+      "elapsedMs": 650.6466209999999,
+      "inserted": 100,
+      "statements": [
+        {
+          "method": "exec",
+          "sql": "BEGIN IMMEDIATE"
+        },
+        {
+          "method": "get",
+          "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?"
+        },
+        {
+          "method": "run",
+          "sql": "INSERT INTO yard_owners (owner_id, schema_version, data) VALUES (?, 2, ?) ON CONFLICT(owner_id) DO UPDATE SET schema_version = 2, data = excluded.data"
+        },
+        {
+          "method": "exec",
+          "sql": "COMMIT"
+        }
+      ],
+      "returnedRows": 1,
+      "returnedTextBytes": 4138890
+    }
+  ],
+  "contention": [
+    {
+      "heldOwner": "audit-owner-a",
+      "attemptedOwner": "audit-owner-b",
+      "holdMs": 250,
+      "readDuringWriterMs": 2.5695229999837466,
+      "readEvents": 100,
+      "writeElapsedMs": 335.9986290000088,
+      "tenMsTimerActualMs": 337.4191750000173,
+      "failure": null,
+      "transactionOpenAfter": false
+    },
+    {
+      "heldOwner": "audit-owner-a",
+      "attemptedOwner": "audit-owner-b",
+      "holdMs": 5500,
+      "readDuringWriterMs": 2.4914459999999963,
+      "readEvents": 100,
+      "writeElapsedMs": 5008.722370000003,
+      "tenMsTimerActualMs": 5008.7721350000065,
+      "failure": {
+        "name": "Error",
+        "message": "database is locked",
+        "code": "ERR_SQLITE_ERROR",
+        "errcode": 5,
+        "errstr": "database is locked"
+      },
+      "transactionOpenAfter": false
+    }
+  ],
+  "probes": [],
+  "finished": true
+}

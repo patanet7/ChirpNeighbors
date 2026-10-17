@@ -1,0 +1,76 @@
+{
+  "syntheticOnly": true,
+  "realOwnerData": false,
+  "clientLimitBytes": 16777216,
+  "measurements": [
+    {
+      "events": 1000,
+      "storedBytes": 316847,
+      "responseBytes": 449125,
+      "restoreMs": 45.469026,
+      "snapshotMs": 42.90518100000001,
+      "clientMs": 94.21292400000002,
+      "clientAccepted": true,
+      "clientError": null
+    },
+    {
+      "events": 10000,
+      "storedBytes": 3160847,
+      "responseBytes": 4481126,
+      "restoreMs": 419.277634,
+      "snapshotMs": 125.37172699999996,
+      "clientMs": 380.13894500000004,
+      "clientAccepted": true,
+      "clientError": null
+    },
+    {
+      "events": 45000,
+      "storedBytes": 14220847,
+      "responseBytes": 20161126,
+      "restoreMs": 1895.306955,
+      "snapshotMs": 798.5084930000003,
+      "clientMs": 25.97789499999999,
+      "clientAccepted": false,
+      "clientError": "The server returned an invalid response. Keep the last confirmed state and refresh."
+    }
+  ],
+  "acceptedMutation": {
+    "reducedMotion": true,
+    "responseBytes": 20161157,
+    "exceedsClientLimit": true,
+    "durationMs": 2454.6993489999995
+  },
+  "otherOwnerEvents": 0,
+  "queryPlans": {
+    "ownerRead": [
+      {
+        "id": 3,
+        "parent": 0,
+        "notused": 39,
+        "detail": "SEARCH yard_owners USING INDEX sqlite_autoindex_yard_owners_1 (owner_id=?)"
+      }
+    ],
+    "arrivalRead": [
+      {
+        "id": 7,
+        "parent": 0,
+        "notused": 61,
+        "detail": "SEARCH yard_arrivals USING INDEX yard_arrivals_pending (owner_id=? AND state=?)"
+      },
+      {
+        "id": 29,
+        "parent": 0,
+        "notused": 0,
+        "detail": "USE TEMP B-TREE FOR ORDER BY"
+      }
+    ],
+    "arrivalDedupe": [
+      {
+        "id": 2,
+        "parent": 0,
+        "notused": 39,
+        "detail": "SEARCH yard_arrivals USING COVERING INDEX sqlite_autoindex_yard_arrivals_1 (owner_id=? AND event_id=?)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { zodToJsonSchema } from 'zod-to-json-schema';
+import { preserveZodCodecs } from '/Users/thomaspatane/GitHub/personal/birdsong-yard-sprites/scripts/contract-tools/zod-codecs.ts';
+import { schemaRecord, preserveUtf16Minimums, assertConstrainedSchema } from '/Users/thomaspatane/GitHub/personal/birdsong-yard-sprites/scripts/contract-tools/schema-tools.ts';
+import { catalogInterchangeSchema,createCatalogInterchange,exportCatalogInterchange,catalogContentDigest } from './src/lib/catalog/interchange';
+import { SPECIES_FACTS_CATALOG } from './src/lib/catalog/species-facts';
+import { buildFactsAliasRegistry } from './src/lib/catalog/identity';
+import { unconfiguredOccurrenceDataset } from './src/lib/catalog/occurrence';
+const schema=schemaRecord(zodToJsonSchema(catalogInterchangeSchema,{name:'CatalogInterchangeV1',$refStrategy:'root',target:'jsonSchema7',postProcess:preserveZodCodecs}));
+schema.$id='https://chirpneighbors.local/contracts/catalog-interchange-v1.schema.json';
+schema.description='Generated structural projection of shared Zod contracts; importCatalogInterchange is additionally required for digest verification, exact native taxonomy, alias uniqueness, DAG/calendar validity, source references and exclusion of owner-private pins. No rights, review, live occurrence or publication authority is conferred.';
+preserveUtf16Minimums(schema);assertConstrainedSchema(schema);
+mkdirSync('generated',{recursive:true});writeFileSync('generated/catalog-interchange-v1.schema.json',JSON.stringify(schema,null,2)+'\n');
+const generatedAt='2026-10-17T00:00:00Z',facts=SPECIES_FACTS_CATALOG;
+const example=await createCatalogInterchange({id:'chirp-catalog-example',revision:'1',generatedAt,payload:{facts,
+ aliases:buildFactsAliasRegistry(facts,await catalogContentDigest(facts),generatedAt),occurrence:unconfiguredOccurrenceDataset(),coverage:[]}});
+writeFileSync('generated/catalog-interchange-v1.example.json',exportCatalogInterchange(example)+'\n');
+const withReuse=await createCatalogInterchange({id:example.id,revision:example.revision,generatedAt,payload:{...example.payload,frameReuse:{schemaVersion:1,id:'chirp-frame-reuse-catalog',version:'1',frames:[],clips:[]}}});
+writeFileSync('generated/catalog-interchange-v1.with-frame-reuse.example.json',exportCatalogInterchange(withReuse)+'\n');
+writeFileSync('generated/README.txt','Generated from shared schemas; not a parallel inventory.\nComponent pins hash canonical contract JSON, not original files.\nJSON Schema checks structure; use importCatalogInterchange for semantic checks and SHA-256 integrity.\nThe example contains existing public-source learning facts, the one retained native alias, no occurrence claims, no coverage claims and no owner evidence or private assets.\nRegenerate in this workspace with the recorded esbuild/node command.\n');

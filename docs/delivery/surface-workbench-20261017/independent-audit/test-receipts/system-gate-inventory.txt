@@ -1,0 +1,98 @@
+delivery-matrix: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/delivery_matrix.py --check
+dependency-pins: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/check_python_dependencies.py
+dependency-consistency: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m pip check
+ui-types: npm run check
+ui-declarations: npm run check:declarations -- --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/declarations.json
+ui-declaration-probes: npm run test:declarations -- --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/declaration-probes.json
+ui-tooling-types: npm run check:typescript -- --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/tooling-types.json
+ui-tooling-probes: npm run test:typescript -- --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/tooling-probes.json
+source-coverage: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/check_source_coverage.py --ui-repo /Users/thomaspatane/GitHub/personal/birdsong-yard-sprites --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/source-coverage.json
+source-coverage-probes: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m unittest discover -s scripts -p test_source_coverage.py -v
+backend-test-types: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/check_backend_tests.py --intake-python /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 --evidence-dir /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/backend-test-types
+ui-autofixer: npm run check:autofixer -- --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/svelte-autofixer.json
+ui-css: npm run check:css
+ui-tooling-tests: npm run test:tooling
+ui-typed-lint: npm run lint
+ui-python-types: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/check_python_quality.py --mode check --python-executable python3 --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/python-quality
+ui-python-probes: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/check_python_quality.py --mode probes --python-executable python3 --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/python-probes
+python-harness-lint: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m ruff check --select F,RUF100 /Users/thomaspatane/GitHub/personal/birdsong-yard-sprites/scripts /Users/thomaspatane/GitHub/personal/ChirpNeighbors/backend-inference/tests
+ui-format: npm run format:check
+ui-unit: npm test
+ui-build: npm run build
+schema-export: node scripts/export-contract.ts --check --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors
+python-client-generation: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/generate_python_contracts.py --check
+audio-schema-export: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m app.audio_pipeline.export_contracts --check
+session-schema-export: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m app.models.session_verifier --check
+audio-openapi: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m app.audio_pipeline.export_openapi --check
+typescript-client-generation: node scripts/sync-python-contracts.ts --check --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors
+json-client-generation: node scripts/generate-contract-clients.ts contracts/json-value-v1.schema.json --output src/lib/contracts/generated --check
+schema-generator-tests: node --test scripts/contract-tools/boundary-inventory.test.ts scripts/contract-tools/compatibility.test.ts scripts/contract-tools/contract-inputs.test.ts scripts/contract-tools/property-cases.test.ts scripts/contract-tools/schema-tools.test.ts scripts/contract-tools/zod-codecs.test.ts
+zod-python-roundtrips: node scripts/check-contract-roundtrips.ts --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors --python /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3
+pydantic-typescript-roundtrips: node scripts/check-python-contracts.ts --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors --python /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3
+contract-inventory: node scripts/check-contract-inventory.ts --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors
+contract-compatibility: node scripts/check-contract-compatibility.ts --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors
+zod-python-properties: node scripts/check-contract-properties.ts --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors --python /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3
+pydantic-typescript-properties: node scripts/check-python-contracts.ts --properties --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors --python /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3
+python-reference-tests: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m unittest tests.test_schema_document -v
+python-types: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m mypy
+python-lint: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m ruff check app/models app/audio_pipeline tests/test_audio_api.py tests/test_audio_pipeline.py tests/test_session_verifier_contract.py tests/test_schema_document.py ../scripts
+python-format: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m ruff format --check app/models app/audio_pipeline tests/test_audio_api.py tests/test_audio_pipeline.py tests/test_session_verifier_contract.py tests/test_schema_document.py ../scripts
+python-contract-tests: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m unittest discover -s tests -p test_*contract.py -v
+python-audio-tests: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m unittest tests.test_audio_pipeline tests.test_audio_api -v
+dependency-checker-tests: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m unittest discover -s scripts -p test_quality_dependencies.py -v
+synthetic-audio-evaluation: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m app.audio_pipeline evaluate
+recovery-types: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m mypy --strict scripts/private_backup.py scripts/operations-smoke.py scripts/lifecycle-recovery-smoke.py scripts/abuse-smoke.py
+private-recovery-tests: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m unittest discover -s scripts/tests -v
+operations-http: python3 scripts/operations-smoke.py
+system-audio-http: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/system-audio-smoke.py --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors --python /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/system-audio
+intake-dependency-pins: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/check_python_dependencies.py --declarations backend-inference/requirements-intake-dev.txt --lock backend-inference/requirements-intake-dev.txt
+intake-quality: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/check_intake.py --evidence-dir /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/intake-quality
+simulator-quality: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 esp32-client/simulator_checks/check_simulator.py --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/simulator-quality.json
+core-model-isolation: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -c import importlib.util; assert all(importlib.util.find_spec(name) is None for name in ('numpy', 'onnx', 'onnxruntime')); from app.audio_pipeline.api import create_app; assert create_app() is not None; print('Core service imports without optional model packages')
+onnx-dependency-pins: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 scripts/check_python_dependencies.py --declarations backend-inference/requirements-audio-onnx.txt --lock backend-inference/requirements-onnx-quality.lock
+onnx-dependency-consistency: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m pip check
+onnx-types: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m mypy app/audio_onnx tests/optional/test_audio_onnx.py tests/optional/test_technical_fixture.py
+onnx-lint: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m ruff check app/audio_onnx tests/optional/test_audio_onnx.py tests/optional/test_technical_fixture.py
+onnx-format: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m ruff format --check app/audio_onnx tests/optional/test_audio_onnx.py tests/optional/test_technical_fixture.py
+onnx-technical-tests: /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 -m unittest discover -s tests/optional -v
+request-abuse-http: python3 scripts/abuse-smoke.py
+auth-provider-integration: node scripts/auth-integration.ts
+lifecycle-recovery-http: python3 scripts/lifecycle-recovery-smoke.py
+audio-confirmation-lifecycle: python3 scripts/audio-lifecycle-browser-checks.py --main-repo /Users/thomaspatane/GitHub/personal/ChirpNeighbors --onnx-python /Users/thomaspatane/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/bin/python3 --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/audio-lifecycle
+browser-core: python3 scripts/browser-checks.py --require-production
+browser-layered: python3 scripts/layered-browser-checks.py
+browser-manifests: python3 scripts/manifest-browser-checks.py
+browser-sleep: python3 scripts/sleep-browser-checks.py
+browser-arrangement: python3 scripts/arrangement-browser-checks.py
+browser-routines: python3 scripts/routines-browser-checks.py
+browser-findings: python3 scripts/findings-browser-checks.py
+browser-scenes: python3 scripts/scenes-browser-checks.py
+browser-recordings: python3 scripts/recordings-browser-checks.py
+browser-consolidation: python3 scripts/consolidation-browser-checks.py
+browser-auth: python3 scripts/auth-browser-checks.py
+browser-assets: python3 scripts/asset-pipeline-browser-checks.py
+browser-workbench-pagination: python3 scripts/workbench-pagination-browser-checks.py
+browser-animation-planning: python3 scripts/animation-planning-browser-checks.py
+browser-reference-admission: python3 scripts/reference-admission-browser-checks.py
+browser-reference-recovery: python3 scripts/reference-recovery-browser-checks.py
+browser-recordings-ui: python3 scripts/recordings-ui-browser-checks.py
+browser-analysis: python3 scripts/analysis-browser-checks.py
+browser-recording-lifecycle: python3 scripts/recording-lifecycle-browser-checks.py
+browser-image-intake: python3 scripts/image-intake-browser-checks.py
+browser-image-v3: python3 scripts/image-v3-browser-checks.py
+browser-png-intake: python3 scripts/png-intake-browser-checks.py
+browser-asset-retention: python3 scripts/asset-retention-browser-checks.py
+browser-asset-history: python3 scripts/asset-history-browser-checks.py
+browser-shared-catalog: python3 scripts/shared-catalog-browser-checks.py
+browser-shapes: python3 scripts/shape-browser-checks.py
+browser-evidence: python3 scripts/evidence-browser-checks.py
+browser-sharing: python3 scripts/share-browser-checks.py
+browser-inventory: python3 scripts/inventory-browser-checks.py --require-production
+browser-behavior: python3 scripts/behavior-browser-checks.py
+browser-ontology: python3 scripts/ontology-browser-checks.py
+browser-environment: python3 scripts/environment-browser-checks.py
+browser-resources: python3 scripts/resources-browser-checks.py
+browser-arrivals: python3 scripts/arrivals-browser-checks.py
+browser-analytics: python3 scripts/analytics-browser-checks.py
+browser-session-binding: python3 scripts/session-binding-browser-checks.py
+browser-renderer-correctness: python3 scripts/renderer-visual-parity-checks.py --repo /Users/thomaspatane/GitHub/personal/birdsong-yard-sprites --output /Users/thomaspatane/GitHub/personal/ChirpNeighbors/docs/delivery/surface-workbench-20261017/independent-audit/test-receipts/system-list-only/renderer-correctness

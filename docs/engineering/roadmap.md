@@ -82,6 +82,38 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 
 **Acceptance tests:** A clean supported machine follows the documented commands without inherited packages; imports/version checks confirm the intended packages in each environment and NumPy/ONNX remain absent from core. Warm bootstrap is idempotent; failed installs create no success marker. `verify_system.py --list` resolves the same commands/interpreters, then a committed frozen run records its actual result. Syntax/command inspection alone does not close clean-platform acceptance.
 
+#### EN-003-E — Bound yard responses without losing retained history
+
+**Status / priority:** Open P1 correctness defect. **Evidence:** CSA-04 / RQ01 in the [integrated query audit](../architecture/integrated-query-audit-20261012.md). **Dependencies:** EN-001, PB-001, PB-002, PB-007.
+
+**Work:** Reconcile accepted owner storage, expanded snapshots, assets and bounded client transport. Define a versioned compact/paged read projection and mutation acknowledgement without silently truncating evidence or stranding already-valid databases. Merely raising the client cap or lowering storage admission does not repair existing large owners.
+
+**Acceptance:** Reproduce both 30k/45k-event valid histories and declared maximum supported shapes; every successful write must have a consumable confirmation, recoverable read and export. A rejected operation changes no state. Old readers fail predictably or keep their supported projection; migration/restore preserves all evidence/pins; command retry, owner isolation and small-yard compatibility pass. Measure serialized UTF-8 bytes at real HTTP/client boundaries, including asset overhead and derived history.
+
+#### EN-003-F — Reduce repeated owner snapshot work
+
+**Status / priority:** Open P2. **Evidence:** RQ02. **Dependencies:** Existing PB-001/PB-002/PB-010 evidence and resident semantics. **Coordinate with:** EN-003-E response projections; request-local work can proceed before that versioned transport change.
+
+**Work:** Within one verified request, avoid reparsing/reprojecting unchanged complete owner history at every boundary; make empty-arrival checks avoid an unnecessary full snapshot. Reuse event-origin lookup for residents instead of rescanning history for each resident. Preserve one authoritative validation boundary for untrusted data, expiry semantics and owner isolation. Do not introduce a global authorization cache.
+
+**Acceptance:** Instrument 100/1k/10k/30k-event snapshots, initial page, yard command and empty/nonempty arrivals. Count full-owner hydration/validation and serialized bytes; repeated work must fall while outputs match. Include corruption, corrections, resident origin, expiry/clock changes and account switch. Do not assert success from SQL statement count alone.
+
+#### EN-003-G — Index event identities within each import transaction
+
+**Status / priority:** Open P2. **Evidence:** RQ03; 1k duplicate imports against 10k events took 4.21 s in an isolated warm probe. **Dependencies:** Existing PB-001/PB-010 identity and correction semantics. **Coordinate with:** EN-003-E; local scan/no-op improvements do not require its transport migration.
+
+**Work:** Build one in-memory event identity/content lookup per transaction instead of scanning retained history for every incoming item. Detect exact no-op imports/retries and avoid rewriting the complete owner aggregate when no state or required hook changes. Keep original evidence and conflicting-id semantics. Include correction-revision lookup/rebuild cost and exact inventory retry paths that currently UPSERT unchanged owner state; these remain open parts of RQ03.
+
+**Acceptance:** Exact retries, changed-content conflicts, mixed new/duplicate batches, same-batch duplicates and rollback yield identical state/arrival effects/receipts. Query/scan counts grow with history plus batch, not their product. Compare 100/1k batches over small/large histories; no-op reads must not silently skip required reconciliation or owner checks. For an exact import/inventory retry with no required reconciliation or hook changes, SQLite `total_changes` must remain unchanged. Exercise correction histories and resident-origin projection alongside batching.
+
+#### EN-003-H — Bound synchronous writer waits and preserve retries
+
+**Status / priority:** Open P2 operational defect. **Evidence:** RQ04; the synchronous 5,000 ms busy wait blocked unrelated owner work in an isolated contention probe. **Dependencies:** Existing SQLite/CAS/receipt and local job-lease authorities. **Coordinate with:** EN-003-C streaming admission, EN-003-E response handling and EN-006 worker integration; unavailable external/original workers are not prerequisites for local contention repair.
+
+**Work:** Define bounded writer admission/busy handling and retry semantics for the synchronous runtime, with a safe HTTP error classification. Preserve WAL committed reads, CAS/idempotent receipts, lease claims and atomic writes. Consider async backoff or a dedicated writer only after measurement; no speculative service layer or timeout change that loses successful writes.
+
+**Acceptance:** Independent-process lock contention under multiple owners must not stall the event loop for the full SQLite busy interval. Measure timer drift and unrelated reads; test overload/retry, cancellation, committed-but-lost replies, lease completion, restart and partial failure. Record CPU/storage/concurrency conditions; use correctness/work-count gates rather than inventing a production SLO.
+
 ### EN-004 — Real audio model accuracy, taxonomy calibration and independent ML execution
 
 **Source / decision:** Architecture/delivery record; not new user authorization; Real identification goal agreed; old numeric targets unvalidated proposals. **Implementation:** Validation/chunking/fixture/optional local ONNX adapters implemented. **Integration:** Technical cross-process integration only. **Release / production:** See [current release status](../publication/20261011/README.md); historical local integration is not production validation.
@@ -160,6 +192,21 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 
 **Integrated environment extension (E-ENV; separate from E-INT):** PB-023/PB-024 add local illustrative rendering and behavior without a real provider or location consent. The [environment browser report](../delivery/LOCAL-EVIDENCE.md) verifies neutral unconfigured real weather, transient saved-clock previews and unchanged private/public state. Persisted weather contracts and external provider dependencies remain unchanged; the local pass does not establish real weather integration.
 
+**Local workbench follow-up (exploratory prototype checked in desktop and narrow Mac viewports):** PB-023-B
+adds an opt-in synthetic basin and surface accumulation/melt experiment under the
+existing renderer/clock; PB-011-E retains production water/object/yard art gates.
+Synthetic rain, temperature controls, bath-slot effects and meltwater accounting
+are not a provider integration, location grant, real terrain survey or physical
+fluid/thermal model. EN-009 remains unconfigured; existing manual/simulated and
+neutral real-mode behavior, privacy and saved settings must remain compatible.
+The [current prototype receipt](../delivery/surface-workbench-20261017/README.md)
+does not qualify a physical phone or production hydrology. The separate
+[fixed-domain SI experiment](../delivery/surface-workbench-20261017/si-core-checkpoint.md)
+has passing focused numerical/clock tests and bounded independent code approval;
+the full [water/snow design](../architecture/surface-weather-model.md) still requires
+topology/persistence/authored-scene integration, calibration and actual renderer
+acceptance. EN-009 remains a separate unconfigured provider boundary.
+
 ### EN-010 — Publication/PR and production checkpoint
 
 **Source / decision:** The original local task excluded publication; subsequent user instructions authorized engine PRs/merges and later the separately reviewed documentation PRs/merges. **Implementation:** Engine review branches published. **Integration:** Both engine PRs and main documentation cleanup PR #4 merged; subsequent backlog/runtime/visual candidates require their own exact source/check review. **Release / production:** See [current release status](../publication/20261012/README.md); no deployment is established by a Git merge.
@@ -188,7 +235,7 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 
 #### EN-010-C — Maintain one current task authority
 
-**Status / priority:** Main/paired-UI documentation reconciliation is committed and pushed. Main cleanup PR #4 is merged; the updated backlog candidate awaits its own checks, and UI documentation merge remains blocked on hosted execution. **Review:** RDX-006, P2. **Dependencies:** actual reviewed code/CI evidence from each implementation owner. The UI's engine checklist and contracts/operations audit are labeled historical; its README points to the canonical setup and PB/EN authority. Current status remains in these topic entries, with implementation evidence in the [local follow-up](../architecture/architecture-review-20261012.md#local-implementation-follow-up).
+**Status / priority:** The 2026-10-17 main/UI preservation checkpoints are pushed and canonical copies restored. This current index reconciliation is implemented but uncommitted; no new hosted pass or merge is implied. Historical main cleanup PR #4 is merged; the older UI documentation/hosted-execution gap remains separate. **Review:** RDX-006, P2. **Dependencies:** actual reviewed code/CI evidence from each implementation owner. The UI's engine checklist and contracts/operations audit are labeled historical; its README points to the canonical setup and PB/EN authority. The [single current task index](../delivery/product-behavior-and-ideas.md#current-work-and-evidence--2026-10-17) reconciles delivery owners, state, dependencies and next acceptance, including the 2026-10-17 preservation checkpoint and pending integration. These topic entries retain detailed requirements; the [local follow-up](../architecture/architecture-review-20261012.md#local-implementation-follow-up) remains dated implementation evidence.
 
 **Acceptance:** Every review finding maps to one PB/EN requirement/subtask with current status, dependencies and observable acceptance. Historical task tables remain dated evidence, preserving unique requirements/provenance and failed attempts, with links to the canonical index. Main/UI setup links resolve; stale ESP32/publication checkboxes do not masquerade as current blockers. Do not mark another branch's planned fix complete before receiving its commit and verification evidence.
 
@@ -203,6 +250,14 @@ Lettered IDs below are implementation subtasks of the existing requirement, not 
 **Tests and evidence:** [U:src/lib/server/recordings/lifecycle.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/recordings/lifecycle.test.ts); [U:src/lib/server/operations/lifecycle-recovery.test.ts](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/operations/lifecycle-recovery.test.ts); [U:scripts/tests/test_private_backup.py](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/tests/test_private_backup.py). [E-CAT:recording-lifecycle/recording-lifecycle-browser-results.json](../delivery/LOCAL-EVIDENCE.md); [E-CAT:lifecycle-recovery-http.log](../delivery/LOCAL-EVIDENCE.md).
 
 **Dependencies:** PB-012, PB-013, PB-022, EN-003, EN-006. **Remaining gap:** No automatic discovery/erasure of offline copies, account-wide orchestrator, production purge or guarantee of newest ledger; archive is not deletion authorization. E-REF adds terminal reference revocation for the current store, but cannot secure rollback of both database and external tombstones from an older entire filesystem; supported reference-store cold restore is deliberately refused. Recording-deletion export is not a reference-revocation export. **Next action:** Establish latest-receipt custody and owner/operator retention/erasure policy; preserve the E-REC freshness limit. Original worker integration precedes distributed cleanup.
+
+**Planned photo-yard dependency:** PB-011-F extends this policy question to a private
+original, metadata-stripped working copy, editable mask revisions, inpainted/stylized
+layers, geometry, scene pins, caches and backups. Define complete derivative lineage,
+rights-revocation effects, reversible prior-scene fallback and separately authorized
+deletion before real photo processing or sharing. Existing source-file revocation
+does not by itself implement scene-wide erasure or offline-copy guarantees. The
+photo-free storyboard performs no intake, processing, upload, deletion or publication.
 
 **Bounded reference cold recovery (E-REC; local integrated checkpoint):** Complete current review/revocation/idempotency authority may reconcile only a backup with the same immutable admission set. The independently retained latest digest binds bytes but cannot prove newestness when both authority and receipt roll back. Loss of genuine authority or the trusted receipt remains blocked. Existing recording-deletion evidence stays separate; this introduces no purge, erasure policy or discovery of offline copies.
 

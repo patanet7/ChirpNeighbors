@@ -1,0 +1,193 @@
+{
+  "completed": true,
+  "failure": null,
+  "checks": [
+    {
+      "check": "A fresh yard has a versioned environment with four distinct object kinds",
+      "passed": true
+    },
+    {
+      "check": "Weather begins in an explicitly simulated mode",
+      "passed": true
+    },
+    {
+      "check": "Arrangement controls open with the keyboard",
+      "passed": true
+    },
+    {
+      "check": "Visible place control creates one persisted object with a stable ID",
+      "passed": true
+    },
+    {
+      "check": "Keyboard move persists coordinates without replacing object identity",
+      "passed": true
+    },
+    {
+      "check": "Overlapping placement is rejected atomically",
+      "passed": true
+    },
+    {
+      "check": "Out-of-bounds placement is rejected atomically",
+      "passed": true
+    },
+    {
+      "check": "Visible return control removes only the selected placement",
+      "passed": true
+    },
+    {
+      "check": "Scene replacement reanchors the edge object safely while preserving all object IDs",
+      "passed": true
+    },
+    {
+      "check": "Palette changes preserve object IDs and placements",
+      "passed": true
+    },
+    {
+      "check": "Adding, moving, removing and restyling preserve bird IDs, artwork pins and evidence",
+      "passed": true
+    },
+    {
+      "check": "Manual midnight visibly changes lighting from midday",
+      "passed": true
+    },
+    {
+      "check": "Manual rain renders distinct pixels over the night scene",
+      "passed": true
+    },
+    {
+      "check": "Reduced motion freezes rain particles across clock updates",
+      "passed": true
+    },
+    {
+      "check": "Manual snow is visibly distinct from rain",
+      "passed": true
+    },
+    {
+      "check": "desktop-layered-yard: no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "renderer": "pixi"
+      }
+    },
+    {
+      "check": "mobile-layered-yard: no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "width": 390,
+        "scrollWidth": 390,
+        "renderer": "pixi"
+      }
+    },
+    {
+      "check": "Weather and object controls fit a mobile viewport",
+      "passed": true
+    },
+    {
+      "check": "Open arrangement controls do not overflow at 320 pixels",
+      "passed": true
+    },
+    {
+      "check": "desktop-weather-controls: no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "renderer": "pixi"
+      }
+    },
+    {
+      "check": "Enabled motion animates rain in the empty sky independently of bird pixels",
+      "passed": true
+    },
+    {
+      "check": "Simulated cycle controls persist duration and seed",
+      "passed": true
+    },
+    {
+      "check": "Simulated weather advances from dawn to day on the running page",
+      "passed": true
+    },
+    {
+      "check": "Real weather is explicitly unconfigured, with no fabricated forecast",
+      "passed": true
+    },
+    {
+      "check": "Selecting real mode requests no geolocation and no weather endpoint",
+      "passed": true
+    },
+    {
+      "check": "Weather settings reject location or provider metadata atomically",
+      "passed": true
+    },
+    {
+      "check": "Shared projection exposes neither environment internals nor private object IDs",
+      "passed": true
+    },
+    {
+      "check": "Weather changes preserve residents, artwork pins and discovery history",
+      "passed": true
+    },
+    {
+      "check": "Private backup includes the persisted object and weather environment",
+      "passed": true
+    },
+    {
+      "check": "Page reload retains object placements and weather settings",
+      "passed": true
+    },
+    {
+      "check": "Another owner gets an independent default environment",
+      "passed": true
+    },
+    {
+      "check": "Cross-owner object and weather mutations are denied",
+      "passed": true
+    },
+    {
+      "check": "Real server restart retains typed weather and all object IDs and coordinates",
+      "passed": true
+    },
+    {
+      "check": "Environment persistence leaves protected bird data unchanged after restart",
+      "passed": true
+    },
+    {
+      "check": "Owner environment isolation survives server restart",
+      "passed": true
+    },
+    {
+      "check": "Layered journey has no browser runtime exceptions",
+      "passed": true
+    },
+    {
+      "check": "Layered journey attempts no external browser requests",
+      "passed": true
+    }
+  ],
+  "audits": {
+    "desktop-layered-yard": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "renderer": "pixi"
+    },
+    "mobile-layered-yard": {
+      "width": 390,
+      "scrollWidth": 390,
+      "renderer": "pixi"
+    },
+    "desktop-weather-controls": {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "renderer": "pixi"
+    }
+  },
+  "runtime_errors": [],
+  "external_requests": [],
+  "notes": [
+    "Only isolated temporary development identities/storage are used.",
+    "Weather is manual/simulated; the real provider remains unconfigured.",
+    "No actual location, live device, external provider or public share is used."
+  ]
+}

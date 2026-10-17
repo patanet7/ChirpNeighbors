@@ -1,0 +1,158 @@
+[
+  {
+    "archives": 32,
+    "name": "asset-lifecycle-preflight-archives",
+    "medianMs": 1.4019279999997707,
+    "p95Ms": 5.064813999999842,
+    "count": 72,
+    "rows": 102,
+    "queries": [
+      {
+        "sql": "SELECT sql FROM sqlite_master WHERE name=? AND type=?",
+        "n": 4
+      },
+      {
+        "sql": "SELECT version FROM asset_lifecycle_migrations LIMIT 2",
+        "n": 1
+      },
+      {
+        "sql": "SELECT name FROM sqlite_master WHERE type='trigger' AND tbl_name IN ('asset_archives','asset_lifecycle_receipts','asset_lifecycle_migrations')",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_archives LIMIT 16385",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_lifecycle_receipts LIMIT 32769",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+        "n": 32
+      },
+      {
+        "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+        "n": 32
+      }
+    ],
+    "entries": null
+  },
+  {
+    "archives": 256,
+    "name": "asset-lifecycle-preflight-archives",
+    "medianMs": 8.400478999999905,
+    "p95Ms": 26.955701999999746,
+    "count": 520,
+    "rows": 774,
+    "queries": [
+      {
+        "sql": "SELECT sql FROM sqlite_master WHERE name=? AND type=?",
+        "n": 4
+      },
+      {
+        "sql": "SELECT version FROM asset_lifecycle_migrations LIMIT 2",
+        "n": 1
+      },
+      {
+        "sql": "SELECT name FROM sqlite_master WHERE type='trigger' AND tbl_name IN ('asset_archives','asset_lifecycle_receipts','asset_lifecycle_migrations')",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_archives LIMIT 16385",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_lifecycle_receipts LIMIT 32769",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+        "n": 256
+      },
+      {
+        "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+        "n": 256
+      }
+    ],
+    "entries": null
+  },
+  {
+    "archives": 2048,
+    "name": "asset-lifecycle-preflight-archives",
+    "medianMs": 182.69725999999991,
+    "p95Ms": 229.01560699999982,
+    "count": 4104,
+    "rows": 6150,
+    "queries": [
+      {
+        "sql": "SELECT sql FROM sqlite_master WHERE name=? AND type=?",
+        "n": 4
+      },
+      {
+        "sql": "SELECT version FROM asset_lifecycle_migrations LIMIT 2",
+        "n": 1
+      },
+      {
+        "sql": "SELECT name FROM sqlite_master WHERE type='trigger' AND tbl_name IN ('asset_archives','asset_lifecycle_receipts','asset_lifecycle_migrations')",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_archives LIMIT 16385",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_lifecycle_receipts LIMIT 32769",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+        "n": 2048
+      },
+      {
+        "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+        "n": 2048
+      }
+    ],
+    "entries": null
+  },
+  {
+    "archives": 8192,
+    "name": "asset-lifecycle-preflight-archives",
+    "medianMs": 446.71203200000036,
+    "p95Ms": 690.7033280000005,
+    "count": 16392,
+    "rows": 24582,
+    "queries": [
+      {
+        "sql": "SELECT sql FROM sqlite_master WHERE name=? AND type=?",
+        "n": 4
+      },
+      {
+        "sql": "SELECT version FROM asset_lifecycle_migrations LIMIT 2",
+        "n": 1
+      },
+      {
+        "sql": "SELECT name FROM sqlite_master WHERE type='trigger' AND tbl_name IN ('asset_archives','asset_lifecycle_receipts','asset_lifecycle_migrations')",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_archives LIMIT 16385",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_lifecycle_receipts LIMIT 32769",
+        "n": 1
+      },
+      {
+        "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+        "n": 8192
+      },
+      {
+        "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+        "n": 8192
+      }
+    ],
+    "entries": null
+  }
+]

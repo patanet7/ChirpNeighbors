@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "measuredAt": "2026-10-17T00:56:55.444Z",
+  "runtime": "v24.19.0",
+  "modelScope": "Pure fixed-domain SI passive head-routing network with fixed conductance, snapshot forward Euler edge transfers and explicit mass ledger. Synthetic analytical verification only; no field calibration, momentum waves, renderer or production qualification.",
+  "source": {
+    "path": "U:src/lib/engine/surface-hydrology.ts",
+    "sha256": "e5a36d86f71e3b187dcbe6faa102b095c72f2adea31348c702b0fb25df48ad2c",
+    "gitHead": "d3fcadbaa5d4e646268ecdda4ce8514478776f8a",
+    "workingTreeFile": true
+  },
+  "acceptance": {
+    "twoCellMaxDepthErrorM": 0.000001,
+    "twoCellHalvingRatio": [
+      1.8,
+      2.2
+    ],
+    "strip32MaxDepthErrorM": 0.000001,
+    "stripSuccessiveRefinementRatios": [
+      3.5,
+      4.5
+    ],
+    "stepMassResidual": "max(1e-12m3,1e-9*max(Wold,Wnew,stepInputs,stepOutputs,1e-6m3))",
+    "runMassResidual": "max(1e-12m3,1e-9*max(Winitial,cumulativeInputs,cumulativeOutputs,1e-6m3))"
+  },
+  "twoCell": {
+    "method": "h0,1=.02 +/- .01*exp(-2*G*t/A); fixed first-order forward Euler",
+    "samples": [
+      {
+        "dtSeconds": 0.05,
+        "timeSeconds": 60,
+        "areaM2": 0.25,
+        "conductanceM2PerSecond": 0.001,
+        "actualDepthsM": [
+          0.026187239756077018,
+          0.01381276024392297
+        ],
+        "exactDepthsM": [
+          0.02618783391806141,
+          0.013812166081938592
+        ],
+        "maxDepthErrorM": 5.941619843907731e-7,
+        "donorLimitedSteps": 0,
+        "maxAbsoluteMassResidualM3": 1.734723475976807e-18,
+        "sumAbsoluteMassResidualM3": 2.983724378680108e-16
+      },
+      {
+        "dtSeconds": 0.025,
+        "timeSeconds": 60,
+        "areaM2": 0.25,
+        "conductanceM2PerSecond": 0.001,
+        "actualDepthsM": [
+          0.02618753686955534,
+          0.013812463130444538
+        ],
+        "exactDepthsM": [
+          0.02618783391806141,
+          0.013812166081938592
+        ],
+        "maxDepthErrorM": 2.970485060704853e-7,
+        "donorLimitedSteps": 0,
+        "maxAbsoluteMassResidualM3": 1.734723475976807e-18,
+        "sumAbsoluteMassResidualM3": 6.071532165918825e-16
+      },
+      {
+        "dtSeconds": 0.0125,
+        "timeSeconds": 60,
+        "areaM2": 0.25,
+        "conductanceM2PerSecond": 0.001,
+        "actualDepthsM": [
+          0.02618768540192852,
+          0.013812314598071621
+        ],
+        "exactDepthsM": [
+          0.02618783391806141,
+          0.013812166081938592
+        ],
+        "maxDepthErrorM": 1.4851613302883926e-7,
+        "donorLimitedSteps": 0,
+        "maxAbsoluteMassResidualM3": 1.734723475976807e-18,
+        "sumAbsoluteMassResidualM3": 1.0755285551056204e-15
+      }
+    ],
+    "successiveErrorRatios": [
+      2.000218726061484,
+      2.000109348475991
+    ]
+  },
+  "strip": {
+    "method": "Closed no-flux linear diffusion strip: h=.02+.005*cos(pi*x/2)*exp(-D*(pi/2)^2*t); compare exact cell averages. Temporal contribution compares computed result to the analytical semidiscrete eigenmode; spatial contribution compares that eigenmode to continuum cell averages.",
+    "samples": [
+      {
+        "cells": 8,
+        "extentM": [
+          2,
+          1
+        ],
+        "dtSeconds": 0.005,
+        "timeSeconds": 60,
+        "dxM": 0.25,
+        "effectiveDiffusivityM2PerSecond": 0.001,
+        "initialization": "exact cell averages using cos(k*xCenter)*sinc(k*dx/2)",
+        "l1MeanDepthErrorM": 0.000005198278116223722,
+        "lInfinityDepthErrorM": 0.000007957179647685025,
+        "temporalContributionLInfinityM": 3.746920849978519e-9,
+        "spatialContributionLInfinityM": 0.000007960926568441329,
+        "donorLimitedSteps": 0,
+        "maxAbsoluteMassResidualM3": 2.0816681711721685e-17,
+        "sumAbsoluteMassResidualM3": 4.6178338930502605e-14
+      },
+      {
+        "cells": 16,
+        "extentM": [
+          2,
+          1
+        ],
+        "dtSeconds": 0.005,
+        "timeSeconds": 60,
+        "dxM": 0.125,
+        "effectiveDiffusivityM2PerSecond": 0.001,
+        "initialization": "exact cell averages using cos(k*xCenter)*sinc(k*dx/2)",
+        "l1MeanDepthErrorM": 0.00000130178554346729,
+        "lInfinityDepthErrorM": 0.0000020317260870268694,
+        "temporalContributionLInfinityM": 3.8892878743979065e-9,
+        "spatialContributionLInfinityM": 0.000002035615374797184,
+        "donorLimitedSteps": 0,
+        "maxAbsoluteMassResidualM3": 2.7755575615628914e-17,
+        "sumAbsoluteMassResidualM3": 6.376149608300352e-14
+      },
+      {
+        "cells": 32,
+        "extentM": [
+          2,
+          1
+        ],
+        "dtSeconds": 0.005,
+        "timeSeconds": 60,
+        "dxM": 0.0625,
+        "effectiveDiffusivityM2PerSecond": 0.001,
+        "initialization": "exact cell averages using cos(k*xCenter)*sinc(k*dx/2)",
+        "l1MeanDepthErrorM": 3.2382254012974787e-7,
+        "lInfinityDepthErrorM": 5.078425497524741e-7,
+        "temporalContributionLInfinityM": 3.925594946330158e-9,
+        "spatialContributionLInfinityM": 5.117681446363542e-7,
+        "donorLimitedSteps": 0,
+        "maxAbsoluteMassResidualM3": 4.163336342344337e-17,
+        "sumAbsoluteMassResidualM3": 9.583306370686273e-14
+      }
+    ],
+    "l1SuccessiveErrorRatios": [
+      3.9931908464570682,
+      4.020058464570428
+    ],
+    "lInfinitySuccessiveErrorRatios": [
+      3.9164628039644755,
+      4.000700784164593
+    ]
+  }
+}

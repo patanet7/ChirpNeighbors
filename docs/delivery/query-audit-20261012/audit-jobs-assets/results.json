@@ -1,0 +1,3390 @@
+[
+  {
+    "count": 32,
+    "rows": {
+      "pip_jobs": 32,
+      "pip_stages": 64,
+      "pip_runs": 64,
+      "pip_artifacts": 32,
+      "pip_reviews": 32
+    },
+    "inputBytes": 2720,
+    "artifactBytes": 872192,
+    "databaseBytes": 1073152,
+    "baselinePlans": [
+      {
+        "name": "artifacts",
+        "sql": "SELECT a.*,r.decision,r.reviewed_at,r.note FROM pip_artifacts a LEFT JOIN pip_reviews r ON r.artifact_id=a.id AND r.owner_id=a.owner_id WHERE a.owner_id=? AND a.job_id=? ORDER BY a.created_at,a.version",
+        "plan": [
+          {
+            "id": 6,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH a USING INDEX sqlite_autoindex_pip_artifacts_2 (owner_id=?)"
+          },
+          {
+            "id": 15,
+            "parent": 0,
+            "notused": 46,
+            "detail": "SEARCH r USING INDEX sqlite_autoindex_pip_reviews_1 (artifact_id=?) LEFT-JOIN"
+          },
+          {
+            "id": 51,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "artifact_budget",
+        "sql": "SELECT COUNT(*) AS n,COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+        "plan": [
+          {
+            "id": 4,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_artifacts USING INDEX sqlite_autoindex_pip_artifacts_2 (owner_id=?)"
+          }
+        ]
+      },
+      {
+        "name": "runs",
+        "sql": "SELECT * FROM pip_runs WHERE job_id=? ORDER BY started_at,attempt",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 216,
+            "detail": "SCAN pip_runs"
+          },
+          {
+            "id": 18,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "stage_claim",
+        "sql": "SELECT * FROM pip_stages WHERE job_id=? AND status!='succeeded' ORDER BY ordinal LIMIT 1",
+        "plan": [
+          {
+            "id": 5,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_stages USING INDEX sqlite_autoindex_pip_stages_1 (job_id=?)"
+          },
+          {
+            "id": 35,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "page_first",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep_bounded_candidate",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "references_page",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND definition_id='reference-generation' AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "cancel_children",
+        "sql": "SELECT j.id FROM pip_jobs j WHERE j.parent_job_id=? AND j.owner_id=?",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH j USING INDEX pip_jobs_owner_insertion (owner_id=?)"
+          }
+        ]
+      }
+    ],
+    "indexedPlans": [
+      {
+        "name": "artifacts",
+        "sql": "SELECT a.*,r.decision,r.reviewed_at,r.note FROM pip_artifacts a LEFT JOIN pip_reviews r ON r.artifact_id=a.id AND r.owner_id=a.owner_id WHERE a.owner_id=? AND a.job_id=? ORDER BY a.created_at,a.version",
+        "plan": [
+          {
+            "id": 6,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH a USING INDEX audit_artifacts_owner_job (owner_id=? AND job_id=?)"
+          },
+          {
+            "id": 15,
+            "parent": 0,
+            "notused": 46,
+            "detail": "SEARCH r USING INDEX sqlite_autoindex_pip_reviews_1 (artifact_id=?) LEFT-JOIN"
+          }
+        ]
+      },
+      {
+        "name": "artifact_budget",
+        "sql": "SELECT COUNT(*) AS n,COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+        "plan": [
+          {
+            "id": 4,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH pip_artifacts USING INDEX audit_artifacts_owner_job (owner_id=? AND job_id=?)"
+          }
+        ]
+      },
+      {
+        "name": "runs",
+        "sql": "SELECT * FROM pip_runs WHERE job_id=? ORDER BY started_at,attempt",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 216,
+            "detail": "SCAN pip_runs"
+          },
+          {
+            "id": 18,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "stage_claim",
+        "sql": "SELECT * FROM pip_stages WHERE job_id=? AND status!='succeeded' ORDER BY ordinal LIMIT 1",
+        "plan": [
+          {
+            "id": 5,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_stages USING INDEX sqlite_autoindex_pip_stages_1 (job_id=?)"
+          },
+          {
+            "id": 35,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "page_first",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep_bounded_candidate",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "references_page",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND definition_id='reference-generation' AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "cancel_children",
+        "sql": "SELECT j.id FROM pip_jobs j WHERE j.parent_job_id=? AND j.owner_id=?",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH j USING INDEX pip_jobs_owner_insertion (owner_id=?)"
+          }
+        ]
+      }
+    ],
+    "baseline": [
+      {
+        "name": "jobs-page-10",
+        "repetitions": 9,
+        "medianMs": 33.65014000000002,
+        "p95Ms": 46.19712200000001,
+        "minMs": 30.539492999999993,
+        "maxMs": 46.19712200000001,
+        "queries": 64,
+        "sqlMs": 0.998784000000569,
+        "rowsReturned": 82,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN",
+            "calls": 1,
+            "ms": 0.00806199999999535,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.019900000000006912,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.06540799999993396,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 30,
+            "ms": 0.2171770000001061,
+            "rows": 30
+          },
+          {
+            "sql": "SELECT\n    (SELECT COALESCE(SUM(length(CAST(output_json AS BLOB))),0) FROM pip_stages WHERE job_id=?) +\n    (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS bytes,\n    (SELECT COUNT(*) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS artifacts",
+            "calls": 10,
+            "ms": 0.25712700000030964,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_stages WHERE job_id = ? ORDER BY ordinal LIMIT 101",
+            "calls": 10,
+            "ms": 0.17861800000014227,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.23698899999999412,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.015503000000080647,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "package-history-10",
+        "repetitions": 9,
+        "medianMs": 42.36877700000002,
+        "p95Ms": 102.65549599999997,
+        "minMs": 40.38280199999997,
+        "maxMs": 102.65549599999997,
+        "queries": 105,
+        "sqlMs": 1.716786000000866,
+        "rowsReturned": 92,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.008012000000007902,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.006759999999985666,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.011227000000189946,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.04064100000005055,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 20,
+            "ms": 0.13297000000011394,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT substr(definition_id,1,120) AS label,\n              length(CAST(input_json AS BLOB)) +\n              (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n                FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS bytes\n              FROM pip_jobs WHERE id=? AND owner_id=?",
+            "calls": 10,
+            "ms": 0.3672219999996287,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 10,
+            "ms": 0.11747700000023542,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.03955899999982648,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.03891900000053283,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 10,
+            "ms": 0.13882800000055795,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 20,
+            "ms": 0.27145299999983763,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.5198829999997088,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.02383500000019012,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "lifecycle-overview",
+        "repetitions": 3,
+        "medianMs": 230.66080799999986,
+        "p95Ms": 271.64150100000006,
+        "minMs": 170.033639,
+        "maxMs": 271.64150100000006,
+        "queries": 519,
+        "sqlMs": 5.8772640000031515,
+        "rowsReturned": 481,
+        "returnedItems": 32,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.005748999999923399,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n      (SELECT COALESCE(SUM(length(CAST(input_json AS BLOB))),0) FROM pip_jobs WHERE owner_id=?) +\n      (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=?) AS n",
+            "calls": 1,
+            "ms": 0.20507799999995768,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id FROM pip_jobs WHERE owner_id=? ORDER BY created_at DESC, id LIMIT 513",
+            "calls": 1,
+            "ms": 0.05577399999992849,
+            "rows": 32
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 64,
+            "ms": 0.36669900000083544,
+            "rows": 64
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 64,
+            "ms": 1.0417990000005375,
+            "rows": 64
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 160,
+            "ms": 1.1528960000002826,
+            "rows": 160
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 64,
+            "ms": 1.800147000000834,
+            "rows": 64
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE name='image_files' AND type='table'",
+            "calls": 1,
+            "ms": 0.010044999999990978,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.002464000000145461,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n          (SELECT length(CAST(input_json AS BLOB)) FROM pip_jobs WHERE id=? AND owner_id=?) +\n          (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n            FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS n",
+            "calls": 32,
+            "ms": 0.8107359999994515,
+            "rows": 32
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 64,
+            "ms": 0.1231079999990925,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 32,
+            "ms": 0.16842400000109592,
+            "rows": 32
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 32,
+            "ms": 0.09945200000106524,
+            "rows": 32
+          },
+          {
+            "sql": "SELECT receipt_json FROM asset_lifecycle_receipts WHERE owner_id=? ORDER BY rowid DESC LIMIT 2049",
+            "calls": 1,
+            "ms": 0.017036000000189233,
+            "rows": 0
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.01785699999982171,
+            "rows": 0
+          }
+        ]
+      }
+    ],
+    "indexed": [
+      {
+        "name": "jobs-page-10",
+        "repetitions": 9,
+        "medianMs": 32.65275900000006,
+        "p95Ms": 33.57318200000009,
+        "minMs": 29.212747000000036,
+        "maxMs": 33.57318200000009,
+        "queries": 64,
+        "sqlMs": 0.9149830000001202,
+        "rowsReturned": 82,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN",
+            "calls": 1,
+            "ms": 0.005458999999973457,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.01638500000035492,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.02723100000002887,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 30,
+            "ms": 0.2194069999995918,
+            "rows": 30
+          },
+          {
+            "sql": "SELECT\n    (SELECT COALESCE(SUM(length(CAST(output_json AS BLOB))),0) FROM pip_stages WHERE job_id=?) +\n    (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS bytes,\n    (SELECT COUNT(*) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS artifacts",
+            "calls": 10,
+            "ms": 0.15171700000018973,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_stages WHERE job_id = ? ORDER BY ordinal LIMIT 101",
+            "calls": 10,
+            "ms": 0.36022199999933946,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.11710600000060367,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.01745600000003833,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "package-history-10",
+        "repetitions": 9,
+        "medianMs": 37.85772300000008,
+        "p95Ms": 41.39450999999963,
+        "minMs": 23.880209999999806,
+        "maxMs": 41.39450999999963,
+        "queries": 105,
+        "sqlMs": 1.0846829999995862,
+        "rowsReturned": 92,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.007370999999693595,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.005599000000074739,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.009625000000141881,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.039319999999861466,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 20,
+            "ms": 0.08111099999950966,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT substr(definition_id,1,120) AS label,\n              length(CAST(input_json AS BLOB)) +\n              (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n                FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS bytes\n              FROM pip_jobs WHERE id=? AND owner_id=?",
+            "calls": 10,
+            "ms": 0.2245079999988775,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 10,
+            "ms": 0.06719299999986106,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.03793600000108199,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.04379600000038408,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 10,
+            "ms": 0.07962100000031569,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 20,
+            "ms": 0.25058500000068307,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.2208819999991647,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.017135999999936757,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "lifecycle-overview",
+        "repetitions": 3,
+        "medianMs": 186.50541699999985,
+        "p95Ms": 196.9992729999999,
+        "minMs": 186.35444499999994,
+        "maxMs": 196.9992729999999,
+        "queries": 519,
+        "sqlMs": 4.3529539999976805,
+        "rowsReturned": 481,
+        "returnedItems": 32,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.004186000000117929,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n      (SELECT COALESCE(SUM(length(CAST(input_json AS BLOB))),0) FROM pip_jobs WHERE owner_id=?) +\n      (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=?) AS n",
+            "calls": 1,
+            "ms": 0.1501149999999143,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id FROM pip_jobs WHERE owner_id=? ORDER BY created_at DESC, id LIMIT 513",
+            "calls": 1,
+            "ms": 0.03104699999994409,
+            "rows": 32
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 64,
+            "ms": 0.4765450000022611,
+            "rows": 64
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 64,
+            "ms": 0.5317299999992429,
+            "rows": 64
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 160,
+            "ms": 1.0986259999976937,
+            "rows": 160
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 64,
+            "ms": 0.9243429999983164,
+            "rows": 64
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE name='image_files' AND type='table'",
+            "calls": 1,
+            "ms": 0.010926999999810505,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.0022830000002613815,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n          (SELECT length(CAST(input_json AS BLOB)) FROM pip_jobs WHERE id=? AND owner_id=?) +\n          (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n            FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS n",
+            "calls": 32,
+            "ms": 0.7383879999993042,
+            "rows": 32
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 64,
+            "ms": 0.10994100000198159,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 32,
+            "ms": 0.16498799999999392,
+            "rows": 32
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 32,
+            "ms": 0.08017999999856329,
+            "rows": 32
+          },
+          {
+            "sql": "SELECT receipt_json FROM asset_lifecycle_receipts WHERE owner_id=? ORDER BY rowid DESC LIMIT 2049",
+            "calls": 1,
+            "ms": 0.014131000000361382,
+            "rows": 0
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.01552399999991394,
+            "rows": 0
+          }
+        ]
+      }
+    ],
+    "deepBaseline": {
+      "name": "deep-page-raw",
+      "repetitions": 101,
+      "medianMs": 0.011437000000114494,
+      "p95Ms": 0.01443199999994249,
+      "minMs": 0.011146999999709806,
+      "maxMs": 0.0357440000002498,
+      "queries": 1,
+      "sqlMs": 0.011498000000301545,
+      "rowsReturned": 5,
+      "returnedItems": 0,
+      "sql": [
+        {
+          "sql": "SELECT id,rowid FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+          "calls": 1,
+          "ms": 0.011498000000301545,
+          "rows": 5
+        }
+      ]
+    },
+    "deepCandidate": {
+      "name": "deep-page-bounded-candidate",
+      "repetitions": 101,
+      "medianMs": 0.008933999999953812,
+      "p95Ms": 0.014651999999841792,
+      "minMs": 0.00858299999981682,
+      "maxMs": 0.036335000000235596,
+      "queries": 1,
+      "sqlMs": 0.008572999999614694,
+      "rowsReturned": 5,
+      "returnedItems": 0,
+      "sql": [
+        {
+          "sql": "SELECT id,rowid FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+          "calls": 1,
+          "ms": 0.008572999999614694,
+          "rows": 5
+        }
+      ]
+    },
+    "lockResult": {
+      "configuredRuntimeBusyTimeoutMs": 5000,
+      "probeBusyTimeoutMs": 75,
+      "jobsPage": {
+        "ok": true,
+        "ms": 30.497969000000012
+      },
+      "packageHistory": {
+        "ok": false,
+        "ms": 75.80308799999966,
+        "message": "database is locked",
+        "code": "ERR_SQLITE_ERROR",
+        "errcode": 5
+      },
+      "overview": {
+        "ok": false,
+        "ms": 78.65397400000029,
+        "message": "database is locked",
+        "code": "ERR_SQLITE_ERROR",
+        "errcode": 5
+      }
+    },
+    "recovery": {
+      "name": "asset-lifecycle-recovery-preflight",
+      "repetitions": 5,
+      "medianMs": 0.08634000000029118,
+      "p95Ms": 0.1105560000000878,
+      "minMs": 0.07756599999993341,
+      "maxMs": 0.1105560000000878,
+      "queries": 8,
+      "sqlMs": 0.025838000000021566,
+      "rowsReturned": 6,
+      "returnedItems": null,
+      "sql": [
+        {
+          "sql": "SELECT sql FROM sqlite_master WHERE name=? AND type=?",
+          "calls": 4,
+          "ms": 0.012839999999869178,
+          "rows": 4
+        },
+        {
+          "sql": "SELECT version FROM asset_lifecycle_migrations LIMIT 2",
+          "calls": 1,
+          "ms": 0.002803999999741791,
+          "rows": 1
+        },
+        {
+          "sql": "SELECT name FROM sqlite_master WHERE type='trigger' AND tbl_name IN ('asset_archives','asset_lifecycle_receipts','asset_lifecycle_migrations')",
+          "calls": 1,
+          "ms": 0.0072300000001632725,
+          "rows": 1
+        },
+        {
+          "sql": "SELECT * FROM asset_archives LIMIT 16385",
+          "calls": 1,
+          "ms": 0.0014620000001741573,
+          "rows": 0
+        },
+        {
+          "sql": "SELECT * FROM asset_lifecycle_receipts LIMIT 32769",
+          "calls": 1,
+          "ms": 0.001502000000073167,
+          "rows": 0
+        }
+      ]
+    }
+  },
+  {
+    "count": 256,
+    "rows": {
+      "pip_jobs": 256,
+      "pip_stages": 512,
+      "pip_runs": 512,
+      "pip_artifacts": 256,
+      "pip_reviews": 256
+    },
+    "inputBytes": 21760,
+    "artifactBytes": 6977536,
+    "databaseBytes": 7880704,
+    "baselinePlans": [
+      {
+        "name": "artifacts",
+        "sql": "SELECT a.*,r.decision,r.reviewed_at,r.note FROM pip_artifacts a LEFT JOIN pip_reviews r ON r.artifact_id=a.id AND r.owner_id=a.owner_id WHERE a.owner_id=? AND a.job_id=? ORDER BY a.created_at,a.version",
+        "plan": [
+          {
+            "id": 6,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH a USING INDEX sqlite_autoindex_pip_artifacts_2 (owner_id=?)"
+          },
+          {
+            "id": 15,
+            "parent": 0,
+            "notused": 46,
+            "detail": "SEARCH r USING INDEX sqlite_autoindex_pip_reviews_1 (artifact_id=?) LEFT-JOIN"
+          },
+          {
+            "id": 51,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "artifact_budget",
+        "sql": "SELECT COUNT(*) AS n,COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+        "plan": [
+          {
+            "id": 4,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_artifacts USING INDEX sqlite_autoindex_pip_artifacts_2 (owner_id=?)"
+          }
+        ]
+      },
+      {
+        "name": "runs",
+        "sql": "SELECT * FROM pip_runs WHERE job_id=? ORDER BY started_at,attempt",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 216,
+            "detail": "SCAN pip_runs"
+          },
+          {
+            "id": 18,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "stage_claim",
+        "sql": "SELECT * FROM pip_stages WHERE job_id=? AND status!='succeeded' ORDER BY ordinal LIMIT 1",
+        "plan": [
+          {
+            "id": 5,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_stages USING INDEX sqlite_autoindex_pip_stages_1 (job_id=?)"
+          },
+          {
+            "id": 35,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "page_first",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep_bounded_candidate",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "references_page",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND definition_id='reference-generation' AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "cancel_children",
+        "sql": "SELECT j.id FROM pip_jobs j WHERE j.parent_job_id=? AND j.owner_id=?",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH j USING INDEX pip_jobs_owner_insertion (owner_id=?)"
+          }
+        ]
+      }
+    ],
+    "indexedPlans": [
+      {
+        "name": "artifacts",
+        "sql": "SELECT a.*,r.decision,r.reviewed_at,r.note FROM pip_artifacts a LEFT JOIN pip_reviews r ON r.artifact_id=a.id AND r.owner_id=a.owner_id WHERE a.owner_id=? AND a.job_id=? ORDER BY a.created_at,a.version",
+        "plan": [
+          {
+            "id": 6,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH a USING INDEX audit_artifacts_owner_job (owner_id=? AND job_id=?)"
+          },
+          {
+            "id": 15,
+            "parent": 0,
+            "notused": 46,
+            "detail": "SEARCH r USING INDEX sqlite_autoindex_pip_reviews_1 (artifact_id=?) LEFT-JOIN"
+          }
+        ]
+      },
+      {
+        "name": "artifact_budget",
+        "sql": "SELECT COUNT(*) AS n,COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+        "plan": [
+          {
+            "id": 4,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH pip_artifacts USING INDEX audit_artifacts_owner_job (owner_id=? AND job_id=?)"
+          }
+        ]
+      },
+      {
+        "name": "runs",
+        "sql": "SELECT * FROM pip_runs WHERE job_id=? ORDER BY started_at,attempt",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 216,
+            "detail": "SCAN pip_runs"
+          },
+          {
+            "id": 18,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "stage_claim",
+        "sql": "SELECT * FROM pip_stages WHERE job_id=? AND status!='succeeded' ORDER BY ordinal LIMIT 1",
+        "plan": [
+          {
+            "id": 5,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_stages USING INDEX sqlite_autoindex_pip_stages_1 (job_id=?)"
+          },
+          {
+            "id": 35,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "page_first",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep_bounded_candidate",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "references_page",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND definition_id='reference-generation' AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "cancel_children",
+        "sql": "SELECT j.id FROM pip_jobs j WHERE j.parent_job_id=? AND j.owner_id=?",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH j USING INDEX pip_jobs_owner_insertion (owner_id=?)"
+          }
+        ]
+      }
+    ],
+    "baseline": [
+      {
+        "name": "jobs-page-10",
+        "repetitions": 9,
+        "medianMs": 58.22011500000008,
+        "p95Ms": 70.9308230000006,
+        "minMs": 34.247755999999754,
+        "maxMs": 70.9308230000006,
+        "queries": 64,
+        "sqlMs": 3.4928329999975176,
+        "rowsReturned": 82,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN",
+            "calls": 1,
+            "ms": 0.021382000000812695,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.03651499999978114,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.0395699999999124,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 30,
+            "ms": 0.7247689999994691,
+            "rows": 30
+          },
+          {
+            "sql": "SELECT\n    (SELECT COALESCE(SUM(length(CAST(output_json AS BLOB))),0) FROM pip_stages WHERE job_id=?) +\n    (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS bytes,\n    (SELECT COUNT(*) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS artifacts",
+            "calls": 10,
+            "ms": 1.553976999999577,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_stages WHERE job_id = ? ORDER BY ordinal LIMIT 101",
+            "calls": 10,
+            "ms": 0.24262500000077125,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.8555969999979425,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.018397999999251624,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "package-history-10",
+        "repetitions": 9,
+        "medianMs": 44.30660900000021,
+        "p95Ms": 63.71207200000026,
+        "minMs": 30.056945999999698,
+        "maxMs": 63.71207200000026,
+        "queries": 105,
+        "sqlMs": 3.59895800000686,
+        "rowsReturned": 92,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.0080630000002202,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.0068099999998594285,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.010696000000280037,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.03992999999991298,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 20,
+            "ms": 0.1144189999995433,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT substr(definition_id,1,120) AS label,\n              length(CAST(input_json AS BLOB)) +\n              (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n                FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS bytes\n              FROM pip_jobs WHERE id=? AND owner_id=?",
+            "calls": 10,
+            "ms": 1.346585000002051,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 10,
+            "ms": 0.08382600000004459,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.04243500000120548,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.05298099999981787,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 10,
+            "ms": 0.6750050000000556,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 20,
+            "ms": 0.1904240000012578,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 1.0057910000023185,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.02199300000029325,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "lifecycle-overview",
+        "repetitions": 3,
+        "medianMs": 1440.8241130000006,
+        "p95Ms": 1533.913602999999,
+        "minMs": 1396.8296169999994,
+        "maxMs": 1533.913602999999,
+        "queries": 4103,
+        "sqlMs": 108.55139399998188,
+        "rowsReturned": 3841,
+        "returnedItems": 256,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.004656999999497202,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n      (SELECT COALESCE(SUM(length(CAST(input_json AS BLOB))),0) FROM pip_jobs WHERE owner_id=?) +\n      (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=?) AS n",
+            "calls": 1,
+            "ms": 1.1112999999986641,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id FROM pip_jobs WHERE owner_id=? ORDER BY created_at DESC, id LIMIT 513",
+            "calls": 1,
+            "ms": 0.22168299999975716,
+            "rows": 256
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 512,
+            "ms": 3.3953459999811457,
+            "rows": 512
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 512,
+            "ms": 31.56859300001088,
+            "rows": 512
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 1280,
+            "ms": 9.23056299997188,
+            "rows": 1280
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 512,
+            "ms": 40.107419999998456,
+            "rows": 512
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE name='image_files' AND type='table'",
+            "calls": 1,
+            "ms": 0.010465999999723863,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.06109199999991688,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n          (SELECT length(CAST(input_json AS BLOB)) FROM pip_jobs WHERE id=? AND owner_id=?) +\n          (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n            FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS n",
+            "calls": 256,
+            "ms": 19.54167500000949,
+            "rows": 256
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 512,
+            "ms": 1.0053679999946326,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 256,
+            "ms": 1.4717930000097112,
+            "rows": 256
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 256,
+            "ms": 0.7876670000077866,
+            "rows": 256
+          },
+          {
+            "sql": "SELECT receipt_json FROM asset_lifecycle_receipts WHERE owner_id=? ORDER BY rowid DESC LIMIT 2049",
+            "calls": 1,
+            "ms": 0.018017000000327243,
+            "rows": 0
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.015754000000015367,
+            "rows": 0
+          }
+        ]
+      }
+    ],
+    "indexed": [
+      {
+        "name": "jobs-page-10",
+        "repetitions": 9,
+        "medianMs": 29.698066000000836,
+        "p95Ms": 32.37989799999923,
+        "minMs": 28.697973000000275,
+        "maxMs": 32.37989799999923,
+        "queries": 64,
+        "sqlMs": 0.8024380000097153,
+        "rowsReturned": 82,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN",
+            "calls": 1,
+            "ms": 0.009214000001520617,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.022903999999471125,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.028051999999661348,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 30,
+            "ms": 0.21191100000214647,
+            "rows": 30
+          },
+          {
+            "sql": "SELECT\n    (SELECT COALESCE(SUM(length(CAST(output_json AS BLOB))),0) FROM pip_stages WHERE job_id=?) +\n    (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS bytes,\n    (SELECT COUNT(*) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS artifacts",
+            "calls": 10,
+            "ms": 0.20985700000164798,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_stages WHERE job_id = ? ORDER BY ordinal LIMIT 101",
+            "calls": 10,
+            "ms": 0.14335400000345544,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.16417600000204402,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.012969999999768334,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "package-history-10",
+        "repetitions": 9,
+        "medianMs": 23.295210999998744,
+        "p95Ms": 34.574367000001075,
+        "minMs": 21.30489899999884,
+        "maxMs": 34.574367000001075,
+        "queries": 105,
+        "sqlMs": 0.8286439999992581,
+        "rowsReturned": 92,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.004806999999345862,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.0035849999985657632,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.006269999999858555,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.14456699999936973,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 20,
+            "ms": 0.0492060000069614,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT substr(definition_id,1,120) AS label,\n              length(CAST(input_json AS BLOB)) +\n              (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n                FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS bytes\n              FROM pip_jobs WHERE id=? AND owner_id=?",
+            "calls": 10,
+            "ms": 0.19123799999761104,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 10,
+            "ms": 0.04279300000598596,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.024435999996057944,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.022393999997802894,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 10,
+            "ms": 0.06458599999677972,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 20,
+            "ms": 0.10555699999895296,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.15568400000120164,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.013521000000764616,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "lifecycle-overview",
+        "repetitions": 3,
+        "medianMs": 1269.934220000001,
+        "p95Ms": 1531.115565,
+        "minMs": 1229.4673220000004,
+        "maxMs": 1531.115565,
+        "queries": 4103,
+        "sqlMs": 42.1610829999081,
+        "rowsReturned": 3841,
+        "returnedItems": 256,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.005828999997902429,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n      (SELECT COALESCE(SUM(length(CAST(input_json AS BLOB))),0) FROM pip_jobs WHERE owner_id=?) +\n      (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=?) AS n",
+            "calls": 1,
+            "ms": 2.0204180000000633,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id FROM pip_jobs WHERE owner_id=? ORDER BY created_at DESC, id LIMIT 513",
+            "calls": 1,
+            "ms": 0.2927899999995134,
+            "rows": 256
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 512,
+            "ms": 3.0573850000364473,
+            "rows": 512
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 512,
+            "ms": 7.582449000048655,
+            "rows": 512
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 1280,
+            "ms": 8.44249999997919,
+            "rows": 1280
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 512,
+            "ms": 9.71325799992701,
+            "rows": 512
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE name='image_files' AND type='table'",
+            "calls": 1,
+            "ms": 0.014420999999856576,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.003966000000218628,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n          (SELECT length(CAST(input_json AS BLOB)) FROM pip_jobs WHERE id=? AND owner_id=?) +\n          (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n            FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS n",
+            "calls": 256,
+            "ms": 7.123101999994105,
+            "rows": 256
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 512,
+            "ms": 0.895563999973092,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 256,
+            "ms": 2.2017089999717427,
+            "rows": 256
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 256,
+            "ms": 0.7732609999802662,
+            "rows": 256
+          },
+          {
+            "sql": "SELECT receipt_json FROM asset_lifecycle_receipts WHERE owner_id=? ORDER BY rowid DESC LIMIT 2049",
+            "calls": 1,
+            "ms": 0.01985899999999674,
+            "rows": 0
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.014572000000043772,
+            "rows": 0
+          }
+        ]
+      }
+    ],
+    "deepBaseline": {
+      "name": "deep-page-raw",
+      "repetitions": 101,
+      "medianMs": 0.021322000000509433,
+      "p95Ms": 0.022424000002501998,
+      "minMs": 0.02093099999910919,
+      "maxMs": 0.04068099999858532,
+      "queries": 1,
+      "sqlMs": 0.02090200000020559,
+      "rowsReturned": 11,
+      "returnedItems": 0,
+      "sql": [
+        {
+          "sql": "SELECT id,rowid FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+          "calls": 1,
+          "ms": 0.02090200000020559,
+          "rows": 11
+        }
+      ]
+    },
+    "deepCandidate": {
+      "name": "deep-page-bounded-candidate",
+      "repetitions": 101,
+      "medianMs": 0.011007000000972766,
+      "p95Ms": 0.01242899999851943,
+      "minMs": 0.010685999997804174,
+      "maxMs": 0.05729599999904167,
+      "queries": 1,
+      "sqlMs": 0.010576000000583008,
+      "rowsReturned": 11,
+      "returnedItems": 0,
+      "sql": [
+        {
+          "sql": "SELECT id,rowid FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+          "calls": 1,
+          "ms": 0.010576000000583008,
+          "rows": 11
+        }
+      ]
+    },
+    "lockResult": {
+      "configuredRuntimeBusyTimeoutMs": 5000,
+      "probeBusyTimeoutMs": 75,
+      "jobsPage": {
+        "ok": true,
+        "ms": 29.61129599999913
+      },
+      "packageHistory": {
+        "ok": false,
+        "ms": 76.1997760000013,
+        "message": "database is locked",
+        "code": "ERR_SQLITE_ERROR",
+        "errcode": 5
+      },
+      "overview": {
+        "ok": false,
+        "ms": 76.14139799999975,
+        "message": "database is locked",
+        "code": "ERR_SQLITE_ERROR",
+        "errcode": 5
+      }
+    },
+    "recovery": {
+      "name": "asset-lifecycle-recovery-preflight",
+      "repetitions": 5,
+      "medianMs": 0.08672999999907915,
+      "p95Ms": 0.1576469999999972,
+      "minMs": 0.0792490000021644,
+      "maxMs": 0.1576469999999972,
+      "queries": 8,
+      "sqlMs": 0.030585999993490987,
+      "rowsReturned": 6,
+      "returnedItems": null,
+      "sql": [
+        {
+          "sql": "SELECT sql FROM sqlite_master WHERE name=? AND type=?",
+          "calls": 4,
+          "ms": 0.016714999997930136,
+          "rows": 4
+        },
+        {
+          "sql": "SELECT version FROM asset_lifecycle_migrations LIMIT 2",
+          "calls": 1,
+          "ms": 0.0027049999989685602,
+          "rows": 1
+        },
+        {
+          "sql": "SELECT name FROM sqlite_master WHERE type='trigger' AND tbl_name IN ('asset_archives','asset_lifecycle_receipts','asset_lifecycle_migrations')",
+          "calls": 1,
+          "ms": 0.008562999999412568,
+          "rows": 1
+        },
+        {
+          "sql": "SELECT * FROM asset_archives LIMIT 16385",
+          "calls": 1,
+          "ms": 0.0014219999975466635,
+          "rows": 0
+        },
+        {
+          "sql": "SELECT * FROM asset_lifecycle_receipts LIMIT 32769",
+          "calls": 1,
+          "ms": 0.001180999999633059,
+          "rows": 0
+        }
+      ]
+    }
+  },
+  {
+    "count": 2048,
+    "rows": {
+      "pip_jobs": 2048,
+      "pip_stages": 4096,
+      "pip_runs": 4096,
+      "pip_artifacts": 2048,
+      "pip_reviews": 2048
+    },
+    "inputBytes": 174080,
+    "artifactBytes": 55820288,
+    "databaseBytes": 62234624,
+    "baselinePlans": [
+      {
+        "name": "artifacts",
+        "sql": "SELECT a.*,r.decision,r.reviewed_at,r.note FROM pip_artifacts a LEFT JOIN pip_reviews r ON r.artifact_id=a.id AND r.owner_id=a.owner_id WHERE a.owner_id=? AND a.job_id=? ORDER BY a.created_at,a.version",
+        "plan": [
+          {
+            "id": 6,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH a USING INDEX sqlite_autoindex_pip_artifacts_2 (owner_id=?)"
+          },
+          {
+            "id": 15,
+            "parent": 0,
+            "notused": 46,
+            "detail": "SEARCH r USING INDEX sqlite_autoindex_pip_reviews_1 (artifact_id=?) LEFT-JOIN"
+          },
+          {
+            "id": 51,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "artifact_budget",
+        "sql": "SELECT COUNT(*) AS n,COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+        "plan": [
+          {
+            "id": 4,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_artifacts USING INDEX sqlite_autoindex_pip_artifacts_2 (owner_id=?)"
+          }
+        ]
+      },
+      {
+        "name": "runs",
+        "sql": "SELECT * FROM pip_runs WHERE job_id=? ORDER BY started_at,attempt",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 216,
+            "detail": "SCAN pip_runs"
+          },
+          {
+            "id": 18,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "stage_claim",
+        "sql": "SELECT * FROM pip_stages WHERE job_id=? AND status!='succeeded' ORDER BY ordinal LIMIT 1",
+        "plan": [
+          {
+            "id": 5,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_stages USING INDEX sqlite_autoindex_pip_stages_1 (job_id=?)"
+          },
+          {
+            "id": 35,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "page_first",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep_bounded_candidate",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "references_page",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND definition_id='reference-generation' AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "cancel_children",
+        "sql": "SELECT j.id FROM pip_jobs j WHERE j.parent_job_id=? AND j.owner_id=?",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH j USING INDEX pip_jobs_owner_insertion (owner_id=?)"
+          }
+        ]
+      }
+    ],
+    "indexedPlans": [
+      {
+        "name": "artifacts",
+        "sql": "SELECT a.*,r.decision,r.reviewed_at,r.note FROM pip_artifacts a LEFT JOIN pip_reviews r ON r.artifact_id=a.id AND r.owner_id=a.owner_id WHERE a.owner_id=? AND a.job_id=? ORDER BY a.created_at,a.version",
+        "plan": [
+          {
+            "id": 6,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH a USING INDEX audit_artifacts_owner_job (owner_id=? AND job_id=?)"
+          },
+          {
+            "id": 15,
+            "parent": 0,
+            "notused": 46,
+            "detail": "SEARCH r USING INDEX sqlite_autoindex_pip_reviews_1 (artifact_id=?) LEFT-JOIN"
+          }
+        ]
+      },
+      {
+        "name": "artifact_budget",
+        "sql": "SELECT COUNT(*) AS n,COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+        "plan": [
+          {
+            "id": 4,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH pip_artifacts USING INDEX audit_artifacts_owner_job (owner_id=? AND job_id=?)"
+          }
+        ]
+      },
+      {
+        "name": "runs",
+        "sql": "SELECT * FROM pip_runs WHERE job_id=? ORDER BY started_at,attempt",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 216,
+            "detail": "SCAN pip_runs"
+          },
+          {
+            "id": 18,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "stage_claim",
+        "sql": "SELECT * FROM pip_stages WHERE job_id=? AND status!='succeeded' ORDER BY ordinal LIMIT 1",
+        "plan": [
+          {
+            "id": 5,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_stages USING INDEX sqlite_autoindex_pip_stages_1 (job_id=?)"
+          },
+          {
+            "id": 35,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "page_first",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep_bounded_candidate",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "references_page",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND definition_id='reference-generation' AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "cancel_children",
+        "sql": "SELECT j.id FROM pip_jobs j WHERE j.parent_job_id=? AND j.owner_id=?",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH j USING INDEX pip_jobs_owner_insertion (owner_id=?)"
+          }
+        ]
+      }
+    ],
+    "baseline": [
+      {
+        "name": "jobs-page-10",
+        "repetitions": 9,
+        "medianMs": 82.68480599999748,
+        "p95Ms": 102.82013599999846,
+        "minMs": 74.20012999999744,
+        "maxMs": 102.82013599999846,
+        "queries": 64,
+        "sqlMs": 47.700269999997545,
+        "rowsReturned": 82,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN",
+            "calls": 1,
+            "ms": 0.010926999999355758,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.039439000000129454,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.03159799999775714,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 30,
+            "ms": 0.46233500000380445,
+            "rows": 30
+          },
+          {
+            "sql": "SELECT\n    (SELECT COALESCE(SUM(length(CAST(output_json AS BLOB))),0) FROM pip_stages WHERE job_id=?) +\n    (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS bytes,\n    (SELECT COUNT(*) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS artifacts",
+            "calls": 10,
+            "ms": 31.363359000002674,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_stages WHERE job_id = ? ORDER BY ordinal LIMIT 101",
+            "calls": 10,
+            "ms": 0.3315180000026885,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 15.445319999991625,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.015773999999510124,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "package-history-10",
+        "repetitions": 9,
+        "medianMs": 81.19647800000166,
+        "p95Ms": 92.0153530000025,
+        "minMs": 73.90735000000132,
+        "maxMs": 92.0153530000025,
+        "queries": 105,
+        "sqlMs": 49.824363999970956,
+        "rowsReturned": 92,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.006409999998140847,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.007311000001209322,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.008732999998755986,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.0381070000003092,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 20,
+            "ms": 0.11931899999035522,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT substr(definition_id,1,120) AS label,\n              length(CAST(input_json AS BLOB)) +\n              (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n                FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS bytes\n              FROM pip_jobs WHERE id=? AND owner_id=?",
+            "calls": 10,
+            "ms": 17.26509700000679,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 10,
+            "ms": 0.08668000000398024,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.032178999987081625,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.02527900000131922,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 10,
+            "ms": 15.906952999997884,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 20,
+            "ms": 0.2002109999921231,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 16.10667299999477,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.021411999998235842,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "lifecycle-overview",
+        "repetitions": 3,
+        "medianMs": 9.046920000000682,
+        "p95Ms": 9.092439000000013,
+        "minMs": 8.87891799999852,
+        "maxMs": 9.092439000000013,
+        "queries": 6,
+        "sqlMs": 8.594389999998384,
+        "rowsReturned": 1,
+        "returnedItems": 0,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.00451700000121491,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n      (SELECT COALESCE(SUM(length(CAST(input_json AS BLOB))),0) FROM pip_jobs WHERE owner_id=?) +\n      (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=?) AS n",
+            "calls": 1,
+            "ms": 8.547289999998611,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE name='image_files' AND type='table'",
+            "calls": 1,
+            "ms": 0.0090730000010808,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.004386000000522472,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT receipt_json FROM asset_lifecycle_receipts WHERE owner_id=? ORDER BY rowid DESC LIMIT 2049",
+            "calls": 1,
+            "ms": 0.01625399999829824,
+            "rows": 0
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.012869999998656567,
+            "rows": 0
+          }
+        ]
+      }
+    ],
+    "indexed": [
+      {
+        "name": "jobs-page-10",
+        "repetitions": 9,
+        "medianMs": 51.22225499999695,
+        "p95Ms": 69.74493600000278,
+        "minMs": 34.04334999999992,
+        "maxMs": 69.74493600000278,
+        "queries": 64,
+        "sqlMs": 1.0661050000016985,
+        "rowsReturned": 82,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN",
+            "calls": 1,
+            "ms": 0.009323999998741783,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.02602900000056252,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.04383599999709986,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 30,
+            "ms": 0.2978100000000268,
+            "rows": 30
+          },
+          {
+            "sql": "SELECT\n    (SELECT COALESCE(SUM(length(CAST(output_json AS BLOB))),0) FROM pip_stages WHERE job_id=?) +\n    (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS bytes,\n    (SELECT COUNT(*) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS artifacts",
+            "calls": 10,
+            "ms": 0.2468399999961548,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_stages WHERE job_id = ? ORDER BY ordinal LIMIT 101",
+            "calls": 10,
+            "ms": 0.1763450000071316,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.2531120000021474,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.012808999999833759,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "package-history-10",
+        "repetitions": 9,
+        "medianMs": 22.94040799999857,
+        "p95Ms": 29.939360000000306,
+        "minMs": 20.70698999999877,
+        "maxMs": 29.939360000000306,
+        "queries": 105,
+        "sqlMs": 0.8233639999962179,
+        "rowsReturned": 92,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.0052770000002055895,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.0027340000015101396,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.007721000001765788,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.023063999997248175,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 20,
+            "ms": 0.047831000007136026,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT substr(definition_id,1,120) AS label,\n              length(CAST(input_json AS BLOB)) +\n              (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n                FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS bytes\n              FROM pip_jobs WHERE id=? AND owner_id=?",
+            "calls": 10,
+            "ms": 0.245188999997481,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 10,
+            "ms": 0.045216999995318474,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.02647899999283254,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.019988999996712664,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 10,
+            "ms": 0.06983399999080575,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 20,
+            "ms": 0.14752500001850422,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.16588899999624118,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.016615000000456348,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "lifecycle-overview",
+        "repetitions": 3,
+        "medianMs": 10.855390000000625,
+        "p95Ms": 11.40553699999873,
+        "minMs": 10.606205000000045,
+        "maxMs": 11.40553699999873,
+        "queries": 6,
+        "sqlMs": 10.615939000002982,
+        "rowsReturned": 1,
+        "returnedItems": 0,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.0039060000017343555,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n      (SELECT COALESCE(SUM(length(CAST(input_json AS BLOB))),0) FROM pip_jobs WHERE owner_id=?) +\n      (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=?) AS n",
+            "calls": 1,
+            "ms": 10.57575899999938,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE name='image_files' AND type='table'",
+            "calls": 1,
+            "ms": 0.008943000000726897,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.0035050000005867332,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT receipt_json FROM asset_lifecycle_receipts WHERE owner_id=? ORDER BY rowid DESC LIMIT 2049",
+            "calls": 1,
+            "ms": 0.01372099999935017,
+            "rows": 0
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.010105000001203734,
+            "rows": 0
+          }
+        ]
+      }
+    ],
+    "deepBaseline": {
+      "name": "deep-page-raw",
+      "repetitions": 101,
+      "medianMs": 0.08399599999756902,
+      "p95Ms": 0.2367259999991802,
+      "minMs": 0.0809320000007574,
+      "maxMs": 0.4237870000033581,
+      "queries": 1,
+      "sqlMs": 0.09718599999905564,
+      "rowsReturned": 11,
+      "returnedItems": 0,
+      "sql": [
+        {
+          "sql": "SELECT id,rowid FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+          "calls": 1,
+          "ms": 0.09718599999905564,
+          "rows": 11
+        }
+      ]
+    },
+    "deepCandidate": {
+      "name": "deep-page-bounded-candidate",
+      "repetitions": 101,
+      "medianMs": 0.011116999998193933,
+      "p95Ms": 0.017486999997345265,
+      "minMs": 0.010686000001442153,
+      "maxMs": 0.2575170000018261,
+      "queries": 1,
+      "sqlMs": 0.010536000001593493,
+      "rowsReturned": 11,
+      "returnedItems": 0,
+      "sql": [
+        {
+          "sql": "SELECT id,rowid FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+          "calls": 1,
+          "ms": 0.010536000001593493,
+          "rows": 11
+        }
+      ]
+    },
+    "lockResult": {
+      "configuredRuntimeBusyTimeoutMs": 5000,
+      "probeBusyTimeoutMs": 75,
+      "jobsPage": {
+        "ok": true,
+        "ms": 34.68220099999962
+      },
+      "packageHistory": {
+        "ok": false,
+        "ms": 76.10478499999954,
+        "message": "database is locked",
+        "code": "ERR_SQLITE_ERROR",
+        "errcode": 5
+      },
+      "overview": {
+        "ok": false,
+        "ms": 76.07076400000005,
+        "message": "database is locked",
+        "code": "ERR_SQLITE_ERROR",
+        "errcode": 5
+      }
+    },
+    "recovery": {
+      "name": "asset-lifecycle-recovery-preflight",
+      "repetitions": 5,
+      "medianMs": 0.0805819999986852,
+      "p95Ms": 0.16068199999790522,
+      "minMs": 0.0778169999975944,
+      "maxMs": 0.16068199999790522,
+      "queries": 8,
+      "sqlMs": 0.023467000006348826,
+      "rowsReturned": 6,
+      "returnedItems": null,
+      "sql": [
+        {
+          "sql": "SELECT sql FROM sqlite_master WHERE name=? AND type=?",
+          "calls": 4,
+          "ms": 0.013071000004856614,
+          "rows": 4
+        },
+        {
+          "sql": "SELECT version FROM asset_lifecycle_migrations LIMIT 2",
+          "calls": 1,
+          "ms": 0.0017630000002100132,
+          "rows": 1
+        },
+        {
+          "sql": "SELECT name FROM sqlite_master WHERE type='trigger' AND tbl_name IN ('asset_archives','asset_lifecycle_receipts','asset_lifecycle_migrations')",
+          "calls": 1,
+          "ms": 0.006208999999216758,
+          "rows": 1
+        },
+        {
+          "sql": "SELECT * FROM asset_archives LIMIT 16385",
+          "calls": 1,
+          "ms": 0.0011819999999715947,
+          "rows": 0
+        },
+        {
+          "sql": "SELECT * FROM asset_lifecycle_receipts LIMIT 32769",
+          "calls": 1,
+          "ms": 0.001242000002093846,
+          "rows": 0
+        }
+      ]
+    }
+  },
+  {
+    "count": 8192,
+    "rows": {
+      "pip_jobs": 8192,
+      "pip_stages": 16384,
+      "pip_runs": 16384,
+      "pip_artifacts": 8192,
+      "pip_reviews": 8192
+    },
+    "inputBytes": 696320,
+    "artifactBytes": 223281152,
+    "databaseBytes": 248647680,
+    "baselinePlans": [
+      {
+        "name": "artifacts",
+        "sql": "SELECT a.*,r.decision,r.reviewed_at,r.note FROM pip_artifacts a LEFT JOIN pip_reviews r ON r.artifact_id=a.id AND r.owner_id=a.owner_id WHERE a.owner_id=? AND a.job_id=? ORDER BY a.created_at,a.version",
+        "plan": [
+          {
+            "id": 6,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH a USING INDEX sqlite_autoindex_pip_artifacts_2 (owner_id=?)"
+          },
+          {
+            "id": 15,
+            "parent": 0,
+            "notused": 46,
+            "detail": "SEARCH r USING INDEX sqlite_autoindex_pip_reviews_1 (artifact_id=?) LEFT-JOIN"
+          },
+          {
+            "id": 51,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "artifact_budget",
+        "sql": "SELECT COUNT(*) AS n,COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+        "plan": [
+          {
+            "id": 4,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_artifacts USING INDEX sqlite_autoindex_pip_artifacts_2 (owner_id=?)"
+          }
+        ]
+      },
+      {
+        "name": "runs",
+        "sql": "SELECT * FROM pip_runs WHERE job_id=? ORDER BY started_at,attempt",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 216,
+            "detail": "SCAN pip_runs"
+          },
+          {
+            "id": 18,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "stage_claim",
+        "sql": "SELECT * FROM pip_stages WHERE job_id=? AND status!='succeeded' ORDER BY ordinal LIMIT 1",
+        "plan": [
+          {
+            "id": 5,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_stages USING INDEX sqlite_autoindex_pip_stages_1 (job_id=?)"
+          },
+          {
+            "id": 35,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "page_first",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep_bounded_candidate",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "references_page",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND definition_id='reference-generation' AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "cancel_children",
+        "sql": "SELECT j.id FROM pip_jobs j WHERE j.parent_job_id=? AND j.owner_id=?",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH j USING INDEX pip_jobs_owner_insertion (owner_id=?)"
+          }
+        ]
+      }
+    ],
+    "indexedPlans": [
+      {
+        "name": "artifacts",
+        "sql": "SELECT a.*,r.decision,r.reviewed_at,r.note FROM pip_artifacts a LEFT JOIN pip_reviews r ON r.artifact_id=a.id AND r.owner_id=a.owner_id WHERE a.owner_id=? AND a.job_id=? ORDER BY a.created_at,a.version",
+        "plan": [
+          {
+            "id": 6,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH a USING INDEX audit_artifacts_owner_job (owner_id=? AND job_id=?)"
+          },
+          {
+            "id": 15,
+            "parent": 0,
+            "notused": 46,
+            "detail": "SEARCH r USING INDEX sqlite_autoindex_pip_reviews_1 (artifact_id=?) LEFT-JOIN"
+          }
+        ]
+      },
+      {
+        "name": "artifact_budget",
+        "sql": "SELECT COUNT(*) AS n,COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+        "plan": [
+          {
+            "id": 4,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH pip_artifacts USING INDEX audit_artifacts_owner_job (owner_id=? AND job_id=?)"
+          }
+        ]
+      },
+      {
+        "name": "runs",
+        "sql": "SELECT * FROM pip_runs WHERE job_id=? ORDER BY started_at,attempt",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 216,
+            "detail": "SCAN pip_runs"
+          },
+          {
+            "id": 18,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "stage_claim",
+        "sql": "SELECT * FROM pip_stages WHERE job_id=? AND status!='succeeded' ORDER BY ordinal LIMIT 1",
+        "plan": [
+          {
+            "id": 5,
+            "parent": 0,
+            "notused": 62,
+            "detail": "SEARCH pip_stages USING INDEX sqlite_autoindex_pip_stages_1 (job_id=?)"
+          },
+          {
+            "id": 35,
+            "parent": 0,
+            "notused": 0,
+            "detail": "USE TEMP B-TREE FOR ORDER BY"
+          }
+        ]
+      },
+      {
+        "name": "page_first",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "page_deep_bounded_candidate",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "references_page",
+        "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND definition_id='reference-generation' AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+        "plan": [
+          {
+            "id": 7,
+            "parent": 0,
+            "notused": 50,
+            "detail": "SEARCH pip_jobs USING INDEX pip_jobs_owner_insertion (owner_id=? AND rowid<?)"
+          }
+        ]
+      },
+      {
+        "name": "cancel_children",
+        "sql": "SELECT j.id FROM pip_jobs j WHERE j.parent_job_id=? AND j.owner_id=?",
+        "plan": [
+          {
+            "id": 3,
+            "parent": 0,
+            "notused": 61,
+            "detail": "SEARCH j USING INDEX pip_jobs_owner_insertion (owner_id=?)"
+          }
+        ]
+      }
+    ],
+    "baseline": [
+      {
+        "name": "jobs-page-10",
+        "repetitions": 9,
+        "medianMs": 317.350650999997,
+        "p95Ms": 377.09348300000056,
+        "minMs": 276.64947100000063,
+        "maxMs": 377.09348300000056,
+        "queries": 64,
+        "sqlMs": 278.04029400002037,
+        "rowsReturned": 82,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN",
+            "calls": 1,
+            "ms": 0.012808999999833759,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.03290900000138208,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.03233900000122958,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 30,
+            "ms": 0.7214849999982107,
+            "rows": 30
+          },
+          {
+            "sql": "SELECT\n    (SELECT COALESCE(SUM(length(CAST(output_json AS BLOB))),0) FROM pip_stages WHERE job_id=?) +\n    (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS bytes,\n    (SELECT COUNT(*) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS artifacts",
+            "calls": 10,
+            "ms": 184.98831800000698,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_stages WHERE job_id = ? ORDER BY ordinal LIMIT 101",
+            "calls": 10,
+            "ms": 0.42864600000393693,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 91.80120400001033,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.022583999998460058,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "package-history-10",
+        "repetitions": 9,
+        "medianMs": 272.0976579999988,
+        "p95Ms": 405.5380809999988,
+        "minMs": 262.9009619999997,
+        "maxMs": 405.5380809999988,
+        "queries": 105,
+        "sqlMs": 242.1378140000088,
+        "rowsReturned": 92,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.0066600000027392525,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.009014000002935063,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.009974999997211853,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.03004499999951804,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 20,
+            "ms": 0.14741300000241608,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT substr(definition_id,1,120) AS label,\n              length(CAST(input_json AS BLOB)) +\n              (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n                FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS bytes\n              FROM pip_jobs WHERE id=? AND owner_id=?",
+            "calls": 10,
+            "ms": 80.27810999999929,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 10,
+            "ms": 0.1264000000046508,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.07305200000701007,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.044447000003856374,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 10,
+            "ms": 80.87993600000118,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 20,
+            "ms": 0.30265599998892867,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 80.20842400000038,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.021681999998691026,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "lifecycle-overview",
+        "repetitions": 3,
+        "medianMs": 44.877989000000525,
+        "p95Ms": 45.234855000002426,
+        "minMs": 43.1569709999967,
+        "maxMs": 45.234855000002426,
+        "queries": 6,
+        "sqlMs": 44.92699300000095,
+        "rowsReturned": 1,
+        "returnedItems": 0,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.004687999993620906,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n      (SELECT COALESCE(SUM(length(CAST(input_json AS BLOB))),0) FROM pip_jobs WHERE owner_id=?) +\n      (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=?) AS n",
+            "calls": 1,
+            "ms": 44.876867000006314,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE name='image_files' AND type='table'",
+            "calls": 1,
+            "ms": 0.011286000000836793,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.004557000000204425,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT receipt_json FROM asset_lifecycle_receipts WHERE owner_id=? ORDER BY rowid DESC LIMIT 2049",
+            "calls": 1,
+            "ms": 0.01751700000022538,
+            "rows": 0
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.01207799999974668,
+            "rows": 0
+          }
+        ]
+      }
+    ],
+    "indexed": [
+      {
+        "name": "jobs-page-10",
+        "repetitions": 9,
+        "medianMs": 29.767251000004762,
+        "p95Ms": 31.887629999997444,
+        "minMs": 28.50802900000417,
+        "maxMs": 31.887629999997444,
+        "queries": 64,
+        "sqlMs": 0.9201909999756026,
+        "rowsReturned": 82,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN",
+            "calls": 1,
+            "ms": 0.011466999996628147,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.028582999999343883,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.029112999996868894,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 30,
+            "ms": 0.2378779999926337,
+            "rows": 30
+          },
+          {
+            "sql": "SELECT\n    (SELECT COALESCE(SUM(length(CAST(output_json AS BLOB))),0) FROM pip_stages WHERE job_id=?) +\n    (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS bytes,\n    (SELECT COUNT(*) FROM pip_artifacts WHERE owner_id=? AND job_id=?) AS artifacts",
+            "calls": 10,
+            "ms": 0.265185999989626,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_stages WHERE job_id = ? ORDER BY ordinal LIMIT 101",
+            "calls": 10,
+            "ms": 0.160743000000366,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.17330000000220025,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.013920999997935724,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "package-history-10",
+        "repetitions": 9,
+        "medianMs": 22.316070000000764,
+        "p95Ms": 23.97565400000167,
+        "minMs": 20.12735000000248,
+        "maxMs": 23.97565400000167,
+        "queries": 105,
+        "sqlMs": 0.759810000017751,
+        "rowsReturned": 92,
+        "returnedItems": 10,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.004997000003641006,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.0030939999996917322,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT COALESCE(MAX(rowid),0) AS watermark FROM pip_jobs WHERE owner_id=?",
+            "calls": 1,
+            "ms": 0.00680100000317907,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT id,rowid AS ordinal FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+            "calls": 1,
+            "ms": 0.024386999997659586,
+            "rows": 11
+          },
+          {
+            "sql": "SELECT * FROM asset_archives WHERE owner_id=? AND kind=? AND target_id=?",
+            "calls": 20,
+            "ms": 0.04635800002870383,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT substr(definition_id,1,120) AS label,\n              length(CAST(input_json AS BLOB)) +\n              (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0)\n                FROM pip_artifacts WHERE job_id=? AND owner_id=?) AS bytes\n              FROM pip_jobs WHERE id=? AND owner_id=?",
+            "calls": 10,
+            "ms": 0.2227839999977732,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE type='table' AND name=?",
+            "calls": 10,
+            "ms": 0.04891499999212101,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT 1 FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.02672099999472266,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT length(CAST(input_json AS BLOB)) AS n FROM pip_jobs WHERE owner_id=? AND id=?",
+            "calls": 10,
+            "ms": 0.021113000002515037,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT COUNT(*) AS n, COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) AS bytes FROM pip_artifacts WHERE owner_id=? AND job_id=?",
+            "calls": 10,
+            "ms": 0.06594699999550357,
+            "rows": 10
+          },
+          {
+            "sql": "SELECT * FROM pip_jobs WHERE id = ? AND owner_id = ?",
+            "calls": 20,
+            "ms": 0.10429700000531739,
+            "rows": 20
+          },
+          {
+            "sql": "SELECT a.*, r.decision, r.reviewed_at, r.note FROM pip_artifacts a\n      LEFT JOIN pip_reviews r ON r.artifact_id = a.id AND r.owner_id = a.owner_id WHERE a.owner_id = ? AND a.job_id = ?\n      ORDER BY a.created_at, a.version",
+            "calls": 10,
+            "ms": 0.16881199999625096,
+            "rows": 10
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.01558400000067195,
+            "rows": 0
+          }
+        ]
+      },
+      {
+        "name": "lifecycle-overview",
+        "repetitions": 3,
+        "medianMs": 49.379887999995844,
+        "p95Ms": 49.72747000000527,
+        "minMs": 49.230132999997295,
+        "maxMs": 49.72747000000527,
+        "queries": 6,
+        "sqlMs": 49.0425610000093,
+        "rowsReturned": 1,
+        "returnedItems": 0,
+        "sql": [
+          {
+            "sql": "BEGIN IMMEDIATE",
+            "calls": 1,
+            "ms": 0.003936000000976492,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT\n      (SELECT COALESCE(SUM(length(CAST(input_json AS BLOB))),0) FROM pip_jobs WHERE owner_id=?) +\n      (SELECT COALESCE(SUM(length(CAST(payload_json AS BLOB))+length(CAST(provenance_json AS BLOB))),0) FROM pip_artifacts WHERE owner_id=?) AS n",
+            "calls": 1,
+            "ms": 48.99304600000323,
+            "rows": 1
+          },
+          {
+            "sql": "SELECT 1 FROM sqlite_master WHERE name='image_files' AND type='table'",
+            "calls": 1,
+            "ms": 0.010887000004004221,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT schema_version, data FROM yard_owners WHERE owner_id = ?",
+            "calls": 1,
+            "ms": 0.003995999999460764,
+            "rows": 0
+          },
+          {
+            "sql": "SELECT receipt_json FROM asset_lifecycle_receipts WHERE owner_id=? ORDER BY rowid DESC LIMIT 2049",
+            "calls": 1,
+            "ms": 0.01724600000306964,
+            "rows": 0
+          },
+          {
+            "sql": "COMMIT",
+            "calls": 1,
+            "ms": 0.01344999999855645,
+            "rows": 0
+          }
+        ]
+      }
+    ],
+    "deepBaseline": {
+      "name": "deep-page-raw",
+      "repetitions": 101,
+      "medianMs": 0.2932010000004084,
+      "p95Ms": 0.38260499999887543,
+      "minMs": 0.282695000001695,
+      "maxMs": 0.5122409999967203,
+      "queries": 1,
+      "sqlMs": 0.31179799999517854,
+      "rowsReturned": 11,
+      "returnedItems": 0,
+      "sql": [
+        {
+          "sql": "SELECT id,rowid FROM pip_jobs WHERE owner_id=? AND rowid<=? AND (? IS NULL OR rowid<?) ORDER BY rowid DESC LIMIT ?",
+          "calls": 1,
+          "ms": 0.31179799999517854,
+          "rows": 11
+        }
+      ]
+    },
+    "deepCandidate": {
+      "name": "deep-page-bounded-candidate",
+      "repetitions": 101,
+      "medianMs": 0.011216999999305699,
+      "p95Ms": 0.012097999999241438,
+      "minMs": 0.010805999998410698,
+      "maxMs": 0.027060000000346918,
+      "queries": 1,
+      "sqlMs": 0.010545999997702893,
+      "rowsReturned": 11,
+      "returnedItems": 0,
+      "sql": [
+        {
+          "sql": "SELECT id,rowid FROM pip_jobs WHERE owner_id=? AND rowid<? ORDER BY rowid DESC LIMIT ?",
+          "calls": 1,
+          "ms": 0.010545999997702893,
+          "rows": 11
+        }
+      ]
+    },
+    "lockResult": {
+      "configuredRuntimeBusyTimeoutMs": 5000,
+      "probeBusyTimeoutMs": 75,
+      "jobsPage": {
+        "ok": true,
+        "ms": 30.48244700000214
+      },
+      "packageHistory": {
+        "ok": false,
+        "ms": 76.03809600000386,
+        "message": "database is locked",
+        "code": "ERR_SQLITE_ERROR",
+        "errcode": 5
+      },
+      "overview": {
+        "ok": false,
+        "ms": 76.33259900000121,
+        "message": "database is locked",
+        "code": "ERR_SQLITE_ERROR",
+        "errcode": 5
+      }
+    },
+    "recovery": {
+      "name": "asset-lifecycle-recovery-preflight",
+      "repetitions": 5,
+      "medianMs": 0.0779469999979483,
+      "p95Ms": 0.08832299999630777,
+      "minMs": 0.07625399999960791,
+      "maxMs": 0.08832299999630777,
+      "queries": 8,
+      "sqlMs": 0.024928999991971068,
+      "rowsReturned": 6,
+      "returnedItems": null,
+      "sql": [
+        {
+          "sql": "SELECT sql FROM sqlite_master WHERE name=? AND type=?",
+          "calls": 4,
+          "ms": 0.01327099999616621,
+          "rows": 4
+        },
+        {
+          "sql": "SELECT version FROM asset_lifecycle_migrations LIMIT 2",
+          "calls": 1,
+          "ms": 0.001972999998542946,
+          "rows": 1
+        },
+        {
+          "sql": "SELECT name FROM sqlite_master WHERE type='trigger' AND tbl_name IN ('asset_archives','asset_lifecycle_receipts','asset_lifecycle_migrations')",
+          "calls": 1,
+          "ms": 0.006699999998090789,
+          "rows": 1
+        },
+        {
+          "sql": "SELECT * FROM asset_archives LIMIT 16385",
+          "calls": 1,
+          "ms": 0.0013519999993150122,
+          "rows": 0
+        },
+        {
+          "sql": "SELECT * FROM asset_lifecycle_receipts LIMIT 32769",
+          "calls": 1,
+          "ms": 0.0016329999998561107,
+          "rows": 0
+        }
+      ]
+    }
+  }
+]

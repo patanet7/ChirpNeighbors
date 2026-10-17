@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-17",
+  "scope": "static decorative foliage and isolated RGBA texture review software continuation",
+  "sourceState": "verified17-file software checkpoint committed/pushed to existing UI branch; native browser acceptance pending",
+  "baseUiCommit": "d4130c5c424199ad53c5e59b29643dd232de4827",
+  "uiBranch": "codex/archive-history-20261012",
+  "publishedFeatureCommit": "532840e5ff1d693c7b8ff03966b56ae3fadc269d",
+  "sources": [
+    {
+      "path": "src/lib/components/TextureReviewPreview.svelte",
+      "sha256": "67874b97173eaf9bfe619e6a38b3416ac5c0b0e97958693a2a5ecdf0aff1a220"
+    },
+    {
+      "path": "src/lib/engine/renderer-context-lifecycle.test.ts",
+      "sha256": "b6017ea245ff4a62184e70e5047562d65584baeffcab271057bc8cc84e9c8eb9"
+    },
+    {
+      "path": "src/lib/engine/renderer.ts",
+      "sha256": "e313c296d9cbcbfaf3b282dcefc5701d27d06d5fd796a3cd7ac7c0ebe8d3d3c6"
+    },
+    {
+      "path": "src/lib/engine/review-art.test.ts",
+      "sha256": "671dc5887f0ee76da07feae6b35d96f53bfac781431e7b7294671f1f3a1f490e"
+    },
+    {
+      "path": "src/lib/engine/review-art.ts",
+      "sha256": "b9f2969a4e2f63c68114ee02f31f5eaa1d2d7392f9c830d2c4c638437d8995fe"
+    },
+    {
+      "path": "src/lib/workbench/asset-package.test.ts",
+      "sha256": "ea73a9a30672485e96b22a992a07f423128a4374ae0c6b2904006c0d0f6feb6c"
+    },
+    {
+      "path": "src/lib/workbench/asset-package.ts",
+      "sha256": "6cc42b508ca9b1dfdc971e052f9b3fd76f016944522ca4a2f555d6236c802df8"
+    },
+    {
+      "path": "src/lib/workbench/foliage-review.integration.test.ts",
+      "sha256": "a8e8f802f08115b0fdeedc8db60c89f9fe188022f3e5aca212e5437276bf907b"
+    },
+    {
+      "path": "src/lib/workbench/synthetic-foliage.test.ts",
+      "sha256": "fadea9589033c4583783d6dfff50e3126da3bfcce93bc9eb2ab530c8ae504d5a"
+    },
+    {
+      "path": "src/lib/workbench/synthetic-foliage.ts",
+      "sha256": "e65aa83d20503958841300dd4fc259c65d97bfd63efa2b9fa6d4caed3f7cba5d"
+    },
+    {
+      "path": "src/lib/workbench/texture-preview.test.ts",
+      "sha256": "d483cbc54110d6abfd9c8cb0144a74ed05ef077198d0f219dcd8c4c08a26436c"
+    },
+    {
+      "path": "src/lib/workbench/texture-preview.ts",
+      "sha256": "9c7dcbafc18ad589b7298b9243d82a9a25c17703a748f7813c97d23759c4080a"
+    },
+    {
+      "path": "src/lib/workbench/texture-review-export.test.ts",
+      "sha256": "cc30f9ebef15d7e2b886254297af1f0a7225d638b9be655a068511a14368980f"
+    },
+    {
+      "path": "src/lib/workbench/texture-review-export.ts",
+      "sha256": "d17accdaf8c8c79c1d292359ac57d30cf5b882e728c71559b26d61c330a4444c"
+    },
+    {
+      "path": "src/routes/asset-review/+page.svelte",
+      "sha256": "c2805e4ad78298a28d1e58539e7767c82c3ce910f9d016f9449fee371d84853c"
+    },
+    {
+      "path": "src/routes/texture-review/+page.svelte",
+      "sha256": "84867394e2b275dee922e6933384baa05920beee46c2c6c336bdd6e777a00425"
+    },
+    {
+      "path": "tools/svelte-autofixer/reviewed-advisories.json",
+      "sha256": "9395c1ba97424d4d6aa3442c3fc0bc51c2b1e6a10323ee592f05b543567d4eae"
+    }
+  ],
+  "versions": {
+    "newManifest": 3,
+    "newSelection": 2,
+    "legacyManifestVersions": [
+      1,
+      2
+    ],
+    "legacySelectionBytes": "unchanged version 1"
+  },
+  "contract": {
+    "family": "foliage",
+    "role": "foliage",
+    "scope": "local-review-only",
+    "approval": "unreviewed",
+    "productionApproved": false,
+    "state": "default",
+    "coverageMask": "png-alpha coverage only",
+    "physics": {
+      "collision": false,
+      "supports": false,
+      "shelter": false,
+      "wind": false
+    },
+    "seasonalInvariants": [
+      "foliage identity",
+      "theme identity",
+      "source canvas",
+      "pivot",
+      "placement",
+      "scale",
+      "depth",
+      "physics"
+    ],
+    "seasonSelection": "requested season replaces same-identity base; missing season uses base",
+    "unchangedLimits": {
+      "files": 12,
+      "manifestBytes": 32768,
+      "combinedPngBytes": 4194304,
+      "decodedPixels": 262144,
+      "rectangles": 16384,
+      "palette": 64,
+      "perPngBytes": 524288,
+      "perPngPixels": 65536,
+      "foliageCanvasEdge": 256
+    },
+    "rejected": [
+      "unknown fields",
+      "anchors and physical masks",
+      "physical or wind behavior",
+      "cross-family payloads",
+      "variant geometry or identity drift",
+      "missing base",
+      "source rights/provenance/hash gaps",
+      "out-of-world full canvas",
+      "over-budget inputs"
+    ]
+  },
+  "verification": {
+    "fullUnit": {
+      "total": 2389,
+      "passed": 2357,
+      "failed": 32,
+      "pending": 0,
+      "baselineFailures": 32,
+      "introducedFailures": [],
+      "removedFailures": [],
+      "exactFailureIdentityMatch": true,
+      "affectedFiles": 9,
+      "affectedTests": 109,
+      "affectedAllPassed": true
+    },
+    "affectedFiles": [
+      "asset-package.test.ts",
+      "review-art.test.ts",
+      "renderer-context-lifecycle.test.ts",
+      "synthetic-foliage.test.ts",
+      "foliage-review.integration.test.ts",
+      "review-session.test.ts",
+      "texture-profile.test.ts",
+      "texture-preview.test.ts",
+      "texture-review-export.test.ts"
+    ],
+    "affectedTests": 109,
+    "allAffectedPassed": true,
+    "gates": {
+      "svelteErrors": 0,
+      "svelteWarnings": 0,
+      "strictTypeScript": "pass",
+      "eslint": "pass",
+      "declarations": "pass",
+      "format": "pass",
+      "pinnedAnalyzer": "pass",
+      "css": "pass",
+      "contractsAndClients": "pass",
+      "build": "pass"
+    },
+    "http": [
+      {
+        "label": "synthetic fixture sign-in",
+        "status": 303,
+        "expected": 303,
+        "passed": true
+      },
+      {
+        "label": "review page exposes synthetic foliage control",
+        "status": 200,
+        "expected": 200,
+        "passed": true
+      },
+      {
+        "label": "v3 foliage base/autumn supplied PNG admission",
+        "status": 200,
+        "expected": 200,
+        "passed": true
+      },
+      {
+        "label": "identical captured package retry",
+        "status": 200,
+        "expected": 200,
+        "passed": true
+      },
+      {
+        "label": "seasonal pivot drift",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "seasonal theme identity drift",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "unapproved physical support",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "unapproved wind response",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "forged contact anchors",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "wrong family role",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "missing source rights evidence",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "wrong source byte hash",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "missing coverage mask",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "legacy v2 foliage remains unsupported",
+        "status": 400,
+        "expected": 400,
+        "passed": true
+      },
+      {
+        "label": "wrong foliage review origin",
+        "status": 403,
+        "expected": 403,
+        "passed": true
+      },
+      {
+        "label": "missing foliage document binding",
+        "status": 409,
+        "expected": 409,
+        "passed": true
+      }
+    ],
+    "exportReproducible": true,
+    "syntheticExportDigest": "9f8f59c1d3eb22d4417430357b9e40c6ba92bd96672f8be4aa118f8b8e83bf8b",
+    "syntheticPackageDigest": "235693009deca9ddf16129b3615eb366cb693d252324e890501c7afb5caf99ee",
+    "independentPageRaceProbes": 4,
+    "independentReadReviewRemainingFindings": [],
+    "renderer": "actual installed Pixi graph and contexts with mocked browser/GPU application boundary; depth/visibility/tint/opaque hit masks/resource cost/clear and disposal tested",
+    "nativeQaFollowup": {
+      "reportedFindings": [
+        "schema-3 foliage rejected during active source changes",
+        "asset-review file input overflow at 390 CSS px",
+        "texture-review file input overflow at 390 CSS px"
+      ],
+      "sourceAtSchemaFailure": "a28ec1f137508253a7c7db3433e4ab1f5b8254aa78f4fc399d7261be19ada473",
+      "settledSchemaSource": "6cc42b508ca9b1dfdc971e052f9b3fd76f016944522ca4a2f555d6236c802df8",
+      "fix": "bounded file-input and label width on both review pages; asset label margin-right zero",
+      "rechecked": [
+        "Svelte zero errors/warnings",
+        "CSS",
+        "pinned analyzer both pages no issues or suggestions",
+        "format",
+        "production build",
+        "16 existing synthetic HTTP checks",
+        "actual Vite-served schema-3 and foliage-selection code",
+        "actual Vite-served bounded CSS"
+      ],
+      "unitScope": "full and 80 affected unit tests precede CSS-only followup; tested unit source unchanged",
+      "nativeBrowserRecheck": "pending; source/module/HTTP checks do not establish browser appearance or prove the old rejection was only HMR",
+      "pending": [
+        "reload settled route and load synthetic foliage",
+        "verify base/autumn/fallback preview",
+        "390px viewport widths on both intake pages",
+        "cancel pending request and retry captured inputs",
+        "successful browser export and roundtrip"
+      ]
+    },
+    "isolatedTextureSoftware": {
+      "focusedTests": 29,
+      "exportImport": {
+        "kind": "texture-review-export",
+        "version": 1,
+        "scope": "review-only",
+        "approval": "unreviewed",
+        "activation": "none",
+        "maxUtf8Bytes": 11315888,
+        "retains": "supplied original PNG, exact parsed manifest values, canonical PNG and full validation receipt",
+        "stableDigest": "all content except CPU wall-time receipt values; JSON byte identity is not claimed across new timing samples",
+        "revalidation": "existing guarded API using retained original PNG; compare source manifest, canonical PNG, RGBA and frame digests"
+      },
+      "previewControls": [
+        "intended-world1x size",
+        "nearest or linear sampler",
+        "checkerboard,light or dark composite"
+      ],
+      "sourcePixels": "unchanged by display controls",
+      "premultiplication": "one intended upload boundary",
+      "pageRaceProbes": 4,
+      "readReviewRemainingFindings": [],
+      "browserAppearance": "pending native review; source and CPU tests are not GPU acceptance"
+    },
+    "pinnedAnalyzerReview": "same20 existing intentional component advisories reviewed against new source; exact source hash and rationales refreshed; final gate passes"
+  },
+  "authorization": {
+    "canonicalSchemaWrite": "initial denial resolved by trusted direct-user evidence and one approved retry",
+    "commitAndPush": "initial denial resolved by trusted direct owner publication context and one approved retry; commit/push completed and remoteSHA matched",
+    "localStaging": "all17 software files staged, then committed/pushed; UI working tree clean",
+    "newPrivateSourceDisclosure": "detailed public-docs disclosure denied before execution; not retried; generic software/queue alternative completed"
+  },
+  "acceptance": {
+    "browserGpuAppearance": "initial native browser reached yard/texture/gallery/art-lab; settled foliage,1x/filter/composite controls,mobile width and download interactions remain pending",
+    "finishedArt": "unapproved",
+    "productionActivation": false,
+    "newFamilyPinsOrCatalogKinds": false,
+    "existingDefaultsAndTextureLimits": "unchanged",
+    "sourceGeneration": "deterministic synthetic RGBA plus supplied PNG encoder; no models/paid service/editor installation"
+  },
+  "remainingFamilies": [
+    "themed decoration family",
+    "weather layer family",
+    "additional non-default physical states"
+  ],
+  "nextExecutableTask": "Complete settled-source native browser review and intended-size/composite/contact inspection through isolated tooling. Preserve source quality/privacy and separate family admission; no automatic yard/catalog activation. UI software checkpoint is published; documentation checkpoint remains local."
+}

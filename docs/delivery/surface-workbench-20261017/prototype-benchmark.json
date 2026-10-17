@@ -1,0 +1,94 @@
+{
+  "schema": "chirp-prototype-surface-benchmark-v1",
+  "measuredAt": "2026-10-17T00:49:53.262Z",
+  "host": {
+    "platform": "darwin",
+    "release": "25.6.0",
+    "arch": "arm64",
+    "cpu": "Apple M5 Pro",
+    "node": "v24.19.0",
+    "gcExposed": true
+  },
+  "scope": "Pure model stepping + pixel-rectangle generation only. No Pixi, browser, GPU, total app memory or physical mobile device. All cases run on this Mac; scene size names are logical workloads.",
+  "forcing": "Intentional stress: full snow and rain intensities together, alternating -3/+3 setpoint. Water uses supplied elapsed time; snow runs a separate 12x visual clock. This is not a physically partitioned storm.",
+  "cases": [
+    {
+      "name": "compact scene",
+      "objectCount": 4,
+      "actorCount": 8,
+      "cells": 96,
+      "warmupSamples": 500,
+      "measuredSamples": 4000,
+      "sampleHz": 20,
+      "suppliedSeconds": 200,
+      "waterModelSeconds": 200,
+      "snowModelSeconds": 2399.9999999999436,
+      "combinedCpuSampleMs": {
+        "p50": 0.04179200000001515,
+        "p95": 0.09220899999999688,
+        "p99": 0.1576249999999959,
+        "max": 0.676084000000003,
+        "mean": 0.051831833499999994
+      },
+      "cpuMs": {
+        "user": 255.237,
+        "system": 11.908
+      },
+      "memoryBytes": {
+        "heapBefore": 5137784,
+        "sampledPeakHeap": 12575576,
+        "heapAfter": 10547544,
+        "heapAfterGc": 5179904,
+        "retainedHeapDelta": 42120,
+        "rssAfter": 82804736
+      },
+      "state": {
+        "waterCells": 96,
+        "snowSurfaces": 16,
+        "effects": 26,
+        "maxEffects": 32,
+        "maxWaterPrimitives": 317,
+        "maxSnowPrimitives": 63
+      }
+    },
+    {
+      "name": "crowded scene",
+      "objectCount": 12,
+      "actorCount": 96,
+      "cells": 96,
+      "warmupSamples": 500,
+      "measuredSamples": 4000,
+      "sampleHz": 20,
+      "suppliedSeconds": 200,
+      "waterModelSeconds": 200,
+      "snowModelSeconds": 2399.9999999999436,
+      "combinedCpuSampleMs": {
+        "p50": 0.10629199999999628,
+        "p95": 0.15424999999999045,
+        "p99": 0.19812500000000455,
+        "max": 0.7089170000000422,
+        "mean": 0.11520070825000002
+      },
+      "cpuMs": {
+        "user": 463.518,
+        "system": 14.864
+      },
+      "memoryBytes": {
+        "heapBefore": 5207776,
+        "sampledPeakHeap": 14008720,
+        "heapAfter": 18378552,
+        "heapAfterGc": 5274928,
+        "retainedHeapDelta": 67152,
+        "rssAfter": 102645760
+      },
+      "state": {
+        "waterCells": 96,
+        "snowSurfaces": 24,
+        "effects": 32,
+        "maxEffects": 32,
+        "maxWaterPrimitives": 321,
+        "maxSnowPrimitives": 117
+      }
+    }
+  ]
+}

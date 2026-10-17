@@ -1,0 +1,250 @@
+{
+  "schema": "chirp-experimental-si-core-benchmark-v1",
+  "measuredAt": "2026-10-17T00:55:26.043Z",
+  "host": {
+    "platform": "darwin",
+    "release": "25.6.0",
+    "arch": "arm64",
+    "cpu": "Apple M5 Pro",
+    "node": "v24.19.0",
+    "gcExposed": true
+  },
+  "scope": "Pure fixed-domain SI numerical core only, including validation, ledger and bounded history. No browser/Pixi/GPU, photo-derived terrain, physical calibration or mobile-device qualification. Sequential workloads on this Mac; heap includes harness buffers and process RSS is not per-model memory.",
+  "forcing": "Synthetic rain/snow partition 0.5, total 2 mm/hour water equivalent, 2 C, degree-day factor 3 mm/(C day). No empirical yard/weather prediction.",
+  "cases": [
+    {
+      "columns": 12,
+      "rows": 8,
+      "cells": 96,
+      "edges": 172,
+      "catchments": 96,
+      "physicalDomainM": {
+        "width": 2,
+        "height": 1
+      },
+      "stepSeconds": 0.05,
+      "warmupSteps": 500,
+      "measuredSteps": 4000,
+      "measuredModelSeconds": 200,
+      "stepCpuMs": {
+        "p50": 0.07175000000000864,
+        "p95": 0.1363749999999868,
+        "p99": 0.22483300000000384,
+        "max": 1.6785830000000033
+      },
+      "twentyStepBurstMs": {
+        "p50": 1.532624999999996,
+        "p95": 2.327875000000006,
+        "p99": 3.773541999999992,
+        "max": 4.759584000000004
+      },
+      "meanLoopMsPerStep": 0.08143302075,
+      "cpuMs": {
+        "user": 466.6,
+        "system": 12.997
+      },
+      "memoryBytes": {
+        "heapBefore": 4415136,
+        "sampledPeakHeap": 24304744,
+        "heapAfterGc": 4509112,
+        "retainedHeapDelta": 93976,
+        "rssAfter": 110542848
+      },
+      "finalState": {
+        "tick": 4500,
+        "retainedDiagnostics": 256,
+        "maxAbsoluteResidualM3": 2.535996262349082e-16,
+        "sumAbsoluteResidualM3": 4.610970987530843e-13,
+        "waterEquivalentM3": 0.04625000000000038,
+        "cumulative": {
+          "precipitationM3": 0.000249999999999985,
+          "externalInflowM3": 0,
+          "infiltrationM3": 0,
+          "evaporationM3": 0,
+          "drainExportM3": 0,
+          "spillExportM3": 0,
+          "meltM3": 0.000031249999999998124,
+          "routedM3": 0.010286237971872973,
+          "overflowM3": 0
+        }
+      },
+      "lastLedger": {
+        "precipitationM3": 5.555555555555562e-8,
+        "externalInflowM3": 0,
+        "infiltrationM3": 0,
+        "evaporationM3": 0,
+        "drainExportM3": 0,
+        "spillExportM3": 0,
+        "meltM3": 6.9444444444444526e-9,
+        "routedM3": 0.000001712762469450625,
+        "overflowM3": 0,
+        "tick": 4500,
+        "forcingId": "synthetic-steady-forcing",
+        "forcingVersion": 1,
+        "waterBeforeM3": 0.04624994444444488,
+        "waterAfterM3": 0.04625000000000038,
+        "residualM3": -5.237170302159857e-17,
+        "cumulativeResidualM3": 4.0381109914222613e-16,
+        "donorLimitedStores": 0,
+        "maxStabilityRatio": 0.010000000000000002,
+        "transferCount": 376
+      }
+    },
+    {
+      "columns": 24,
+      "rows": 16,
+      "cells": 384,
+      "edges": 728,
+      "catchments": 384,
+      "physicalDomainM": {
+        "width": 2,
+        "height": 1
+      },
+      "stepSeconds": 0.05,
+      "warmupSteps": 500,
+      "measuredSteps": 4000,
+      "measuredModelSeconds": 200,
+      "stepCpuMs": {
+        "p50": 0.2235409999999547,
+        "p95": 0.3240419999999631,
+        "p99": 0.4820830000001024,
+        "max": 2.096916000000192
+      },
+      "twentyStepBurstMs": {
+        "p50": 4.725958999999989,
+        "p95": 5.3689580000000205,
+        "p99": 7.1628749999999854,
+        "max": 7.178999999999974
+      },
+      "meanLoopMsPerStep": 0.24047494800000002,
+      "cpuMs": {
+        "user": 948.666,
+        "system": 25.616
+      },
+      "memoryBytes": {
+        "heapBefore": 5129344,
+        "sampledPeakHeap": 73339304,
+        "heapAfterGc": 5172344,
+        "retainedHeapDelta": 43000,
+        "rssAfter": 213221376
+      },
+      "finalState": {
+        "tick": 4500,
+        "retainedDiagnostics": 256,
+        "maxAbsoluteResidualM3": 8.982571257731612e-16,
+        "sumAbsoluteResidualM3": 1.564362088514959e-12,
+        "waterEquivalentM3": 0.0462500000000006,
+        "cumulative": {
+          "precipitationM3": 0.00024999999999998493,
+          "externalInflowM3": 0,
+          "infiltrationM3": 0,
+          "evaporationM3": 0,
+          "drainExportM3": 0,
+          "spillExportM3": 0,
+          "meltM3": 0.00003124999999999812,
+          "routedM3": 0.02068328429931244,
+          "overflowM3": 0
+        }
+      },
+      "lastLedger": {
+        "precipitationM3": 5.555555555555526e-8,
+        "externalInflowM3": 0,
+        "infiltrationM3": 0,
+        "evaporationM3": 0,
+        "drainExportM3": 0,
+        "spillExportM3": 0,
+        "meltM3": 6.944444444444407e-9,
+        "routedM3": 0.0000034395208200191484,
+        "overflowM3": 0,
+        "tick": 4500,
+        "forcingId": "synthetic-steady-forcing",
+        "forcingVersion": 1,
+        "waterBeforeM3": 0.0462499444444453,
+        "waterAfterM3": 0.0462500000000006,
+        "residualM3": -2.5359926227543867e-16,
+        "cumulativeResidualM3": 1.028365760602501e-15,
+        "donorLimitedStores": 0,
+        "maxStabilityRatio": 0.04000000000000001,
+        "transferCount": 1520
+      }
+    },
+    {
+      "columns": 32,
+      "rows": 32,
+      "cells": 1024,
+      "edges": 1984,
+      "catchments": 1024,
+      "physicalDomainM": {
+        "width": 2,
+        "height": 1
+      },
+      "stepSeconds": 0.05,
+      "warmupSteps": 500,
+      "measuredSteps": 4000,
+      "measuredModelSeconds": 200,
+      "stepCpuMs": {
+        "p50": 0.5979999999999563,
+        "p95": 0.8939159999999902,
+        "p99": 1.1342079999999441,
+        "max": 2.2899170000000595
+      },
+      "twentyStepBurstMs": {
+        "p50": 12.533625000000029,
+        "p95": 15.583333999999923,
+        "p99": 17.40124999999989,
+        "max": 18.049417000000176
+      },
+      "meanLoopMsPerStep": 0.6466799062499999,
+      "cpuMs": {
+        "user": 2561.744,
+        "system": 43.07
+      },
+      "memoryBytes": {
+        "heapBefore": 6590432,
+        "sampledPeakHeap": 75042152,
+        "heapAfterGc": 6631736,
+        "retainedHeapDelta": 41304,
+        "rssAfter": 215171072
+      },
+      "finalState": {
+        "tick": 4500,
+        "retainedDiagnostics": 256,
+        "maxAbsoluteResidualM3": 2.6052240136652697e-15,
+        "sumAbsoluteResidualM3": 7.480139004329172e-13,
+        "waterEquivalentM3": 0.04624999999999886,
+        "cumulative": {
+          "precipitationM3": 0.000249999999999986,
+          "externalInflowM3": 0,
+          "infiltrationM3": 0,
+          "evaporationM3": 0,
+          "drainExportM3": 0,
+          "spillExportM3": 0,
+          "meltM3": 0.00003124999999999825,
+          "routedM3": 0.027599253525404963,
+          "overflowM3": 0
+        }
+      },
+      "lastLedger": {
+        "precipitationM3": 5.555555555555627e-8,
+        "externalInflowM3": 0,
+        "infiltrationM3": 0,
+        "evaporationM3": 0,
+        "drainExportM3": 0,
+        "spillExportM3": 0,
+        "meltM3": 6.944444444444534e-9,
+        "routedM3": 0.000004588741804594647,
+        "overflowM3": 0,
+        "tick": 4500,
+        "forcingId": "synthetic-steady-forcing",
+        "forcingVersion": 1,
+        "waterBeforeM3": 0.046249944444443365,
+        "waterAfterM3": 0.04624999999999886,
+        "residualM3": -5.931124543510604e-17,
+        "cumulativeResidualM3": -1.207042278628112e-15,
+        "donorLimitedStores": 0,
+        "maxStabilityRatio": 0.128,
+        "transferCount": 4064
+      }
+    }
+  ]
+}

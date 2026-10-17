@@ -57,6 +57,7 @@ NAMES = frozenset(
         "asset-lifecycle-entry-v1",
         "asset-lifecycle-overview-v1",
         "asset-lifecycle-response-v1",
+        "asset-package-history-v1",
         "png-file-origin-v1",
         "png-frame-layout-v1",
         "png-file-record-v1",

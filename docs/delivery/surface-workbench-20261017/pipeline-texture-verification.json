@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-17",
+  "scope": "private asset review, transition diagnostics and isolated texture experiment",
+  "uiBranch": "codex/archive-history-20261012",
+  "uiCommit": "d4130c5c424199ad53c5e59b29643dd232de4827",
+  "publication": "working branch; no merge or deployment",
+  "sources": [
+    {
+      "path": "src/lib/assets/clip-transitions.test.ts",
+      "sha256": "9db4fde5af6602ca294969dee9e354924c94f1295366dd1c33de8ba7d2bb4619"
+    },
+    {
+      "path": "src/lib/assets/clip-transitions.ts",
+      "sha256": "4b949fb2f0d2b4e2b3cce562ccbeb7b2bccdf6f4cf1aa5bf13be6b5ede422259"
+    },
+    {
+      "path": "src/lib/components/ClipTransitionReview.svelte",
+      "sha256": "5f1ce84cc5b3280fc17a81d258ebe9345d09d90d36bb0c3047bbc9b7e0021b95"
+    },
+    {
+      "path": "src/lib/components/TextureReviewPreview.svelte",
+      "sha256": "eef7ad487a6b457e790ed7fae3f85005efb78aba959fade0269f573fe7ad6403"
+    },
+    {
+      "path": "src/lib/pipeline/canonical-json.ts",
+      "sha256": "68090d71be5ae2b04432c98fc57f93571b44ea8a54495a08bf39109bb9b37ebf"
+    },
+    {
+      "path": "src/lib/server/pipeline/canonical.ts",
+      "sha256": "28c4c5f7bd522ac9709ce66df07c674e9f9a5ec53d35255c4a0ebfdef4637320"
+    },
+    {
+      "path": "src/lib/workbench/asset-package.server.ts",
+      "sha256": "f745f6771ce18cbf12d606048327d17c387b6b2be9100b6f3143ea9ca183fc6c"
+    },
+    {
+      "path": "src/lib/workbench/asset-package.test.ts",
+      "sha256": "9c8022d80acb4f11e81ebfe27fe9007169ea2f90edd6b71b29d426dd8ded7420"
+    },
+    {
+      "path": "src/lib/workbench/asset-package.ts",
+      "sha256": "a28ec1f137508253a7c7db3433e4ab1f5b8254aa78f4fc399d7261be19ada473"
+    },
+    {
+      "path": "src/lib/workbench/review-session.test.ts",
+      "sha256": "6e8e0c238750ed4789e5080cd12492777ee74d32a5295eeae670fe7d33fadbd5"
+    },
+    {
+      "path": "src/lib/workbench/review-session.ts",
+      "sha256": "b2c0e431fbb167504bdcd6dec97e8c3fd2afef439cddb54d14fb0b745397c021"
+    },
+    {
+      "path": "src/lib/workbench/texture-preview.test.ts",
+      "sha256": "94bc304109add8fdbdde9346d78a95e52c4bcc2c45b1d09e164705fa1935f4f0"
+    },
+    {
+      "path": "src/lib/workbench/texture-preview.ts",
+      "sha256": "c89ff5f874c424b73b09e7677680a09eb17c44416ec7ccf4d9e577583ae0ddba"
+    },
+    {
+      "path": "src/lib/workbench/texture-profile.server.ts",
+      "sha256": "dad5fa0b366bf105e36ffc05b6cd5c2569d5a8a4bcd3a5e43ec878e995684599"
+    },
+    {
+      "path": "src/lib/workbench/texture-profile.test.ts",
+      "sha256": "f412b0d6c334489e55ca18eb56e68f46ecc80555a2873e98490f334f3a78675a"
+    },
+    {
+      "path": "src/lib/workbench/texture-profile.ts",
+      "sha256": "4936ac9c7a58a5d9260953983c376363e6864e6eddc1ef9f7197d928a00a7182"
+    },
+    {
+      "path": "src/routes/api/texture-review/+server.ts",
+      "sha256": "e658d59a1a5136443a983e95a89d94dafd8ccab0b74b183b1e0ee88909379bd5"
+    },
+    {
+      "path": "src/routes/art-lab/+page.svelte",
+      "sha256": "6c90e708819ab2557f6fdee0e6ff534db570b30739524fcd50a3fe375f17bfb3"
+    },
+    {
+      "path": "src/routes/asset-review/+page.svelte",
+      "sha256": "22b1d07fc932a62e28bac87dfac00ace658b2c0c1223e228b3e904163a476602"
+    },
+    {
+      "path": "src/routes/texture-review/+page.server.ts",
+      "sha256": "03b1fa0e22cd84fa078fe9575541fe8cdf5d31088d825d3ec40020951fe13ddd"
+    },
+    {
+      "path": "src/routes/texture-review/+page.svelte",
+      "sha256": "487874153b9475614391234e1b444d21099eb27ffb2f3e83d744b26b0e1d0100"
+    },
+    {
+      "path": "tools/svelte-autofixer/reviewed-advisories.json",
+      "sha256": "cdbd5ecaa90a4918be32a79ba2bd51e2ade46ca7209745e2633e9f9d27c180d0"
+    }
+  ],
+  "fullUnit": {
+    "total": 2342,
+    "passed": 2310,
+    "failed": 32,
+    "pending": 0,
+    "baselineFailures": 32,
+    "introducedFailures": [],
+    "removedFailures": [],
+    "failedCaseIdentifiersExactlyMatchRecordedBaseline": true,
+    "node": "24.19.0",
+    "python": "3.12.13",
+    "canonicalTemporaryPath": true
+  },
+  "affectedScope": {
+    "files": 5,
+    "tests": 67,
+    "passed": 67,
+    "names": [
+      "clip-transitions.test.ts",
+      "asset-package.test.ts",
+      "review-session.test.ts",
+      "texture-profile.test.ts",
+      "texture-preview.test.ts"
+    ]
+  },
+  "gates": {
+    "svelte": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "strictTypeScript": "pass",
+    "declarations": "pass",
+    "eslint": "pass",
+    "format": "pass",
+    "pinnedSvelteAnalyzer": "pass with reviewed imperative resource advisories",
+    "css": "pass",
+    "exportedContractsAndGeneratedClients": "pass",
+    "productionBuild": "pass"
+  },
+  "http": {
+    "development": [
+      {
+        "label": "anonymous texture page",
+        "status": 303,
+        "expected": 303,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "anonymous texture API",
+        "status": 401,
+        "expected": 401,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "fixture sign-in",
+        "status": 303,
+        "expected": 303,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "fixture texture page",
+        "status": 200,
+        "expected": 200,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "synthetic 128 texture",
+        "status": 200,
+        "expected": 200,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "synthetic 256 texture",
+        "status": 200,
+        "expected": 200,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "wrong texture origin",
+        "status": 403,
+        "expected": 403,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "missing texture document binding",
+        "status": 409,
+        "expected": 409,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "invalid synthetic size",
+        "status": 400,
+        "expected": 400,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "oversized synthetic request",
+        "status": 413,
+        "expected": 413,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "supplied compliant experimental PNG",
+        "status": 200,
+        "expected": 200,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "invalid supplied PNG",
+        "status": 400,
+        "expected": 400,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "explicit v2 scene family",
+        "status": 200,
+        "expected": 200,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "family mismatch",
+        "status": 400,
+        "expected": 400,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "unsupported foliage family",
+        "status": 400,
+        "expected": 400,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "unsupported state",
+        "status": 400,
+        "expected": 400,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "missing coverage declaration",
+        "status": 400,
+        "expected": 400,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "asset review SSR",
+        "status": 200,
+        "expected": 200,
+        "passed": true,
+        "cache": "private, no-store"
+      },
+      {
+        "label": "art lab SSR",
+        "status": 200,
+        "expected": 200,
+        "passed": true,
+        "cache": "private, no-store"
+      }
+    ],
+    "production": [
+      {
+        "path": "/health/ready",
+        "status": 503,
+        "expected": 503,
+        "passed": true,
+        "setCookie": false
+      },
+      {
+        "path": "/texture-review",
+        "status": 303,
+        "expected": 303,
+        "passed": true,
+        "setCookie": false
+      },
+      {
+        "path": "/api/texture-review",
+        "status": 503,
+        "expected": 503,
+        "passed": true,
+        "setCookie": false
+      },
+      {
+        "path": "/auth/dev",
+        "status": 503,
+        "expected": 503,
+        "passed": true,
+        "setCookie": false
+      }
+    ],
+    "productionProbeStopped": true,
+    "productionAuthentication": "unconfigured; readiness refusal expected"
+  },
+  "independentReview": {
+    "assetReviewPageRaceProbes": 9,
+    "texturePageRaceProbes": 5,
+    "remainingFindings": [],
+    "resolved": [
+      "upload preparation selection/generation race",
+      "stale export filename/digest and URL lifetime",
+      "expected texture input error mapping",
+      "native Node serializer import extension"
+    ]
+  },
+  "textureEvaluation": {
+    "profile": "chirp-texture-review-v1",
+    "productionDefault": false,
+    "originalAndCanonicalPngBytes": 4194304,
+    "atlasEdge": 1024,
+    "atlasPixels": 1048576,
+    "decodedRgbaBytes": 4194304,
+    "frameEdge": 512,
+    "storedFrames": 64,
+    "sequenceSteps": 256,
+    "tickRate": 30,
+    "alpha": "straight RGBA8; zero hidden RGB only; one GPU premultiplication boundary",
+    "cpuRunsPerBaseline": 5,
+    "baselines": [
+      {
+        "frames": 16,
+        "frameEdge": 128,
+        "atlas": [
+          512,
+          512
+        ],
+        "decodedRgbaBytes": 1048576,
+        "canonicalPngBytes": 235052,
+        "medianCpuWallMs": 22.87
+      },
+      {
+        "frames": 16,
+        "frameEdge": 256,
+        "atlas": [
+          1024,
+          1024
+        ],
+        "decodedRgbaBytes": 4194304,
+        "canonicalPngBytes": 906871,
+        "medianCpuWallMs": 78.04
+      }
+    ],
+    "limitsOfEvidence": "CPU wall samples and known buffers only; no peak memory, GPU/VRAM or physical-device FPS measurement"
+  },
+  "approval": {
+    "newMastersActivated": false,
+    "newBirdValidatedClips": 0,
+    "qualityRejectionRetained": true,
+    "rightsFidelityContactAndPhysicalMaskReview": "pending",
+    "existingPublicSchemasPinsDefaultsAndYardLayout": "unchanged"
+  },
+  "browserAcceptance": {
+    "status": "pending",
+    "reason": "supported browser/UI automation unavailable; panel open queued only",
+    "required": [
+      "actual alpha/fringe and source detail at world size",
+      "Pixi texture playback and trim/pivot/contact appearance",
+      "pause/quiet/hidden/replay and package replacement",
+      "actual yard depth, supports and immutable pin migration before production"
+    ]
+  },
+  "nextExecutableTask": "Prepare one deliberate European robin idle/moving/feeding candidate under a selected reviewed profile; retain exact source, timing, pivot, contact and transition metadata; validate, preview and obtain visual approval before packaging/pinning. Unsupported families retain existing canonical tasks."
+}

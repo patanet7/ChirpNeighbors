@@ -1,0 +1,30 @@
+{
+  "passed": 23,
+  "controls": [
+    "Standalone history reads committed state while another connection holds writer lock",
+    "Standalone overview also reads committed state under writer lock",
+    "Lifecycle write still requires exclusive writer admission",
+    "History keeps one snapshot if concurrent archive commits between yard and membership reads",
+    "Following history transaction observes newly committed revision",
+    "Nested command overview sees its own write and caller commits once",
+    "Adding artifact index preserves retained rows and migration version",
+    "New artifact index is nonunique with exact owner/job/order columns",
+    "Owner/job artifact lookup uses new index without a sorting scan",
+    "Repeated startup keeps index and data unchanged",
+    "Strict API job page still rejects corrupt job",
+    "Initial fallback omits cursor and does not admit corrupt row",
+    "Other owner has a normal empty page with real metadata",
+    "Invalid owner cannot be hidden by initial fallback",
+    "Fallback does not alter corrupt row",
+    "Explicit new read recovers after unrelated metadata is repaired",
+    "Exact shared catalog identity remains accepted",
+    "Mismatched catalogKey rejected for read and command responses",
+    "Mismatched releaseVersion rejected for read and command responses",
+    "Mismatched renderSha256 rejected for read and command responses",
+    "Exact revoked shared identity still permits explicit unavailable fallback",
+    "Initial missing-page retry selection starts fresh request",
+    "Subsequent failed-request retry selection repeats request"
+  ],
+  "queryPlan": "SEARCH pip_artifacts USING INDEX pip_artifacts_owner_job (owner_id=? AND job_id=?)",
+  "scope": "Disposable SQLite and controlled functions only; UI retry dispatch checked against actual source, no rendered DOM assertion"
+}

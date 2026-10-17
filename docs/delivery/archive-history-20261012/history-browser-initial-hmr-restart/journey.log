@@ -1,0 +1,47 @@
+PASS Anonymous history reads are denied
+PASS Legacy scan remains incomplete at 513 and omits oldest without dropping pins
+PASS 513 jobs traverse once in stable insertion order, excluding concurrent backdated insert
+PASS Restart includes new insertion
+PASS Altered, wrong-limit and cross-list cursors and owner injection are rejected
+PASS Other owner has empty history and cannot use owner cursor
+PASS Corrupt job metadata cannot prevent yard load or private retention recovery
+PASS Initial unavailable workshop Retry starts a real fresh read
+PASS Failed next page retains rows and retry uses the identical cursor
+PASS Oldest archived package is reachable through 52 keyboard-accessible pages
+PASS History stays visible after 32 MB scan overflow; whole-graph cleanup remains closed
+PASS Lost restore reply retries exact command once and refreshes current page at revision two
+PASS Confirmed write plus malformed refresh keeps stale actions disabled; read retry recovers
+PASS Archive/restore preserved resident pins and observation history
+PASS asset-history-320: no horizontal overflow
+Traceback (most recent call last):
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 324, in <module>
+    asyncio.run(main())
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 316, in main
+    await journey(directory, server)
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/asset-history-browser-checks.py", line 269, in journey
+    await core.api(page, HISTORY + '?' + urlencode({'cursor': first['page']['cursor'], 'limit': 10}), status=400)
+  File "/workspace/archive-history/birdsong-yard-sprites/scripts/browser-checks.py", line 277, in api
+    result: ApiResult = await page.evaluate("""async ({path,body}) => {
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 9389, in evaluate
+    await self._impl_obj.evaluate(
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_page.py", line 472, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 345, in evaluate
+    await self._channel.send(
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/archive-history/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: Execution context was destroyed, most likely because of a navigation

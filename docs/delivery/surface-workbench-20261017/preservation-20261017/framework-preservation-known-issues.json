@@ -1,0 +1,19 @@
+{
+  "nativeInitiative": "chirpneighbors-runtime-repair",
+  "nativeTask": 101,
+  "state": "in-progress, paused_intentional, claim released",
+  "snapshotId": "task-101-2026-10-17T15-29-28-8187e9",
+  "frameworkKnownIssues": [
+    {
+      "issue": "stale draftOnly wording",
+      "disposition": "known framework/documentation inconsistency; actual create/start/test-design/record-red/checkpoint receipts preserved; not treated as lack of lifecycle execution"
+    },
+    {
+      "issue": "generated resume command omitted --initiative while token-audit-apply is active",
+      "disposition": "do not execute mis-scoped generated command; explicit Chirp initiative required"
+    }
+  ],
+  "correctResumeCommand": ".codex/bin/task-runtime resume .agents/tasks 101 --initiative chirpneighbors-runtime-repair --actor codex --session-id 01a14730-019a-7062-a294-ba507c06f004 --no-sync",
+  "preservation": "actual native package exported in framework-task-export.json; source truth remains claude_system/.agents/tasks/initiatives/chirpneighbors-runtime-repair; unrelated framework changes excluded",
+  "mergeAuthorization": "Owner explicitly authorized preservation merges with documented red tests; no branch-protection bypass or assertion weakening."
+}

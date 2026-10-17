@@ -1,0 +1,563 @@
+
+ RUN  v3.2.4 <UI_CHECKOUT>
+
+ ❯ src/lib/server/auth/smtp-socket.test.ts (1 test | 1 failed) 5ms
+   × forwards exactly the whole-send byte budget and destroys the peer on the next byte 4ms
+     → listen EPERM: operation not permitted 127.0.0.1
+ ❯ src/lib/server/operations/restore-shares.test.ts (3 tests | 3 failed) 154ms
+   × revokes checkpoint share capabilities only in the restored copy (recording lifecycle=false) 58ms
+     → expected 1 to be +0 // Object.is equality
+   × revokes checkpoint share capabilities only in the restored copy (recording lifecycle=true) 50ms
+     → expected 1 to be +0 // Object.is equality
+   × refuses an unknown share-update trigger before installing either legacy or lifecycle data 47ms
+     → expected 1 to be +0 // Object.is equality
+ ❯ src/lib/server/operations/restore-optional-state.test.ts (2 tests | 2 failed) 116ms
+   × offline restore revokes consent and pending arrivals with recording ledger=false 62ms
+     → expected 1 to be +0 // Object.is equality
+   × offline restore revokes consent and pending arrivals with recording ledger=true 53ms
+     → expected 1 to be +0 // Object.is equality
+Atomic no-replace directory publication is unavailable.
+ ❯ src/lib/server/operations/restore-auth.test.ts (1 test | 1 failed) 105ms
+   × restores real auth accounts while invalidating old sessions and one-use links only in the copy 104ms
+     → Command failed: python3 <UI_CHECKOUT>/scripts/private_backup.py create /private/tmp/chirp-auth-restore-AG4Zo4/source /private/tmp/chirp-auth-restore-AG4Zo4/checkpoint --offline
+Atomic no-replace directory publication is unavailable.
+
+ ❯ src/lib/server/operations/lifecycle-recovery.test.ts (6 tests | 6 failed) 356ms
+   × offline retained deletion ledger recovery through the real CLI > restores an old checkpoint with later revocations, purges bytes/derived payloads and fences retries after restart 76ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × offline retained deletion ledger recovery through the real CLI > requires a retained ledger for lifecycle-aware checkpoints, including dry run 47ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × offline retained deletion ledger recovery through the real CLI > preserves live media with a valid empty ledger and rejects future or partial database schemas 61ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × offline retained deletion ledger recovery through the real CLI > rejects wrong lineage, unknown schema, truncated/gapped history and changed known prefixes 66ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × offline retained deletion ledger recovery through the real CLI > rejects a retained checksum mismatch and malformed or duplicate-key JSON without exposing data 52ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × offline retained deletion ledger recovery through the real CLI > does not install a restore if cleanup cannot remove media and leaves the checkpoint untouched 53ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+ ❯ src/lib/server/operations/reference-recovery.test.ts (20 tests | 7 failed) 422ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects even an empty or partial reference_admission_migrations schema without touching the DB 19ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects even an empty or partial reference_admission_identity schema without touching the DB 15ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects even an empty or partial reference_files schema without touching the DB 20ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects even an empty or partial reference_reviews schema without touching the DB 14ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects even an empty or partial reference_revocations schema without touching the DB 12ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects even an empty or partial REFERENCE_ADMISSION_MIGRATIONS schema without touching the DB 11ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects an old DB with retained identity.json authority 8ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects an old DB with retained revocations authority 7ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects an old DB with retained synthetic.original authority 8ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects a reference root that is a file without following it 2ms
+   ✓ unsupported reference recovery refuses authority before any mutation > rejects a reference root that is a symlink without following it 2ms
+   ✓ unsupported reference recovery refuses authority before any mutation > preserves legacy no-reference DBs (empty directory: false) 8ms
+   ✓ unsupported reference recovery refuses authority before any mutation > preserves legacy no-reference DBs (empty directory: true) 9ms
+   × real offline backup CLI enforces reference refusal in full and dry-run restore > refuses an old DB plus retained identity.json and preserves original snapshot bytes 51ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × real offline backup CLI enforces reference refusal in full and dry-run restore > refuses an old DB plus retained revocations/synthetic.json and preserves original snapshot bytes 40ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × real offline backup CLI enforces reference refusal in full and dry-run restore > refuses an old DB plus retained synthetic.original and preserves original snapshot bytes 42ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × real offline backup CLI enforces reference refusal in full and dry-run restore > refuses initialized reference tables even if every reference file was omitted 37ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × real offline backup CLI enforces reference refusal in full and dry-run restore > refuses retained private-reference-files without any application DB 39ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × real offline backup CLI enforces reference refusal in full and dry-run restore > refuses retained private-reference-files/identity.json without any application DB 40ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+   × real offline backup CLI enforces reference refusal in full and dry-run restore > still restores old no-reference backups and leaves the source unchanged 38ms
+     → expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+ ❯ src/lib/server/image-files/service.test.ts (16 tests | 1 failed) 3704ms
+   ✓ private real PNG source files > rejects oversized valid review metadata before persisting an unreadable immutable record 133ms
+   × private real PNG source files > cold backup and dry-run/actual restore preserve reviewed image bytes and reject incomplete media 147ms
+     → Atomic no-replace directory publication is unavailable.
+: expected 1 to be +0 // Object.is equality
+   ✓ private real PNG source files > fails closed for partial/future image schemas before storage mutation 79ms
+   ✓ private real PNG source files > can retain partial-alpha PNG bytes for review but refuses silent flattening into the renderer 102ms
+   ✓ private real PNG source files > crosses disk→review→decoded source→manifest→explicit pin and retains original animation pixels  1029ms
+   ✓ private real PNG source files > upload grants no rights, exact retry reuses files and changed bytes conflict 110ms
+   ✓ private real PNG source files > preserves pending rights on rejected review and cannot package them 90ms
+   ✓ private real PNG source files > preserves denied rights on rejected review and cannot package them 90ms
+   ✓ private real PNG source files > binds exact bytes, grid, owner, source declarations and review hash, with unavailable validator failing closed 157ms
+   ✓ private real PNG source files > refuses public roots and file symlinks without following them 99ms
+   ✓ private real PNG source files > cleans a failed staged:original.png write, leaving earlier committed files intact 121ms
+   ✓ private real PNG source files > cleans a failed published:canonical.png write, leaving earlier committed files intact 157ms
+   ✓ private real PNG source files > cleans a failed before-row write, leaving earlier committed files intact 144ms
+   ✓ private real PNG source files > cleans a failed after-row write, leaving earlier committed files intact 145ms
+   ✓ private real PNG source files > recovers real process death after files publish and an uncommitted SQLite row, preserving the previous upload 240ms
+   ✓ packages a versioned PNG plan through presentation-bound source review, animation review and load  862ms
+ ❯ src/lib/server/reference-admission/recovery.test.ts (42 tests | 11 failed) 4323ms
+   ✓ complete private reference authority and bounded offline recovery > serializes a valid multi-owner authority larger than the pipeline artifact budget  1802ms
+   ✓ complete private reference authority and bounded offline recovery > checks analytics-consent.sqlite independently of adjacent app references while rejecting its own reference schema 84ms
+   ✓ complete private reference authority and bounded offline recovery > checks analytics-aggregates.sqlite independently of adjacent app references while rejecting its own reference schema 80ms
+   × complete private reference authority and bounded offline recovery > restores later reviews and terminal revocation with exact pins, owner scope and request retries 73ms
+     → Invalid private reference directory.
+   × complete private reference authority and bounded offline recovery > restores valid later approval while obsolete review pins remain invalid 40ms
+     → Invalid private reference directory.
+   × complete private reference authority and bounded offline recovery > preserves later rejected reviews and never replaces them with approval 59ms
+     → Invalid private reference directory.
+   × complete private reference authority and bounded offline recovery > exports and reconciles a revocation published before an interrupted SQL commit 55ms
+     → Invalid private reference directory.
+   × complete private reference authority and bounded offline recovery > retries safely after failure at authority-validated without discarding terminal authority 47ms
+     → expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'
+   × complete private reference authority and bounded offline recovery > retries safely after failure at tombstone-published without discarding terminal authority 77ms
+     → expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'
+   × complete private reference authority and bounded offline recovery > retries safely after failure at reviews-reconciled without discarding terminal authority 47ms
+     → expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'
+   × complete private reference authority and bounded offline recovery > retries safely after failure at before-commit without discarding terminal authority 83ms
+     → expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'
+   × complete private reference authority and bounded offline recovery > retries safely after failure at committed without discarding terminal authority 48ms
+     → expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'
+   ✓ complete private reference authority and bounded offline recovery > refuses missing and additional admissions instead of dropping owner request history 96ms
+   ✓ complete private reference authority and bounded offline recovery > rejects authority lineage substitutions before mutation 76ms
+   ✓ complete private reference authority and bounded offline recovery > rejects authority owner substitutions before mutation 89ms
+   ✓ complete private reference authority and bounded offline recovery > rejects authority admission-request substitutions before mutation 81ms
+   ✓ complete private reference authority and bounded offline recovery > rejects authority request-digest substitutions before mutation 79ms
+   ✓ complete private reference authority and bounded offline recovery > rejects authority content-digest substitutions before mutation 74ms
+   ✓ complete private reference authority and bounded offline recovery > rejects authority review-digest substitutions before mutation 74ms
+   ✓ complete private reference authority and bounded offline recovery > rejects authority identity substitutions before mutation 81ms
+   ✓ complete private reference authority and bounded offline recovery > rejects authority version substitutions before mutation 79ms
+   ✓ complete private reference authority and bounded offline recovery > rejects authority unknown-key substitutions before mutation 79ms
+   ✓ complete private reference authority and bounded offline recovery > refuses an older or conflicting review/revocation history even with recomputed hashes 51ms
+   ✓ complete private reference authority and bounded offline recovery > refuses missing or corrupt original and does not repair during export 87ms
+   ✓ complete private reference authority and bounded offline recovery > refuses missing or corrupt canonical.png and does not repair during export 82ms
+   ✓ complete private reference authority and bounded offline recovery > refuses missing or corrupt rgba and does not repair during export 89ms
+   ✓ complete private reference authority and bounded offline recovery > refuses missing or corrupt identity.json and does not repair during export 86ms
+   ✓ complete private reference authority and bounded offline recovery > refuses missing or corrupt tombstone and does not repair during export 85ms
+   ✓ complete private reference authority and bounded offline recovery > refuses unsafe media hardlink 33ms
+   ✓ complete private reference authority and bounded offline recovery > refuses unsafe media symlink 35ms
+   ✓ complete private reference authority and bounded offline recovery > refuses unsafe media mode 36ms
+   ✓ complete private reference authority and bounded offline recovery > enumerates and rejects wrong-owner-review rows rather than hiding them through owner filters 35ms
+   ✓ complete private reference authority and bounded offline recovery > enumerates and rejects orphan-review rows rather than hiding them through owner filters 37ms
+   ✓ complete private reference authority and bounded offline recovery > enumerates and rejects wrong-request-review rows rather than hiding them through owner filters 34ms
+   ✓ complete private reference authority and bounded offline recovery > enumerates and rejects orphan-revocation rows rather than hiding them through owner filters 38ms
+   ✓ complete private reference authority and bounded offline recovery > enumerates and rejects request-reuse rows rather than hiding them through owner filters 37ms
+   ✓ complete private reference authority and bounded offline recovery > refuses orphan bytes and unknown tombstones without deleting them 38ms
+   ✓ complete private reference authority and bounded offline recovery > retains refusal for legacy, partial, future-version and altered schemas 38ms
+   ✓ complete private reference authority and bounded offline recovery > accepts initialized empty stores with their exact independent lineage only 48ms
+   × complete private reference authority and bounded offline recovery > rejects a concurrent revocation writer while recovery owns the SQLite write lock 42ms
+     → Private reference integrity is unavailable.
+   ✓ complete private reference authority and bounded offline recovery > canonical export is deterministic and file parsing refuses duplicate keys, changed versions and unsafe access 41ms
+   × complete private reference authority and bounded offline recovery > operation check is read-only; apply writes a deterministic private receipt and retains default refusal 45ms
+     → Invalid private reference directory.
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 32 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/lib/server/auth/smtp-socket.test.ts > forwards exactly the whole-send byte budget and destroys the peer on the next byte
+Error: listen EPERM: operation not permitted 127.0.0.1
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/32]⎯
+
+ FAIL  src/lib/server/image-files/service.test.ts > private real PNG source files > cold backup and dry-run/actual restore preserve reviewed image bytes and reject incomplete media
+AssertionError: Atomic no-replace directory publication is unavailable.
+: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/lib/server/image-files/service.test.ts:161:44
+    159|     ]) {
+    160|       const result = cli(...args);
+    161|       expect(result.status, result.stderr).toBe(0);
+       |                                            ^
+    162|     }
+    163|     const yard = new YardRepository(join(restored, 'chirp.sqlite'));
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/32]⎯
+
+ FAIL  src/lib/server/operations/lifecycle-recovery.test.ts > offline retained deletion ledger recovery through the real CLI > restores an old checkpoint with later revocations, purges bytes/derived payloads and fences retries after restart
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ success src/lib/server/operations/lifecycle-recovery.test.ts:31:25
+     29| function success(...args: string[]) {
+     30|   const result = cli(...args);
+     31|   expect(result.stderr).toBe('');
+       |                         ^
+     32|   expect(result.status).toBe(0);
+     33|   return result.stdout;
+ ❯ src/lib/server/operations/lifecycle-recovery.test.ts:138:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/32]⎯
+
+ FAIL  src/lib/server/operations/lifecycle-recovery.test.ts > offline retained deletion ledger recovery through the real CLI > requires a retained ledger for lifecycle-aware checkpoints, including dry run
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ success src/lib/server/operations/lifecycle-recovery.test.ts:31:25
+     29| function success(...args: string[]) {
+     30|   const result = cli(...args);
+     31|   expect(result.stderr).toBe('');
+       |                         ^
+     32|   expect(result.status).toBe(0);
+     33|   return result.stdout;
+ ❯ src/lib/server/operations/lifecycle-recovery.test.ts:204:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/32]⎯
+
+ FAIL  src/lib/server/operations/lifecycle-recovery.test.ts > offline retained deletion ledger recovery through the real CLI > preserves live media with a valid empty ledger and rejects future or partial database schemas
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ success src/lib/server/operations/lifecycle-recovery.test.ts:31:25
+     29| function success(...args: string[]) {
+     30|   const result = cli(...args);
+     31|   expect(result.stderr).toBe('');
+       |                         ^
+     32|   expect(result.status).toBe(0);
+     33|   return result.stdout;
+ ❯ src/lib/server/operations/lifecycle-recovery.test.ts:216:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/32]⎯
+
+ FAIL  src/lib/server/operations/lifecycle-recovery.test.ts > offline retained deletion ledger recovery through the real CLI > rejects wrong lineage, unknown schema, truncated/gapped history and changed known prefixes
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ success src/lib/server/operations/lifecycle-recovery.test.ts:31:25
+     29| function success(...args: string[]) {
+     30|   const result = cli(...args);
+     31|   expect(result.stderr).toBe('');
+       |                         ^
+     32|   expect(result.status).toBe(0);
+     33|   return result.stdout;
+ ❯ src/lib/server/operations/lifecycle-recovery.test.ts:253:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/32]⎯
+
+ FAIL  src/lib/server/operations/lifecycle-recovery.test.ts > offline retained deletion ledger recovery through the real CLI > rejects a retained checksum mismatch and malformed or duplicate-key JSON without exposing data
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ success src/lib/server/operations/lifecycle-recovery.test.ts:31:25
+     29| function success(...args: string[]) {
+     30|   const result = cli(...args);
+     31|   expect(result.stderr).toBe('');
+       |                         ^
+     32|   expect(result.status).toBe(0);
+     33|   return result.stdout;
+ ❯ src/lib/server/operations/lifecycle-recovery.test.ts:275:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/32]⎯
+
+ FAIL  src/lib/server/operations/lifecycle-recovery.test.ts > offline retained deletion ledger recovery through the real CLI > does not install a restore if cleanup cannot remove media and leaves the checkpoint untouched
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ success src/lib/server/operations/lifecycle-recovery.test.ts:31:25
+     29| function success(...args: string[]) {
+     30|   const result = cli(...args);
+     31|   expect(result.stderr).toBe('');
+       |                         ^
+     32|   expect(result.status).toBe(0);
+     33|   return result.stdout;
+ ❯ src/lib/server/operations/lifecycle-recovery.test.ts:306:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/32]⎯
+
+ FAIL  src/lib/server/operations/reference-recovery.test.ts > real offline backup CLI enforces reference refusal in full and dry-run restore > refuses an old DB plus retained identity.json and preserves original snapshot bytes
+ FAIL  src/lib/server/operations/reference-recovery.test.ts > real offline backup CLI enforces reference refusal in full and dry-run restore > refuses an old DB plus retained revocations/synthetic.json and preserves original snapshot bytes
+ FAIL  src/lib/server/operations/reference-recovery.test.ts > real offline backup CLI enforces reference refusal in full and dry-run restore > refuses an old DB plus retained synthetic.original and preserves original snapshot bytes
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ snapshot src/lib/server/operations/reference-recovery.test.ts:47:25
+     45| function snapshot(fixture: ReturnType<typeof setup>) {
+     46|   const result = cli('create', fixture.source, fixture.backup, '--offl…
+     47|   expect(result.stderr).toBe('');
+       |                         ^
+     48|   expect(result.status).toBe(0);
+     49| }
+ ❯ src/lib/server/operations/reference-recovery.test.ts:139:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/32]⎯
+
+ FAIL  src/lib/server/operations/reference-recovery.test.ts > real offline backup CLI enforces reference refusal in full and dry-run restore > refuses initialized reference tables even if every reference file was omitted
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ snapshot src/lib/server/operations/reference-recovery.test.ts:47:25
+     45| function snapshot(fixture: ReturnType<typeof setup>) {
+     46|   const result = cli('create', fixture.source, fixture.backup, '--offl…
+     47|   expect(result.stderr).toBe('');
+       |                         ^
+     48|   expect(result.status).toBe(0);
+     49| }
+ ❯ src/lib/server/operations/reference-recovery.test.ts:154:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/32]⎯
+
+ FAIL  src/lib/server/operations/reference-recovery.test.ts > real offline backup CLI enforces reference refusal in full and dry-run restore > refuses retained private-reference-files without any application DB
+ FAIL  src/lib/server/operations/reference-recovery.test.ts > real offline backup CLI enforces reference refusal in full and dry-run restore > refuses retained private-reference-files/identity.json without any application DB
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ snapshot src/lib/server/operations/reference-recovery.test.ts:47:25
+     45| function snapshot(fixture: ReturnType<typeof setup>) {
+     46|   const result = cli('create', fixture.source, fixture.backup, '--offl…
+     47|   expect(result.stderr).toBe('');
+       |                         ^
+     48|   expect(result.status).toBe(0);
+     49| }
+ ❯ src/lib/server/operations/reference-recovery.test.ts:168:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/32]⎯
+
+ FAIL  src/lib/server/operations/reference-recovery.test.ts > real offline backup CLI enforces reference refusal in full and dry-run restore > still restores old no-reference backups and leaves the source unchanged
+AssertionError: expected 'Atomic no-replace directory publicati…' to be '' // Object.is equality
+
+- Expected
++ Received
+
++ Atomic no-replace directory publication is unavailable.
++
+
+ ❯ snapshot src/lib/server/operations/reference-recovery.test.ts:47:25
+     45| function snapshot(fixture: ReturnType<typeof setup>) {
+     46|   const result = cli('create', fixture.source, fixture.backup, '--offl…
+     47|   expect(result.stderr).toBe('');
+       |                         ^
+     48|   expect(result.status).toBe(0);
+     49| }
+ ❯ src/lib/server/operations/reference-recovery.test.ts:175:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/32]⎯
+
+ FAIL  src/lib/server/operations/restore-auth.test.ts > restores real auth accounts while invalidating old sessions and one-use links only in the copy
+Error: Command failed: python3 <UI_CHECKOUT>/scripts/private_backup.py create /private/tmp/chirp-auth-restore-AG4Zo4/source /private/tmp/chirp-auth-restore-AG4Zo4/checkpoint --offline
+Atomic no-replace directory publication is unavailable.
+
+ ❯ src/lib/server/operations/restore-auth.test.ts:92:5
+     90|     }
+     91|     const tool = process.env.CHIRP_BACKUP_TOOL_PATH ?? resolve('script…
+     92|     execFileSync('python3', [tool, 'create', source, checkpoint, '--of…
+       |     ^
+     93|       encoding: 'utf8',
+     94|     });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/32]⎯
+
+ FAIL  src/lib/server/operations/restore-optional-state.test.ts > offline restore revokes consent and pending arrivals with recording ledger=false
+ FAIL  src/lib/server/operations/restore-optional-state.test.ts > offline restore revokes consent and pending arrivals with recording ledger=true
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/lib/server/operations/restore-optional-state.test.ts:65:69
+     63|         events: [{ kind: 'action', route: '/', feature: 'yard', action…
+     64|       });
+     65|       expect(command('create', source, backup, '--offline').status).to…
+       |                                                                     ^
+     66|       if (lifecycle)
+     67|         expect(command('export-deletions', source, ledger, '--offline'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/32]⎯
+
+ FAIL  src/lib/server/operations/restore-shares.test.ts > revokes checkpoint share capabilities only in the restored copy (recording lifecycle=false)
+ FAIL  src/lib/server/operations/restore-shares.test.ts > revokes checkpoint share capabilities only in the restored copy (recording lifecycle=true)
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/lib/server/operations/restore-shares.test.ts:46:69
+     44|       const token = active.link.slice(3);
+     45|       expect(shares.read(token)).not.toBeNull();
+     46|       expect(command('create', source, backup, '--offline').status).to…
+       |                                                                     ^
+     47|       const original = readFileSync(join(backup, 'data/chirp.sqlite'));
+     48|       const sourceRow = database.prepare('SELECT * FROM public_shares'…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/32]⎯
+
+ FAIL  src/lib/server/operations/restore-shares.test.ts > refuses an unknown share-update trigger before installing either legacy or lifecycle data
+AssertionError: expected 1 to be +0 // Object.is equality
+
+- Expected
++ Received
+
+- 0
++ 1
+
+ ❯ src/lib/server/operations/restore-shares.test.ts:102:67
+    100|       'CREATE TRIGGER ignore_restore BEFORE UPDATE ON public_shares BE…
+    101|     );
+    102|     expect(command('create', source, backup, '--offline').status).toBe…
+       |                                                                   ^
+    103|     const original = readFileSync(join(backup, 'data/chirp.sqlite'));
+    104|     for (const options of [[], ['--dry-run']]) {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/32]⎯
+
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > restores later reviews and terminal revocation with exact pins, owner scope and request retries
+Error: Invalid private reference directory.
+ ❯ referenceDirectory src/lib/server/reference-admission/files.ts:108:11
+    106|   const stat = lstatSync(path);
+    107|   if (!stat.isDirectory() || stat.isSymbolicLink() || (stat.mode & 0o0…
+    108|     throw new Error('Invalid private reference directory.');
+       |           ^
+    109|   return realpathSync(path);
+    110| }
+ ❯ exportReferenceAuthority src/lib/server/reference-admission/recovery.ts:139:5
+ ❯ assertReferenceAuthorityMatchesBackup src/lib/server/reference-admission/recovery.ts:263:18
+ ❯ reconcileReferenceAuthority src/lib/server/reference-admission/recovery.ts:310:23
+ ❯ src/lib/server/reference-admission/recovery.test.ts:213:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/32]⎯
+
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > restores valid later approval while obsolete review pins remain invalid
+Error: Invalid private reference directory.
+ ❯ referenceDirectory src/lib/server/reference-admission/files.ts:108:11
+    106|   const stat = lstatSync(path);
+    107|   if (!stat.isDirectory() || stat.isSymbolicLink() || (stat.mode & 0o0…
+    108|     throw new Error('Invalid private reference directory.');
+       |           ^
+    109|   return realpathSync(path);
+    110| }
+ ❯ exportReferenceAuthority src/lib/server/reference-admission/recovery.ts:139:5
+ ❯ assertReferenceAuthorityMatchesBackup src/lib/server/reference-admission/recovery.ts:263:18
+ ❯ reconcileReferenceAuthority src/lib/server/reference-admission/recovery.ts:310:23
+ ❯ src/lib/server/reference-admission/recovery.test.ts:244:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/32]⎯
+
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > preserves later rejected reviews and never replaces them with approval
+Error: Invalid private reference directory.
+ ❯ referenceDirectory src/lib/server/reference-admission/files.ts:108:11
+    106|   const stat = lstatSync(path);
+    107|   if (!stat.isDirectory() || stat.isSymbolicLink() || (stat.mode & 0o0…
+    108|     throw new Error('Invalid private reference directory.');
+       |           ^
+    109|   return realpathSync(path);
+    110| }
+ ❯ exportReferenceAuthority src/lib/server/reference-admission/recovery.ts:139:5
+ ❯ assertReferenceAuthorityMatchesBackup src/lib/server/reference-admission/recovery.ts:263:18
+ ❯ reconcileReferenceAuthority src/lib/server/reference-admission/recovery.ts:310:23
+ ❯ src/lib/server/reference-admission/recovery.test.ts:259:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/32]⎯
+
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > exports and reconciles a revocation published before an interrupted SQL commit
+Error: Invalid private reference directory.
+ ❯ referenceDirectory src/lib/server/reference-admission/files.ts:108:11
+    106|   const stat = lstatSync(path);
+    107|   if (!stat.isDirectory() || stat.isSymbolicLink() || (stat.mode & 0o0…
+    108|     throw new Error('Invalid private reference directory.');
+       |           ^
+    109|   return realpathSync(path);
+    110| }
+ ❯ exportReferenceAuthority src/lib/server/reference-admission/recovery.ts:139:5
+ ❯ assertReferenceAuthorityMatchesBackup src/lib/server/reference-admission/recovery.ts:263:18
+ ❯ reconcileReferenceAuthority src/lib/server/reference-admission/recovery.ts:310:23
+ ❯ src/lib/server/reference-admission/recovery.test.ts:286:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/32]⎯
+
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > retries safely after failure at authority-validated without discarding terminal authority
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > retries safely after failure at tombstone-published without discarding terminal authority
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > retries safely after failure at reviews-reconciled without discarding terminal authority
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > retries safely after failure at before-commit without discarding terminal authority
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > retries safely after failure at committed without discarding terminal authority
+AssertionError: expected [Function] to throw error including 'crash' but got 'Invalid private reference directory.'
+
+Expected: "crash"
+Received: "Invalid private reference directory."
+
+ ❯ src/lib/server/reference-admission/recovery.test.ts:319:7
+    317|         if (actual === phase) throw new Error('crash');
+    318|       }),
+    319|     ).toThrow('crash');
+       |       ^
+    320|     if (phase !== 'authority-validated')
+    321|       expect(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[21/32]⎯
+
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > rejects a concurrent revocation writer while recovery owns the SQLite write lock
+YardError: Private reference integrity is unavailable.
+ ❯ unavailable src/lib/server/reference-admission/service.ts:51:9
+     49| };
+     50| const unavailable = (): never => {
+     51|   throw new YardError('CONFLICT', 'Private reference integrity is unav…
+       |         ^
+     52| };
+     53| const conflict = (message: string): never => {
+ ❯ ReferenceAdmissionService.assertStore src/lib/server/reference-admission/service.ts:140:7
+ ❯ new ReferenceAdmissionService src/lib/server/reference-admission/service.ts:117:10
+ ❯ src/lib/server/reference-admission/recovery.test.ts:527:17
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[22/32]⎯
+
+ FAIL  src/lib/server/reference-admission/recovery.test.ts > complete private reference authority and bounded offline recovery > operation check is read-only; apply writes a deterministic private receipt and retains default refusal
+Error: Invalid private reference directory.
+ ❯ referenceDirectory src/lib/server/reference-admission/files.ts:108:11
+    106|   const stat = lstatSync(path);
+    107|   if (!stat.isDirectory() || stat.isSymbolicLink() || (stat.mode & 0o0…
+    108|     throw new Error('Invalid private reference directory.');
+       |           ^
+    109|   return realpathSync(path);
+    110| }
+ ❯ exportReferenceAuthority src/lib/server/reference-admission/recovery.ts:139:5
+ ❯ assertReferenceAuthorityMatchesBackup src/lib/server/reference-admission/recovery.ts:263:18
+ ❯ recoverLifecycle src/lib/server/operations/lifecycle-recovery.ts:110:11
+ ❯ src/lib/server/reference-admission/recovery.test.ts:579:11
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[23/32]⎯
+
+
+ Test Files  8 failed (8)
+      Tests  32 failed | 59 passed (91)
+   Start at  18:02:53
+   Duration  4.91s (transform 794ms, setup 0ms, collect 2.11s, tests 9.18s, environment 1ms, prepare 260ms)
+
+JSON report written to <UI_CHECKOUT>/docs/delivery/surface-workbench-20261017/current-unit.json

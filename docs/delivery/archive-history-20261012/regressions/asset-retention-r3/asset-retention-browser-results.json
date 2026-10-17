@@ -1,0 +1,262 @@
+{
+  "completed": true,
+  "failure": null,
+  "sourceCommit": "d3fcadbaa5d4e646268ecdda4ce8514478776f8a",
+  "checks": [
+    {
+      "check": "Anonymous lifecycle overview is denied",
+      "passed": true
+    },
+    {
+      "check": "Overview separates read-only shared catalog and disables purge",
+      "passed": true
+    },
+    {
+      "check": "Reviewed PNG explains immutable review and queued package retention",
+      "passed": true
+    },
+    {
+      "check": "Selected package explains pins, retained artwork and pipeline history",
+      "passed": true
+    },
+    {
+      "check": "Foreign origin cannot mutate lifecycle",
+      "passed": true
+    },
+    {
+      "check": "Stale document binding cannot mutate lifecycle",
+      "passed": true
+    },
+    {
+      "check": "Wrong media type cannot mutate lifecycle",
+      "passed": true
+    },
+    {
+      "check": "Strict target/schema/body boundaries reject malformed and oversized commands without mutation",
+      "passed": true
+    },
+    {
+      "check": "Pin then archive preserves the exact reviewed Pixi pin",
+      "passed": true
+    },
+    {
+      "check": "New instance automatic artwork selection skips archived package",
+      "passed": true
+    },
+    {
+      "check": "Archive before explicit pin blocks new selection",
+      "passed": true
+    },
+    {
+      "check": "Exact archive retry is idempotent",
+      "passed": true
+    },
+    {
+      "check": "Old request replay after restore never reapplies archive",
+      "passed": true
+    },
+    {
+      "check": "Concurrent same-revision archive commands admit exactly one transaction",
+      "passed": true
+    },
+    {
+      "check": "Stale unpin never clears a concurrent replacement",
+      "passed": true
+    },
+    {
+      "check": "Unpin replay and stale undo preserve a later pin",
+      "passed": true
+    },
+    {
+      "check": "Archived original blocks dependent package selection without making reviewed bytes eligible",
+      "passed": true
+    },
+    {
+      "check": "Archived file rejects new package but retains exact already-admitted queue retry",
+      "passed": true
+    },
+    {
+      "check": "Job admitted before archive can finish source processing while history remains retained",
+      "passed": true
+    },
+    {
+      "check": "Archived dependency fences undo, old yard backup, package and shape admission",
+      "passed": true
+    },
+    {
+      "check": "Restored dependency permits exact pin undo and the same valid shape request",
+      "passed": true
+    },
+    {
+      "check": "Archived conditioning reference blocks new derivation while existing PNG pin resolves",
+      "passed": true
+    },
+    {
+      "check": "Concurrent pin and archive preserve one valid transaction order",
+      "passed": true
+    },
+    {
+      "check": "Only unreviewed unreferenced archived upload is cleanup-eligible and all bytes remain",
+      "passed": true
+    },
+    {
+      "check": "Restore cancels cleanup eligibility",
+      "passed": true
+    },
+    {
+      "check": "Foreign owner cannot inspect, archive, unpin or reuse another owner's receipt",
+      "passed": true
+    },
+    {
+      "check": "Public yard excludes private lifecycle, file identity, review and command receipts",
+      "passed": true
+    },
+    {
+      "check": "Lost-response retry survives tab navigation and keyboard activation with the exact original command",
+      "passed": true
+    },
+    {
+      "check": "asset-retention-workshop-320: no horizontal overflow",
+      "passed": true,
+      "detail": {
+        "width": 320,
+        "scrollWidth": 320,
+        "renderer": null
+      }
+    },
+    {
+      "check": "Workshop explains archive storage, reasons and disabled deletion",
+      "passed": true
+    },
+    {
+      "check": "Keyboard unpin and undo refresh current yard without replacing other owner evidence",
+      "passed": true
+    },
+    {
+      "check": "Delayed former-owner retention overview cannot recreate private controls",
+      "passed": true
+    },
+    {
+      "check": "Cold source export independently retains the exact deletion authority receipt",
+      "passed": true
+    },
+    {
+      "check": "Cold restore refuses missing retained deletion authority without installation",
+      "passed": true
+    },
+    {
+      "check": "Cold restore refuses an altered independent deletion receipt without installation",
+      "passed": true
+    },
+    {
+      "check": "Cold backup and fresh restart retain archives, revisions, undo receipts and predictable pin",
+      "passed": true
+    },
+    {
+      "check": "Pre-backup archive receipt remains a read-only exact retry after restore",
+      "passed": true
+    },
+    {
+      "check": "Restored lifecycle state still fences new selection",
+      "passed": true
+    },
+    {
+      "check": "No browser runtime errors",
+      "passed": true
+    },
+    {
+      "check": "No external browser requests",
+      "passed": true
+    },
+    {
+      "check": "Source remained frozen during retention browser verification",
+      "passed": true
+    }
+  ],
+  "diagnostics": {
+    "pinArchiveRace": {
+      "archiveStatus": 200,
+      "pinStatus": 200,
+      "selectedNewArtifact": true
+    },
+    "lifecycle-ui-retry": {
+      "bodyAvailable": true,
+      "forwarded": true,
+      "ignoredNonPost": 0,
+      "fetchCalls": 1,
+      "stage": "complete",
+      "method": "POST",
+      "status": 200
+    },
+    "coldBackup": [
+      {
+        "action": "create",
+        "exitCode": 0,
+        "options": [],
+        "stdout": "{\"status\": \"ok\", \"version\": 1, \"files\": 9, \"dryRun\": false}\n",
+        "stderr": ""
+      },
+      {
+        "action": "verify",
+        "exitCode": 0,
+        "options": [],
+        "stdout": "{\"status\": \"ok\", \"version\": 1, \"files\": 9, \"dryRun\": false}\n",
+        "stderr": ""
+      },
+      {
+        "action": "export-deletions",
+        "exitCode": 0,
+        "options": [],
+        "stdout": "{\"status\": \"ok\", \"ledgerSha256\": \"8cb386e395dda23e700bf045551773550c87069d2f96e489db596f4554ae6af3\"}\n",
+        "stderr": ""
+      },
+      {
+        "action": "restore",
+        "exitCode": 1,
+        "options": [],
+        "stdout": "",
+        "stderr": "A retained deletion ledger is required for this checkpoint; pass --deletions.\n"
+      },
+      {
+        "action": "restore",
+        "exitCode": 1,
+        "options": [
+          "--deletions",
+          "/workspace/archive-history/regressions/asset-retention-r3/retained-deletions.json",
+          "--expected-ledger-sha256",
+          "0cb386e395dda23e700bf045551773550c87069d2f96e489db596f4554ae6af3"
+        ],
+        "stdout": "",
+        "stderr": "Retained deletion ledger checksum does not match the expected receipt.\n"
+      },
+      {
+        "action": "restore",
+        "exitCode": 0,
+        "options": [
+          "--deletions",
+          "/workspace/archive-history/regressions/asset-retention-r3/retained-deletions.json",
+          "--expected-ledger-sha256",
+          "8cb386e395dda23e700bf045551773550c87069d2f96e489db596f4554ae6af3"
+        ],
+        "stdout": "{\"status\": \"ok\", \"version\": 1, \"files\": 9, \"dryRun\": false}\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "audits": {
+    "asset-retention-workshop-320": {
+      "width": 320,
+      "scrollWidth": 320,
+      "renderer": null
+    }
+  },
+  "fixtureOnly": true,
+  "realOwnerData": false,
+  "purgeExecuted": false,
+  "external_requests": [],
+  "runtime_errors": [],
+  "coverageLimits": [
+    "Transaction failpoints and disposable byte purge are separate storage unit tests.",
+    "HTTP races cover same-revision CAS and both deterministic pin/archive serial orders; repository tests cover separate database connections."
+  ]
+}
