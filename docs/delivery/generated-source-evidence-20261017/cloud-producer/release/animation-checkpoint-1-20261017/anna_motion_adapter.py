@@ -58,6 +58,7 @@ def validate_flight_motion_batch(root, batch):
             require(f.get('speciesId')=='anna_s_hummingbird','source species mismatch')
             sid=f['sourceFrameId']; p=path(f['sourcePNG'],pp.parent);im=Image.open(p).convert('RGBA')
             require(sha(p)==f['sourcePNGsha256'] and rgba_id(im)==sid,'primary PNG hash/decoded source ID mismatch')
+            if f.get('sourceCanvas'):require(f['sourceCanvas']==list(im.size),'primary declared source canvas differs from actual PNG')
             require(sid not in entries,'duplicate source ID across new/reused records')
             entries[sid]=(f,im);target.append(sid)
     require(new_ids,'retained batch has no actual new drawings')
@@ -93,6 +94,7 @@ def validate_flight_motion_batch(root, batch):
         reg=p.get('registration',{});calfile=reg.get('sharedCalibrationFile',reg.get('wholeCallScaleFile'));transform='exact full-canvas nearest resize'
         if calfile:
             cp=path(calfile,pp.parent);c=json.loads(cp.read_text());shared_calibrations.add(str(cp.relative_to(root)))
+            if reg.get('sharedCalibrationSHA256'):require(reg['sharedCalibrationSHA256']==sha(cp),'shared calibration hash mismatch')
             require(c.get('perPoseScale') is False and c.get('perPoseTranslation',False) is False and c.get('wingEnvelopeFit',False) is False,'per-pose fit is not family registration')
             if 'sharedNativeTo1024Scale' in c:
                 s=c['sharedNativeTo1024Scale'];tx,ty=c['sharedOriginTranslation'];tw,th=c['targetCanvas']
@@ -127,7 +129,7 @@ def validate_flight_motion_batch(root, batch):
             cx,cy=contact['x'],contact['y'];require(isinstance(cx,int) and isinstance(cy,int) and 0<=cx<w and 0<=cy<h,'contact outside canvas')
             alpha=tile.getpixel((cx,cy))[3];require(alpha>0,'contact samples transparent pixel');samples.append({**contact,'sampledAlpha':alpha,'anatomicallyApproved':False})
         pivot=f['pivot'];require(0<=pivot['x']<=w and 0<=pivot['y']<=h,'pivot outside canvas')
-        frames[fid]=f;frame_checks.append({'renderFrameId':fid,'sourceFrameId':sid,'newDrawing':sid in new_ids,'sourcePNGsha256':p['sourcePNGsha256'],'outputPNGsha256':sha(op),'outputRGBAId':rgba_id(oi),'atlasRect':rect,'canvas':f['canvas'],'world':f['world'],'density':d,'pivot':pivot,'supportState':state,'contacts':samples,'transformProof':transform})
+        frames[fid]=f;frame_checks.append({'renderFrameId':fid,'sourceFrameId':sid,'newDrawing':sid in new_ids,'sourcePNGsha256':p['sourcePNGsha256'],'outputPNGsha256':sha(op),'outputRGBAId':rgba_id(oi),'atlasRect':rect,'canvas':f['canvas'],'world':f['world'],'density':d,'pivot':pivot,'supportState':state,'contacts':samples,'transformProof':transform,'occupiedAlphaBBox':list(tile.getchannel('A').getbbox()) if tile.getchannel('A').getbbox() else None,'renderWindowDiagnostic':p.get('renderWindowDiagnostic')})
     require(set(render)==set(frames),'map/manifest render frame sets differ')
     require(mapping.get('clips')==source['clips'],'map and manifest clip schedules differ')
     clips=[]
@@ -163,8 +165,11 @@ def validate_flight_motion_batch(root, batch):
             if state in ['supported','grounded','perched'] or segment.get('motion',segment.get('interpolation'))=='hold':require(a==b,'supported/hold root must be stationary')
             prev_tick=end;prev_root=b
         require(prev_tick==duration,'body duration/segment endpoint mismatch')
+        if mapping.get('trajectory') and trajectory_name=='motionTrajectory':
+            tb=mapping['trajectory'];require(path(tb['file'],mp.parent)==tp and tb['sha256']==sha(tp),'map/body trajectory path/hash mismatch')
         if t.get('samples'):
-            samples=t['samples'];require([s['tick'] for s in samples]==list(range(duration+1)),'trajectory samples must include each tick and endpoint')
+            samples=t['samples'];expected_ticks=list(range(duration)) if t.get('sampleTickConvention')=='frame-starts' else list(range(duration+1))
+            require([s['tick'] for s in samples]==expected_ticks,'trajectory samples must match declared frame-start or inclusive-endpoint convention')
             for sample in samples:
                 tick=sample['tick'];seg=next((s for s in t['segments'] if s['ticks'][0]<=tick<s['ticks'][1]),t['segments'][-1])
                 require(sample.get('supportState')==seg.get('supportState','airborne' if source['kind']=='airborne-source-review' else None),'sample/segment support state mismatch')
