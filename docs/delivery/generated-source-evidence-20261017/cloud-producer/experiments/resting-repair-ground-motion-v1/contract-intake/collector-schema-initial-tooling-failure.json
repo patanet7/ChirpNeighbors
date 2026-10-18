@@ -1,0 +1,19 @@
+{
+  "status": "STOPPED before row schema result",
+  "failures": [
+    {
+      "step": "map producer frame facts",
+      "type": "KeyError",
+      "key": "sourceFrameId",
+      "cause": "Blink PRIMARY uses sourceFrameID uppercase; input metadata preserved."
+    },
+    {
+      "step": "import exact extracted row schema",
+      "code": "ERR_UNSUPPORTED_RESOLVE_REQUEST",
+      "cause": "ESM import inside data URL needs a file URL, not absolute path specifier."
+    }
+  ],
+  "sourceEdits": false,
+  "candidatePixelChecksRepeated": false,
+  "correction": "Explicit sourceFrameId/sourceFrameID alias mapping and file:/// URL only."
+}

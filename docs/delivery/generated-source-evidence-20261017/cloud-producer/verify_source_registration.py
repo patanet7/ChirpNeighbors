@@ -1,88 +1,463 @@
-"""Strict registration-only provenance verification; no action/runtime admission."""
+"""Verify append-only stage61 source evidence and the unchanged stage57 regression.
+
+CLI: python verify_source_registration.py --root SOURCE_DELIVERY_DIRECTORY
+Library interface: verify(Path(root)) -> JSON-serializable source-only report.
+
+Counts come from the saved baseline and stage61 ledger, not an assumed final total.
+The only writes during verification are to a temporary HARDLINK tree under
+root.parent. Five old metadata files are unlinked/copied there before executing
+the exact historical verifier. No hardlinked file is opened for writing. The
+actual delivery, registry, source bank and live/runtime files are never changed.
+Requires Python3 and Pillow; no network, credentials or new dependencies.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
 from pathlib import Path
-import hashlib,json,argparse
+import re
+import shutil
+import stat
+import subprocess
+import sys
+import tempfile
+from typing import Any
+
 from PIL import Image
 
-def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-def load(p):return json.loads(p.read_text())
-def inside(root,rel):
- p=(root/rel).resolve();assert p.is_relative_to(root.resolve()) and not Path(rel).is_absolute(),rel;return p
+# Inspected, pre-registration stage57 verifier bytes. This anchors the historical
+# callback itself; new source/original totals remain entirely ledger-derived.
+LEGACY_VERIFIER_SHA256 = "cd93f803239d2bef1d7e3e7d63505a68f39edbddc2d35091d80a095775b2597f"
+BASELINE_DIRECTORY = "registration-baseline-stage61"
+OVERLAY = "release/animation-checkpoint-1-20261017/intake-overlay.json"
+ACTIVE_INVENTORY = "release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json"
+OVERRIDES = {
+    "frame-bank.json": "frame-bank.json",
+    "original-source-inventory.json": "original-source-inventory.json",
+    "source-frame-map.json": "source-frame-map.json",
+    "verify_source_registration.py": "verify_source_registration.py",
+    OVERLAY: "intake-overlay.json",
+    "lessons-and-experiments.json": "lessons-stage57.json",
+}
 
-def verify(root):
- j=load(root/'source-registration-stage57.json');assert j['nativeOriginals']==12 and j['newNativeDrawings']==20 and j['registeredDrawings']==170 and j['registeredOriginals']==62
- for rel,h in j['frozenSourceGuards'].items():assert sha(inside(root,rel))==h,rel
- for freeze in j['frozenPackages']:
-  p=inside(root,freeze['sourcePath']);ix=load(p/freeze['index']);items=ix if isinstance(ix,list) else ix.get('files',ix)
-  if isinstance(items,dict):items=[{'file':k,**(v if isinstance(v,dict) else {'sha256':v})} for k,v in items.items()]
-  for f in items:
-   q=inside(p,f.get('file',f.get('path')));assert sha(q)==f['sha256'],str(q)
-   if 'bytes' in f:assert q.stat().st_size==f['bytes'],str(q)
- ids=set();originals=set();count=0
- for b in j['registrationOnlyBatches']:
-  assert b['registrationOnly'] is True and b['runtimeAdmission'] is False and b['acceptedUses']==[]
-  op=inside(root,b['original']);assert sha(op)==b['originalSHA256'];originals.add(b['original'])
-  prompt=inside(root,b['prompt']).read_bytes();assert hashlib.sha256(prompt).hexdigest()==b['promptSHA256'] and len(prompt)==b['promptBytes']
-  args=load(inside(root,b['nativeArguments']));assert (args['prompt'] if b.get('receiptVariant')=='oriole-reference-edit-flat-v1' else args['arguments']['prompt']).encode()==prompt
-  dispatch=load(inside(root,b['dispatchReceipt']));ret=load(inside(root,b['returnReceipt']))
-  experimental=b.get('receiptVariant')=='oriole-reference-edit-flat-v1'
-  if experimental:
-   assert b['original']=='experiments/oriole-blink-method-comparison-v1/native-edit/original.png' and b['originalSHA256']=='1a48eb61dd59447cb41b9c399af2e581ceb836279f9e430cb5f4af461e35c95c'
-   assert len(b['frames'])==1 and b['frames'][0]['sourceFrameId']=='frame.sha256.1a33a90a427d053b31bf2528bd025f2e20cdbcee13799e312a84e7347a8b1f0c'
-   assert b['promptBytes']==2313 and b['promptSHA256']=='eec04f32f21e47e8abeb3056742814f79197916898899cfc51caa5c3d3ea5b93' and not prompt.endswith(b'\n')
-   assert sha(inside(root,b['nativeArguments']))=='51a1252749f7cc4c134b89917742aa859235123d40efc77675d435618bc798cc'
-   assert args.get('transparent_background') is True and args.get('referenced_image_paths')==[b['savedReferenceArgument']]
-   # Prepared metadata is not dispatch proof; the exact completed-call receipt below is authoritative.
-   assert dispatch.get('nativeCallOrdinal')==1 and dispatch.get('nativeCallLimit')==1 and dispatch.get('automaticRetries')==0
-   assert sha(inside(root,b['returnReceipt']))=='3ef3d6e73023b160efe76e67ed7c3ea15e8656ba6f1282275de7709f2ab0c1ef'
-   assert ret.get('nativeCallsStarted')==1 and ret.get('nativeCallsReturned')==1 and ret.get('automaticRetries')==0
-   assert ret.get('state')=='one-native-call-completed-source-candidate-unreviewed' and ret.get('originalPNGsha256')==b['originalSHA256'] and ret.get('sourceFrameId')==b['frames'][0]['sourceFrameId']
-   assert ret.get('originalByteEqualToolSavedFile') is True and ret.get('originalAltered') is False and ret.get('postprocessingPerformed') is False and ret.get('sourceCanvas')==[1254,1254]
-   from datetime import datetime
-   dt=lambda x:datetime.fromisoformat(x.replace('Z','+00:00'))
-   started=dt(ret['actualToolInvokedUTC']);returned=dt(ret['actualToolReturnUTC']);assert started>dt(ret['dispatchPreparedUTC']) and returned>started and round((returned-started).total_seconds()*1000)==ret['measuredToolAwaitMilliseconds']
-   assert ret['promptSHA256']==b['promptSHA256'] and ret['promptBytes']==len(prompt) and ret['promptExactToNativeArguments'] is True
-   assert ret['nativeArgumentsSHA256']==sha(inside(root,b['nativeArguments'])) and dispatch['nativeArgumentsSHA256']==ret['nativeArgumentsSHA256']
-   assert b['referenceSourceFrameId']=='frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f'
-   assert b['referencePNGsha256']=='ae4323d2f7bc9434df6c469867b728a2be5b901381e0798d833c5442db768749'
-   assert ret['referenceSourceFrameId']==dispatch['referenceSourceId']==b['referenceSourceFrameId'] and ret['referencePNGsha256']==dispatch['referencePNGsha256']==b['referencePNGsha256']
-   assert sha(inside(root,b['referenceCopy']))==b['referencePNGsha256']
-   bankNow=load(root/'frame-bank.json');reference=next(f for f in bankNow['frames'] if f['frameId']==b['referenceSourceFrameId']);assert sha(inside(root,reference['file']))==reference['fileSha256']==b['referencePNGsha256']
-   failure=load(inside(root,b['preCallError']));assert failure['nativeImageCallsInFailedExec']==0 and failure['nativeToolInvokedByFailedExec'] is False
-  elif b['sourcePath']=='motion/sd20-mourning-dove-airborne-singlepose-v1/upstroke':
-   # PREPARED proves authorization only. Affirmative return evidence is separate.
-   assert dispatch.get('status')=='DISPATCH_PREPARED_ONE_AUTHORIZED_NATIVE_CALL' and dispatch.get('nativeCallsAuthorized')==1 and dispatch.get('newDrawingTarget')==1
-   assert ret.get('state')=='RETURNED_ONE_NATIVE_CALL' and ret.get('nativeCalls')==1 and ret.get('actualNewDrawings')==1 and ret.get('nativeRunning') is False
-   assert len(b['frames'])==1 and ret.get('sourceFrameId')==b['frames'][0]['sourceFrameId'] and ret.get('originalSHA256')==b['originalSHA256']
-  else:
-   assert any(dispatch.get(k)==1 for k in ['callsDispatched','nativeCalls','nativeCallsDispatched'])
-  assert dispatch['promptSHA256']==b['promptSHA256']
-  if 'promptBytes' in dispatch:assert dispatch['promptBytes']==len(prompt)
-  for key in ['nativeArgsSHA256','nativeArgumentsSHA256','preparedArgsSHA256']:
-   if key in dispatch:assert dispatch[key]==sha(inside(root,b['dispatchArguments'])),b['original']
-  if not experimental:assert ret['nativeCalls']==1 and ret['originalSHA256']==b['originalSHA256']
-  if 'nativeRunning' in ret:assert ret['nativeRunning'] in [0,False]
-  assert len(b['frames'])==b['newDrawings']
-  with Image.open(op) as oi:
-   orig=oi.convert('RGBA');assert list(orig.size)==b['originalDimensions']
-   for f in b['frames']:
-    p=inside(root,f['sourcePNG']);assert sha(p)==f['sourcePNGsha256']
-    with Image.open(p) as si:im=si.convert('RGBA');assert si.mode=='RGBA'
-    fid='frame.sha256.'+hashlib.sha256(f'RGBA8;{im.width}x{im.height};'.encode()+im.tobytes()).hexdigest()
-    assert fid==f['sourceFrameId'] and fid not in ids;ids.add(fid);count+=1
-    r=f['nativeSourceRect'];assert orig.crop((r[0],r[1],r[0]+r[2],r[1]+r[3])).tobytes()==im.tobytes()
-    assert list(im.size)==r[2:] and f['derivativeIsNewDrawing'] is False
- assert len(originals)==12 and count==20
- bank=load(root/'frame-bank.json');assert len(bank['frames'])==170 and len({f['frameId'] for f in bank['frames']})==170
- assert {f['frameId'] for f in bank['frames'][150:]}==ids and all(f['acceptedUses']==[] for f in bank['frames'])
- assert bank['frames'][150:]==j['appendedBankRecords']
- inv=load(root/'original-source-inventory.json');assert len(inv['originals'])==62 and len({r['file'] for r in inv['originals']})==62
- assert {r['file'] for r in inv['originals'][-12:]}==originals
- fmap=load(root/'source-frame-map.json');assert len(fmap['frames'])==170 and {r['sourceFrameId'] for r in fmap['frames']}=={f['frameId'] for f in bank['frames']}
- for f,m in zip(bank['frames'],fmap['frames']):
-  assert m['sourceFrameId']==f['frameId'] and m['sourcePNG']==f['file'] and m['sourcePNGsha256']==f['fileSha256']
- for p,h in j['bindingSnapshotHashes'].items():assert sha(inside(root,p))==h,p
- overlay=load(root/'release/animation-checkpoint-1-20261017/intake-overlay.json')
- assert overlay['registrationOnlyBatches']==j['registrationOnlyBatches'] and overlay['registeredDrawings']==170 and overlay['registeredOriginals']==62
- return {'passed':True,'registrationOnlyNativeOriginals':12,'registrationOnlyNativeDrawings':20,'totalBankDrawingIDs':170,'totalOriginalPromptPairs':62,'bindingFilesByteIdentical':len(j['bindingSnapshotHashes']),'runtimeAdmission':False,'acceptedHopSlotsAdded':0,'acceptedBathingSlotsAdded':0}
-if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path(__file__).parent);a=p.parse_args();print(json.dumps(verify(a.root)))
+
+class VerificationError(RuntimeError):
+    pass
+
+
+def require(condition: Any, message: str) -> None:
+    if not condition:
+        raise VerificationError(message)
+
+
+def sha(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for block in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(block)
+    return digest.hexdigest()
+
+
+def load(path: Path) -> Any:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def inside(root: Path, relative: str) -> Path:
+    """Accept only existing, in-root paths without symlink components."""
+    require(isinstance(relative, str) and bool(relative), "Missing relative path")
+    rel = Path(relative)
+    require(not rel.is_absolute() and ".." not in rel.parts,
+            f"Non-local source path: {relative}")
+    current = root
+    for component in rel.parts:
+        current /= component
+        require(not current.is_symlink(), f"Symlink source path: {relative}")
+    resolved = current.resolve(strict=True)
+    require(resolved.is_relative_to(root), f"Source path escapes root: {relative}")
+    return resolved
+
+
+def checked_file(root: Path, relative: str, expected: str | None = None) -> Path:
+    path = inside(root, relative)
+    require(path.is_file(), f"Not a source file: {relative}")
+    if expected is not None:
+        require(sha(path) == expected, f"SHA256 mismatch: {relative}")
+    return path
+
+
+def rgba(path: Path) -> Image.Image:
+    with Image.open(path) as image:
+        require(image.format == "PNG", f"Source is not PNG: {path.name}")
+        return image.convert("RGBA")
+
+
+def frame_id(image: Image.Image) -> str:
+    prefix = f"RGBA8;{image.width}x{image.height};".encode("ascii")
+    return "frame.sha256." + hashlib.sha256(prefix + image.tobytes()).hexdigest()
+
+
+def first(record: dict[str, Any], *keys: str) -> Any:
+    for key in keys:
+        if key in record:
+            return record[key]
+    return None
+
+
+def native_rect(record: dict[str, Any], fallback: list[int] | None = None) -> list[int]:
+    rect = first(record, "nativeSourceRect", "nativeSourceRectXYWH",
+                 "sourceCellRect", "nativeCellRect", "sourceOriginalRectXYWH", "sourceOriginalRect")
+    if rect is None:
+        require(fallback is not None, "Missing native source rectangle")
+        rect = fallback
+    if isinstance(rect, dict):
+        rect = [rect.get("x"), rect.get("y"),
+                first(rect, "width", "w"), first(rect, "height", "h")]
+    require(isinstance(rect, list) and len(rect) == 4
+            and all(type(value) is int for value in rect),
+            f"Invalid integer XYWH rectangle: {rect}")
+    require(rect[0] >= 0 and rect[1] >= 0 and rect[2] > 0 and rect[3] > 0,
+            f"Invalid source rectangle extent: {rect}")
+    return rect
+
+
+def verify_receipts(batch: dict[str, Any], prompt: bytes, args: dict[str, Any],
+                    args_sha: str, dispatch: dict[str, Any], returned: dict[str, Any],
+                    arguments_root: Path) -> None:
+    require(any(dispatch.get(key) == 1 for key in (
+        "nativeCallsStarted", "callsDispatched", "nativeCalls",
+        "nativeCallsDispatched", "nativeCallOrdinal", "actualRequestCount")),
+        f"Dispatch has no affirmative single request: {batch['batchId']}")
+    require(any(returned.get(key) == 1 for key in ("nativeCalls", "nativeCallsReturned", "actualRequestCount")),
+            f"Return has no affirmative completed request: {batch['batchId']}")
+    require(first(returned, "originalSHA256", "originalPNGsha256") == batch["originalSHA256"],
+            f"Return original identity differs: {batch['batchId']}")
+    if "promptSHA256" in dispatch:
+        require(dispatch["promptSHA256"] == batch["promptSHA256"],
+                f"Dispatch prompt hash differs: {batch['batchId']}")
+    else:
+        # The original flight receipt records its actual argument filename, not
+        # an invented later prompt hash. Bind that retained file semantically to
+        # the ledger-hashed original args, without rewriting UNKNOWN model/seed.
+        require(dispatch.get("actualRequestCount") == 1
+                and dispatch.get("status") == "DISPATCHING"
+                and returned.get("actualRequestCount") == 1
+                and returned.get("status") == "RETURNED",
+                "Unrecognized dispatch receipt without prompt hash")
+        dispatched_args = load(checked_file(arguments_root, dispatch["argumentsFile"]))
+        require(dispatched_args.get("arguments", dispatched_args) == args,
+                "Original dispatch argument-file alias differs from native arguments")
+    if "actualDrawingCount" in returned:
+        require(returned["actualDrawingCount"] == len(batch["frames"]),
+                "Raw return drawing count differs from ledger source cells")
+    for receipt in (dispatch, returned):
+        for key in ("promptSHA256", "promptSha256"):
+            if key in receipt:
+                require(receipt[key] == batch["promptSHA256"], f"Receipt {key} differs")
+        for key in ("promptBytes", "promptUTF8Bytes"):
+            if key in receipt:
+                require(receipt[key] == len(prompt), f"Receipt {key} differs")
+        for key in ("nativeArgsSHA256", "nativeArgumentsSHA256",
+                    "preparedArgsSHA256", "argumentsSHA256"):
+            if key in receipt:
+                require(receipt[key] == args_sha, f"Receipt {key} differs")
+        for key in ("automaticRetries", "retries"):
+            if key in receipt:
+                require(receipt[key] == 0, f"Unexpected automatic retries: {batch['batchId']}")
+    if "nativeRunning" in returned:
+        require(returned["nativeRunning"] is False or returned["nativeRunning"] == 0,
+                "Return still reports a running native request")
+    require(args.get("transparent_background") is True,
+            f"Missing submitted transparency argument: {batch['batchId']}")
+
+
+def historical_regression(root: Path, baseline: Path) -> dict[str, Any]:
+    """Run the old verifier unchanged on hardlinks with isolated baseline overrides."""
+    legacy = checked_file(baseline, "verify_source_registration.py", LEGACY_VERIFIER_SHA256)
+    historical_lessons = checked_file(baseline, "lessons-stage57.json", load(root / "source-registration-stage57.json")["bindingSnapshotHashes"]["lessons-and-experiments.json"])
+    old_lessons, current_lessons = load(historical_lessons), load(root / "lessons-and-experiments.json")
+    require(current_lessons["experiments"][:len(old_lessons["experiments"])] == old_lessons["experiments"]
+            and {k:v for k,v in current_lessons.items() if k != "experiments"} == {k:v for k,v in old_lessons.items() if k != "experiments"},
+            "Historical registry is not an exact retained prefix of current history")
+    protected = {name: sha(checked_file(root, name)) for name in OVERRIDES}
+    temp_path: Path | None = None
+    result: dict[str, Any]
+    with tempfile.TemporaryDirectory(prefix=".stage61-legacy-", dir=root.parent) as dirname:
+        temp_path = Path(dirname)
+        count = 0
+        for directory, dirs, files in os.walk(root, followlinks=False):
+            source_dir = Path(directory)
+            target_dir = temp_path / source_dir.relative_to(root)
+            target_dir.mkdir(parents=True, exist_ok=True)
+            for name in dirs:
+                require(not (source_dir / name).is_symlink(),
+                        f"Cannot materialize source symlink directory: {source_dir / name}")
+            for name in files:
+                source = source_dir / name
+                require(not source.is_symlink() and stat.S_ISREG(source.stat().st_mode),
+                        f"Cannot materialize non-regular source file: {source}")
+                os.link(source, target_dir / name, follow_symlinks=False)
+                count += 1
+        # Unlink FIRST: copyfile must never overwrite a hardlinked payload inode.
+        for target_name, baseline_name in OVERRIDES.items():
+            target = temp_path / target_name
+            target.unlink()
+            shutil.copyfile(checked_file(baseline, baseline_name), target)
+        require(sha(temp_path / "verify_source_registration.py") == sha(legacy),
+                "Historical callback bytes changed")
+        environment = os.environ.copy()
+        environment["PYTHONDONTWRITEBYTECODE"] = "1"
+        completed = subprocess.run(
+            [sys.executable, str(temp_path / "verify_source_registration.py"),
+             "--root", str(temp_path)],
+            cwd=temp_path, env=environment, text=True, capture_output=True, timeout=300,
+        )
+        require(completed.returncode == 0,
+                "Historical stage57 regression failed:\n" + completed.stdout + completed.stderr)
+        try:
+            result = json.loads(completed.stdout.strip())
+        except json.JSONDecodeError as error:
+            raise VerificationError("Historical verifier did not emit its JSON result") from error
+        require(result.get("passed") is True, "Historical regression did not pass")
+        result = {"result": result, "verifierSHA256": sha(legacy),
+                  "hardlinkedFiles": count, "baselineOverrides": list(OVERRIDES),
+                  "sourceSymlinksAllowed": False}
+    require(temp_path is not None and not temp_path.exists(), "Temporary tree was not removed")
+    require(all(sha(checked_file(root, name)) == digest for name, digest in protected.items()),
+            "Historical regression changed actual payload metadata")
+    result["temporaryTreeRemoved"] = True
+    result["actualPayloadMetadataUnchanged"] = True
+    return result
+
+
+def verify(root: Path) -> dict[str, Any]:
+    require(not root.is_symlink(), "Source root cannot be a symlink")
+    root = root.resolve(strict=True)
+    require(root.is_dir(), "Source root is not a directory")
+    ledger = load(checked_file(root, "source-registration-stage61.json"))
+    require(ledger.get("stage") == 61, "Not a stage61 registration ledger")
+    baseline = inside(root, BASELINE_DIRECTORY)
+    old_bank_path = checked_file(baseline, "frame-bank.json", ledger["old170BankRecordsSHA256"])
+    old_inv_path = checked_file(baseline, "original-source-inventory.json", ledger["old62OriginalRecordsSHA256"])
+    old_map_path = checked_file(baseline, "source-frame-map.json", ledger["oldFrameMapSHA256"])
+    old_overlay_path = checked_file(baseline, "intake-overlay.json", ledger["oldOverlaySHA256"])
+    checked_file(baseline, "verify_source_registration.py", LEGACY_VERIFIER_SHA256)
+    old_bank, old_inv, old_map = load(old_bank_path), load(old_inv_path), load(old_map_path)
+    bank = load(checked_file(root, "frame-bank.json"))
+    inventory = load(checked_file(root, "original-source-inventory.json"))
+    frame_map = load(checked_file(root, "source-frame-map.json"))
+    baseline_drawings, baseline_originals = len(old_bank["frames"]), len(old_inv["originals"])
+    require(ledger["baselineDrawings"] == baseline_drawings
+            and ledger["baselineOriginals"] == baseline_originals,
+            "Ledger baseline counts differ from retained records")
+    require(len(old_map["frames"]) == baseline_drawings, "Baseline frame map count differs")
+    require(bank["frames"][:baseline_drawings] == old_bank["frames"], "Old bank prefix changed")
+    require(inventory["originals"][:baseline_originals] == old_inv["originals"],
+            "Old original inventory prefix changed")
+    require(frame_map["frames"][:baseline_drawings] == old_map["frames"], "Old frame-map prefix changed")
+    appended = ledger["appendedBankRecords"]
+    batches = ledger["registrationOnlyBatches"]
+    require(bank["frames"][baseline_drawings:] == appended, "Appended bank records differ from ledger")
+    require(len(bank["frames"]) == ledger["registeredDrawings"]
+            == baseline_drawings + len(appended), "Final drawing counts differ")
+    require(len(inventory["originals"]) == ledger["registeredOriginals"]
+            == baseline_originals + len(batches), "Final original counts differ")
+    require(ledger["newNativeDrawings"] == len(appended)
+            and ledger["newNativeOriginals"] == len(batches)
+            and ledger["actualGenerationCallsInBatch"] == len(batches),
+            "Native source ledger totals differ")
+    require(ledger["registrationMakesNativeCalls"] == 0
+            and ledger["acceptedUsesAdded"] == 0 and ledger["runtimeAdmission"] is False,
+            "Registration claims generation or runtime admission")
+    require(bank["frameCount"] == len(bank["frames"])
+            and inventory["localGeneratedDrawings"] == len(bank["frames"])
+            and inventory["newGenerationCallsForThisHandoff"] == len(batches),
+            "Metadata totals differ from source records")
+
+    ids: set[str] = set()
+    by_id: dict[str, dict[str, Any]] = {}
+    for frame in bank["frames"]:
+        ident = frame["frameId"]
+        require(re.fullmatch(r"frame\.sha256\.[0-9a-f]{64}", ident) is not None,
+                f"Malformed frame ID: {ident}")
+        image_path = checked_file(root, frame["file"], frame["fileSha256"])
+        image = rgba(image_path)
+        require(frame_id(image) == ident and list(image.size) == frame["dimensions"],
+                f"Decoded frame identity/dimensions differ: {ident}")
+        require(ident not in ids, f"Duplicate source ID: {ident}")
+        require(frame.get("acceptedUses") == [], f"Accepted use added: {ident}")
+        ids.add(ident)
+        by_id[ident] = frame
+    require(len(frame_map["frames"]) == len(bank["frames"]), "Full frame-map count differs")
+    map_ids: set[str] = set()
+    for frame, mapping in zip(bank["frames"], frame_map["frames"]):
+        require(mapping["sourceFrameId"] == frame["frameId"]
+                and mapping["sourcePNG"] == frame["file"]
+                and mapping["sourcePNGsha256"] == frame["fileSha256"]
+                and mapping["dimensions"] == frame["dimensions"]
+                and mapping["original"] == frame["sourceAtlas"]
+                and mapping.get("prompt") == frame.get("sourcePrompt")
+                and mapping.get("acceptedUses") == [], "Full source-frame-map record differs")
+        require(mapping["sourceFrameId"] not in map_ids, "Duplicate mapped source ID")
+        map_ids.add(mapping["sourceFrameId"])
+    require(map_ids == ids, "Mapped IDs differ from full source bank")
+
+    original_paths: set[str] = set()
+    for item in inventory["originals"]:
+        path = checked_file(root, item["file"], item["sha256"])
+        prompt = checked_file(root, item["promptFile"], item["promptSha256"])
+        require(path.stat().st_size == item["bytes"] and prompt.stat().st_size == item["promptBytes"],
+                "Original/prompt byte counts differ")
+        require(item["file"] not in original_paths, "Duplicate original inventory path")
+        require(list(rgba(path).size) == item["dimensions"], "Original dimensions differ")
+        original_paths.add(item["file"])
+
+    appended_ids = {frame["frameId"] for frame in appended}
+    old_ids = {frame["frameId"] for frame in old_bank["frames"]}
+    require(not appended_ids.intersection(old_ids), "A historical drawing was registered again")
+    seen_new_ids: set[str] = set()
+    seen_original_hashes: set[str] = set()
+    old_original_hashes = {item["sha256"] for item in old_inv["originals"]}
+    for batch, item in zip(batches, inventory["originals"][baseline_originals:]):
+        require(batch["nativeCalls"] == 1 and batch["runtimeAdmission"] is False
+                and batch["acceptedUses"] == [], "Non-native or admitted registration batch")
+        require(batch["originalSHA256"] not in seen_original_hashes | old_original_hashes,
+                "Original was counted twice")
+        seen_original_hashes.add(batch["originalSHA256"])
+        original_path = checked_file(root, batch["original"], batch["originalSHA256"])
+        original = rgba(original_path)
+        require(list(original.size) == batch["originalDimensions"], "Native canvas differs")
+        prompt_path = checked_file(root, batch["prompt"], batch["promptSHA256"])
+        prompt = prompt_path.read_bytes()
+        require(len(prompt) == batch["promptBytes"], "Native prompt byte count differs")
+        args_path = checked_file(root, batch["nativeArguments"], batch["nativeArgumentsSHA256"])
+        args_record = load(args_path)
+        arguments = args_record.get("arguments", args_record)
+        require(isinstance(arguments, dict) and arguments["prompt"].encode("utf-8") == prompt,
+                "Submitted prompt bytes differ from retained prompt")
+        dispatch = load(checked_file(root, batch["dispatchReceipt"], batch["dispatchSHA256"]))
+        returned = load(checked_file(root, batch["returnReceipt"], batch["returnSHA256"]))
+        # Both original flat arguments and later compatibility wrappers may be
+        # present. Their actual tool arguments must agree; metadata can differ.
+        for alias_name in ("native-arguments.json", "native-call-arguments.json",
+                           "prepared-native-arguments.json"):
+            alias_path = args_path.parent / alias_name
+            if alias_path.exists():
+                alias = load(checked_file(args_path.parent, alias_name))
+                require(alias.get("arguments", alias) == arguments,
+                        f"Native argument compatibility alias differs: {alias_name}")
+        verify_receipts(batch, prompt, arguments, sha(args_path), dispatch, returned,
+                        args_path.parent)
+        manifest_path = checked_file(root, batch["manifest"], batch["manifestSHA256"])
+        manifest = load(manifest_path)
+        require(manifest["nativeCalls"] == 1 and manifest["batchId"] == batch["batchId"],
+                "Primary manifest native call/batch identity differs")
+        require(checked_file(manifest_path.parent, manifest["original"], manifest["originalSHA256"])
+                == original_path, "Manifest native original binding differs")
+        require(checked_file(manifest_path.parent, manifest["prompt"], manifest["promptSHA256"])
+                == prompt_path, "Manifest prompt binding differs")
+        require(len(manifest["frames"]) == len(batch["frames"]) > 0, "New source frame counts differ")
+        rectangles: list[list[int]] = []
+        for source, declared in zip(batch["frames"], manifest["frames"]):
+            ident = source["sourceFrameId"]
+            require(ident in appended_ids and ident not in seen_new_ids,
+                    f"Missing or duplicate newly generated frame: {ident}")
+            require(first(declared, "sourceFrameId", "sourceFrameID", "primarySourceFrameId") == ident
+                    and declared.get("newDrawing", True) is not False,
+                    "Manifest frames do not identify new native drawings")
+            image_path = checked_file(root, source["sourcePNG"], source["sourcePNGsha256"])
+            require(checked_file(manifest_path.parent, declared["sourcePNG"],
+                                 declared["sourcePNGsha256"]) == image_path,
+                    "Manifest source PNG binding differs")
+            image = rgba(image_path)
+            require(list(image.size) == source["dimensions"] and frame_id(image) == ident,
+                    "Registered source cell ID/dimensions differ")
+            rect = native_rect(source)
+            manifest_rect = native_rect(declared, [0, 0, original.width, original.height])
+            require(rect == manifest_rect and rect[2:] == list(image.size)
+                    and rect[0] + rect[2] <= original.width
+                    and rect[1] + rect[3] <= original.height,
+                    "Native source rectangle differs or exceeds original")
+            require(original.crop((rect[0], rect[1], rect[0]+rect[2], rect[1]+rect[3])).tobytes()
+                    == image.tobytes(), "Native source-cell roundtrip changes pixels")
+            for previous in rectangles:
+                overlap_w = min(rect[0]+rect[2], previous[0]+previous[2]) - max(rect[0], previous[0])
+                overlap_h = min(rect[1]+rect[3], previous[1]+previous[3]) - max(rect[1], previous[1])
+                require(overlap_w <= 0 or overlap_h <= 0, "Native source cells overlap")
+            rectangles.append(rect)
+            frame = by_id[ident]
+            require(frame["file"] == source["sourcePNG"]
+                    and frame["fileSha256"] == source["sourcePNGsha256"]
+                    and frame["sourceAtlas"] == batch["original"]
+                    and frame["sourceAtlasSha256"] == batch["originalSHA256"]
+                    and frame["sourcePrompt"] == batch["prompt"]
+                    and frame["sourceNativeArguments"] == batch["nativeArguments"]
+                    and frame["appearanceVersion"] == batch["batchId"],
+                    "New bank provenance differs from native ledger")
+            require(native_rect(frame["derivation"]) == rect
+                    and frame["derivation"]["registrationOnly"] is True
+                    and frame["derivation"]["perFrameRescale"] is False
+                    and frame["acceptedUses"] == [] and frame["runtimeAdmission"] is False
+                    and frame["anatomyScaleAccepted"] is False
+                    and frame["rootContactAccepted"] is False,
+                    "New registration claims geometry/admission or rescale")
+            seen_new_ids.add(ident)
+        if len(rectangles) > 1:
+            require(len({tuple(rect[2:]) for rect in rectangles}) == 1,
+                    "Native multi-pose source canvases have different sizes")
+        if len(batch["frames"]) == 1:
+            supplied_id = first(returned, "sourceFrameId", "sourceFrameID")
+            if supplied_id is not None:
+                require(supplied_id == batch["frames"][0]["sourceFrameId"], "Return source ID differs")
+        if "decodedNativeID" in returned:
+            require(returned["decodedNativeID"] == frame_id(original), "Return native sheet ID differs")
+        require(item["batch"] == batch["batchId"] and item["file"] == batch["original"]
+                and item["sha256"] == batch["originalSHA256"]
+                and item["promptFile"] == batch["prompt"]
+                and item["promptSha256"] == batch["promptSHA256"]
+                and item["acceptedProductionArt"] is False
+                and item["stagedInMac"] is False and item["integratedInMac"] is False,
+                "New original inventory record differs or claims app/art acceptance")
+    require(seen_new_ids == appended_ids, "Ledger native cells do not cover appended bank exactly")
+
+    adjudication = load(checked_file(root, ledger["adjudication"]))
+    require(adjudication["nativeCallsReturned"] == len(batches)
+            and adjudication["newNativeDrawings"] == len(appended),
+            "Actual source adjudication counts differ from ledger")
+    checked_file(root, ACTIVE_INVENTORY, ledger["activeInventorySHA256"])
+    overlay, old_overlay = load(checked_file(root, OVERLAY)), load(old_overlay_path)
+    require(overlay["registeredDrawings"] == len(bank["frames"])
+            and overlay["registeredOriginals"] == len(inventory["originals"])
+            and overlay["newSourceRegistration"] == "source-registration-stage61.json",
+            "Overlay registration totals differ")
+    changed_fields = {"registeredDrawings", "registeredOriginals",
+                      "newSourceRegistration", "sourceRegistrationNote", "newDrawings", "newNativeCalls"}
+    require(all(overlay.get(key) == value for key, value in old_overlay.items()
+                if key not in changed_fields), "Historical overlay metadata changed")
+    require(overlay["newDrawings"] == old_overlay["newDrawings"] + len(appended)
+            and overlay["newNativeCalls"] == old_overlay["newNativeCalls"] + len(batches),
+            "Cumulative checkpoint generation counts differ from immutable baseline plus new records")
+    legacy = historical_regression(root, baseline)
+    return {"passed": True, "stage": 61,
+            "registrationOnlyNativeDrawings": legacy["result"]["registrationOnlyNativeDrawings"] + len(appended),
+            "registrationOnlyNativeOriginals": legacy["result"]["registrationOnlyNativeOriginals"] + len(batches), "baselineDrawings": baseline_drawings,
+            "baselineOriginals": baseline_originals, "newNativeDrawings": len(appended),
+            "newNativeOriginals": len(batches), "totalBankDrawingIDs": len(bank["frames"]),
+            "totalOriginalPromptPairs": len(inventory["originals"]),
+            "oldBankInventoryAndMapPrefixesExact": True, "activeInventoryUnchanged": True,
+            "newSourceCellRoundtripsExact": True, "legacyStage57Regression": legacy,
+            "registrationMakesNativeCalls": 0, "acceptedUsesAdded": 0,
+            "runtimeAdmission": False, "sourceAppearanceOrSupportApproved": False}
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", type=Path, default=Path(__file__).parent)
+    arguments = parser.parse_args()
+    try:
+        print(json.dumps(verify(arguments.root), sort_keys=True))
+    except (VerificationError, OSError, ValueError, KeyError, TypeError) as error:
+        print(json.dumps({"passed": False, "error": str(error), "runtimeAdmission": False}),
+              file=sys.stderr)
+        raise SystemExit(1)

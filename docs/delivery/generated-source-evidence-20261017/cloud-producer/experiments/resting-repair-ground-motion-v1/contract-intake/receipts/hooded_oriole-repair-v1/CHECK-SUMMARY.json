@@ -1,0 +1,155 @@
+{
+  "actualPixelCheckStatus": "PASS exact canonical pixel normalization subset",
+  "canonicalJSON": {
+    "file": "raw-candidate-input.json",
+    "inputSHA256": "b28d9b64b13b8cd621de0715bb482f8717111a98ffb4713afb651e9f2043bc3b",
+    "status": "PASS actual canonicalJson",
+    "canonicalUTF8Bytes": 494323,
+    "canonicalSHA256": "2db343f3745e872b4214681ea046daa3a7b4a77d3e8de2ceb1caa4c0a69e086f"
+  },
+  "officialProducerProposalShapePass": true,
+  "actualInput5Diagnostic": {
+    "schemaVersion": 2,
+    "boundary": "asset-packaging-input-v5",
+    "metadataComplete": false,
+    "sourceAdmitted": false,
+    "rightsGranted": false,
+    "referenceRightsAssessed": false,
+    "generationInputsAssessed": false,
+    "physicalSupportReviewed": false,
+    "browserAcceptance": "pending",
+    "reviewRequired": [
+      "immutable-file-and-rights",
+      "exact-owner-reference-pins",
+      "source",
+      "manifest"
+    ],
+    "issues": [
+      {
+        "path": "source.license.id",
+        "code": "invalid_type",
+        "message": "Expected string, received null",
+        "category": "output-use-declaration",
+        "responsibleParty": "authorized-requester"
+      },
+      {
+        "path": "source.license.derivativesAllowed",
+        "code": "invalid_type",
+        "message": "Expected boolean, received null",
+        "category": "output-use-declaration",
+        "responsibleParty": "authorized-requester"
+      },
+      {
+        "path": "source.license.redistributionAllowed",
+        "code": "invalid_type",
+        "message": "Expected boolean, received null",
+        "category": "output-use-declaration",
+        "responsibleParty": "authorized-requester"
+      },
+      {
+        "path": "source.license.attribution",
+        "code": "invalid_type",
+        "message": "Expected string, received null",
+        "category": "output-use-declaration",
+        "responsibleParty": "authorized-requester"
+      },
+      {
+        "path": "source.references",
+        "code": "too_small",
+        "message": "Array must contain at least 1 element(s)",
+        "category": "runtime-reference-binding",
+        "responsibleParty": "runtime-integrator"
+      },
+      {
+        "path": "conditioning.references",
+        "code": "too_small",
+        "message": "Array must contain at least 1 element(s)",
+        "category": "runtime-reference-binding",
+        "responsibleParty": "runtime-integrator"
+      },
+      {
+        "path": "conditioning.poseGraph.nodes.0.referenceId",
+        "code": "invalid_type",
+        "message": "Expected string, received null",
+        "category": "runtime-reference-binding",
+        "responsibleParty": "runtime-integrator"
+      },
+      {
+        "path": "commonMotion.poseGraph.nodes.0.referenceId",
+        "code": "invalid_type",
+        "message": "Expected string, received null",
+        "category": "runtime-reference-binding",
+        "responsibleParty": "runtime-integrator"
+      },
+      {
+        "path": "commonMotion.poseGraph.nodes.1.referenceId",
+        "code": "invalid_type",
+        "message": "Expected string, received null",
+        "category": "runtime-reference-binding",
+        "responsibleParty": "runtime-integrator"
+      },
+      {
+        "path": "commonMotion.poseGraph.nodes.2.referenceId",
+        "code": "invalid_type",
+        "message": "Expected string, received null",
+        "category": "runtime-reference-binding",
+        "responsibleParty": "runtime-integrator"
+      },
+      {
+        "path": "commonMotion.poseGraph.nodes.3.referenceId",
+        "code": "invalid_type",
+        "message": "Expected string, received null",
+        "category": "runtime-reference-binding",
+        "responsibleParty": "runtime-integrator"
+      },
+      {
+        "path": "projectGeneratedEvidence",
+        "code": "invalid_type",
+        "message": "Required",
+        "category": "source-metadata",
+        "responsibleParty": "source-producer"
+      }
+    ],
+    "classificationCounts": {
+      "outputUseDeclaration": 4,
+      "runtimeReferenceBinding": 7,
+      "sourceMetadata": 1
+    },
+    "sourceDeclarationState": "unparseable",
+    "sourceDeclarationIssues": []
+  },
+  "actualSourceDeclaration": {
+    "shapeParseable": false,
+    "state": "unparseable importer-owned declarations remain null",
+    "issues": [
+      {
+        "path": "license.id",
+        "code": "invalid_type",
+        "message": "Expected string, received null"
+      },
+      {
+        "path": "license.derivativesAllowed",
+        "code": "invalid_type",
+        "message": "Expected boolean, received null"
+      },
+      {
+        "path": "license.redistributionAllowed",
+        "code": "invalid_type",
+        "message": "Expected boolean, received null"
+      },
+      {
+        "path": "license.attribution",
+        "code": "invalid_type",
+        "message": "Expected string, received null"
+      },
+      {
+        "path": "references",
+        "code": "too_small",
+        "message": "Array must contain at least 1 element(s)"
+      }
+    ],
+    "rightsGranted": false
+  },
+  "sourceAdmitted": false,
+  "runtimeAdmission": false
+}

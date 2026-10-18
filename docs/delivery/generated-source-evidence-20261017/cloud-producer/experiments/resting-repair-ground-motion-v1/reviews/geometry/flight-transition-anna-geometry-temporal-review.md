@@ -1,0 +1,11 @@
+# Anna native bridge attempt — independent geometry and timing
+
+**Zero new useful supported transitions; launch and landing remain HELD.** Four native cells and their direct whole-canvas outputs are genuine source records. All 33 frozen inputs and all 52 baseline inputs remain exact. Different drawings and purpose labels do not establish a weighted preload, supported release, intermediate wing fold or weight transfer.
+
+At the true 64-world-pixel presentation, preload changes body/head/feet registration against the old perch; near-contact wings stay high, then settle becomes nearly folded. With the proposed body origin [80,122.667], preload toe probes are 6.667 world pixels below the guide plane. Near-fold probes are 0.667 and 5.333 above it; settle probes are 2.667 above. The 9.333-world-pixel preload-to-settle toe-level difference is a source coordinate mismatch under this proposal, not a measurement of a physical body center. Probe ownership and pressure remain unknown. The near-fold 0.667 offset is within plausible annotation uncertainty and is not an automatic failure gate.
+
+The proposed old-to-preload and old-reach-to-new-fold bill proxy changes are about 10.37 and 10.67 world pixels. These measurements support the visible registration discontinuities; they do not infer a biological scale factor from wing-inclusive bounds. No per-pose pinning, source fitting, painting or bitmap equality gate is proposed.
+
+The included fixed-controls HTML viewer passed 30 live or controlled samples at the declared scale, with no page errors and explicit terminal holds. **These new APNGs retain their holds:** common four-key study totals 0.800 s, launch 1.233 s versus 37/30 s, landing 1.533 s versus 46/30 s. The latter differences are only 0.333 ms quantization. The separate baseline’s lost-hold failures are not assigned to this branch. Immediate `getState()` still describes the prior draw until the first RAF after `play()`.
+
+Contacts remain empty and support unapproved. Source pixels were not changed. Deliverables contain numerical/hash/timestamp evidence and no image capture payloads. This bounded source review establishes neither continuous-video perception, physical support, biological kinematics nor current Mac/runtime admission. Existing hover source usefulness and any later technical derivative remain separate.

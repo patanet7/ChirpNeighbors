@@ -1,0 +1,13 @@
+# Ground movement and Nuttall support source work
+
+Two playable movement studies, zero accepted movement slots claimed. Dove reuses six exact existing walking drawings and remains HELD for credible planted travel. Its normal-scale fixed-root stepping and retained32world/s failure control preserve the source-contact inconsistencies; no body bob, toe snap or compensated body jump is called new animation. Native/raw/one codec export, framewise anchors/clocks and exact APNG delays are separate and retained.
+
+The inspected bank contained no Quail gait. One explicitly authorized additional native call returned four equal627-square cells, with all attempts and exact prompt/reference/arguments/original retained. It failed individual framing: body88×87 becomes164×159world and the atlas lowerrow jumps12world. The one codec candidate remains117600decodedarea; no shrinking, per-pose repositioning, phase splitting or retry hides these failures. Four actual native cells are source records, not four accepted gait phases. No further generation is running.
+
+Nuttall's four existing open-eye drawings remain clinging studies. The later pair suggests an inclined endpoint plane but does not fix requested vertical support or establish toe-pad/tail-bearing contact. The source posture proposal is separate from unresolved runtime support policy. A real blink would still need actual closed-eye art after choosing the supported reference. supportWorldnull does not mean airborne.
+
+Original Quail look-v1 source facts and normal237 comparison are retained for strict planted stationary adjudication. Readable head attention is not selfapproval of a torso/toe replant. Parent's independent geometry and appearance reviews live outside these producer folders; prior source reports are untouched.
+
+Public authority is PR80/UI22 input5/source4/manifest6. Current common-only input5 does not admit activity clips, so walk/source-support proposals remain separate; no fake common family, private pins, rights approval, saved-yard write or runtime admission is invented. Contract-intake owns actual unchanged pixel/JSON receipts and explicit boundaries. Each source subpacket has its own frozen ledger/GO; parent-authorized additive native registration metadata is tracked separately. Parent owns final review index/publication. Next work for this worker is independent flight review after another producer's GO, with no own native call.
+
+View mourning-dove-walk/review.html and california-quail-walk-native-v1/review.html through a local static server. All displayed artwork stays at declared world scale; source PNG composites are not browser captures or Mac yard footage.
