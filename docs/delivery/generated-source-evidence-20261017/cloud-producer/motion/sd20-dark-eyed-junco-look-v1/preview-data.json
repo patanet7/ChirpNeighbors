@@ -1,0 +1,147 @@
+{
+  "profile": {
+    "schemaVersion": 1,
+    "profile": "chirp-texture-review-v1",
+    "scope": "review-only",
+    "approval": "unreviewed",
+    "activation": "none",
+    "source": {
+      "sha256": "2c1ab8fb81d162fc0c9a07a4589e2e8a1a428f583d7c0b240eb1a3676dce16f0",
+      "creator": "Chirp bounded native Junco look exporter",
+      "tool": "native image_gen; direct nearest wholecanvas output",
+      "toolVersion": "native model not exposed; Pillow12.3.0",
+      "rights": "unreviewed",
+      "fidelity": "unreviewed"
+    },
+    "atlas": {
+      "width": 384,
+      "height": 192,
+      "alpha": "straight-rgba8",
+      "colorSpace": "srgb"
+    },
+    "frames": [
+      {
+        "id": "junco-awake-192",
+        "sourceRect": {
+          "x": 0,
+          "y": 0,
+          "width": 192,
+          "height": 192
+        },
+        "canvas": {
+          "width": 192,
+          "height": 192
+        },
+        "trim": {
+          "x": 0,
+          "y": 0
+        },
+        "pivot": {
+          "x": 122,
+          "y": 150
+        },
+        "contacts": [
+          {
+            "id": "foot-1",
+            "x": 114,
+            "y": 146
+          },
+          {
+            "id": "foot-2",
+            "x": 143,
+            "y": 146
+          }
+        ],
+        "world": {
+          "width": 78,
+          "height": 78
+        },
+        "sourcePixelsPerWorldUnit": 2.4615384615384617
+      },
+      {
+        "id": "junco-look-viewer-192",
+        "sourceRect": {
+          "x": 192,
+          "y": 0,
+          "width": 192,
+          "height": 192
+        },
+        "canvas": {
+          "width": 192,
+          "height": 192
+        },
+        "trim": {
+          "x": 0,
+          "y": 0
+        },
+        "pivot": {
+          "x": 122,
+          "y": 150
+        },
+        "contacts": [
+          {
+            "id": "foot-1",
+            "x": 114,
+            "y": 146
+          },
+          {
+            "id": "foot-2",
+            "x": 143,
+            "y": 146
+          }
+        ],
+        "world": {
+          "width": 78,
+          "height": 78
+        },
+        "sourcePixelsPerWorldUnit": 2.4615384615384617
+      }
+    ],
+    "clips": [
+      {
+        "id": "idle",
+        "tickRate": 30,
+        "loop": true,
+        "frames": [
+          {
+            "frameId": "junco-awake-192",
+            "durationTicks": 90
+          }
+        ]
+      },
+      {
+        "id": "look",
+        "tickRate": 30,
+        "loop": false,
+        "frames": [
+          {
+            "frameId": "junco-awake-192",
+            "durationTicks": 30
+          },
+          {
+            "frameId": "junco-look-viewer-192",
+            "durationTicks": 12
+          },
+          {
+            "frameId": "junco-awake-192",
+            "durationTicks": 30
+          }
+        ]
+      }
+    ]
+  },
+  "atlas": "look-atlas192.png",
+  "frameToPrimary": {
+    "junco-awake-192": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+    "junco-look-viewer-192": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a"
+  },
+  "actualWorldCanvas": {
+    "width": 78,
+    "height": 78
+  },
+  "normalCSSCanvas": [
+    78,
+    78
+  ],
+  "canonicalSchemaValidation": "NOT_RUN"
+}

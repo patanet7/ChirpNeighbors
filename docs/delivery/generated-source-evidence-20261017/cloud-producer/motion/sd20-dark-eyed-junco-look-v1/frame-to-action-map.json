@@ -1,0 +1,90 @@
+{
+  "batchId": "sd20-dark-eyed-junco-look-v1",
+  "speciesId": "dark_eyed_junco",
+  "lookOnlyNewDrawing": true,
+  "renderClipId": "look",
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "3e72ef79a7870e98bc68afb35fdc730f23745f58b2d1bd7354dc74e3a926eff8",
+    "profile": "chirp-texture-review-v1"
+  },
+  "atlasBinding": {
+    "file": "look-atlas192.png",
+    "sha256": "2c1ab8fb81d162fc0c9a07a4589e2e8a1a428f583d7c0b240eb1a3676dce16f0",
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8",
+    "bindRule": "wrapper PNG filename/sha/dimensions explicitly bound; strict profile has no atlas filename field"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+      "primarySourcePNG": "reused-awake-source1024.png",
+      "primarySourcePNGsha256": "f20fef50b6bc698a7e9860d8c0f954ef336277038743e4a766e5aab3684a0c0e",
+      "newDrawing": false,
+      "lookOnlyNewDrawing": false,
+      "renderFrameId": "junco-awake-192",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "outputPNG": "reused-awake192.png",
+      "outputPNGsha256": "db536cbdfee1f074b98820855b5ffd65d75d1ddfa7cef17551bc774f4a573587"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a",
+      "primarySourcePNG": "look-native.png",
+      "primarySourcePNGsha256": "13ac2bfab23582cdfd17e4e82905cc4082c3dee63b844de32e421d6c01160f8b",
+      "newDrawing": true,
+      "lookOnlyNewDrawing": true,
+      "renderFrameId": "junco-look-viewer-192",
+      "atlasRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "outputPNG": "look192.png",
+      "outputPNGsha256": "d15a085ebf8bc1abb30f9cf53d8e4e4553fc6d2a64f3ad395f114e8eef3712f9"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "junco-awake-192",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "junco-awake-192",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "junco-look-viewer-192",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "junco-awake-192",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ],
+  "projectionScope": "look-only overlay candidate; exact awake idle fallback; existing neutral/blink intake untouched",
+  "canonicalSchemaValidation": "NOT_RUN",
+  "currentMacContract": "UNKNOWN",
+  "packetBindingReady": false,
+  "appBound": false
+}
