@@ -1,0 +1,69 @@
+{
+  "status": "PASS actual current canonical module import and JSON controls",
+  "facadeSHA256": "28c4c5f7bd522ac9709ce66df07c674e9f9a5ec53d35255c4a0ebfdef4637320",
+  "transitiveSHA256": "68090d71be5ae2b04432c98fc57f93571b44ea8a54495a08bf39109bb9b37ebf",
+  "actualReexportClassIdentity": true,
+  "actualReexportFunctionIdentity": true,
+  "controls": [
+    {
+      "control": "oversized UTF8 JSON",
+      "rejected": true,
+      "actualErrorClass": true,
+      "message": "Pipeline JSON exceeds 1 MB"
+    },
+    {
+      "control": "depth65",
+      "rejected": true,
+      "actualErrorClass": true,
+      "message": "Pipeline JSON is too deeply nested"
+    },
+    {
+      "control": "nonfinite",
+      "rejected": true,
+      "actualErrorClass": true,
+      "message": "Expected finite JSON data"
+    },
+    {
+      "control": "undefined",
+      "rejected": true,
+      "actualErrorClass": true,
+      "message": "Expected finite JSON data"
+    },
+    {
+      "control": "cyclic",
+      "rejected": true,
+      "actualErrorClass": true,
+      "message": "Cyclic pipeline JSON"
+    },
+    {
+      "control": "nonplain object",
+      "rejected": true,
+      "actualErrorClass": true,
+      "message": "Pipeline data must contain plain JSON objects"
+    }
+  ],
+  "syntheticRGBAEnvelope": [
+    {
+      "edge": 112,
+      "frames": 3,
+      "decodedArea": 37632,
+      "worstCaseRGBAChannelDigitsJSONBytes": 602232,
+      "withinCanonicalByteBudget": true,
+      "scope": "Synthetic maximum channel-digit envelope only; not candidate pixel proof or full manifest/admission."
+    },
+    {
+      "edge": 121,
+      "frames": 3,
+      "decodedArea": 43923,
+      "worstCaseRGBAChannelDigitsJSONBytes": 702888,
+      "withinCanonicalByteBudget": true,
+      "scope": "Synthetic maximum channel-digit envelope only; not candidate pixel proof or full manifest/admission."
+    }
+  ],
+  "canonicalLimits": {
+    "UTF8Bytes": 1000000,
+    "maxTraversalDepth": 64
+  },
+  "candidateFullPayloadCanonicalization": "NOT_RUN; frozen candidate payload pending",
+  "fullSchemaAdmission": false
+}
