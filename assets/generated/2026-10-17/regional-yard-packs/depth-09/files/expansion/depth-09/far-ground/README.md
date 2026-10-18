@@ -1,0 +1,13 @@
+# Inland fenced-yard far-layer test
+
+Existing family scene.san_diego_inland_canyon, context depth09_inland_fenced_test. Two actual imagegen calls supply a native transparent distant mountain layer and a controlled conditional summit-snow alternate. These are original generic inland Southern California mountains, not an exact named profile. No ocean is included. No entire new seasonal backgrounds, sky, grass, fences or foreground objects were generated.
+
+Exact existing project sky, four independently generated seasonal grass sheets and cedar fence row are reused unchanged by SHA-256. Coastal component provenance does not assert a coastal location for this inland scene. Four source recipes order sky, far, ground, fence. Foreground framing is omitted; full lower yard stays usable. Root owns the ground polygon/mask and runtime admission; none is authored here.
+
+Generation did not follow requested native band coordinates: base alpha128 y314–648, snow y315–648. Both native originals remain unchanged. The preferred registered derivatives translate[0,-120], with onlyalpha<8removed. Peaks become y194/195, giving about21normal-display pixels of air above the viewport crop. Source origin hides mountains behind the fence. The retained earlier-150 study leaves only2.5pxheadroom and is not preferred. Lower far-layer base becomes528 and stays behind fence/ground; requested470 is not claimed achieved. Registration QA measures every skyline column and records mask drift, not exact pixel lock.
+
+Default winter has no summit snow. A separate optional far replacement shows restrained snow on distant high crests after a suitable storm. Yard/lowland ground and fence remain snow-free, no falling snow or automatic date/weather simulation. The alternate is one flattened far layer, not a separately editable snow-only mask. Snow editing also resynthesizes some fine texture and alpha; exact profile/color lock is not claimed.
+
+Known style limitation: warm granular rock/chaparral texture is more detailed and warmer than the simple pale blue-gray target. The exposed mountain band above the fence is usable as a provisional source candidate. All sourcefar images have realzero alpha, maximum254 and faintstray alpha. Production derivatives removeonlyalpha<8; final composites are alpha255 through opaque reused sky. No recoloring or painted terrain was made by code.
+
+Reviews crop[0,160,1536,1024] to1536×864 then NEAREST960×540 or384×216. No stretch, actualruntimefit unverified. Exact prompts, inputrefs, originals, native/registeredalpha, hashes, offsetstudies and four season recipes are retained. Source-only; no Git, app, sharedindex or Library writes. Parent/Mac acceptance pending.
