@@ -1,4 +1,4 @@
-"""Verify append-only stage67 native source facts and exact stage65/63/61/57 history.
+"""Verify stage69 two-original source registration and exact stage67/65/63/61/57 history.
 
 CLI: python verify_source_registration.py --root SOURCE_DELIVERY_DIRECTORY
 API: verify(Path(root)) -> JSON source-only report. No generation/admission.
@@ -8,18 +8,10 @@ Eight historical metadata paths are unlinked before copying baseline bytes.
 No payload file is opened for writing. All temporary trees clean up on exit.
 Requires only existing Python/Pillow; no installs/network/private runtime data.
 
-Stage67 ledger: source-registration-stage67.json, schemaVersion1/stage67,
-baselineDirectory='registration-baseline-stage67', baselineDrawings/Originals,
-registeredDrawings/Originals, oldBankRecordsSHA256, oldOriginalRecordsSHA256,
-oldFrameMapSHA256, oldOverlaySHA256, oldLessonsSHA256, priorVerifierSHA256,
-priorSourceIndexSHA256/Entries, appendedBankRecords, registrationOnlyBatches,
-newNativeDrawings=4, newNativeOriginals=1, actualGenerationCallsInBatch=1,
-registrationMakesNativeCalls=0, acceptedUsesAdded=0, runtimeAdmission=false,
-activeInventorySHA256 and adjudication. Batch/native-frame fields retain the
-stage63 schema; ledger frame nativeSourceRect is always integer XYWH.
-Bath PRIMARY atlasSourceRect is separately declared XYXY and converted explicitly.
-Baseline snapshots include the old general verify_source_files.py as well as
-bank/original inventory/map/overlay/lessons/registration verifier/source index.
+Prepared against both actual frozen producer PRIMARY/receipt schemas; full root
+execution still requires final root seals and ledger. Ledger extends stage63 keys with per-batch preregistration/hash and
+adjudication/hash; top-level adjudications binds the two separate reviewed
+producer outcomes. No synthetic combined original or batch is introduced.
 """
 from __future__ import annotations
 
@@ -39,12 +31,12 @@ from typing import Any
 
 from PIL import Image
 
-# Exact pre-stage67 stage65 verifier and index pins anchor the historical callback.
+# Exact pre-stage69 stage67 verifier and index pins anchor the historical callback.
 # New source/original counts remain ledger-derived.
-LEGACY_VERIFIER_SHA256 = "41c817ae2458ce4e137eb2b9f785c3849e08c827219825160b3345704458516b"
-PRIOR_INDEX_SHA256 = "4b1035f242bfeea476a17af56a657592681e79facb528b95905bfa914c77d954"
-PRIOR_INDEX_ENTRIES = 5419
-BASELINE_DIRECTORY = "registration-baseline-stage67"
+LEGACY_VERIFIER_SHA256 = "2ca3e9a36b96d94c1fd42d4385aa172371616cd37975a5d63441244c3001a184"
+PRIOR_INDEX_SHA256 = "066dca6dfa5fd508e6c6573bb7fe65a19d0bbcf061d8b93e2e9039576b7a4abf"
+PRIOR_INDEX_ENTRIES = 5530
+BASELINE_DIRECTORY = "registration-baseline-stage69"
 OVERLAY = "release/animation-checkpoint-1-20261017/intake-overlay.json"
 ACTIVE_INVENTORY = "release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json"
 OVERRIDES = {
@@ -124,14 +116,6 @@ def first(record: dict[str, Any], *keys: str) -> Any:
 def native_rect(record: dict[str, Any], fallback: list[int] | None = None) -> list[int]:
     rect = first(record, "nativeSourceRect", "nativeSourceRectXYWH",
                  "sourceCellRect", "nativeCellRect", "sourceOriginalRectXYWH", "sourceOriginalRect")
-    if rect is None and "atlasSourceRect" in record:
-        # Bath producer explicitly uses PIL.crop XYXY in the native source sheet.
-        # Render sourceRect/atlasRect fields are deliberately NOT interpreted here.
-        bounds = record["atlasSourceRect"]
-        require(isinstance(bounds,list) and len(bounds) == 4
-                and all(type(value) is int for value in bounds),
-                "Invalid native atlasSourceRect XYXY")
-        rect = [bounds[0],bounds[1],bounds[2]-bounds[0],bounds[3]-bounds[1]]
     if rect is None:
         require(fallback is not None, "Missing native source rectangle")
         rect = fallback
@@ -149,40 +133,39 @@ def native_rect(record: dict[str, Any], fallback: list[int] | None = None) -> li
 def verify_receipts(batch: dict[str, Any], prompt: bytes, args: dict[str, Any],
                     args_sha: str, dispatch: dict[str, Any], returned: dict[str, Any],
                     arguments_root: Path) -> None:
-    affirmative_dispatch = any(dispatch.get(key) == 1 for key in (
+    started = any(dispatch.get(key) == 1 for key in (
         "nativeCallsStarted", "callsDispatched", "nativeCalls",
         "nativeCallsDispatched", "nativeCallOrdinal", "actualRequestCount"))
-    if not affirmative_dispatch:
-        # The retained Bath preparation receipt candidly records a plan. Actual
-        # invocation is bound by the separate completed return's start/return
-        # counters and actual orchestration timestamps, not inferred from budget.
+    if not started:
         require(str(dispatch.get("state","")).startswith("DISPATCH_PREPARED")
                 and dispatch.get("plannedRequestNumber") == 1
-                and returned.get("state") == "generated-native-original-returned"
-                and returned.get("nativeCallsStarted") == 1
-                and returned.get("nativeCallsReturned") == 1,
-                "Prepared receipt lacks affirmative retained invocation/return evidence")
-        def instant(key: str) -> datetime:
-            value = returned[key]
-            require(isinstance(value,str), f"Invalid native time field: {key}")
-            result = datetime.fromisoformat(value.replace("Z","+00:00"))
-            require(result.tzinfo is not None, f"Native time has no timezone: {key}")
-            return result
-        invoked = instant("actualToolInvokeNotifyUTC")
-        completed = instant("returnUTC")
-        require(instant("toolInvokeOrchestrationUTC") <= invoked <= completed,
-                "Native orchestration/invocation/return chronology differs")
-        measured = returned.get("actualInvokeNotifyToReturnMilliseconds")
-        if measured is not None:
-            require(type(measured) is int
-                    and abs((completed-invoked).total_seconds()*1000-measured) < 1,
-                    "Retained native elapsed receipt differs from timestamps")
+                and returned.get("state") == "NATIVE_RETURNED"
+                and returned.get("nativeCallsStarted") == returned.get("nativeCallsReturned") == 1,
+                "Prepared Crow receipt lacks actual invocation/return evidence")
+        invoked = datetime.fromisoformat(returned["actualInvokeNotifyUTC"].replace("Z","+00:00"))
+        completed = datetime.fromisoformat(returned["returnUTC"].replace("Z","+00:00"))
+        require(invoked.tzinfo is not None and completed.tzinfo is not None and invoked <= completed,
+                "Invalid actual Crow invocation/return chronology")
+        require(abs((completed-invoked).total_seconds()*1000-returned["observedToolAwaitMilliseconds"]) < 1,
+                "Crow invocation elapsed receipt differs from timestamps")
+    else:
+        require(dispatch.get("status") == "DISPATCHING" and returned.get("status") == "RETURNED",
+                "Unrecognized actual Bushtit dispatch/return states")
+        require(dispatch["dispatchUTC"] == returned["dispatchUTC"],
+                "Bushtit return does not bind original dispatch timestamp")
+        began = datetime.fromisoformat(dispatch["dispatchUTC"].replace("Z","+00:00"))
+        ended = datetime.fromisoformat(returned["returnReceiptUTC"].replace("Z","+00:00"))
+        require(began.tzinfo is not None and ended.tzinfo is not None and began <= ended,
+                "Invalid Bushtit dispatch/return chronology")
+        require(abs((ended-began).total_seconds()-returned["observedDispatchToReturnReceiptSeconds"]) < 0.001,
+                "Bushtit dispatch-to-return receipt interval differs")
     require(any(returned.get(key) == 1 for key in ("nativeCalls", "nativeCallsReturned", "actualRequestCount")),
             f"Return has no affirmative completed request: {batch['batchId']}")
     require(first(returned, "originalSHA256", "originalPNGsha256") == batch["originalSHA256"],
             f"Return original identity differs: {batch['batchId']}")
-    if "promptSHA256" in dispatch:
-        require(dispatch["promptSHA256"] == batch["promptSHA256"],
+    dispatch_prompt = first(dispatch,"promptSHA256","literalPromptSHA256","promptSha256")
+    if dispatch_prompt is not None:
+        require(dispatch_prompt == batch["promptSHA256"],
                 f"Dispatch prompt hash differs: {batch['batchId']}")
     else:
         # The original flight receipt records its actual argument filename, not
@@ -199,18 +182,21 @@ def verify_receipts(batch: dict[str, Any], prompt: bytes, args: dict[str, Any],
     if "actualReturnedDrawings" in returned:
         require(returned["actualReturnedDrawings"] == len(batch["frames"]),
                 "Return drawing count differs from ledger")
+    if "actualNewStaticDrawings" in returned:
+        require(returned["actualNewStaticDrawings"] == len(batch["frames"]),
+                "Return static drawing count differs from ledger")
     if "actualDrawingCount" in returned:
         require(returned["actualDrawingCount"] == len(batch["frames"]),
                 "Raw return drawing count differs from ledger source cells")
     for receipt in (dispatch, returned):
-        for key in ("promptSHA256", "promptSha256"):
+        for key in ("promptSHA256", "promptSha256", "literalPromptSHA256"):
             if key in receipt:
                 require(receipt[key] == batch["promptSHA256"], f"Receipt {key} differs")
         for key in ("promptBytes", "promptUTF8Bytes"):
             if key in receipt:
                 require(receipt[key] == len(prompt), f"Receipt {key} differs")
         for key in ("nativeArgsSHA256", "nativeArgumentsSHA256",
-                    "preparedArgsSHA256", "argumentsSHA256", "literalArgumentsSHA256"):
+                    "preparedArgsSHA256", "argumentsSHA256"):
             if key in receipt:
                 require(receipt[key] == args_sha, f"Receipt {key} differs")
         for key in ("automaticRetries", "retries"):
@@ -223,6 +209,29 @@ def verify_receipts(batch: dict[str, Any], prompt: bytes, args: dict[str, Any],
         require(receipt.get("status") not in {"FAILED","RUNNING"}, "Native receipt is not completed history")
     require(args.get("transparent_background") is True,
             f"Missing submitted transparency argument: {batch['batchId']}")
+
+
+def verify_sole_reference(packet: Path, prereg: dict[str, Any], arguments: dict[str, Any],
+                          dispatch: dict[str, Any], returned: dict[str, Any],
+                          old_ids: set[str]) -> None:
+    reference = first(prereg,"reference","nativeReference")
+    require(isinstance(reference,dict),"Missing actual sole image reference")
+    expected = first(reference,"SHA256","PNGsha256")
+    require(isinstance(expected,str) and re.fullmatch(r"[0-9a-f]{64}",expected) is not None,
+            "Missing exact sole-reference PNG hash")
+    path = checked_file(packet,reference["file"],expected)
+    ident = first(reference,"sourceFrameId","sourceFrameID")
+    image = rgba(path)
+    require(frame_id(image) == ident and ident in old_ids
+            and list(image.size) == reference["canvas"],
+            "Sole reference differs from exact registered source")
+    submitted = arguments.get("referenced_image_paths",[])
+    require(len(submitted) == 1
+            and Path(submitted[0]).as_posix().endswith("/"+reference["file"]),
+            "Literal arguments do not bind the exact sole retained reference")
+    for receipt in (dispatch,returned):
+        if "referenceSHA256" in receipt:
+            require(receipt["referenceSHA256"] == sha(path),"Reference receipt hash differs")
 
 
 def prior_index_and_metadata(root: Path, baseline: Path, ledger: dict[str, Any],
@@ -252,10 +261,10 @@ def prior_index_and_metadata(root: Path, baseline: Path, ledger: dict[str, Any],
         if current_name in old_rows:
             require(sha(checked_file(baseline, snapshot_name)) == old_rows[current_name]["sha256"],
                     f"Baseline metadata differs from historical index: {current_name}")
-    # Preserve both native ledgers and the zero-native continuation receipt exactly.
-    for historical_name in ("source-registration-stage61.json", "source-registration-stage63.json",
-                            "source-registration-continuation-v1.json"):
-        checked_file(root,historical_name,old_rows[historical_name]["sha256"])
+    # All prior native and zero-native registration histories stay byte-exact.
+    for name in ("source-registration-stage61.json","source-registration-stage63.json",
+                 "source-registration-stage67.json","source-registration-continuation-v1.json"):
+        checked_file(root,name,old_rows[name]["sha256"])
     # Only count assertions in the separate byte/pixel verifier may advance.
     current_checker = checked_file(root, "verify_source_files.py").read_text()
     reconstructed_old_checker = current_checker
@@ -277,18 +286,18 @@ def prior_index_and_metadata(root: Path, baseline: Path, ledger: dict[str, Any],
     return {"priorIndexSHA256":sha(index_path), "priorIndexEntries":len(seen),
             "historicalNonMetadataFilesExact":protected,
             "declaredMetadataExceptions":sorted(allowed),
-            "stage61And63LedgersAndZeroNativeContinuationByteExact":True,
+            "allPriorNativeLedgersAndContinuationReceiptByteExact":True,
             "generalVerifierOnlyCountAssertionsAdvanced":True,
-            "readmeScope":"README may update source totals/add stage67 description; original hash remains in immutable prior index."}
+            "readmeScope":"README may update source totals/add stage69 description; original hash remains in immutable prior index."}
 
 
 def historical_regression(root: Path, baseline: Path) -> dict[str, Any]:
-    """Run exact stage65 wrapper, which recursively retains stage63/61/57 regression."""
+    """Run exact stage67 verifier, including unchanged65/63/61/57 historical regressions."""
     legacy = checked_file(baseline, "verify_source_registration.py", LEGACY_VERIFIER_SHA256)
     protected = {name:sha(checked_file(root, name)) for name in OVERRIDES}
     # These counters are old legacy outputs, not assumptions about appended counts.
     temp_path = None
-    with tempfile.TemporaryDirectory(prefix=".stage67-legacy-", dir=root.parent) as dirname:
+    with tempfile.TemporaryDirectory(prefix=".stage69-legacy-", dir=root.parent) as dirname:
         temp_path = Path(dirname)
         count = 0
         for directory, dirs, files in os.walk(root, followlinks=False):
@@ -315,15 +324,14 @@ def historical_regression(root: Path, baseline: Path) -> dict[str, Any]:
                                     "--root",str(temp_path)],
                                    cwd=temp_path,env=environment,text=True,capture_output=True,timeout=600)
         require(completed.returncode == 0,
-                "Historical stage65/63/61/57 regression failed:\n"+completed.stdout+completed.stderr)
+                "Historical stage67/65/63/61/57 regression failed:\n"+completed.stdout+completed.stderr)
         result = json.loads(completed.stdout.strip())
-        require(result.get("passed") is True and result.get("stage") == 63
-                and result.get("registryContinuation",{}).get("wrapperStage") == 65,
-                "Historical stage65 continuation result did not pass")
-        require(result["registrationOnlyNativeDrawings"] == 33
-                and result["registrationOnlyNativeOriginals"] == 19
-                and result["totalBankDrawingIDs"] == 183
-                and result["totalOriginalPromptPairs"] == 69,
+        require(result.get("passed") is True and result.get("stage") == 67,
+                "Historical stage67 result did not pass")
+        require(result["registrationOnlyNativeDrawings"] == 37
+                and result["registrationOnlyNativeOriginals"] == 20
+                and result["totalBankDrawingIDs"] == 187
+                and result["totalOriginalPromptPairs"] == 70,
                 "Wrong prior source checkpoint counters")
         report = {"result":result,"verifierSHA256":sha(legacy),"hardlinkedFiles":count,
                   "baselineOverrides":list(OVERRIDES),"sourceSymlinksAllowed":False}
@@ -338,8 +346,8 @@ def verify(root: Path) -> dict[str, Any]:
     require(not root.is_symlink(), "Source root cannot be a symlink")
     root = root.resolve(strict=True)
     require(root.is_dir(), "Source root is not a directory")
-    ledger = load(checked_file(root, "source-registration-stage67.json"))
-    require(ledger.get("stage") == 67, "Not a stage67 registration ledger")
+    ledger = load(checked_file(root, "source-registration-stage69.json"))
+    require(ledger.get("stage") == 69, "Not a stage69 registration ledger")
     require(ledger["baselineDirectory"] == BASELINE_DIRECTORY, "Baseline directory differs")
     baseline = inside(root, BASELINE_DIRECTORY)
     old_bank_path = checked_file(baseline, "frame-bank.json", ledger["oldBankRecordsSHA256"])
@@ -350,14 +358,15 @@ def verify(root: Path) -> dict[str, Any]:
     checked_file(baseline, "verify_source_registration.py", LEGACY_VERIFIER_SHA256)
     old_lessons_path = checked_file(baseline, "lessons-and-experiments.json", ledger["oldLessonsSHA256"])
     old_lessons, current_lessons = load(old_lessons_path), load(checked_file(root,"lessons-and-experiments.json"))
-    require(len(old_lessons["experiments"]) == 22, "Wrong historical public registry baseline")
     require(current_lessons["experiments"][:len(old_lessons["experiments"])] == old_lessons["experiments"]
             and {k:v for k,v in current_lessons.items() if k != "experiments"}
                 == {k:v for k,v in old_lessons.items() if k != "experiments"},
             "Old lessons prefix/metadata changed")
-    require(len(current_lessons["experiments"]) == len(old_lessons["experiments"]) + 1
-            and current_lessons["experiments"][-1]["id"] == "BATH-SOURCE-PROPOSAL-1",
-            "Registry changed beyond its one declared experiment entry")
+    require(len(old_lessons["experiments"]) == 23
+            and len(current_lessons["experiments"]) == 25
+            and {entry["id"] for entry in current_lessons["experiments"][23:]}
+                == {"CROW-perch-grip-art-internal-2","BUSHTIT-readable-eyelid-source-2"},
+            "Registry changed beyond the two declared source experiments")
     old_bank, old_inv, old_map = load(old_bank_path), load(old_inv_path), load(old_map_path)
     bank = load(checked_file(root, "frame-bank.json"))
     inventory = load(checked_file(root, "original-source-inventory.json"))
@@ -366,7 +375,7 @@ def verify(root: Path) -> dict[str, Any]:
     require(ledger["baselineDrawings"] == baseline_drawings
             and ledger["baselineOriginals"] == baseline_originals,
             "Ledger baseline counts differ from retained records")
-    require((baseline_drawings, baseline_originals) == (183,69), "Wrong historical stage67 baseline")
+    require((baseline_drawings, baseline_originals) == (187,70), "Wrong historical stage69 baseline")
     require(len(old_map["frames"]) == baseline_drawings, "Baseline frame map count differs")
     require(bank["frames"][:baseline_drawings] == old_bank["frames"], "Old bank prefix changed")
     require(inventory["originals"][:baseline_originals] == old_inv["originals"],
@@ -384,8 +393,8 @@ def verify(root: Path) -> dict[str, Any]:
             "Historical frame-map scope metadata changed")
     appended = ledger["appendedBankRecords"]
     batches = ledger["registrationOnlyBatches"]
-    require(len(appended) == 4 and len(batches) == 1,
-            "Stage67 must register its four returned source cells and one native original")
+    require(len(appended) == len(batches) == 2,
+            "Stage69 must register exactly two native drawings from two originals")
     require(bank["frames"][baseline_drawings:] == appended, "Appended bank records differ from ledger")
     require(len(bank["frames"]) == ledger["registeredDrawings"]
             == baseline_drawings + len(appended), "Final drawing counts differ")
@@ -447,6 +456,7 @@ def verify(root: Path) -> dict[str, Any]:
     seen_new_ids: set[str] = set()
     seen_original_hashes: set[str] = set()
     old_original_hashes = {item["sha256"] for item in old_inv["originals"]}
+    actual_adjudications = []
     for batch, item in zip(batches, inventory["originals"][baseline_originals:]):
         require(batch["nativeCalls"] == 1 and batch["runtimeAdmission"] is False
                 and batch["acceptedUses"] == [], "Non-native or admitted registration batch")
@@ -489,31 +499,16 @@ def verify(root: Path) -> dict[str, Any]:
                         "Submitted path does not bind the retained input image")
                 require(frame_id(rgba(retained)) == reference["decodedRGBAId"],
                         "Retained reference decoded identity differs")
-        ancestry_path = args_path.parent / "native-ancestry.json"
-        require(ancestry_path.exists(), "Missing actual Bath reference ancestry")
-        ancestry = load(checked_file(args_path.parent,"native-ancestry.json"))
-        reference = ancestry["soleImageInput"]
-        retained = checked_file(args_path.parent,reference["file"],reference["PNGsha256"])
-        reference_image = rgba(retained)
-        require(frame_id(reference_image) == reference["sourceFrameID"]
-                and reference["sourceFrameID"] in old_ids
-                and list(reference_image.size) == reference["sourceCanvas"],
-                "Sole input is not the exact registered canonical source")
-        submitted = arguments.get("referenced_image_paths",[])
-        require(len(submitted) == 1
-                and Path(submitted[0]).as_posix().endswith("/"+reference["file"]),
-                "Literal submitted reference differs from retained sole image input")
-        require(ancestry["literalArguments"] == args_path.name
-                and ancestry["prompt"] == prompt_path.name,
-                "Ancestry literal argument/prompt binding differs")
-        checked_file(args_path.parent,ancestry["fullOriginalAncestor"],ancestry["ancestorSHA256"])
-        checked_file(args_path.parent,ancestry["historicalAncestorPrompt"],
-                     ancestry["historicalAncestorPromptSHA256"])
-        require(dispatch.get("referenceSHA256") == sha(retained),
-                "Prepared reference hash differs from submitted retained source")
-        require(returned.get("literalArguments") == args_path.name,
-                "Return literal argument filename differs")
         manifest_path = checked_file(root, batch["manifest"], batch["manifestSHA256"])
+        prereg_path = checked_file(root,batch["preregistration"],batch["preregistrationSHA256"])
+        require(prereg_path.parent == manifest_path.parent,"Reference preregistration belongs to another packet")
+        verify_sole_reference(manifest_path.parent,load(prereg_path),arguments,dispatch,returned,old_ids)
+        adjudication_path = checked_file(root,batch["adjudication"],batch["adjudicationSHA256"])
+        adjudication = load(adjudication_path)
+        require(adjudication["nativeCallsReturned"] == 1 and adjudication["newNativeDrawings"] == 1,
+                "Per-producer actual native adjudication counts differ")
+        actual_adjudications.append({"file":batch["adjudication"],"sha256":sha(adjudication_path),
+                                    "nativeCallsReturned":1,"newNativeDrawings":1})
         manifest = load(manifest_path)
         require(manifest["nativeCalls"] == 1 and manifest["batchId"] == batch["batchId"],
                 "Primary manifest native call/batch identity differs")
@@ -521,13 +516,7 @@ def verify(root: Path) -> dict[str, Any]:
                 == original_path, "Manifest native original binding differs")
         require(checked_file(manifest_path.parent, manifest["prompt"], manifest["promptSHA256"])
                 == prompt_path, "Manifest prompt binding differs")
-        require(manifest["nativeArguments"] == args_path.name
-                and manifest["argumentsSHA256"] == sha(args_path)
-                and manifest["originalRGBAId"] == frame_id(original)
-                and returned["originalRGBAId"] == frame_id(original)
-                and returned["actualCanvas"] == list(original.size),
-                "Native manifest/return original/argument identities differ")
-        require(len(manifest["frames"]) == len(batch["frames"]) > 0, "New source frame counts differ")
+        require(len(manifest["frames"]) == len(batch["frames"]) == 1, "Expected one whole native drawing per producer")
         rectangles: list[list[int]] = []
         for source, declared in zip(batch["frames"], manifest["frames"]):
             ident = source["sourceFrameId"]
@@ -545,11 +534,11 @@ def verify(root: Path) -> dict[str, Any]:
                     "Registered source cell ID/dimensions differ")
             rect = native_rect(source)
             manifest_rect = native_rect(declared, [0, 0, original.width, original.height])
-            require(rect == manifest_rect and rect[2:] == list(image.size)
+            require(rect == manifest_rect == [0,0,original.width,original.height]
+                    and image.size == original.size == (1254,1254) and rect[2:] == list(image.size)
                     and rect[0] + rect[2] <= original.width
                     and rect[1] + rect[3] <= original.height,
                     "Native source rectangle differs or exceeds original")
-            require(rect[2:] == [627,627], "Bath source is not a whole equal 627-square cell")
             require(original.crop((rect[0], rect[1], rect[0]+rect[2], rect[1]+rect[3])).tobytes()
                     == image.tobytes(), "Native source-cell roundtrip changes pixels")
             for previous in rectangles:
@@ -573,17 +562,13 @@ def verify(root: Path) -> dict[str, Any]:
                     and frame["anatomyScaleAccepted"] is False
                     and frame["rootContactAccepted"] is False,
                     "New registration claims geometry/admission or rescale")
-            require(frame["sourceReview"] == ledger["adjudication"],
+            require(frame["sourceReview"] == batch["adjudication"],
                     "New drawing review path differs from source adjudication")
             checked_file(root, frame["sourceReview"], frame["sourceReviewSHA256"])
             seen_new_ids.add(ident)
         if len(rectangles) > 1:
             require(len({tuple(rect[2:]) for rect in rectangles}) == 1,
                     "Native multi-pose source canvases have different sizes")
-        require(original.size == (1254,1254)
-                and {tuple(rect) for rect in rectangles}
-                == {(0,0,627,627),(627,0,627,627),(0,627,627,627),(627,627,627,627)},
-                "Bath primary cells do not cover the exact four native quadrants")
         if len(batch["frames"]) == 1:
             supplied_id = first(returned, "sourceFrameId", "sourceFrameID", "primarySourceFrameId")
             if supplied_id is not None:
@@ -599,15 +584,15 @@ def verify(root: Path) -> dict[str, Any]:
                 "New original inventory record differs or claims app/art acceptance")
     require(seen_new_ids == appended_ids, "Ledger native cells do not cover appended bank exactly")
 
-    adjudication = load(checked_file(root, ledger["adjudication"]))
-    require(adjudication["nativeCallsReturned"] == len(batches)
-            and adjudication["newNativeDrawings"] == len(appended),
-            "Actual source adjudication counts differ from ledger")
+    require(ledger["adjudications"] == actual_adjudications,
+            "Ledger must bind both separate actual producer adjudications exactly")
+    require(len({item["file"] for item in actual_adjudications}) == 2,
+            "Producer adjudications were combined or counted twice")
     checked_file(root, ACTIVE_INVENTORY, ledger["activeInventorySHA256"])
     overlay, old_overlay = load(checked_file(root, OVERLAY)), load(old_overlay_path)
     require(overlay["registeredDrawings"] == len(bank["frames"])
             and overlay["registeredOriginals"] == len(inventory["originals"])
-            and overlay["newSourceRegistration"] == "source-registration-stage67.json",
+            and overlay["newSourceRegistration"] == "source-registration-stage69.json",
             "Overlay registration totals differ")
     changed_fields = {"registeredDrawings", "registeredOriginals",
                       "newSourceRegistration", "sourceRegistrationNote", "newDrawings", "newNativeCalls"}
@@ -619,14 +604,14 @@ def verify(root: Path) -> dict[str, Any]:
     prior_index = prior_index_and_metadata(root, baseline, ledger, len(bank["frames"]),
                                            len(inventory["originals"]), baseline_drawings, baseline_originals)
     legacy = historical_regression(root, baseline)
-    return {"passed": True, "stage": 67,
+    return {"passed": True, "stage": 69,
             "registrationOnlyNativeDrawings": legacy["result"]["registrationOnlyNativeDrawings"] + len(appended),
             "registrationOnlyNativeOriginals": legacy["result"]["registrationOnlyNativeOriginals"] + len(batches), "baselineDrawings": baseline_drawings,
             "baselineOriginals": baseline_originals, "newNativeDrawings": len(appended),
             "newNativeOriginals": len(batches), "totalBankDrawingIDs": len(bank["frames"]),
             "totalOriginalPromptPairs": len(inventory["originals"]),
             "oldBankInventoryAndMapPrefixesExact": True, "activeInventoryUnchanged": True,
-            "newSourceCellRoundtripsExact": True, "legacyStage65ContinuationRegression": legacy, "priorSourceIndexVerification":prior_index,
+            "newSourceCellRoundtripsExact": True, "legacyStage67Regression": legacy, "priorSourceIndexVerification":prior_index,
             "oldLessonsPrefixExact":True,
             "registrationMakesNativeCalls": 0, "acceptedUsesAdded": 0,
             "runtimeAdmission": False, "sourceAppearanceOrSupportApproved": False}

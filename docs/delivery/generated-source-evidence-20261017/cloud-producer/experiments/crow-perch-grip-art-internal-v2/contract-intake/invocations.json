@@ -1,0 +1,33 @@
+[
+  {
+    "kind": "pixel",
+    "command": [
+      "node",
+      "/workspace/asset-production/validation/shared-structural-check.mjs",
+      "--repo",
+      "/workspace/runtime-resting-intake-v5-inspect",
+      "--input",
+      "/workspace/asset-production/experiments/crow-perch-grip-art-internal-v2/contract-intake/canonical-pixel-input.json",
+      "--receipt",
+      "/workspace/asset-production/experiments/crow-perch-grip-art-internal-v2/contract-intake/pixel-receipt.json",
+      "--sharp",
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/dist/index.cjs"
+    ],
+    "exitCode": 1,
+    "stdoutSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderrSHA256": "248d98d2f73d60166299957694a2b26102d03a407e3c8dea7ca5d224020ef0c3",
+    "exactError": "PermanentStageError: Only transparent or opaque pixels are supported"
+  },
+  {
+    "kind": "json",
+    "command": [
+      "node",
+      "/workspace/asset-production/experiments/crow-perch-grip-art-internal-v2/contract-intake/actual-json-budget.mjs",
+      "/workspace/asset-production/experiments/crow-perch-grip-art-internal-v2/contract-intake"
+    ],
+    "exitCode": 0,
+    "stdoutSHA256": "3265f1475690b9a2ec4706c34038e0e7ad1e91b6a2a34b68504d28dd95719b5f",
+    "stderrSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "exactError": null
+  }
+]

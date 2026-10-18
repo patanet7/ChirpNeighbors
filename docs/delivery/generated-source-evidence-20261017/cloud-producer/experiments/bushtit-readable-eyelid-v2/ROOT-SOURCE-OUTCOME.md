@@ -1,0 +1,3 @@
+One genuine new native closed-eye drawing and one controlled20pixel eye-context construction were completed. Both independent roles hold the64CSS/100ms blink: it mainly loses pupil detail instead of giving an unambiguous closed lid. The protected body/feet remain exact outside the patch; that does not establish readability.
+
+Pinned pixel/JSON checks pass297rectangles/8192area/67952canonical raw-input bytes, and the60/3/27 clock/awake return pass. These are separate from the failed visual criterion. Retain exact native/prompt/args, mask/recipe and failure as lessons; stop repeated thin-native-line sampling. No common source gain or runtime admission.

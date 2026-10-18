@@ -1,0 +1,112 @@
+{
+  "batchId": "sd20-crow-perched-rest-v1",
+  "status": "PROPOSED standalone support geometry;no native output or runtime binding",
+  "coordinateSystem": "192x192 output canvas;stablefullsourcecanvas;positiveydown",
+  "outputCanvas": [
+    192,
+    192
+  ],
+  "worldCanvas": [
+    185.88535031847132,
+    185.88535031847132
+  ],
+  "density": 1.0328947368421053,
+  "pivot": [
+    111,
+    150
+  ],
+  "bodyIdentitySourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+  "referenceGroundFrameContactMarkers": [
+    {
+      "id": "foot-a-review",
+      "x": 99,
+      "y": 146
+    },
+    {
+      "id": "foot-b-review",
+      "x": 124,
+      "y": 144
+    }
+  ],
+  "referenceMarkerMeaning": "Ground/toespreadcurrentreferenceonly;not newperchcontacts oracceptedanatomy.",
+  "branchProxy": {
+    "kind": "horizontalcylinder",
+    "renderedSeparatelyFromBird": true,
+    "axisYOutput": 150,
+    "radiusOutput": 5,
+    "topOutput": 145,
+    "bottomOutput": 155,
+    "previewExtentXOutput": [
+      70,
+      153
+    ],
+    "proposedGripCenterXOutput": [
+      99,
+      124
+    ],
+    "referenceBodyRootOutput": [
+      111,
+      150
+    ],
+    "worldRadius": 4.840764331210191,
+    "worldGripCentersRelativeRoot": [
+      [
+        -11.617834394904458,
+        0
+      ],
+      [
+        12.585987261146496,
+        0
+      ]
+    ],
+    "source1024Equivalent": {
+      "axisY": 800,
+      "radius": 26.666666666666668,
+      "top": 773.3333333333334,
+      "bottom": 826.6666666666666,
+      "gripCenterX": [
+        528.0,
+        661.3333333333334
+      ]
+    },
+    "limitations": "Coordinatesareart-directionproposalonly. Actualtoes/clawcontactanchorsandgripcentersmustbeannotatedfromnativepixelsaftergeneration;holdifincoherent,nofitting/paint."
+  },
+  "anatomyRequirements": [
+    "Two loweredweight-bearinglegstosupportedfeetunderbody,nostrideadvance/liftedwalkingfoot.",
+    "Opposedfronttoeandhalluxdirectionswrapthecylinder;curleddigitsandclawtipsover/aroundvisiblebranchcrosssection,notflatgroundspread.",
+    "Occlusionmustbeplausible:far/opposedpartsbehindcylinder,nearcurveddigits/clawsoverfront;separatepreviewlayers,nobakedbranch.",
+    "No claimofmeasuredpressure,perfectgripphysics,bodymasscenterorcurrentMacsurfacefit."
+  ],
+  "occlusionPlan": {
+    "birdAsset": "RGBA birdonly,no bakedbranch/shadow/guidepixels",
+    "previewLayers": [
+      "background",
+      "rear-toe occlusion inspection (actualsourceannotationsrequired)",
+      "separately rendered cylinder proxy",
+      "near digit/claw regions from samegeneratedRGBA ifcoherent"
+    ],
+    "implementationLimit": "No toe repaint/warping;anyneededcross-layer masksarederived/annotatedafteractualsourceandexplicitlyreviewed. Initialfullbird-overproxycomparisonisdiagnostic,notautomaticocclusionapproval."
+  },
+  "clipPlan": {
+    "perching": {
+      "newPoseCount": 1,
+      "tickRate": 30,
+      "staticHoldTicks": 90,
+      "loop": true,
+      "footContactAnnotations": "notassignedbeforegeneration"
+    },
+    "idle": {
+      "source": "exactexistinggroundawake",
+      "tickRate": 30,
+      "staticHoldTicks": 90,
+      "loop": true,
+      "meaning": "groundfallbackonly,NOTperchedfallback"
+    }
+  },
+  "fallbackPolicy": "Neverlabelgroundidleorwalkframeasperchedrest. Macselection/relocation/refusalpolicyremainmain-taskdecision.",
+  "handoff": "Customsupportproposalfileoutsidestricttexturemanifest. Perchingisoldcloudanimationenum,canonicalMacadmissionZodSharpNOT_RUN.",
+  "actualMacSupportGeometry": "REQUESTPENDING;standaloneproposalonly",
+  "generationAuthorized": false,
+  "nativeCalls": 0,
+  "actualNewContacts": []
+}
