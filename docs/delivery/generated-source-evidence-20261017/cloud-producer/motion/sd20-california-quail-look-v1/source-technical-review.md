@@ -1,0 +1,7 @@
+Independent Quail look technical review: PASS 85 bounded checks. All31 frozen targets remain exact. Original native1254 source PNG/decoded ID and direct full-canvas nearest384 output match the atlas. Exact old1024 awake5021 and384 output, profile geometry and idle90 are unchanged. Recorded prompt/submitted argument bytes match2719UTF8bytes, and the actual tool-saved original equals retained source.
+
+Actual contract:384canvas, density1.625, world236.30769230769232, pivot228/300. Old probes222/297 and255/296 sample awake alpha245/162. On the new look they sample alpha2/2 fringe, not stable toe/sole correspondence. New contacts[] correctly remain unbound. Recomputed visible widths88→91.6923077world and lowest rows299→307output differ by8output/4.9230769world. These are retained native differences; no fit/snap/paint/alpha cleanup, pressure or physical support claim.
+
+Look30/12/30 at30Hz totals72ticks/2400ms. APNG states are exact awake/look/awake at1000/400/1000ms; GIF is a palette approximation. Independent deterministic Chromium boundaries and live rAF confirm first0, look30–41, return42 and final71 held to elapsed>=2400ms. Live stop2403.600ms. No screenshots/capture bytes or Mac app access.
+
+Producer HELD disposition remains; independent visual verdict is separate. Technical PASS grants no useful look completion, anatomy/support acceptance, canonical Zod/Sharp admission or current Mac adoption. Only thisJSON/Markdown review pair was written; all31 frozen files remain unchanged.

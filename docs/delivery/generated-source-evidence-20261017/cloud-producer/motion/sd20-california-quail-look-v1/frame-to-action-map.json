@@ -1,0 +1,86 @@
+{
+  "batchId": "sd20-california-quail-look-v1",
+  "speciesId": "california_quail",
+  "renderClipId": "look",
+  "newSourceHeld": true,
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "72b69ea9d5ff24dcaaa7c9d561d958348ecd9ad55a6588084081503d4190240e",
+    "profile": "chirp-texture-review-v1",
+    "canonicalSchemaValidation": "NOT_RUN"
+  },
+  "atlasBinding": {
+    "file": "look-atlas384.png",
+    "sha256": "018756454e7dd5bf973a6ab4e45f12c8ec4e98d51bda6078df85eda85858cbf4",
+    "width": 768,
+    "height": 384,
+    "alpha": "straight-rgba8"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+      "primarySourcePNG": "reference-awake-source1024.png",
+      "primarySourcePNGsha256": "3d2a26d5904f1815c32dacde2cac72fd2fb6571faf200981ba1ade9143c70023",
+      "newDrawing": false,
+      "renderFrameId": "california_quail-neutral-384",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 384,
+        "height": 384
+      },
+      "outputPNG": "reused-awake384.png",
+      "outputPNGsha256": "0c97592304076c2835dad5e0ea1d0fce893a85a5b21e697600ab134e8e1a2916"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683",
+      "primarySourcePNG": "look-native.png",
+      "primarySourcePNGsha256": "e27b08f223e5bd4a555516d850002e116fc8698fd77c4073230324aaf087760f",
+      "newDrawing": true,
+      "renderFrameId": "california-quail-look-study-384",
+      "atlasRect": {
+        "x": 384,
+        "y": 0,
+        "width": 384,
+        "height": 384
+      },
+      "outputPNG": "look384.png",
+      "outputPNGsha256": "1fce31616e9d5c3d505df04c454ed72008ca291e0a3886391fbfd203f8917045"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "california_quail-neutral-384",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "california_quail-neutral-384",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "california-quail-look-study-384",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "california_quail-neutral-384",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ],
+  "projectionScope": "held source study; old neutral unchanged; not active look binding",
+  "appBound": false,
+  "SharpCanonicalAdmission": false
+}

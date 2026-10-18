@@ -22296,7 +22296,7 @@
       "selectedIdleSourceIDs": [
         "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
@@ -22409,6 +22409,61 @@
             "look-study"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683",
+          "file": "motion/sd20-california-quail-look-v1/look-native.png",
+          "fileSha256": "e27b08f223e5bd4a555516d850002e116fc8698fd77c4073230324aaf087760f",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "california_quail",
+          "appearanceVersion": "sd20-california-quail-look-v1",
+          "poseTags": [
+            "awake-viewer-directed-head-turn-study",
+            "candidate-source",
+            "look-only"
+          ],
+          "sourceAtlas": "motion/sd20-california-quail-look-v1/original.png",
+          "sourceAtlasSha256": "e27b08f223e5bd4a555516d850002e116fc8698fd77c4073230324aaf087760f",
+          "derivation": {
+            "method": "whole native canvas nearest only",
+            "sourceCanvas": [
+              1254,
+              1254
+            ],
+            "outputCanvas": [
+              384,
+              384
+            ],
+            "wholeCanvasScaleXY": [
+              0.3062200956937799,
+              0.3062200956937799
+            ],
+            "nativeToReferenceWholeCanvasScaleXY": [
+              0.8165869218500797,
+              0.8165869218500797
+            ],
+            "perPoseFit": false,
+            "perPoseTranslation": false,
+            "snap": false,
+            "pixelPaint": false
+          },
+          "sourcePrompt": "motion/sd20-california-quail-look-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-california-quail-look-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "look"
+          ],
+          "reuseStatus": "Independently reviewed common resting source study; HELD alternate head-turn source study, zero useful matched-look gain. Newcontacts[] explicitly unbound despite comparison-probe alpha2/2; preserve prior look state/IDs/binding with inactive candidate only. Exact awake/source/world/density/pivot/idle90 unchanged; no body fit or ground snap. No runtime/support approval.",
+          "sourceReview": "motion/sd20-california-quail-look-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -22422,7 +22477,8 @@
         "new-species/sd20-final-four-v1/README.md"
       ],
       "sourceIssues": [
-        "Neutralstill first; realpairedlook has3.813world footmaskcentroid change with visibleleg/stance redraw and narrowerbody. Not an approved plantedfootidle loop."
+        "Baseline PR33: Neutralstill first; realpairedlook has3.813world footmaskcentroid change with visibleleg/stance redraw and narrowerbody. Not an approved plantedfootidle loop.",
+        "Current checkpoint: HELD alternate head-turn source study, zero useful matched-look gain. Newcontacts[] explicitly unbound despite comparison-probe alpha2/2; preserve prior look state/IDs/binding with inactive candidate only. Exact awake/source/world/density/pivot/idle90 unchanged; no body fit or ground snap. No runtime/support approval."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -22510,6 +22566,128 @@
           "newAssignment": null,
           "appBinding": "UNKNOWN",
           "actualYardVerification": "UNKNOWN",
+          "heldLookCandidates": [
+            {
+              "batchId": "sd20-california-quail-look-v1",
+              "kind": "look-only-new-drawing-source-candidate",
+              "canonicalSchemaValidation": "NOT_RUN; explicit look clip needs current Mac contract confirmation",
+              "profileLabelIsRuntimeAdmission": false,
+              "primaryManifest": "motion/sd20-california-quail-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "manifest": "motion/sd20-california-quail-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-california-quail-look-v1/look-atlas384.png",
+              "manifestSHA256": "72b69ea9d5ff24dcaaa7c9d561d958348ecd9ad55a6588084081503d4190240e",
+              "atlasSHA256": "018756454e7dd5bf973a6ab4e45f12c8ec4e98d51bda6078df85eda85858cbf4",
+              "sourceFrameIds": [
+                "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+                "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683"
+              ],
+              "newSourceFrameIds": [
+                "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683"
+              ],
+              "reusedSourceFrameIds": [
+                "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f"
+              ],
+              "newDrawingCount": 1,
+              "reusedDrawingCount": 1,
+              "newNeutralDrawings": 0,
+              "newBlinkDrawings": 0,
+              "clipId": "look",
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "california_quail-neutral-384",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+                  "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a"
+                },
+                {
+                  "frameId": "california-quail-look-study-384",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683",
+                  "outputRGBAId": "frame.sha256.ef904919748176ad6dcdfdc43c73e9cc6f7990111d353fcd262a0a49363e70b6"
+                },
+                {
+                  "frameId": "california_quail-neutral-384",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+                  "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a"
+                }
+              ],
+              "renderBinding": {
+                "manifest": "motion/sd20-california-quail-look-v1/texture-review-manifest.json",
+                "atlasPNG": "motion/sd20-california-quail-look-v1/look-atlas384.png",
+                "clipId": "look",
+                "tickRate": 30,
+                "loop": false,
+                "durationTicks": 72,
+                "orderedSourceFrameSequence": [
+                  {
+                    "frameId": "california_quail-neutral-384",
+                    "durationTicks": 30,
+                    "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+                    "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a"
+                  },
+                  {
+                    "frameId": "california-quail-look-study-384",
+                    "durationTicks": 12,
+                    "sourceFrameId": "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683",
+                    "outputRGBAId": "frame.sha256.ef904919748176ad6dcdfdc43c73e9cc6f7990111d353fcd262a0a49363e70b6"
+                  },
+                  {
+                    "frameId": "california_quail-neutral-384",
+                    "durationTicks": 30,
+                    "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+                    "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a"
+                  }
+                ],
+                "contactsMeaning": "technical alpha markers, not physical support approval",
+                "appBinding": "UNKNOWN",
+                "actualYardVerification": "UNKNOWN",
+                "held": true,
+                "useAsActiveSource": false
+              },
+              "evidencePaths": [
+                "motion/sd20-california-quail-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+                "motion/sd20-california-quail-look-v1/texture-review-manifest.json",
+                "motion/sd20-california-quail-look-v1/frame-to-action-map.json",
+                "motion/sd20-california-quail-look-v1/independent-review.json"
+              ],
+              "sourceHeld": true,
+              "sourceReviewState": "held",
+              "productionAccepted": false,
+              "runtimeAdmission": false,
+              "packetBindingReady": false,
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN",
+              "heldNewLookContactExceptions": [
+                {
+                  "sourceFrameId": "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683",
+                  "outputFrameId": "california-quail-look-study-384",
+                  "contacts": [],
+                  "reason": "HELD new source has no supported inherited contact claim; unchanged registration, no snapping or fitting",
+                  "inheritedProbeDiagnostics": [
+                    {
+                      "id": "foot-1",
+                      "x": 222,
+                      "y": 297,
+                      "sampledAlpha": 2,
+                      "isContactClaim": false
+                    },
+                    {
+                      "id": "foot-2",
+                      "x": 255,
+                      "y": 296,
+                      "sampledAlpha": 2,
+                      "isContactClaim": false
+                    }
+                  ]
+                }
+              ],
+              "reviewReceipt": {
+                "path": "motion/sd20-california-quail-look-v1/independent-review.json",
+                "sha256": "a9d89561cea4f6c0938e2b08d2c61fcaaba5396da8f919dd7b165adcfe2d6151"
+              }
+            }
+          ],
           "orderedSourceFrameSequence": [
             {
               "frameId": "california_quail-neutral-384",
@@ -22736,7 +22914,12 @@
       "baselineSourceIssues": [
         "Neutralstill first; realpairedlook has3.813world footmaskcentroid change with visibleleg/stance redraw and narrowerbody. Not an approved plantedfootidle loop."
       ],
-      "currentSourceIssues": [],
+      "currentSourceIssues": [
+        "HELD alternate head-turn source study, zero useful matched-look gain. Newcontacts[] explicitly unbound despite comparison-probe alpha2/2; preserve prior look state/IDs/binding with inactive candidate only. Exact awake/source/world/density/pivot/idle90 unchanged; no body fit or ground snap. No runtime/support approval."
+      ],
+      "overlayQualifications": [
+        "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings."
+      ],
       "primaryManifestSHA256": "1f7081ec7c84bd6cd83ab77b13557e4c7c944e9a176af53a548ef8110e31a152",
       "primaryAtlasSHA256": "0c97592304076c2835dad5e0ea1d0fce893a85a5b21e697600ab134e8e1a2916",
       "primaryClipId": "idle",
@@ -22754,6 +22937,16 @@
               "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a",
               "evidence": "new-species/sd20-final-four-v1/intake-manifest.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+              "sourcePNG": "motion/sd20-california-quail-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-california-quail-look-v1/reused-awake384.png",
+              "outputPNGsha256": "0c97592304076c2835dad5e0ea1d0fce893a85a5b21e697600ab134e8e1a2916",
+              "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a",
+              "evidence": "motion/sd20-california-quail-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -26927,6 +27120,16 @@
               "evidence": "new-species/sd20-final-four-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+              "sourcePNG": "motion/sd20-california-quail-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-california-quail-look-v1/reused-awake384.png",
+              "outputPNGsha256": "0c97592304076c2835dad5e0ea1d0fce893a85a5b21e697600ab134e8e1a2916",
+              "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a",
+              "evidence": "motion/sd20-california-quail-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -28708,6 +28911,16 @@
               "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a",
               "evidence": "new-species/sd20-final-four-v1/intake-manifest.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+              "sourcePNG": "motion/sd20-california-quail-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-california-quail-look-v1/reused-awake384.png",
+              "outputPNGsha256": "0c97592304076c2835dad5e0ea1d0fce893a85a5b21e697600ab134e8e1a2916",
+              "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a",
+              "evidence": "motion/sd20-california-quail-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -33485,6 +33698,208 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-california-quail-look-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-california-quail-look-v1/texture-review-manifest.json",
+      "manifestSHA256": "72b69ea9d5ff24dcaaa7c9d561d958348ecd9ad55a6588084081503d4190240e",
+      "atlasPNG": "motion/sd20-california-quail-look-v1/look-atlas384.png",
+      "atlasSHA256": "018756454e7dd5bf973a6ab4e45f12c8ec4e98d51bda6078df85eda85858cbf4",
+      "atlasDimensions": [
+        768,
+        384
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "california_quail-neutral-384",
+          "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a",
+          "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+              "sourcePNG": "new-species/sd20-final-four-v1/california_quail/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-final-four-v1/california_quail/neutral384.png",
+              "outputPNGsha256": "0c97592304076c2835dad5e0ea1d0fce893a85a5b21e697600ab134e8e1a2916",
+              "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a",
+              "evidence": "new-species/sd20-final-four-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+              "sourcePNG": "motion/sd20-california-quail-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-california-quail-look-v1/reused-awake384.png",
+              "outputPNGsha256": "0c97592304076c2835dad5e0ea1d0fce893a85a5b21e697600ab134e8e1a2916",
+              "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a",
+              "evidence": "motion/sd20-california-quail-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 384,
+            "height": 384
+          },
+          "canvas": {
+            "width": 384,
+            "height": 384
+          },
+          "world": {
+            "width": 236.30769230769232,
+            "height": 236.30769230769232
+          },
+          "sourcePixelsPerWorldUnit": 1.625,
+          "pivot": {
+            "x": 228,
+            "y": 300
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 222,
+              "y": 297
+            },
+            {
+              "id": "foot-2",
+              "x": 255,
+              "y": 296
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 222,
+              "y": 297,
+              "sampledAlpha": 245,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 255,
+              "y": 296,
+              "sampledAlpha": 162,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "california-quail-look-study-384",
+          "outputRGBAId": "frame.sha256.ef904919748176ad6dcdfdc43c73e9cc6f7990111d353fcd262a0a49363e70b6",
+          "sourceFrameId": "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683",
+              "sourcePNG": "motion/sd20-california-quail-look-v1/look-native.png",
+              "outputPNG": "motion/sd20-california-quail-look-v1/look384.png",
+              "outputPNGsha256": "1fce31616e9d5c3d505df04c454ed72008ca291e0a3886391fbfd203f8917045",
+              "outputRGBAId": "frame.sha256.ef904919748176ad6dcdfdc43c73e9cc6f7990111d353fcd262a0a49363e70b6",
+              "evidence": "motion/sd20-california-quail-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "awake-viewer-directed-head-turn-study",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 384,
+            "y": 0,
+            "width": 384,
+            "height": 384
+          },
+          "canvas": {
+            "width": 384,
+            "height": 384
+          },
+          "world": {
+            "width": 236.30769230769232,
+            "height": 236.30769230769232
+          },
+          "sourcePixelsPerWorldUnit": 1.625,
+          "pivot": {
+            "x": 228,
+            "y": 300
+          },
+          "contacts": [],
+          "alphaContactChecks": []
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "california_quail-neutral-384",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "california_quail-neutral-384",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+              "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f"
+          ]
+        },
+        {
+          "id": "look",
+          "tickRate": 30,
+          "loop": false,
+          "frames": [
+            {
+              "frameId": "california_quail-neutral-384",
+              "durationTicks": 30
+            },
+            {
+              "frameId": "california-quail-look-study-384",
+              "durationTicks": 12
+            },
+            {
+              "frameId": "california_quail-neutral-384",
+              "durationTicks": 30
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "california_quail-neutral-384",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+              "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a"
+            },
+            {
+              "frameId": "california-quail-look-study-384",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683",
+              "outputRGBAId": "frame.sha256.ef904919748176ad6dcdfdc43c73e9cc6f7990111d353fcd262a0a49363e70b6"
+            },
+            {
+              "frameId": "california_quail-neutral-384",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+              "outputRGBAId": "frame.sha256.152cf465a81c59fee81b279aeebb9b0ae03e5b9e923896120790b369c8937c5a"
+            }
+          ],
+          "durationTicks": 72,
+          "durationSeconds": 2.4,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+            "frame.sha256.555489588e7f823ff9fde56917708ab3815294687a96dc5067574080b41db683"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -34892,7 +35307,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/dark-eyed-junco-look-ingest-build-vpfo4109/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/dark-eyed-junco-look-ingest-build-lo2q4bd2/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -34963,12 +35378,12 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-18T00:44:24.072320+00:00",
+  "projectionAsOfUTC": "2026-10-18T00:46:10.860591+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 148,
-    "registeredNativeOriginals": 48,
-    "newNativeCalls": 27,
-    "newDrawings": 46,
+    "registeredPrimaryDrawingIDs": 149,
+    "registeredNativeOriginals": 49,
+    "newNativeCalls": 28,
+    "newDrawings": 47,
     "semanticQuestions": 200,
     "usefulProvisionalIdleSemanticUses": 49,
     "usefulIdleUsesByAction": {
