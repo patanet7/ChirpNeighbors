@@ -1,0 +1,86 @@
+{
+  "batchId": "sd20-california-quail-blink-v1",
+  "speciesId": "california_quail",
+  "renderClipId": "blink",
+  "newSourceHeld": false,
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "074d350b0863dfb5046d8bd742447f4bf1fe6a61cd9e63f9cc04cec482cd50e0",
+    "profile": "chirp-texture-review-v1",
+    "canonicalSchemaValidation": "NOT_RUN"
+  },
+  "atlasBinding": {
+    "file": "blink-atlas384.png",
+    "sha256": "e96d8bb59de98c20049d41d5807a3064bd358755c62f7f84080a0faf75df3ee9",
+    "width": 768,
+    "height": 384,
+    "alpha": "straight-rgba8"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+      "primarySourcePNG": "reference-awake-source1024.png",
+      "primarySourcePNGsha256": "3d2a26d5904f1815c32dacde2cac72fd2fb6571faf200981ba1ade9143c70023",
+      "newDrawing": false,
+      "renderFrameId": "california_quail-neutral-384",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 384,
+        "height": 384
+      },
+      "outputPNG": "reused-awake384.png",
+      "outputPNGsha256": "0c97592304076c2835dad5e0ea1d0fce893a85a5b21e697600ab134e8e1a2916"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.2a3d57c70e5df3344ce5e05123e568276f9ebd7956d3dbc53814d85a9f72a7cc",
+      "primarySourcePNG": "closed-native.png",
+      "primarySourcePNGsha256": "afd7c153d09346b34bab11d3ef5e0f6b0fc53ac6d6f5b485e7ddca62ed281c4e",
+      "newDrawing": true,
+      "renderFrameId": "california-quail-blink-closed-384",
+      "atlasRect": {
+        "x": 384,
+        "y": 0,
+        "width": 384,
+        "height": 384
+      },
+      "outputPNG": "closed384.png",
+      "outputPNGsha256": "b0d6180512d2a359c6eebae30596365dcd008d153cc5b05a002dd0a90ddbbc36"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "california_quail-neutral-384",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "blink",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "california_quail-neutral-384",
+          "durationTicks": 42
+        },
+        {
+          "frameId": "california-quail-blink-closed-384",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "california_quail-neutral-384",
+          "durationTicks": 45
+        }
+      ]
+    }
+  ],
+  "projectionScope": "source-only blink review; old neutral unchanged; no active app binding",
+  "appBound": false,
+  "SharpCanonicalAdmission": false
+}

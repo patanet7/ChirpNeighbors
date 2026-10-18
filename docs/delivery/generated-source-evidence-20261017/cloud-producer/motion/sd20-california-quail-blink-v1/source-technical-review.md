@@ -1,0 +1,7 @@
+Independent Quail blink technical review: PASS 89 bounded checks. All31 frozen targets remain exact. Native1254 source/decoded ID and direct full-canvas nearest384 output match atlas slots. Original1024 awake5021 and384 export, standing profile geometry and idle90 remain exact; the newly held look is not the reference. Recorded prompt/submitted argument UTF8 equals2522bytes, and actual tool-saved original equals retained source.
+
+Actual384canvas/density1.625/world236.30769230769232/pivot228300 are preserved. Old toe probes222297/255296 sample245/162; closed samples253/249 are positive visible toe-region pixels. They certify neither anatomical sole, toe correspondence, pressure nor loaded ground support. Recomputed width88→88.6153846world and lowest row299→300output differ by1output/0.6153846world; source pixels are retained unchanged.
+
+Blink42/3/45 at30Hz totals90ticks/3000ms; closure is100ms. APNG source states are exact awake/closed/awake at1400/100/1500ms; GIF is palette approximation. Independent deterministic Chromium boundaries and real rAF show first0, closed42–44, return45 and final89 held to elapsed>=3000ms. Live stop3003.400ms. No screenshots/capture bytes or actual Mac app access.
+
+Visual usefulness remains pending separate preen review. Technical PASS grants no useful source slot, physical support, canonical Zod/Sharp admission or current Mac adoption. Only thisJSON/Markdown technical pair was written; all31 frozen files remain unchanged.
