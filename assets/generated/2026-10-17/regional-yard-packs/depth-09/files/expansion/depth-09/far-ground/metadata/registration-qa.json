@@ -1,0 +1,35 @@
+{
+  "method": "For eachx, uppermost alpha>=128 pixel. Compared raw unshifted source masks; illumination/color can affect threshold edge. No semantic or exactpixel-lock guarantee.",
+  "columns_compared": 1536,
+  "skyline_delta_px": {
+    "minimum": -2,
+    "maximum": 3,
+    "median_absolute": 0.0,
+    "p95_absolute": 1.0,
+    "max_absolute": 3,
+    "columns_exact": 805
+  },
+  "silhouette_alpha128_xor_pixels": 1728,
+  "alpha_bytes_identical": false,
+  "rgb_and_alpha_changed": "Snow edit resynthesized some nonsnow fine texture and alpha; exactmask/profile preservation not achieved.",
+  "chosen_offset": [
+    0,
+    -120
+  ],
+  "chosen_reason": "Parent requested comparison; -120 retains21+normal-displaypx summit headroom, -150 left~2.5px. Samepixels andoffset usedbothstates.",
+  "native_origin_study": "previews/base-incontext-960.png",
+  "older_minus150_studies": [
+    "previews/base-offset-minus150-incontext-960.png",
+    "previews/summit-snow-offset-minus150-incontext-960.png"
+  ],
+  "minimum_summit_source_y_after_offset": {
+    "base": 194,
+    "summit-snow": 195
+  },
+  "normal960_view_headroom_px": {
+    "base": 21.25,
+    "summit-snow": 21.875
+  },
+  "native_generation_coord_target_followed": false,
+  "requested_base_y470_vs_actual": "Rawbase648; chosen translation yields528, hiddenbehindground/fence. Parent owns ground mask; no authored ground polygon or collision here."
+}

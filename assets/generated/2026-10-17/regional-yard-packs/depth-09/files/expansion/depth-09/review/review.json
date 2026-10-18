@@ -1,0 +1,350 @@
+{
+  "review_id": "depth09_independent_source_review_v1",
+  "reviewed_at_utc": "2026-10-18T00:13:37.396611+00:00",
+  "scope": "Independent source-art, compositing, raster coverage and offline-preview review. No generation, source editing, rendering, runtime, Git, Library, or application changes.",
+  "asset_id": "scene.san_diego_inland_canyon",
+  "variant_family": "depth09_inland_fenced_test",
+  "result": "provisional_source_composite_pass_with_explicit_holds",
+  "owner_accepted": false,
+  "runtime_accepted": false,
+  "botanical_certification": false,
+  "source_art_accounting": {
+    "new_generated_originals": 2,
+    "new_original_role": "Distant inland mountains: nonsnow base and conditional summit-snow alternate. Whole alternate plates, not a snow-only overlay.",
+    "all_other_art": "Reused project sky, four ground states, sycamore source parts, fence, bench and cedar feeder. Seven tree source hashes independently match intake.",
+    "mountain_derivation": "Original pixels preserved separately; registered derivatives clear alpha below 8 and translate y by -120, with no painting or resizing. Both derivatives exactly reproduced by comparison.",
+    "statuses": {
+      "generated": true,
+      "reviewed": true,
+      "staged": "Source evidence staging only, as declared in root intake",
+      "integrated": false,
+      "accepted": false
+    }
+  },
+  "visual_review": {
+    "inspected": "Four requested overview/contact boards; all five 960 and all five 384 views; original tree-parts and attachment triptychs; decoded wind frames.",
+    "composition": "Coherent enclosed inland yard at normal/mobile review sizes. Tree, feeder and bench appear grounded; no obvious critical contact failure observed. This does not establish physical support or bird fit.",
+    "seasonal_reading": {
+      "spring": "Green ground and leaf-on tree.",
+      "summer": "Ground is visibly golden/dry, not merely named summer; healthy canopy reused exactly from spring is conditional on managed/riparian water.",
+      "autumn": "Golden ground, localized sparse warm sycamore foliage/litter; no generalized orange forest. Deciduous timing remains conditional.",
+      "winter": "Bare sycamore and greener ground; yard remains snow-free. Default distant mountains are nonsnow. Separate summit-snow view is a conditional post-storm alternative only."
+    },
+    "scale": "130 source pixels per metre, approximately 4.3 m tree and approximately 1.8 m fence are illustrative, not calibrated measurements.",
+    "mask_semantics": "Exact soft alpha and explicitly thresholded visual-coverage masks are usable for their declared raster/depth roles. They do not certify collision geometry, anatomy, grasp surfaces or 3D elevation."
+  },
+  "verified_checks": {
+    "full_floor": "Exact all-width rectangle x[0,1536), y[494,1024): 814080 pixels. Left/right floor edges remain available; no fixed central square or permanent tree/prop holes.",
+    "instance_envelopes": "10082 pixels removed only by active proposed feeder/bench/tree envelopes; resulting 803998 pixels. These are per-instance proposals, not implemented collision.",
+    "fence_floor_boundary": "Last nonzero fence alpha is row493, last alpha>=8 row489, last alpha>=128 row488. Floor beginning494 clears even faint coverage; no contradiction between these threshold-specific values.",
+    "alpha_masks": "Four fence/object soft and alpha>=128 binary masks; eight tree wood/canopy alpha>8 masks; two mountain exact soft-alpha masks independently equal their source raster coverage.",
+    "viewport_registration": "All ten views exactly equal source crop [0,160,1536,1024], then nearest-neighbour scaling to 960x540 or 384x216.",
+    "offline_wind": {
+      "file": "root/previews/autumn-yard-tree-sway-blowing-leaves.gif",
+      "sha256": "089621f0ec12dca350b1df7621f2e582cd62ab1fbb6175583b02b5523c4f8aff",
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "decoded_frames": 33,
+      "unique_decoded_frames": 32,
+      "first_last_equal": true,
+      "root_rect": [
+        145,
+        433,
+        207,
+        452
+      ],
+      "max_changed_root_pixels": 0,
+      "static_sky_fence_rect": [
+        400,
+        0,
+        960,
+        205
+      ],
+      "max_changed_static_sky_fence_pixels": 0,
+      "decoded_duration_ms": 3300
+    },
+    "shared_motion": "Root renderer calls existing tree_motion.py functions; no second tree wind field found. Compound-canopy displacement and deterministic leaf paths are offline transforms, not botanical hierarchy or runtime physics."
+  },
+  "findings": [
+    {
+      "id": "F01",
+      "severity": "minor_clarity",
+      "status": "provisional",
+      "finding": "Four-season overview uses the optional summit-snow winter view. The underlying root recipe correctly keeps default winter nonsnow, but the overview label and worker conditional_summit_snow flag can be read as universal winter snow.",
+      "recommendation": "Label overview winter as optional distant summit snow after a high-country storm, or show default nonsnow winter and retain the alternate separately."
+    },
+    {
+      "id": "F02",
+      "severity": "composition_caveat",
+      "status": "provisional",
+      "finding": "Left tree canopy/wood is intentionally clipped by the scene canvas, while root remains visible and fixed. Source sprites are complete.",
+      "recommendation": "Retain intentional scene-crop disclosure; do not describe the assembled scene tree as wholly visible."
+    },
+    {
+      "id": "F03",
+      "severity": "focus_caveat",
+      "status": "unverified",
+      "finding": "Horizontal ground texture and bright grass highlights remain quite active at mobile size. No canonical bird is present in these reviewed views.",
+      "recommendation": "Retain bird readability as unverified; assess actual birds over this ground before claiming focus/readability acceptance."
+    },
+    {
+      "id": "F04",
+      "severity": "registration_limit",
+      "status": "provisional",
+      "finding": "Canopy attachment cores are pinned and root is stable, but compound foliage and outer twig anatomy are not validated as botanical branch registration. Sparse canopy coverage over four cores is partial.",
+      "recommendation": "Describe the animation as compound-layer motion; retain anatomical and expert review holds."
+    }
+  ],
+  "held_or_out_of_scope": [
+    "Current runtime strict V1 admits three inline-palette rectangle layers; these layered PNG sources are not admitted by that contract. runtime-schema-proposal.json is a proposal only, not coordination agreement or adoption.",
+    "Physical footprints, collision/support, perch surfaces, species-specific feet/beak/body fit, branch anatomy, calibrated scale and owner acceptance remain unproved.",
+    "Eight fence visible-segment samples pass raster alpha checks only. The bench left-armrest trial crosses a void and remains held/excluded from usable proposals.",
+    "Prior asset holds, including unrelated oak or botanical holds, are unchanged by this source review.",
+    "Primary UC description supports deciduous/riparian context but does not certify exact autumn timing, every regional yard, or this generated tree morphology.",
+    "Conditional high-country snow is an art/context policy here, not a verified forecast or identified-mountain weather reconstruction."
+  ],
+  "primary_sources": [
+    {
+      "title": "Western Sycamore: Platanus racemosa and Companion Plants",
+      "publisher": "University of California Agriculture and Natural Resources",
+      "url": "https://ucanr.edu/blog/under-solano-sun/article/western-sycamore-platanus-racemosa-companion-plants",
+      "observed_excerpt": "Western sycamore, Platanus racemosa, is a statuesque deciduous tree found in riparian areas and dry washes.",
+      "observed_mode": "Indexed primary-source search excerpt; full article independently requested but timed out. Parent separately reports primary text verification.",
+      "supports": "Taxon identity, deciduous habit, riparian/dry-wash context. Managed watering and conditional seasonal interpretation are review context, not a quotation."
+    }
+  ],
+  "blocked_actions": [
+    {
+      "action": "Open the specific UC ANR primary article",
+      "target": "https://ucanr.edu/blog/under-solano-sun/article/western-sycamore-platanus-racemosa-companion-plants",
+      "outcome": "failed",
+      "reason": "Web fetch timed out; alternate article-index open returned 404. Not an approval denial. Indexed primary excerpt was observed; full article inspection not claimed.",
+      "independent_work_completed": "Actual-art review, source hashes, full-floor/visual-mask checks, all viewport registration checks and decoded GIF stability completed."
+    },
+    {
+      "action": "Open NWS San Diego climate page for independent high-country snow context",
+      "target": "https://www.weather.gov/sgx/climate",
+      "outcome": "failed",
+      "reason": "Web fetch inaccessible in this environment. No bypass attempted. No weather certification claimed.",
+      "independent_work_completed": "Actual default nonsnow winter and optional distant summit-snow raster states inspected; yard snow absence checked visually."
+    }
+  ],
+  "evidence": [
+    {
+      "file": "root/scene-basis.json",
+      "sha256": "7cd9aceffd974eee6affeae2c5977501b9d2c141923700297f21175079736d87"
+    },
+    {
+      "file": "root/runtime-schema-proposal.json",
+      "sha256": "2b43c03d5e1791d0dd173b6befb015a8df849613a6c68d21161728174d713eda"
+    },
+    {
+      "file": "root/placement-review.json",
+      "sha256": "9afb45ec3c88f7058810c162f623e551b520b7990e5fd5a138fc699093e09068"
+    },
+    {
+      "file": "root/render-config.json",
+      "sha256": "244d5982f2413b787e368d8ef742e124da954169e337e94ce9de53f889e4a70d"
+    },
+    {
+      "file": "root/scene-render-receipt.json",
+      "sha256": "29dbacb34780330d9fd073067917e98e583eb2dc92af4093981ba520f863ade6"
+    },
+    {
+      "file": "root/backgrounds-intake.json",
+      "sha256": "61867cbc6359b2d7ed048299e430619bfbcff7868ed44506141d4fc67c85e2de"
+    },
+    {
+      "file": "root/previews/ChirpNeighbors-Depth09-Seasons.png",
+      "sha256": "4c8b54bd2f741033e30b0241ce9b2d86c26013f84070dc8bff6d0666cf3b9b25",
+      "dimensions_px": [
+        1440,
+        870
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "root/previews/depth-layer-contact.jpg",
+      "sha256": "c5e42a869aeafae773bd7c279454fcb1abc36179263cb58bdd1e154221fa578d",
+      "dimensions_px": [
+        1536,
+        564
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "root/previews/full-ground-placement-review.png",
+      "sha256": "e794d184cfdce94ba96f81a83a734fe356d89597aa6ba7f407db66db96b39103",
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/yard-wind-decoded-contact.jpg",
+      "sha256": "d0788244576b1a66089a39b738420d2a2284274d2e1e139e57a6483ae7e04d42",
+      "dimensions_px": [
+        960,
+        1680
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "tree-leaves/intake.json",
+      "sha256": "a9424c66e61e2a86038962a83ee3b6a773294eef44e36f54a99ba686271e29ce"
+    },
+    {
+      "file": "tree-leaves/previews/source-contact.jpg",
+      "sha256": "2a2df161c972bc7004db3caffa6a9d94199b56d3ff22eae1b55e4731af159861",
+      "dimensions_px": [
+        1260,
+        1320
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "tree-leaves/previews/attachment-triptychs.jpg",
+      "sha256": "538a035646ae979845b0573081f7e982c3589f175fe54b9dff91d6c4e99899a0",
+      "dimensions_px": [
+        660,
+        968
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "tree-leaves/tree_motion.py",
+      "sha256": "6b12c5f200a449cfa4d94d503f75d880184e9b09efebf07a295c47b922de21e6"
+    },
+    {
+      "file": "far-ground/intake.json",
+      "sha256": "c0a4e858afcce34cace9af0dba3627fe42aa26a9c7a84b96e8e10c6ab0e4351c"
+    },
+    {
+      "file": "far-ground/review.json",
+      "sha256": "a51c2836bc59be68b1982b8fd5841b795aa43a435e2cedb147292cc1829aee00"
+    },
+    {
+      "file": "fence-objects/scene-contract.json",
+      "sha256": "dd0798b1bcd7d5efbfe614e6dc5ad44afb358736b7a7da4eb76ba04b6c18822c"
+    },
+    {
+      "file": "fence-objects/review.json",
+      "sha256": "d725239ecd8aca0ac60d66b64b6bd1932e0a17c500f907ddb5ae121cb3a5d287"
+    },
+    {
+      "file": "fence-objects/validation-receipt.json",
+      "sha256": "82fa572fb8e689bb082fdae6c04284578409b994fc5ae0e3a3440bc402947ea3"
+    },
+    {
+      "file": "mountain-masks/mask-index.json",
+      "sha256": "4dee95e38afbfec86125d30b877134010baea8f31dbc63d497d59236564ec2d3"
+    },
+    {
+      "file": "tools/render_scene.py",
+      "sha256": "8694f7fd126b9d86c60747104a368fc462337095f8122457f53ea1c83f5fb12a"
+    },
+    {
+      "file": "root/previews/spring-960.png",
+      "sha256": "ee135b47cd0bfcc8bd8731620b0118e5e1711513ce34bbd3753bded648530014",
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/spring-384.png",
+      "sha256": "f81a00fb96d9573a628e2e2d5fd797bbc3e16d4702a2e92fa6f2e435f0e4e8c8",
+      "dimensions_px": [
+        384,
+        216
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/summer-960.png",
+      "sha256": "6735b91de25b73d621dd147e473130ba9d87ccb4db06bd49ff43b29b637f6f08",
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/summer-384.png",
+      "sha256": "94ff2f4583803ebdb131e5a8f7be23412ac369dae2bea6f38420573905652c89",
+      "dimensions_px": [
+        384,
+        216
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/autumn-960.png",
+      "sha256": "52d8b711af0ee2748012203527e1e46f1314c14a546c8191f84725891d0ed051",
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/autumn-384.png",
+      "sha256": "f55709090c697d4dea20dfd4bc0e86cbb1933f796732197be4640f75e6437c97",
+      "dimensions_px": [
+        384,
+        216
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/winter-960.png",
+      "sha256": "dda2269f5ea9551b37509310798986c3b2e588127f3c57f028ef6368e3fea222",
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/winter-384.png",
+      "sha256": "4b0236d088a4df41bcef226965feb612accc77a66c3f751bc467ccdaf0c3cfe2",
+      "dimensions_px": [
+        384,
+        216
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/winter-summit-snow-960.png",
+      "sha256": "d423ea02e23f0c960da1f3ff3461f25952f3e26d5bba55cbb32c373b77e350f8",
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "mode": "RGBA"
+    },
+    {
+      "file": "root/previews/winter-summit-snow-384.png",
+      "sha256": "420fc68870df0d431d70ad80a8952fc256c8fc75536c57a9cb233c97eef21612",
+      "dimensions_px": [
+        384,
+        216
+      ],
+      "mode": "RGBA"
+    }
+  ],
+  "verification": {
+    "file": "review/verification.json",
+    "sha256": "1c8b8db1c67018a259b6a201b628d517823ad74a4e52678855a09b4ff1d2b2b5",
+    "reproduction_script": "review/check_sources.py",
+    "reproduction_script_sha256": "3d99daf5d1a5d58e369df62ae5668a66528f19c56fea5e189a9a63aa7bc3a2f6",
+    "read_only_checks": true
+  },
+  "active_tool_calls": 0,
+  "new_generation_calls": 0,
+  "extra_archive_needed": false
+}

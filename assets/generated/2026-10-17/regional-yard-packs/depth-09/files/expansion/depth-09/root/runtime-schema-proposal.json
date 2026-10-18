@@ -1,0 +1,47 @@
+{
+  "role": "Reviewable source-side field proposal for the runtime integrator; no schema implementation",
+  "coordination_status": "Parent relay pending because this environment has no cross-thread send tool",
+  "runtime_snapshot": {
+    "repository": "patanet7/birdsong-yard-sprites",
+    "commit": "1b4cf4e7a6d02a5e2253776315aba34cd22f6784",
+    "scene_manifest_path": "src/lib/scenes/manifest.ts",
+    "scene_manifest_git_blob_sha": "57bea5f11b5e6206f3c117290496cbdaf15dea40",
+    "observed_boundary": "Strict V1 technical-fixture contract has three inline-palette-rectangle assets/layers, bounded rectangular placement zones and ground-y actor ordering. These PNG layers/masks are not a valid V1 payload."
+  },
+  "proposal": {
+    "layer_roles": [
+      "sky",
+      "distant_mountains",
+      "ground",
+      "fence",
+      "independent_objects",
+      "tree_wood",
+      "tree_canopy",
+      "leaf_litter",
+      "blowing_leaf_review"
+    ],
+    "placement": {
+      "full_ground_polygon": "Explicit source pixel boundary; transform into existing 960x540 world",
+      "instance_footprints": "Per-instance proposed ground envelopes, not permanent holes in the base floor",
+      "support_acceptance": "Runtime owner must validate support/collision and footprint containment before admitting placed objects"
+    },
+    "occlusion": {
+      "visual_alpha_masks": "Actual source alpha/threshold coverage, separately usable for compositor experiments",
+      "depth": "Distant backdrop/fence fixed ordering plus actor/object foot-y proposal",
+      "physical_geometry": "No inferred 3D volume, collision height, walkable mesh or automatic perch authority"
+    },
+    "perches": "Named manually inspected cap/rail segments and native-source points; physical body/foot/beak contacts remain proposed",
+    "elevation": "Ground zero and approximate fence/prop heights under an illustrative scale; no surveyed terrain or automatically extracted heightfield",
+    "weather_materials": "Actual seasonal source choices and conditional summit-snow toggle; wet surfaces, soil hydrology, snow accumulation/melt and material solvers are not implemented",
+    "wind": "Rigid trunk/core and fixed source anchors; compound flexible canopy plus dry-leaf paths demonstrated offline; no runtime solver or automatic anatomical rig"
+  },
+  "requested_runtime_review": [
+    "Choose the existing family/admission route and any versioned contract changes; source producer does not add fields to runtime schemas",
+    "Review source-to-world transform and full-ground placement domain with per-instance envelopes",
+    "Review which visual masks can be admitted as compositing coverage and which authored contact/depth proposals require correction",
+    "Retain exact source identities/hashes and distinguish source review from immutable runtime selection/owner acceptance"
+  ],
+  "runtime_schema_files_changed": [],
+  "live_engine_adoption": false,
+  "integrator_agreement_recorded": false
+}
