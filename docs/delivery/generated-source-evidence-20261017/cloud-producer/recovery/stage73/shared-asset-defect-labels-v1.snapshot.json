@@ -1,0 +1,39 @@
+{
+  "document_kind": "shared-source-art-defect-label-contract",
+  "version": 1,
+  "status": "initial_canonical_source_review_labels",
+  "scope": "Shared review vocabulary for bird and non-bird source assets; not runtime geometry or acceptance authority.",
+  "identity": "Keep existing asset_id and variant_id; use a separate candidate_revision for a repair. Original bytes and prior findings remain immutable.",
+  "qualification_grades": {
+    "pass": "The explicitly named review scope passed with cited evidence; no broader acceptance is inferred.",
+    "repair": "A concrete observed defect needs correction before that scope passes; a versioned repair may be reviewed separately.",
+    "blocked": "Required evidence, state, part, tool or authority is missing; absence of proof is not a visual rejection.",
+    "reject": "Inspected candidate is unsuitable for the named scope, with an exact reason and retained evidence."
+  },
+  "scopes": ["static_visual", "registration", "media_preflight", "state_coverage", "wind_parts", "physical_geometry", "functional_fit", "runtime_admission", "rights_review"],
+  "finding_states": ["observed", "not_detected_in_scope", "unknown", "not_applicable", "corrected_in_candidate"],
+  "labels": [
+    {"id":"visual.alpha-matte","kind":"visual_defect","meaning":"Visible matte, halo or unwanted alpha fringe at declared display size; fractional alpha alone is not a defect."},
+    {"id":"visual.crop-truncation","kind":"visual_defect","meaning":"Required subject pixels are cut off unintentionally; transparent padding and intentional viewport clipping remain distinct."},
+    {"id":"visual.display-density","kind":"visual_review","meaning":"Declared raster/world/display sampling produces inconsistent detail or logical pixel size; numerical resampling alone cannot certify style."},
+    {"id":"fidelity.subject-structure","kind":"fidelity_review","meaning":"Observed anatomy, leaf/branch/flower structure or identifying form conflicts with the named subject; expert certainty remains scoped."},
+    {"id":"registration.pivot","kind":"registration_defect","meaning":"Declared pivot differs from the intended stable visual landmark or changes across states; a valid virtual pivot need not be opaque."},
+    {"id":"registration.scale","kind":"registration_review","meaning":"Source-to-world scale, aspect ratio or per-state consistency is missing or wrong; art dimensions are not physical measurements."},
+    {"id":"registration.anchor-empty","kind":"registration_defect","meaning":"An annotation explicitly intended to address visible material instead addresses empty pixels; opaque material alone does not establish physical support."},
+    {"id":"registration.contact-appearance","kind":"visual_review","meaning":"A visible root, foot, base, mount or seam appears detached or misplaced at the declared display size; not a collision/support approval."},
+    {"id":"layer.seam","kind":"visual_defect","meaning":"Separately registered parts show a visible unintended gap, halo, overlap or broken join."},
+    {"id":"layer.ownership","kind":"capability_gap","meaning":"Required wood, foliage, subject or background pixels are fused or their ownership is ambiguous; metadata cannot manufacture separate art."},
+    {"id":"state.art-missing","kind":"capability_gap","meaning":"A required healthy/dry/seasonal/weather/action state lacks actual source artwork; slots, reused pixels and labels do not count as new art."},
+    {"id":"motion.parts-unqualified","kind":"capability_gap","meaning":"Wind or action parts, attachments, transitions or temporal consistency have not passed their named review; offline motion does not imply runtime physics."},
+    {"id":"media.constraint","kind":"media_defect","meaning":"Exact source/admission representation violates a named byte, dimension, frame, alpha or profile rule; identify the tested consumer and version."},
+    {"id":"provenance.incomplete","kind":"evidence_gap","meaning":"Exact source hash, prompt/reference lineage, derivative operation or rights evidence needed for the named scope is missing."},
+    {"id":"physics.unreviewed","kind":"authority_gap","meaning":"Collision, support, elevation, capacity or calibrated physical dimensions have not been reviewed; visual alpha and paint are not geometry authority."},
+    {"id":"interaction.unreviewed","kind":"authority_gap","meaning":"Functional bird body/foot/beak/water/perch fit or slot behavior remains unreviewed; a point on material is insufficient."},
+    {"id":"runtime.unadmitted","kind":"admission_gap","meaning":"Source candidate has not been deliberately admitted and verified in the actual consumer route; a source merge or preflight does not imply adoption."}
+  ],
+  "record_requirements": ["asset_id", "variant_id", "candidate_revision", "source_sha256", "scope", "grade", "canonical_label", "finding_state", "reason", "evidence"],
+  "evidence_requirements": "Cite exact file/hash, region or landmark, native/world/display dimensions and sampling for pixel findings. Record actual operation and test result; unknown tool/model/seed/license fields remain unknown.",
+  "stage_rule": "generated, reviewed, staged, integrated and accepted are separate facts. A scope pass never changes runtime, physical, rights or owner acceptance.",
+  "repair_rule": "Never overwrite an original or silently reuse its revision/hash. Preserve before/after bytes, prompts, operation, review result and rejection reason. Do not invent a repair merely to increase repair counts.",
+  "compatibility": "Consumers map descriptive legacy findings to these labels with explicit scope. New labels require a new contract revision; no claim that the bird producer already adopted this initial version."
+}
