@@ -1,0 +1,90 @@
+{
+  "batchId": "sd20-white-crowned-sparrow-look-v1",
+  "speciesId": "white_crowned_sparrow",
+  "lookOnlyNewDrawing": true,
+  "renderClipId": "look",
+  "newSourceHeld": true,
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "c6cd4bde5bf947ca33deaccedd38d7d50c6b2e9b09949b9d688b9327837781f8",
+    "profile": "chirp-texture-review-v1",
+    "canonicalSchemaValidation": "NOT_RUN;heldemptycontactsnewframeisnotactorbinding"
+  },
+  "atlasBinding": {
+    "file": "look-atlas96.png",
+    "sha256": "80adba0cf7257e912934a84aa2560ddbddb967805210abf31b88cf0a701186b1",
+    "width": 192,
+    "height": 96,
+    "alpha": "straight-rgba8"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+      "primarySourcePNG": "reference-awake-source1024.png",
+      "primarySourcePNGsha256": "34e615beab7100d0a7b8ad050162c44db0b58b086c023d1833691d93cc39f9d1",
+      "newDrawing": false,
+      "lookOnlyNewDrawing": false,
+      "renderFrameId": "white_crowned_sparrow-neutral-96",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "reused-awake96.png",
+      "outputPNGsha256": "b3a12997fa037651b19057240918d467cf2c413e412c694e239c9c55ce0b2974"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981",
+      "primarySourcePNG": "look-native.png",
+      "primarySourcePNGsha256": "ac845cdd5978acfc456a2367c7c698c847f44435986898df4b9dcbaf70245317",
+      "newDrawing": true,
+      "lookOnlyNewDrawing": true,
+      "renderFrameId": "white_crowned_sparrow-look-viewer-study-96",
+      "atlasRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "look96.png",
+      "outputPNGsha256": "5e25e8f37ad6aafc0716b9a54c45175d0f38fb14052f8bbe051806bc068c5a48"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "white_crowned_sparrow-neutral-96",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "white_crowned_sparrow-neutral-96",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "white_crowned_sparrow-look-viewer-study-96",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "white_crowned_sparrow-neutral-96",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ],
+  "contactPolicy": "newheldsourcecontacts[];oldinheritedfootcoordinatesarediagnosticsCOMPARISONPROBESnowbellyonly",
+  "projectionScope": "Heldlookstudypacketonly;ownidleexactawake,existingneutral/blinkprimaryunchanged",
+  "appBound": false,
+  "SharpCanonicalAdmission": false
+}

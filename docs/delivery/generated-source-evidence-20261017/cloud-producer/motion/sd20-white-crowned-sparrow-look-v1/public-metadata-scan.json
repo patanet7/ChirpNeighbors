@@ -1,0 +1,153 @@
+{
+  "status": "PASS public source metadata hygiene scan before freeze/reviews",
+  "patterns": {
+    "privateLibraryHandle": "libfile_[0-9a-f]{32}",
+    "signedURL": "https?://[^\\s\\\"\\x27<>]*(?:X-Amz-|Signature=|[?&]sig=|[?&]token=)[^\\s\\\"\\x27<>]*",
+    "embeddedBrowserImageData": "data:image/(?:png|jpeg|webp);base64,[A-Za-z0-9+/=]{100,}",
+    "privateCapturePayloadKey": "\\\"(?:screenshot|sampleContactSheetPNGbase64|capturePNGbase64)\\\"\\s*:\\s*\\\"[^\\\"]{100,}\\\""
+  },
+  "scannedTextFiles": [
+    {
+      "file": "PRIMARY-SOURCE-MANIFEST.json",
+      "sha256": "951a483a02c3448fd782335574079f66c0e4dcc43bd369a75c81bb459e89d6ee"
+    },
+    {
+      "file": "README.md",
+      "sha256": "98b69b4b1ecd3f62a1f6515b2d69e31414fe6e61762fadaf07bc3c834a68bcce"
+    },
+    {
+      "file": "alpha-edge-diagnostics.json",
+      "sha256": "5447b9c0395896b3b4112a516aa6bc6d0e0fd49af9bbcec7bccde601f22f0201"
+    },
+    {
+      "file": "behavior-handoff.json",
+      "sha256": "ff080284098d93120f97428766e2e48f295906814c433c5b7b20d374bb4ff5cb"
+    },
+    {
+      "file": "body-contact-measurements.json",
+      "sha256": "a208220e5bdc3d476ba683f3bcaacb976981e5995f5c6381f7eeb03925aa6426"
+    },
+    {
+      "file": "browser-verification.json",
+      "sha256": "c657e57fc46b70c1ed62480a2d10e038bfc643f643282b28cf50908c7d8769b5"
+    },
+    {
+      "file": "browser_check.py",
+      "sha256": "11b1627a60225fb7544fb8df61fe1a58b182dff157629775dc7d6c461d4b1556"
+    },
+    {
+      "file": "build_batch.py",
+      "sha256": "c6788757b92c5cd29af23d49c40e32b619759dbe000802623f668444424c0ea0"
+    },
+    {
+      "file": "call-dispatch-receipt.json",
+      "sha256": "d0177252c325f286db575c764be1284ee0b15da9c4829addb38dbea8474188d6"
+    },
+    {
+      "file": "call-status.json",
+      "sha256": "bef6394cf2626d962143c144b6891ea1e37841c7bef53bd3970d8545c45d0279"
+    },
+    {
+      "file": "conditioning-selection.json",
+      "sha256": "c980430e8f66522159bfeb0906a904082f5bf2dfcd0ec0d695d14997b6700360"
+    },
+    {
+      "file": "current-geometry-reference.json",
+      "sha256": "c08f2ff3d35842781b13a7571d53e5de4423b95002512ba3c70c21fb9a03e0b7"
+    },
+    {
+      "file": "frame-to-action-map.json",
+      "sha256": "ff6715f2042644a8468ffe56902fac041b8dc6439d2e72c92913f12bc827f76e"
+    },
+    {
+      "file": "native-call-arguments.json",
+      "sha256": "b44dc8f32d17bc82c8026762b70b34dbce386b8de65c407cf9715f63a93b54bb"
+    },
+    {
+      "file": "native-return-receipt.json",
+      "sha256": "e81a9e47cab40ba587e267e9349578ee29dddaf7e2de3d17898b1d7a0cdaf606"
+    },
+    {
+      "file": "player.js",
+      "sha256": "d67106cc8926547ab9083882b0112a01b798f0a977b968361f18adecd65d2151"
+    },
+    {
+      "file": "prepared-native-arguments.json",
+      "sha256": "be0efb01775019cbe37076c9135b7e7610ce8c0688969a13631c88f750a33bf1"
+    },
+    {
+      "file": "prior-preflight/README.md",
+      "sha256": "3945365409643888eb4056b0d8da7754a1b71cb4b635de71c10ffe6208ee332e"
+    },
+    {
+      "file": "prior-preflight/browser-numeric-receipt.json",
+      "sha256": "3259fdbd06886edeaf62136db004076ae232bc7e035bc22ef05ff2a1d4415cc2"
+    },
+    {
+      "file": "prior-preflight/browser_check.py",
+      "sha256": "d4a214c95191800761f097719c2ae2366053349f9f7fb9bce17873c66c9f1003"
+    },
+    {
+      "file": "prior-preflight/build_preflight.py",
+      "sha256": "96809aba1715f9fc98cab166bd4277ec7d7a17344bc732a9f4c073d5a744d85e"
+    },
+    {
+      "file": "prior-preflight/current-geometry-snapshot.json",
+      "sha256": "4e068a1f27994abe4b455fdde631591cf693a89ea3a48d64bf4c031a34ddeef8"
+    },
+    {
+      "file": "prior-preflight/preflight.json",
+      "sha256": "759539044ddcd27a62f7dd576dc4e5c0747a43f11e30a59901d04989eeef32b4"
+    },
+    {
+      "file": "prior-preflight/prepared-prompt-reference.json",
+      "sha256": "2c5995cd5631f89049aef5e118e9a1774d77f935731e50bb50176821d2cb863b"
+    },
+    {
+      "file": "prior-preflight/review.html",
+      "sha256": "068f05c8859a9befb237e01b27dae4b816b4dd5ae6b0c822b03629d8dad93de9"
+    },
+    {
+      "file": "prior-preflight/species-source-records.json",
+      "sha256": "5d162ac4cbe78ae3299d2e361a93c5d6431fd4d43b3f1f60ccafb73e8fdd7d27"
+    },
+    {
+      "file": "prior-preflight/triage-question-snapshot.json",
+      "sha256": "fa128c2a025b6ed276be4e15e4d1b0f23cb8008e0aec8b3f1a5d9a1ed0297c5f"
+    },
+    {
+      "file": "producer-review.json",
+      "sha256": "50be1be0bd5300522e446f2341842d206c577a30818f69666ce13e83aed7540d"
+    },
+    {
+      "file": "prompt-byte-audit.json",
+      "sha256": "1604591cb685e5fa77e7a8cb1878c9dcfaa5adc6fdd76adf5cd6e7b8f4803d9c"
+    },
+    {
+      "file": "prompt.txt",
+      "sha256": "d6e08955fd5ee320eb3f43d25e5b89450e00e21aa74c4d38127552adc73753d9"
+    },
+    {
+      "file": "review.html",
+      "sha256": "e1a1c8448c62618e0c89074f97529307722d9c23689d72c92811c69cf7966c92"
+    },
+    {
+      "file": "texture-review-manifest.json",
+      "sha256": "c6cd4bde5bf947ca33deaccedd38d7d50c6b2e9b09949b9d688b9327837781f8"
+    },
+    {
+      "file": "verification.json",
+      "sha256": "cabde9cb1f2c8b60d4aea90cc5db91e70d2e7f31b97614ad128ecdd248f7c033"
+    },
+    {
+      "file": "verify_batch.py",
+      "sha256": "45d0cad40ce7c04dc15118bf06691ab5f80ede83e19809ed8f41a08ba4a386a3"
+    }
+  ],
+  "hits": [],
+  "redactions": 0,
+  "imagePromptSourceIDsAndHashesUnchanged": true,
+  "privateLibraryReceiptsIncluded": false,
+  "browserCaptureFiles": 0,
+  "limits": "Textpatternscan scoped to sourcepacket. Owned original/sourcePNG bytes retained unchanged;validRGBA/sourcehashes are not privacy markers."
+}

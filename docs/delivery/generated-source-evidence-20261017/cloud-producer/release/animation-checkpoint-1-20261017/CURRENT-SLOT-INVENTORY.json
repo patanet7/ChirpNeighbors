@@ -15917,7 +15917,7 @@
         "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
         "frame.sha256.75dc91f8a426229926bc979eb92b6e81fc0efa811913fd14cbbf273137074213"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
@@ -16026,6 +16026,61 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981",
+          "file": "motion/sd20-white-crowned-sparrow-look-v1/look-native.png",
+          "fileSha256": "ac845cdd5978acfc456a2367c7c698c847f44435986898df4b9dcbaf70245317",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "white_crowned_sparrow",
+          "appearanceVersion": "sd20-white-crowned-sparrow-look-v1",
+          "poseTags": [
+            "look-viewer-unbound-study",
+            "candidate-source",
+            "look-only"
+          ],
+          "sourceAtlas": "motion/sd20-white-crowned-sparrow-look-v1/original.png",
+          "sourceAtlasSha256": "ac845cdd5978acfc456a2367c7c698c847f44435986898df4b9dcbaf70245317",
+          "derivation": {
+            "method": "whole native canvas nearest resize only",
+            "sourceCanvas": [
+              1254,
+              1254
+            ],
+            "outputCanvas": [
+              96,
+              96
+            ],
+            "wholeCanvasScaleXY": [
+              0.07655502392344497,
+              0.07655502392344497
+            ],
+            "nativeToReferenceWholeCanvasScaleXY": [
+              0.8165869218500797,
+              0.8165869218500797
+            ],
+            "perPoseFit": false,
+            "perPoseTranslation": false,
+            "snap": false,
+            "pixelPaint": false
+          },
+          "sourcePrompt": "motion/sd20-white-crowned-sparrow-look-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-white-crowned-sparrow-look-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "look"
+          ],
+          "reuseStatus": "Independently reviewed look-only source study; HELD matched-look playback: readable native head turn but enlarged body and displaced feet make normal-size source pop. Zero useful look gain. Empty new-frame contacts explicit; inherited positive markers now belly comparison probes, no toe-lock/support or airborne claim. Exact awake and old look state/IDs/bindings retained with one inactive held candidate only; no new neutral/blink or app admission.",
+          "sourceReview": "motion/sd20-white-crowned-sparrow-look-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -16036,7 +16091,8 @@
         "new-species/sd20-bushtit-wren-sparrow-v1/README.md"
       ],
       "sourceIssues": [
-        "100ms realclosure; footmaskboundary1outputpx≈1.286world andcentroid.565world shift can readslighttwitch; neutralfallback retained."
+        "Baseline PR33: 100ms realclosure; footmaskboundary1outputpx≈1.286world andcentroid.565world shift can readslighttwitch; neutralfallback retained.",
+        "Current checkpoint: HELD matched-look playback: readable native head turn but enlarged body and displaced feet make normal-size source pop. Zero useful look gain. Empty new-frame contacts explicit; inherited positive markers now belly comparison probes, no toe-lock/support or airborne claim. Exact awake and old look state/IDs/bindings retained with one inactive held candidate only; no new neutral/blink or app admission."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -16118,7 +16174,129 @@
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "heldLookCandidates": [
+            {
+              "batchId": "sd20-white-crowned-sparrow-look-v1",
+              "kind": "look-only-new-drawing-source-candidate",
+              "canonicalSchemaValidation": "NOT_RUN; explicit look clip needs current Mac contract confirmation",
+              "profileLabelIsRuntimeAdmission": false,
+              "primaryManifest": "motion/sd20-white-crowned-sparrow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "manifest": "motion/sd20-white-crowned-sparrow-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-white-crowned-sparrow-look-v1/look-atlas96.png",
+              "manifestSHA256": "c6cd4bde5bf947ca33deaccedd38d7d50c6b2e9b09949b9d688b9327837781f8",
+              "atlasSHA256": "80adba0cf7257e912934a84aa2560ddbddb967805210abf31b88cf0a701186b1",
+              "sourceFrameIds": [
+                "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+                "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981"
+              ],
+              "newSourceFrameIds": [
+                "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981"
+              ],
+              "reusedSourceFrameIds": [
+                "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1"
+              ],
+              "newDrawingCount": 1,
+              "reusedDrawingCount": 1,
+              "newNeutralDrawings": 0,
+              "newBlinkDrawings": 0,
+              "clipId": "look",
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "white_crowned_sparrow-neutral-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+                  "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd"
+                },
+                {
+                  "frameId": "white_crowned_sparrow-look-viewer-study-96",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981",
+                  "outputRGBAId": "frame.sha256.dfb9fd91f2e545372f9c37c24b482321b6fded34d2214c904e3a089a20267f57"
+                },
+                {
+                  "frameId": "white_crowned_sparrow-neutral-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+                  "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd"
+                }
+              ],
+              "renderBinding": {
+                "manifest": "motion/sd20-white-crowned-sparrow-look-v1/texture-review-manifest.json",
+                "atlasPNG": "motion/sd20-white-crowned-sparrow-look-v1/look-atlas96.png",
+                "clipId": "look",
+                "tickRate": 30,
+                "loop": false,
+                "durationTicks": 72,
+                "orderedSourceFrameSequence": [
+                  {
+                    "frameId": "white_crowned_sparrow-neutral-96",
+                    "durationTicks": 30,
+                    "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+                    "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd"
+                  },
+                  {
+                    "frameId": "white_crowned_sparrow-look-viewer-study-96",
+                    "durationTicks": 12,
+                    "sourceFrameId": "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981",
+                    "outputRGBAId": "frame.sha256.dfb9fd91f2e545372f9c37c24b482321b6fded34d2214c904e3a089a20267f57"
+                  },
+                  {
+                    "frameId": "white_crowned_sparrow-neutral-96",
+                    "durationTicks": 30,
+                    "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+                    "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd"
+                  }
+                ],
+                "contactsMeaning": "technical alpha markers, not physical support approval",
+                "appBinding": "UNKNOWN",
+                "actualYardVerification": "UNKNOWN",
+                "held": true,
+                "useAsActiveSource": false
+              },
+              "evidencePaths": [
+                "motion/sd20-white-crowned-sparrow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+                "motion/sd20-white-crowned-sparrow-look-v1/texture-review-manifest.json",
+                "motion/sd20-white-crowned-sparrow-look-v1/frame-to-action-map.json",
+                "motion/sd20-white-crowned-sparrow-look-v1/independent-review.json"
+              ],
+              "sourceHeld": true,
+              "sourceReviewState": "held",
+              "productionAccepted": false,
+              "runtimeAdmission": false,
+              "packetBindingReady": false,
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN",
+              "heldNewLookContactExceptions": [
+                {
+                  "sourceFrameId": "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981",
+                  "outputFrameId": "white_crowned_sparrow-look-viewer-study-96",
+                  "contacts": [],
+                  "reason": "HELD new source has no supported inherited contact claim; unchanged registration, no snapping or fitting",
+                  "inheritedProbeDiagnostics": [
+                    {
+                      "id": "foot-1",
+                      "x": 55,
+                      "y": 73,
+                      "sampledAlpha": 253,
+                      "isContactClaim": false
+                    },
+                    {
+                      "id": "foot-2",
+                      "x": 58,
+                      "y": 73,
+                      "sampledAlpha": 253,
+                      "isContactClaim": false
+                    }
+                  ]
+                }
+              ],
+              "reviewReceipt": {
+                "path": "motion/sd20-white-crowned-sparrow-look-v1/independent-review.json",
+                "sha256": "867c638c3c4a3f15675bd82d14bddffd99692e932f22b9072d2a9f0d1fd40bf7"
+              }
+            }
+          ]
         },
         {
           "speciesId": "white_crowned_sparrow",
@@ -16350,7 +16528,12 @@
       "baselineSourceIssues": [
         "100ms realclosure; footmaskboundary1outputpx≈1.286world andcentroid.565world shift can readslighttwitch; neutralfallback retained."
       ],
-      "currentSourceIssues": [],
+      "currentSourceIssues": [
+        "HELD matched-look playback: readable native head turn but enlarged body and displaced feet make normal-size source pop. Zero useful look gain. Empty new-frame contacts explicit; inherited positive markers now belly comparison probes, no toe-lock/support or airborne claim. Exact awake and old look state/IDs/bindings retained with one inactive held candidate only; no new neutral/blink or app admission."
+      ],
+      "overlayQualifications": [
+        "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings."
+      ],
       "primaryManifestSHA256": "4e068a1f27994abe4b455fdde631591cf693a89ea3a48d64bf4c031a34ddeef8",
       "primaryAtlasSHA256": "b2451eb6ca2445634bdbedd514a046d2836e5b8857c4144746adb67db21922ec",
       "primaryClipId": "idle",
@@ -16368,6 +16551,16 @@
               "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd",
               "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+              "sourcePNG": "motion/sd20-white-crowned-sparrow-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-white-crowned-sparrow-look-v1/reused-awake96.png",
+              "outputPNGsha256": "b3a12997fa037651b19057240918d467cf2c413e412c694e239c9c55ce0b2974",
+              "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd",
+              "evidence": "motion/sd20-white-crowned-sparrow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -24142,6 +24335,16 @@
               "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+              "sourcePNG": "motion/sd20-white-crowned-sparrow-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-white-crowned-sparrow-look-v1/reused-awake96.png",
+              "outputPNGsha256": "b3a12997fa037651b19057240918d467cf2c413e412c694e239c9c55ce0b2974",
+              "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd",
+              "evidence": "motion/sd20-white-crowned-sparrow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -30521,6 +30724,208 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-white-crowned-sparrow-look-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-white-crowned-sparrow-look-v1/texture-review-manifest.json",
+      "manifestSHA256": "c6cd4bde5bf947ca33deaccedd38d7d50c6b2e9b09949b9d688b9327837781f8",
+      "atlasPNG": "motion/sd20-white-crowned-sparrow-look-v1/look-atlas96.png",
+      "atlasSHA256": "80adba0cf7257e912934a84aa2560ddbddb967805210abf31b88cf0a701186b1",
+      "atlasDimensions": [
+        192,
+        96
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "white_crowned_sparrow-neutral-96",
+          "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd",
+          "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+              "sourcePNG": "new-species/sd20-bushtit-wren-sparrow-v1/white_crowned_sparrow/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-bushtit-wren-sparrow-v1/white_crowned_sparrow/neutral96.png",
+              "outputPNGsha256": "b3a12997fa037651b19057240918d467cf2c413e412c694e239c9c55ce0b2974",
+              "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd",
+              "evidence": "new-species/sd20-bushtit-wren-sparrow-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+              "sourcePNG": "motion/sd20-white-crowned-sparrow-look-v1/reference-awake-source1024.png",
+              "outputPNG": "motion/sd20-white-crowned-sparrow-look-v1/reused-awake96.png",
+              "outputPNGsha256": "b3a12997fa037651b19057240918d467cf2c413e412c694e239c9c55ce0b2974",
+              "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd",
+              "evidence": "motion/sd20-white-crowned-sparrow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 123.42857142857143,
+            "height": 123.42857142857143
+          },
+          "sourcePixelsPerWorldUnit": 0.7777777777777778,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 55,
+              "y": 73
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 73
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 55,
+              "y": 73,
+              "sampledAlpha": 250,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 58,
+              "y": 73,
+              "sampledAlpha": 242,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "white_crowned_sparrow-look-viewer-study-96",
+          "outputRGBAId": "frame.sha256.dfb9fd91f2e545372f9c37c24b482321b6fded34d2214c904e3a089a20267f57",
+          "sourceFrameId": "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981",
+              "sourcePNG": "motion/sd20-white-crowned-sparrow-look-v1/look-native.png",
+              "outputPNG": "motion/sd20-white-crowned-sparrow-look-v1/look96.png",
+              "outputPNGsha256": "5e25e8f37ad6aafc0716b9a54c45175d0f38fb14052f8bbe051806bc068c5a48",
+              "outputRGBAId": "frame.sha256.dfb9fd91f2e545372f9c37c24b482321b6fded34d2214c904e3a089a20267f57",
+              "evidence": "motion/sd20-white-crowned-sparrow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "look-viewer-unbound-study",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 96,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 123.42857142857143,
+            "height": 123.42857142857143
+          },
+          "sourcePixelsPerWorldUnit": 0.7777777777777778,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [],
+          "alphaContactChecks": []
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "white_crowned_sparrow-neutral-96",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "white_crowned_sparrow-neutral-96",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+              "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1"
+          ]
+        },
+        {
+          "id": "look",
+          "tickRate": 30,
+          "loop": false,
+          "frames": [
+            {
+              "frameId": "white_crowned_sparrow-neutral-96",
+              "durationTicks": 30
+            },
+            {
+              "frameId": "white_crowned_sparrow-look-viewer-study-96",
+              "durationTicks": 12
+            },
+            {
+              "frameId": "white_crowned_sparrow-neutral-96",
+              "durationTicks": 30
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "white_crowned_sparrow-neutral-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+              "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd"
+            },
+            {
+              "frameId": "white_crowned_sparrow-look-viewer-study-96",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981",
+              "outputRGBAId": "frame.sha256.dfb9fd91f2e545372f9c37c24b482321b6fded34d2214c904e3a089a20267f57"
+            },
+            {
+              "frameId": "white_crowned_sparrow-neutral-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+              "outputRGBAId": "frame.sha256.28fe4d1f43bb87f11a3b440ebcda361d7eea2c9496bb3af81836bb9b50ecb2cd"
+            }
+          ],
+          "durationTicks": 72,
+          "durationSeconds": 2.4,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+            "frame.sha256.40f563d2efa9522e4cea0ace50e668ecff90fbfa2f29b4e9b46edbdea7185981"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -31928,7 +32333,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/dove-look-ingest-build-cl8os38w/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/white-crowned-sparrow-look-ingest-build-u05jqz9v/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -32013,12 +32418,12 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-17T23:54:33.493447+00:00",
+  "projectionAsOfUTC": "2026-10-17T23:58:45.302154+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 141,
-    "registeredNativeOriginals": 41,
-    "newNativeCalls": 20,
-    "newDrawings": 39,
+    "registeredPrimaryDrawingIDs": 142,
+    "registeredNativeOriginals": 42,
+    "newNativeCalls": 21,
+    "newDrawings": 40,
     "semanticQuestions": 200,
     "usefulProvisionalIdleSemanticUses": 46,
     "usefulIdleUsesByAction": {
