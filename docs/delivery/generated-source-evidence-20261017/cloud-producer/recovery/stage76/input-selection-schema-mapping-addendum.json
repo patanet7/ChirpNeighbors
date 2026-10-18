@@ -1,0 +1,958 @@
+{
+  "kind": "Additive six-case source selection and missing consumer-context inventory; not a typed report or admission",
+  "createdUTC": "2026-10-18T16:58:31.112854+00:00",
+  "scope": {
+    "cases": 6,
+    "actualArtCases": 4,
+    "validatorOnlyControls": 2,
+    "retainedSourceRows": 11,
+    "uniqueCanonicalSourceLabelIds": 9,
+    "newNativeCalls": 0,
+    "newDrawingIds": 0,
+    "newReviews": 0
+  },
+  "authority": {
+    "commit": "ba87917fc93c547dae07e78c3148542390c2456c",
+    "module": "canonical-export/src/lib/assets/asset-quality-evaluation.ts",
+    "moduleSHA256": "0c6049f0b485b110f676633e3639db1f57636586c094c6c5862204fcfa0105b7",
+    "subjectSchemaLines": [
+      244,
+      260
+    ],
+    "requirementSchemaLines": [
+      262,
+      285
+    ],
+    "publicSpeciesMappingSource": "canonical-export/src/lib/domain/starter-birds.ts",
+    "publicSpeciesMappingSourceSHA256": "878caa6866eb4b0207fabf13508564ad020293aab147a28af28a915804ee3dce",
+    "publicSpeciesMappings": {
+      "bushtit": "cn-species-psaltriparus-minimus",
+      "american_crow": "cn-species-corvus-brachyrhynchos",
+      "mourning_dove": "cn-species-zenaida-macroura",
+      "house_finch": "cn-species-haemorhous-mexicanus"
+    },
+    "qualification": "Public species taxonomy mapping only; no job keys, runtime instance identifiers or current consumer bindings are copied."
+  },
+  "immutableSelection": {
+    "file": "input-selection-lineage-manifest.json",
+    "sha256": "73b3001ef6d8d3d49080eca417106c4b7fd82c2c75a7a6cc0a1097ab1b842734"
+  },
+  "actualCanonicalResult": {
+    "file": "selected-case-retention-result.json",
+    "sha256": "d8f6d4c5b7947c906d9b78973d2e372d49bea2aae6e32ce4cf59ba59c37a1627",
+    "retentionRows": 11,
+    "mapped": 0,
+    "unclassified": 11,
+    "realReportEnvelopes": 0,
+    "currentContextBindingsBlocked": 6,
+    "syntheticSchemaControlsPassed": 7,
+    "qualification": "The nine unique IDs are canonical label IDs, not native drawing IDs. Actual retention and resolver APIs ran once. No full real envelope or authenticated validation pass is claimed."
+  },
+  "supersedesSelectionApplicabilitySuggestionOnly": "All 11 retained rows use unverified applicability. Original source JSON strings, labels, grades, null severity/confidence and immutable selection bytes are unchanged. No explicit resolver mappings were supplied.",
+  "missingFieldCounts": {
+    "distinctMissingAuthenticatedContextPaths": 7,
+    "casePathOccurrences": 42,
+    "blockedCases": 6,
+    "separateUnconstructedReportGroupsPerCase": 2,
+    "unconstructedGroupOccurrences": 12,
+    "qualification": "Seven required consumer-context values per case are unavailable or unverified for binding. Tools and findings are two separate unconstructed groups, not additional claims of missing source evidence. Nullable geometry/recipe/support do not resolve these gaps."
+  },
+  "cases": [
+    {
+      "caseId": "bushtit-v3-held-blink",
+      "kind": "actual-art-source",
+      "sharedRecordIndices": [
+        12
+      ],
+      "recordCount": 1,
+      "sourceSpeciesKey": "bushtit",
+      "publicCatalogSpeciesId": "cn-species-psaltriparus-minimus",
+      "knownSourceFacts": {
+        "exactPNGHashesAndDecodedRasterIdentities": [
+          {
+            "file": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+            "PNGsha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40",
+            "canvas": [
+              64,
+              64
+            ],
+            "decodedRGBABytesSHA256": "8deda91ea3da62678f9c64428ecfdcb9017a40176fb8518c4f89bb0ce2606712",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.349f950a7e14a9deb91c60947bf430afc7e086e431b86e333990353fc781b9a0",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          }
+        ],
+        "producerMetadataEvidence": [
+          {
+            "file": "experiments/bushtit-logical64-eyelid-v3/source-handoff.json",
+            "sha256": "7e082ba30324099cf8edcbaa3f8afd8367ab1efa850107bf759de5e25ccace46",
+            "bytes": 3953
+          },
+          {
+            "file": "experiments/bushtit-logical64-eyelid-v3/PRIMARY-SOURCE-MANIFEST.json",
+            "sha256": "8dee0609d0866b6c7d849c88cb97224804a133bdf0d0e28e2a4872bf96362e69",
+            "bytes": 4176
+          },
+          {
+            "file": "experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json",
+            "sha256": "41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738",
+            "bytes": 3545
+          },
+          {
+            "file": "experiments/bushtit-logical64-eyelid-v3/PREREGISTRATION.json",
+            "sha256": "6424dccf856b2729495bf1b2ea82fbdeb9115d5bbb00c771d935e256b9e96b2c",
+            "bytes": 4546
+          }
+        ]
+      },
+      "retentionApplicability": "unverified",
+      "explicitResolverMappings": [],
+      "actualFullReportStatus": "BLOCKED_NOT_CONSTRUCTED",
+      "missingAuthenticatedContext": [
+        {
+          "path": "/subject/contentDigest",
+          "reason": "No authenticated consumer manifest/content binding supplied. A PNG or source-handoff digest is not substituted."
+        },
+        {
+          "path": "/subject/manifestSha256",
+          "reason": "No authenticated current UI V2–V6 manifest supplied. Producer texture-review and source-handoff documents remain source evidence."
+        },
+        {
+          "path": "/requirement/sha256",
+          "reason": "No independently verified consumer requirement supplied; no ad hoc requirement digest is minted."
+        },
+        {
+          "path": "/requirement/activity",
+          "reason": "Source activity descriptions are available, but the current consumer requirement activity is not supplied."
+        },
+        {
+          "path": "/requirement/motionPhase",
+          "reason": "Source phase or control descriptions do not establish the current consumer requirement phase."
+        },
+        {
+          "path": "/requirement/requestedClip",
+          "reason": "Producer clip names and schedules do not establish the current consumer requested clip."
+        },
+        {
+          "path": "/requirement/facing",
+          "reason": "Image orientation is not substituted for a verified consumer facing requirement."
+        }
+      ],
+      "unconstructedReportGroups": [
+        {
+          "path": "/tools",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "Existing source evidence provenance is retained; no new complete typed tool descriptor is invented."
+        },
+        {
+          "path": "/findings",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "No automatic source grade to typed verdict, severity, confidence or evaluator-rule conversion."
+        }
+      ],
+      "nullableFields": {
+        "subject.geometrySha256": "Unknown; may be null, not a reviewed geometry pass.",
+        "requirement.recipe": "No verified current recipe supplied; nullable does not establish a binding.",
+        "requirement.support": "No verified current support supplied; null does not approve contact."
+      },
+      "qualification": "Existing native closure and 64-pixel derivative remain held for readability; retention does not qualify the blink or create a common family."
+    },
+    {
+      "caseId": "crow-fixed11-attention",
+      "kind": "actual-art-source",
+      "sharedRecordIndices": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "recordCount": 4,
+      "sourceSpeciesKey": "american_crow",
+      "publicCatalogSpeciesId": "cn-species-corvus-brachyrhynchos",
+      "knownSourceFacts": {
+        "exactPNGHashesAndDecodedRasterIdentities": [
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "PNGsha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+            "canvas": [
+              156,
+              112
+            ],
+            "decodedRGBABytesSHA256": "4a8e00ce6d430ebbb9a307368c4e6a3c8a0836ce07d71f28b9eae39034271a77",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.76b03de9dab9fe8204eb9fcf01bda95697fb78044631334273f6e2e393c22318",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "PNGsha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+            "canvas": [
+              156,
+              112
+            ],
+            "decodedRGBABytesSHA256": "4a8e00ce6d430ebbb9a307368c4e6a3c8a0836ce07d71f28b9eae39034271a77",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.76b03de9dab9fe8204eb9fcf01bda95697fb78044631334273f6e2e393c22318",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "PNGsha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+            "canvas": [
+              156,
+              112
+            ],
+            "decodedRGBABytesSHA256": "4a8e00ce6d430ebbb9a307368c4e6a3c8a0836ce07d71f28b9eae39034271a77",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.76b03de9dab9fe8204eb9fcf01bda95697fb78044631334273f6e2e393c22318",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "PNGsha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+            "canvas": [
+              156,
+              112
+            ],
+            "decodedRGBABytesSHA256": "4a8e00ce6d430ebbb9a307368c4e6a3c8a0836ce07d71f28b9eae39034271a77",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.76b03de9dab9fe8204eb9fcf01bda95697fb78044631334273f6e2e393c22318",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          }
+        ],
+        "producerMetadataEvidence": [
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+            "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2",
+            "bytes": 8404
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "sha256": "7027b89f7593d72be44a699a2e7e597b5df40c35d101e9f6e5ce6e404917fdac",
+            "bytes": 5720
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+            "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee",
+            "bytes": 4522
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/PREREGISTRATION.json",
+            "sha256": "733bce9ce53805463923b38b4173e3196fc605e83e66a622f4d3ebada086b4ce",
+            "bytes": 8024
+          }
+        ]
+      },
+      "retentionApplicability": "unverified",
+      "explicitResolverMappings": [],
+      "actualFullReportStatus": "BLOCKED_NOT_CONSTRUCTED",
+      "missingAuthenticatedContext": [
+        {
+          "path": "/subject/contentDigest",
+          "reason": "No authenticated consumer manifest/content binding supplied. A PNG or source-handoff digest is not substituted."
+        },
+        {
+          "path": "/subject/manifestSha256",
+          "reason": "No authenticated current UI V2–V6 manifest supplied. Producer texture-review and source-handoff documents remain source evidence."
+        },
+        {
+          "path": "/requirement/sha256",
+          "reason": "No independently verified consumer requirement supplied; no ad hoc requirement digest is minted."
+        },
+        {
+          "path": "/requirement/activity",
+          "reason": "Source activity descriptions are available, but the current consumer requirement activity is not supplied."
+        },
+        {
+          "path": "/requirement/motionPhase",
+          "reason": "Source phase or control descriptions do not establish the current consumer requirement phase."
+        },
+        {
+          "path": "/requirement/requestedClip",
+          "reason": "Producer clip names and schedules do not establish the current consumer requested clip."
+        },
+        {
+          "path": "/requirement/facing",
+          "reason": "Image orientation is not substituted for a verified consumer facing requirement."
+        }
+      ],
+      "unconstructedReportGroups": [
+        {
+          "path": "/tools",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "Existing source evidence provenance is retained; no new complete typed tool descriptor is invented."
+        },
+        {
+          "path": "/findings",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "No automatic source grade to typed verdict, severity, confidence or evaluator-rule conversion."
+        }
+      ],
+      "nullableFields": {
+        "subject.geometrySha256": "Unknown; may be null, not a reviewed geometry pass.",
+        "requirement.recipe": "No verified current recipe supplied; nullable does not establish a binding.",
+        "requirement.support": "No verified current support supplied; null does not approve contact."
+      },
+      "qualification": "Existing source-family usefulness and pixel compatibility remain separate from unverified runtime adoption and physical support."
+    },
+    {
+      "caseId": "bath-held-scale-and-unreviewed-geometry",
+      "kind": "actual-art-source",
+      "sharedRecordIndices": [
+        7,
+        8,
+        9
+      ],
+      "recordCount": 3,
+      "sourceSpeciesKey": "mourning_dove",
+      "publicCatalogSpeciesId": "cn-species-zenaida-macroura",
+      "knownSourceFacts": {
+        "exactPNGHashesAndDecodedRasterIdentities": [
+          {
+            "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+            "PNGsha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+            "canvas": [
+              192,
+              192
+            ],
+            "decodedRGBABytesSHA256": "b479fb4960be637040c7f830eade9a9374e8a0b473dcdae3ec3cd36a87e4d62c",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.e3ea2df45fae5bbb4a850a3ac73d50ab3afa136cab64b0516743ddbd0af0930a",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          },
+          {
+            "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+            "PNGsha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+            "canvas": [
+              192,
+              192
+            ],
+            "decodedRGBABytesSHA256": "b479fb4960be637040c7f830eade9a9374e8a0b473dcdae3ec3cd36a87e4d62c",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.e3ea2df45fae5bbb4a850a3ac73d50ab3afa136cab64b0516743ddbd0af0930a",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          },
+          {
+            "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+            "PNGsha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+            "canvas": [
+              192,
+              192
+            ],
+            "decodedRGBABytesSHA256": "b479fb4960be637040c7f830eade9a9374e8a0b473dcdae3ec3cd36a87e4d62c",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.e3ea2df45fae5bbb4a850a3ac73d50ab3afa136cab64b0516743ddbd0af0930a",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          }
+        ],
+        "producerMetadataEvidence": [
+          {
+            "file": "experiments/bath-source-proposal-v1/source-handoff.json",
+            "sha256": "0d1f0a335aaaa85270b89dace190bba04288d376041d130d7404152890dded8f",
+            "bytes": 8228
+          },
+          {
+            "file": "experiments/bath-source-proposal-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "sha256": "721b9a19c3c1200be662ec734db02cbde68c162b5ee3a7b40ac16b86ea59c168",
+            "bytes": 6691
+          },
+          {
+            "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+            "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af",
+            "bytes": 6932
+          },
+          {
+            "file": "experiments/bath-source-proposal-v1/PREREGISTRATION.json",
+            "sha256": "3e47160a6fafb151e4e2b21de760d77366b9ba957d526562c26102fb0884c1b7",
+            "bytes": 4490
+          }
+        ]
+      },
+      "retentionApplicability": "unverified",
+      "explicitResolverMappings": [],
+      "actualFullReportStatus": "BLOCKED_NOT_CONSTRUCTED",
+      "missingAuthenticatedContext": [
+        {
+          "path": "/subject/contentDigest",
+          "reason": "No authenticated consumer manifest/content binding supplied. A PNG or source-handoff digest is not substituted."
+        },
+        {
+          "path": "/subject/manifestSha256",
+          "reason": "No authenticated current UI V2–V6 manifest supplied. Producer texture-review and source-handoff documents remain source evidence."
+        },
+        {
+          "path": "/requirement/sha256",
+          "reason": "No independently verified consumer requirement supplied; no ad hoc requirement digest is minted."
+        },
+        {
+          "path": "/requirement/activity",
+          "reason": "Source activity descriptions are available, but the current consumer requirement activity is not supplied."
+        },
+        {
+          "path": "/requirement/motionPhase",
+          "reason": "Source phase or control descriptions do not establish the current consumer requirement phase."
+        },
+        {
+          "path": "/requirement/requestedClip",
+          "reason": "Producer clip names and schedules do not establish the current consumer requested clip."
+        },
+        {
+          "path": "/requirement/facing",
+          "reason": "Image orientation is not substituted for a verified consumer facing requirement."
+        }
+      ],
+      "unconstructedReportGroups": [
+        {
+          "path": "/tools",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "Existing source evidence provenance is retained; no new complete typed tool descriptor is invented."
+        },
+        {
+          "path": "/findings",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "No automatic source grade to typed verdict, severity, confidence or evaluator-rule conversion."
+        }
+      ],
+      "nullableFields": {
+        "subject.geometrySha256": "Unknown; may be null, not a reviewed geometry pass.",
+        "requirement.recipe": "No verified current recipe supplied; nullable does not establish a binding.",
+        "requirement.support": "No verified current support supplied; null does not approve contact."
+      },
+      "qualification": "Existing scale repair and unreviewed water/contact findings remain held or blocked; no bath geometry or activity admission is inferred."
+    },
+    {
+      "caseId": "finch-female-empty-anchor-annotations",
+      "kind": "actual-art-source",
+      "sharedRecordIndices": [
+        10
+      ],
+      "recordCount": 1,
+      "sourceSpeciesKey": "house_finch",
+      "publicCatalogSpeciesId": "cn-species-haemorhous-mexicanus",
+      "knownSourceFacts": {
+        "exactPNGHashesAndDecodedRasterIdentities": [
+          {
+            "file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+            "PNGsha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472",
+            "canvas": [
+              1024,
+              1024
+            ],
+            "decodedRGBABytesSHA256": "5ee4a945ac006c012c6bac23303337d522136a91d8c73f2151d567235a0cb110",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          }
+        ],
+        "producerMetadataEvidence": [
+          {
+            "file": "batches/house-finch-female-feed-v1/manifest.json",
+            "sha256": "fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3",
+            "bytes": 7553
+          }
+        ]
+      },
+      "retentionApplicability": "unverified",
+      "explicitResolverMappings": [],
+      "actualFullReportStatus": "BLOCKED_NOT_CONSTRUCTED",
+      "missingAuthenticatedContext": [
+        {
+          "path": "/subject/contentDigest",
+          "reason": "No authenticated consumer manifest/content binding supplied. A PNG or source-handoff digest is not substituted."
+        },
+        {
+          "path": "/subject/manifestSha256",
+          "reason": "No authenticated current UI V2–V6 manifest supplied. Producer texture-review and source-handoff documents remain source evidence."
+        },
+        {
+          "path": "/requirement/sha256",
+          "reason": "No independently verified consumer requirement supplied; no ad hoc requirement digest is minted."
+        },
+        {
+          "path": "/requirement/activity",
+          "reason": "Source activity descriptions are available, but the current consumer requirement activity is not supplied."
+        },
+        {
+          "path": "/requirement/motionPhase",
+          "reason": "Source phase or control descriptions do not establish the current consumer requirement phase."
+        },
+        {
+          "path": "/requirement/requestedClip",
+          "reason": "Producer clip names and schedules do not establish the current consumer requested clip."
+        },
+        {
+          "path": "/requirement/facing",
+          "reason": "Image orientation is not substituted for a verified consumer facing requirement."
+        }
+      ],
+      "unconstructedReportGroups": [
+        {
+          "path": "/tools",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "Existing source evidence provenance is retained; no new complete typed tool descriptor is invented."
+        },
+        {
+          "path": "/findings",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "No automatic source grade to typed verdict, severity, confidence or evaluator-rule conversion."
+        }
+      ],
+      "nullableFields": {
+        "subject.geometrySha256": "Unknown; may be null, not a reviewed geometry pass.",
+        "requirement.recipe": "No verified current recipe supplied; nullable does not establish a binding.",
+        "requirement.support": "No verified current support supplied; null does not approve contact."
+      },
+      "qualification": "Existing 1024-source anchor diagnostics remain image evidence. Review-display coordinates, current world scale and physical feeding support are not inferred."
+    },
+    {
+      "caseId": "control-declared-image-translation",
+      "kind": "validator-only-synthetic-control",
+      "sharedRecordIndices": [
+        2
+      ],
+      "recordCount": 1,
+      "sourceSpeciesKey": "american_crow",
+      "publicCatalogSpeciesId": "cn-species-corvus-brachyrhynchos",
+      "knownSourceFacts": {
+        "exactPNGHashesAndDecodedRasterIdentities": [
+          {
+            "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+            "PNGsha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200",
+            "canvas": [
+              186,
+              186
+            ],
+            "decodedRGBABytesSHA256": "7072278eb635afb4781865b62c3a4d9d58e71e60250111dcf987a90eaaa51af5",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.48617d68730631197820126d5acb7de8de9cebd5126f04c34a3c568dea05bafa",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          }
+        ],
+        "producerMetadataEvidence": [
+          {
+            "file": "recovery/stage71/golden-config.json",
+            "sha256": "e1ccb70063a2a658c0d786c830ee124a92378160c4897766f9c711b3552c2371",
+            "bytes": 14035
+          },
+          {
+            "file": "recovery/stage71/validation-only-fixtures/DERIVATION.json",
+            "sha256": "e8e74108cf88ca910a73f5ecc9698036adff859424db9975b2216b0888976e1e",
+            "bytes": 649
+          },
+          {
+            "file": "recovery/stage71/golden-preregistration.json",
+            "sha256": "fa5be230d0af1b2a0f5267a7480174535fb597b5beb49f69aed031e32a231cbc",
+            "bytes": 1037
+          }
+        ]
+      },
+      "retentionApplicability": "unverified",
+      "explicitResolverMappings": [],
+      "actualFullReportStatus": "BLOCKED_NOT_CONSTRUCTED",
+      "missingAuthenticatedContext": [
+        {
+          "path": "/subject/contentDigest",
+          "reason": "No authenticated consumer manifest/content binding supplied. A PNG or source-handoff digest is not substituted."
+        },
+        {
+          "path": "/subject/manifestSha256",
+          "reason": "No authenticated current UI V2–V6 manifest supplied. Producer texture-review and source-handoff documents remain source evidence."
+        },
+        {
+          "path": "/requirement/sha256",
+          "reason": "No independently verified consumer requirement supplied; no ad hoc requirement digest is minted."
+        },
+        {
+          "path": "/requirement/activity",
+          "reason": "Source activity descriptions are available, but the current consumer requirement activity is not supplied."
+        },
+        {
+          "path": "/requirement/motionPhase",
+          "reason": "Source phase or control descriptions do not establish the current consumer requirement phase."
+        },
+        {
+          "path": "/requirement/requestedClip",
+          "reason": "Producer clip names and schedules do not establish the current consumer requested clip."
+        },
+        {
+          "path": "/requirement/facing",
+          "reason": "Image orientation is not substituted for a verified consumer facing requirement."
+        }
+      ],
+      "unconstructedReportGroups": [
+        {
+          "path": "/tools",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "Existing source evidence provenance is retained; no new complete typed tool descriptor is invented."
+        },
+        {
+          "path": "/findings",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "No automatic source grade to typed verdict, severity, confidence or evaluator-rule conversion."
+        }
+      ],
+      "nullableFields": {
+        "subject.geometrySha256": "Unknown; may be null, not a reviewed geometry pass.",
+        "requirement.recipe": "No verified current recipe supplied; nullable does not establish a binding.",
+        "requirement.support": "No verified current support supplied; null does not approve contact."
+      },
+      "qualification": "Validator-only declared image translation; not a new bird candidate or an art acceptance result."
+    },
+    {
+      "caseId": "control-declared-world-root-travel",
+      "kind": "validator-only-synthetic-control",
+      "sharedRecordIndices": [
+        3
+      ],
+      "recordCount": 1,
+      "sourceSpeciesKey": "american_crow",
+      "publicCatalogSpeciesId": "cn-species-corvus-brachyrhynchos",
+      "knownSourceFacts": {
+        "exactPNGHashesAndDecodedRasterIdentities": [
+          {
+            "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+            "PNGsha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+            "canvas": [
+              186,
+              186
+            ],
+            "decodedRGBABytesSHA256": "33ee00ea97122616992cfa27896eb602fbb0bfd286368dc62d0456d32f2f7fab",
+            "RGBA8HeaderFrameIdentity": "frame.sha256.1813d867bc7c8673f9c2c5b084ff0783e498fef385d6a890d836a024344d21da",
+            "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+          }
+        ],
+        "producerMetadataEvidence": [
+          {
+            "file": "recovery/stage71/golden-config.json",
+            "sha256": "e1ccb70063a2a658c0d786c830ee124a92378160c4897766f9c711b3552c2371",
+            "bytes": 14035
+          },
+          {
+            "file": "recovery/stage71/validation-only-fixtures/DERIVATION.json",
+            "sha256": "e8e74108cf88ca910a73f5ecc9698036adff859424db9975b2216b0888976e1e",
+            "bytes": 649
+          },
+          {
+            "file": "recovery/stage71/golden-preregistration.json",
+            "sha256": "fa5be230d0af1b2a0f5267a7480174535fb597b5beb49f69aed031e32a231cbc",
+            "bytes": 1037
+          }
+        ]
+      },
+      "retentionApplicability": "unverified",
+      "explicitResolverMappings": [],
+      "actualFullReportStatus": "BLOCKED_NOT_CONSTRUCTED",
+      "missingAuthenticatedContext": [
+        {
+          "path": "/subject/contentDigest",
+          "reason": "No authenticated consumer manifest/content binding supplied. A PNG or source-handoff digest is not substituted."
+        },
+        {
+          "path": "/subject/manifestSha256",
+          "reason": "No authenticated current UI V2–V6 manifest supplied. Producer texture-review and source-handoff documents remain source evidence."
+        },
+        {
+          "path": "/requirement/sha256",
+          "reason": "No independently verified consumer requirement supplied; no ad hoc requirement digest is minted."
+        },
+        {
+          "path": "/requirement/activity",
+          "reason": "Source activity descriptions are available, but the current consumer requirement activity is not supplied."
+        },
+        {
+          "path": "/requirement/motionPhase",
+          "reason": "Source phase or control descriptions do not establish the current consumer requirement phase."
+        },
+        {
+          "path": "/requirement/requestedClip",
+          "reason": "Producer clip names and schedules do not establish the current consumer requested clip."
+        },
+        {
+          "path": "/requirement/facing",
+          "reason": "Image orientation is not substituted for a verified consumer facing requirement."
+        }
+      ],
+      "unconstructedReportGroups": [
+        {
+          "path": "/tools",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "Existing source evidence provenance is retained; no new complete typed tool descriptor is invented."
+        },
+        {
+          "path": "/findings",
+          "status": "NOT_CONSTRUCTED",
+          "reason": "No automatic source grade to typed verdict, severity, confidence or evaluator-rule conversion."
+        }
+      ],
+      "nullableFields": {
+        "subject.geometrySha256": "Unknown; may be null, not a reviewed geometry pass.",
+        "requirement.recipe": "No verified current recipe supplied; nullable does not establish a binding.",
+        "requirement.support": "No verified current support supplied; null does not approve contact."
+      },
+      "qualification": "Validator-only authored root travel; not physical contact approval or runtime adoption."
+    }
+  ],
+  "publicEvidenceClosure": {
+    "selectedSourceEvidenceFiles": 31,
+    "exactPublicSourceAliasesResolved": 31,
+    "files": [
+      {
+        "originalEvidencePath": "recovery/stage74/shared-label-records.json",
+        "sha256": "2166039e70ffa922dc13448d362bf01313ed235a96649574fb377cc0d7f2edf7",
+        "publicSourceAliasesVerified": [
+          "recovery/stage74/shared-label-records.json",
+          "reports/qualification-continuation-20261018/shared-label-records.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+        "sha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40",
+        "publicSourceAliasesVerified": [
+          "experiments/bushtit-logical64-eyelid-v3/frames/closed.png"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json",
+        "sha256": "41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738",
+        "publicSourceAliasesVerified": [
+          "experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bushtit-logical64-eyelid-v3/reviews/appearance/independent-review.json",
+        "sha256": "74eabdf0bfab41f7b0f9fece43d9ccd550baccab1e841fcb11c8379a56eb29a9",
+        "publicSourceAliasesVerified": [
+          "experiments/bushtit-logical64-eyelid-v3/reviews/appearance/independent-review.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bushtit-logical64-eyelid-v3/reviews/geometry/independent-review.json",
+        "sha256": "ffe9e87496473d8a3659103f0917cb8f95c5e701e4f269aab46d9c0811b02a80",
+        "publicSourceAliasesVerified": [
+          "experiments/bushtit-logical64-eyelid-v3/reviews/geometry/independent-review.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bushtit-logical64-eyelid-v3/source-handoff.json",
+        "sha256": "7e082ba30324099cf8edcbaa3f8afd8367ab1efa850107bf759de5e25ccace46",
+        "publicSourceAliasesVerified": [
+          "experiments/bushtit-logical64-eyelid-v3/source-handoff.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bushtit-logical64-eyelid-v3/PRIMARY-SOURCE-MANIFEST.json",
+        "sha256": "8dee0609d0866b6c7d849c88cb97224804a133bdf0d0e28e2a4872bf96362e69",
+        "publicSourceAliasesVerified": [
+          "experiments/bushtit-logical64-eyelid-v3/PRIMARY-SOURCE-MANIFEST.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bushtit-logical64-eyelid-v3/PREREGISTRATION.json",
+        "sha256": "6424dccf856b2729495bf1b2ea82fbdeb9115d5bbb00c771d935e256b9e96b2c",
+        "publicSourceAliasesVerified": [
+          "experiments/bushtit-logical64-eyelid-v3/PREREGISTRATION.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+        "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+        "publicSourceAliasesVerified": [
+          "experiments/crow-attention-selected-ground-palette-v1/frames/look.png"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+        "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee",
+        "publicSourceAliasesVerified": [
+          "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/crow-attention-selected-ground-palette-v1/contract-intake/pixel-receipt.json",
+        "sha256": "ece99780eb9fa0edc65851064d52b2957942133c0da6a9b8153b838cf03a7d52",
+        "publicSourceAliasesVerified": [
+          "experiments/crow-attention-selected-ground-palette-v1/contract-intake/pixel-receipt.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/crow-attention-selected-ground-palette-v1/CHECK-RESULTS.json",
+        "sha256": "888f23160fbd5c8e945c76e4cac9e9a1ba5b576da7a48c59aa18034b64be7403",
+        "publicSourceAliasesVerified": [
+          "experiments/crow-attention-selected-ground-palette-v1/CHECK-RESULTS.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/crow-attention-selected-ground-palette-v1/reviews/appearance/independent-review.json",
+        "sha256": "89640877b54447cdda35ed7cf07094a974d6e9bfc65c01b389b02b9573d2f47a",
+        "publicSourceAliasesVerified": [
+          "experiments/crow-attention-selected-ground-palette-v1/reviews/appearance/independent-review.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/crow-attention-selected-ground-palette-v1/reviews/geometry/independent-review.json",
+        "sha256": "dbc682290ce2ad902441ffc06e68810423413a429a3041d54f0bee8bad0a0aed",
+        "publicSourceAliasesVerified": [
+          "experiments/crow-attention-selected-ground-palette-v1/reviews/geometry/independent-review.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+        "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2",
+        "publicSourceAliasesVerified": [
+          "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/crow-attention-selected-ground-palette-v1/PRIMARY-SOURCE-MANIFEST.json",
+        "sha256": "7027b89f7593d72be44a699a2e7e597b5df40c35d101e9f6e5ce6e404917fdac",
+        "publicSourceAliasesVerified": [
+          "experiments/crow-attention-selected-ground-palette-v1/PRIMARY-SOURCE-MANIFEST.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/crow-attention-selected-ground-palette-v1/PREREGISTRATION.json",
+        "sha256": "733bce9ce53805463923b38b4173e3196fc605e83e66a622f4d3ebada086b4ce",
+        "publicSourceAliasesVerified": [
+          "experiments/crow-attention-selected-ground-palette-v1/PREREGISTRATION.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+        "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+        "publicSourceAliasesVerified": [
+          "experiments/bath-source-proposal-v1/raw192/lowered-ready.png"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "recovery/stage71/golden-results/inspection.json",
+        "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+        "publicSourceAliasesVerified": [
+          "recovery/stage71/golden-results/inspection.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+        "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af",
+        "publicSourceAliasesVerified": [
+          "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bath-source-proposal-v1/source-handoff.json",
+        "sha256": "0d1f0a335aaaa85270b89dace190bba04288d376041d130d7404152890dded8f",
+        "publicSourceAliasesVerified": [
+          "experiments/bath-source-proposal-v1/source-handoff.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bath-source-proposal-v1/PRIMARY-SOURCE-MANIFEST.json",
+        "sha256": "721b9a19c3c1200be662ec734db02cbde68c162b5ee3a7b40ac16b86ea59c168",
+        "publicSourceAliasesVerified": [
+          "experiments/bath-source-proposal-v1/PRIMARY-SOURCE-MANIFEST.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "experiments/bath-source-proposal-v1/PREREGISTRATION.json",
+        "sha256": "3e47160a6fafb151e4e2b21de760d77366b9ba957d526562c26102fb0884c1b7",
+        "publicSourceAliasesVerified": [
+          "experiments/bath-source-proposal-v1/PREREGISTRATION.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+        "sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472",
+        "publicSourceAliasesVerified": [
+          "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "batches/house-finch-female-feed-v1/manifest.json",
+        "sha256": "fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3",
+        "publicSourceAliasesVerified": [
+          "batches/house-finch-female-feed-v1/manifest.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "batches/house-finch-female-feed-v1/reviews/geometry/independent-review.json",
+        "sha256": "b3ee8b507432cbdb38a040ccafb92d099c7ac0c2b218a38e5933622d3feb0577",
+        "publicSourceAliasesVerified": [
+          "batches/house-finch-female-feed-v1/reviews/geometry/independent-review.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+        "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200",
+        "publicSourceAliasesVerified": [
+          "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "recovery/stage71/golden-config.json",
+        "sha256": "e1ccb70063a2a658c0d786c830ee124a92378160c4897766f9c711b3552c2371",
+        "publicSourceAliasesVerified": [
+          "recovery/stage71/golden-config.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "recovery/stage71/validation-only-fixtures/DERIVATION.json",
+        "sha256": "e8e74108cf88ca910a73f5ecc9698036adff859424db9975b2216b0888976e1e",
+        "publicSourceAliasesVerified": [
+          "recovery/stage71/validation-only-fixtures/DERIVATION.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "recovery/stage71/golden-preregistration.json",
+        "sha256": "fa5be230d0af1b2a0f5267a7480174535fb597b5beb49f69aed031e32a231cbc",
+        "publicSourceAliasesVerified": [
+          "recovery/stage71/golden-preregistration.json"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      },
+      {
+        "originalEvidencePath": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+        "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+        "publicSourceAliasesVerified": [
+          "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+          "experiments/crow-attention-selected-ground-palette-v1/provenance/unchanged-safe-ground12.png",
+          "release/crow-runtime-candidate-v1/crow-ground-idle186-total12.png"
+        ],
+        "status": "EXACT_BYTES_ALREADY_IN_PUBLIC_SOURCE_TREE"
+      }
+    ]
+  },
+  "publicationNomination": {
+    "newCompanionOnly": "input-selection-schema-mapping-addendum.json",
+    "keepExistingSelectedFiles": [
+      "input-selection-lineage-manifest.json",
+      "selected-case-retention-config.json",
+      "selected-case-retention-result.json",
+      "canonical-api-facts.json",
+      "CANONICAL-HARNESS.md",
+      "canonical-export-provenance.json",
+      "canonical-harness-STABLE-GO.json",
+      "canonical-harness-files.sha256.json"
+    ],
+    "note": "Root already selected the portable harness closure and source evidence. This companion adds no catalog, pseudo manifest or new validation implementation. No private Library references are included."
+  },
+  "outcome": "SOURCE_LABEL_RETENTION_PASS_FULL_REAL_REPORTS_BLOCKED",
+  "runtimeAdmission": "NOT_TESTED_NOT_GRANTED"
+}
