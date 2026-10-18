@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "5875f7e8693cb313e1006bc84bb4a338da734cd190a8642c72b5d0a7bdc6a0b0",
+    "creator": "Chirp bounded native Crow look exporter",
+    "tool": "native image_gen; direct nearest wholecanvas output",
+    "toolVersion": "native model not exposed; Pillow12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "crow-supported-neutral-192",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 111,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-a-review",
+          "x": 99,
+          "y": 146
+        },
+        {
+          "id": "foot-b-review",
+          "x": 124,
+          "y": 144
+        }
+      ],
+      "world": {
+        "width": 185.88535031847132,
+        "height": 185.88535031847132
+      },
+      "sourcePixelsPerWorldUnit": 1.0328947368421053
+    },
+    {
+      "id": "crow-look-viewer-192",
+      "sourceRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 111,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-a-review",
+          "x": 99,
+          "y": 146
+        },
+        {
+          "id": "foot-b-review",
+          "x": 124,
+          "y": 144
+        }
+      ],
+      "world": {
+        "width": 185.88535031847132,
+        "height": 185.88535031847132
+      },
+      "sourcePixelsPerWorldUnit": 1.0328947368421053
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "crow-look-viewer-192",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ]
+}

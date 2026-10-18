@@ -1,0 +1,657 @@
+{
+  "reviewType": "independent-appearance-review",
+  "speciesId": "american_crow",
+  "reviewer": "slot_inventory",
+  "sealedAtUTC": "2026-10-18T03:14:36.816254+00:00",
+  "batchPreregistration": {
+    "path": "../../PREREGISTRATION.json",
+    "SHA256": "ca56539935da9a14804f2f38c4be54512caf174a0e9800206318a8f18868a7b2",
+    "criteriaChanged": false,
+    "lookDefinition": "Recognizable head/bill attention change at normal scale, with coherent identity and stationary stance. Downward attention can qualify without required object contact. Gait/bob/translation or closed eyes alone do not qualify."
+  },
+  "independence": {
+    "otherNewIndependentRoleReadBeforeVerdict": false,
+    "appearanceVerdictReportedToCoordinatorBeforeThisWrite": true
+  },
+  "frozen": {
+    "stableGO": "STABLE-GO.json",
+    "stableGOSHA256": "a43bedf84222fda0a9ba8ed19a4de0804a0525e639d0396a6632ba1af1c78a50",
+    "ledgerSHA256": "56374e51a402bc4a215017534707fd57a04e9d56533e426562753dd235f2250c",
+    "frozenTargets": 41,
+    "verifiedBeforeReviewWrite": 41,
+    "verifiedAfterReviewWrite": 41,
+    "failures": []
+  },
+  "appearanceDecision": {
+    "summary": "No useful stationary look clip is recommended from this existing pair: raw and codec remain HELD. The head pose exists; source continuity is the blocker, rather than absence of any look drawing.",
+    "variants": [
+      {
+        "id": "native-look",
+        "rawArtVerdict": "HELD",
+        "codecArtVerdict": "HELD",
+        "sourceArtUseful": false,
+        "usableClipYield": 0,
+        "reason": "The toward-viewer head turn is recognizable, but body/chest/tail proportions change and the feet drop/rearrange at normal scale. The resulting stance jump remains conspicuous in both raw and codec; this is a visible source mismatch, not rejection for nonidentical RGBA."
+      }
+    ],
+    "semanticLookGainRecommended": 0,
+    "normalSizeEvidence": "Actual186CSS full world stage at density1, source and shared-crop codec on light/dark. The crop is placed at the same full-stage origin with no per-pose fit. Own live60neutral/18pose/12return@30Hz reaches60\u201377pose, exact78neutral return and terminal89 held through3000ms without page errors. The true head redraw is not bob/translation, but stationary stance coherence fails.",
+    "technicalSeparation": "The frozen unchanged canonical pixel normalizer separately FAILS rectangle budget for this pair; actual canonical JSON342148bytes PASS. Appearance is held independently of that technical failure.",
+    "recommendation": "Retain the source pair as a held head/stance study; no new useful look use or current app binding. Runtime NOT_SUBMITTED/NOT_TESTED. No retry/generation or full physical support approval follows."
+  },
+  "cohorts": [
+    {
+      "path": ".",
+      "sourceHandoff": "source-handoff.json",
+      "sourceHandoffSHA256": "c7f4df74ca5194d31451f1b88c66867372af1559106446a240a188813ed711fb",
+      "sourceAndRenderContract": {
+        "kind": "source-only existing-frame eligibility; not runtime manifest",
+        "speciesId": "american_crow",
+        "cohortId": "american_crow",
+        "fullWorldCanvas": [
+          185.88535031847132,
+          185.88535031847132
+        ],
+        "displayStage": [
+          186,
+          186
+        ],
+        "candidateCanvas": [
+          156,
+          115
+        ],
+        "density": 1,
+        "oldPivotWorld": [
+          107.46496815286623,
+          145.22292993630572
+        ],
+        "roundedFullPivot": [
+          107,
+          145
+        ],
+        "commonCropOrigin": [
+          6,
+          36
+        ],
+        "candidatePivot": [
+          101,
+          109
+        ],
+        "visibleScaleChanged": false,
+        "ceilMarginPadded": true,
+        "perPoseFitPaintSnap": false,
+        "sourceFrames": [
+          {
+            "role": "neutral",
+            "registeredSourceID": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+            "sourcePNG": {
+              "file": "sources/64a3199e6509cccf-neutral-source1024.png",
+              "bytes": 394786,
+              "sha256": "64a3199e6509cccf3e578c46e796246b5fca35b25e94d5d54bf88fab31c3bcec"
+            },
+            "nativeCanvas": [
+              1024,
+              1024
+            ],
+            "rawPNG": "raw-full/neutral.png",
+            "sourceSpecies": "american_crow"
+          },
+          {
+            "role": "native-look",
+            "registeredSourceID": "frame.sha256.ec0e930620762fbf771ec527838f66b7dde1d1d2607b30fdea409ca0e41ffe09",
+            "sourcePNG": {
+              "file": "sources/012e54409a97d353-look-native.png",
+              "bytes": 594711,
+              "sha256": "012e54409a97d353beca186bf4b58f3906ec06e6590a2bc5e4fa11ee16b10cbc"
+            },
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "rawPNG": "raw-full/native-look.png",
+            "sourceSpecies": "american_crow"
+          }
+        ],
+        "renderFrames": [
+          {
+            "role": "neutral",
+            "png": "codec-cropped/neutral.png",
+            "PNGsha256": "1e895e17cec76558f4085f228c7e79b43b65cc170ef33d62899e91a6e9fd45ed",
+            "decodedRGBAId": "frame.sha256.f0c7beb5830e99bd4cd6ce2520e0baff7acc178ff126e365d55c26f8a98811d8"
+          },
+          {
+            "role": "native-look",
+            "png": "codec-cropped/native-look.png",
+            "PNGsha256": "8b928902f644a92311443d19a63507e34a0bab7346e681c8a572c23b22d5f235",
+            "decodedRGBAId": "frame.sha256.2498139b5c8df16727d6eb44211a5562259d8fa103fb4a5c2036473b7a43b820"
+          }
+        ],
+        "clips": [
+          {
+            "id": "native-look",
+            "phaseLabels": [
+              "neutral",
+              "native-look",
+              "neutral"
+            ],
+            "tickRate": 30,
+            "durationTicks": [
+              60,
+              18,
+              12
+            ],
+            "loop": false,
+            "semanticProposal": "Existing toward-viewer head turn; historically held stance study"
+          }
+        ],
+        "contacts": [],
+        "geometryReviewed": false,
+        "supportWorld": null,
+        "supportInterpretation": "Unapproved source annotation; not a runtime airborne assertion.",
+        "runtimeAdmission": false,
+        "liveVisualAcceptance": false,
+        "newNativeCalls": 0,
+        "newDrawings": 0
+      },
+      "ownLiveAppearanceEvidence": {
+        "cohort": "/workspace/asset-production/experiments/common-slot-zero-call-batch-v1/species/american_crow",
+        "pageErrors": [],
+        "clips": {
+          "native-look": [
+            {
+              "tick": 0,
+              "running": true,
+              "elapsedMs": 0,
+              "role": "neutral",
+              "option": "native-look",
+              "loop": false,
+              "tickRate": 30,
+              "durationTicks": [
+                60,
+                18,
+                12
+              ],
+              "terminalTick": 89,
+              "displayStage": [
+                186,
+                186
+              ],
+              "fullWorldCanvas": [
+                185.88535031847132,
+                185.88535031847132
+              ],
+              "fullPivot": [
+                107,
+                145
+              ],
+              "candidateCanvas": [
+                156,
+                115
+              ],
+              "candidatePivot": [
+                101,
+                109
+              ],
+              "commonCropOrigin": [
+                6,
+                36
+              ],
+              "runtimeAdmission": false
+            },
+            {
+              "tick": 60,
+              "running": true,
+              "elapsedMs": 2005.9999999999536,
+              "role": "native-look",
+              "option": "native-look",
+              "loop": false,
+              "tickRate": 30,
+              "durationTicks": [
+                60,
+                18,
+                12
+              ],
+              "terminalTick": 89,
+              "displayStage": [
+                186,
+                186
+              ],
+              "fullWorldCanvas": [
+                185.88535031847132,
+                185.88535031847132
+              ],
+              "fullPivot": [
+                107,
+                145
+              ],
+              "candidateCanvas": [
+                156,
+                115
+              ],
+              "candidatePivot": [
+                101,
+                109
+              ],
+              "commonCropOrigin": [
+                6,
+                36
+              ],
+              "runtimeAdmission": false
+            },
+            {
+              "tick": 77,
+              "running": true,
+              "elapsedMs": 2572.6999999999534,
+              "role": "native-look",
+              "option": "native-look",
+              "loop": false,
+              "tickRate": 30,
+              "durationTicks": [
+                60,
+                18,
+                12
+              ],
+              "terminalTick": 89,
+              "displayStage": [
+                186,
+                186
+              ],
+              "fullWorldCanvas": [
+                185.88535031847132,
+                185.88535031847132
+              ],
+              "fullPivot": [
+                107,
+                145
+              ],
+              "candidateCanvas": [
+                156,
+                115
+              ],
+              "candidatePivot": [
+                101,
+                109
+              ],
+              "commonCropOrigin": [
+                6,
+                36
+              ],
+              "runtimeAdmission": false
+            },
+            {
+              "tick": 78,
+              "running": true,
+              "elapsedMs": 2605.9999999999536,
+              "role": "neutral",
+              "option": "native-look",
+              "loop": false,
+              "tickRate": 30,
+              "durationTicks": [
+                60,
+                18,
+                12
+              ],
+              "terminalTick": 89,
+              "displayStage": [
+                186,
+                186
+              ],
+              "fullWorldCanvas": [
+                185.88535031847132,
+                185.88535031847132
+              ],
+              "fullPivot": [
+                107,
+                145
+              ],
+              "candidateCanvas": [
+                156,
+                115
+              ],
+              "candidatePivot": [
+                101,
+                109
+              ],
+              "commonCropOrigin": [
+                6,
+                36
+              ],
+              "runtimeAdmission": false
+            },
+            {
+              "tick": 89,
+              "running": false,
+              "elapsedMs": 3005.9999999999536,
+              "role": "neutral",
+              "option": "native-look",
+              "loop": false,
+              "tickRate": 30,
+              "durationTicks": [
+                60,
+                18,
+                12
+              ],
+              "terminalTick": 89,
+              "displayStage": [
+                186,
+                186
+              ],
+              "fullWorldCanvas": [
+                185.88535031847132,
+                185.88535031847132
+              ],
+              "fullPivot": [
+                107,
+                145
+              ],
+              "candidateCanvas": [
+                156,
+                115
+              ],
+              "candidatePivot": [
+                101,
+                109
+              ],
+              "commonCropOrigin": [
+                6,
+                36
+              ],
+              "runtimeAdmission": false
+            }
+          ]
+        },
+        "captureFilesSaved": 0,
+        "canvases": [
+          {
+            "id": "raw-light",
+            "backing": [
+              186,
+              186
+            ],
+            "css": [
+              186,
+              186
+            ]
+          },
+          {
+            "id": "codec-light",
+            "backing": [
+              186,
+              186
+            ],
+            "css": [
+              186,
+              186
+            ]
+          },
+          {
+            "id": "raw-dark",
+            "backing": [
+              186,
+              186
+            ],
+            "css": [
+              186,
+              186
+            ]
+          },
+          {
+            "id": "codec-dark",
+            "backing": [
+              186,
+              186
+            ],
+            "css": [
+              186,
+              186
+            ]
+          }
+        ],
+        "memoryInspections": [
+          {
+            "clip": "neutral",
+            "phase": "paused-neutral",
+            "before": {
+              "tick": 0,
+              "running": false,
+              "elapsedMs": 0,
+              "role": "neutral",
+              "option": "native-look",
+              "loop": false,
+              "tickRate": 30,
+              "durationTicks": [
+                60,
+                18,
+                12
+              ],
+              "terminalTick": 89,
+              "displayStage": [
+                186,
+                186
+              ],
+              "fullWorldCanvas": [
+                185.88535031847132,
+                185.88535031847132
+              ],
+              "fullPivot": [
+                107,
+                145
+              ],
+              "candidateCanvas": [
+                156,
+                115
+              ],
+              "candidatePivot": [
+                101,
+                109
+              ],
+              "commonCropOrigin": [
+                6,
+                36
+              ],
+              "runtimeAdmission": false
+            },
+            "after": {
+              "tick": 0,
+              "running": false,
+              "elapsedMs": 0,
+              "role": "neutral",
+              "option": "native-look",
+              "loop": false,
+              "tickRate": 30,
+              "durationTicks": [
+                60,
+                18,
+                12
+              ],
+              "terminalTick": 89,
+              "displayStage": [
+                186,
+                186
+              ],
+              "fullWorldCanvas": [
+                185.88535031847132,
+                185.88535031847132
+              ],
+              "fullPivot": [
+                107,
+                145
+              ],
+              "candidateCanvas": [
+                156,
+                115
+              ],
+              "candidatePivot": [
+                101,
+                109
+              ],
+              "commonCropOrigin": [
+                6,
+                36
+              ],
+              "runtimeAdmission": false
+            }
+          },
+          {
+            "clip": "native-look",
+            "phase": "live-pose",
+            "before": {
+              "tick": 60,
+              "running": true,
+              "elapsedMs": 2005.9999999999536,
+              "role": "native-look",
+              "option": "native-look",
+              "loop": false,
+              "tickRate": 30,
+              "durationTicks": [
+                60,
+                18,
+                12
+              ],
+              "terminalTick": 89,
+              "displayStage": [
+                186,
+                186
+              ],
+              "fullWorldCanvas": [
+                185.88535031847132,
+                185.88535031847132
+              ],
+              "fullPivot": [
+                107,
+                145
+              ],
+              "candidateCanvas": [
+                156,
+                115
+              ],
+              "candidatePivot": [
+                101,
+                109
+              ],
+              "commonCropOrigin": [
+                6,
+                36
+              ],
+              "runtimeAdmission": false
+            },
+            "after": {
+              "tick": 63,
+              "running": true,
+              "elapsedMs": 2105.9999999999536,
+              "role": "native-look",
+              "option": "native-look",
+              "loop": false,
+              "tickRate": 30,
+              "durationTicks": [
+                60,
+                18,
+                12
+              ],
+              "terminalTick": 89,
+              "displayStage": [
+                186,
+                186
+              ],
+              "fullWorldCanvas": [
+                185.88535031847132,
+                185.88535031847132
+              ],
+              "fullPivot": [
+                107,
+                145
+              ],
+              "candidateCanvas": [
+                156,
+                115
+              ],
+              "candidatePivot": [
+                101,
+                109
+              ],
+              "commonCropOrigin": [
+                6,
+                36
+              ],
+              "runtimeAdmission": false
+            }
+          }
+        ]
+      },
+      "technicalReceiptsNotRerunByAppearanceRole": [
+        {
+          "file": "checks/native-look/structural-execution.json",
+          "SHA256": "48571c64b592924899cb041841e99a651beffab00048c0205096c8d119453b26",
+          "record": {
+            "returncode": 1,
+            "stdout": "",
+            "stderr": "(node:3331) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\ndata:text/javascript;base64,aW1wb3J0IHtQZXJtYW5lbnRTdGFnZUVycm9yfSBmcm9tICJmaWxlOi8vL3dvcmtzcGFjZS9ydW50aW1lLWNvbnRyYWN0LWNoZWNrcG9pbnQ4L3NyYy9saWIvc2VydmVyL3BpcGVsaW5lL2Nhbm9uaWNhbC50cyI7CmZ1bmN0aW9uIGludmFsaWQocmVhc29uICAgICAgICApICAgICAgICB7CiAgdGhyb3cgbmV3IFBlcm1hbmVudFN0YWdlRXJyb3IocmVhc29uKTsKfQoKZnVuY3Rpb24gY29tcG9uZW50KGJ5dGVzICAgICAgICAgICAgICAgICAgICwgb2Zmc2V0ICAgICAgICApICAgICAgICAgewogIGNvbnN0IHZhbHVlID0gYnl0ZXNbb2Zmc2V0XTsKICBpZiAodmFsdWUgPT09IHVuZGVmaW5lZCkgcmV0dXJuIGludmFsaWQoJ1RydW5jYXRlZCBSR0JBIGZyYW1lJyk7CiAgcmV0dXJuIHZhbHVlOwp9CgpmdW5jdGlvbiBwaXhlbChieXRlcyAgICAgICAgICAgICAgICAgICAsIG9mZnNldCAgICAgICAgKSAgICAgICAgICAgICAgICB7CiAgY29uc3QgYWxwaGEgPSBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDMpOwogIGlmIChhbHBoYSA9PT0gMCkgcmV0dXJuIG51bGw7CiAgaWYgKGFscGhhICE9PSAyNTUpIHJldHVybiBpbnZhbGlkKCdPbmx5IHRyYW5zcGFyZW50IG9yIG9wYXF1ZSBwaXhlbHMgYXJlIHN1cHBvcnRlZCcpOwogIHJldHVybiAoCiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQpIDw8IDE2KSB8CiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQgKyAxKSA8PCA4KSB8CiAgICBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDIpCiAgKTsKfQoKZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZURlY29kZWRQaXhlbHMoCiAgcGl4ZWxzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAsCikgICAgICAgICAgICAgICAgICAgICB7CiAgY29uc3QgeyB3aWR0aCwgaGVpZ2h0IH0gPSBwaXhlbHMuY2FudmFzOwogIGlmICh3aWR0aCAqIGhlaWdodCAqIHBpeGVscy5mcmFtZXMubGVuZ3RoID4gNjVfNTM2KQogICAgaW52YWxpZCgnRGVjb2RlZCBhbmltYXRpb24gZXhjZWVkcyBwaXhlbCBidWRnZXQnKTsKICBpZiAod2lkdGggJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSB8fCBoZWlnaHQgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSkKICAgIGludmFsaWQoJ0NhbnZhcyBtdXN0IGFsaWduIHRvIHRoZSBkZWNsYXJlZCBsb2dpY2FsIHBpeGVsIGdyaWQnKTsKICBjb25zdCBjb2xvcnMgPSBuZXcgU2V0ICAgICAgICAoKTsKICBsZXQgcmVjdGFuZ2xlcyA9IDA7CiAgY29uc3QgZnJhbWVzID0gcGl4ZWxzLmZyYW1lcy5tYXAoKHsgcmdiYSB9KSA9PiB7CiAgICBpZiAocmdiYS5sZW5ndGggIT09IHdpZHRoICogaGVpZ2h0ICogNCkKICAgICAgaW52YWxpZCgnUkdCQSBsZW5ndGggbXVzdCBleGFjdGx5IG1hdGNoIGNhbnZhcyBkaW1lbnNpb25zJyk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKQogICAgICBmb3IgKGxldCB4ID0gMDsgeCA8IHdpZHRoOyB4KyspIHsKICAgICAgICBjb25zdCBjb2xvciA9IHBpeGVsKHJnYmEsICh5ICogd2lkdGggKyB4KSAqIDQpOwogICAgICAgIGNvbnN0IGdyaWRYID0geCAtICh4ICUgcGl4ZWxzLmxvZ2ljYWxQaXhlbFNpemUpLAogICAgICAgICAgZ3JpZFkgPSB5IC0gKHkgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSk7CiAgICAgICAgaWYgKGNvbG9yICE9PSBwaXhlbChyZ2JhLCAoZ3JpZFkgKiB3aWR0aCArIGdyaWRYKSAqIDQpKQogICAgICAgICAgaW52YWxpZCgnUGl4ZWxzIGRpc2FncmVlIHdpdGhpbiBsb2dpY2FsIGdyaWQgY2VsbCcpOwogICAgICAgIGlmIChjb2xvciAhPT0gbnVsbCkgY29sb3JzLmFkZChjb2xvcik7CiAgICAgICAgaWYgKGNvbG9ycy5zaXplID4gcGl4ZWxzLnBhbGV0dGVMaW1pdCkgaW52YWxpZCgnQW5pbWF0aW9uIGV4Y2VlZHMgcGFsZXR0ZSBidWRnZXQnKTsKICAgICAgfQogICAgY29uc3QgcmVzdWx0ICAgICAgICAgICAgICAgICAgID0gW107CiAgICBsZXQgcHJldmlvdXMgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKSB7CiAgICAgIGNvbnN0IGN1cnJlbnQgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICAgIGZvciAobGV0IHggPSAwOyB4IDwgd2lkdGg7KSB7CiAgICAgICAgY29uc3QgY29sb3IgPSBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSwKICAgICAgICAgIHN0YXJ0ID0geCsrOwogICAgICAgIGlmIChjb2xvciA9PT0gbnVsbCkgY29udGludWU7CiAgICAgICAgd2hpbGUgKHggPCB3aWR0aCAmJiBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSA9PT0gY29sb3IpIHgrKzsKICAgICAgICBjb25zdCBrZXkgPSBgJHtzdGFydH0vJHt4IC0gc3RhcnR9LyR7Y29sb3J9YCwKICAgICAgICAgIGFib3ZlID0gcHJldmlvdXMuZ2V0KGtleSk7CiAgICAgICAgaWYgKGFib3ZlKSB7CiAgICAgICAgICBhYm92ZS5oZWlnaHQrKzsKICAgICAgICAgIGN1cnJlbnQuc2V0KGtleSwgYWJvdmUpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICBjb25zdCByZWN0ID0geyB4OiBzdGFydCwgeSwgd2lkdGg6IHggLSBzdGFydCwgaGVpZ2h0OiAxLCBjb2xvciB9OwogICAgICAgICAgcmVzdWx0LnB1c2gocmVjdCk7CiAgICAgICAgICBjdXJyZW50LnNldChrZXksIHJlY3QpOwogICAgICAgICAgcmVjdGFuZ2xlcysrOwogICAgICAgICAgaWYgKHJlc3VsdC5sZW5ndGggPiA0MDk2IHx8IHJlY3RhbmdsZXMgPiAxNl8zODQpCiAgICAgICAgICAgIGludmFsaWQoJ05vcm1hbGl6ZWQgcmVjdGFuZ2xlIGJ1ZGdldCBleGNlZWRlZCcpOwogICAgICAgIH0KICAgICAgfQogICAgICBwcmV2aW91cyA9IGN1cnJlbnQ7CiAgICB9CiAgICBpZiAoIXJlc3VsdC5sZW5ndGgpIGludmFsaWQoJ0FuIGFuaW1hdGlvbiBmcmFtZSBjYW5ub3QgYmUgZW50aXJlbHkgdHJhbnNwYXJlbnQnKTsKICAgIHJldHVybiByZXN1bHQ7CiAgfSk7CiAgcmV0dXJuIGZyYW1lczsKfQ==:3\n  throw new PermanentStageError(reason);\n        ^\n\nPermanentStageError: Normalized rectangle budget exceeded\n    at invalid (data:text/javascript;base64,aW1wb3J0IHtQZXJtYW5lbnRTdGFnZUVycm9yfSBmcm9tICJmaWxlOi8vL3dvcmtzcGFjZS9ydW50aW1lLWNvbnRyYWN0LWNoZWNrcG9pbnQ4L3NyYy9saWIvc2VydmVyL3BpcGVsaW5lL2Nhbm9uaWNhbC50cyI7CmZ1bmN0aW9uIGludmFsaWQocmVhc29uICAgICAgICApICAgICAgICB7CiAgdGhyb3cgbmV3IFBlcm1hbmVudFN0YWdlRXJyb3IocmVhc29uKTsKfQoKZnVuY3Rpb24gY29tcG9uZW50KGJ5dGVzICAgICAgICAgICAgICAgICAgICwgb2Zmc2V0ICAgICAgICApICAgICAgICAgewogIGNvbnN0IHZhbHVlID0gYnl0ZXNbb2Zmc2V0XTsKICBpZiAodmFsdWUgPT09IHVuZGVmaW5lZCkgcmV0dXJuIGludmFsaWQoJ1RydW5jYXRlZCBSR0JBIGZyYW1lJyk7CiAgcmV0dXJuIHZhbHVlOwp9CgpmdW5jdGlvbiBwaXhlbChieXRlcyAgICAgICAgICAgICAgICAgICAsIG9mZnNldCAgICAgICAgKSAgICAgICAgICAgICAgICB7CiAgY29uc3QgYWxwaGEgPSBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDMpOwogIGlmIChhbHBoYSA9PT0gMCkgcmV0dXJuIG51bGw7CiAgaWYgKGFscGhhICE9PSAyNTUpIHJldHVybiBpbnZhbGlkKCdPbmx5IHRyYW5zcGFyZW50IG9yIG9wYXF1ZSBwaXhlbHMgYXJlIHN1cHBvcnRlZCcpOwogIHJldHVybiAoCiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQpIDw8IDE2KSB8CiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQgKyAxKSA8PCA4KSB8CiAgICBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDIpCiAgKTsKfQoKZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZURlY29kZWRQaXhlbHMoCiAgcGl4ZWxzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAsCikgICAgICAgICAgICAgICAgICAgICB7CiAgY29uc3QgeyB3aWR0aCwgaGVpZ2h0IH0gPSBwaXhlbHMuY2FudmFzOwogIGlmICh3aWR0aCAqIGhlaWdodCAqIHBpeGVscy5mcmFtZXMubGVuZ3RoID4gNjVfNTM2KQogICAgaW52YWxpZCgnRGVjb2RlZCBhbmltYXRpb24gZXhjZWVkcyBwaXhlbCBidWRnZXQnKTsKICBpZiAod2lkdGggJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSB8fCBoZWlnaHQgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSkKICAgIGludmFsaWQoJ0NhbnZhcyBtdXN0IGFsaWduIHRvIHRoZSBkZWNsYXJlZCBsb2dpY2FsIHBpeGVsIGdyaWQnKTsKICBjb25zdCBjb2xvcnMgPSBuZXcgU2V0ICAgICAgICAoKTsKICBsZXQgcmVjdGFuZ2xlcyA9IDA7CiAgY29uc3QgZnJhbWVzID0gcGl4ZWxzLmZyYW1lcy5tYXAoKHsgcmdiYSB9KSA9PiB7CiAgICBpZiAocmdiYS5sZW5ndGggIT09IHdpZHRoICogaGVpZ2h0ICogNCkKICAgICAgaW52YWxpZCgnUkdCQSBsZW5ndGggbXVzdCBleGFjdGx5IG1hdGNoIGNhbnZhcyBkaW1lbnNpb25zJyk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKQogICAgICBmb3IgKGxldCB4ID0gMDsgeCA8IHdpZHRoOyB4KyspIHsKICAgICAgICBjb25zdCBjb2xvciA9IHBpeGVsKHJnYmEsICh5ICogd2lkdGggKyB4KSAqIDQpOwogICAgICAgIGNvbnN0IGdyaWRYID0geCAtICh4ICUgcGl4ZWxzLmxvZ2ljYWxQaXhlbFNpemUpLAogICAgICAgICAgZ3JpZFkgPSB5IC0gKHkgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSk7CiAgICAgICAgaWYgKGNvbG9yICE9PSBwaXhlbChyZ2JhLCAoZ3JpZFkgKiB3aWR0aCArIGdyaWRYKSAqIDQpKQogICAgICAgICAgaW52YWxpZCgnUGl4ZWxzIGRpc2FncmVlIHdpdGhpbiBsb2dpY2FsIGdyaWQgY2VsbCcpOwogICAgICAgIGlmIChjb2xvciAhPT0gbnVsbCkgY29sb3JzLmFkZChjb2xvcik7CiAgICAgICAgaWYgKGNvbG9ycy5zaXplID4gcGl4ZWxzLnBhbGV0dGVMaW1pdCkgaW52YWxpZCgnQW5pbWF0aW9uIGV4Y2VlZHMgcGFsZXR0ZSBidWRnZXQnKTsKICAgICAgfQogICAgY29uc3QgcmVzdWx0ICAgICAgICAgICAgICAgICAgID0gW107CiAgICBsZXQgcHJldmlvdXMgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKSB7CiAgICAgIGNvbnN0IGN1cnJlbnQgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICAgIGZvciAobGV0IHggPSAwOyB4IDwgd2lkdGg7KSB7CiAgICAgICAgY29uc3QgY29sb3IgPSBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSwKICAgICAgICAgIHN0YXJ0ID0geCsrOwogICAgICAgIGlmIChjb2xvciA9PT0gbnVsbCkgY29udGludWU7CiAgICAgICAgd2hpbGUgKHggPCB3aWR0aCAmJiBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSA9PT0gY29sb3IpIHgrKzsKICAgICAgICBjb25zdCBrZXkgPSBgJHtzdGFydH0vJHt4IC0gc3RhcnR9LyR7Y29sb3J9YCwKICAgICAgICAgIGFib3ZlID0gcHJldmlvdXMuZ2V0KGtleSk7CiAgICAgICAgaWYgKGFib3ZlKSB7CiAgICAgICAgICBhYm92ZS5oZWlnaHQrKzsKICAgICAgICAgIGN1cnJlbnQuc2V0KGtleSwgYWJvdmUpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICBjb25zdCByZWN0ID0geyB4OiBzdGFydCwgeSwgd2lkdGg6IHggLSBzdGFydCwgaGVpZ2h0OiAxLCBjb2xvciB9OwogICAgICAgICAgcmVzdWx0LnB1c2gocmVjdCk7CiAgICAgICAgICBjdXJyZW50LnNldChrZXksIHJlY3QpOwogICAgICAgICAgcmVjdGFuZ2xlcysrOwogICAgICAgICAgaWYgKHJlc3VsdC5sZW5ndGggPiA0MDk2IHx8IHJlY3RhbmdsZXMgPiAxNl8zODQpCiAgICAgICAgICAgIGludmFsaWQoJ05vcm1hbGl6ZWQgcmVjdGFuZ2xlIGJ1ZGdldCBleGNlZWRlZCcpOwogICAgICAgIH0KICAgICAgfQogICAgICBwcmV2aW91cyA9IGN1cnJlbnQ7CiAgICB9CiAgICBpZiAoIXJlc3VsdC5sZW5ndGgpIGludmFsaWQoJ0FuIGFuaW1hdGlvbiBmcmFtZSBjYW5ub3QgYmUgZW50aXJlbHkgdHJhbnNwYXJlbnQnKTsKICAgIHJldHVybiByZXN1bHQ7CiAgfSk7CiAgcmV0dXJuIGZyYW1lczsKfQ==:3:9)\n    at data:text/javascript;base64,aW1wb3J0IHtQZXJtYW5lbnRTdGFnZUVycm9yfSBmcm9tICJmaWxlOi8vL3dvcmtzcGFjZS9ydW50aW1lLWNvbnRyYWN0LWNoZWNrcG9pbnQ4L3NyYy9saWIvc2VydmVyL3BpcGVsaW5lL2Nhbm9uaWNhbC50cyI7CmZ1bmN0aW9uIGludmFsaWQocmVhc29uICAgICAgICApICAgICAgICB7CiAgdGhyb3cgbmV3IFBlcm1hbmVudFN0YWdlRXJyb3IocmVhc29uKTsKfQoKZnVuY3Rpb24gY29tcG9uZW50KGJ5dGVzICAgICAgICAgICAgICAgICAgICwgb2Zmc2V0ICAgICAgICApICAgICAgICAgewogIGNvbnN0IHZhbHVlID0gYnl0ZXNbb2Zmc2V0XTsKICBpZiAodmFsdWUgPT09IHVuZGVmaW5lZCkgcmV0dXJuIGludmFsaWQoJ1RydW5jYXRlZCBSR0JBIGZyYW1lJyk7CiAgcmV0dXJuIHZhbHVlOwp9CgpmdW5jdGlvbiBwaXhlbChieXRlcyAgICAgICAgICAgICAgICAgICAsIG9mZnNldCAgICAgICAgKSAgICAgICAgICAgICAgICB7CiAgY29uc3QgYWxwaGEgPSBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDMpOwogIGlmIChhbHBoYSA9PT0gMCkgcmV0dXJuIG51bGw7CiAgaWYgKGFscGhhICE9PSAyNTUpIHJldHVybiBpbnZhbGlkKCdPbmx5IHRyYW5zcGFyZW50IG9yIG9wYXF1ZSBwaXhlbHMgYXJlIHN1cHBvcnRlZCcpOwogIHJldHVybiAoCiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQpIDw8IDE2KSB8CiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQgKyAxKSA8PCA4KSB8CiAgICBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDIpCiAgKTsKfQoKZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZURlY29kZWRQaXhlbHMoCiAgcGl4ZWxzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAsCikgICAgICAgICAgICAgICAgICAgICB7CiAgY29uc3QgeyB3aWR0aCwgaGVpZ2h0IH0gPSBwaXhlbHMuY2FudmFzOwogIGlmICh3aWR0aCAqIGhlaWdodCAqIHBpeGVscy5mcmFtZXMubGVuZ3RoID4gNjVfNTM2KQogICAgaW52YWxpZCgnRGVjb2RlZCBhbmltYXRpb24gZXhjZWVkcyBwaXhlbCBidWRnZXQnKTsKICBpZiAod2lkdGggJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSB8fCBoZWlnaHQgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSkKICAgIGludmFsaWQoJ0NhbnZhcyBtdXN0IGFsaWduIHRvIHRoZSBkZWNsYXJlZCBsb2dpY2FsIHBpeGVsIGdyaWQnKTsKICBjb25zdCBjb2xvcnMgPSBuZXcgU2V0ICAgICAgICAoKTsKICBsZXQgcmVjdGFuZ2xlcyA9IDA7CiAgY29uc3QgZnJhbWVzID0gcGl4ZWxzLmZyYW1lcy5tYXAoKHsgcmdiYSB9KSA9PiB7CiAgICBpZiAocmdiYS5sZW5ndGggIT09IHdpZHRoICogaGVpZ2h0ICogNCkKICAgICAgaW52YWxpZCgnUkdCQSBsZW5ndGggbXVzdCBleGFjdGx5IG1hdGNoIGNhbnZhcyBkaW1lbnNpb25zJyk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKQogICAgICBmb3IgKGxldCB4ID0gMDsgeCA8IHdpZHRoOyB4KyspIHsKICAgICAgICBjb25zdCBjb2xvciA9IHBpeGVsKHJnYmEsICh5ICogd2lkdGggKyB4KSAqIDQpOwogICAgICAgIGNvbnN0IGdyaWRYID0geCAtICh4ICUgcGl4ZWxzLmxvZ2ljYWxQaXhlbFNpemUpLAogICAgICAgICAgZ3JpZFkgPSB5IC0gKHkgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSk7CiAgICAgICAgaWYgKGNvbG9yICE9PSBwaXhlbChyZ2JhLCAoZ3JpZFkgKiB3aWR0aCArIGdyaWRYKSAqIDQpKQogICAgICAgICAgaW52YWxpZCgnUGl4ZWxzIGRpc2FncmVlIHdpdGhpbiBsb2dpY2FsIGdyaWQgY2VsbCcpOwogICAgICAgIGlmIChjb2xvciAhPT0gbnVsbCkgY29sb3JzLmFkZChjb2xvcik7CiAgICAgICAgaWYgKGNvbG9ycy5zaXplID4gcGl4ZWxzLnBhbGV0dGVMaW1pdCkgaW52YWxpZCgnQW5pbWF0aW9uIGV4Y2VlZHMgcGFsZXR0ZSBidWRnZXQnKTsKICAgICAgfQogICAgY29uc3QgcmVzdWx0ICAgICAgICAgICAgICAgICAgID0gW107CiAgICBsZXQgcHJldmlvdXMgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKSB7CiAgICAgIGNvbnN0IGN1cnJlbnQgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICAgIGZvciAobGV0IHggPSAwOyB4IDwgd2lkdGg7KSB7CiAgICAgICAgY29uc3QgY29sb3IgPSBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSwKICAgICAgICAgIHN0YXJ0ID0geCsrOwogICAgICAgIGlmIChjb2xvciA9PT0gbnVsbCkgY29udGludWU7CiAgICAgICAgd2hpbGUgKHggPCB3aWR0aCAmJiBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSA9PT0gY29sb3IpIHgrKzsKICAgICAgICBjb25zdCBrZXkgPSBgJHtzdGFydH0vJHt4IC0gc3RhcnR9LyR7Y29sb3J9YCwKICAgICAgICAgIGFib3ZlID0gcHJldmlvdXMuZ2V0KGtleSk7CiAgICAgICAgaWYgKGFib3ZlKSB7CiAgICAgICAgICBhYm92ZS5oZWlnaHQrKzsKICAgICAgICAgIGN1cnJlbnQuc2V0KGtleSwgYWJvdmUpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICBjb25zdCByZWN0ID0geyB4OiBzdGFydCwgeSwgd2lkdGg6IHggLSBzdGFydCwgaGVpZ2h0OiAxLCBjb2xvciB9OwogICAgICAgICAgcmVzdWx0LnB1c2gocmVjdCk7CiAgICAgICAgICBjdXJyZW50LnNldChrZXksIHJlY3QpOwogICAgICAgICAgcmVjdGFuZ2xlcysrOwogICAgICAgICAgaWYgKHJlc3VsdC5sZW5ndGggPiA0MDk2IHx8IHJlY3RhbmdsZXMgPiAxNl8zODQpCiAgICAgICAgICAgIGludmFsaWQoJ05vcm1hbGl6ZWQgcmVjdGFuZ2xlIGJ1ZGdldCBleGNlZWRlZCcpOwogICAgICAgIH0KICAgICAgfQogICAgICBwcmV2aW91cyA9IGN1cnJlbnQ7CiAgICB9CiAgICBpZiAoIXJlc3VsdC5sZW5ndGgpIGludmFsaWQoJ0FuIGFuaW1hdGlvbiBmcmFtZSBjYW5ub3QgYmUgZW50aXJlbHkgdHJhbnNwYXJlbnQnKTsKICAgIHJldHVybiByZXN1bHQ7CiAgfSk7CiAgcmV0dXJuIGZyYW1lczsKfQ==:68:13\n    at Array.map (<anonymous>)\n    at normalizeDecodedPixels (data:text/javascript;base64,aW1wb3J0IHtQZXJtYW5lbnRTdGFnZUVycm9yfSBmcm9tICJmaWxlOi8vL3dvcmtzcGFjZS9ydW50aW1lLWNvbnRyYWN0LWNoZWNrcG9pbnQ4L3NyYy9saWIvc2VydmVyL3BpcGVsaW5lL2Nhbm9uaWNhbC50cyI7CmZ1bmN0aW9uIGludmFsaWQocmVhc29uICAgICAgICApICAgICAgICB7CiAgdGhyb3cgbmV3IFBlcm1hbmVudFN0YWdlRXJyb3IocmVhc29uKTsKfQoKZnVuY3Rpb24gY29tcG9uZW50KGJ5dGVzICAgICAgICAgICAgICAgICAgICwgb2Zmc2V0ICAgICAgICApICAgICAgICAgewogIGNvbnN0IHZhbHVlID0gYnl0ZXNbb2Zmc2V0XTsKICBpZiAodmFsdWUgPT09IHVuZGVmaW5lZCkgcmV0dXJuIGludmFsaWQoJ1RydW5jYXRlZCBSR0JBIGZyYW1lJyk7CiAgcmV0dXJuIHZhbHVlOwp9CgpmdW5jdGlvbiBwaXhlbChieXRlcyAgICAgICAgICAgICAgICAgICAsIG9mZnNldCAgICAgICAgKSAgICAgICAgICAgICAgICB7CiAgY29uc3QgYWxwaGEgPSBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDMpOwogIGlmIChhbHBoYSA9PT0gMCkgcmV0dXJuIG51bGw7CiAgaWYgKGFscGhhICE9PSAyNTUpIHJldHVybiBpbnZhbGlkKCdPbmx5IHRyYW5zcGFyZW50IG9yIG9wYXF1ZSBwaXhlbHMgYXJlIHN1cHBvcnRlZCcpOwogIHJldHVybiAoCiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQpIDw8IDE2KSB8CiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQgKyAxKSA8PCA4KSB8CiAgICBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDIpCiAgKTsKfQoKZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZURlY29kZWRQaXhlbHMoCiAgcGl4ZWxzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAsCikgICAgICAgICAgICAgICAgICAgICB7CiAgY29uc3QgeyB3aWR0aCwgaGVpZ2h0IH0gPSBwaXhlbHMuY2FudmFzOwogIGlmICh3aWR0aCAqIGhlaWdodCAqIHBpeGVscy5mcmFtZXMubGVuZ3RoID4gNjVfNTM2KQogICAgaW52YWxpZCgnRGVjb2RlZCBhbmltYXRpb24gZXhjZWVkcyBwaXhlbCBidWRnZXQnKTsKICBpZiAod2lkdGggJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSB8fCBoZWlnaHQgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSkKICAgIGludmFsaWQoJ0NhbnZhcyBtdXN0IGFsaWduIHRvIHRoZSBkZWNsYXJlZCBsb2dpY2FsIHBpeGVsIGdyaWQnKTsKICBjb25zdCBjb2xvcnMgPSBuZXcgU2V0ICAgICAgICAoKTsKICBsZXQgcmVjdGFuZ2xlcyA9IDA7CiAgY29uc3QgZnJhbWVzID0gcGl4ZWxzLmZyYW1lcy5tYXAoKHsgcmdiYSB9KSA9PiB7CiAgICBpZiAocmdiYS5sZW5ndGggIT09IHdpZHRoICogaGVpZ2h0ICogNCkKICAgICAgaW52YWxpZCgnUkdCQSBsZW5ndGggbXVzdCBleGFjdGx5IG1hdGNoIGNhbnZhcyBkaW1lbnNpb25zJyk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKQogICAgICBmb3IgKGxldCB4ID0gMDsgeCA8IHdpZHRoOyB4KyspIHsKICAgICAgICBjb25zdCBjb2xvciA9IHBpeGVsKHJnYmEsICh5ICogd2lkdGggKyB4KSAqIDQpOwogICAgICAgIGNvbnN0IGdyaWRYID0geCAtICh4ICUgcGl4ZWxzLmxvZ2ljYWxQaXhlbFNpemUpLAogICAgICAgICAgZ3JpZFkgPSB5IC0gKHkgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSk7CiAgICAgICAgaWYgKGNvbG9yICE9PSBwaXhlbChyZ2JhLCAoZ3JpZFkgKiB3aWR0aCArIGdyaWRYKSAqIDQpKQogICAgICAgICAgaW52YWxpZCgnUGl4ZWxzIGRpc2FncmVlIHdpdGhpbiBsb2dpY2FsIGdyaWQgY2VsbCcpOwogICAgICAgIGlmIChjb2xvciAhPT0gbnVsbCkgY29sb3JzLmFkZChjb2xvcik7CiAgICAgICAgaWYgKGNvbG9ycy5zaXplID4gcGl4ZWxzLnBhbGV0dGVMaW1pdCkgaW52YWxpZCgnQW5pbWF0aW9uIGV4Y2VlZHMgcGFsZXR0ZSBidWRnZXQnKTsKICAgICAgfQogICAgY29uc3QgcmVzdWx0ICAgICAgICAgICAgICAgICAgID0gW107CiAgICBsZXQgcHJldmlvdXMgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKSB7CiAgICAgIGNvbnN0IGN1cnJlbnQgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICAgIGZvciAobGV0IHggPSAwOyB4IDwgd2lkdGg7KSB7CiAgICAgICAgY29uc3QgY29sb3IgPSBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSwKICAgICAgICAgIHN0YXJ0ID0geCsrOwogICAgICAgIGlmIChjb2xvciA9PT0gbnVsbCkgY29udGludWU7CiAgICAgICAgd2hpbGUgKHggPCB3aWR0aCAmJiBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSA9PT0gY29sb3IpIHgrKzsKICAgICAgICBjb25zdCBrZXkgPSBgJHtzdGFydH0vJHt4IC0gc3RhcnR9LyR7Y29sb3J9YCwKICAgICAgICAgIGFib3ZlID0gcHJldmlvdXMuZ2V0KGtleSk7CiAgICAgICAgaWYgKGFib3ZlKSB7CiAgICAgICAgICBhYm92ZS5oZWlnaHQrKzsKICAgICAgICAgIGN1cnJlbnQuc2V0KGtleSwgYWJvdmUpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICBjb25zdCByZWN0ID0geyB4OiBzdGFydCwgeSwgd2lkdGg6IHggLSBzdGFydCwgaGVpZ2h0OiAxLCBjb2xvciB9OwogICAgICAgICAgcmVzdWx0LnB1c2gocmVjdCk7CiAgICAgICAgICBjdXJyZW50LnNldChrZXksIHJlY3QpOwogICAgICAgICAgcmVjdGFuZ2xlcysrOwogICAgICAgICAgaWYgKHJlc3VsdC5sZW5ndGggPiA0MDk2IHx8IHJlY3RhbmdsZXMgPiAxNl8zODQpCiAgICAgICAgICAgIGludmFsaWQoJ05vcm1hbGl6ZWQgcmVjdGFuZ2xlIGJ1ZGdldCBleGNlZWRlZCcpOwogICAgICAgIH0KICAgICAgfQogICAgICBwcmV2aW91cyA9IGN1cnJlbnQ7CiAgICB9CiAgICBpZiAoIXJlc3VsdC5sZW5ndGgpIGludmFsaWQoJ0FuIGFuaW1hdGlvbiBmcmFtZSBjYW5ub3QgYmUgZW50aXJlbHkgdHJhbnNwYXJlbnQnKTsKICAgIHJldHVybiByZXN1bHQ7CiAgfSk7CiAgcmV0dXJuIGZyYW1lczsKfQ==:35:32)\n    at file:///workspace/asset-production/validation/shared-structural-check.mjs:10:18\n\nNode.js v24.19.0\n",
+            "actualSharedRunnerSHA256": "5317b37dbd7229f7e0cf62302f70ad526890c99b56b2c0704b441cebfcb141e7",
+            "nativeCalls": 0
+          }
+        },
+        {
+          "file": "checks/native-look/structural-failure.json",
+          "SHA256": "8253d4875458a6320761af182d747d48a36635226d3a0446c2fb3205722afda6",
+          "record": {
+            "status": "FAIL actual unchanged nominated normalizer",
+            "stderr": "(node:3331) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\ndata:text/javascript;base64,aW1wb3J0IHtQZXJtYW5lbnRTdGFnZUVycm9yfSBmcm9tICJmaWxlOi8vL3dvcmtzcGFjZS9ydW50aW1lLWNvbnRyYWN0LWNoZWNrcG9pbnQ4L3NyYy9saWIvc2VydmVyL3BpcGVsaW5lL2Nhbm9uaWNhbC50cyI7CmZ1bmN0aW9uIGludmFsaWQocmVhc29uICAgICAgICApICAgICAgICB7CiAgdGhyb3cgbmV3IFBlcm1hbmVudFN0YWdlRXJyb3IocmVhc29uKTsKfQoKZnVuY3Rpb24gY29tcG9uZW50KGJ5dGVzICAgICAgICAgICAgICAgICAgICwgb2Zmc2V0ICAgICAgICApICAgICAgICAgewogIGNvbnN0IHZhbHVlID0gYnl0ZXNbb2Zmc2V0XTsKICBpZiAodmFsdWUgPT09IHVuZGVmaW5lZCkgcmV0dXJuIGludmFsaWQoJ1RydW5jYXRlZCBSR0JBIGZyYW1lJyk7CiAgcmV0dXJuIHZhbHVlOwp9CgpmdW5jdGlvbiBwaXhlbChieXRlcyAgICAgICAgICAgICAgICAgICAsIG9mZnNldCAgICAgICAgKSAgICAgICAgICAgICAgICB7CiAgY29uc3QgYWxwaGEgPSBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDMpOwogIGlmIChhbHBoYSA9PT0gMCkgcmV0dXJuIG51bGw7CiAgaWYgKGFscGhhICE9PSAyNTUpIHJldHVybiBpbnZhbGlkKCdPbmx5IHRyYW5zcGFyZW50IG9yIG9wYXF1ZSBwaXhlbHMgYXJlIHN1cHBvcnRlZCcpOwogIHJldHVybiAoCiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQpIDw8IDE2KSB8CiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQgKyAxKSA8PCA4KSB8CiAgICBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDIpCiAgKTsKfQoKZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZURlY29kZWRQaXhlbHMoCiAgcGl4ZWxzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAsCikgICAgICAgICAgICAgICAgICAgICB7CiAgY29uc3QgeyB3aWR0aCwgaGVpZ2h0IH0gPSBwaXhlbHMuY2FudmFzOwogIGlmICh3aWR0aCAqIGhlaWdodCAqIHBpeGVscy5mcmFtZXMubGVuZ3RoID4gNjVfNTM2KQogICAgaW52YWxpZCgnRGVjb2RlZCBhbmltYXRpb24gZXhjZWVkcyBwaXhlbCBidWRnZXQnKTsKICBpZiAod2lkdGggJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSB8fCBoZWlnaHQgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSkKICAgIGludmFsaWQoJ0NhbnZhcyBtdXN0IGFsaWduIHRvIHRoZSBkZWNsYXJlZCBsb2dpY2FsIHBpeGVsIGdyaWQnKTsKICBjb25zdCBjb2xvcnMgPSBuZXcgU2V0ICAgICAgICAoKTsKICBsZXQgcmVjdGFuZ2xlcyA9IDA7CiAgY29uc3QgZnJhbWVzID0gcGl4ZWxzLmZyYW1lcy5tYXAoKHsgcmdiYSB9KSA9PiB7CiAgICBpZiAocmdiYS5sZW5ndGggIT09IHdpZHRoICogaGVpZ2h0ICogNCkKICAgICAgaW52YWxpZCgnUkdCQSBsZW5ndGggbXVzdCBleGFjdGx5IG1hdGNoIGNhbnZhcyBkaW1lbnNpb25zJyk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKQogICAgICBmb3IgKGxldCB4ID0gMDsgeCA8IHdpZHRoOyB4KyspIHsKICAgICAgICBjb25zdCBjb2xvciA9IHBpeGVsKHJnYmEsICh5ICogd2lkdGggKyB4KSAqIDQpOwogICAgICAgIGNvbnN0IGdyaWRYID0geCAtICh4ICUgcGl4ZWxzLmxvZ2ljYWxQaXhlbFNpemUpLAogICAgICAgICAgZ3JpZFkgPSB5IC0gKHkgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSk7CiAgICAgICAgaWYgKGNvbG9yICE9PSBwaXhlbChyZ2JhLCAoZ3JpZFkgKiB3aWR0aCArIGdyaWRYKSAqIDQpKQogICAgICAgICAgaW52YWxpZCgnUGl4ZWxzIGRpc2FncmVlIHdpdGhpbiBsb2dpY2FsIGdyaWQgY2VsbCcpOwogICAgICAgIGlmIChjb2xvciAhPT0gbnVsbCkgY29sb3JzLmFkZChjb2xvcik7CiAgICAgICAgaWYgKGNvbG9ycy5zaXplID4gcGl4ZWxzLnBhbGV0dGVMaW1pdCkgaW52YWxpZCgnQW5pbWF0aW9uIGV4Y2VlZHMgcGFsZXR0ZSBidWRnZXQnKTsKICAgICAgfQogICAgY29uc3QgcmVzdWx0ICAgICAgICAgICAgICAgICAgID0gW107CiAgICBsZXQgcHJldmlvdXMgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKSB7CiAgICAgIGNvbnN0IGN1cnJlbnQgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICAgIGZvciAobGV0IHggPSAwOyB4IDwgd2lkdGg7KSB7CiAgICAgICAgY29uc3QgY29sb3IgPSBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSwKICAgICAgICAgIHN0YXJ0ID0geCsrOwogICAgICAgIGlmIChjb2xvciA9PT0gbnVsbCkgY29udGludWU7CiAgICAgICAgd2hpbGUgKHggPCB3aWR0aCAmJiBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSA9PT0gY29sb3IpIHgrKzsKICAgICAgICBjb25zdCBrZXkgPSBgJHtzdGFydH0vJHt4IC0gc3RhcnR9LyR7Y29sb3J9YCwKICAgICAgICAgIGFib3ZlID0gcHJldmlvdXMuZ2V0KGtleSk7CiAgICAgICAgaWYgKGFib3ZlKSB7CiAgICAgICAgICBhYm92ZS5oZWlnaHQrKzsKICAgICAgICAgIGN1cnJlbnQuc2V0KGtleSwgYWJvdmUpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICBjb25zdCByZWN0ID0geyB4OiBzdGFydCwgeSwgd2lkdGg6IHggLSBzdGFydCwgaGVpZ2h0OiAxLCBjb2xvciB9OwogICAgICAgICAgcmVzdWx0LnB1c2gocmVjdCk7CiAgICAgICAgICBjdXJyZW50LnNldChrZXksIHJlY3QpOwogICAgICAgICAgcmVjdGFuZ2xlcysrOwogICAgICAgICAgaWYgKHJlc3VsdC5sZW5ndGggPiA0MDk2IHx8IHJlY3RhbmdsZXMgPiAxNl8zODQpCiAgICAgICAgICAgIGludmFsaWQoJ05vcm1hbGl6ZWQgcmVjdGFuZ2xlIGJ1ZGdldCBleGNlZWRlZCcpOwogICAgICAgIH0KICAgICAgfQogICAgICBwcmV2aW91cyA9IGN1cnJlbnQ7CiAgICB9CiAgICBpZiAoIXJlc3VsdC5sZW5ndGgpIGludmFsaWQoJ0FuIGFuaW1hdGlvbiBmcmFtZSBjYW5ub3QgYmUgZW50aXJlbHkgdHJhbnNwYXJlbnQnKTsKICAgIHJldHVybiByZXN1bHQ7CiAgfSk7CiAgcmV0dXJuIGZyYW1lczsKfQ==:3\n  throw new PermanentStageError(reason);\n        ^\n\nPermanentStageError: Normalized rectangle budget exceeded\n    at invalid (data:text/javascript;base64,aW1wb3J0IHtQZXJtYW5lbnRTdGFnZUVycm9yfSBmcm9tICJmaWxlOi8vL3dvcmtzcGFjZS9ydW50aW1lLWNvbnRyYWN0LWNoZWNrcG9pbnQ4L3NyYy9saWIvc2VydmVyL3BpcGVsaW5lL2Nhbm9uaWNhbC50cyI7CmZ1bmN0aW9uIGludmFsaWQocmVhc29uICAgICAgICApICAgICAgICB7CiAgdGhyb3cgbmV3IFBlcm1hbmVudFN0YWdlRXJyb3IocmVhc29uKTsKfQoKZnVuY3Rpb24gY29tcG9uZW50KGJ5dGVzICAgICAgICAgICAgICAgICAgICwgb2Zmc2V0ICAgICAgICApICAgICAgICAgewogIGNvbnN0IHZhbHVlID0gYnl0ZXNbb2Zmc2V0XTsKICBpZiAodmFsdWUgPT09IHVuZGVmaW5lZCkgcmV0dXJuIGludmFsaWQoJ1RydW5jYXRlZCBSR0JBIGZyYW1lJyk7CiAgcmV0dXJuIHZhbHVlOwp9CgpmdW5jdGlvbiBwaXhlbChieXRlcyAgICAgICAgICAgICAgICAgICAsIG9mZnNldCAgICAgICAgKSAgICAgICAgICAgICAgICB7CiAgY29uc3QgYWxwaGEgPSBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDMpOwogIGlmIChhbHBoYSA9PT0gMCkgcmV0dXJuIG51bGw7CiAgaWYgKGFscGhhICE9PSAyNTUpIHJldHVybiBpbnZhbGlkKCdPbmx5IHRyYW5zcGFyZW50IG9yIG9wYXF1ZSBwaXhlbHMgYXJlIHN1cHBvcnRlZCcpOwogIHJldHVybiAoCiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQpIDw8IDE2KSB8CiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQgKyAxKSA8PCA4KSB8CiAgICBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDIpCiAgKTsKfQoKZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZURlY29kZWRQaXhlbHMoCiAgcGl4ZWxzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAsCikgICAgICAgICAgICAgICAgICAgICB7CiAgY29uc3QgeyB3aWR0aCwgaGVpZ2h0IH0gPSBwaXhlbHMuY2FudmFzOwogIGlmICh3aWR0aCAqIGhlaWdodCAqIHBpeGVscy5mcmFtZXMubGVuZ3RoID4gNjVfNTM2KQogICAgaW52YWxpZCgnRGVjb2RlZCBhbmltYXRpb24gZXhjZWVkcyBwaXhlbCBidWRnZXQnKTsKICBpZiAod2lkdGggJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSB8fCBoZWlnaHQgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSkKICAgIGludmFsaWQoJ0NhbnZhcyBtdXN0IGFsaWduIHRvIHRoZSBkZWNsYXJlZCBsb2dpY2FsIHBpeGVsIGdyaWQnKTsKICBjb25zdCBjb2xvcnMgPSBuZXcgU2V0ICAgICAgICAoKTsKICBsZXQgcmVjdGFuZ2xlcyA9IDA7CiAgY29uc3QgZnJhbWVzID0gcGl4ZWxzLmZyYW1lcy5tYXAoKHsgcmdiYSB9KSA9PiB7CiAgICBpZiAocmdiYS5sZW5ndGggIT09IHdpZHRoICogaGVpZ2h0ICogNCkKICAgICAgaW52YWxpZCgnUkdCQSBsZW5ndGggbXVzdCBleGFjdGx5IG1hdGNoIGNhbnZhcyBkaW1lbnNpb25zJyk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKQogICAgICBmb3IgKGxldCB4ID0gMDsgeCA8IHdpZHRoOyB4KyspIHsKICAgICAgICBjb25zdCBjb2xvciA9IHBpeGVsKHJnYmEsICh5ICogd2lkdGggKyB4KSAqIDQpOwogICAgICAgIGNvbnN0IGdyaWRYID0geCAtICh4ICUgcGl4ZWxzLmxvZ2ljYWxQaXhlbFNpemUpLAogICAgICAgICAgZ3JpZFkgPSB5IC0gKHkgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSk7CiAgICAgICAgaWYgKGNvbG9yICE9PSBwaXhlbChyZ2JhLCAoZ3JpZFkgKiB3aWR0aCArIGdyaWRYKSAqIDQpKQogICAgICAgICAgaW52YWxpZCgnUGl4ZWxzIGRpc2FncmVlIHdpdGhpbiBsb2dpY2FsIGdyaWQgY2VsbCcpOwogICAgICAgIGlmIChjb2xvciAhPT0gbnVsbCkgY29sb3JzLmFkZChjb2xvcik7CiAgICAgICAgaWYgKGNvbG9ycy5zaXplID4gcGl4ZWxzLnBhbGV0dGVMaW1pdCkgaW52YWxpZCgnQW5pbWF0aW9uIGV4Y2VlZHMgcGFsZXR0ZSBidWRnZXQnKTsKICAgICAgfQogICAgY29uc3QgcmVzdWx0ICAgICAgICAgICAgICAgICAgID0gW107CiAgICBsZXQgcHJldmlvdXMgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKSB7CiAgICAgIGNvbnN0IGN1cnJlbnQgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICAgIGZvciAobGV0IHggPSAwOyB4IDwgd2lkdGg7KSB7CiAgICAgICAgY29uc3QgY29sb3IgPSBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSwKICAgICAgICAgIHN0YXJ0ID0geCsrOwogICAgICAgIGlmIChjb2xvciA9PT0gbnVsbCkgY29udGludWU7CiAgICAgICAgd2hpbGUgKHggPCB3aWR0aCAmJiBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSA9PT0gY29sb3IpIHgrKzsKICAgICAgICBjb25zdCBrZXkgPSBgJHtzdGFydH0vJHt4IC0gc3RhcnR9LyR7Y29sb3J9YCwKICAgICAgICAgIGFib3ZlID0gcHJldmlvdXMuZ2V0KGtleSk7CiAgICAgICAgaWYgKGFib3ZlKSB7CiAgICAgICAgICBhYm92ZS5oZWlnaHQrKzsKICAgICAgICAgIGN1cnJlbnQuc2V0KGtleSwgYWJvdmUpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICBjb25zdCByZWN0ID0geyB4OiBzdGFydCwgeSwgd2lkdGg6IHggLSBzdGFydCwgaGVpZ2h0OiAxLCBjb2xvciB9OwogICAgICAgICAgcmVzdWx0LnB1c2gocmVjdCk7CiAgICAgICAgICBjdXJyZW50LnNldChrZXksIHJlY3QpOwogICAgICAgICAgcmVjdGFuZ2xlcysrOwogICAgICAgICAgaWYgKHJlc3VsdC5sZW5ndGggPiA0MDk2IHx8IHJlY3RhbmdsZXMgPiAxNl8zODQpCiAgICAgICAgICAgIGludmFsaWQoJ05vcm1hbGl6ZWQgcmVjdGFuZ2xlIGJ1ZGdldCBleGNlZWRlZCcpOwogICAgICAgIH0KICAgICAgfQogICAgICBwcmV2aW91cyA9IGN1cnJlbnQ7CiAgICB9CiAgICBpZiAoIXJlc3VsdC5sZW5ndGgpIGludmFsaWQoJ0FuIGFuaW1hdGlvbiBmcmFtZSBjYW5ub3QgYmUgZW50aXJlbHkgdHJhbnNwYXJlbnQnKTsKICAgIHJldHVybiByZXN1bHQ7CiAgfSk7CiAgcmV0dXJuIGZyYW1lczsKfQ==:3:9)\n    at data:text/javascript;base64,aW1wb3J0IHtQZXJtYW5lbnRTdGFnZUVycm9yfSBmcm9tICJmaWxlOi8vL3dvcmtzcGFjZS9ydW50aW1lLWNvbnRyYWN0LWNoZWNrcG9pbnQ4L3NyYy9saWIvc2VydmVyL3BpcGVsaW5lL2Nhbm9uaWNhbC50cyI7CmZ1bmN0aW9uIGludmFsaWQocmVhc29uICAgICAgICApICAgICAgICB7CiAgdGhyb3cgbmV3IFBlcm1hbmVudFN0YWdlRXJyb3IocmVhc29uKTsKfQoKZnVuY3Rpb24gY29tcG9uZW50KGJ5dGVzICAgICAgICAgICAgICAgICAgICwgb2Zmc2V0ICAgICAgICApICAgICAgICAgewogIGNvbnN0IHZhbHVlID0gYnl0ZXNbb2Zmc2V0XTsKICBpZiAodmFsdWUgPT09IHVuZGVmaW5lZCkgcmV0dXJuIGludmFsaWQoJ1RydW5jYXRlZCBSR0JBIGZyYW1lJyk7CiAgcmV0dXJuIHZhbHVlOwp9CgpmdW5jdGlvbiBwaXhlbChieXRlcyAgICAgICAgICAgICAgICAgICAsIG9mZnNldCAgICAgICAgKSAgICAgICAgICAgICAgICB7CiAgY29uc3QgYWxwaGEgPSBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDMpOwogIGlmIChhbHBoYSA9PT0gMCkgcmV0dXJuIG51bGw7CiAgaWYgKGFscGhhICE9PSAyNTUpIHJldHVybiBpbnZhbGlkKCdPbmx5IHRyYW5zcGFyZW50IG9yIG9wYXF1ZSBwaXhlbHMgYXJlIHN1cHBvcnRlZCcpOwogIHJldHVybiAoCiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQpIDw8IDE2KSB8CiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQgKyAxKSA8PCA4KSB8CiAgICBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDIpCiAgKTsKfQoKZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZURlY29kZWRQaXhlbHMoCiAgcGl4ZWxzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAsCikgICAgICAgICAgICAgICAgICAgICB7CiAgY29uc3QgeyB3aWR0aCwgaGVpZ2h0IH0gPSBwaXhlbHMuY2FudmFzOwogIGlmICh3aWR0aCAqIGhlaWdodCAqIHBpeGVscy5mcmFtZXMubGVuZ3RoID4gNjVfNTM2KQogICAgaW52YWxpZCgnRGVjb2RlZCBhbmltYXRpb24gZXhjZWVkcyBwaXhlbCBidWRnZXQnKTsKICBpZiAod2lkdGggJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSB8fCBoZWlnaHQgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSkKICAgIGludmFsaWQoJ0NhbnZhcyBtdXN0IGFsaWduIHRvIHRoZSBkZWNsYXJlZCBsb2dpY2FsIHBpeGVsIGdyaWQnKTsKICBjb25zdCBjb2xvcnMgPSBuZXcgU2V0ICAgICAgICAoKTsKICBsZXQgcmVjdGFuZ2xlcyA9IDA7CiAgY29uc3QgZnJhbWVzID0gcGl4ZWxzLmZyYW1lcy5tYXAoKHsgcmdiYSB9KSA9PiB7CiAgICBpZiAocmdiYS5sZW5ndGggIT09IHdpZHRoICogaGVpZ2h0ICogNCkKICAgICAgaW52YWxpZCgnUkdCQSBsZW5ndGggbXVzdCBleGFjdGx5IG1hdGNoIGNhbnZhcyBkaW1lbnNpb25zJyk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKQogICAgICBmb3IgKGxldCB4ID0gMDsgeCA8IHdpZHRoOyB4KyspIHsKICAgICAgICBjb25zdCBjb2xvciA9IHBpeGVsKHJnYmEsICh5ICogd2lkdGggKyB4KSAqIDQpOwogICAgICAgIGNvbnN0IGdyaWRYID0geCAtICh4ICUgcGl4ZWxzLmxvZ2ljYWxQaXhlbFNpemUpLAogICAgICAgICAgZ3JpZFkgPSB5IC0gKHkgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSk7CiAgICAgICAgaWYgKGNvbG9yICE9PSBwaXhlbChyZ2JhLCAoZ3JpZFkgKiB3aWR0aCArIGdyaWRYKSAqIDQpKQogICAgICAgICAgaW52YWxpZCgnUGl4ZWxzIGRpc2FncmVlIHdpdGhpbiBsb2dpY2FsIGdyaWQgY2VsbCcpOwogICAgICAgIGlmIChjb2xvciAhPT0gbnVsbCkgY29sb3JzLmFkZChjb2xvcik7CiAgICAgICAgaWYgKGNvbG9ycy5zaXplID4gcGl4ZWxzLnBhbGV0dGVMaW1pdCkgaW52YWxpZCgnQW5pbWF0aW9uIGV4Y2VlZHMgcGFsZXR0ZSBidWRnZXQnKTsKICAgICAgfQogICAgY29uc3QgcmVzdWx0ICAgICAgICAgICAgICAgICAgID0gW107CiAgICBsZXQgcHJldmlvdXMgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKSB7CiAgICAgIGNvbnN0IGN1cnJlbnQgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICAgIGZvciAobGV0IHggPSAwOyB4IDwgd2lkdGg7KSB7CiAgICAgICAgY29uc3QgY29sb3IgPSBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSwKICAgICAgICAgIHN0YXJ0ID0geCsrOwogICAgICAgIGlmIChjb2xvciA9PT0gbnVsbCkgY29udGludWU7CiAgICAgICAgd2hpbGUgKHggPCB3aWR0aCAmJiBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSA9PT0gY29sb3IpIHgrKzsKICAgICAgICBjb25zdCBrZXkgPSBgJHtzdGFydH0vJHt4IC0gc3RhcnR9LyR7Y29sb3J9YCwKICAgICAgICAgIGFib3ZlID0gcHJldmlvdXMuZ2V0KGtleSk7CiAgICAgICAgaWYgKGFib3ZlKSB7CiAgICAgICAgICBhYm92ZS5oZWlnaHQrKzsKICAgICAgICAgIGN1cnJlbnQuc2V0KGtleSwgYWJvdmUpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICBjb25zdCByZWN0ID0geyB4OiBzdGFydCwgeSwgd2lkdGg6IHggLSBzdGFydCwgaGVpZ2h0OiAxLCBjb2xvciB9OwogICAgICAgICAgcmVzdWx0LnB1c2gocmVjdCk7CiAgICAgICAgICBjdXJyZW50LnNldChrZXksIHJlY3QpOwogICAgICAgICAgcmVjdGFuZ2xlcysrOwogICAgICAgICAgaWYgKHJlc3VsdC5sZW5ndGggPiA0MDk2IHx8IHJlY3RhbmdsZXMgPiAxNl8zODQpCiAgICAgICAgICAgIGludmFsaWQoJ05vcm1hbGl6ZWQgcmVjdGFuZ2xlIGJ1ZGdldCBleGNlZWRlZCcpOwogICAgICAgIH0KICAgICAgfQogICAgICBwcmV2aW91cyA9IGN1cnJlbnQ7CiAgICB9CiAgICBpZiAoIXJlc3VsdC5sZW5ndGgpIGludmFsaWQoJ0FuIGFuaW1hdGlvbiBmcmFtZSBjYW5ub3QgYmUgZW50aXJlbHkgdHJhbnNwYXJlbnQnKTsKICAgIHJldHVybiByZXN1bHQ7CiAgfSk7CiAgcmV0dXJuIGZyYW1lczsKfQ==:68:13\n    at Array.map (<anonymous>)\n    at normalizeDecodedPixels (data:text/javascript;base64,aW1wb3J0IHtQZXJtYW5lbnRTdGFnZUVycm9yfSBmcm9tICJmaWxlOi8vL3dvcmtzcGFjZS9ydW50aW1lLWNvbnRyYWN0LWNoZWNrcG9pbnQ4L3NyYy9saWIvc2VydmVyL3BpcGVsaW5lL2Nhbm9uaWNhbC50cyI7CmZ1bmN0aW9uIGludmFsaWQocmVhc29uICAgICAgICApICAgICAgICB7CiAgdGhyb3cgbmV3IFBlcm1hbmVudFN0YWdlRXJyb3IocmVhc29uKTsKfQoKZnVuY3Rpb24gY29tcG9uZW50KGJ5dGVzICAgICAgICAgICAgICAgICAgICwgb2Zmc2V0ICAgICAgICApICAgICAgICAgewogIGNvbnN0IHZhbHVlID0gYnl0ZXNbb2Zmc2V0XTsKICBpZiAodmFsdWUgPT09IHVuZGVmaW5lZCkgcmV0dXJuIGludmFsaWQoJ1RydW5jYXRlZCBSR0JBIGZyYW1lJyk7CiAgcmV0dXJuIHZhbHVlOwp9CgpmdW5jdGlvbiBwaXhlbChieXRlcyAgICAgICAgICAgICAgICAgICAsIG9mZnNldCAgICAgICAgKSAgICAgICAgICAgICAgICB7CiAgY29uc3QgYWxwaGEgPSBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDMpOwogIGlmIChhbHBoYSA9PT0gMCkgcmV0dXJuIG51bGw7CiAgaWYgKGFscGhhICE9PSAyNTUpIHJldHVybiBpbnZhbGlkKCdPbmx5IHRyYW5zcGFyZW50IG9yIG9wYXF1ZSBwaXhlbHMgYXJlIHN1cHBvcnRlZCcpOwogIHJldHVybiAoCiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQpIDw8IDE2KSB8CiAgICAoY29tcG9uZW50KGJ5dGVzLCBvZmZzZXQgKyAxKSA8PCA4KSB8CiAgICBjb21wb25lbnQoYnl0ZXMsIG9mZnNldCArIDIpCiAgKTsKfQoKZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZURlY29kZWRQaXhlbHMoCiAgcGl4ZWxzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAsCikgICAgICAgICAgICAgICAgICAgICB7CiAgY29uc3QgeyB3aWR0aCwgaGVpZ2h0IH0gPSBwaXhlbHMuY2FudmFzOwogIGlmICh3aWR0aCAqIGhlaWdodCAqIHBpeGVscy5mcmFtZXMubGVuZ3RoID4gNjVfNTM2KQogICAgaW52YWxpZCgnRGVjb2RlZCBhbmltYXRpb24gZXhjZWVkcyBwaXhlbCBidWRnZXQnKTsKICBpZiAod2lkdGggJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSB8fCBoZWlnaHQgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSkKICAgIGludmFsaWQoJ0NhbnZhcyBtdXN0IGFsaWduIHRvIHRoZSBkZWNsYXJlZCBsb2dpY2FsIHBpeGVsIGdyaWQnKTsKICBjb25zdCBjb2xvcnMgPSBuZXcgU2V0ICAgICAgICAoKTsKICBsZXQgcmVjdGFuZ2xlcyA9IDA7CiAgY29uc3QgZnJhbWVzID0gcGl4ZWxzLmZyYW1lcy5tYXAoKHsgcmdiYSB9KSA9PiB7CiAgICBpZiAocmdiYS5sZW5ndGggIT09IHdpZHRoICogaGVpZ2h0ICogNCkKICAgICAgaW52YWxpZCgnUkdCQSBsZW5ndGggbXVzdCBleGFjdGx5IG1hdGNoIGNhbnZhcyBkaW1lbnNpb25zJyk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKQogICAgICBmb3IgKGxldCB4ID0gMDsgeCA8IHdpZHRoOyB4KyspIHsKICAgICAgICBjb25zdCBjb2xvciA9IHBpeGVsKHJnYmEsICh5ICogd2lkdGggKyB4KSAqIDQpOwogICAgICAgIGNvbnN0IGdyaWRYID0geCAtICh4ICUgcGl4ZWxzLmxvZ2ljYWxQaXhlbFNpemUpLAogICAgICAgICAgZ3JpZFkgPSB5IC0gKHkgJSBwaXhlbHMubG9naWNhbFBpeGVsU2l6ZSk7CiAgICAgICAgaWYgKGNvbG9yICE9PSBwaXhlbChyZ2JhLCAoZ3JpZFkgKiB3aWR0aCArIGdyaWRYKSAqIDQpKQogICAgICAgICAgaW52YWxpZCgnUGl4ZWxzIGRpc2FncmVlIHdpdGhpbiBsb2dpY2FsIGdyaWQgY2VsbCcpOwogICAgICAgIGlmIChjb2xvciAhPT0gbnVsbCkgY29sb3JzLmFkZChjb2xvcik7CiAgICAgICAgaWYgKGNvbG9ycy5zaXplID4gcGl4ZWxzLnBhbGV0dGVMaW1pdCkgaW52YWxpZCgnQW5pbWF0aW9uIGV4Y2VlZHMgcGFsZXR0ZSBidWRnZXQnKTsKICAgICAgfQogICAgY29uc3QgcmVzdWx0ICAgICAgICAgICAgICAgICAgID0gW107CiAgICBsZXQgcHJldmlvdXMgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICBmb3IgKGxldCB5ID0gMDsgeSA8IGhlaWdodDsgeSsrKSB7CiAgICAgIGNvbnN0IGN1cnJlbnQgPSBuZXcgTWFwICAgICAgICAgICAgICAgICAgICAgICAgKCk7CiAgICAgIGZvciAobGV0IHggPSAwOyB4IDwgd2lkdGg7KSB7CiAgICAgICAgY29uc3QgY29sb3IgPSBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSwKICAgICAgICAgIHN0YXJ0ID0geCsrOwogICAgICAgIGlmIChjb2xvciA9PT0gbnVsbCkgY29udGludWU7CiAgICAgICAgd2hpbGUgKHggPCB3aWR0aCAmJiBwaXhlbChyZ2JhLCAoeSAqIHdpZHRoICsgeCkgKiA0KSA9PT0gY29sb3IpIHgrKzsKICAgICAgICBjb25zdCBrZXkgPSBgJHtzdGFydH0vJHt4IC0gc3RhcnR9LyR7Y29sb3J9YCwKICAgICAgICAgIGFib3ZlID0gcHJldmlvdXMuZ2V0KGtleSk7CiAgICAgICAgaWYgKGFib3ZlKSB7CiAgICAgICAgICBhYm92ZS5oZWlnaHQrKzsKICAgICAgICAgIGN1cnJlbnQuc2V0KGtleSwgYWJvdmUpOwogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICBjb25zdCByZWN0ID0geyB4OiBzdGFydCwgeSwgd2lkdGg6IHggLSBzdGFydCwgaGVpZ2h0OiAxLCBjb2xvciB9OwogICAgICAgICAgcmVzdWx0LnB1c2gocmVjdCk7CiAgICAgICAgICBjdXJyZW50LnNldChrZXksIHJlY3QpOwogICAgICAgICAgcmVjdGFuZ2xlcysrOwogICAgICAgICAgaWYgKHJlc3VsdC5sZW5ndGggPiA0MDk2IHx8IHJlY3RhbmdsZXMgPiAxNl8zODQpCiAgICAgICAgICAgIGludmFsaWQoJ05vcm1hbGl6ZWQgcmVjdGFuZ2xlIGJ1ZGdldCBleGNlZWRlZCcpOwogICAgICAgIH0KICAgICAgfQogICAgICBwcmV2aW91cyA9IGN1cnJlbnQ7CiAgICB9CiAgICBpZiAoIXJlc3VsdC5sZW5ndGgpIGludmFsaWQoJ0FuIGFuaW1hdGlvbiBmcmFtZSBjYW5ub3QgYmUgZW50aXJlbHkgdHJhbnNwYXJlbnQnKTsKICAgIHJldHVybiByZXN1bHQ7CiAgfSk7CiAgcmV0dXJuIGZyYW1lczsKfQ==:35:32)\n    at file:///workspace/asset-production/validation/shared-structural-check.mjs:10:18\n\nNode.js v24.19.0\n",
+            "candidateCanvas": [
+              156,
+              115
+            ],
+            "noAutomaticResizeOrRetry": true
+          }
+        }
+      ],
+      "actualCanonicalJSONReceipt": {
+        "file": "canonical-json-budget-receipt.json",
+        "SHA256": "d47c4b76c0a417d16953f65f5175359b1b891036bb16ae296f9f6022405682b5",
+        "record": {
+          "currentModuleFacadeSHA256": "28c4c5f7bd522ac9709ce66df07c674e9f9a5ec53d35255c4a0ebfdef4637320",
+          "definingModuleSHA256": "68090d71be5ae2b04432c98fc57f93571b44ea8a54495a08bf39109bb9b37ebf",
+          "actualFunctionAndErrorIdentity": true,
+          "rawInputs": [
+            {
+              "clip": "native-look",
+              "status": "PASS",
+              "actualCanonicalJSONBytes": 342148,
+              "canonicalSHA256": "7c00046639553cbcc63a83e194c164fa098209ef8384bb733e3b763074ce9237"
+            }
+          ],
+          "compactHandoff": {
+            "bytes": 2171,
+            "SHA256": "f855bd1d3b7ef671111f736f76377adfc0e90bfb2623f336ece77c03faacedf8"
+          },
+          "scope": "Source JSON module acceptance only, not full schema, pins or runtime admission."
+        }
+      }
+    }
+  ],
+  "limits": {
+    "sourceArtUsefulnessSeparateFromCanonicalTechnicalCompatibility": true,
+    "technicalReceiptsAreFrozenProducerEvidenceNotFullSchemaOrAppearanceProof": true,
+    "geometryReviewed": false,
+    "supportWorld": null,
+    "contactsApproved": false,
+    "currentMacSchema": "UNKNOWN",
+    "runtimeTesting": "NOT_TESTED",
+    "runtimeAdmission": false,
+    "liveSceneAcceptance": false,
+    "noFullActionOrNewDrawingClaim": true
+  },
+  "mutationScope": {
+    "newNativeCalls": 0,
+    "newPrimaryDrawingIDs": 0,
+    "exportsOrCanonicalReruns": 0,
+    "globalWrites": false,
+    "sourceChanges": false,
+    "onlyAdded": [
+      "independent-appearance-review.json",
+      "independent-appearance-review.md"
+    ],
+    "savedBrowserCaptures": 0,
+    "captureBytesInPacket": 0,
+    "allFrozenTargetsUnchanged": true
+  }
+}

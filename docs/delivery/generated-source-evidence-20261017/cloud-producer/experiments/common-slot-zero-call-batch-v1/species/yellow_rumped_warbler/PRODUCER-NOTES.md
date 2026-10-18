@@ -1,0 +1,11 @@
+Yellow Rumped Warbler — existing look-source preflight
+
+Three registered sources are retained: the exact awake plus two existing attention alternatives. The closed-eye source is inventoried and excluded because a blink is not a look substitute. Exact native/registered PNGs, originals, prompts and available historical arguments are retained by hash. Legacy packs without a saved literal tool-arguments file remain labelled as such; no invocation record is invented. Private Library receipts, original review reports and browser captures are excluded. Historical review findings are summarized with their exact source hashes.
+
+The shared exporter was run once for this cohort. It samples the existing world extent directly, pads the final fractional margin, uses one 63-opaque-color palette plus transparent RGBA zero, and applies one common zero-only crop to the cleaned frames. The full raw stages remain unchanged. Common crop origin and pivot shift apply to every pose; root rounding is recorded separately. No per-pose fit, paint, warp, foot snap or new drawing is involved.
+
+Each look is a separate two-frame pixel candidate with neutral 60 → look 18 → the same neutral 12 ticks at 30 Hz, loop false. Both actual canonical pixel checks passed. This does not claim that all three alternatives are an installed family or that source art, support, full metadata/pins or actual-yard playback have passed.
+
+Prior holds remain: the head changes are readable, but lower leg and toe outlines rearrange across the switch. New packaging does not itself repair these pixels. Independent normal-size raw and codec review is pending. Preserve the exact neutral fallback; classify a persistent source-art problem separately from a support or metadata decision. No generation is started or queued by this packet.
+
+Actual current canonical JSON checks passed for both two-frame raw codec inputs and the compact source handoff. Live source-player checks passed on light and dark surfaces at device scale factor 1, including both 3-second options, terminal tick 89, exact APNG RGBA tuples and 2000/600/400 ms timing. No browser captures are retained. These are technical player checks, not a source-art or actual-yard acceptance.

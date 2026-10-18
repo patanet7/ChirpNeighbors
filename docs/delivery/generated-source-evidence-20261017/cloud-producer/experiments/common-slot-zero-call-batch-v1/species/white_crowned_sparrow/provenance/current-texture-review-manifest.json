@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "80adba0cf7257e912934a84aa2560ddbddb967805210abf31b88cf0a701186b1",
+    "creator": "Chirp cloud source-preserving exporter",
+    "tool": "Pillow whole-native-canvas nearest export",
+    "toolVersion": "12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 192,
+    "height": 96,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "white_crowned_sparrow-neutral-96",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 57,
+        "y": 75
+      },
+      "contacts": [
+        {
+          "id": "foot-1",
+          "x": 55,
+          "y": 73
+        },
+        {
+          "id": "foot-2",
+          "x": 58,
+          "y": 73
+        }
+      ],
+      "world": {
+        "width": 123.42857142857143,
+        "height": 123.42857142857143
+      },
+      "sourcePixelsPerWorldUnit": 0.7777777777777778
+    },
+    {
+      "id": "white_crowned_sparrow-look-viewer-study-96",
+      "sourceRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 57,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 123.42857142857143,
+        "height": 123.42857142857143
+      },
+      "sourcePixelsPerWorldUnit": 0.7777777777777778
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "white_crowned_sparrow-neutral-96",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "white_crowned_sparrow-neutral-96",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "white_crowned_sparrow-look-viewer-study-96",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "white_crowned_sparrow-neutral-96",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ]
+}
