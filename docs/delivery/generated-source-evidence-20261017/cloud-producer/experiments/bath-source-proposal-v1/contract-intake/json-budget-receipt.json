@@ -1,0 +1,32 @@
+{
+  "runtimeCommit": "c4ae7529786e28cf55e2008b7f7b64215fc6542c",
+  "scope": "Actual raw candidate input and source metadata budget; not generated production manifest or full admission",
+  "results": [
+    {
+      "label": "raw full five-frame candidate input",
+      "path": "/workspace/asset-production/experiments/bath-source-proposal-v1/contract-intake/raw-candidate-input.json",
+      "inputSHA256": "21ff84dab3c9cb15e1612068bed27c0ff0dd86097829b3e6880bfc64ce5cdbe1",
+      "status": "FAIL actual canonicalJson",
+      "message": "Pipeline JSON exceeds 1 MB",
+      "actualPermanentStageError": true
+    },
+    {
+      "label": "frozen source handoff",
+      "path": "/workspace/asset-production/experiments/bath-source-proposal-v1/source-handoff.json",
+      "inputSHA256": "0d1f0a335aaaa85270b89dace190bba04288d376041d130d7404152890dded8f",
+      "status": "PASS actual canonicalJson",
+      "canonicalUTF8Bytes": 6276,
+      "canonicalSHA256": "ea9f245764b12604db762e9b00d7bf81c7aafdbf93e1034a44f0a017237cdd7b"
+    },
+    {
+      "label": "supplied bath mapping contract",
+      "path": "/workspace/asset-production/experiments/bath-source-proposal-v1/bathing-contract.json",
+      "inputSHA256": "56c64cfabee79e22f9d0c3fe4e2f8775766d1778058463b4ff84b3bd378e4d9f",
+      "status": "PASS actual canonicalJson",
+      "canonicalUTF8Bytes": 11698,
+      "canonicalSHA256": "c3922be3ec957324087136abce095433e3d03e6fb9f026a0ac611a7d6441acf3"
+    }
+  ],
+  "sourceAdmitted": false,
+  "runtimeAdmission": false
+}

@@ -1,0 +1,311 @@
+{
+  "experiment": "BATH-SOURCE-PROPOSAL-1",
+  "state": "COMPLETED one full-five-frame source diagnostic; actual area and raw JSON failures retained",
+  "normalizerRuntimeCommit": "c4ae7529786e28cf55e2008b7f7b64215fc6542c",
+  "normalizerCommitClaim": "Pinned observed snapshot, not latest and not806 bath-contract-source validation",
+  "bathMappingContractSourceCommitAsSupplied": "806ef7e7522a5a4ea3d8a9cd38bac6968fcbbfe9",
+  "sourceBindingRehashStatus": "SOURCE_BINDING_REHASH_UNAVAILABLE",
+  "contractBytesMatchParentPins": true,
+  "contractSourceBindingsDeclared": 17,
+  "contractSourceBindingsIndependentlyRehashed": 0,
+  "actualPixel": {
+    "command": [
+      "node",
+      "/workspace/asset-production/validation/shared-structural-check.mjs",
+      "--repo",
+      "/workspace/runtime-resting-intake-v5-inspect",
+      "--input",
+      "/workspace/asset-production/experiments/bath-source-proposal-v1/contract-intake/canonical-pixel-input.json",
+      "--receipt",
+      "/workspace/asset-production/experiments/bath-source-proposal-v1/contract-intake/pixel-receipt.json",
+      "--sharp",
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/dist/index.cjs"
+    ],
+    "exitCode": 1,
+    "actualErrorClassName": "PermanentStageError",
+    "message": "Decoded animation exceeds pixel budget",
+    "stderr": "actual-pixel.stderr.txt",
+    "stderrSHA256": "a5b7bca00986fd3f2789eb8a148f2d3246815d78b5fcd04bb11a39ecaa672c78",
+    "canonicalPixelReceiptProduced": false,
+    "rectangleCountsReached": false,
+    "perFrameRectangleCounts": null,
+    "totalRectangleCount": null,
+    "canvas": [
+      180,
+      139
+    ],
+    "uniqueFrames": 5,
+    "actualDecodedArea": 125100
+  },
+  "actualJSON": [
+    {
+      "label": "raw full five-frame candidate input",
+      "path": "/workspace/asset-production/experiments/bath-source-proposal-v1/contract-intake/raw-candidate-input.json",
+      "inputSHA256": "21ff84dab3c9cb15e1612068bed27c0ff0dd86097829b3e6880bfc64ce5cdbe1",
+      "status": "FAIL actual canonicalJson",
+      "message": "Pipeline JSON exceeds 1 MB",
+      "actualPermanentStageError": true
+    },
+    {
+      "label": "frozen source handoff",
+      "path": "/workspace/asset-production/experiments/bath-source-proposal-v1/source-handoff.json",
+      "inputSHA256": "0d1f0a335aaaa85270b89dace190bba04288d376041d130d7404152890dded8f",
+      "status": "PASS actual canonicalJson",
+      "canonicalUTF8Bytes": 6276,
+      "canonicalSHA256": "ea9f245764b12604db762e9b00d7bf81c7aafdbf93e1034a44f0a017237cdd7b"
+    },
+    {
+      "label": "supplied bath mapping contract",
+      "path": "/workspace/asset-production/experiments/bath-source-proposal-v1/bathing-contract.json",
+      "inputSHA256": "56c64cfabee79e22f9d0c3fe4e2f8775766d1778058463b4ff84b3bd378e4d9f",
+      "status": "PASS actual canonicalJson",
+      "canonicalUTF8Bytes": 11698,
+      "canonicalSHA256": "c3922be3ec957324087136abce095433e3d03e6fb9f026a0ac611a7d6441acf3"
+    }
+  ],
+  "sourceFacts": {
+    "actualReturnedNativeCalls": 1,
+    "newNativeDrawingsVerifiedAsLiteralCells": 4,
+    "newNativeIDs": [
+      "frame.sha256.3334bf14177e694d9c2e5e42625e82050b68d58f7869a5e43602860087041cc7",
+      "frame.sha256.a1a8d5a1cf54b9f2bc61856c9f29801f4c741fd0e68795af52d4b01509212006",
+      "frame.sha256.d39ad2409659053c07ab16108bd092d2fa43f2b884e6e65b6577e16acec50eca",
+      "frame.sha256.29a23cbf20ed8a6c0b5749ec2e7662aca72d2182f54d313a8271994262a3dbb3"
+    ],
+    "existingNeutralSourceID": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+    "originalSHA256": "dbc9e9cee2bd9749398dca2f6a9b224549b9fc9a95bce648e98d5aac62906c44",
+    "originalRGBAId": "frame.sha256.b423c08e006b0a428ecf1b4745bc82fd54e2b0a32904ad006204237aac58cfd6",
+    "originalCanvas": [
+      1254,
+      1254
+    ],
+    "literalCells": [
+      627,
+      627
+    ],
+    "wholeNativeAtlasReconstructionExact": true,
+    "actualPromptAndImageInputsVerified": true,
+    "flatNativeArgumentsRetained": "native-arguments.json; no importer compatibility alias created by this workstream",
+    "privateImporterPolicyRightsLineageRecoveryExecuted": false,
+    "registrationPerformed": false
+  },
+  "sourceRendering": {
+    "fullWorldCanvas": [
+      192,
+      192
+    ],
+    "density": 1,
+    "fullPivot": [
+      105,
+      150
+    ],
+    "crop": [
+      8,
+      40,
+      188,
+      179
+    ],
+    "candidateCanvas": [
+      180,
+      139
+    ],
+    "candidatePivot": [
+      97,
+      110
+    ],
+    "fiveUniqueFramesKept": true,
+    "oldNeutralRawAndFullCodecExact": true,
+    "oneWholeCellNN192Protocol": true,
+    "sourceFitWarpTranslateOrPaint": false,
+    "alpha128AndExisting63PaletteExact": true,
+    "commonCropNonzeroDiscard": 0,
+    "imageMeasurements": [
+      {
+        "pose": "neutral",
+        "alpha128BBoxWorld": [
+          32,
+          82,
+          150,
+          150
+        ],
+        "visibleImageWidth": 118,
+        "lowestAlpha128Row": 149,
+        "widthRatioVsNeutral118": 1.0,
+        "lowestImageRowDeltaVsNeutral149": 0,
+        "partialRawAlphaPixels": 3344,
+        "belowThresholdNonzeroAlphaPixelsRemoved": 642,
+        "codecRGBAColorsIncludingTransparent": 64,
+        "semanticFootOrBodyScaleCertified": false
+      },
+      {
+        "pose": "lowered-ready",
+        "alpha128BBoxWorld": [
+          9,
+          69,
+          184,
+          179
+        ],
+        "visibleImageWidth": 175,
+        "lowestAlpha128Row": 178,
+        "widthRatioVsNeutral118": 1.4830508474576272,
+        "lowestImageRowDeltaVsNeutral149": 29,
+        "partialRawAlphaPixels": 8849,
+        "belowThresholdNonzeroAlphaPixelsRemoved": 1342,
+        "codecRGBAColorsIncludingTransparent": 64,
+        "semanticFootOrBodyScaleCertified": false
+      },
+      {
+        "pose": "wing-ruffle",
+        "alpha128BBoxWorld": [
+          8,
+          69,
+          173,
+          179
+        ],
+        "visibleImageWidth": 165,
+        "lowestAlpha128Row": 178,
+        "widthRatioVsNeutral118": 1.3983050847457628,
+        "lowestImageRowDeltaVsNeutral149": 29,
+        "partialRawAlphaPixels": 10094,
+        "belowThresholdNonzeroAlphaPixelsRemoved": 1481,
+        "codecRGBAColorsIncludingTransparent": 64,
+        "semanticFootOrBodyScaleCertified": false
+      },
+      {
+        "pose": "shake-wing-state",
+        "alpha128BBoxWorld": [
+          13,
+          40,
+          188,
+          154
+        ],
+        "visibleImageWidth": 175,
+        "lowestAlpha128Row": 153,
+        "widthRatioVsNeutral118": 1.4830508474576272,
+        "lowestImageRowDeltaVsNeutral149": 4,
+        "partialRawAlphaPixels": 10220,
+        "belowThresholdNonzeroAlphaPixelsRemoved": 1653,
+        "codecRGBAColorsIncludingTransparent": 64,
+        "semanticFootOrBodyScaleCertified": false
+      },
+      {
+        "pose": "folded-settle",
+        "alpha128BBoxWorld": [
+          9,
+          43,
+          179,
+          154
+        ],
+        "visibleImageWidth": 170,
+        "lowestAlpha128Row": 153,
+        "widthRatioVsNeutral118": 1.4406779661016949,
+        "lowestImageRowDeltaVsNeutral149": 4,
+        "partialRawAlphaPixels": 9244,
+        "belowThresholdNonzeroAlphaPixelsRemoved": 1571,
+        "codecRGBAColorsIncludingTransparent": 64,
+        "semanticFootOrBodyScaleCertified": false
+      }
+    ],
+    "metricsAreSemanticBodyOrFootCertification": false
+  },
+  "timing": {
+    "frameOrder": [
+      "neutral",
+      "lowered-ready",
+      "wing-ruffle",
+      "shake-wing-state",
+      "folded-settle",
+      "neutral"
+    ],
+    "authoredTicks30": [
+      12,
+      18,
+      12,
+      12,
+      24,
+      12
+    ],
+    "durationTicks": 90,
+    "phaseMarkers": [
+      0,
+      12,
+      30,
+      42,
+      54,
+      78,
+      90
+    ],
+    "APNG_CRC_ComposedRGBA_DelaysExact": true,
+    "APNGProof": [
+      {
+        "file": "raw-source-proposal.apng",
+        "sha256": "2e66b772ee2037228842d886911cdaa9a38ba346c4c665c521b25fc608a8bdc4",
+        "canvas": [
+          192,
+          192
+        ],
+        "composedFrames": 6,
+        "uniquePoseKeys": 5,
+        "CRCExact": true,
+        "composedRGBAExact": true,
+        "clockTicks30": [
+          12,
+          18,
+          12,
+          12,
+          24,
+          12
+        ],
+        "durationSeconds": 3,
+        "onePlay": true
+      },
+      {
+        "file": "codec-source-proposal.apng",
+        "sha256": "85c2a0b85398836dcd028408dedd16aeec572621d0f76279175e5ac0032f7c6e",
+        "canvas": [
+          180,
+          139
+        ],
+        "composedFrames": 6,
+        "uniquePoseKeys": 5,
+        "CRCExact": true,
+        "composedRGBAExact": true,
+        "clockTicks30": [
+          12,
+          18,
+          12,
+          12,
+          24,
+          12
+        ],
+        "durationSeconds": 3,
+        "onePlay": true
+      }
+    ],
+    "wetContactEvents": [],
+    "isMeasuredBiology": false
+  },
+  "activityBoundary": {
+    "commonInput5Applicable": false,
+    "bathingRelabelledToLookOrBlink": false,
+    "formalSourceArtifactOrActivityPackageConstructed": false,
+    "actualActorRootToSlotBindingApplied": false,
+    "bodyFeetImmersionRimOcclusionReviewed": false,
+    "frontRimMask": null,
+    "waterContactOrZeroMassEffectsBakedInBirdPixels": false,
+    "contacts": [],
+    "supportWorld": null,
+    "physicalSupportReviewed": false,
+    "sourceStatus": "HELD unfitted activity source candidate; matched canonical scale/stance not accepted",
+    "waterContractBytesDoNotApproveBirdGeometry": true
+  },
+  "sourceFilesExact": 58,
+  "actualPixelRuns": 1,
+  "actualJSONInvocations": 1,
+  "checksRunning": 0,
+  "newNativeCallsByTechnicalWorkstream": 0,
+  "newDrawingsByTechnicalWorkstream": 0,
+  "globalRegistryQueueRuntimePublicationEdits": 0,
+  "sourceAdmitted": false,
+  "runtimeAdmission": false
+}
