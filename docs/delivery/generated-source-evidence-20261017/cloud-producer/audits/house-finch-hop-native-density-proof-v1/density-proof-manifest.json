@@ -1,0 +1,459 @@
+{
+  "kind": "zero-call-native-pixel-density-calibration-HYPOTHESIS",
+  "batchId": "house-finch-hop-native-density-proof-v1",
+  "createdUTC": "2026-10-18T01:02:51.219405+00:00",
+  "nativeCalls": 0,
+  "newDrawings": 0,
+  "reusedNewSourceDrawings": 4,
+  "reusedAwake": 1,
+  "sourceOriginalHopStatus": "HELD; unchanged",
+  "hypothesis": "Treat each actual native627cell pixel as same sourcepixel density as selected1024awake (1024/96px perworld), instead of treating each cell as whole1024canvas. Generator did not fulfill matched sourcecanvas composition; this is an alternate engineering hypothesis only.",
+  "inputCellCanvas": [
+    627,
+    627
+  ],
+  "constantCanvasPadding": {
+    "left": 198,
+    "top": 198,
+    "right": 199,
+    "bottom": 199,
+    "RGBA": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sameEveryPose": true
+  },
+  "paddedCanvas": [
+    1024,
+    1024
+  ],
+  "outputCanvas": [
+    96,
+    96
+  ],
+  "outputWorld": [
+    96,
+    96
+  ],
+  "outputDensity": 1,
+  "referenceNativePixelsPerWorldUnit": 10.666666666666666,
+  "nativeCellPixelDensityActuallyKnown": false,
+  "cellToPaddedEdgeMatrix": [
+    [
+      1,
+      0,
+      198
+    ],
+    [
+      0,
+      1,
+      198
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "paddedToOutputEdgeMatrix": [
+    [
+      0.09375,
+      0,
+      0
+    ],
+    [
+      0,
+      0.09375,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "composedCellToOutputEdgeMatrix": [
+    [
+      0.09375,
+      0,
+      18.5625
+    ],
+    [
+      0,
+      0.09375,
+      18.5625
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "sampling": "Pillow12.3nearest uses doublefloatingaccumulation:step=1024/96;position=step*.5;select int(position),then position+=step; same1Dtable forx/y,retainedexplicitly. Continuousedge matrix stays exact rational; discrete tie behavior follows lookup.",
+  "previousHeldCellTo96Scale": 0.15311004784688995,
+  "hypothesisRelativeScaleToHeld": 0.6123046875,
+  "bboxFit": false,
+  "perPoseScale": false,
+  "perPosePixelTranslation": false,
+  "footSnap": false,
+  "paint": false,
+  "alphaCleanup": false,
+  "qualification": "Constant198padding is declared canvasembedding shared by allposes. It is not a claim that native627cell dimensions established the requested scale. Derivatives are not new drawings or replacements of frozen artwork.",
+  "records": [
+    {
+      "pose": "compression",
+      "primarySourceFrameId": "frame.sha256.a46742f11a5816eeefa838c2d2c640cdde08fab8ccbe8a8b25f1b71ec5a79985",
+      "primaryPNG": "raw-cells627/compression.png",
+      "primaryPNGsha256": "fcb8c938897d57cfdadbb2aee4664255afff8371249ff2aef17a291f9d407628",
+      "originalPrimaryPNG": "cells627/compression.png",
+      "paddedPNG": "padded1024/compression.png",
+      "paddedPNGsha256": "731f5f94e4e35547d4083399cde5872767ce3250fb5bb6f080233fcb8cd4e66f",
+      "proofPNG": "proof96/compression.png",
+      "proofPNGsha256": "4045aec771690feb026dfb64752a4e39948850b9037ad00bc97da333bda408e9",
+      "metricsOrder": [
+        "exactoldawake",
+        "held627to96",
+        "densityhypothesisPad1024to96"
+      ],
+      "metrics": [
+        {
+          "file": "exact-awake96.png",
+          "PNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974",
+          "decodedRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
+          "bboxAlpha128": [
+            15,
+            37,
+            64,
+            75
+          ],
+          "visibleWidthWorld": 49,
+          "lowestRow": 74,
+          "positiveAlphaPixels": 823
+        },
+        {
+          "file": "held96/compression.png",
+          "PNGsha256": "21bcf4d6dced67d09e2d5d00385de6be92dc3c9703c65def6d236161686d2f8e",
+          "decodedRGBAId": "frame.sha256.812a2eabcb97f68decb1e755e0e69f964456e726a6bdf3ccfcb250a9a3610240",
+          "bboxAlpha128": [
+            12,
+            45,
+            85,
+            91
+          ],
+          "visibleWidthWorld": 73,
+          "lowestRow": 90,
+          "positiveAlphaPixels": 1901
+        },
+        {
+          "file": "proof96/compression.png",
+          "PNGsha256": "4045aec771690feb026dfb64752a4e39948850b9037ad00bc97da333bda408e9",
+          "decodedRGBAId": "frame.sha256.103f4fcd58d45ebd24b0d1053d4e01a148f79dd5869c7b203478f2b3ff9452d5",
+          "bboxAlpha128": [
+            26,
+            46,
+            71,
+            75
+          ],
+          "visibleWidthWorld": 45,
+          "lowestRow": 74,
+          "positiveAlphaPixels": 714
+        }
+      ],
+      "sourcePixelsUnchanged": true,
+      "opaqueImageFitUsed": false
+    },
+    {
+      "pose": "tucked-air",
+      "primarySourceFrameId": "frame.sha256.122d3b28e2de12daa24e36b75cb55ae750281f414d313e833303e775a173a7db",
+      "primaryPNG": "raw-cells627/tucked-air.png",
+      "primaryPNGsha256": "4f0cf38fb238e82e47121392dc9c7f32232984e47962d3ad91e1fdff8404edaf",
+      "originalPrimaryPNG": "cells627/tucked-air.png",
+      "paddedPNG": "padded1024/tucked-air.png",
+      "paddedPNGsha256": "24149b5ce2e7fa3c27875e23518aa6586dfe1d5f2868a09e438a1ba8e17ffa01",
+      "proofPNG": "proof96/tucked-air.png",
+      "proofPNGsha256": "82d14a79527c835170f442b2c8d5abd1f6bd131251fca9479a1f332a97ad43db",
+      "metricsOrder": [
+        "exactoldawake",
+        "held627to96",
+        "densityhypothesisPad1024to96"
+      ],
+      "metrics": [
+        {
+          "file": "exact-awake96.png",
+          "PNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974",
+          "decodedRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
+          "bboxAlpha128": [
+            15,
+            37,
+            64,
+            75
+          ],
+          "visibleWidthWorld": 49,
+          "lowestRow": 74,
+          "positiveAlphaPixels": 823
+        },
+        {
+          "file": "held96/tucked-air.png",
+          "PNGsha256": "f71895686576586cba7e3a7d60acc2cf9f213bf365cfde41510e9a216e8abdfa",
+          "decodedRGBAId": "frame.sha256.8fc66b684b9847db046571f41607c040b460e6655a781c8d18a528231ff00361",
+          "bboxAlpha128": [
+            9,
+            33,
+            81,
+            85
+          ],
+          "visibleWidthWorld": 72,
+          "lowestRow": 84,
+          "positiveAlphaPixels": 1954
+        },
+        {
+          "file": "proof96/tucked-air.png",
+          "PNGsha256": "82d14a79527c835170f442b2c8d5abd1f6bd131251fca9479a1f332a97ad43db",
+          "decodedRGBAId": "frame.sha256.bd8b983a60f637cb50f229f2e480c6c478bd4530f86bd966e7cf48f8b594f24f",
+          "bboxAlpha128": [
+            25,
+            39,
+            68,
+            71
+          ],
+          "visibleWidthWorld": 43,
+          "lowestRow": 70,
+          "positiveAlphaPixels": 738
+        }
+      ],
+      "sourcePixelsUnchanged": true,
+      "opaqueImageFitUsed": false
+    },
+    {
+      "pose": "landing-reach-air",
+      "primarySourceFrameId": "frame.sha256.f0e35a3a41b1671d5f52141982738501a60082cd8cc85d6054555b6f89a8e401",
+      "primaryPNG": "raw-cells627/landing-reach-air.png",
+      "primaryPNGsha256": "b48a6750262500dae003ffed3e630c672eaf8d92aa502290ad1be61dc705bc8e",
+      "originalPrimaryPNG": "cells627/landing-reach-air.png",
+      "paddedPNG": "padded1024/landing-reach-air.png",
+      "paddedPNGsha256": "79439114cab6d26480859439cee73633b8af744bdb3e5fad4933b26014e9ca8f",
+      "proofPNG": "proof96/landing-reach-air.png",
+      "proofPNGsha256": "aca540b6dc342c692b2e32dfaf5285dc76e0694eae6f866e7ae682d0fb882d28",
+      "metricsOrder": [
+        "exactoldawake",
+        "held627to96",
+        "densityhypothesisPad1024to96"
+      ],
+      "metrics": [
+        {
+          "file": "exact-awake96.png",
+          "PNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974",
+          "decodedRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
+          "bboxAlpha128": [
+            15,
+            37,
+            64,
+            75
+          ],
+          "visibleWidthWorld": 49,
+          "lowestRow": 74,
+          "positiveAlphaPixels": 823
+        },
+        {
+          "file": "held96/landing-reach-air.png",
+          "PNGsha256": "5dba04f68bec70508bb81a7e6290330c88eb0d020341be8a6bfc29aeee6c3968",
+          "decodedRGBAId": "frame.sha256.2129e78ff5d22071796c73104af96fc770dc1faffe2f484e6c09563e95f78a4c",
+          "bboxAlpha128": [
+            12,
+            21,
+            86,
+            75
+          ],
+          "visibleWidthWorld": 74,
+          "lowestRow": 74,
+          "positiveAlphaPixels": 2005
+        },
+        {
+          "file": "proof96/landing-reach-air.png",
+          "PNGsha256": "aca540b6dc342c692b2e32dfaf5285dc76e0694eae6f866e7ae682d0fb882d28",
+          "decodedRGBAId": "frame.sha256.82833af6e2b82b057ae54513b3690845fa129f045bc7b241614140b239d23c6d",
+          "bboxAlpha128": [
+            26,
+            31,
+            71,
+            64
+          ],
+          "visibleWidthWorld": 45,
+          "lowestRow": 63,
+          "positiveAlphaPixels": 762
+        }
+      ],
+      "sourcePixelsUnchanged": true,
+      "opaqueImageFitUsed": false
+    },
+    {
+      "pose": "supported-settle",
+      "primarySourceFrameId": "frame.sha256.ef0f3b41511c5837ac87ff0565c98bed01da62dddee95b8eee445fed80693370",
+      "primaryPNG": "raw-cells627/supported-settle.png",
+      "primaryPNGsha256": "d1453eb45b52efc08ee7f3b7a2b873f2a3a95789bb9d49bb0ce16402ef8c547c",
+      "originalPrimaryPNG": "cells627/supported-settle.png",
+      "paddedPNG": "padded1024/supported-settle.png",
+      "paddedPNGsha256": "b33e1af35fae179b92f794b7fb8d24996096531ed346ed6d033b36aaf6a4f748",
+      "proofPNG": "proof96/supported-settle.png",
+      "proofPNGsha256": "def5b21ebf37b13fa46155fa815112f4c4cb48b3f69d27a65e171bd7ab269b67",
+      "metricsOrder": [
+        "exactoldawake",
+        "held627to96",
+        "densityhypothesisPad1024to96"
+      ],
+      "metrics": [
+        {
+          "file": "exact-awake96.png",
+          "PNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974",
+          "decodedRGBAId": "frame.sha256.41b3a52a4edbe32d16e41869cbea57f384c8d5fecf2b2f3a7564db2d72e6aa66",
+          "bboxAlpha128": [
+            15,
+            37,
+            64,
+            75
+          ],
+          "visibleWidthWorld": 49,
+          "lowestRow": 74,
+          "positiveAlphaPixels": 823
+        },
+        {
+          "file": "held96/supported-settle.png",
+          "PNGsha256": "38bc139a014f1f9225614c4d92feb7ab2fabf58587d31bec6df41e04c207e317",
+          "decodedRGBAId": "frame.sha256.b7f7dd16ea2cae81245011dba85991c183bebe781b99249294a8c7cb58eec0f8",
+          "bboxAlpha128": [
+            11,
+            32,
+            83,
+            81
+          ],
+          "visibleWidthWorld": 72,
+          "lowestRow": 80,
+          "positiveAlphaPixels": 1953
+        },
+        {
+          "file": "proof96/supported-settle.png",
+          "PNGsha256": "def5b21ebf37b13fa46155fa815112f4c4cb48b3f69d27a65e171bd7ab269b67",
+          "decodedRGBAId": "frame.sha256.945a4ef36442e7f07b28fafcd36e4a54f1747f4599811518bdca2e29bc8b5d08",
+          "bboxAlpha128": [
+            25,
+            38,
+            69,
+            68
+          ],
+          "visibleWidthWorld": 44,
+          "lowestRow": 67,
+          "positiveAlphaPixels": 723
+        }
+      ],
+      "sourcePixelsUnchanged": true,
+      "opaqueImageFitUsed": false
+    }
+  ],
+  "acceptedHop": false,
+  "usableGain": 0,
+  "geometryReviewed": false,
+  "supportWorld": null,
+  "MacBinding": "UNKNOWN",
+  "appBound": false,
+  "nearestOutputToPaddedIndex1D": [
+    5,
+    16,
+    26,
+    37,
+    47,
+    58,
+    69,
+    80,
+    90,
+    101,
+    112,
+    122,
+    133,
+    144,
+    154,
+    165,
+    175,
+    186,
+    197,
+    207,
+    218,
+    229,
+    239,
+    250,
+    261,
+    271,
+    282,
+    293,
+    304,
+    314,
+    325,
+    336,
+    346,
+    357,
+    368,
+    378,
+    389,
+    400,
+    410,
+    421,
+    432,
+    442,
+    453,
+    464,
+    474,
+    485,
+    496,
+    506,
+    517,
+    528,
+    538,
+    549,
+    560,
+    570,
+    581,
+    592,
+    602,
+    613,
+    624,
+    634,
+    645,
+    655,
+    666,
+    677,
+    687,
+    698,
+    709,
+    719,
+    730,
+    741,
+    751,
+    762,
+    773,
+    783,
+    794,
+    805,
+    815,
+    826,
+    837,
+    847,
+    858,
+    869,
+    879,
+    890,
+    901,
+    911,
+    922,
+    933,
+    943,
+    954,
+    965,
+    975,
+    986,
+    997,
+    1007,
+    1018
+  ],
+  "samplingFailureReceipt": "sampling-formula-failure-receipt.json"
+}

@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "c3a54ef55821d2634a2837d05dbaf9adc0b1432371491ba21acf259071a5ba78",
+    "creator": "Chirp House Finch hop source study exporter",
+    "tool": "Pillow exactquadrant +shared wholecell nearest",
+    "toolVersion": "12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 480,
+    "height": 96,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "finch-male-open-96",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 48,
+        "y": 75
+      },
+      "contacts": [
+        {
+          "id": "foot-a",
+          "x": 45,
+          "y": 73
+        },
+        {
+          "id": "foot-b",
+          "x": 48,
+          "y": 74
+        }
+      ],
+      "world": {
+        "width": 96,
+        "height": 96
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "finch-hop-compression-96",
+      "sourceRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 48,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 96,
+        "height": 96
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "finch-hop-tucked-air-96",
+      "sourceRect": {
+        "x": 192,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 48,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 96,
+        "height": 96
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "finch-hop-landing-reach-air-96",
+      "sourceRect": {
+        "x": 288,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 48,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 96,
+        "height": 96
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "finch-hop-supported-settle-96",
+      "sourceRect": {
+        "x": 384,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 48,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 96,
+        "height": 96
+      },
+      "sourcePixelsPerWorldUnit": 1
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "finch-male-open-96",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "moving",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "finch-male-open-96",
+          "durationTicks": 6
+        },
+        {
+          "frameId": "finch-hop-compression-96",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "finch-hop-tucked-air-96",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "finch-hop-landing-reach-air-96",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "finch-hop-supported-settle-96",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "finch-male-open-96",
+          "durationTicks": 12
+        }
+      ]
+    }
+  ]
+}

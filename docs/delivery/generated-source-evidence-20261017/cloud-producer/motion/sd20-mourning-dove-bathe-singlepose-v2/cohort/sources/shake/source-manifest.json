@@ -1,0 +1,85 @@
+{
+  "kind": "single-pose-bath-source-pilot-v2",
+  "pose": "shake",
+  "sourceStatus": "HELD unbound single fluffed phase pending parent/cohort source review; not completed shaking or full bathing",
+  "nativeCalls": 1,
+  "newDrawings": 1,
+  "nativeRunning": false,
+  "automaticRetries": 0,
+  "original": {
+    "file": "original.png",
+    "sha256": "b1704dc466c9252edf3f92dd4135766dc02ab7411335fa1b8b55a2d5c8b2123b",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "RGBAsha256": "39d1f2597e6f05962561faa7ca99928b1308c33d966cbb661bcc0489850c09f1"
+  },
+  "conditioning": {
+    "file": "../shared/conditioning-awake576x384.png",
+    "sha256": "aad8c5136f0b7423e127daf6034daacd19b7eb88f726ca54f3f38b68c857a394",
+    "contract": "../shared/reference-contract.json",
+    "contractSHA256Observed": "3cbf5be1ffdd1a89f4136ed238f1319360458f1fb6a4f5dc7840f8f87fce42e8"
+  },
+  "exports": [
+    {
+      "file": "shake144x96.png",
+      "sha256": "dbff6ea64675d77032161f066de3e0941eb55df4e96945c7536a6ee45de3e1a0",
+      "canvas": [
+        144,
+        96
+      ]
+    },
+    {
+      "file": "shake136x80.png",
+      "sha256": "2895251f6a908b3b7cf191d39cd6e81b3bc560d548569884e5791795991fa10c",
+      "canvas": [
+        136,
+        80
+      ]
+    }
+  ],
+  "conversion": "Shared Pillow-nearest source-index maps with explicit uint8 all4RGBA byte-copy, then exact[4,8,140,88]crop. No perpose fit, offset, body warp, alpha cleanup, paint or snap. Own exports stay frozen; root may create separate floor-center uniform cohort derivative.",
+  "cropRetention": {
+    "allPositiveAlpha144ExportInsideFixedCrop": "PASS",
+    "positiveAlpha144Pixels": 3714,
+    "positiveAlpha144PixelsExcluded": 0,
+    "originalAndFull144Retained": true,
+    "qualification": "This tests fixedcrop of the144 nearest derivative, not retention of every native1536pixel through downsampling."
+  },
+  "producerVisualObservation": "Actual ruffled/fluffed head, neck, breast/back and low folded-wing body change, distinguishable from raised-wing key. Wholecanvas136world source comparison shows long tail and bill span close to exactawake; alpha>128 envelope118old/120new includes fluff. No major wholefamily enlargement seen. Neck/body feather inflation is authored, not biologically measured or automatically accepted. Fixed lowerROI baseline83 unchanged; toes redrawn and unbound. Warm partialalpha field retained.",
+  "geometry": {
+    "sourceCanvas": [
+      144,
+      96
+    ],
+    "sourceNominalPivot": [
+      81,
+      84
+    ],
+    "sourceFloorY": 84,
+    "illustrativeWaterY": 78,
+    "runtimeCanvas": [
+      136,
+      80
+    ],
+    "runtimeNominalPivot": [
+      77,
+      76
+    ],
+    "density": 1,
+    "contacts": [],
+    "geometryReviewed": false,
+    "supportWorld": null
+  },
+  "reviewArtifacts": [
+    "light-dark-awake-comparison.png",
+    "export-verification.json",
+    "review.html"
+  ],
+  "limits": [
+    "One fluffed source key, not a shake cycle or full bathing sequence.",
+    "No authored shake timing, biological rate, water/splash simulation or current Mac binding established.",
+    "No q/framebank/Git/Library writes; no native retries or further calls."
+  ]
+}

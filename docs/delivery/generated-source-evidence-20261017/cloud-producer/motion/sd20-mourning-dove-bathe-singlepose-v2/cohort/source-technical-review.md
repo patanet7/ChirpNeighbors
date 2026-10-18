@@ -1,0 +1,11 @@
+Dove bathV2 cohort independent technical review
+
+PASS for source/export/clock integrity; retain HELD unbound six-key cohort. Six distinct raw1536×1024RGBA native sources, exact prompt strings/dispatch/return hashes and six actual one-call receipts verified. Cohort export/review adds zero drawings/calls. One exact integer floor-center sample map yields every144×96 frame, then identical[4,8,140,88] crop yields136×80; no fitting, per-pose translation, paint or alpha cleanup. Existing sibling Pillow-tie exports stay unchanged; their pixel differences are recorded, not silently repaired.
+
+All six APNG frames reproduce source RGBA and600/600/400/600/400/800ms holds. Actual player11 boundary checks/3 invalid-time controls distinguish102tick/3400ms candidate from separate30tick awake comparison outro and4400ms preview terminal. Awake is outside the six-frame candidate: area65,280; adding it would76,160 and exceed65,536. No independent browser/Mac completion test.
+
+Per-phase evidence records actual crop losses, partial alpha, palette size, inherited probe alpha and raster envelopes. These are diagnostic, not toe correspondence or support. Alpha1/2 crop exclusions remain; raw/native/full144 sources retained. Nominal pivot77,76/density1/root zero translation, water70/floor76 are source proposals only. contacts[]/supportnull/geometryfalse; no actual water physics/pressure/grip/consumption acceptance.
+
+Six phase keys do not establish full wingflutter/shake/preen cycles or connecting action. Raw source alpha/palettes still need separately authorized runtime derivatives; area alone is no runtime pass. Source clipbathe is not proven runtimebathing binding. Accepted full-bath slots0, full schema NOT_RUN/current Mac admission false; no invented pins or idle fallback. Frozen sources/metadata remain hash-identical; no browser captures or global edits.
+
+All24 declared foot/bill/root raster samples were independently reproduced with exact crop-coordinate/residual arithmetic. Per-phase foot image-proxy floor residuals and bill-water residuals are recorded; original producer-vs-cohort sample differences remain qualified. These are image-region proxies, not independently certified anatomical endpoints or physical contacts.
