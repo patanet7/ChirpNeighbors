@@ -1,7 +1,7 @@
 # Cloud-produced source artwork — exact-byte preservation
 
 This directory retains actual project source bytes for the canonical repository.
-The current registered source checkpoint retains 68 native originals with exact prompts and 182 immutable primary drawing records. Animation and yard source production resumed after baseline PR33. See `release/animation-checkpoint-1-20261017/intake-overlay.json` and its `HANDOFF.md` for current additions, exact reviews and limitations.
+The current registered source checkpoint retains 69 native originals with exact prompts and 183 immutable primary drawing records. Animation and yard source production resumed after baseline PR33. See `release/animation-checkpoint-1-20261017/intake-overlay.json` and its `HANDOFF.md` for current additions, exact reviews and limitations.
 
 `release/san-diego-20-v1/All-20-Source-Intake-Index.json` is the historical PR33 baseline, containing102 drawings/21 originals; its prior stop flag is superseded by the resumed checkpoint. The baseline per-species slot audit is in `audits/animation-slot-inventory-20261017`. Source availability does not establish completed animation sets, owner approval, canonical Mac admission or actual-yard verification. This archive changes source evidence only.
 
@@ -206,3 +206,6 @@ Stage57: one native Oriole experimental drawing registered;170 source IDs/62 ori
 
 
 Stage61 registers 12 new real source drawings from 6 retained native requests, all original prompts and outputs included (held attempts retained). Total 182 source IDs / 68 original-prompt pairs. Registration makes zero image calls and adds zero runtime accepted uses. Current batch source usefulness, planted-movement failures and flight status are recorded in experiments/resting-repair-ground-motion-v1/ROOT-ADJUDICATION.json. Input5/source4/manifest6 uses importer-owned generated-history recovery; private policy/reference pins are not fabricated.
+
+
+Stage63 registers 1 new real source drawings from 1 retained native requests, all original prompts and outputs included (held attempts retained). Total 183 source IDs / 69 original-prompt pairs. Registration makes zero image calls and adds zero runtime accepted uses. Same-bird source usefulness and layered-construction outcomes are recorded in experiments/animation-authoring-compare-v1/ROOT-ADJUDICATION.json. Input5/source4/manifest6 uses importer-owned generated-history recovery; private policy/reference pins are not fabricated.

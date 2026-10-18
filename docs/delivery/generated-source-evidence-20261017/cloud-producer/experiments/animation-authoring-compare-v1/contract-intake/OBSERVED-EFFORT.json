@@ -1,0 +1,28 @@
+{
+  "scope": "Observed source production facts; not controlled human authoring-efficiency benchmark",
+  "A": {
+    "source": "../arm-a-baseline/arm-a-metrics.json",
+    "sha256": "2d51dec7742691ebd98bcf0c20fafdfa08cc504e0959778821023187834d9b3a",
+    "currentNativeCalls": 0,
+    "currentExports": 0,
+    "packagingAuditWallSeconds": 0.06988944800013996,
+    "historicalNativeCallSeconds": null,
+    "historicalCleanupMinutes": null,
+    "historicalAuthoringMinutes": null,
+    "historicalReceiptSpanSeconds": 100.08435,
+    "receiptSpanIsNativeLatency": false
+  },
+  "C": {
+    "source": "../arm-c-reference-edit/time-cost-receipt.json",
+    "sha256": "b218e96e3f193d8651387d072660c605ce294c944d009decaf6995e7637cff88",
+    "currentNativeCalls": 1,
+    "actualToolElapsedSeconds": 50.4,
+    "dispatchToReturnReceiptSeconds": 73.165141,
+    "singleExportObservedSeconds": 0.11756862599986562,
+    "manualPixelCleanupMinutes": 0,
+    "fullPreparationMinutes": null,
+    "observedPreparationStartToFreezeSeconds": 300.044499
+  },
+  "efficiencyWinner": null,
+  "qualification": "A reuses historical work whose full authoring/export timing is unknown; C includes a new generation and timed exporter. These scopes cannot establish that one authoring method is faster. Runtime/codecs/check time is not source authoring time."
+}

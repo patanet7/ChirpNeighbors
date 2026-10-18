@@ -1,14 +1,12 @@
-"""Verify append-only stage61 source evidence and the unchanged stage57 regression.
+"""Verify append-only stage63 source facts and unchanged stage61/57 history.
 
 CLI: python verify_source_registration.py --root SOURCE_DELIVERY_DIRECTORY
-Library interface: verify(Path(root)) -> JSON-serializable source-only report.
+API: verify(Path(root)) -> JSON source-only report. No generation/admission.
 
-Counts come from the saved baseline and stage61 ledger, not an assumed final total.
-The only writes during verification are to a temporary HARDLINK tree under
-root.parent. Five old metadata files are unlinked/copied there before executing
-the exact historical verifier. No hardlinked file is opened for writing. The
-actual delivery, registry, source bank and live/runtime files are never changed.
-Requires Python3 and Pillow; no network, credentials or new dependencies.
+The exact previous verifier runs in a temporary HARDLINK corpus under root.parent.
+Seven historical metadata paths are unlinked before copying baseline bytes.
+No payload file is opened for writing. All temporary trees clean up on exit.
+Requires only existing Python/Pillow; no installs/network/private runtime data.
 """
 from __future__ import annotations
 
@@ -27,10 +25,12 @@ from typing import Any
 
 from PIL import Image
 
-# Inspected, pre-registration stage57 verifier bytes. This anchors the historical
-# callback itself; new source/original totals remain entirely ledger-derived.
-LEGACY_VERIFIER_SHA256 = "cd93f803239d2bef1d7e3e7d63505a68f39edbddc2d35091d80a095775b2597f"
-BASELINE_DIRECTORY = "registration-baseline-stage61"
+# Exact pre-stage63 stage61 verifier and index pins anchor the historical callback.
+# New source/original counts remain ledger-derived.
+LEGACY_VERIFIER_SHA256 = "f85ed8b6414f330550596df76565d7d29a8ed7de951c661428f9a6fa5a6ab3ab"
+PRIOR_INDEX_SHA256 = "e89bb82529b159163dcbc1c01a34709c2bae76a3acedd60778b34eacc80bc435"
+PRIOR_INDEX_ENTRIES = 4956
+BASELINE_DIRECTORY = "registration-baseline-stage63"
 OVERLAY = "release/animation-checkpoint-1-20261017/intake-overlay.json"
 ACTIVE_INVENTORY = "release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json"
 OVERRIDES = {
@@ -39,7 +39,8 @@ OVERRIDES = {
     "source-frame-map.json": "source-frame-map.json",
     "verify_source_registration.py": "verify_source_registration.py",
     OVERLAY: "intake-overlay.json",
-    "lessons-and-experiments.json": "lessons-stage57.json",
+    "lessons-and-experiments.json": "lessons-and-experiments.json",
+    "source-files.sha256.json": "source-files.sha256.json",
 }
 
 
@@ -148,6 +149,9 @@ def verify_receipts(batch: dict[str, Any], prompt: bytes, args: dict[str, Any],
         dispatched_args = load(checked_file(arguments_root, dispatch["argumentsFile"]))
         require(dispatched_args.get("arguments", dispatched_args) == args,
                 "Original dispatch argument-file alias differs from native arguments")
+    if "actualReturnedDrawings" in returned:
+        require(returned["actualReturnedDrawings"] == len(batch["frames"]),
+                "Return drawing count differs from ledger")
     if "actualDrawingCount" in returned:
         require(returned["actualDrawingCount"] == len(batch["frames"]),
                 "Raw return drawing count differs from ledger source cells")
@@ -168,22 +172,74 @@ def verify_receipts(batch: dict[str, Any], prompt: bytes, args: dict[str, Any],
     if "nativeRunning" in returned:
         require(returned["nativeRunning"] is False or returned["nativeRunning"] == 0,
                 "Return still reports a running native request")
+    for receipt in (dispatch, returned):
+        require(receipt.get("status") not in {"FAILED","RUNNING"}, "Native receipt is not completed history")
     require(args.get("transparent_background") is True,
             f"Missing submitted transparency argument: {batch['batchId']}")
 
 
+def prior_index_and_metadata(root: Path, baseline: Path, ledger: dict[str, Any],
+                             drawings: int, originals: int) -> dict[str, Any]:
+    """Preserve prior corpus except explicitly changed append-only metadata."""
+    index_path = checked_file(baseline, "source-files.sha256.json", PRIOR_INDEX_SHA256)
+    index = load(index_path)
+    require(ledger["priorSourceIndexSHA256"] == sha(index_path)
+            and ledger["priorSourceIndexEntries"] == len(index["files"]) == PRIOR_INDEX_ENTRIES,
+            "Historical source index identity/count differs")
+    allowed = set(OVERRIDES) | {"verify_source_files.py", "README.md"}
+    protected = 0
+    seen: set[str] = set()
+    old_rows = {}
+    for row in index["files"]:
+        name = row["file"]
+        require(name not in seen, "Duplicate path in historical source index")
+        seen.add(name)
+        old_rows[name] = row
+        path = checked_file(root, name)
+        if name not in allowed:
+            require(sha(path) == row["sha256"] and path.stat().st_size == row["bytes"],
+                    f"Historical payload bytes changed: {name}")
+            protected += 1
+    for current_name, snapshot_name in OVERRIDES.items():
+        if current_name in old_rows:
+            require(sha(checked_file(baseline, snapshot_name)) == old_rows[current_name]["sha256"],
+                    f"Baseline metadata differs from historical index: {current_name}")
+    # Preserve old stage61 ledger byte-for-byte, not merely equivalent JSON.
+    checked_file(root, "source-registration-stage61.json",
+                 old_rows["source-registration-stage61.json"]["sha256"])
+    # Only count assertions in the separate byte/pixel verifier may advance.
+    current_checker = checked_file(root, "verify_source_files.py").read_text()
+    reconstructed_old_checker = current_checker
+    replacements = [
+        ("len(originals['originals']) == 68", f"len(originals['originals']) == {originals}"),
+        ("len(bank['frames']) == 182", f"len(bank['frames']) == {drawings}"),
+        ("len({f['frameId'] for f in bank['frames']}) == 182",
+         f"len({{f['frameId'] for f in bank['frames']}}) == {drawings}"),
+        ("pixel_count = 182", f"pixel_count = {drawings}"),
+        ("'originalPromptPairs': 68", f"'originalPromptPairs': {originals}"),
+    ]
+    for before, after in replacements:
+        require(reconstructed_old_checker.count(after) == 1,
+                "Updated count assertion not uniquely recognized")
+        reconstructed_old_checker = reconstructed_old_checker.replace(after, before)
+    require(hashlib.sha256(reconstructed_old_checker.encode("utf-8")).hexdigest()
+            == old_rows["verify_source_files.py"]["sha256"],
+            "General source verifier changed beyond declared count assertions")
+    return {"priorIndexSHA256":sha(index_path), "priorIndexEntries":len(seen),
+            "historicalNonMetadataFilesExact":protected,
+            "declaredMetadataExceptions":sorted(allowed),
+            "stage61LedgerByteExact":True,
+            "generalVerifierOnlyCountAssertionsAdvanced":True,
+            "readmeScope":"README may update source totals/add stage63 description; original hash remains in immutable prior index."}
+
+
 def historical_regression(root: Path, baseline: Path) -> dict[str, Any]:
-    """Run the old verifier unchanged on hardlinks with isolated baseline overrides."""
+    """Run exact old stage61 verifier, which itself runs exact stage57 regression."""
     legacy = checked_file(baseline, "verify_source_registration.py", LEGACY_VERIFIER_SHA256)
-    historical_lessons = checked_file(baseline, "lessons-stage57.json", load(root / "source-registration-stage57.json")["bindingSnapshotHashes"]["lessons-and-experiments.json"])
-    old_lessons, current_lessons = load(historical_lessons), load(root / "lessons-and-experiments.json")
-    require(current_lessons["experiments"][:len(old_lessons["experiments"])] == old_lessons["experiments"]
-            and {k:v for k,v in current_lessons.items() if k != "experiments"} == {k:v for k,v in old_lessons.items() if k != "experiments"},
-            "Historical registry is not an exact retained prefix of current history")
-    protected = {name: sha(checked_file(root, name)) for name in OVERRIDES}
-    temp_path: Path | None = None
-    result: dict[str, Any]
-    with tempfile.TemporaryDirectory(prefix=".stage61-legacy-", dir=root.parent) as dirname:
+    protected = {name:sha(checked_file(root, name)) for name in OVERRIDES}
+    # These counters are old legacy outputs, not assumptions about appended counts.
+    temp_path = None
+    with tempfile.TemporaryDirectory(prefix=".stage63-legacy-", dir=root.parent) as dirname:
         temp_path = Path(dirname)
         count = 0
         for directory, dirs, files in os.walk(root, followlinks=False):
@@ -191,58 +247,61 @@ def historical_regression(root: Path, baseline: Path) -> dict[str, Any]:
             target_dir = temp_path / source_dir.relative_to(root)
             target_dir.mkdir(parents=True, exist_ok=True)
             for name in dirs:
-                require(not (source_dir / name).is_symlink(),
-                        f"Cannot materialize source symlink directory: {source_dir / name}")
+                require(not (source_dir/name).is_symlink(), f"Symlink directory: {source_dir/name}")
             for name in files:
-                source = source_dir / name
+                source = source_dir/name
                 require(not source.is_symlink() and stat.S_ISREG(source.stat().st_mode),
-                        f"Cannot materialize non-regular source file: {source}")
-                os.link(source, target_dir / name, follow_symlinks=False)
+                        f"Non-regular payload: {source}")
+                os.link(source, target_dir/name, follow_symlinks=False)
                 count += 1
-        # Unlink FIRST: copyfile must never overwrite a hardlinked payload inode.
         for target_name, baseline_name in OVERRIDES.items():
-            target = temp_path / target_name
-            target.unlink()
+            target = temp_path/target_name
+            target.unlink()  # Always sever the hardlink before copying metadata.
             shutil.copyfile(checked_file(baseline, baseline_name), target)
-        require(sha(temp_path / "verify_source_registration.py") == sha(legacy),
-                "Historical callback bytes changed")
+        require(sha(temp_path/"verify_source_registration.py") == sha(legacy),
+                "Prior verifier callback bytes changed")
         environment = os.environ.copy()
         environment["PYTHONDONTWRITEBYTECODE"] = "1"
-        completed = subprocess.run(
-            [sys.executable, str(temp_path / "verify_source_registration.py"),
-             "--root", str(temp_path)],
-            cwd=temp_path, env=environment, text=True, capture_output=True, timeout=300,
-        )
+        completed = subprocess.run([sys.executable,str(temp_path/"verify_source_registration.py"),
+                                    "--root",str(temp_path)],
+                                   cwd=temp_path,env=environment,text=True,capture_output=True,timeout=600)
         require(completed.returncode == 0,
-                "Historical stage57 regression failed:\n" + completed.stdout + completed.stderr)
-        try:
-            result = json.loads(completed.stdout.strip())
-        except json.JSONDecodeError as error:
-            raise VerificationError("Historical verifier did not emit its JSON result") from error
-        require(result.get("passed") is True, "Historical regression did not pass")
-        result = {"result": result, "verifierSHA256": sha(legacy),
-                  "hardlinkedFiles": count, "baselineOverrides": list(OVERRIDES),
-                  "sourceSymlinksAllowed": False}
-    require(temp_path is not None and not temp_path.exists(), "Temporary tree was not removed")
-    require(all(sha(checked_file(root, name)) == digest for name, digest in protected.items()),
-            "Historical regression changed actual payload metadata")
-    result["temporaryTreeRemoved"] = True
-    result["actualPayloadMetadataUnchanged"] = True
-    return result
+                "Historical stage61/57 regression failed:\n"+completed.stdout+completed.stderr)
+        result = json.loads(completed.stdout.strip())
+        require(result.get("passed") is True and result.get("stage") == 61,
+                "Historical stage61 result did not pass")
+        report = {"result":result,"verifierSHA256":sha(legacy),"hardlinkedFiles":count,
+                  "baselineOverrides":list(OVERRIDES),"sourceSymlinksAllowed":False}
+    require(temp_path is not None and not temp_path.exists(), "Temporary corpus not removed")
+    require(all(sha(checked_file(root,name)) == digest for name,digest in protected.items()),
+            "Legacy callback changed real metadata")
+    report.update(temporaryTreeRemoved=True,actualPayloadMetadataUnchanged=True)
+    return report
 
 
 def verify(root: Path) -> dict[str, Any]:
     require(not root.is_symlink(), "Source root cannot be a symlink")
     root = root.resolve(strict=True)
     require(root.is_dir(), "Source root is not a directory")
-    ledger = load(checked_file(root, "source-registration-stage61.json"))
-    require(ledger.get("stage") == 61, "Not a stage61 registration ledger")
+    ledger = load(checked_file(root, "source-registration-stage63.json"))
+    require(ledger.get("stage") == 63, "Not a stage63 registration ledger")
+    require(ledger["baselineDirectory"] == BASELINE_DIRECTORY, "Baseline directory differs")
     baseline = inside(root, BASELINE_DIRECTORY)
-    old_bank_path = checked_file(baseline, "frame-bank.json", ledger["old170BankRecordsSHA256"])
-    old_inv_path = checked_file(baseline, "original-source-inventory.json", ledger["old62OriginalRecordsSHA256"])
+    old_bank_path = checked_file(baseline, "frame-bank.json", ledger["oldBankRecordsSHA256"])
+    old_inv_path = checked_file(baseline, "original-source-inventory.json", ledger["oldOriginalRecordsSHA256"])
     old_map_path = checked_file(baseline, "source-frame-map.json", ledger["oldFrameMapSHA256"])
     old_overlay_path = checked_file(baseline, "intake-overlay.json", ledger["oldOverlaySHA256"])
+    require(ledger["priorVerifierSHA256"] == LEGACY_VERIFIER_SHA256, "Prior verifier pin differs")
     checked_file(baseline, "verify_source_registration.py", LEGACY_VERIFIER_SHA256)
+    old_lessons_path = checked_file(baseline, "lessons-and-experiments.json", ledger["oldLessonsSHA256"])
+    old_lessons, current_lessons = load(old_lessons_path), load(checked_file(root,"lessons-and-experiments.json"))
+    require(current_lessons["experiments"][:len(old_lessons["experiments"])] == old_lessons["experiments"]
+            and {k:v for k,v in current_lessons.items() if k != "experiments"}
+                == {k:v for k,v in old_lessons.items() if k != "experiments"},
+            "Old lessons prefix/metadata changed")
+    require(len(current_lessons["experiments"]) == len(old_lessons["experiments"]) + 1
+            and current_lessons["experiments"][-1]["id"] == "ANIM-AUTHORING-COMPARE-1",
+            "Registry changed beyond its one declared experiment entry")
     old_bank, old_inv, old_map = load(old_bank_path), load(old_inv_path), load(old_map_path)
     bank = load(checked_file(root, "frame-bank.json"))
     inventory = load(checked_file(root, "original-source-inventory.json"))
@@ -251,13 +310,26 @@ def verify(root: Path) -> dict[str, Any]:
     require(ledger["baselineDrawings"] == baseline_drawings
             and ledger["baselineOriginals"] == baseline_originals,
             "Ledger baseline counts differ from retained records")
+    require((baseline_drawings, baseline_originals) == (182,68), "Wrong historical stage63 baseline")
     require(len(old_map["frames"]) == baseline_drawings, "Baseline frame map count differs")
     require(bank["frames"][:baseline_drawings] == old_bank["frames"], "Old bank prefix changed")
     require(inventory["originals"][:baseline_originals] == old_inv["originals"],
             "Old original inventory prefix changed")
     require(frame_map["frames"][:baseline_drawings] == old_map["frames"], "Old frame-map prefix changed")
+    require({k:v for k,v in bank.items() if k not in {"frames","frameCount","status"}}
+            == {k:v for k,v in old_bank.items() if k not in {"frames","frameCount","status"}},
+            "Historical bank clip/reuse/authority metadata changed")
+    inv_changes = {"originals","localGeneratedDrawings","newGenerationCallsForThisHandoff"}
+    require({k:v for k,v in inventory.items() if k not in inv_changes}
+            == {k:v for k,v in old_inv.items() if k not in inv_changes},
+            "Historical original inventory metadata changed")
+    require({k:v for k,v in frame_map.items() if k != "frames"}
+            == {k:v for k,v in old_map.items() if k != "frames"},
+            "Historical frame-map scope metadata changed")
     appended = ledger["appendedBankRecords"]
     batches = ledger["registrationOnlyBatches"]
+    require(len(appended) == len(batches) == 1,
+            "Stage63 must register exactly its one returned source drawing/original")
     require(bank["frames"][baseline_drawings:] == appended, "Appended bank records differ from ledger")
     require(len(bank["frames"]) == ledger["registeredDrawings"]
             == baseline_drawings + len(appended), "Final drawing counts differ")
@@ -349,6 +421,18 @@ def verify(root: Path) -> dict[str, Any]:
                         f"Native argument compatibility alias differs: {alias_name}")
         verify_receipts(batch, prompt, arguments, sha(args_path), dispatch, returned,
                         args_path.parent)
+        provenance_path = args_path.parent / "input-provenance.json"
+        if provenance_path.exists():
+            provenance = load(checked_file(args_path.parent,"input-provenance.json"))
+            references = provenance["exactReferences"]
+            submitted = arguments.get("referenced_image_paths", [])
+            require(len(submitted) == len(references) > 0, "Submitted reference count differs")
+            for submitted_path, reference in zip(submitted,references):
+                retained = checked_file(args_path.parent, reference["retainedPath"], reference["PNGsha256"])
+                require(Path(submitted_path).as_posix().endswith("/"+reference["retainedPath"]),
+                        "Submitted path does not bind the retained input image")
+                require(frame_id(rgba(retained)) == reference["decodedRGBAId"],
+                        "Retained reference decoded identity differs")
         manifest_path = checked_file(root, batch["manifest"], batch["manifestSHA256"])
         manifest = load(manifest_path)
         require(manifest["nativeCalls"] == 1 and manifest["batchId"] == batch["batchId"],
@@ -402,12 +486,15 @@ def verify(root: Path) -> dict[str, Any]:
                     and frame["anatomyScaleAccepted"] is False
                     and frame["rootContactAccepted"] is False,
                     "New registration claims geometry/admission or rescale")
+            require(frame["sourceReview"] == ledger["adjudication"],
+                    "New drawing review path differs from source adjudication")
+            checked_file(root, frame["sourceReview"], frame["sourceReviewSHA256"])
             seen_new_ids.add(ident)
         if len(rectangles) > 1:
             require(len({tuple(rect[2:]) for rect in rectangles}) == 1,
                     "Native multi-pose source canvases have different sizes")
         if len(batch["frames"]) == 1:
-            supplied_id = first(returned, "sourceFrameId", "sourceFrameID")
+            supplied_id = first(returned, "sourceFrameId", "sourceFrameID", "primarySourceFrameId")
             if supplied_id is not None:
                 require(supplied_id == batch["frames"][0]["sourceFrameId"], "Return source ID differs")
         if "decodedNativeID" in returned:
@@ -429,7 +516,7 @@ def verify(root: Path) -> dict[str, Any]:
     overlay, old_overlay = load(checked_file(root, OVERLAY)), load(old_overlay_path)
     require(overlay["registeredDrawings"] == len(bank["frames"])
             and overlay["registeredOriginals"] == len(inventory["originals"])
-            and overlay["newSourceRegistration"] == "source-registration-stage61.json",
+            and overlay["newSourceRegistration"] == "source-registration-stage63.json",
             "Overlay registration totals differ")
     changed_fields = {"registeredDrawings", "registeredOriginals",
                       "newSourceRegistration", "sourceRegistrationNote", "newDrawings", "newNativeCalls"}
@@ -438,15 +525,17 @@ def verify(root: Path) -> dict[str, Any]:
     require(overlay["newDrawings"] == old_overlay["newDrawings"] + len(appended)
             and overlay["newNativeCalls"] == old_overlay["newNativeCalls"] + len(batches),
             "Cumulative checkpoint generation counts differ from immutable baseline plus new records")
+    prior_index = prior_index_and_metadata(root, baseline, ledger, len(bank["frames"]), len(inventory["originals"]))
     legacy = historical_regression(root, baseline)
-    return {"passed": True, "stage": 61,
+    return {"passed": True, "stage": 63,
             "registrationOnlyNativeDrawings": legacy["result"]["registrationOnlyNativeDrawings"] + len(appended),
             "registrationOnlyNativeOriginals": legacy["result"]["registrationOnlyNativeOriginals"] + len(batches), "baselineDrawings": baseline_drawings,
             "baselineOriginals": baseline_originals, "newNativeDrawings": len(appended),
             "newNativeOriginals": len(batches), "totalBankDrawingIDs": len(bank["frames"]),
             "totalOriginalPromptPairs": len(inventory["originals"]),
             "oldBankInventoryAndMapPrefixesExact": True, "activeInventoryUnchanged": True,
-            "newSourceCellRoundtripsExact": True, "legacyStage57Regression": legacy,
+            "newSourceCellRoundtripsExact": True, "legacyStage61Regression": legacy, "priorSourceIndexVerification":prior_index,
+            "oldLessonsPrefixExact":True,
             "registrationMakesNativeCalls": 0, "acceptedUsesAdded": 0,
             "runtimeAdmission": False, "sourceAppearanceOrSupportApproved": False}
 
