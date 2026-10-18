@@ -1,0 +1,44 @@
+# Runtime intake checklist — source review only
+
+Runtime pin: `c4ae7529786e28cf55e2008b7f7b64215fc6542c`. This report describes the supplied snapshot, whose exact canonical blob hashes are below. All16 corrected snapshot bytes match the parent verified-fetch identities. Earlier hashes from a transfer-added trailing newline are superseded; code semantics are unchanged. The parent supplied the commit identity; no remote Git lookup was performed. No engine source is republished here. The companion JSON records exact requirements and evidence lines. This is an audit report, not a new canonical schema or admission receipt.
+
+The new ground helper produces an **unadmitted mathematical candidate**. It can project, unproject and test complete ground footprints with exclusions. It supplies no upright sprite height, support elevation, metres, physical bearing capacity or runtime admission. Existing fixture placement remains authoritative.
+
+1. [x] Parent source-image-index frozen: SHA256 of exact file bytes matches the accepted unadmitted candidate. Preserve its exact digest construction. Preserve native masters, reused images, authored alpha masks, registered offsets, crop and actual export bytes. Bind the final ordered candidate to that release; never invent a placeholder digest.
+2. [x] Parent validated the candidate with the actual pinned runtime functions; four vertices roundtripped and negative digest/boundary/frame-size checks passed. Mathematical scope stays unadmitted. Required literal fields are `kind=registered-ground-candidate-v1`, `reviewScope=unadmitted`, `units=authored-ground-units`, viewport960×540, a finite normalized row-major3×3 matrix, ordered outer polygon and holes. Input and independently expected release need source, geometry and calibration digests. Recompute geometry/calibration with the actual strict parse and JS serialization.
+3. [ ] Confirm image registration separately. Proposed matrix `[0.625,0,0,0,0.625,208.75,0,0,1]` maps ground x0…1536,y0…530 to world x0…960,y208.75…540. Treating groundY as sourceY−494 matches crop160 andscale0.625. This mathematical relation does not prove that the visible ground begins exactly there or supports an object. Parent owns final polygon/mask.
+4. [x] Parent source checks pass for33 strict texture manifests and33 pixel candidates, with1 explicit empty-state omission. Actual480×270 straight-RGBA8 layer candidates use world960×540,density0.5; official server decode remains pending. Retain1536×1024 native counterparts as source lineage. A960×540 frame fails the512-edge limit. A four-full-layer2×2 atlas960×540 uses2,073,600 decodedRGBA bytes. Seven full480×270 frames cannot fit the naive1024² grid; use bounded separate packages or a validated trim plan.
+5. [x] Parent source receipt confirms native sky real transparency from the declared RGB conversion/authoredalpha0 belowsourcey494. Worker has not independently reviewed final exported pixels; retain actual alpha-edge/hash evidence. Do not describe this derivative alpha as original generator transparency or as a physical ground mask.
+6. [x] Parent strict-manifest and source-pixel checks confirm the populated review candidates satisfy the source contract, preserving `review-only`, `unreviewed`, `activation=none`. Unique frame rectangles must fit atlas and canvas; trim/pivot/density must agree. Each frame requires1–4 unique contacts at actual in-trim visible pixels. A sky contact is an alpha bookkeeping point, not ground support. Exact animation enum is now inspected: idle, moving, perching, singing, feeding, bathing, sleeping, playing, nesting. Existing idle is valid for static review; this does not add new behavior. Parent33manifestchecks passed, but exact physical contacts remain separately reviewable.
+7. [ ] Run the actual bounded server PNG review on the runtime owner’s environment. Retain submitted original/canonical identities, decoder/version, RGBA/frame digests, alpha accounting and CPU timing scope. Verify review-export content digest and re-import/revalidation round trip. Review-export parsing alone is not the server decode. This worker did not run these checks; the decoder/preview verifier implementation was not provided.
+8. [ ] Add a deliberately reviewed runtime media/layer adapter and explicit identity/version authority. Current scene-manifestV1 accepts three technical-fixture inline rectangle assets, not these PNGs. The separate regional loader has24 fixed earlier adaptations, exact export hashes and a1,000,000-byte retained-file cap. It does not admit depth09. A source merge or valid texture receipt does not extend that allowlist.
+9. [ ] Review full ground footprints, exclusions, foot/contact clearance, navigation/overflow, object/resident ground-y sorting and foreground occlusion against actual layered imagery. Keep sprite canvas/pivot/height and functional slots independently calibrated. Existing object cap12 and clearance8 remain observed fixture constraints; the ground helper does not change them. Matching asset IDs and source hashes does not authorize a geometry change: current cedar feeder is158×186world,pivot69/174,footprint84×46; current bench140×94,pivot70/79,footprint96×30. Parent-reported depth09 paint sizes112.86×132.73 and119.16×80.014 respectively differ. Preserve current geometry or create an explicitly reviewed version with all slots and footprints reconciled; never keep old slots against newly scaled paint. Require native anchor coordinates, actual source density/crop/trim/rounding and world mapping; no native anchor or height can be measured from the homography alone.
+10. [ ] On the runtime owner’s environment, check actualwide/narrow letterboxing, pointer round trips, near-rear-edge placement, invalid/tangent/hole-enclosing footprints, move/remove/reload, stale/corrupt sources, fallback and reduced motion. Preserve old saved positions unless a separately authorized migration changes them. A mathematical round trip is not physical support or browser acceptance.
+11. [x] Parent source receipt confirms four seasonal renders and opaque views. Preserve four exact seasonal ground states and truthful shared sky/far/fence reuse. Conditional distant summit snow stays off by default; no lowland snow, automatic climate, seasonal transition or weather physics is implied.
+
+Checked items identify completed parent source evidence, not official PNG decoder or production approval. Unchecked items remain pending, not rejected. Runtime admission requires its own implementation and review; no private runtime environment was accessed by this worker. Parent source-test receipts are preserved unchanged as parent-current-contract-validation.json and parent-source-validation.json.
+
+Final sourceReleaseDigest: `3de66c0b4d5278196a493cd7637f11fd2000ec928198ef82d62f9f3cab139e57`. GeometryDigest: `bea532e535f7620973ee9d8a9d3aa858533f682db8e3398031f956328fdccd5e`. CalibrationDigest: `f0681bf8ed840b6748472fed18cea73504af346d9aa2cf92d80f265ca3453fe1`. Worker independently verified the source-index bytes and both compact JSON digest values against these receipts. Neither validation nor digest equality calibrates physical support or sprite height.
+
+## Exact snapshot blob identities
+
+Git blob SHA1 is computed over `blob <byte-length>\0<file-bytes>`; the JSON additionally records SHA256. Hashing all supplied files records their identity, not a claim that every historical statement in their documentation describes the current runtime. The strict implementation files govern this audit.
+
+| Repository-relative file | Git blob SHA1 |
+| --- | --- |
+| `docs/layered-yard.md` | `956b79de583a57c7badd9e796b3be9575381116f` |
+| `docs/scene-manifests.md` | `a9a3339269a175110dffb3851acbb082c59107ac` |
+| `src/lib/arrangement/placement.ts` | `3b4dec3527cab00776b8837c0149fd9d386d49ad` |
+| `src/lib/assets/manifest-v2.ts` | `abedbb8a19afcee2511fa83074abb643261b3d48` |
+| `src/lib/client/canonical-yard.ts` | `f369ab72eecee6daf30960f60a8b55bcb6ba797a` |
+| `src/lib/client/regional-yard.ts` | `403d4f440ece8cf79f145208780481f54ad7c708` |
+| `src/lib/domain/canonical-yard-data.json` | `bb8fcf146b3e4416510fc1ac7210d8e17a0c984e` |
+| `src/lib/domain/canonical-yard.ts` | `52e2b27bd9793817fafccdbb3ffca9c63369a236` |
+| `src/lib/domain/regional-yard.ts` | `7347de347b7b0a41b8536a703005067c94b4a9f9` |
+| `src/lib/domain/scene.ts` | `43e65ed3a598a7e2508846834d36ca36c7f90e64` |
+| `src/lib/scenes/manifest.ts` | `57bea5f11b5e6206f3c117290496cbdaf15dea40` |
+| `src/lib/scenes/registered-ground.test.ts` | `cf1300b9b73a538f954f32e33acf4aaedc7eac2f` |
+| `src/lib/scenes/registered-ground.ts` | `a1cc7784b3f43631e4d13c2775386f7d74b04d89` |
+| `src/lib/server/regional-yard.ts` | `1d953f5f71c5341f703840edcb41f8b7459f77e4` |
+| `src/lib/workbench/texture-profile.ts` | `9f60974ef5b8c522d4792b7c22aab3c4c4f36682` |
+| `src/lib/workbench/texture-review-export.ts` | `d61f6c2147dce8dffd6c43291310cbaaf1b2a54f` |

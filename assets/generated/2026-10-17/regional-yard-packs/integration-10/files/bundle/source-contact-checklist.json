@@ -1,0 +1,1828 @@
+{
+  "schema_version": "1.0-source-review-only",
+  "role": "Integration10 contact checklist derived from actual published art; not an application contract or new inventory.",
+  "path_base": "repository_root",
+  "status": "source_contact_review_complete; geometry_and_runtime_validation_pending",
+  "source_documents": [
+    {
+      "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/scene-contract.json",
+      "sha256": "febd0f20ce149fb450505d5c70c2705cbc0c53a3bab8eed7cc2f432c28339616",
+      "bytes": 21098
+    },
+    {
+      "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/geometry-proposals.json",
+      "sha256": "3730cf11c06cbc638aa882e74297de42711aa0fc28334b610925a46b93f2a545",
+      "bytes": 28315
+    },
+    {
+      "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/root/ChirpNeighbors-Depth09-Intake.json",
+      "sha256": "c0de9ba2ef3816a5103755acc534eee0ed98262bf3120105b146a44426a97a3b",
+      "bytes": 61751
+    }
+  ],
+  "canvas_px": [
+    1536,
+    1024
+  ],
+  "viewport": {
+    "crop_xyxy": [
+      0,
+      160,
+      1536,
+      1024
+    ],
+    "normal_px": [
+      960,
+      540
+    ],
+    "normal_forward": "[0.625*x,0.625*(y-160)]",
+    "mobile_px": [
+      384,
+      216
+    ],
+    "mobile_forward": "[0.25*x,0.25*(y-160)]",
+    "resampling": "nearest_neighbor"
+  },
+  "visual_pixel_truth": [
+    {
+      "id": "fence",
+      "rgba": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/cedar-privacy-fence-row.png",
+        "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+        "bytes": 295918,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "soft_alpha": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/fence-soft-alpha.png",
+        "sha256": "1b890fd130f3c86658d154ddab007fb5949e319404432b8d2776dccf2d99e156",
+        "bytes": 22144,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L"
+      },
+      "threshold_visual_mask": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/fence-visual-alpha128.png",
+        "sha256": "3853df3421a1f1a8f584bc64edd5974b6ed1a7b7a6d0b54136539de1496ff35c",
+        "bytes": 2498,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L"
+      },
+      "soft_alpha_exactly_equals_layer_alpha": true,
+      "threshold_mask_exactly_equals_alpha_ge128": true,
+      "binary_values": [
+        0,
+        255
+      ],
+      "alpha_ge1_bounds_xyxy": [
+        0,
+        248,
+        1536,
+        494
+      ],
+      "alpha_ge128_bounds_xyxy": [
+        0,
+        253,
+        1536,
+        489
+      ],
+      "alpha_ge1_pixels": 332718,
+      "alpha_ge128_pixels": 324541,
+      "soft_only_pixels_alpha_1_to_127": 8177,
+      "meaning": "Actual 2D coverage/occlusion only; not support, collision, volume or bird-contact geometry."
+    },
+    {
+      "id": "cedar_feeder",
+      "rgba": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/layers/cedar_feeder.png",
+        "sha256": "a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b",
+        "bytes": 66605,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "soft_alpha": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/cedar_feeder-soft-alpha.png",
+        "sha256": "dbc7a50d27e66bc1f596b09a8a70cd6f47149dddc763ff8daedfba6218fd970e",
+        "bytes": 9373,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L"
+      },
+      "threshold_visual_mask": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/cedar_feeder-visual-alpha128.png",
+        "sha256": "a1299bbdc8431c75b83847f267439dca39005a5e5894f674df7c6358ab609794",
+        "bytes": 2586,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L"
+      },
+      "soft_alpha_exactly_equals_layer_alpha": true,
+      "threshold_mask_exactly_equals_alpha_ge128": true,
+      "binary_values": [
+        0,
+        255
+      ],
+      "alpha_ge1_bounds_xyxy": [
+        1024,
+        605,
+        1199,
+        810
+      ],
+      "alpha_ge128_bounds_xyxy": [
+        1028,
+        608,
+        1188,
+        806
+      ],
+      "alpha_ge1_pixels": 18101,
+      "alpha_ge128_pixels": 15816,
+      "soft_only_pixels_alpha_1_to_127": 2285,
+      "meaning": "Actual 2D coverage/occlusion only; not support, collision, volume or bird-contact geometry."
+    },
+    {
+      "id": "bench",
+      "rgba": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/layers/bench.png",
+        "sha256": "31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c",
+        "bytes": 53121,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "soft_alpha": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/bench-soft-alpha.png",
+        "sha256": "8317369bfbb6cd9b9bd7cf042eac324f61b24027d8c08f1612262ab73f979e79",
+        "bytes": 9437,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L"
+      },
+      "threshold_visual_mask": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/bench-visual-alpha128.png",
+        "sha256": "819da563d6ff018ddb176baa9be928054eff8f01e39a4684ad503e9c528a655c",
+        "bytes": 2571,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L"
+      },
+      "soft_alpha_exactly_equals_layer_alpha": true,
+      "threshold_mask_exactly_equals_alpha_ge128": true,
+      "binary_values": [
+        0,
+        255
+      ],
+      "alpha_ge1_bounds_xyxy": [
+        858,
+        820,
+        1044,
+        944
+      ],
+      "alpha_ge128_bounds_xyxy": [
+        861,
+        823,
+        1040,
+        939
+      ],
+      "alpha_ge1_pixels": 14520,
+      "alpha_ge128_pixels": 11671,
+      "soft_only_pixels_alpha_1_to_127": 2849,
+      "meaning": "Actual 2D coverage/occlusion only; not support, collision, volume or bird-contact geometry."
+    },
+    {
+      "id": "objects",
+      "rgba": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/layers/objects.png",
+        "sha256": "46804c9be761d19025ba07324467bfc65430c69690955c6afa5f144045f04eed",
+        "bytes": 111468,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "soft_alpha": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/objects-soft-alpha.png",
+        "sha256": "2ea35a9fb9779efd965b329b8d86a62d6c7c2a2b9f0011cc91d9fb571c875ccf",
+        "bytes": 17042,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L"
+      },
+      "threshold_visual_mask": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/objects-visual-alpha128.png",
+        "sha256": "5c898279579ea564ca5f6bd1807fa766989a03c8b5d931e053acde27c09200df",
+        "bytes": 3547,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L"
+      },
+      "soft_alpha_exactly_equals_layer_alpha": true,
+      "threshold_mask_exactly_equals_alpha_ge128": true,
+      "binary_values": [
+        0,
+        255
+      ],
+      "alpha_ge1_bounds_xyxy": [
+        858,
+        605,
+        1199,
+        944
+      ],
+      "alpha_ge128_bounds_xyxy": [
+        861,
+        608,
+        1188,
+        939
+      ],
+      "alpha_ge1_pixels": 32621,
+      "alpha_ge128_pixels": 27487,
+      "soft_only_pixels_alpha_1_to_127": 5134,
+      "meaning": "Actual 2D coverage/occlusion only; not support, collision, volume or bird-contact geometry."
+    }
+  ],
+  "full_floor_proposal": {
+    "polygon_source_px": [
+      [
+        0,
+        494
+      ],
+      [
+        1536,
+        494
+      ],
+      [
+        1536,
+        1024
+      ],
+      [
+        0,
+        1024
+      ]
+    ],
+    "polygon_normal_px": [
+      [
+        0.0,
+        208.75
+      ],
+      [
+        960.0,
+        208.75
+      ],
+      [
+        960.0,
+        540.0
+      ],
+      [
+        0.0,
+        540.0
+      ]
+    ],
+    "mask": {
+      "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/full-floor-PROPOSED.png",
+      "sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+      "bytes": 2679,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    "mask_exact_full_width_y494_to1023": true,
+    "floor_mask_nonzero_pixels": 814080,
+    "basis": "Authored clearance after faint fence alpha ends at exclusive y494; strong A>=128 coverage ends at exclusive y489. The boundary is not inferred physical ground.",
+    "occupancy_policy": "Full domain is usable before active instance footprints. Remove only each present instance footprint. Deleting an optional prop restores full ground in its former envelope.",
+    "no_fixed_central_square": true,
+    "optional_tree_no_permanent_reserved_square": true,
+    "collision_geometry": false
+  },
+  "actual_seasonal_ground_sources": [
+    {
+      "season": "spring",
+      "variant_id": "depth09_inland_fenced_test.season_spring_v1",
+      "ground": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-r1.png",
+        "sha256": "4b9005b26b759330f60d36dfb0e913a793c74449647d72ce076f0736438d7d81",
+        "bytes": 2092806,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "alpha_extrema_in_authored_floor": [
+        251,
+        254
+      ],
+      "floor_pixels_alpha_ge128_fraction": 1.0,
+      "no_physical_surface_inference": true
+    },
+    {
+      "season": "summer",
+      "variant_id": "depth09_inland_fenced_test.season_summer_v1",
+      "ground": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-summer-r1.png",
+        "sha256": "6074c4d9d0685aaa52afb5bb6ca26aeccb7b9c6cf19490c6d236a9bf67d3c489",
+        "bytes": 2307354,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "alpha_extrema_in_authored_floor": [
+        250,
+        254
+      ],
+      "floor_pixels_alpha_ge128_fraction": 1.0,
+      "no_physical_surface_inference": true
+    },
+    {
+      "season": "autumn",
+      "variant_id": "depth09_inland_fenced_test.season_autumn_v1",
+      "ground": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-autumn-r1.png",
+        "sha256": "c665f01747fda3c0a328ed0b9e84be9cbc5e0f39aaf9d83fbd3bf37a6b4cbf54",
+        "bytes": 2152057,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "alpha_extrema_in_authored_floor": [
+        251,
+        254
+      ],
+      "floor_pixels_alpha_ge128_fraction": 1.0,
+      "no_physical_surface_inference": true
+    },
+    {
+      "season": "winter",
+      "variant_id": "depth09_inland_fenced_test.season_winter_v1",
+      "ground": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-winter-r1.png",
+        "sha256": "a6d801c866250171d77d8726f05c3dad3add5e6cb6cdee36e2db650368e8bc24",
+        "bytes": 2037080,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "alpha_extrema_in_authored_floor": [
+        252,
+        254
+      ],
+      "floor_pixels_alpha_ge128_fraction": 1.0,
+      "no_physical_surface_inference": true
+    }
+  ],
+  "layer_order": {
+    "reference_draw_order": [
+      "sky",
+      "mountains",
+      "ground",
+      "fence",
+      "object_instance/object.cedar_feeder",
+      "object_instance/object.bench",
+      "tree_wood",
+      "tree_canopy",
+      "leaf_litter"
+    ],
+    "fence_props_draw_order": [
+      "fence",
+      "object.cedar_feeder",
+      "object.bench"
+    ],
+    "actual_current_instances_overlap_each_other": false,
+    "future_order": "For additional overlapping instances, validate roots/depth and bird behind/in-front ordering in runtime; source alpha alone does not determine physical elevation."
+  },
+  "fence": {
+    "source": {
+      "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/cedar-privacy-fence-row.png",
+      "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+      "bytes": 295918,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    "registered_layer": {
+      "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/cedar-privacy-fence-row.png",
+      "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+      "bytes": 295918,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA"
+    },
+    "compound_row_not_one_individual_catalog_fence_sprite": true,
+    "xy": [
+      0,
+      0
+    ],
+    "scale": 1,
+    "base_anchor_source_px_proposed": [
+      768,
+      489
+    ],
+    "base_anchor_normal_px_proposed": [
+      480.0,
+      205.625
+    ],
+    "base_strip_polygon_proposed": [
+      [
+        0,
+        480
+      ],
+      [
+        1536,
+        480
+      ],
+      [
+        1536,
+        494
+      ],
+      [
+        0,
+        494
+      ]
+    ],
+    "base_strip_mask": {
+      "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/fence-base-strip-PROPOSED.png",
+      "sha256": "ec31748bc80c34fce6ade1871c6fcc515cfcb01629130224ac4244d5626842d3",
+      "bytes": 1646,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L"
+    },
+    "depth_sort_key_y_proposed": 489,
+    "illustrative_privacy_height_m": 1.8,
+    "illustrative_source_px_per_m": 130,
+    "physical_scale_calibrated": false,
+    "perch_segments_proposed": [
+      {
+        "id": "left_section_cap",
+        "kind": "rail_cap",
+        "native_scene_endpoints_px": [
+          [
+            20,
+            276
+          ],
+          [
+            266,
+            276
+          ]
+        ],
+        "authorship": "manual visible wood cap selection; pixel alpha verifies coverage only",
+        "visual_validation": {
+          "sample_count": 247,
+          "source_alpha_min": 252,
+          "alpha128_material_coverage_fraction": 1.0,
+          "status": "on_visible_material_only",
+          "physical_or_anatomical_validation": false
+        },
+        "proposed_elevation_m": 1.676923,
+        "elevation_basis": "Illustrative art-direction screen-height/130 proposal. Screen y also carries perspective; not inferred worldZ.",
+        "potential_bird_contact_status": "held_anatomy_foot_fit_balance_and_species_pose_not_tested",
+        "capacity": null,
+        "runtime_implemented": false,
+        "measured_again": {
+          "sample_count": 247,
+          "source_alpha_min": 252,
+          "alpha128_material_coverage_fraction": 1.0,
+          "physical_or_anatomical_validation": false
+        },
+        "normal_endpoints_px": [
+          [
+            12.5,
+            72.5
+          ],
+          [
+            166.25,
+            72.5
+          ]
+        ],
+        "mobile_endpoints_px": [
+          [
+            5.0,
+            29.0
+          ],
+          [
+            66.5,
+            29.0
+          ]
+        ]
+      },
+      {
+        "id": "post_cap_1",
+        "kind": "post_cap",
+        "native_scene_endpoints_px": [
+          [
+            280,
+            258
+          ],
+          [
+            292,
+            258
+          ]
+        ],
+        "authorship": "manual visible wood cap selection; pixel alpha verifies coverage only",
+        "visual_validation": {
+          "sample_count": 13,
+          "source_alpha_min": 251,
+          "alpha128_material_coverage_fraction": 1.0,
+          "status": "on_visible_material_only",
+          "physical_or_anatomical_validation": false
+        },
+        "proposed_elevation_m": 1.815385,
+        "elevation_basis": "Illustrative art-direction screen-height/130 proposal. Screen y also carries perspective; not inferred worldZ.",
+        "potential_bird_contact_status": "held_anatomy_foot_fit_balance_and_species_pose_not_tested",
+        "capacity": null,
+        "runtime_implemented": false,
+        "measured_again": {
+          "sample_count": 13,
+          "source_alpha_min": 251,
+          "alpha128_material_coverage_fraction": 1.0,
+          "physical_or_anatomical_validation": false
+        },
+        "normal_endpoints_px": [
+          [
+            175.0,
+            61.25
+          ],
+          [
+            182.5,
+            61.25
+          ]
+        ],
+        "mobile_endpoints_px": [
+          [
+            70.0,
+            24.5
+          ],
+          [
+            73.0,
+            24.5
+          ]
+        ]
+      },
+      {
+        "id": "middle_left_section_cap",
+        "kind": "rail_cap",
+        "native_scene_endpoints_px": [
+          [
+            312,
+            276
+          ],
+          [
+            642,
+            276
+          ]
+        ],
+        "authorship": "manual visible wood cap selection; pixel alpha verifies coverage only",
+        "visual_validation": {
+          "sample_count": 331,
+          "source_alpha_min": 252,
+          "alpha128_material_coverage_fraction": 1.0,
+          "status": "on_visible_material_only",
+          "physical_or_anatomical_validation": false
+        },
+        "proposed_elevation_m": 1.676923,
+        "elevation_basis": "Illustrative art-direction screen-height/130 proposal. Screen y also carries perspective; not inferred worldZ.",
+        "potential_bird_contact_status": "held_anatomy_foot_fit_balance_and_species_pose_not_tested",
+        "capacity": null,
+        "runtime_implemented": false,
+        "measured_again": {
+          "sample_count": 331,
+          "source_alpha_min": 252,
+          "alpha128_material_coverage_fraction": 1.0,
+          "physical_or_anatomical_validation": false
+        },
+        "normal_endpoints_px": [
+          [
+            195.0,
+            72.5
+          ],
+          [
+            401.25,
+            72.5
+          ]
+        ],
+        "mobile_endpoints_px": [
+          [
+            78.0,
+            29.0
+          ],
+          [
+            160.5,
+            29.0
+          ]
+        ]
+      },
+      {
+        "id": "post_cap_2",
+        "kind": "post_cap",
+        "native_scene_endpoints_px": [
+          [
+            657,
+            258
+          ],
+          [
+            669,
+            258
+          ]
+        ],
+        "authorship": "manual visible wood cap selection; pixel alpha verifies coverage only",
+        "visual_validation": {
+          "sample_count": 13,
+          "source_alpha_min": 251,
+          "alpha128_material_coverage_fraction": 1.0,
+          "status": "on_visible_material_only",
+          "physical_or_anatomical_validation": false
+        },
+        "proposed_elevation_m": 1.815385,
+        "elevation_basis": "Illustrative art-direction screen-height/130 proposal. Screen y also carries perspective; not inferred worldZ.",
+        "potential_bird_contact_status": "held_anatomy_foot_fit_balance_and_species_pose_not_tested",
+        "capacity": null,
+        "runtime_implemented": false,
+        "measured_again": {
+          "sample_count": 13,
+          "source_alpha_min": 251,
+          "alpha128_material_coverage_fraction": 1.0,
+          "physical_or_anatomical_validation": false
+        },
+        "normal_endpoints_px": [
+          [
+            410.625,
+            61.25
+          ],
+          [
+            418.125,
+            61.25
+          ]
+        ],
+        "mobile_endpoints_px": [
+          [
+            164.25,
+            24.5
+          ],
+          [
+            167.25,
+            24.5
+          ]
+        ]
+      },
+      {
+        "id": "post_cap_3",
+        "kind": "post_cap",
+        "native_scene_endpoints_px": [
+          [
+            861,
+            258
+          ],
+          [
+            873,
+            258
+          ]
+        ],
+        "authorship": "manual visible wood cap selection; pixel alpha verifies coverage only",
+        "visual_validation": {
+          "sample_count": 13,
+          "source_alpha_min": 251,
+          "alpha128_material_coverage_fraction": 1.0,
+          "status": "on_visible_material_only",
+          "physical_or_anatomical_validation": false
+        },
+        "proposed_elevation_m": 1.815385,
+        "elevation_basis": "Illustrative art-direction screen-height/130 proposal. Screen y also carries perspective; not inferred worldZ.",
+        "potential_bird_contact_status": "held_anatomy_foot_fit_balance_and_species_pose_not_tested",
+        "capacity": null,
+        "runtime_implemented": false,
+        "measured_again": {
+          "sample_count": 13,
+          "source_alpha_min": 251,
+          "alpha128_material_coverage_fraction": 1.0,
+          "physical_or_anatomical_validation": false
+        },
+        "normal_endpoints_px": [
+          [
+            538.125,
+            61.25
+          ],
+          [
+            545.625,
+            61.25
+          ]
+        ],
+        "mobile_endpoints_px": [
+          [
+            215.25,
+            24.5
+          ],
+          [
+            218.25,
+            24.5
+          ]
+        ]
+      },
+      {
+        "id": "middle_right_section_cap",
+        "kind": "rail_cap",
+        "native_scene_endpoints_px": [
+          [
+            886,
+            276
+          ],
+          [
+            1222,
+            276
+          ]
+        ],
+        "authorship": "manual visible wood cap selection; pixel alpha verifies coverage only",
+        "visual_validation": {
+          "sample_count": 337,
+          "source_alpha_min": 252,
+          "alpha128_material_coverage_fraction": 1.0,
+          "status": "on_visible_material_only",
+          "physical_or_anatomical_validation": false
+        },
+        "proposed_elevation_m": 1.676923,
+        "elevation_basis": "Illustrative art-direction screen-height/130 proposal. Screen y also carries perspective; not inferred worldZ.",
+        "potential_bird_contact_status": "held_anatomy_foot_fit_balance_and_species_pose_not_tested",
+        "capacity": null,
+        "runtime_implemented": false,
+        "measured_again": {
+          "sample_count": 337,
+          "source_alpha_min": 252,
+          "alpha128_material_coverage_fraction": 1.0,
+          "physical_or_anatomical_validation": false
+        },
+        "normal_endpoints_px": [
+          [
+            553.75,
+            72.5
+          ],
+          [
+            763.75,
+            72.5
+          ]
+        ],
+        "mobile_endpoints_px": [
+          [
+            221.5,
+            29.0
+          ],
+          [
+            305.5,
+            29.0
+          ]
+        ]
+      },
+      {
+        "id": "post_cap_4",
+        "kind": "post_cap",
+        "native_scene_endpoints_px": [
+          [
+            1238,
+            258
+          ],
+          [
+            1250,
+            258
+          ]
+        ],
+        "authorship": "manual visible wood cap selection; pixel alpha verifies coverage only",
+        "visual_validation": {
+          "sample_count": 13,
+          "source_alpha_min": 251,
+          "alpha128_material_coverage_fraction": 1.0,
+          "status": "on_visible_material_only",
+          "physical_or_anatomical_validation": false
+        },
+        "proposed_elevation_m": 1.815385,
+        "elevation_basis": "Illustrative art-direction screen-height/130 proposal. Screen y also carries perspective; not inferred worldZ.",
+        "potential_bird_contact_status": "held_anatomy_foot_fit_balance_and_species_pose_not_tested",
+        "capacity": null,
+        "runtime_implemented": false,
+        "measured_again": {
+          "sample_count": 13,
+          "source_alpha_min": 251,
+          "alpha128_material_coverage_fraction": 1.0,
+          "physical_or_anatomical_validation": false
+        },
+        "normal_endpoints_px": [
+          [
+            773.75,
+            61.25
+          ],
+          [
+            781.25,
+            61.25
+          ]
+        ],
+        "mobile_endpoints_px": [
+          [
+            309.5,
+            24.5
+          ],
+          [
+            312.5,
+            24.5
+          ]
+        ]
+      },
+      {
+        "id": "right_section_cap",
+        "kind": "rail_cap",
+        "native_scene_endpoints_px": [
+          [
+            1265,
+            276
+          ],
+          [
+            1510,
+            276
+          ]
+        ],
+        "authorship": "manual visible wood cap selection; pixel alpha verifies coverage only",
+        "visual_validation": {
+          "sample_count": 246,
+          "source_alpha_min": 252,
+          "alpha128_material_coverage_fraction": 1.0,
+          "status": "on_visible_material_only",
+          "physical_or_anatomical_validation": false
+        },
+        "proposed_elevation_m": 1.676923,
+        "elevation_basis": "Illustrative art-direction screen-height/130 proposal. Screen y also carries perspective; not inferred worldZ.",
+        "potential_bird_contact_status": "held_anatomy_foot_fit_balance_and_species_pose_not_tested",
+        "capacity": null,
+        "runtime_implemented": false,
+        "measured_again": {
+          "sample_count": 246,
+          "source_alpha_min": 252,
+          "alpha128_material_coverage_fraction": 1.0,
+          "physical_or_anatomical_validation": false
+        },
+        "normal_endpoints_px": [
+          [
+            790.625,
+            72.5
+          ],
+          [
+            943.75,
+            72.5
+          ]
+        ],
+        "mobile_endpoints_px": [
+          [
+            316.25,
+            29.0
+          ],
+          [
+            377.5,
+            29.0
+          ]
+        ]
+      }
+    ],
+    "gate": "Closed gate is fused into this compound row. No gate opening, hinges, collision, moving-perch behavior or separate gate runtime admission implemented. Gate-leaf cap excluded from proposed segments.",
+    "material": "weathered cedar with static gate metal hardware",
+    "material_weather_slots": {
+      "actual": "dry static source only",
+      "wet": "needs_art_or_explicit_future_material_effect; slightly darker wood/restrained sheen proposed only",
+      "sun_bleaching": "already visible weathering, no implemented progression",
+      "snow_ice": "not SanDiego default and not generated",
+      "wind_amplitude_proposed": 0
+    }
+  },
+  "props": [
+    {
+      "asset_id": "object.cedar_feeder",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "canonical_runtime_id_reference": "cedar_feeder",
+      "runtime_id_reference_is_not_admission": true,
+      "source_sprite": {
+        "canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+        "sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+        "bytes": 285605,
+        "dimensions_px": [
+          449,
+          528
+        ],
+        "mode": "RGBA"
+      },
+      "registered_layer": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/layers/cedar_feeder.png",
+        "sha256": "a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b",
+        "bytes": 66605,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "native_anchor_px": [
+        196,
+        494
+      ],
+      "native_anchor_alpha_remeasured": 252,
+      "anchor_semantics": "Bench root is a virtual projected origin between feet (alpha0), not a missing art/foot contact. Feeder root lies on its base.",
+      "native_to_scene": {
+        "scale": 0.40219560878243515,
+        "translation_xy": [
+          1021.1696606786427,
+          601.315369261477
+        ],
+        "forward": "scene_xy=native_xy*scale+translation_xy",
+        "inverse_pillow_coefficients": [
+          2.486352357320099,
+          0,
+          -2538.987593052109,
+          0,
+          2.486352357320099,
+          -1495.0818858560792
+        ],
+        "resampling": "nearest_neighbor"
+      },
+      "scene_root_px": [
+        1100,
+        800
+      ],
+      "normal_root_px": [
+        687.5,
+        400.0
+      ],
+      "mobile_root_px": [
+        275.0,
+        160.0
+      ],
+      "root_mapping_error_px": 0.0,
+      "illustrative_height_m": 1.55,
+      "illustrative_source_px_per_m": 130,
+      "physical_scale_calibrated": false,
+      "native_sprite_dimensions_px": [
+        449,
+        528
+      ],
+      "normal_visible_alpha128_size_px": [
+        100.0,
+        123.75
+      ],
+      "depth_sort_key_y_proposed": 800,
+      "base_elevation_m_proposed": 0,
+      "footprint_proposal": {
+        "source_native_polygon_px": [
+          [
+            125,
+            469
+          ],
+          [
+            198,
+            453
+          ],
+          [
+            274,
+            477
+          ],
+          [
+            256,
+            501
+          ],
+          [
+            178,
+            510
+          ]
+        ],
+        "scene_polygon_px": [
+          [
+            1071.444112,
+            789.94511
+          ],
+          [
+            1100.804391,
+            783.50998
+          ],
+          [
+            1131.371257,
+            793.162675
+          ],
+          [
+            1124.131737,
+            802.815369
+          ],
+          [
+            1092.760479,
+            806.43513
+          ]
+        ],
+        "mask": {
+          "path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/cedar_feeder-footprint-PROPOSED.png",
+          "sha256": "faca72a5b015750580e97bdaa0b7177dbbb3dc16da54dd2b5e0783ec0b382fa0",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "L"
+        },
+        "all_vertices_inside_canvas_and_full_floor": true,
+        "status": "manual inherited projected envelope, transformed exactly; not collision/contact soles",
+        "occupancy_policy": "Subtract only while this instance exists; removal restores this footprint region. No global central empty-square restriction."
+      },
+      "contact_points_proposed": [
+        {
+          "id": "tray_front_perch",
+          "native_point_px": [
+            175,
+            284
+          ],
+          "scene_point_px": [
+            1091.553892,
+            715.538922
+          ],
+          "source_alpha_at_point": 253,
+          "visible_material_at_marker": true,
+          "semantic_status": "Original manual source point retained; visible material does not validate foot/beak contact.",
+          "proposed_elevation_above_instance_base_m": 0.649701,
+          "elevation_is_illustrative_not_measured": true,
+          "anatomy_and_physics_status": "held_not_tested",
+          "implemented": false,
+          "source_alpha_remeasured": 253,
+          "normal_point_px": [
+            682.221182,
+            347.211826
+          ],
+          "mobile_point_px": [
+            272.888473,
+            138.88473
+          ],
+          "review_status": "visible_material_marker_only; foot/beak/grip fit held"
+        },
+        {
+          "id": "tray_side_perch",
+          "native_point_px": [
+            348,
+            264
+          ],
+          "scene_point_px": [
+            1161.133733,
+            707.49501
+          ],
+          "source_alpha_at_point": 252,
+          "visible_material_at_marker": true,
+          "semantic_status": "Original manual source point retained; visible material does not validate foot/beak contact.",
+          "proposed_elevation_above_instance_base_m": 0.711577,
+          "elevation_is_illustrative_not_measured": true,
+          "anatomy_and_physics_status": "held_not_tested",
+          "implemented": false,
+          "source_alpha_remeasured": 252,
+          "normal_point_px": [
+            725.708583,
+            342.184381
+          ],
+          "mobile_point_px": [
+            290.283433,
+            136.873752
+          ],
+          "review_status": "visible_material_marker_only; foot/beak/grip fit held"
+        },
+        {
+          "id": "seed_peck_front",
+          "native_point_px": [
+            186,
+            260
+          ],
+          "scene_point_px": [
+            1095.978044,
+            705.886228
+          ],
+          "source_alpha_at_point": 252,
+          "visible_material_at_marker": true,
+          "semantic_status": "Original manual source point retained; visible material does not validate foot/beak contact.",
+          "proposed_elevation_above_instance_base_m": 0.723952,
+          "elevation_is_illustrative_not_measured": true,
+          "anatomy_and_physics_status": "held_not_tested",
+          "implemented": false,
+          "source_alpha_remeasured": 252,
+          "normal_point_px": [
+            684.986277,
+            341.178892
+          ],
+          "mobile_point_px": [
+            273.994511,
+            136.471557
+          ],
+          "review_status": "visible_material_marker_only; foot/beak/grip fit held"
+        },
+        {
+          "id": "seed_peck_side",
+          "native_point_px": [
+            311,
+            249
+          ],
+          "scene_point_px": [
+            1146.252495,
+            701.462076
+          ],
+          "source_alpha_at_point": 253,
+          "visible_material_at_marker": true,
+          "semantic_status": "Original manual source point retained; visible material does not validate foot/beak contact.",
+          "proposed_elevation_above_instance_base_m": 0.757984,
+          "elevation_is_illustrative_not_measured": true,
+          "anatomy_and_physics_status": "held_not_tested",
+          "implemented": false,
+          "source_alpha_remeasured": 253,
+          "normal_point_px": [
+            716.407809,
+            338.413797
+          ],
+          "mobile_point_px": [
+            286.563124,
+            135.365519
+          ],
+          "review_status": "visible_material_marker_only; foot/beak/grip fit held"
+        },
+        {
+          "id": "roof_perch",
+          "native_point_px": [
+            226,
+            35
+          ],
+          "scene_point_px": [
+            1112.065868,
+            615.392216
+          ],
+          "source_alpha_at_point": 252,
+          "visible_material_at_marker": true,
+          "semantic_status": "Original manual source point retained; visible material does not validate foot/beak contact.",
+          "proposed_elevation_above_instance_base_m": 1.42006,
+          "elevation_is_illustrative_not_measured": true,
+          "anatomy_and_physics_status": "held_not_tested",
+          "implemented": false,
+          "source_alpha_remeasured": 252,
+          "normal_point_px": [
+            695.041167,
+            284.620135
+          ],
+          "mobile_point_px": [
+            278.016467,
+            113.848054
+          ],
+          "review_status": "visible_material_marker_only; foot/beak/grip fit held"
+        }
+      ],
+      "perch_segments_proposed": [
+        {
+          "id": "front_tray_upper_edge",
+          "native_endpoints_px": [
+            [
+              85,
+              251
+            ],
+            [
+              160,
+              268
+            ]
+          ],
+          "scene_endpoints_px": [
+            [
+              1055.356287,
+              702.266467
+            ],
+            [
+              1085.520958,
+              709.103792
+            ]
+          ],
+          "manual_authored": true,
+          "visual_validation": {
+            "sample_count": 76,
+            "source_alpha_min": 252,
+            "alpha128_material_coverage_fraction": 1.0,
+            "status": "on_visible_material_only",
+            "physical_or_anatomical_validation": false
+          },
+          "usable_as_visual_contact_proposal": true,
+          "bird_anatomy_status": "held_not_validated",
+          "runtime_implemented": false,
+          "measured_again": {
+            "sample_count": 76,
+            "source_alpha_min": 252,
+            "alpha128_material_coverage_fraction": 1.0,
+            "physical_or_anatomical_validation": false
+          }
+        },
+        {
+          "id": "roof_ridge_candidate",
+          "native_endpoints_px": [
+            [
+              230,
+              35
+            ],
+            [
+              280,
+              32
+            ]
+          ],
+          "scene_endpoints_px": [
+            [
+              1113.674651,
+              615.392216
+            ],
+            [
+              1133.784431,
+              614.185629
+            ]
+          ],
+          "manual_authored": true,
+          "visual_validation": {
+            "sample_count": 51,
+            "source_alpha_min": 252,
+            "alpha128_material_coverage_fraction": 1.0,
+            "status": "on_visible_material_only",
+            "physical_or_anatomical_validation": false
+          },
+          "usable_as_visual_contact_proposal": true,
+          "bird_anatomy_status": "held_not_validated",
+          "runtime_implemented": false,
+          "measured_again": {
+            "sample_count": 51,
+            "source_alpha_min": 252,
+            "alpha128_material_coverage_fraction": 1.0,
+            "physical_or_anatomical_validation": false
+          }
+        }
+      ],
+      "ground_foot_markers_proposed": [
+        {
+          "native_point_px": [
+            136,
+            483
+          ],
+          "scene_point_px": [
+            1075.868263,
+            795.575848
+          ],
+          "source_alpha": 252,
+          "status": "inherited manual base/foot marker; no physical contact solve",
+          "source_alpha_remeasured": 252,
+          "normal_point_px": [
+            672.417664,
+            397.234905
+          ]
+        },
+        {
+          "native_point_px": [
+            258,
+            484
+          ],
+          "scene_point_px": [
+            1124.936128,
+            795.978044
+          ],
+          "source_alpha": 251,
+          "status": "inherited manual base/foot marker; no physical contact solve",
+          "source_alpha_remeasured": 251,
+          "normal_point_px": [
+            703.08508,
+            397.486277
+          ]
+        }
+      ],
+      "material_weather_slots": {
+        "observed_source": "weathered cedar; feeder glass/dry seed and hardware fixed in image",
+        "actual_state": "dry static",
+        "wet_state": "needs_art_or_authorized_effect; proposed darker wood restrained sheen only",
+        "seasonality": "same rigid utility body year-round; no newly generated wet/snow/holiday variants",
+        "rigid_wind_amplitude_proposed": 0,
+        "moving_parts": "none separately authored in these reused whole sprites",
+        "simulation_implemented": false
+      },
+      "runtime_accepted": false,
+      "owner_accepted": false
+    },
+    {
+      "asset_id": "object.bench",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "canonical_runtime_id_reference": "bench",
+      "runtime_id_reference_is_not_admission": true,
+      "source_sprite": {
+        "canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+        "sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+        "bytes": 515507,
+        "dimensions_px": [
+          761,
+          511
+        ],
+        "mode": "RGBA"
+      },
+      "registered_layer": {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/layers/bench.png",
+        "sha256": "31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c",
+        "bytes": 53121,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "native_anchor_px": [
+        378,
+        429
+      ],
+      "native_anchor_alpha_remeasured": 0,
+      "anchor_semantics": "Bench root is a virtual projected origin between feet (alpha0), not a missing art/foot contact. Feeder root lies on its base.",
+      "native_to_scene": {
+        "scale": 0.2505353319057816,
+        "translation_xy": [
+          855.2976445396146,
+          817.5203426124197
+        ],
+        "forward": "scene_xy=native_xy*scale+translation_xy",
+        "inverse_pillow_coefficients": [
+          3.9914529914529915,
+          0,
+          -3413.880341880342,
+          0,
+          3.9914529914529915,
+          -3263.0940170940166
+        ],
+        "resampling": "nearest_neighbor"
+      },
+      "scene_root_px": [
+        950,
+        925
+      ],
+      "normal_root_px": [
+        593.75,
+        478.125
+      ],
+      "mobile_root_px": [
+        237.5,
+        191.25
+      ],
+      "root_mapping_error_px": 0.0,
+      "illustrative_height_m": 0.9,
+      "illustrative_source_px_per_m": 130,
+      "physical_scale_calibrated": false,
+      "native_sprite_dimensions_px": [
+        761,
+        511
+      ],
+      "normal_visible_alpha128_size_px": [
+        111.875,
+        72.5
+      ],
+      "depth_sort_key_y_proposed": 925,
+      "base_elevation_m_proposed": 0,
+      "footprint_proposal": {
+        "source_native_polygon_px": [
+          [
+            58,
+            373
+          ],
+          [
+            186,
+            330
+          ],
+          [
+            713,
+            394
+          ],
+          [
+            633,
+            478
+          ]
+        ],
+        "scene_polygon_px": [
+          [
+            869.828694,
+            910.970021
+          ],
+          [
+            901.897216,
+            900.197002
+          ],
+          [
+            1033.929336,
+            916.231263
+          ],
+          [
+            1013.88651,
+            937.276231
+          ]
+        ],
+        "mask": {
+          "path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/bench-footprint-PROPOSED.png",
+          "sha256": "ed051d5d8c7ebb4a140700543b274b7bb15badd8b67477be7486be82a3cba5a5",
+          "dimensions_px": [
+            1536,
+            1024
+          ],
+          "mode": "L"
+        },
+        "all_vertices_inside_canvas_and_full_floor": true,
+        "status": "manual inherited projected envelope, transformed exactly; not collision/contact soles",
+        "occupancy_policy": "Subtract only while this instance exists; removal restores this footprint region. No global central empty-square restriction."
+      },
+      "contact_points_proposed": [
+        {
+          "id": "back_perch",
+          "native_point_px": [
+            396,
+            45
+          ],
+          "scene_point_px": [
+            954.509636,
+            828.794433
+          ],
+          "source_alpha_at_point": 252,
+          "visible_material_at_marker": true,
+          "semantic_status": "Original manual source point retained; visible material does not validate foot/beak contact.",
+          "proposed_elevation_above_instance_base_m": 0.740043,
+          "elevation_is_illustrative_not_measured": true,
+          "anatomy_and_physics_status": "held_not_tested",
+          "implemented": false,
+          "source_alpha_remeasured": 252,
+          "normal_point_px": [
+            596.568522,
+            417.996521
+          ],
+          "mobile_point_px": [
+            238.627409,
+            167.198608
+          ],
+          "review_status": "visible_material_marker_only; foot/beak/grip fit held"
+        },
+        {
+          "id": "armrest_left_perch",
+          "native_point_px": [
+            100,
+            151
+          ],
+          "scene_point_px": [
+            880.351178,
+            855.351178
+          ],
+          "source_alpha_at_point": 250,
+          "visible_material_at_marker": true,
+          "semantic_status": "Original manual source point retained; visible material does not validate foot/beak contact.",
+          "proposed_elevation_above_instance_base_m": 0.53576,
+          "elevation_is_illustrative_not_measured": true,
+          "anatomy_and_physics_status": "held_not_tested",
+          "implemented": false,
+          "source_alpha_remeasured": 250,
+          "normal_point_px": [
+            550.219486,
+            434.594486
+          ],
+          "mobile_point_px": [
+            220.087795,
+            173.837795
+          ],
+          "review_status": "visible_material_marker_only; foot/beak/grip fit held"
+        },
+        {
+          "id": "seat_surface",
+          "native_point_px": [
+            396,
+            251
+          ],
+          "scene_point_px": [
+            954.509636,
+            880.404711
+          ],
+          "source_alpha_at_point": 252,
+          "visible_material_at_marker": true,
+          "semantic_status": "Original manual source point retained; visible material does not validate foot/beak contact.",
+          "proposed_elevation_above_instance_base_m": 0.343041,
+          "elevation_is_illustrative_not_measured": true,
+          "anatomy_and_physics_status": "held_not_tested",
+          "implemented": false,
+          "source_alpha_remeasured": 252,
+          "normal_point_px": [
+            596.568522,
+            450.252944
+          ],
+          "mobile_point_px": [
+            238.627409,
+            180.101178
+          ],
+          "review_status": "visible_material_marker_only; foot/beak/grip fit held"
+        }
+      ],
+      "perch_segments_proposed": [
+        {
+          "id": "backrest_upper_rim",
+          "native_endpoints_px": [
+            [
+              345,
+              30
+            ],
+            [
+              425,
+              31
+            ]
+          ],
+          "scene_endpoints_px": [
+            [
+              941.732334,
+              825.036403
+            ],
+            [
+              961.775161,
+              825.286938
+            ]
+          ],
+          "manual_authored": true,
+          "visual_validation": {
+            "sample_count": 81,
+            "source_alpha_min": 249,
+            "alpha128_material_coverage_fraction": 1.0,
+            "status": "on_visible_material_only",
+            "physical_or_anatomical_validation": false
+          },
+          "usable_as_visual_contact_proposal": true,
+          "bird_anatomy_status": "held_not_validated",
+          "runtime_implemented": false,
+          "measured_again": {
+            "sample_count": 81,
+            "source_alpha_min": 249,
+            "alpha128_material_coverage_fraction": 1.0,
+            "physical_or_anatomical_validation": false
+          }
+        },
+        {
+          "id": "left_armrest_trial_HELD",
+          "native_endpoints_px": [
+            [
+              63,
+              135
+            ],
+            [
+              145,
+              119
+            ]
+          ],
+          "scene_endpoints_px": [
+            [
+              871.08137,
+              851.342612
+            ],
+            [
+              891.625268,
+              847.334047
+            ]
+          ],
+          "manual_authored": true,
+          "visual_validation": {
+            "sample_count": 83,
+            "source_alpha_min": 7,
+            "alpha128_material_coverage_fraction": 0.37349397590361444,
+            "status": "held_crosses_low_alpha_or_void",
+            "physical_or_anatomical_validation": false
+          },
+          "usable_as_visual_contact_proposal": false,
+          "bird_anatomy_status": "held_not_validated",
+          "runtime_implemented": false,
+          "measured_again": {
+            "sample_count": 83,
+            "source_alpha_min": 7,
+            "alpha128_material_coverage_fraction": 0.37349397590361444,
+            "physical_or_anatomical_validation": false
+          }
+        }
+      ],
+      "ground_foot_markers_proposed": [
+        {
+          "native_point_px": [
+            68,
+            381
+          ],
+          "scene_point_px": [
+            872.334047,
+            912.974304
+          ],
+          "source_alpha": 252,
+          "status": "inherited manual base/foot marker; no physical contact solve",
+          "source_alpha_remeasured": 252,
+          "normal_point_px": [
+            545.208779,
+            470.60894
+          ]
+        },
+        {
+          "native_point_px": [
+            172,
+            334
+          ],
+          "scene_point_px": [
+            898.389722,
+            901.199143
+          ],
+          "source_alpha": 250,
+          "status": "inherited manual base/foot marker; no physical contact solve",
+          "source_alpha_remeasured": 250,
+          "normal_point_px": [
+            561.493576,
+            463.249464
+          ]
+        },
+        {
+          "native_point_px": [
+            620,
+            467
+          ],
+          "scene_point_px": [
+            1010.62955,
+            934.520343
+          ],
+          "source_alpha": 250,
+          "status": "inherited manual base/foot marker; no physical contact solve",
+          "source_alpha_remeasured": 250,
+          "normal_point_px": [
+            631.643469,
+            484.075214
+          ]
+        },
+        {
+          "native_point_px": [
+            708,
+            394
+          ],
+          "scene_point_px": [
+            1032.67666,
+            916.231263
+          ],
+          "source_alpha": 252,
+          "status": "inherited manual base/foot marker; no physical contact solve",
+          "source_alpha_remeasured": 252,
+          "normal_point_px": [
+            645.422913,
+            472.644539
+          ]
+        }
+      ],
+      "material_weather_slots": {
+        "observed_source": "weathered cedar and fixed fasteners",
+        "actual_state": "dry static",
+        "wet_state": "needs_art_or_authorized_effect; proposed darker wood restrained sheen only",
+        "seasonality": "same rigid utility body year-round; no newly generated wet/snow/holiday variants",
+        "rigid_wind_amplitude_proposed": 0,
+        "moving_parts": "none separately authored in these reused whole sprites",
+        "simulation_implemented": false
+      },
+      "runtime_accepted": false,
+      "owner_accepted": false
+    }
+  ],
+  "visual_review": {
+    "actual_images_inspected": [
+      {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/previews/geometry-contact-960.png",
+        "sha256": "dcc6859d80018b62bb11d545065f699230f46bcc57c196df7f78a18eccbc46a2",
+        "bytes": 257662,
+        "dimensions_px": [
+          960,
+          540
+        ],
+        "mode": "RGB"
+      },
+      {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/previews/cedar_feeder-native-contact-review.png",
+        "sha256": "316eb8bc52b4bb1644d8a27554df94462698e15d0b64735373b05b7ccdb26f12",
+        "bytes": 228908,
+        "dimensions_px": [
+          449,
+          528
+        ],
+        "mode": "RGB"
+      },
+      {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/previews/bench-native-contact-review.png",
+        "sha256": "8797dbb7b23c037a472edff596b1d5ec6ebd022be3e843d7aedaaf0bd656b265",
+        "bytes": 402775,
+        "dimensions_px": [
+          761,
+          511
+        ],
+        "mode": "RGB"
+      },
+      {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/root/previews/full-ground-placement-review.png",
+        "sha256": "e794d184cfdce94ba96f81a83a734fe356d89597aa6ba7f407db66db96b39103",
+        "bytes": 1165699,
+        "dimensions_px": [
+          960,
+          540
+        ],
+        "mode": "RGBA"
+      },
+      {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/root/previews/spring-960.png",
+        "sha256": "ee135b47cd0bfcc8bd8731620b0118e5e1711513ce34bbd3753bded648530014",
+        "bytes": 1146143,
+        "dimensions_px": [
+          960,
+          540
+        ],
+        "mode": "RGBA"
+      },
+      {
+        "canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-r1.png",
+        "sha256": "4b9005b26b759330f60d36dfb0e913a793c74449647d72ce076f0736438d7d81",
+        "bytes": 2092806,
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      }
+    ],
+    "findings": [
+      "Fence top caps and four post caps are visually identifiable; eight inherited segments rechecked at 100% alpha>=128 material coverage. This is not species/foot/perch acceptance.",
+      "Feeder tray and roof markers sit on rendered material; seed markers indicate visible food areas only. Reach, stance, species access, feeding affordance and collision are untested.",
+      "Bench virtual root lies between feet (alpha0). Four manual foot markers lie on visible material; their projected footprint is an envelope rather than four solved ground soles.",
+      "Bench left_armrest_trial_HELD remains excluded: line crosses a gap although the separate armrest point touches visible wood.",
+      "Existing dry source surfaces remain coherent weathered wood; detailed shaded rendering and three-quarter prop perspective need common pixel-grid/camera review before runtime acceptance.",
+      "Current source composite appears visually seated on the lawn; no bird pose/contact, dynamic occlusion or physical calibration was tested."
+    ]
+  },
+  "retained_holds": {
+    "bench_left_armrest_segment": "HELD_crosses_low_alpha_or_void; unusable_as_visual_perch_segment",
+    "all_bird_anatomy_and_species_fit": "HELD_not_tested",
+    "physical_support_collision_and_elevation": "PROPOSED_only",
+    "runtime_schema_admission": "PENDING_integrator_review",
+    "strict_shared_pixel_grid_camera_style": "PENDING",
+    "wet_snow_ice_holiday_variants": "not_generated; no blanket San Diego snow",
+    "wind": "whole rigid source sprites, proposed amplitude0; no simulation or separate moving parts"
+  },
+  "requested_runtime_validation": [
+    {
+      "id": "source_identity",
+      "check": "Resolve canonical sprite/layer paths and digests; preserve canonical cedar_feeder/bench identities; admit fence compound row explicitly if desired."
+    },
+    {
+      "id": "coordinate_mapping",
+      "check": "Implement/test source-to-960x540 crop transform and native anchors; compare exact normal roots feeder[687.5,400],bench[593.75,478.125]."
+    },
+    {
+      "id": "physical_scale_camera",
+      "check": "Confirm native scale and perspective against canonical bird/world size; 130 sourcepx/m is illustrative, not a survey."
+    },
+    {
+      "id": "ground_support",
+      "check": "Fit actual leg/base contacts to authored floor across full width; virtual root and occupancy envelope are not support geometry."
+    },
+    {
+      "id": "instance_lifecycle",
+      "check": "Subtract any admitted footprint only for its present instance; removal restores full floor; test placement through former footprint."
+    },
+    {
+      "id": "bird_contact",
+      "check": "Validate actual canonical bird foot pose/grip, balance, beak reach and body clearance against admitted fence/feeder/bench supports; exclude held armrest segment."
+    },
+    {
+      "id": "occlusion_sort",
+      "check": "Test bird traversal behind/in front of props/fence using visual masks separately from collision; confirm depth tie behavior and elevated perches."
+    },
+    {
+      "id": "season_weather",
+      "check": "Use actual four grounds with unchanged dry props; wet/wind/gate-open effects require separate implementation and review; snow is not a yard default."
+    }
+  ],
+  "new_art_calls": 0,
+  "runtime_implementation": false,
+  "owner_acceptance": false,
+  "source_files_modified": false,
+  "git_or_tracker_edits": false
+}
