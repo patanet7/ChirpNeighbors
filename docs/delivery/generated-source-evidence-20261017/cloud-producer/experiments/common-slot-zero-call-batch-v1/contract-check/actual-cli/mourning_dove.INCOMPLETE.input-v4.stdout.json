@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "boundary": "asset-packaging-input-v4",
+  "metadataComplete": false,
+  "sourceAdmitted": false,
+  "reviewRequired": [
+    "immutable-file-and-rights",
+    "exact-owner-reference-pins",
+    "source",
+    "manifest"
+  ],
+  "physicalSupportReviewed": false,
+  "browserAcceptance": "pending",
+  "issues": [
+    {
+      "path": "source.license.id",
+      "code": "invalid_type",
+      "message": "Expected string, received null"
+    },
+    {
+      "path": "source.license.derivativesAllowed",
+      "code": "invalid_type",
+      "message": "Expected boolean, received null"
+    },
+    {
+      "path": "source.license.redistributionAllowed",
+      "code": "invalid_type",
+      "message": "Expected boolean, received null"
+    },
+    {
+      "path": "source.license.attribution",
+      "code": "invalid_type",
+      "message": "Expected string, received null"
+    },
+    {
+      "path": "source.references",
+      "code": "too_small",
+      "message": "Array must contain at least 1 element(s)"
+    },
+    {
+      "path": "conditioning.references",
+      "code": "too_small",
+      "message": "Array must contain at least 1 element(s)"
+    },
+    {
+      "path": "conditioning.poseGraph.nodes.0.referenceId",
+      "code": "invalid_type",
+      "message": "Expected string, received null"
+    },
+    {
+      "path": "commonMotion.clips.blink",
+      "code": "invalid_type",
+      "message": "Required"
+    },
+    {
+      "path": "commonMotion.poseGraph.nodes.0.referenceId",
+      "code": "invalid_type",
+      "message": "Expected string, received null"
+    },
+    {
+      "path": "commonMotion.poseGraph.nodes.1.referenceId",
+      "code": "invalid_type",
+      "message": "Expected string, received null"
+    }
+  ],
+  "inputSha256": "9b8129a6980a479911568c6831059358abe0de7e69a434920a6b93dafc4d2d4c",
+  "structuralSchemaSha256": "b4d6f04e63ab8b5178e4143433c7c6199e3ff4cc7ea28cc012ac37ca391bb86c",
+  "authorityFiles": [
+    {
+      "path": "src/lib/assets/intake.ts",
+      "sha256": "afc5aa991afe921db6c96d919c8f24b9b35f2b6ac76549882104bed8be6bcdf5"
+    },
+    {
+      "path": "src/lib/assets/intake-v2.ts",
+      "sha256": "d9a8261b2739e62b5b302847573a1fdb5f48c2eceff5a394c9b9fb498c9b1ca8"
+    },
+    {
+      "path": "src/lib/assets/intake-v3.ts",
+      "sha256": "1fc71f0689cc2a4bc776025cca849427972b0463f1b9819e82f973280f23d5a2"
+    },
+    {
+      "path": "src/lib/assets/manifest-v3.ts",
+      "sha256": "9652bf5d1a277005ab9b82b4cfd1b9227d2ba53c9e1b971e2846beb6d9976923"
+    },
+    {
+      "path": "src/lib/assets/common-motion.ts",
+      "sha256": "be9906c7e7e2d748d8e7dd28dff4ef75b9c4879ef214074a71e15b3423cd8c02"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# yellow rumped warbler — independent family appearance
+
+PASS for provisional selected-family source appearance: idle, blink and look are useful on light/dark at the actual120CSS stage representing119.351351world plus transparent ceiling margin. The blink is small and easy to miss, but reads as closure during its actual100ms interval. This is not current Mac or physical-support approval.
+
+| Clip | Raw | Family codec | Finding |
+| --- | --- | --- | --- |
+| idle | NOT_SEPARATELY_SCORED | PROVISIONALLY_USEFUL | Exact selected neutral remains recognizable with a quiet coherent broad stance. Viewer presents selected family only; no independent live raw-clip score is claimed. |
+| blink | NOT_SEPARATELY_SCORED | PROVISIONALLY_USEFUL | Small eye change reads as closure rather than a bright open-eye dot at the actual normal-size100ms phase. Faint/easy-to-miss cue is retained as a limitation. Broad body and feet remain coherent; minor feather/toe shimmer is tolerable. |
+| look | NOT_SEPARATELY_SCORED | PROVISIONALLY_USEFUL | Viewer/downward head and bill attention remains distinct at normal scale with a coherent broad stationary stance. Minor toe/feather redraw does not dominate the action. No object-contact routine or planted-sole approval is implied. |
+
+Observed all eight actual120x120CSS canvases at DPR1: two live light/dark panels and six static selected neutral/blink/look diagnostics. Family51x39 crop is placed at unchanged full-stage origin38,60, density1; the world extent remains119.351351 with transparent ceiling margin. Live blink60/3/27@30Hz reaches closed60,61,62 and exact neutral63; actual in-memory phase inspection is bounded by60→62. Live look60/18/12 reaches look60–77, exact neutral78 and finalneutral89 through3000ms, without page errors. Idle neutral was inspected as a static hold. Raw source metadata/PNG paths are retained, but this viewer does not expose a raw live comparison, so raw is not separately scored. No screenshot files or capture payload bytes are included.
+
+The blink cue is subtle at a roughly45world-pixel bird body extent and may be missed in a full yard. Minor toe, feather and outline shimmer remains; no distracting family-scale/body jump was observed. The exact selected neutral/look bytes remain unchanged. Historical source registration/derivation is retained; this review performs no new translation, fit, painting, rescale or codec processing. Contacts remain empty, geometry covers image registration only, supportWorld null and physical support unreviewed. Current full-family pixel recheck, full schema/pins, runtime motion authority and actual Mac live admission are outside this appearance verdict. Runtime NOT_TESTED; no new drawing or slot gain is claimed by packaging existing sources.
+
+Exact existing neutral/look PNG bytes match the prior frozen selected PNGs. Source IDs, derivative IDs, crop origin/pivot, hashes and own live phase samples are recorded in the JSON. All 32 frozen inputs match before/after. Only this review pair was added: zero generation, new drawings, exports, codec changes, canonical reruns, source/global edits or saved screenshot files.

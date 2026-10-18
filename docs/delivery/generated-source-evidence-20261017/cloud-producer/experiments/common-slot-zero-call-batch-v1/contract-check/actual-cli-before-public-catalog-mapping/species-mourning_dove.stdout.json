@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "boundary": "asset-packaging-input-v4",
+  "metadataComplete": false,
+  "sourceAdmitted": false,
+  "reviewRequired": [
+    "immutable-file-and-rights",
+    "exact-owner-reference-pins",
+    "source",
+    "manifest"
+  ],
+  "physicalSupportReviewed": false,
+  "browserAcceptance": "pending",
+  "issues": [
+    {
+      "path": "schemaVersion",
+      "code": "invalid_literal",
+      "message": "Invalid literal value, expected 4"
+    },
+    {
+      "path": "source",
+      "code": "invalid_type",
+      "message": "Required"
+    },
+    {
+      "path": "pixels",
+      "code": "invalid_type",
+      "message": "Required"
+    },
+    {
+      "path": "clips",
+      "code": "invalid_type",
+      "message": "Expected object, received array"
+    },
+    {
+      "path": "conditioning",
+      "code": "invalid_type",
+      "message": "Required"
+    },
+    {
+      "path": "strategy",
+      "code": "invalid_type",
+      "message": "Required"
+    },
+    {
+      "path": "presentation",
+      "code": "invalid_type",
+      "message": "Required"
+    },
+    {
+      "path": "commonMotion",
+      "code": "invalid_type",
+      "message": "Required"
+    },
+    {
+      "path": "$",
+      "code": "unrecognized_keys",
+      "message": "Unrecognized key(s) in object: 'kind', 'speciesId', 'cohortId', 'fullWorldCanvas', 'displayStage', 'candidateCanvas', 'density', 'oldPivotWorld', 'roundedFullPivot', 'commonCropOrigin', 'candidatePivot', 'visibleScaleChanged', 'ceilMarginPadded', 'perPoseFitPaintSnap', 'sourceFrames', 'renderFrames', 'contacts', 'geometryReviewed', 'supportWorld', 'supportInterpretation', 'runtimeAdmission', 'liveVisualAcceptance', 'newNativeCalls', 'newDrawings'"
+    }
+  ],
+  "inputSha256": "7e29cac1c38110fdc1c1d52e252e88aa930c234cab68cc6ff1289f8e6dde7a1d",
+  "structuralSchemaSha256": "b4d6f04e63ab8b5178e4143433c7c6199e3ff4cc7ea28cc012ac37ca391bb86c",
+  "authorityFiles": [
+    {
+      "path": "src/lib/assets/intake.ts",
+      "sha256": "afc5aa991afe921db6c96d919c8f24b9b35f2b6ac76549882104bed8be6bcdf5"
+    },
+    {
+      "path": "src/lib/assets/intake-v2.ts",
+      "sha256": "d9a8261b2739e62b5b302847573a1fdb5f48c2eceff5a394c9b9fb498c9b1ca8"
+    },
+    {
+      "path": "src/lib/assets/intake-v3.ts",
+      "sha256": "1fc71f0689cc2a4bc776025cca849427972b0463f1b9819e82f973280f23d5a2"
+    },
+    {
+      "path": "src/lib/assets/manifest-v3.ts",
+      "sha256": "9652bf5d1a277005ab9b82b4cfd1b9227d2ba53c9e1b971e2846beb6d9976923"
+    },
+    {
+      "path": "src/lib/assets/common-motion.ts",
+      "sha256": "be9906c7e7e2d748d8e7dd28dff4ef75b9c4879ef214074a71e15b3423cd8c02"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "action": "Run unchanged actual node scripts/check-common-intake.ts against raw Dove handoff",
+  "command": [
+    "node",
+    "/workspace/runtime-common-v6-intake-inspect/scripts/check-common-intake.ts",
+    "/workspace/asset-production/experiments/common-slot-zero-call-batch-v1/species/mourning_dove/source-handoff.json"
+  ],
+  "workingDirectory": "/workspace",
+  "observedRuntimeCommit": "8cd59c21abb990e5be95424587b3952d7fa3f1c4",
+  "outcome": "FAILED BEFORE METADATA VALIDATION",
+  "exitCode": 1,
+  "errorName": "Error",
+  "code": "ERR_MODULE_NOT_FOUND",
+  "missingPackage": "zod",
+  "importingModule": "src/lib/assets/intake-v3.ts",
+  "message": "Cannot find package 'zod' imported from /workspace/runtime-common-v6-intake-inspect/src/lib/assets/intake-v3.ts",
+  "nodeVersion": "v24.19.0",
+  "metadataValidationExecuted": false,
+  "metadataComplete": null,
+  "actualMissingPaths": null,
+  "sourceAdmitted": false,
+  "dependencySearch": "No installed zod directory found under /opt, /usr/local/lib or /workspace. No installs, dependency substitutions, fixture pins or validator modifications attempted.",
+  "otherInputsNotInvoked": [
+    "/workspace/asset-production/experiments/common-slot-zero-call-batch-v1/species/yellow_rumped_warbler/source-handoff.json",
+    "proposals/mourning_dove.INCOMPLETE.input-v4.json",
+    "proposals/yellow_rumped_warbler.INCOMPLETE.input-v4.json"
+  ],
+  "reasonOtherInputsNotInvoked": "The same unconditional module import fails before any input can be inspected.",
+  "nextAction": "Run unchanged checker with existing authorized runtime dependencies when integrator environment permits; then supply actual reference pins and an independently eligible blink if pursuing a complete family."
+}
