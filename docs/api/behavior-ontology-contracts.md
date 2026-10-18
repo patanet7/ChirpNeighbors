@@ -44,6 +44,12 @@ closed experiment presets, intent versus travel transitions, maximal slot IDs,
 and invalid candidate elections. These fixtures establish mechanics only;
 species science, observed personality and approved visual fidelity remain absent.
 
+## Current execution and proposed extensions
+
+The [maintained UI specification](https://github.com/patanet7/birdsong-yard-sprites/blob/d5b311aaeabf0dfb8ec014e18f94c31fd0f06114/docs/engine/specification.md) describes current consumers and gaps. Actor activity, root-motion phase, attention, placement, resource context, reserved/settled support and interaction episode are separate concerns. Existing closed unions and input validation do not encode every legal cross-product or a complete event/guard/effect table. A focused legal-state/guard projection is proposed within tasks 204/205, preserving the public activity vocabulary, existing clock/reservations and same-runtime workbench/customer invariants. New resource/coverage/contact/replay/lesson payloads require independent type/schema/consumer review and paired compatibility checks where portable; do not append fields or enum members to a frozen same-version authority. No new schema or biological mapping is approved by this prose.
+
+**Reserved quality-evaluation extension — specification only:** The integrator reserves one future paired authority asset-quality-evaluation-v1, likely UI src/lib/assets/asset-quality-evaluation.ts with integrator-owned canonical export. Producer/runtime grading references existing taxon/Behavior/motion/manifest clip/contact/support IDs. Stable versioned category/rule mappings, exact asset/clip/frame/region/requirement/source/model/config/tool/repair/supersession references, evidence knowledge, independent severity/confidence and review outcomes belong to that same future authority. No verified producer defect-code catalog/version exists at this checkpoint: preserve raw labels and proposed mapping, reject or hold unclassified unknown/colliding codes; experiment IDs are not issue namespaces. Add focused version/migration/golden/mutation/compile/semantic tests before schema adoption; no existing strict digest or enum changes from prose.
+
 ## Focused contract verification
 
 The additive boundary checks passed on 2026-10-09: 393 cross-language goldens
