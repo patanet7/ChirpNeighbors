@@ -1,0 +1,704 @@
+{
+  "$ref": "#/definitions/RegisteredYardTexturePackV2",
+  "definitions": {
+    "RegisteredYardTexturePackV2": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 2
+        },
+        "profile": {
+          "type": "string",
+          "const": "registered-yard"
+        },
+        "sourceReleaseDigest": {
+          "type": "string",
+          "const": "3de66c0b4d5278196a493cd7637f11fd2000ec928198ef82d62f9f3cab139e57"
+        },
+        "replacementRoles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "background",
+              "ground",
+              "foreground"
+            ]
+          },
+          "maxItems": 3,
+          "default": []
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*$"
+              },
+              "layer": {
+                "type": "string",
+                "enum": [
+                  "background",
+                  "ground",
+                  "objects",
+                  "foreground"
+                ]
+              },
+              "plane": {
+                "type": "string",
+                "enum": [
+                  "sky",
+                  "mountains",
+                  "ground",
+                  "fence"
+                ]
+              },
+              "scale": {
+                "type": "number",
+                "minimum": 0.25,
+                "maximum": 2,
+                "default": 1
+              },
+              "texture": {
+                "type": "object",
+                "properties": {
+                  "packageData": {
+                    "type": "object",
+                    "properties": {
+                      "manifest": {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "profile": {
+                            "type": "string",
+                            "const": "chirp-texture-review-v1"
+                          },
+                          "scope": {
+                            "type": "string",
+                            "const": "review-only"
+                          },
+                          "approval": {
+                            "type": "string",
+                            "const": "unreviewed"
+                          },
+                          "activation": {
+                            "type": "string",
+                            "const": "none"
+                          },
+                          "source": {
+                            "type": "object",
+                            "properties": {
+                              "sha256": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              },
+                              "creator": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 160
+                              },
+                              "tool": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 160
+                              },
+                              "toolVersion": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 80
+                              },
+                              "rights": {
+                                "type": "string",
+                                "const": "unreviewed"
+                              },
+                              "fidelity": {
+                                "type": "string",
+                                "const": "unreviewed"
+                              }
+                            },
+                            "required": [
+                              "sha256",
+                              "creator",
+                              "tool",
+                              "toolVersion",
+                              "rights",
+                              "fidelity"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "atlas": {
+                            "type": "object",
+                            "properties": {
+                              "width": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 1024
+                              },
+                              "height": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 1024
+                              },
+                              "alpha": {
+                                "type": "string",
+                                "const": "straight-rgba8"
+                              },
+                              "colorSpace": {
+                                "type": "string",
+                                "const": "srgb"
+                              }
+                            },
+                            "required": [
+                              "width",
+                              "height",
+                              "alpha",
+                              "colorSpace"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "frames": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 80,
+                                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+                                },
+                                "sourceRect": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 1024
+                                    },
+                                    "y": {
+                                      "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/manifest/properties/frames/items/properties/sourceRect/properties/x"
+                                    },
+                                    "width": {
+                                      "type": "integer",
+                                      "exclusiveMinimum": 0,
+                                      "maximum": 512
+                                    },
+                                    "height": {
+                                      "type": "integer",
+                                      "exclusiveMinimum": 0,
+                                      "maximum": 512
+                                    }
+                                  },
+                                  "required": [
+                                    "x",
+                                    "y",
+                                    "width",
+                                    "height"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "canvas": {
+                                  "type": "object",
+                                  "properties": {
+                                    "width": {
+                                      "type": "integer",
+                                      "exclusiveMinimum": 0,
+                                      "maximum": 512
+                                    },
+                                    "height": {
+                                      "type": "integer",
+                                      "exclusiveMinimum": 0,
+                                      "maximum": 512
+                                    }
+                                  },
+                                  "required": [
+                                    "width",
+                                    "height"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "trim": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/manifest/properties/frames/items/properties/sourceRect/properties/x"
+                                    },
+                                    "y": {
+                                      "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/manifest/properties/frames/items/properties/sourceRect/properties/x"
+                                    }
+                                  },
+                                  "required": [
+                                    "x",
+                                    "y"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "pivot": {
+                                  "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/manifest/properties/frames/items/properties/trim"
+                                },
+                                "contacts": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "x": {
+                                        "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/manifest/properties/frames/items/properties/sourceRect/properties/x"
+                                      },
+                                      "y": {
+                                        "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/manifest/properties/frames/items/properties/sourceRect/properties/x"
+                                      },
+                                      "id": {
+                                        "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/manifest/properties/frames/items/properties/id"
+                                      }
+                                    },
+                                    "required": [
+                                      "x",
+                                      "y",
+                                      "id"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "minItems": 1,
+                                  "maxItems": 4
+                                },
+                                "world": {
+                                  "type": "object",
+                                  "properties": {
+                                    "width": {
+                                      "type": "number",
+                                      "exclusiveMinimum": 0,
+                                      "maximum": 2048
+                                    },
+                                    "height": {
+                                      "type": "number",
+                                      "exclusiveMinimum": 0,
+                                      "maximum": 2048
+                                    }
+                                  },
+                                  "required": [
+                                    "width",
+                                    "height"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "sourcePixelsPerWorldUnit": {
+                                  "type": "number",
+                                  "minimum": 0.25,
+                                  "maximum": 8
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "sourceRect",
+                                "canvas",
+                                "trim",
+                                "pivot",
+                                "contacts",
+                                "world",
+                                "sourcePixelsPerWorldUnit"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "minItems": 1,
+                            "maxItems": 64
+                          },
+                          "clips": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "enum": [
+                                    "idle",
+                                    "moving",
+                                    "perching",
+                                    "singing",
+                                    "feeding",
+                                    "bathing",
+                                    "sleeping",
+                                    "playing",
+                                    "nesting"
+                                  ]
+                                },
+                                "tickRate": {
+                                  "type": "number",
+                                  "const": 30
+                                },
+                                "loop": {
+                                  "type": "boolean"
+                                },
+                                "frames": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "frameId": {
+                                        "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/manifest/properties/frames/items/properties/id"
+                                      },
+                                      "durationTicks": {
+                                        "type": "integer",
+                                        "minimum": 1,
+                                        "maximum": 300
+                                      }
+                                    },
+                                    "required": [
+                                      "frameId",
+                                      "durationTicks"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  "minItems": 1,
+                                  "maxItems": 256
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "tickRate",
+                                "loop",
+                                "frames"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "minItems": 1,
+                            "maxItems": 16
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "profile",
+                          "scope",
+                          "approval",
+                          "activation",
+                          "source",
+                          "atlas",
+                          "frames",
+                          "clips"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "receipt": {
+                        "type": "object",
+                        "properties": {
+                          "profile": {
+                            "type": "string",
+                            "const": "chirp-texture-review-v1"
+                          },
+                          "activation": {
+                            "type": "string",
+                            "const": "none"
+                          },
+                          "approved": {
+                            "type": "boolean",
+                            "const": false
+                          },
+                          "original": {
+                            "type": "object",
+                            "properties": {
+                              "sha256": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              },
+                              "bytes": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 4194304
+                              }
+                            },
+                            "required": [
+                              "sha256",
+                              "bytes"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "canonical": {
+                            "type": "object",
+                            "properties": {
+                              "sha256": {
+                                "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/receipt/properties/original/properties/sha256"
+                              },
+                              "bytes": {
+                                "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/receipt/properties/original/properties/bytes"
+                              },
+                              "rgbaSha256": {
+                                "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/receipt/properties/original/properties/sha256"
+                              },
+                              "width": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 1024
+                              },
+                              "height": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 1024
+                              }
+                            },
+                            "required": [
+                              "sha256",
+                              "bytes",
+                              "rgbaSha256",
+                              "width",
+                              "height"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "alpha": {
+                            "type": "string",
+                            "const": "straight-rgba8"
+                          },
+                          "normalization": {
+                            "type": "string",
+                            "const": "zero-hidden-rgb-only-v1"
+                          },
+                          "contactRule": {
+                            "type": "string",
+                            "const": "alpha-greater-than-zero-only-not-physical-review"
+                          },
+                          "metrics": {
+                            "type": "object",
+                            "properties": {
+                              "partialAlphaPixels": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 1048576
+                              },
+                              "transparentPixels": {
+                                "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/receipt/properties/metrics/properties/partialAlphaPixels"
+                              },
+                              "hiddenRgbPixelsZeroed": {
+                                "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/receipt/properties/metrics/properties/partialAlphaPixels"
+                              },
+                              "visibleRgbColors": {
+                                "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/receipt/properties/metrics/properties/partialAlphaPixels"
+                              },
+                              "frames": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 64
+                              },
+                              "uniqueSourceFramePixels": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 64
+                              },
+                              "knownDecodedRgbaBytes": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 4194304
+                              },
+                              "knownSanitizedPngBytes": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 4194304
+                              },
+                              "pngChunks": {
+                                "type": "integer",
+                                "minimum": 3,
+                                "maximum": 1024
+                              },
+                              "knownCanonicalPngBytes": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 4194304
+                              }
+                            },
+                            "required": [
+                              "partialAlphaPixels",
+                              "transparentPixels",
+                              "hiddenRgbPixelsZeroed",
+                              "visibleRgbColors",
+                              "frames",
+                              "uniqueSourceFramePixels",
+                              "knownDecodedRgbaBytes",
+                              "knownSanitizedPngBytes",
+                              "pngChunks",
+                              "knownCanonicalPngBytes"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "frameDigests": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/manifest/properties/frames/items/properties/id"
+                                },
+                                "rgbaSha256": {
+                                  "$ref": "#/definitions/RegisteredYardTexturePackV2/properties/entries/items/properties/texture/properties/packageData/properties/receipt/properties/original/properties/sha256"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "rgbaSha256"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "minItems": 1,
+                            "maxItems": 64
+                          },
+                          "decoder": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "const": "sharp"
+                              },
+                              "version": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 40
+                              },
+                              "libvips": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 40
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "version",
+                              "libvips"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "timings": {
+                            "type": "object",
+                            "properties": {
+                              "scope": {
+                                "type": "string",
+                                "const": "cpu-wall-time-not-gpu-or-peak-memory"
+                              },
+                              "decodeMs": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "validationMs": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "encodeMs": {
+                                "type": "number",
+                                "minimum": 0
+                              },
+                              "totalMs": {
+                                "type": "number",
+                                "minimum": 0
+                              }
+                            },
+                            "required": [
+                              "scope",
+                              "decodeMs",
+                              "validationMs",
+                              "encodeMs",
+                              "totalMs"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "profile",
+                          "activation",
+                          "approved",
+                          "original",
+                          "canonical",
+                          "alpha",
+                          "normalization",
+                          "contactRule",
+                          "metrics",
+                          "frameDigests",
+                          "decoder",
+                          "timings"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "canonicalPngBase64": {
+                        "type": "string",
+                        "minLength": 2,
+                        "maxLength": 5592408,
+                        "pattern": "^[A-Za-z0-9+/]*={0,2}$",
+                        "allOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF]))"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "manifest",
+                      "receipt",
+                      "canonicalPngBase64"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "placement": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 960
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 540
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "clipId": {
+                    "type": "string",
+                    "const": "idle"
+                  },
+                  "showContacts": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "packageData",
+                  "placement",
+                  "clipId",
+                  "showContacts"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "layer",
+              "texture"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 4,
+          "maxItems": 16
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "profile",
+        "sourceReleaseDigest",
+        "entries"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/registered-yard-texture-pack-v2.schema.json",
+  "description": "Opt-in private local registered-yard structural boundary. Exact inspected source/export/decoder hashes, owner and development admission, decoded resource budget, legal whole footprints, source/geometry/calibration CAS and actual source-plane correspondence require authoritative runtime validation. Synthetic grammar fixtures grant no rights, support geometry, anatomy, external execution, production approval or public release. Legacy scene and texture-pack versions retain their original bounds."
+}

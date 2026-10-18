@@ -1,0 +1,34 @@
+{
+  "$ref": "#/definitions/Integration10SourceRequestV2",
+  "definitions": {
+    "Integration10SourceRequestV2": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 2
+        },
+        "asset": {
+          "type": "string",
+          "enum": [
+            "sky",
+            "mountains",
+            "fence",
+            "ground-spring",
+            "ground-summer",
+            "ground-autumn",
+            "ground-winter"
+          ]
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "asset"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/integration10-source-request-v2.schema.json",
+  "description": "Opt-in private local registered-yard structural boundary. Exact inspected source/export/decoder hashes, owner and development admission, decoded resource budget, legal whole footprints, source/geometry/calibration CAS and actual source-plane correspondence require authoritative runtime validation. Synthetic grammar fixtures grant no rights, support geometry, anatomy, external execution, production approval or public release. Legacy scene and texture-pack versions retain their original bounds."
+}
