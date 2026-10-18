@@ -1,0 +1,16 @@
+{
+ "$schema":"https://json-schema.org/draft/2020-12/schema",
+ "title":"Source asset qualification record v1",
+ "type":"object",
+ "required":["asset_id","variant_id","candidate_revision","source_sha256","scope","grade","canonical_label","finding_state","reason","evidence"],
+ "properties":{
+  "asset_id":{"type":"string","minLength":1},"variant_id":{"type":"string","minLength":1},"candidate_revision":{"type":"string","minLength":1},
+  "source_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+  "scope":{"enum":["static_visual","registration","media_preflight","state_coverage","wind_parts","physical_geometry","functional_fit","runtime_admission","rights_review"]},
+  "grade":{"enum":["pass","repair","blocked","reject"]},
+  "canonical_label":{"enum":["visual.alpha-matte","visual.crop-truncation","visual.display-density","fidelity.subject-structure","registration.pivot","registration.scale","registration.anchor-empty","registration.contact-appearance","layer.seam","layer.ownership","state.art-missing","motion.parts-unqualified","media.constraint","provenance.incomplete","physics.unreviewed","interaction.unreviewed","runtime.unadmitted"]},
+  "finding_state":{"enum":["observed","not_detected_in_scope","unknown","not_applicable","corrected_in_candidate"]},
+  "reason":{"type":"string","minLength":1},"evidence":{"type":"array","minItems":1,"items":{"type":"object"}}
+ },
+ "additionalProperties":false
+}
