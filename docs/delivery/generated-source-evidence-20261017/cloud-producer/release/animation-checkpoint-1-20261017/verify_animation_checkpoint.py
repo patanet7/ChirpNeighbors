@@ -36,5 +36,8 @@ for batch in overlay['batches']:
   if explicit_static:staticpreviews+=1
   else:previews+=1
  assert set(batch['sourceFrameIds'])=={f['sourceFrameId'] for f in j['frames']}
-assert frames==overlay['newDrawings'] and len(overlay['batches'])==overlay['newNativeCalls']
-print(json.dumps({'passed':True,'nativeOriginals':len(overlay['batches']),'newPrimaryDrawingIDs':frames,'indexedBatchFiles':files,'decodedMultiFramePreviews':previews,'decodedStaticPosePreviews':staticpreviews,'appAdmissionChecked':False,'artAnatomicalAcceptance':False}))
+import importlib.util
+spec=importlib.util.spec_from_file_location('source_registration',root/'verify_source_registration.py');module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+registration=module.verify(root)
+assert frames+registration['registrationOnlyNativeDrawings']==overlay['newDrawings'] and len(overlay['batches'])+registration['registrationOnlyNativeOriginals']==overlay['newNativeCalls']
+print(json.dumps({'passed':True,'nativeOriginals':len(overlay['batches']),'newPrimaryDrawingIDs':frames,'indexedBatchFiles':files,'decodedMultiFramePreviews':previews,'decodedStaticPosePreviews':staticpreviews,'registrationOnlyNativeDrawings':registration['registrationOnlyNativeDrawings'],'registrationOnlyNativeOriginals':registration['registrationOnlyNativeOriginals'],'appAdmissionChecked':False,'artAnatomicalAcceptance':False}))

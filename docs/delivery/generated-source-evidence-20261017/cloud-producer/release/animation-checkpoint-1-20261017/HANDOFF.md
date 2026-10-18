@@ -58,3 +58,6 @@ sd20-california-quail-look-v1: one actual new look drawing + exact existing awak
 
 
 sd20-california-quail-blink-v1: one actual new blink drawing + exact existing awake reuse; zero new neutral drawings. Provisional subtle useful closure source only, one new closed drawing plus exact awake reuse. Separate blink42/3/45 authored30Hz timing; target neutral source/pixels/geometry/idle90 unchanged. Bounded primary/neutral render-binding metadata changes explicitly reported; subtle eyelid/readability/feather/toe limitations retained. No runtime/support approval. Explicit semantic clip `motion/sd20-california-quail-blink-v1/texture-review-manifest.json#blink`; exact map `motion/sd20-california-quail-blink-v1/frame-to-action-map.json`. Existing other resting bindings and Anna flight proposals retained; any useful blink target primary/neutral render metadata changes are bounded and separately reported.
+
+
+Stage51 source-only registration:166 native drawing IDs/58 original-prompt pairs. Added16 previously published sources; existing binding inventory remains its prior checkpoint byte-for-byte. No new accepted hop/bathing slot, runtime profile, support binding, or selected clip. Live queue execution remains coordinator-owned.

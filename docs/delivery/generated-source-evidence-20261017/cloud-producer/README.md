@@ -1,7 +1,7 @@
 # Cloud-produced source artwork — exact-byte preservation
 
 This directory retains actual project source bytes for the canonical repository.
-The current registered source checkpoint retains 50 native originals with exact prompts and 150 immutable primary drawing records. Animation and yard source production resumed after baseline PR33. See `release/animation-checkpoint-1-20261017/intake-overlay.json` and its `HANDOFF.md` for current additions, exact reviews and limitations.
+The current registered source checkpoint retains 58 native originals with exact prompts and 166 immutable primary drawing records. Animation and yard source production resumed after baseline PR33. See `release/animation-checkpoint-1-20261017/intake-overlay.json` and its `HANDOFF.md` for current additions, exact reviews and limitations.
 
 `release/san-diego-20-v1/All-20-Source-Intake-Index.json` is the historical PR33 baseline, containing102 drawings/21 originals; its prior stop flag is superseded by the resumed checkpoint. The baseline per-species slot audit is in `audits/animation-slot-inventory-20261017`. Source availability does not establish completed animation sets, owner approval, canonical Mac admission or actual-yard verification. This archive changes source evidence only.
 
@@ -194,3 +194,6 @@ The nine savedAnna/Phoebe/Towheeactiondrawings arepreservedinmergedPR26/27/28, w
 ## Completed source batch: sd20-final-four-v1
 
 `new-species/sd20-final-four-v1` retainsonecompletednativecall/8newdrawings with exactprompt/nativeoriginal/immutableIDs, PNGexports, manifestsandnormal-sizepreviews. Prior94drawingIDsunchanged; sourcebanknow102, original/promptpairs21. Naturalposequalityisreviewedatoutputsize; sourcepixelidentityremainsstrict. Appbinding/canonicalSharpreceipt/actualyardverificationpending; no full action set or 20-species runtime completion claim; source availability is recorded separately. Per-speciesprioritycoverageupdatedwithsourceandpacketstatesseparatefromappauthority.
+
+
+Stage51 source-only registration:166 native drawing IDs/58 original-prompt pairs. Added16 previously published sources; existing binding inventory remains its prior checkpoint byte-for-byte. No new accepted hop/bathing slot, runtime profile, support binding, or selected clip. Live queue execution remains coordinator-owned.
