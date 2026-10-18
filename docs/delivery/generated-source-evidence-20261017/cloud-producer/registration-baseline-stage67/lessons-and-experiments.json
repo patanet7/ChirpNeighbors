@@ -1,0 +1,1372 @@
+{
+  "schemaVersion": 1,
+  "authority": "Local production lessons plus explicitly labelled parent relays; pending canonical shared experiment contract",
+  "experiments": [
+    {
+      "id": "HF-canon-1",
+      "attempts": [
+        "house-finch-canon-v1"
+      ],
+      "works": [
+        "male/female plumage distinctions visible",
+        "transparent output composites cleanly",
+        "own art style can condition a new text-grounded species candidate"
+      ],
+      "doesNotEstablish": [
+        "photo-based species conditioning",
+        "accepted anatomy/pixel-art style",
+        "biological cross-species scale"
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "settingsExposed": {
+        "transparent_background": true,
+        "seed": null
+      },
+      "exactPrompt": "batches/house-finch-canon-v1/prompt.txt",
+      "references": [
+        "batches/dove-walk-v1/original.png",
+        "batches/house-finch-canon-v1/reference-and-scale.json"
+      ],
+      "sourceOutput": "batches/house-finch-canon-v1/original.png",
+      "tests": [
+        "light-background composites"
+      ],
+      "feedback": [
+        "eye/feather texture may be too smooth/photographic"
+      ],
+      "hypothesis": "reference style and large source resolution bias toward fine smooth feather texture",
+      "nextChange": "review at actual game size before adopting canon; do not expand into more actions as if style accepted",
+      "outcome": "candidate, no acceptance"
+    },
+    {
+      "id": "HF-idle-1",
+      "attempts": [
+        "house-finch-male-idle-v1",
+        "house-finch-female-idle-v1"
+      ],
+      "works": [
+        "genuine closed/half blink",
+        "head/neck/viewer-turn shape changes",
+        "same-sex canon reference preserves broad appearance"
+      ],
+      "doesNotWork": [
+        "nominal atlas-cell compliance",
+        "stable exact feather/body/foot layout"
+      ],
+      "exactPrompts": [
+        "batches/house-finch-male-idle-v1/prompt.txt",
+        "batches/house-finch-female-idle-v1/prompt.txt"
+      ],
+      "sourceOutputs": [
+        "batches/house-finch-male-idle-v1/original.png",
+        "batches/house-finch-female-idle-v1/original.png"
+      ],
+      "tests": [
+        "6 unique frames each",
+        "6 APNG/GIF frames",
+        "original alpha>=32 cores not atlas-edge clipped"
+      ],
+      "failureCauseHypothesis": "image model ignored requested bird extent and cell margins; it did not preserve identical lower-body geometry",
+      "nextChange": "component isolation for technical packaging, then actual scene-scale/art review; no claim of anatomical correction",
+      "outcome": "playable candidates with stated drift"
+    },
+    {
+      "id": "HF-extraction-1",
+      "attempts": [
+        "package_finch.py"
+      ],
+      "works": [
+        "all atlas pixels alpha>=2 assigned exactly once to six principal silhouettes",
+        "exact copied RGBA for retained pixels",
+        "one uniform384px derivative scale, no per-frame fitting"
+      ],
+      "limitations": [
+        "alpha1 residue excluded from derived frames",
+        "root/feet/beak are heuristic estimates, not anatomical tracking",
+        "normalizing placement does not cure body-size drift"
+      ],
+      "tests": [
+        "per-clip manifest.validation"
+      ],
+      "sourceOutputs": [
+        "frame-bank.json"
+      ],
+      "nextChange": "Mac converts compatible source frames using agreed typed scale/contact contract",
+      "outcome": "technical isolation passes; artistic and contact review pending"
+    },
+    {
+      "id": "HF-feed-1",
+      "attempts": [
+        "house-finch-male-feed-v1",
+        "house-finch-female-feed-v1"
+      ],
+      "works": [
+        "redrawn bow/pickup/seed-held/kernel/recovery states",
+        "actual bill/neck/body changes"
+      ],
+      "doesNotWork": [
+        "seed/kernel plausibly small size",
+        "verified beak-seed contacts and timing",
+        "stable lower-body contours"
+      ],
+      "exactPrompts": [
+        "batches/house-finch-male-feed-v1/prompt.txt",
+        "batches/house-finch-female-feed-v1/prompt.txt"
+      ],
+      "sourceOutputs": [
+        "batches/house-finch-male-feed-v1/original.png",
+        "batches/house-finch-female-feed-v1/original.png"
+      ],
+      "failureCauseHypothesis": "model prioritizes legible prop over scale/contact precision",
+      "nextChange": "review beak landmarks/prop size at accepted world scale; controlled targeted correction if required",
+      "outcome": "candidate feeding clips, no food-physics acceptance"
+    },
+    {
+      "id": "rain-phase-2",
+      "attempts": [
+        "rain-continuity-v2"
+      ],
+      "works": [
+        "separate reusable rain texture frames exist"
+      ],
+      "doesNotWork": [
+        "requested temporal advection/loop"
+      ],
+      "testReceipt": "batches/rain-continuity-v2/continuity-review.json",
+      "nextChange": "Mac procedural-weather/compositor contract first; no further unrelated rain sheets",
+      "outcome": "failed sequence retained; individual-frame reuse only suggested"
+    },
+    {
+      "id": "crow-guided-contact-parent",
+      "evidenceScope": "parent relay; no bytes verified here",
+      "sourceBundle": "[private Library handle omitted]",
+      "works": [
+        "opposite support/lift and occlusion in guided poses"
+      ],
+      "doesNotWork": [
+        "full translating stance stability",
+        "natural modest amplitude",
+        "stable appearance"
+      ],
+      "observations": [
+        "manual20–26runtimepx stance slip",
+        "about5px ground variation"
+      ],
+      "nextChange": "trajectory/timing/registration/rig refinement with real-footage observation; preserve useful individual poses",
+      "outcome": "method experiment gate passed, production walk failed"
+    },
+    {
+      "id": "frame-reuse-1",
+      "sourceRegister": "frame-bank.json",
+      "works": [
+        "content-addressed immutable frame IDs",
+        "clips reference frames instead of copying source images",
+        "sequence failure and frame rejection are distinct"
+      ],
+      "candidateReuses": [
+        "House Finch idle neutral→perching",
+        "feed recovery→idle transition",
+        "failed rain sequence frame→procedural texture"
+      ],
+      "verifiedReuseCount": 0,
+      "requiredGates": [
+        "species/sex/appearance version",
+        "scale/root/feet/beak contacts",
+        "direction",
+        "transition and timing validation"
+      ],
+      "nextChange": "prove a specific reuse in Mac before marking verified"
+    },
+    {
+      "id": "HF-perch-reuse-1",
+      "exactReview": "batches/house-finch-perching-review-v1/reuse-review.json",
+      "sourceFrames": 26,
+      "works": [
+        "idle/head/attention poses can serve body reference",
+        "ground/frame pixel identities remain immutable"
+      ],
+      "doesNotEstablish": [
+        "ground feet fitting a narrow round branch",
+        "flat-platform contact acceptance"
+      ],
+      "verifiedReuses": 0,
+      "outcome": "no full-frame reuse verified; existing clips preserved"
+    },
+    {
+      "id": "HF-perch-guide-1",
+      "attempts": [
+        "house-finch-perching-candidate-v1"
+      ],
+      "actualImageCalls": 1,
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "exactPrompt": "batches/house-finch-perching-candidate-v1/prompt.txt",
+      "references": [
+        "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+        "batches/house-finch-perching-review-v1/perch-guide.png"
+      ],
+      "sourceOutput": "batches/house-finch-perching-candidate-v1/original.png",
+      "tests": [
+        "batches/house-finch-perching-candidate-v1/candidate-review.json"
+      ],
+      "works": [
+        "visible curled toe geometry",
+        "isolated bird; no obvious baked branch or guides"
+      ],
+      "doesNotWork": [
+        "requested1024canvas (actual1254)",
+        "body scale preserved (+13.48%width after whole-canvas normalization)",
+        "intended fixed support registration (toes below target)"
+      ],
+      "failureCauseHypothesis": "model followed qualitative grip but changed framing/extent and did not obey numeric contacts",
+      "nextChange": "manual contact landmarks/rig/registration and appearance review; no second blind edit in this slice",
+      "outcome": "method cue changes grip appearance, candidate fails registered reuse/clip acceptance"
+    },
+    {
+      "id": "HF-preen-layout-1",
+      "attempts": [
+        "house-finch-female-preen-v1"
+      ],
+      "actualImageCalls": 1,
+      "generatedDrawings": 6,
+      "exactPrompt": "batches/house-finch-female-preen-v1/prompt.txt",
+      "references": [
+        "frame.sha256.7c12c45d8a8a6e64824669c595f4f58630aaa7a2eb6854ca76f5cd2311d2e6fe",
+        "batches/house-finch-female-preen-v1/layout-reference.png"
+      ],
+      "sourceOutput": "batches/house-finch-female-preen-v1/original.png",
+      "generator": "image_gen.imagegen",
+      "model": null,
+      "seed": null,
+      "works": [
+        "genuine backward head/neck/bill grooming drawings",
+        "visible same-bird shoulder-feather contacts",
+        "nativeRGBA alpha present; original source crops exact"
+      ],
+      "doesNotWork": [
+        "template relative scale ignored",
+        "64native-pixel row baseline offset",
+        "registered feet differ10sourcepx from old neutral; pairwise5px",
+        "bodyband width variation3.86percent; neutral seamIoU.8567"
+      ],
+      "technicalRegistration": "one common572/512 scale and integer offsets; only technical layout correction, not raw model compliance or new drawn anatomy",
+      "reviewEvidence": [
+        "batches/house-finch-female-preen-v1/quality-review.json",
+        "batches/house-finch-female-preen-v1/independent-review.json"
+      ],
+      "nextChange": "finish House Finch source/body/foot/transition review; do not treat native generator layout prompt as hard geometry control or fan out into scattered species",
+      "outcome": "generated and reviewed source candidate; no acceptance or app integration"
+    },
+    {
+      "id": "HF-preen-singlecanvas-2",
+      "attempts": [
+        "house-finch-female-preen-contact-v2"
+      ],
+      "actualImageCalls": 1,
+      "generatedDrawings": 1,
+      "exactPrompt": "batches/house-finch-female-preen-contact-v2/prompt.txt",
+      "sourceOutput": "batches/house-finch-female-preen-contact-v2/original.png",
+      "reviewEvidence": [
+        "batches/house-finch-female-preen-contact-v2/quality-review.json",
+        "batches/house-finch-female-preen-contact-v2/independent-review.json"
+      ],
+      "works": [
+        "actual new backward head/neck/bill preen contact drawing"
+      ],
+      "doesNotWork": [
+        "1024canvas request returned1254",
+        "protected lowerbody/feet changed;52.1536px diagnostic foot shift",
+        "visible protectedRGBA exact0percent;83percent whole-region equality mostly transparent background"
+      ],
+      "methodChange": "single reference canvas, no grid, native geometry measured without fitting; one call limit respected",
+      "model": null,
+      "seed": null,
+      "hypothesis": "interface has reference/text guidance but no hard protected edit mask; numeric preservation not guaranteed",
+      "nextChange": "queued deterministic protected-body method proposal; no assembly or new generation performed",
+      "outcome": "failed preservation control; not full animation, no acceptance"
+    },
+    {
+      "id": "HF-fixed-body-rig-proof-1",
+      "source": "experiments/finch-fixed-body-rig-proof-v1/manifest.json",
+      "newGenerationCalls": 0,
+      "newGeneratedDrawings": 0,
+      "derivedAssemblies": 5,
+      "works": [
+        "byte-identical protectedbody/feet via deterministic compositor",
+        "fixedsource scale and20mirroredcontact samples0worldslip",
+        "actualruntimecanvas executed10samples"
+      ],
+      "doesNotEstablish": [
+        "art-approved masks/underpaint;up to948exposedrestheadpixels",
+        "truepreen/gait/newdrawings",
+        "currentMacruntimeadmission",
+        "diffusioncontrol orinstalledinferencepipeline"
+      ],
+      "nextChange": "manualmask/underpaintreview before genuineactionpose; no blindgeneration",
+      "accepted": false
+    },
+    {
+      "id": "HF-rig-neck-overlap-2",
+      "source": "experiments/finch-fixed-body-rig-cleanup-v2/manifest.json",
+      "newGenerationCalls": 0,
+      "newGeneratedDrawings": 0,
+      "works": [
+        "explicit source-clone neckunderpaint covers large cutoutgaps",
+        "fixedbody/feet gatesunchanged",
+        "currentcanonicalImageStageSequence96pxexport schema andmechanicalchecks pass"
+      ],
+      "doesNotEstablish": [
+        "phase1jawcontour artapproval;144sourcepixels remain uncovered",
+        "losslessoriginalpalettepreservation afterlossy96pxexport",
+        "actualMacZod/runtimeadmission"
+      ],
+      "nextChange": "owner review jawrectangle607475633492 then parentMac existingcontract intake",
+      "accepted": false
+    },
+    {
+      "id": "HF-blink-reference-reuse-1",
+      "source": "experiments/house-finch-male-blink-reuse-v1/manifest.json",
+      "existingDrawingsReferenced": 3,
+      "newGenerationCalls": 0,
+      "newGeneratedDrawings": 0,
+      "newProductionClips": 0,
+      "works": [
+        "genuineexisting eyelid drawings retained",
+        "oneunchanged neutral suitable technicalquietstill source",
+        "actualsampler sourcefunction freezesfirstpose in6quietcases"
+      ],
+      "doesNotEstablish": [
+        "directwholeframefixedbodyreuse:about52kchangedpixels and2.24pxfootheuristicdrift",
+        "species/art/scale/contact/timing/yardadmission"
+      ],
+      "nextChange": "owner sourcereview andparentMac unchangedstill intake orscopedeyemaskdecision",
+      "accepted": false
+    },
+    {
+      "id": "HF-runtime-acceptance-audit-v2",
+      "attempts": [
+        "house-finch-male-blink-runtime-assessment-v2"
+      ],
+      "correction": "Prior fixedbody pixel-equality rejection language overreached natural drawn blink criteria; retain rig test but reassess naturalposes at actualscale/speed.",
+      "evidence": "experiments/house-finch-male-blink-runtime-assessment-v2",
+      "newDrawings": 0,
+      "newProductionClips": 0,
+      "recommendation": "one existing male blink for opt-in normal-yard review",
+      "remaining": "Mac canonical intake/receipt, actualyard/reducedmotion/mirror playback, owner art and biological scale approval",
+      "generationRunning": false
+    },
+    {
+      "id": "ORIOLE-blink-method-comparison-1",
+      "source": "experiments/oriole-blink-method-comparison-v1/PREREGISTRATION.json",
+      "state": "reviewed-held-final",
+      "actualImageCalls": 1,
+      "generatedDrawings": 1,
+      "methods": [
+        "existing-frame reuse/cleanup",
+        "reference-conditioned image edit"
+      ],
+      "decision": "reject both current artifacts for blink adoption; retain the source study",
+      "accepted": false,
+      "runtimeAcceptance": "NOT_SUBMITTED_NOT_TESTED: both failed source readability",
+      "poseSegmentationAssistance": "unavailable/not tested",
+      "preregistrationSHA256": "a68fdf6e56349b7be84651d4cdfd5e0c0e6d5d797390be77b0e9005b3cdd4506",
+      "sourceNativeOriginal": "experiments/oriole-blink-method-comparison-v1/native-edit/original.png",
+      "sourceNativeSHA256": "1a48eb61dd59447cb41b9c399af2e581ceb836279f9e430cb5f4af461e35c95c",
+      "actualToolAwaitMilliseconds": 24215,
+      "automaticRetries": 0,
+      "sourceClipYield": {
+        "A": {
+          "useful": 0,
+          "reviewed": 1
+        },
+        "B": {
+          "useful": 0,
+          "reviewed": 1
+        }
+      },
+      "runtimeClipYield": null,
+      "sourceHeldReasons": [
+        "Pale rounded eye patch remains ambiguous at141CSS and100ms closure.",
+        "Dark eye mark remains ambiguous at141CSS and100ms closure."
+      ],
+      "noModelSuperiorityClaim": true,
+      "outcome": "experiments/oriole-blink-method-comparison-v1/OUTCOME.json",
+      "independentReviews": [
+        {
+          "file": "comparison/independent-review.json",
+          "sha256": "8c42649e82ceb391359b5eb0521f34fd2177b3e75d8cac6f118e9fa8eb776b2b"
+        },
+        {
+          "file": "comparison/independent-geometry-temporal-review.json",
+          "sha256": "bba86a9694b258a5bc9ae39fca6dba4d93c80148c21e1d61866cb889a97bde4f"
+        }
+      ],
+      "newUsefulCommonSlots": 0,
+      "nextQueued": {
+        "slot": "bushtit readable blink",
+        "state": "queued representability preflight; not running",
+        "work": "At unchanged64canvas/root/body, determine whether a closed-eye cue can occupy enough normal-size pixels to be distinguishable before any further image call.",
+        "acceptance": "Independent normal-size closed-eye recognition, coherent body/feet, exact current structural checks and actual runtime receipt before adoption.",
+        "nativeCallStarted": false
+      }
+    },
+    {
+      "id": "BUSHTIT-existing-readability-preflight-1",
+      "source": "experiments/bushtit-blink-readability-preflight-v1/PREREGISTRATION.json",
+      "state": "reviewed-held-final",
+      "actualImageCalls": 0,
+      "generatedDrawings": 0,
+      "accepted": false,
+      "runtimeAcceptance": "NOT_SUBMITTED_NOT_TESTED because source readability failed",
+      "method": "one direct64wholecanvas sampling/sharedpalette export of existing awake+closed sources",
+      "priorOrioleResultPreserved": "A0/1 B0/1; no winner",
+      "sourceClipYield": {
+        "rawDirect64": {
+          "useful": 0,
+          "reviewed": 1
+        },
+        "codecDirect64": {
+          "useful": 0,
+          "reviewed": 1
+        }
+      },
+      "preregistrationSHA256": "30f7ffdf329398477268a43ee4d443bcb252d55e4c9928a032889471dd8e08f9",
+      "decision": "Reject current direct-sampled raw and codec artifacts for blink adoption; retain source evidence.",
+      "runtimeClipYield": null,
+      "outcome": "experiments/bushtit-blink-readability-preflight-v1/OUTCOME.json",
+      "independentReviews": [
+        {
+          "file": "independent-review.json",
+          "sha256": "9100aab269e4237c65c94c5ce952ff08a00a7b35a3117cc5a809359c6f930edd"
+        },
+        {
+          "file": "independent-geometry-temporal-review.json",
+          "sha256": "fde8f3fafef1b24a999221e4f8a34892111f006ee7e7152b27d01b000b754c9d"
+        }
+      ],
+      "newUsefulCommonSlots": 0,
+      "nextQueued": {
+        "id": "mourning-dove-look-reuse-preflight-v1",
+        "state": "queued, not running",
+        "goal": "Inspect existing registered neutral/look evidence for one genuine, coherent look clip before considering new art.",
+        "newNativeCallStarted": false,
+        "acceptance": [
+          "Recognizable head/attention pose change at intended normal size.",
+          "Coherent identity, scale, root and feet without per-pose fitting or painting.",
+          "Actual structural and JSON checks pass; integrator confirms full admission before live acceptance."
+        ]
+      }
+    },
+    {
+      "id": "COMMON-remaining-existing-preflights-1",
+      "source": "experiments/common-slot-zero-call-batch-v1/PREREGISTRATION.json",
+      "state": "completed-source-preflight",
+      "actualImageCalls": 0,
+      "generatedDrawings": 0,
+      "sourceUsefulSlotGain": 2,
+      "sourceCoverageBefore": 50,
+      "sourceCoverageAfter": 52,
+      "remainingQuestions": 8,
+      "selectedExistingLookPairs": [
+        {
+          "species": "mourning_dove",
+          "candidate": "neck-bend"
+        },
+        {
+          "species": "yellow_rumped_warbler",
+          "candidate": "look-v1"
+        }
+      ],
+      "outcome": "experiments/common-slot-zero-call-batch-v1/OUTCOME.json",
+      "runtimeAcceptance": "NOT_SUBMITTED_NOT_TESTED",
+      "liveAcceptance": "NOT_TESTED",
+      "priorOrioleResult": "0/1 and 0/1 unchanged; no winner",
+      "remainingNeeds": [
+        {
+          "species": "bushtit",
+          "slot": "blink",
+          "classification": "new or revised readable pose required under the fixed normal-scale target",
+          "reason": "Existing closure and direct64 cleanup both remain ambiguous during 100 ms; new pose cue must survive normal 64 CSS pixels sampling. No generation is started.",
+          "evidence": "Prior completed zero-call Bushtit study; gap remains."
+        },
+        {
+          "species": "hooded_oriole",
+          "slot": "blink",
+          "classification": "new or revised readable closure pose required",
+          "reason": "Existing cleanup and one reference edit each yielded 0/1 useful clips at normal scale; neither is a winner.",
+          "evidence": "Prior bounded Oriole comparison, unchanged."
+        },
+        {
+          "species": "american_crow",
+          "slot": "look",
+          "classification": "matched replacement pose required in current whole-frame source pool; separate packaging repair also needed",
+          "reason": "Both reviewers see torso/tail and lower-foot stance pop. Current codec additionally exceeds actual rectangle budget; a new drawing alone does not prove technical admission."
+        },
+        {
+          "species": "white_crowned_sparrow",
+          "slot": "look",
+          "classification": "matched replacement pose required in current whole-frame source pool",
+          "reason": "Both reviewers see body enlargement and dropped/rearranged feet. Passing codec/JSON cannot repair these source pixels."
+        },
+        {
+          "species": "nuttall_s_woodpecker",
+          "slot": "blink",
+          "classification": "genuine closed-eye drawing missing",
+          "reason": "All 4 registered drawings are open-eyed. Select the canonical supported posture/reference before drawing closure."
+        },
+        {
+          "species": "california_quail",
+          "slot": "look",
+          "classification": "existing V1 disputed; new drawing not proven necessary yet",
+          "reason": "Appearance accepts V1; geometry sees rocking/narrowing and toe replant. Keep V1 unselected pending targeted normal-scene/owner adjudication. Both roles hold V2."
+        },
+        {
+          "species": "nuttall_s_woodpecker",
+          "slot": "neutral",
+          "classification": "support-scene decision first; new drawing conditional",
+          "reason": "Existing clinging art exists. Decide vertical versus inclined trunk support and anatomy/contacts; source unknown support is not airborne. Vertical-only requirements may need corrected support art."
+        },
+        {
+          "species": "nuttall_s_woodpecker",
+          "slot": "look",
+          "classification": "support-scene decision first; new drawing conditional",
+          "reason": "Real open-eye look art exists within both cohorts. Resolve canonical support posture and scene before assuming another look drawing is needed."
+        }
+      ],
+      "contractAddendum": {
+        "outcome": "experiments/common-slot-zero-call-batch-v1/FAMILY-COMPATIBILITY-OUTCOME.json",
+        "existingThreeFrameFamilies": 2,
+        "actualPixelSubsetPASS": 2,
+        "actualIntakeMetadataComplete": false,
+        "unresolvedAuthorityPathsEach": 11,
+        "runtimeAdmission": false,
+        "privatePinsInvented": false,
+        "sourceGainUnchanged": 2
+      }
+    },
+    {
+      "id": "REST-ground-motion-repairs-1",
+      "source": "experiments/resting-repair-ground-motion-v1/PREREGISTRATION.json",
+      "state": "completed-source-batch",
+      "actualImageCalls": 6,
+      "newNativeDrawings": 12,
+      "nativeOriginals": 6,
+      "automaticRetries": 0,
+      "sourceCommonBefore": 52,
+      "sourceCommonAfter": 53,
+      "sourceEligibilityGain": 1,
+      "selectedNewUse": "white_crowned_sparrow look",
+      "usefulExistingAirborneDrawings": 4,
+      "newCompleteWalks": 0,
+      "newCompleteFlightSets": 0,
+      "allOriginalAttemptsRetained": true,
+      "outcome": "experiments/resting-repair-ground-motion-v1/ROOT-ADJUDICATION.json",
+      "runtimeAdmission": false,
+      "liveAcceptance": false
+    },
+    {
+      "id": "ANIM-AUTHORING-COMPARE-1",
+      "state": "completed-source-experiment",
+      "createdUTC": "2026-10-18T14:05:35.611506+00:00",
+      "species": "white_crowned_sparrow",
+      "action": "toward-viewer attention with stationary stance",
+      "sourceBaseline": "experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow",
+      "sourceWorldCanvas": 123.42857142857143,
+      "timingTicks30": [
+        60,
+        18,
+        12
+      ],
+      "nativeCallCeiling": 1,
+      "automaticRetries": 0,
+      "arms": {
+        "A": {
+          "method": "existing authored native sprite baseline",
+          "owner": "/root/anna_actions",
+          "state": "reviewed",
+          "newNativeCallCeiling": 0
+        },
+        "B": {
+          "method": "parts/rig-assisted authoring feasibility first",
+          "owner": "/root/phoebe_actions",
+          "state": "UNTESTED",
+          "newNativeCallCeiling": 0,
+          "untestedIfIncompatible": true
+        },
+        "C": {
+          "method": "reference-conditioned native edit",
+          "owner": "/root/new_three_species",
+          "state": "reviewed-held",
+          "newNativeCallCeiling": 1
+        },
+        "D": {
+          "method": "new explicit visible-head layered2D hybrid construction using genuinely authored source keyframes",
+          "owner": "/root/anna_actions",
+          "state": "constructing",
+          "nativeCallCeiling": 0,
+          "sourceSpecies": "white_crowned_sparrow",
+          "sourceAction": "toward-viewer attention",
+          "recipeId": "sparrow-visible-head-parts-v1"
+        },
+        "E": {
+          "method": "simple3D rig rendered to pixel sprites feasibility",
+          "owner": "/root/phoebe_actions",
+          "state": "UNTESTED",
+          "nativeCallCeiling": 0,
+          "untestedIfNoCompatibleBirdModelRigRenderer": true,
+          "evidence": "arm-b-rig-feasibility/FEASIBILITY.json"
+        }
+      },
+      "comparison": [
+        "normal-size identity",
+        "feet/contact/registration",
+        "timing and temporal coherence",
+        "RGBA/palette compliance",
+        "observed authoring/export time, cleanup minutes",
+        "actual generation calls",
+        "engine-compatible source output separate from admission"
+      ],
+      "constraints": [
+        "No runtime integration or private binding changes",
+        "No installs, paid external tools or credentials",
+        "Do not presume human pose tooling supports birds",
+        "No fake body bobbing or rig capability claims",
+        "Originals, exact prompts/inputs/results/failures retained"
+      ],
+      "outputRoot": "experiments/animation-authoring-compare-v1",
+      "runtimeAdmission": false,
+      "nextQueuedBatch": "BATH-SUPPORT-CONTRACT-AUDIT-1",
+      "producerInterface": {
+        "schemaVersion": 1,
+        "scope": "source lifecycle and artifacts; no producer runtime authority",
+        "existingRegistries": {
+          "productionQueue": {
+            "file": "queue.json",
+            "schemaVersion": 1,
+            "privateLocal": true,
+            "selectors": [
+              "batches[].id",
+              "batches[].state",
+              "birdSlots[].id/species/action",
+              "birdSlots[].generation/review/integration"
+            ],
+            "note": "birdSlots are requirement/planning rows, not latest source acceptance; derive state counts from actual batches"
+          },
+          "experimentRegistry": {
+            "file": "lessons-and-experiments.json",
+            "schemaVersion": 1,
+            "selector": "experiments[].id"
+          },
+          "drawingBank": {
+            "file": "frame-bank.json",
+            "schemaVersion": 1,
+            "selectors": [
+              "frames[].frameId",
+              "frames[].fileSha256",
+              "frames[].sourcePrompt",
+              "frames[].sourceNativeArguments",
+              "frames[].sourceReview",
+              "frames[].acceptedUses"
+            ]
+          },
+          "originalInventory": {
+            "file": "original-source-inventory.json",
+            "schemaVersion": null,
+            "selector": "originals[]"
+          },
+          "sourceMap": {
+            "file": "source-frame-map.json",
+            "schemaVersion": 1,
+            "selector": "frames[]"
+          },
+          "fileIndex": {
+            "file": "source-files.sha256.json",
+            "schemaVersion": null,
+            "selector": "files[].file/sha256/bytes"
+          },
+          "currentRuntimeInventory": {
+            "file": "release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json",
+            "schemaVersion": 1,
+            "producerWritable": false
+          }
+        },
+        "candidateLifecycle": [
+          "queued",
+          "generating",
+          "generated",
+          "reviewed",
+          "staged",
+          "integrated"
+        ],
+        "statusRules": [
+          "generating requires actual dispatch receipt, not planned owner",
+          "generated requires returned original/hash; failed tool invocation stays failed/no drawing",
+          "reviewed is not art acceptance; retain explicit HOLD and review reasons",
+          "staged is source-ready handoff/publication, not runtime admission",
+          "integrated requires external runtime owner receipt; producers cannot self-promote"
+        ],
+        "recipeExperimentIds": [
+          "HF-fixed-body-rig-proof-1",
+          "HF-rig-neck-overlap-2",
+          "HF-blink-reference-reuse-1",
+          "REST-ground-motion-repairs-1",
+          "ANIM-AUTHORING-COMPARE-1",
+          "sparrow-visible-head-parts-v1"
+        ],
+        "artifactLinkFields": [
+          "experimentId",
+          "speciesId",
+          "action",
+          "original and prompt path/sha256",
+          "literal native arguments/dispatch/return receipts",
+          "input reference file/sourceFrameId/sha256",
+          "primary source ID derived from decoded RGBA8;WxH; bytes",
+          "uniform crop/sampler/alpha/palette and derivative hashes",
+          "source-handoff manifest and frame timing/root/contact anchors",
+          "actual validation command/input SHA/output SHA/returncode/error",
+          "independent review role/file/SHA/decision",
+          "root adjudication file/SHA",
+          "registration ledger and public source index SHA",
+          "runtime admission/promotion receipt or explicit pending state"
+        ],
+        "currentSourceQueries": {
+          "commonProvisionalCoverage": "experiments/resting-repair-ground-motion-v1/SOURCE-COVERAGE-20-AFTER.json rows[].actions; derive counts from current rows",
+          "sourceCommonCoverage": 53,
+          "notLiveCoverage": true,
+          "movingActions": "specific experiment source manifests and adjudications; common input5 is common-only"
+        },
+        "contractVersions": {
+          "commonInput": 5,
+          "source": 4,
+          "renderManifest": 6,
+          "job": 5,
+          "pngCommand": 4,
+          "producerProposal": "project-generated-common-proposal-v1"
+        },
+        "validationCommands": [
+          "python verify_source_registration.py --root .",
+          "python verify_source_files.py --pixel-checks",
+          "python release/animation-checkpoint-1-20261017/verify_animation_checkpoint.py --root .",
+          "Pinned actual UI engine pixel/JSON runner: exact per-candidate command files in experiment contract-intake directory"
+        ],
+        "failureReasonSources": [
+          "contract-intake/CHECKPOINT-RESULTS.json exact failure text",
+          "reviews/*/*.json and ROOT-ADJUDICATION.json",
+          "COLLECTOR-COMPATIBILITY.json historical field/guide adapter gaps"
+        ],
+        "promotionPreconditions": [
+          "Source facts/history collected faithfully",
+          "Importer recovers actual reviewed policy/reference pins; no guessed rights",
+          "Pinned current-engine full graph and output checks",
+          "Independent source review with exact input hashes",
+          "Runtime owner explicit admission and observed placement/playback receipt"
+        ],
+        "notImplementedHere": [
+          "private importer policy/pin recovery",
+          "runtime promotion",
+          "live yard mutation"
+        ]
+      },
+      "actualImageCallsInvoked": 1,
+      "actualImageCallsReturned": 1,
+      "newNativeDrawings": 1,
+      "constructionAddendum": "experiments/animation-authoring-compare-v1/CONSTRUCTION-ADDENDUM.json",
+      "sourceReviewCheckpoint": {
+        "A": "PROVISIONALLY_USEFUL",
+        "B": "UNTESTED",
+        "C": "HELD visible body/feet jump",
+        "D": "construction_running",
+        "E": "UNTESTED no compatible model/rig",
+        "nativeRequestsRunning": 0
+      },
+      "newCommonSourceUses": 0,
+      "sourceCommonCoverage": 53,
+      "outcome": "experiments/animation-authoring-compare-v1/ROOT-ADJUDICATION.json",
+      "rootAdjudicationSHA256": "3db45276726d6b27552f0116c2cf1b086cf54122224e7ba070dcdedf1deff51e",
+      "artifactLinks": [
+        {
+          "file": "arm-a-baseline/source-handoff.json",
+          "bytes": 7717,
+          "sha256": "817344e8923401408df57a1477d42da789df17ac0bb19ea615f4c2836a5be3f8"
+        },
+        {
+          "file": "arm-c-reference-edit/source-handoff.json",
+          "bytes": 7888,
+          "sha256": "38f17fc03ab1e9f04915c3a1dffc01e8b3a22d7d2098433c9ee8e44eaf7a1e51"
+        },
+        {
+          "file": "arm-c-reference-edit/PRIMARY-SOURCE-MANIFEST.json",
+          "bytes": 5779,
+          "sha256": "465e57583e96729f18f03f6276f068e6c330c5df020e86e9c9474b38bfb08086"
+        },
+        {
+          "file": "arm-d-hybrid-construction/source-handoff.json",
+          "bytes": 3467,
+          "sha256": "30df749b6d020c232babcbc5a914daec81c1a2c741ca924486623269cb4733fa"
+        },
+        {
+          "file": "arm-d-hybrid-construction/construction-recipe.json",
+          "bytes": 1789,
+          "sha256": "157f6a3f5779b4f58cab5d6223ecef067366d37813c870d2f20419e6427d9e74"
+        },
+        {
+          "file": "arm-d-hybrid-construction/build_hybrid.py",
+          "bytes": 12703,
+          "sha256": "baef66ad0b7adc309fabd51d0d28581f240e669591c6c3916724292bfa907a0e"
+        },
+        {
+          "file": "contract-intake/FINAL-COMPARISON.json",
+          "bytes": 8034,
+          "sha256": "7333b24b1d0b86a4ce501d0799e0e060b2d19de70a5e628c267a455751725144"
+        },
+        {
+          "file": "contract-intake/FINAL-OBSERVED-EFFORT.json",
+          "bytes": 1827,
+          "sha256": "1c2a9c9adb66b1ae69ffaaa1f53e9f0b886e7a7ab92060dda387155f870c68b0"
+        },
+        {
+          "file": "arm-b-rig-feasibility/BATH-CONTRACT-FINDINGS.json",
+          "bytes": 22518,
+          "sha256": "b32af0993fac975db44a07ae2c92964f65a076104e73e8e04cd1e006e7770490"
+        }
+      ],
+      "armOutcomes": {
+        "A": {
+          "method": "existing authored baseline",
+          "newNativeCalls": 0,
+          "sourceDisposition": "PROVISIONALLY_USEFUL",
+          "frames": 3,
+          "pixelCheck": "PASS",
+          "canonicalJSON": "PASS",
+          "historicalAuthoringTime": "UNKNOWN"
+        },
+        "B": {
+          "method": "preexisting Sparrow rig-assisted yaw",
+          "testStatus": "UNTESTED",
+          "reason": "No compatible Sparrow parts/rig; existing House Finch in-plane compositor is another species/action"
+        },
+        "C": {
+          "method": "reference-conditioned native edit",
+          "newNativeCalls": 1,
+          "newNativeDrawings": 1,
+          "sourceDisposition": "HELD",
+          "frames": 3,
+          "pixelCheck": "PASS",
+          "canonicalJSON": "PASS",
+          "failureReason": "Readable head turn but visibly bulkier/lower body and feet; lowest opaque row95 to103 at unchanged world/root"
+        },
+        "D": {
+          "method": "layered2D hybrid authored-head key selection",
+          "recipeId": "sparrow-visible-head-parts-v1",
+          "newNativeCalls": 0,
+          "newNativeDrawings": 0,
+          "sourceDisposition": "PROVISIONALLY_USEFUL_BOUNDED_CONSTRUCTION",
+          "frames": 2,
+          "pixelCheck": "PASS",
+          "canonicalJSON": "PASS",
+          "protectedBodyRGBAChanges": 0,
+          "headPixelChanges": 168,
+          "oldVisibleHeadPixelsClearedByDonorTransparency": 26,
+          "newDonorSilhouettePixels": 9,
+          "newEnclosedHoles": 0,
+          "caveat": "Enlarged gray neckline cluster boundary remains abrupt; no blanket premium-art approval",
+          "scope": "Two genuine authored head keys; no articulated3D yaw, interpolation, hidden anatomy, blink or wing-fold proof"
+        },
+        "E": {
+          "method": "simple3D rig rendered to pixel sprites",
+          "testStatus": "UNTESTED",
+          "evidence": "arm-b-rig-feasibility/FEASIBILITY.json",
+          "reason": "No compatible Sparrow model/weights/rig/views located; installed Blender observed but not invoked under original constraint"
+        }
+      },
+      "sourceFileIndex": "experiments/animation-authoring-compare-v1/FINAL-source-files.sha256.json",
+      "sourceFileIndexSHA256": "07490b4910b69007707cbcf5d9a7e4c9d85e35cab630133698c5126ef9dfdfe8"
+    },
+    {
+      "id": "SPARROW-neckline-joint-controls-1",
+      "schemaVersion": 1,
+      "createdUTC": "2026-10-18T14:33:41.010716+00:00",
+      "state": "completed-source-repair",
+      "speciesId": "white_crowned_sparrow",
+      "action": "stationary attention plus separate limited2Dhead-roll study",
+      "nativeCallCeiling": 0,
+      "automaticRetries": 0,
+      "sourceBaseline": "experiments/animation-authoring-compare-v1/arm-d-hybrid-construction",
+      "sourceRecipe": "sparrow-visible-head-parts-v1",
+      "recipes": [
+        "sparrow-head-neck-contour-v2",
+        "sparrow-head-roll-2d-v1"
+      ],
+      "budget": {
+        "newNecklineContour": 1,
+        "mainExportPasses": 1,
+        "controlAnglesDegrees": [
+          -6,
+          0,
+          6
+        ],
+        "controlPivotWorld": [
+          74,
+          68
+        ],
+        "controlRenderTrialsPerAngle": 1,
+        "engineCheckPerFamily": 1,
+        "nativeCalls": 0
+      },
+      "clocks": {
+        "tickRate": 30,
+        "mainAttention": [
+          60,
+          18,
+          12
+        ],
+        "separateHeadRollStudy": [
+          45,
+          12,
+          6,
+          12,
+          15
+        ]
+      },
+      "canonicalScale": {
+        "worldCanvas": [
+          123.42857142857143,
+          123.42857142857143
+        ],
+        "stage": [
+          124,
+          124
+        ],
+        "density": 1,
+        "root": [
+          73,
+          96
+        ],
+        "palette": "exact ArmA/D63opaque shared colors; no requantization",
+        "contacts": [],
+        "supportWorld": null
+      },
+      "newContourProposedBeforeExport": [
+        [
+          64,
+          54
+        ],
+        [
+          92,
+          54
+        ],
+        [
+          92,
+          66
+        ],
+        [
+          86,
+          66
+        ],
+        [
+          86,
+          68
+        ],
+        [
+          82,
+          68
+        ],
+        [
+          82,
+          70
+        ],
+        [
+          78,
+          70
+        ],
+        [
+          78,
+          69
+        ],
+        [
+          74,
+          69
+        ],
+        [
+          74,
+          68
+        ],
+        [
+          70,
+          66
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          64,
+          64
+        ]
+      ],
+      "owners": {
+        "producer": "/root/anna_actions",
+        "appearance": "/root/slot_inventory",
+        "geometry": "/root/preen_independent_review",
+        "technical": "/root/corvid_reuse",
+        "nextGapReadOnlyPreflight": "/root/new_three_species"
+      },
+      "constraints": [
+        "Actual visible donor artwork only; no hidden-underpaint/labels-as-layers",
+        "Discrete authored yaw keys distinct from real tested2Dimageplane roll",
+        "No bodyfit/warp/paint/softening/rolling into semantic3Dyaw claims",
+        "Preserve core lowerbody/feet; declare exact maskenvelopes/occlusion",
+        "Keep zero-onlycrop/fullworld fixed even if controlcropgrows",
+        "Retain all failed controlstates; no automaticretry",
+        "No bath mapping invented; parent waiting integrator",
+        "Independent source review and engine checks do not promote live/runtime acceptance"
+      ],
+      "acceptance": [
+        "Normal-scale coherent species silhouette/volume/plumage/lighting/pixelclusters",
+        "Neckline cleanup visible at clusterdiagnostic without degrading normalreadability",
+        "Quiet planted image registration; no physicalsupportinference",
+        "Actual angle parameter reconstruction and honest silhouette/neck cutout limits",
+        "Reproducible constructionfiles/maps/frames/timing/currentpinnedengineoutputs"
+      ],
+      "runtimeAdmission": false,
+      "liveIntegration": false,
+      "nextAfterBoundedAttempt": "Use next-gap-preflight actual evidence to choose one unblocked remaining53/60gap repair",
+      "source": "experiments/sparrow-neckline-joint-controls-v1/PREREGISTRATION.json",
+      "outcome": "experiments/sparrow-neckline-joint-controls-v1/ROOT-ADJUDICATION.json",
+      "outcomeSHA256": "3f2c466fa2afe6d6dfd88cbacbc1a5bf91aab49f9ed4ceacf800cbb3500a408c",
+      "actualNativeCalls": 0,
+      "newNativeDrawings": 0,
+      "newCommonSourceUses": 0,
+      "sourceCommonCoverageAfter": 53,
+      "sourceFileIndex": "experiments/sparrow-neckline-joint-controls-v1/FINAL-source-files.sha256.json",
+      "sourceFileIndexSHA256": "53e45a1d7d52ce7f1e99b4e33f3f85046da3a4c92229d5de4bfc0d35d129311f",
+      "artifactLinks": [
+        {
+          "file": "PREREGISTRATION.json",
+          "bytes": 3283,
+          "sha256": "e6e98ac3680b832dc2142765d2917f2709987675b31abff37e12cbd9f138e5a6"
+        },
+        {
+          "file": "PRIMARY-SOURCE-MANIFEST.json",
+          "bytes": 3862,
+          "sha256": "35f62912fc6efb4400dd269c900ddc68ae5b374fe3245d5ce476832330e3a5af"
+        },
+        {
+          "file": "source-handoff.json",
+          "bytes": 3097,
+          "sha256": "7331e2595f973d16bc80e50ca5d164d63c29d00f5bbec2b1ac6dd4b4f527c5c9"
+        },
+        {
+          "file": "construction-recipe.json",
+          "bytes": 6588,
+          "sha256": "7f8e64e52738cd56ccdbae654e33ac0b7367145beeadd24dee66d443a6773b59"
+        },
+        {
+          "file": "reviews/appearance/independent-review.json",
+          "bytes": 24828,
+          "sha256": "eba32f6338ba3c2c59309276bad756f7848ac9b46b4c070c5542a88348e335b9"
+        },
+        {
+          "file": "reviews/geometry/independent-review.json",
+          "bytes": 56468,
+          "sha256": "8751f263743f989849d6485d76b1466dfb77daa05af303cdb4d5621e241fd3db"
+        },
+        {
+          "file": "control-handoff.json",
+          "bytes": 8713,
+          "sha256": "fa3a146e7051f82fb7ffa0bc3366bbfd8859e29ef4e95d1fc13736a9a22d49eb"
+        },
+        {
+          "file": "contract-intake/classification-correction.json",
+          "bytes": 2253,
+          "sha256": "c612942a88357cef861a7d127d449c609539ff8a182f13bb9c3e256c7ca60a05"
+        },
+        {
+          "file": "next-gap-preflight/PRELIGHT.json",
+          "bytes": 10215,
+          "sha256": "cf491bdcdadc804f4e663ab101cb0a05bbc953d9a29925638fd798aa48418e81"
+        }
+      ],
+      "recipeOutcomes": {
+        "changedRenderPixelsVersusPriorD": 7,
+        "coreBodyFeetChanges": 0,
+        "testedRollDegrees": [
+          -6,
+          0,
+          6
+        ],
+        "testedPivotWorld": [
+          74,
+          68
+        ],
+        "rollControlSourceDisposition": "HELD_NONZERO_COHORT",
+        "transformInverseNN": "PASS",
+        "vacatedOriginalHeadFootprintSamplesEachNonzero": 14,
+        "minus6": {
+          "vacatedAtOrBelowY66": 6,
+          "newEnclosedTransparentPixels": 3,
+          "visibleThroatGap": true
+        },
+        "plus6": {
+          "vacatedAtOrBelowY66": 0,
+          "newEnclosedTransparentPixels": 0,
+          "canonicalShoulderOcclusionPixels": 6
+        },
+        "classificationCorrection": "14 vacated original head-footprint samples are not 14 anatomical neck defects",
+        "rollTicks30": [
+          45,
+          12,
+          6,
+          12,
+          15
+        ]
+      },
+      "producerInterfaceRef": "lessons-and-experiments.json experiments[id=ANIM-AUTHORING-COMPARE-1].producerInterface"
+    },
+    {
+      "id": "QUAIL-fixed-stance-attention-1",
+      "state": "completed-source-repair",
+      "source": "experiments/quail-fixed-stance-attention-v1/PREREGISTRATION.json",
+      "speciesId": "california_quail",
+      "action": "quiet upward attention with fixed canonicalbody/feet",
+      "recipeId": "quail-fixed-body-authored-attention-v1",
+      "nativeCallCeiling": 0,
+      "newNativeCalls": 0,
+      "newNativeDrawings": 0,
+      "producer": "/root/new_three_species",
+      "preregistration": {
+        "id": "QUAIL-fixed-stance-attention-1",
+        "recipeId": "quail-fixed-body-authored-attention-v1",
+        "createdUTC": "2026-10-18T14:40:21.185983+00:00",
+        "state": "PREREGISTERED_BEFORE_EXPORT",
+        "budget": {
+          "nativeCalls": 0,
+          "ownershipContours": 1,
+          "deterministicAttentionExports": 1,
+          "automaticRetries": 0,
+          "hiddenUnderpaint": 0,
+          "paletteVariants": 0,
+          "recolorRequantization": 0,
+          "bodyFitWarp": 0
+        },
+        "sourceInputs": [
+          {
+            "role": "neutral",
+            "nativeSourceFrameID": "frame.sha256.502125f6ebfa643ae4de5152630c80c49c3a8137b732030a108a600cf564fa0f",
+            "nativeSourcePNG": "new-species/sd20-final-four-v1/california_quail/neutral-source1024.png",
+            "nativePNGsha256": "3d2a26d5904f1815c32dacde2cac72fd2fb6571faf200981ba1ade9143c70023",
+            "nativeCanvas": [
+              1024,
+              1024
+            ],
+            "codecPNG": "experiments/common-slot-zero-call-batch-v1/species/california_quail/codec-cropped/neutral.png",
+            "codecPNGsha256": "b938450154905be7fc5af06fa209ff3b46bc848924f4a0c44007a500edcb0035",
+            "rawFullPNG": "experiments/common-slot-zero-call-batch-v1/species/california_quail/raw-full/neutral.png",
+            "rawFullPNGsha256": "a776ac5be4c174bded14a405ace9e660f63475b550c8567a577d52059d4888f5",
+            "wholeSourceViewedBeforePreregistration": true
+          },
+          {
+            "role": "look-v1",
+            "nativeSourceFrameID": "frame.sha256.2a696fcaddb573cd66f07bda8faf4d532a8789dbeab517d1489e5d1fff863a70",
+            "nativeSourcePNG": "new-species/sd20-final-four-v1/california_quail/look-source1024.png",
+            "nativePNGsha256": "9d0e590da6c2839fd644632309fb6eea1c20fa9c06b9d228a74a81694a38dc71",
+            "nativeCanvas": [
+              1024,
+              1024
+            ],
+            "codecPNG": "experiments/common-slot-zero-call-batch-v1/species/california_quail/codec-cropped/look-v1.png",
+            "codecPNGsha256": "876c8ffe748ee74771fe342ca0e149bab7d31d1e23682bed695cbff1afbdfb7d",
+            "rawFullPNG": "experiments/common-slot-zero-call-batch-v1/species/california_quail/raw-full/look-v1.png",
+            "rawFullPNGsha256": "a4d199aba2293ad321e62e3ac881d51c205c5aa9e3353981a973fc6faeed955e",
+            "wholeSourceViewedBeforePreregistration": true
+          }
+        ],
+        "purpose": "Existing actual upward head/bill/plume attention over exact canonicalneutral body/wing/tail/legs/feet, notgenericrig or newdrawing",
+        "exactHistoricalWorldCanvas": [
+          236.30769230769232,
+          236.30769230769232
+        ],
+        "sourceDisplayStage": [
+          237,
+          237
+        ],
+        "pixelDerivativeWorldStage": [
+          237,
+          237
+        ],
+        "density": 1,
+        "fullRoundedRoot": [
+          140,
+          185
+        ],
+        "oldFractionalRoot": [
+          140.30769230769232,
+          184.6153846153846
+        ],
+        "commonCrop": [
+          90,
+          92,
+          185,
+          192
+        ],
+        "candidateCanvas": [
+          95,
+          100
+        ],
+        "candidatePivot": [
+          50,
+          93
+        ],
+        "headPlumeUpperNeckOwnershipContourCellEdges": [
+          [
+            140,
+            91
+          ],
+          [
+            187,
+            91
+          ],
+          [
+            187,
+            126
+          ],
+          [
+            172,
+            126
+          ],
+          [
+            172,
+            130
+          ],
+          [
+            164,
+            130
+          ],
+          [
+            164,
+            131
+          ],
+          [
+            151,
+            131
+          ],
+          [
+            151,
+            130
+          ],
+          [
+            143,
+            130
+          ],
+          [
+            143,
+            126
+          ],
+          [
+            140,
+            126
+          ]
+        ],
+        "pixelCenterInPolygon": true,
+        "composition": "Outside contour bytecopy existing neutral codecRGBA; inside contour bytecopy existing lookV1 codecRGBA INCLUDING zeroalpha to clear old head/plume. Identical coordinate/no translation,scale,rotation,blend,fill,masktrial.",
+        "canonicalPalette": "Exact existing common Quailneutral/lookV1/lookV2 shared63opaque RGB set, no new quantization/color. Candidate-only baseline, adoptedMacpalette not supplied.",
+        "sourcePixelSpace": "Reconstruct existing95x100codec at fullstageorigin90,92; all copiedpixel positions remain unchanged. Raw237 and native1024 inputs retained for ancestry/reference.",
+        "timing": {
+          "tickRate": 30,
+          "look": [
+            60,
+            18,
+            12
+          ],
+          "returnTick": 78,
+          "terminalHoldTick": 89,
+          "loop": false,
+          "idleNeutralHoldTicks": 90
+        },
+        "hardFailures": [
+          "Any modification outside proposedcontour incltorso/feet",
+          "Any newopaque color or alpha mutation from selectedsourcepixel",
+          "Nonzero cropdiscard",
+          "Any inventedhiddenunderpaint/pixel repair/perposefit",
+          "Actual normal237source seam/headconnection failure remainsHELD, no contourretry"
+        ],
+        "sourceUsefulness": "PENDING_INDEPENDENT_REVIEW",
+        "contacts": [],
+        "geometryReviewed": false,
+        "physicalSupportReviewed": false,
+        "supportWorld": null,
+        "runtimeAdmission": false,
+        "rights": "UNKNOWN; existinggenerated lineage, no CC/clearance claim",
+        "excludedSources": [
+          "later555489viewerlook",
+          "nativeQuailwalkgait",
+          "newimagegeneration"
+        ],
+        "nextAfterFrozen": "Root assigns independentappearance/geometry and currentpixelJSON check; no appbinding/globalwrites"
+      },
+      "runtimeAdmission": false,
+      "sourceCommonCoverageBefore": 53,
+      "outcome": "experiments/quail-fixed-stance-attention-v1/ROOT-ADJUDICATION.json",
+      "outcomeSHA256": "3f1758ef791464a4ef62d7c1bba189f6b1a092a4370e20792ee0ff60fc082068",
+      "actualNativeCalls": 0,
+      "newCommonSourceUses": 1,
+      "sourceCommonCoverageAfter": 54,
+      "sourceFileIndex": "experiments/quail-fixed-stance-attention-v1/FINAL-source-files.sha256.json",
+      "sourceFileIndexSHA256": "d1d317974b8c78f7eeb432bfd0680008bed878f2ad50c83a66d20acb58510ca1",
+      "artifactLinks": [
+        {
+          "file": "PREREGISTRATION.json",
+          "bytes": 4922,
+          "sha256": "1b1ce4fd312adfb8049745a943031954260c5d2b7adc4c6aa7bb894851b85c61"
+        },
+        {
+          "file": "PRIMARY-SOURCE-MANIFEST.json",
+          "bytes": 3220,
+          "sha256": "3f83fc52fef645c30e1bcd034b38dfb693eddc542422fd5f7c9e270599dacce9"
+        },
+        {
+          "file": "source-handoff.json",
+          "bytes": 4288,
+          "sha256": "6b1fd16d2dfb054fb809d93aff71d79dc6891758ef1e8d01495cafd0b0e85e05"
+        },
+        {
+          "file": "construction-recipe.json",
+          "bytes": 1730,
+          "sha256": "4b0d9726b345dea5bde5dbf1e0cee01c250aac6e7147ecd310363e123a2d63cc"
+        },
+        {
+          "file": "reviews/appearance/independent-review.json",
+          "bytes": 14101,
+          "sha256": "f25972904b9b134bdecd84f9520c53c4bc5d6e5976188747c95765cda4005384"
+        },
+        {
+          "file": "reviews/geometry/independent-review.json",
+          "bytes": 30363,
+          "sha256": "2f198024cf00c9a60bd792e16a690bb4ed5883781eb3cf9dfb70aab1129acbb9"
+        },
+        {
+          "file": "SOURCE-FACTS-ENUM-CLARIFICATION.json",
+          "bytes": 762,
+          "sha256": "0bd8dea279c5c9207573f74901f94af2236e0de720375a10b3257d5145093008"
+        },
+        {
+          "file": "next-gap-preflight/PREFLIGHT.json",
+          "bytes": 28417,
+          "sha256": "3e86deb6a3825fb4e88c14817ebd7947679e6947bc8d5127103002cf558cf22d"
+        }
+      ],
+      "recipeOutcomes": {
+        "maskPixels": 1774,
+        "changedPixelsInside": 777,
+        "changedOutside": 0,
+        "oldOpaqueHeadPlumeSamplesCleared": 157,
+        "newEnclosedHoles": 0,
+        "coreBodyFeetChanges": 0,
+        "paletteRequantization": false
+      },
+      "producerInterfaceRef": "lessons-and-experiments.json experiments[id=ANIM-AUTHORING-COMPARE-1].producerInterface"
+    }
+  ]
+}

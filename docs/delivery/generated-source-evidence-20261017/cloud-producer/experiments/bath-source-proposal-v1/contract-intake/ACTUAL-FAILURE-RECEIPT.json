@@ -1,0 +1,48 @@
+{
+  "kind": "Exact retained actual full-five-frame diagnostic failures, not source/art edits",
+  "actualPixel": {
+    "command": [
+      "node",
+      "/workspace/asset-production/validation/shared-structural-check.mjs",
+      "--repo",
+      "/workspace/runtime-resting-intake-v5-inspect",
+      "--input",
+      "/workspace/asset-production/experiments/bath-source-proposal-v1/contract-intake/canonical-pixel-input.json",
+      "--receipt",
+      "/workspace/asset-production/experiments/bath-source-proposal-v1/contract-intake/pixel-receipt.json",
+      "--sharp",
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/dist/index.cjs"
+    ],
+    "exitCode": 1,
+    "actualErrorClassName": "PermanentStageError",
+    "message": "Decoded animation exceeds pixel budget",
+    "stderr": "actual-pixel.stderr.txt",
+    "stderrSHA256": "a5b7bca00986fd3f2789eb8a148f2d3246815d78b5fcd04bb11a39ecaa672c78",
+    "canonicalPixelReceiptProduced": false,
+    "rectangleCountsReached": false,
+    "perFrameRectangleCounts": null,
+    "totalRectangleCount": null,
+    "canvas": [
+      180,
+      139
+    ],
+    "uniqueFrames": 5,
+    "actualDecodedArea": 125100
+  },
+  "actualRawCandidateJSON": {
+    "label": "raw full five-frame candidate input",
+    "path": "/workspace/asset-production/experiments/bath-source-proposal-v1/contract-intake/raw-candidate-input.json",
+    "inputSHA256": "21ff84dab3c9cb15e1612068bed27c0ff0dd86097829b3e6880bfc64ce5cdbe1",
+    "status": "FAIL actual canonicalJson",
+    "message": "Pipeline JSON exceeds 1 MB",
+    "actualPermanentStageError": true,
+    "serializedInputUTF8Bytes": 1242283,
+    "serializedInputIsCanonicalByteCount": false
+  },
+  "actualCheckRuns": 1,
+  "actualJSONInvocations": 1,
+  "frameDroppingDownscaleRepartitionOrRetry": false,
+  "nativeCallsByTechnicalWorkstream": 0,
+  "sourceEdits": 0,
+  "admission": false
+}
