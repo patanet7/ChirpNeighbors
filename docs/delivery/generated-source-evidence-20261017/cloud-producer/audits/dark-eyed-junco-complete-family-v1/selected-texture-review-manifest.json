@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "02fc05a89ef8cef81bf8af89d3b227db13b009933f9aed6463ac2910fb2cf8ac",
+    "creator": "Chirp commonfamily zero-call exporter",
+    "tool": "Global192to78NN/common63palette/alpha128",
+    "toolVersion": "Pillow12.3.0/explicitRGBAindexcopy",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 234,
+    "height": 78,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "junco-family-awake",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 78,
+        "height": 78
+      },
+      "canvas": {
+        "width": 78,
+        "height": 78
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 50,
+        "y": 61
+      },
+      "contacts": [],
+      "world": {
+        "width": 78,
+        "height": 78
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "junco-family-closed",
+      "sourceRect": {
+        "x": 78,
+        "y": 0,
+        "width": 78,
+        "height": 78
+      },
+      "canvas": {
+        "width": 78,
+        "height": 78
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 50,
+        "y": 61
+      },
+      "contacts": [],
+      "world": {
+        "width": 78,
+        "height": 78
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "junco-family-look",
+      "sourceRect": {
+        "x": 156,
+        "y": 0,
+        "width": 78,
+        "height": 78
+      },
+      "canvas": {
+        "width": 78,
+        "height": 78
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 50,
+        "y": 61
+      },
+      "contacts": [],
+      "world": {
+        "width": 78,
+        "height": 78
+      },
+      "sourcePixelsPerWorldUnit": 1
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "junco-family-awake",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "blink",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "junco-family-awake",
+          "durationTicks": 60
+        },
+        {
+          "frameId": "junco-family-closed",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "junco-family-awake",
+          "durationTicks": 27
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "junco-family-awake",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "junco-family-look",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "junco-family-awake",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ]
+}

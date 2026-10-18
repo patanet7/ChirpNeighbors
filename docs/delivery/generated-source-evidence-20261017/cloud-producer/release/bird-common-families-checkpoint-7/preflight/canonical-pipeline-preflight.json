@@ -1,0 +1,71 @@
+{
+  "status": "PASS runner/source hash agreement; no candidate runner execution",
+  "sharedRunner": "validation/shared-structural-check.mjs",
+  "sharedRunnerSHA256": "5317b37dbd7229f7e0cf62302f70ad526890c99b56b2c0704b441cebfcb141e7",
+  "canonicalRepository": "nominated-runtime-repository",
+  "observedHead": "6f23d988a788a29de509f92af7c1f24f7e63c6b4",
+  "sourceHashes": {
+    "src/lib/server/asset-pipeline/package.ts": "b936301983382339392ffdb5cba9f36af1018f9a55513c44bbbee81c36080088",
+    "src/lib/server/pipeline/canonical.ts": "65fe8094a90d67a64888c7ddfd203852bef8b4511c71977b5b17d781c370714c",
+    "src/lib/assets/manifest-v2.ts": "fc1394fdec9033b73295e0d5ac961bf510358ed09bb48fccb1bcbcfc8bb4b923",
+    "src/lib/assets/manifest-v3.ts": "de5c27b27258366fc9067559d87833df0bcbb47f832cca87b30ac954678fcc4f",
+    "src/lib/assets/manifest-v4.ts": "72d26c99693e650fc96a7ad7d6e942d8350ac465cc1b12b066520920d488d547",
+    "src/lib/assets/image-stage-contracts.ts": "cf21de4f95798e142d7175d8c933eb2faac077823a7be4df66f9b80589154870",
+    "src/lib/server/asset-pipeline/contracts.ts": "4218eceb4f9318c1ca4f9fa5798b8191a6fb35247e3a961aa5cfbc18cd82e6ee"
+  },
+  "exactFunctionHashes": {
+    "invalid": "d65a00b1af779079beecca9970f074a829b13791c728c563c0af914f4ac7f8e5",
+    "component": "0f40d6cb367df3dc0b13b7f5cda14c15d5af67f69fe7b3b0080c848de4d17215",
+    "pixel": "b683b7b45067cf5ddeb84658fcf82711f05c830e44741f5257c89c0753d3cbdc",
+    "normalizeDecodedPixels": "3973da4bccb91f4925dd34e3e3088ca9cc8cf35c8e493407dba644d25b75e484"
+  },
+  "noDivergentValidatorCreated": true,
+  "candidateStructuralRuns": 0,
+  "sourceObservedLimits": [
+    {
+      "source": "src/lib/server/asset-pipeline/package.ts",
+      "lines": "40-41",
+      "fact": "Only alpha0 or255 in runtime codec; transparent RGB ignored by codec; exact reconstruction requires normalized transparent RGB0."
+    },
+    {
+      "source": "src/lib/server/asset-pipeline/package.ts",
+      "lines": "67-68",
+      "fact": "Uniform canvas width*height*unique frame count <=65536."
+    },
+    {
+      "source": "src/lib/server/asset-pipeline/package.ts",
+      "lines": "69-70,82-83",
+      "fact": "Canvas aligns logicalPixelSize; shared union of opaque RGB colors <= declared paletteLimit."
+    },
+    {
+      "source": "src/lib/server/asset-pipeline/package.ts",
+      "lines": "104-105",
+      "fact": "<=4096 rectangles per frame and <=16384 across sequence."
+    },
+    {
+      "source": "src/lib/assets/manifest-v2.ts",
+      "lines": "30-31,60",
+      "fact": "Canvas dimensions <=256 and <=64 unique frames in v2 base schema."
+    },
+    {
+      "source": "src/lib/assets/image-stage-contracts.ts",
+      "lines": "327",
+      "fact": "paletteLimit max64 in image stage contracts."
+    },
+    {
+      "source": "src/lib/assets/manifest-v4.ts",
+      "lines": "8",
+      "fact": "v4 sourcePixelsPerWorldUnit permits1,2,4."
+    },
+    {
+      "source": "src/lib/assets/manifest-v3.ts",
+      "lines": "24-28,39-49",
+      "fact": "v3 poses use integer points,1..300 durationTicks, and explicit action clips; idle required, moving/perching/bathing and other listed clips optional."
+    }
+  ],
+  "warnings": [
+    "Source-review named blink/look clips do not by themselves establish current runtime clip acceptance.",
+    "Current nominated cloud repository is6f23d988\u2026; actual Mac full schema, metadata, production pins and runtime admission are separately owned/P0 occupied.",
+    "Runner executes unchanged normalization functions and actual PermanentStageError; it is a pixel subset, not full schema admission."
+  ]
+}
