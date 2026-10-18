@@ -1,0 +1,252 @@
+{
+  "$ref": "#/definitions/BehaviorDecisionTraceV2",
+  "definitions": {
+    "BehaviorDecisionTraceV2": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 2
+        },
+        "provenance": {
+          "type": "string",
+          "const": "decorative-simulation"
+        },
+        "tick": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "phase": {
+          "type": "string",
+          "enum": [
+            "dawn",
+            "day",
+            "dusk",
+            "night"
+          ]
+        },
+        "trigger": {
+          "type": "string",
+          "enum": [
+            "initial-placement",
+            "activity",
+            "night",
+            "wake",
+            "scene-edit",
+            "arrival",
+            "decorative-visit",
+            "cancelled"
+          ]
+        },
+        "selected": {
+          "type": "object",
+          "properties": {
+            "behavior": {
+              "type": "string",
+              "enum": [
+                "idle",
+                "moving",
+                "perching",
+                "singing",
+                "feeding",
+                "bathing",
+                "sleeping",
+                "playing",
+                "nesting"
+              ]
+            },
+            "slotId": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 167,
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                  "not": {
+                    "enum": [
+                      "__proto__",
+                      "prototype",
+                      "constructor"
+                    ]
+                  }
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "affordance": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "ground",
+                    "perch",
+                    "feed",
+                    "bath",
+                    "roost",
+                    "nest"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "capability": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "play",
+                    "nest-building"
+                  ]
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "priority": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000
+            },
+            "reasons": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 80,
+                "pattern": "^[a-z][a-z0-9-]*$"
+              },
+              "minItems": 1,
+              "maxItems": 12
+            }
+          },
+          "required": [
+            "behavior",
+            "slotId",
+            "affordance",
+            "capability",
+            "priority",
+            "reasons"
+          ],
+          "additionalProperties": false
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "behavior": {
+                "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/selected/properties/behavior"
+              },
+              "eligible": {
+                "type": "boolean"
+              },
+              "priority": {
+                "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/selected/properties/priority"
+              },
+              "reasons": {
+                "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/selected/properties/reasons"
+              },
+              "availableSlots": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 512
+              },
+              "rejected": {
+                "type": "object",
+                "properties": {
+                  "occupiedOrClearance": {
+                    "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/candidates/items/properties/availableSlots"
+                  },
+                  "unsupported": {
+                    "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/candidates/items/properties/availableSlots"
+                  },
+                  "unreachable": {
+                    "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/candidates/items/properties/availableSlots"
+                  }
+                },
+                "required": [
+                  "occupiedOrClearance",
+                  "unsupported",
+                  "unreachable"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "behavior",
+              "eligible",
+              "priority",
+              "reasons",
+              "availableSlots",
+              "rejected"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 9
+        },
+        "locomotion": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "type": "string",
+              "enum": [
+                "flight",
+                "hop",
+                "walk"
+              ]
+            },
+            "reason": {
+              "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/selected/properties/reasons/items"
+            }
+          },
+          "required": [
+            "mode",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        "transition": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/selected/properties/behavior"
+            },
+            "to": {
+              "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/selected/properties/behavior"
+            },
+            "reason": {
+              "$ref": "#/definitions/BehaviorDecisionTraceV2/properties/selected/properties/reasons/items"
+            }
+          },
+          "required": [
+            "from",
+            "to",
+            "reason"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "provenance",
+        "tick",
+        "phase",
+        "trigger",
+        "selected",
+        "candidates",
+        "locomotion",
+        "transition"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/behavior-decision-trace-v2.schema.json",
+  "description": "Transient decorative behavior structural boundary. Species traits are product-authored illustrative defaults with biological validation explicitly absent. Individual personality is deterministic fiction derived only from a decorative resident identity, never observations, species evidence, owner data or location. Developer presets are closed transient comparisons, not persisted edits. Eligibility, priorities, contact, reviewed geometry, slot arbitration and clip fallbacks require authoritative simulator/renderer semantics. This schema grants no biological claims or public sharing authority."
+}

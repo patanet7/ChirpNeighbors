@@ -11,6 +11,11 @@ from jsonschema import Draft7Validator, FormatChecker
 ROOT = Path(__file__).resolve().parents[1]
 NAMES = frozenset(
     {
+        "behavior-decision-trace-v2",
+        "placement-snapshot-v2",
+        "placement-command-v2",
+        "object-inventory-command-v2",
+        "dev-workbench-command-request-v2",
         "project-generated-evidence-v1",
         "project-generated-common-proposal-v1",
         "asset-packaging-input-v5",
