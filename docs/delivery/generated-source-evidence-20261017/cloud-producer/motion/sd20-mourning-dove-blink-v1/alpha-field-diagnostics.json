@@ -1,0 +1,92 @@
+{
+  "images": [
+    {
+      "file": "reference-awake-source768.png",
+      "alpha1": 5866,
+      "alpha2to127": 5247,
+      "alpha128to254": 43034,
+      "alpha255": 0,
+      "extremeRedPartialAlphaPixels": 0
+    },
+    {
+      "file": "original.png",
+      "alpha1": 7130,
+      "alpha2to127": 11108,
+      "alpha128to254": 115335,
+      "alpha255": 10,
+      "extremeRedPartialAlphaPixels": 3236
+    },
+    {
+      "file": "reused-awake192.png",
+      "alpha1": 333,
+      "alpha2to127": 309,
+      "alpha128to254": 2702,
+      "alpha255": 0,
+      "extremeRedPartialAlphaPixels": 0
+    },
+    {
+      "file": "closed192.png",
+      "alpha1": 166,
+      "alpha2to127": 270,
+      "alpha128to254": 2708,
+      "alpha255": 0,
+      "extremeRedPartialAlphaPixels": 75
+    }
+  ],
+  "extremeRedPredicate": "uint8 RGBA R>200,G<70,B<70,0<A<255",
+  "fieldROIs": [
+    {
+      "name": "upper-left-clear",
+      "roi": [
+        25,
+        50,
+        75,
+        80
+      ],
+      "awake": {
+        "positiveAlpha": 0,
+        "alphaSum": 0
+      },
+      "closed": {
+        "positiveAlpha": 0,
+        "alphaSum": 0
+      }
+    },
+    {
+      "name": "tail-underfield",
+      "roi": [
+        30,
+        145,
+        75,
+        170
+      ],
+      "awake": {
+        "positiveAlpha": 0,
+        "alphaSum": 0
+      },
+      "closed": {
+        "positiveAlpha": 0,
+        "alphaSum": 0
+      }
+    },
+    {
+      "name": "right-foot-field",
+      "roi": [
+        120,
+        145,
+        155,
+        170
+      ],
+      "awake": {
+        "positiveAlpha": 58,
+        "alphaSum": 4997
+      },
+      "closed": {
+        "positiveAlpha": 48,
+        "alphaSum": 5566
+      }
+    }
+  ],
+  "processing": "all native RGBA retained; whole-canvas nearest only; no alpha cleanup",
+  "qualification": "Old diffuse warm partial-alpha field is part of exact reference. Generated field/edge differences retained and judged on actual normal light/dark; raw transparent-black view alone is insufficient."
+}
