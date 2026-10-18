@@ -1,0 +1,79 @@
+{
+  "status": "BLOCKED unchanged Zod execution; actual exported JSON schema rejects draft",
+  "recordedUTC": "2026-10-18T01:03:40.488117+00:00",
+  "actualZodAttempt": {
+    "command": [
+      "node",
+      "--experimental-strip-types",
+      "--input-type=module",
+      "-e",
+      "import {speciesManifestV3Schema} from 'file:///workspace/birdsong-yard-sprites/src/lib/assets/manifest-v3.ts'; import fs from 'node:fs'; const j=JSON.parse(fs.readFileSync(process.argv[1],'utf8')); const r=speciesManifestV3Schema.safeParse(j); console.log(JSON.stringify(r.success?{success:true}:{success:false,issues:r.error.issues})); if(!r.success)process.exitCode=1;",
+      "/workspace/asset-production/audits/crow-ground-runtime-compatible-v1/runtime-v3-adapter/crow-manifest-v3.DRAFT-REJECTED.json"
+    ],
+    "exitCode": 1,
+    "errorCode": "ERR_MODULE_NOT_FOUND",
+    "missingPackage": "zod",
+    "stdoutSHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderrSHA256": "6b0ec09cc8bbd0c66570fa61f207afdac0582175dc18cbcde6b10b0d4824e280",
+    "validatorSourcePath": "src/lib/assets/manifest-v3.ts",
+    "validatorSourceSHA256": "de5c27b27258366fc9067559d87833df0bcbb47f832cca87b30ac954678fcc4f",
+    "noInstallAttempted": true
+  },
+  "supplementalActualExportedJSONSchema": {
+    "schema": "contracts/species-manifest-v3.schema.json",
+    "sha256": "21d75cc25ee9e4bdd028546deb5bdef4c0e9aacf28b96f12c53f1ed0a6314262",
+    "validatorLibrary": "Python jsonschema Draft7Validator",
+    "success": false,
+    "errors": [
+      {
+        "instancePath": "/frames/0",
+        "schemaPath": "/properties/frames/items/maxItems",
+        "validator": "maxItems",
+        "actualItems": 5332,
+        "limit": 4096
+      },
+      {
+        "instancePath": "/clips/idle/poses/0/pivot/x",
+        "schemaPath": "/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/x/type",
+        "validator": "type",
+        "actualType": "float",
+        "requiredType": "integer"
+      },
+      {
+        "instancePath": "/clips/idle/poses/0/pivot/y",
+        "schemaPath": "/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/y/type",
+        "validator": "type",
+        "actualType": "float",
+        "requiredType": "integer"
+      },
+      {
+        "instancePath": "/provenance/usage",
+        "schemaPath": "/properties/provenance/properties/usage/enum",
+        "validator": "enum",
+        "value": "unreviewed",
+        "allowed": [
+          "development-only",
+          "cleared"
+        ]
+      },
+      {
+        "instancePath": "/conditioning",
+        "schemaPath": "/properties/conditioning/type",
+        "validator": "type",
+        "actualType": "NoneType",
+        "requiredType": "object"
+      },
+      {
+        "instancePath": "/sourceArtifact",
+        "schemaPath": "/properties/sourceArtifact/type",
+        "validator": "type",
+        "actualType": "NoneType",
+        "requiredType": "object"
+      }
+    ],
+    "doesNotExecuteZodSuperRefinements": true
+  },
+  "runtimeAdmitted": false,
+  "schemaWeakened": false,
+  "appFilesChanged": false
+}

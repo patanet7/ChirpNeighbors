@@ -1,0 +1,11 @@
+<!doctype html><meta charset="utf-8"><title>Crow ground idle technical derivative</title>
+<style>body{font:16px system-ui;max-width:1200px;margin:24px auto;color:#24342b;background:#e7e3d1}canvas,img{image-rendering:pixelated;vertical-align:middle;background:#d9d4bd;margin:8px}button{padding:8px}pre{white-space:pre-wrap;font-size:12px}</style>
+<h1>Crow ground idle: deterministic runtime derivative</h1>
+<p>Zero generation calls and zero new drawings. Original source retained. One static ground-idle frame only; no blink atlas or body animation. Binary alpha128,63 opaque RGB colors plus transparent, no dithering. Whole192→186 nearest canvas conversion, density1, world186. Original world185.885350 rounds by+0.06168%; no body bounding-box fit or per-foot movement.</p>
+<p><button id="light">Light</button><button id="dark">Dark</button><button id="reset">Reset clock</button><button id="pause">Pause</button></p>
+<p>Exact source at old185.885CSS/world | derivative186CSS/world | enlarged derivative for inspection</p>
+<canvas id="source" width="192" height="192" style="width:185.88535031847132px;height:185.88535031847132px"></canvas><canvas id="normal" width="186" height="186" style="width:186px;height:186px"></canvas><canvas id="large" width="186" height="186" style="width:372px;height:372px"></canvas>
+<p>Single idle frame held120 authored ticks at30Hz (4s loop). The clock advances; the bird image stays static. Continuous pivot107.53125,145.3125 is diagnostic pending exact current runtime schema. Empty admitted contacts; actual foot proxies and threshold losses are documented separately. No planted sole, pressure, geometryReviewed, supportWorld or Mac runtime claim.</p>
+<h2>Direct nearest source versus binary/palette derivative on light/dark</h2><img src="normal-light-dark-source-comparison.png" width="372" height="416">
+<h2>Threshold toe-region inspection and annotated diagnostic points</h2><img src="contact-threshold-inspection.png" style="max-width:100%;height:auto">
+<pre id="numeric">Loading…</pre><script src="player.js"></script>
