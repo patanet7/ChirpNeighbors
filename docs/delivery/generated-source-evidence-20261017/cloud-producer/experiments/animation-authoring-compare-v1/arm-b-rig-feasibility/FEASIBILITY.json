@@ -1,0 +1,196 @@
+{
+  "experimentId": "ANIM-AUTHORING-COMPARE-1",
+  "arm": "B",
+  "speciesId": "white_crowned_sparrow",
+  "action": "toward-viewer attention with stationary stance",
+  "status": "UNTESTED",
+  "statusScope": "Actual part/rig-authored Sparrow toward-viewer yaw; no compatible Sparrow rig/parts implementation executed in this arm.",
+  "mechanical2DCompositorAvailable": true,
+  "compatibleSparrowPartsFound": false,
+  "compatible3DBirdRigFound": false,
+  "threeDStatus": "UNTESTED; no compatible mesh/weights/camera/source-art views located in bounded asset search; Blender excluded by instruction.",
+  "newNativeCalls": 0,
+  "newGeneratedDrawings": 0,
+  "derivedAssemblies": 0,
+  "sourceFamiliesExported": 0,
+  "authoringTimeSeconds": null,
+  "exportTimeSeconds": null,
+  "cleanupMinutes": null,
+  "timingExplanation": "No authoring/export test in B; inspection elapsed is not a comparable authoring benchmark. Earlier HF durations not inferred from file timestamps.",
+  "priorExperiments": [
+    "HF-fixed-body-rig-proof-1",
+    "HF-rig-neck-overlap-2"
+  ],
+  "whatActuallyExists": "Python/Pillow/NumPy compositor, explicit editable binary head/neck masks and source-clone overlap layers for a different House Finch individual; protected body/feet copy. Same side-view head is rigidly rotated +/-0.12 radians in image plane.",
+  "whyNotCompatibleYaw": [
+    "HF source is another taxon/individual and masks/pivots cannot be transferred as anatomy.",
+    "In-plane rotation supplies no genuinely foreshortened bill/crown/far-eye drawing or depth/occlusion reconstruction.",
+    "HF V2 phase1 retains 144 uncovered neck pixels in [607,475,633,492], art acceptance false.",
+    "Whole Sparrow neutral/look RGBA drawings are real source art but no preexisting Sparrow head ownership/neck-overlap masks or 3D mesh/rig were located."
+  ],
+  "sourceBaseline": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow",
+  "sourceHandoff": {
+    "file": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow/source-handoff.json",
+    "sha256": "817344e8923401408df57a1477d42da789df17ac0bb19ea615f4c2836a5be3f8",
+    "bytes": 7717
+  },
+  "sources": [
+    {
+      "role": "neutral",
+      "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+      "nativeCanvas": [
+        1024,
+        1024
+      ],
+      "files": [
+        {
+          "file": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow/reference-awake-source1024.png",
+          "sha256": "34e615beab7100d0a7b8ad050162c44db0b58b086c023d1833691d93cc39f9d1",
+          "bytes": 188055
+        },
+        {
+          "file": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow/raw-full/neutral.png",
+          "sha256": "60be23a8290556e9d148b982f617b5b3c35864fa7989453c6726bd467065f4f5",
+          "bytes": 3808
+        },
+        {
+          "file": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow/frames/neutral.png",
+          "sha256": "ac887eff52d1d1093bb29cfa2e4305979e7fa2f1aac1c2a58a2116a8ac577307",
+          "bytes": 2985
+        }
+      ]
+    },
+    {
+      "role": "look",
+      "sourceFrameId": "frame.sha256.f5679d80aeff9f3162d4d1fdabcca67b84b8422a5ce867f2401beb78862a615a",
+      "nativeCanvas": [
+        1254,
+        1254
+      ],
+      "files": [
+        {
+          "file": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow/original.png",
+          "sha256": "68278c5188d97b0369472b972bda100dbdafd9dfffc5df2fd283991988244a75",
+          "bytes": 312109
+        },
+        {
+          "file": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow/raw-full/look.png",
+          "sha256": "f858dcf4b2900519542875c99447cedaf3eb6cf75e54e31af3907ca6eef73dfe",
+          "bytes": 3797
+        },
+        {
+          "file": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow/frames/look.png",
+          "sha256": "b78a1d73fcf77862b807f08a125fc29c33e12c745766e03bd2661aa73245a8e2",
+          "bytes": 2987
+        }
+      ]
+    }
+  ],
+  "visualInspection": {
+    "method": "Local view_image inspection of retained source PNGs; no browser capture or new image created.",
+    "files": [
+      {
+        "file": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow/head-feet-diagnostics.png",
+        "sha256": "3652b5b85a701e02eb02898fce7b4197281d729d202854ffddd33610f27b14db",
+        "bytes": 9271
+      },
+      {
+        "file": "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow/normal-light-dark.png",
+        "sha256": "9fa8e40682dcb1646c0c3bdeb49f7b819b4a4da174c4d5a2ad179d3fcc698e60",
+        "bytes": 17999
+      },
+      {
+        "file": "/workspace/asset-production/experiments/finch-fixed-body-rig-cleanup-v2/head-mask.png",
+        "sha256": "5b74230b02b3d03843a185d5c82a0376fd20addffdc977739c8b07b2c11f7014",
+        "bytes": 2226
+      },
+      {
+        "file": "/workspace/asset-production/experiments/finch-fixed-body-rig-cleanup-v2/owner-review-jaw-phase01.png",
+        "sha256": "deefe7574c1df865f04e763ca2681a00c7171552864f22a5580421ccf9ecde3b",
+        "bytes": 15793
+      }
+    ],
+    "observations": [
+      "Sparrow donor look genuinely shortens/turns bill and changes crown/head view; body/shoulder pixels also differ.",
+      "HF head mask is a coarse explicit polygon, not semantic bird segmentation or a rigged mesh.",
+      "Retained HF jaw crop exposes a stepped contour requiring art judgment."
+    ],
+    "newNormalScaleAcceptance": false
+  },
+  "proposedHybridInterface": {
+    "implementationOwner": "/root/anna_actions; separate arm-d-hybrid-construction, not implemented or counted here",
+    "feasibility": "A real bounded 2D layered prototype is feasible using the existing genuinely authored neutral and attention head variants, not synthetic rotation. Exact seams and body protection require actual construction/review.",
+    "inputStage": [
+      124,
+      124
+    ],
+    "worldCanvas": [
+      123.42857142857143,
+      123.42857142857143
+    ],
+    "existingCommonCrop": [
+      30,
+      54,
+      91,
+      99
+    ],
+    "existingPivot": [
+      43,
+      42
+    ],
+    "sourceInputs": [
+      "raw-full/neutral.png",
+      "raw-full/look.png"
+    ],
+    "canonicalBody": "Exact neutral body/tail/legs/feet pixels; static root. No donor body rescale or painted cleanup.",
+    "editableConstructionFilesRequired": [
+      "Explicit neutral-head removal mask",
+      "Explicit donor head ownership mask",
+      "Fixed body layer",
+      "Genuine authored neutral/look head layers",
+      "Joint/root parameters and layer-order recipe",
+      "Source-coordinate lineage, mask hashes, uncovered-head and seam audit"
+    ],
+    "jointPolicy": "Yaw is authored head variant selection, not an image-plane rotation claiming 3D yaw. No hidden neck underpaint invented; use known source pixels only and disclose old-bill leakage/holes.",
+    "clock": {
+      "tickRate": 30,
+      "neutralTicks": 60,
+      "attentionTicks": 18,
+      "neutralReturnTicks": 12,
+      "provenance": "authored timing, not biological measurement"
+    },
+    "reviewGates": [
+      "Protected body/feet RGBA exact",
+      "Canonical neutral return exact",
+      "No stale bill/head outline, transparent seam or doubled crown at normal124-stage display",
+      "Part provenance/rights unresolved authority fields stay null",
+      "Source quality separate from codec/schema/runtime admission"
+    ],
+    "ifSeamFails": "Hold exact construction; human-authored neckline/occlusion art or additional genuine head views needed. Do not fill holes with fabricated anatomy."
+  },
+  "rights": {
+    "toolLicenses": "Actual installed metadata/copyright evidence in inspection-evidence.json; tool licenses do not license bird artwork.",
+    "sourceArtAuthority": "Retained owned/generated project source lineage; no new rights certification/private pin invented.",
+    "externalModelOrAssetLicense": null
+  },
+  "validation": {
+    "inspectionOnly": true,
+    "nativeModelSeed": null,
+    "sourceQualityAccepted": false,
+    "runtimeAdmission": false,
+    "liveMacAcceptance": "UNKNOWN",
+    "physicalSupportReviewed": false,
+    "supportWorld": null
+  },
+  "failureReasons": [
+    "Compatible Sparrow layered yaw rig absent at inspection time",
+    "Existing mechanical mask proof has unresolved jaw/occlusion art",
+    "No construction in B; actual hybrid prototype delegated separately"
+  ],
+  "nextQueuedWork": "Independent review of separately constructed hybrid D; no new B call or automatic asset setup.",
+  "evidenceFiles": [
+    "inspection-evidence.json",
+    "existing-experiment-evidence.json",
+    "BATH-CONTRACT-FINDINGS.json"
+  ]
+}

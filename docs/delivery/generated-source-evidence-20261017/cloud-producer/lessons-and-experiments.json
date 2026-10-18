@@ -565,6 +565,324 @@
       "outcome": "experiments/resting-repair-ground-motion-v1/ROOT-ADJUDICATION.json",
       "runtimeAdmission": false,
       "liveAcceptance": false
+    },
+    {
+      "id": "ANIM-AUTHORING-COMPARE-1",
+      "state": "completed-source-experiment",
+      "createdUTC": "2026-10-18T14:05:35.611506+00:00",
+      "species": "white_crowned_sparrow",
+      "action": "toward-viewer attention with stationary stance",
+      "sourceBaseline": "experiments/resting-repair-ground-motion-v1/attention-repairs/white_crowned_sparrow",
+      "sourceWorldCanvas": 123.42857142857143,
+      "timingTicks30": [
+        60,
+        18,
+        12
+      ],
+      "nativeCallCeiling": 1,
+      "automaticRetries": 0,
+      "arms": {
+        "A": {
+          "method": "existing authored native sprite baseline",
+          "owner": "/root/anna_actions",
+          "state": "reviewed",
+          "newNativeCallCeiling": 0
+        },
+        "B": {
+          "method": "parts/rig-assisted authoring feasibility first",
+          "owner": "/root/phoebe_actions",
+          "state": "UNTESTED",
+          "newNativeCallCeiling": 0,
+          "untestedIfIncompatible": true
+        },
+        "C": {
+          "method": "reference-conditioned native edit",
+          "owner": "/root/new_three_species",
+          "state": "reviewed-held",
+          "newNativeCallCeiling": 1
+        },
+        "D": {
+          "method": "new explicit visible-head layered2D hybrid construction using genuinely authored source keyframes",
+          "owner": "/root/anna_actions",
+          "state": "constructing",
+          "nativeCallCeiling": 0,
+          "sourceSpecies": "white_crowned_sparrow",
+          "sourceAction": "toward-viewer attention",
+          "recipeId": "sparrow-visible-head-parts-v1"
+        },
+        "E": {
+          "method": "simple3D rig rendered to pixel sprites feasibility",
+          "owner": "/root/phoebe_actions",
+          "state": "UNTESTED",
+          "nativeCallCeiling": 0,
+          "untestedIfNoCompatibleBirdModelRigRenderer": true,
+          "evidence": "arm-b-rig-feasibility/FEASIBILITY.json"
+        }
+      },
+      "comparison": [
+        "normal-size identity",
+        "feet/contact/registration",
+        "timing and temporal coherence",
+        "RGBA/palette compliance",
+        "observed authoring/export time, cleanup minutes",
+        "actual generation calls",
+        "engine-compatible source output separate from admission"
+      ],
+      "constraints": [
+        "No runtime integration or private binding changes",
+        "No installs, paid external tools or credentials",
+        "Do not presume human pose tooling supports birds",
+        "No fake body bobbing or rig capability claims",
+        "Originals, exact prompts/inputs/results/failures retained"
+      ],
+      "outputRoot": "experiments/animation-authoring-compare-v1",
+      "runtimeAdmission": false,
+      "nextQueuedBatch": "BATH-SUPPORT-CONTRACT-AUDIT-1",
+      "producerInterface": {
+        "schemaVersion": 1,
+        "scope": "source lifecycle and artifacts; no producer runtime authority",
+        "existingRegistries": {
+          "productionQueue": {
+            "file": "queue.json",
+            "schemaVersion": 1,
+            "privateLocal": true,
+            "selectors": [
+              "batches[].id",
+              "batches[].state",
+              "birdSlots[].id/species/action",
+              "birdSlots[].generation/review/integration"
+            ],
+            "note": "birdSlots are requirement/planning rows, not latest source acceptance; derive state counts from actual batches"
+          },
+          "experimentRegistry": {
+            "file": "lessons-and-experiments.json",
+            "schemaVersion": 1,
+            "selector": "experiments[].id"
+          },
+          "drawingBank": {
+            "file": "frame-bank.json",
+            "schemaVersion": 1,
+            "selectors": [
+              "frames[].frameId",
+              "frames[].fileSha256",
+              "frames[].sourcePrompt",
+              "frames[].sourceNativeArguments",
+              "frames[].sourceReview",
+              "frames[].acceptedUses"
+            ]
+          },
+          "originalInventory": {
+            "file": "original-source-inventory.json",
+            "schemaVersion": null,
+            "selector": "originals[]"
+          },
+          "sourceMap": {
+            "file": "source-frame-map.json",
+            "schemaVersion": 1,
+            "selector": "frames[]"
+          },
+          "fileIndex": {
+            "file": "source-files.sha256.json",
+            "schemaVersion": null,
+            "selector": "files[].file/sha256/bytes"
+          },
+          "currentRuntimeInventory": {
+            "file": "release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json",
+            "schemaVersion": 1,
+            "producerWritable": false
+          }
+        },
+        "candidateLifecycle": [
+          "queued",
+          "generating",
+          "generated",
+          "reviewed",
+          "staged",
+          "integrated"
+        ],
+        "statusRules": [
+          "generating requires actual dispatch receipt, not planned owner",
+          "generated requires returned original/hash; failed tool invocation stays failed/no drawing",
+          "reviewed is not art acceptance; retain explicit HOLD and review reasons",
+          "staged is source-ready handoff/publication, not runtime admission",
+          "integrated requires external runtime owner receipt; producers cannot self-promote"
+        ],
+        "recipeExperimentIds": [
+          "HF-fixed-body-rig-proof-1",
+          "HF-rig-neck-overlap-2",
+          "HF-blink-reference-reuse-1",
+          "REST-ground-motion-repairs-1",
+          "ANIM-AUTHORING-COMPARE-1",
+          "sparrow-visible-head-parts-v1"
+        ],
+        "artifactLinkFields": [
+          "experimentId",
+          "speciesId",
+          "action",
+          "original and prompt path/sha256",
+          "literal native arguments/dispatch/return receipts",
+          "input reference file/sourceFrameId/sha256",
+          "primary source ID derived from decoded RGBA8;WxH; bytes",
+          "uniform crop/sampler/alpha/palette and derivative hashes",
+          "source-handoff manifest and frame timing/root/contact anchors",
+          "actual validation command/input SHA/output SHA/returncode/error",
+          "independent review role/file/SHA/decision",
+          "root adjudication file/SHA",
+          "registration ledger and public source index SHA",
+          "runtime admission/promotion receipt or explicit pending state"
+        ],
+        "currentSourceQueries": {
+          "commonProvisionalCoverage": "experiments/resting-repair-ground-motion-v1/SOURCE-COVERAGE-20-AFTER.json rows[].actions; derive counts from current rows",
+          "sourceCommonCoverage": 53,
+          "notLiveCoverage": true,
+          "movingActions": "specific experiment source manifests and adjudications; common input5 is common-only"
+        },
+        "contractVersions": {
+          "commonInput": 5,
+          "source": 4,
+          "renderManifest": 6,
+          "job": 5,
+          "pngCommand": 4,
+          "producerProposal": "project-generated-common-proposal-v1"
+        },
+        "validationCommands": [
+          "python verify_source_registration.py --root .",
+          "python verify_source_files.py --pixel-checks",
+          "python release/animation-checkpoint-1-20261017/verify_animation_checkpoint.py --root .",
+          "Pinned actual UI engine pixel/JSON runner: exact per-candidate command files in experiment contract-intake directory"
+        ],
+        "failureReasonSources": [
+          "contract-intake/CHECKPOINT-RESULTS.json exact failure text",
+          "reviews/*/*.json and ROOT-ADJUDICATION.json",
+          "COLLECTOR-COMPATIBILITY.json historical field/guide adapter gaps"
+        ],
+        "promotionPreconditions": [
+          "Source facts/history collected faithfully",
+          "Importer recovers actual reviewed policy/reference pins; no guessed rights",
+          "Pinned current-engine full graph and output checks",
+          "Independent source review with exact input hashes",
+          "Runtime owner explicit admission and observed placement/playback receipt"
+        ],
+        "notImplementedHere": [
+          "private importer policy/pin recovery",
+          "runtime promotion",
+          "live yard mutation"
+        ]
+      },
+      "actualImageCallsInvoked": 1,
+      "actualImageCallsReturned": 1,
+      "newNativeDrawings": 1,
+      "constructionAddendum": "experiments/animation-authoring-compare-v1/CONSTRUCTION-ADDENDUM.json",
+      "sourceReviewCheckpoint": {
+        "A": "PROVISIONALLY_USEFUL",
+        "B": "UNTESTED",
+        "C": "HELD visible body/feet jump",
+        "D": "construction_running",
+        "E": "UNTESTED no compatible model/rig",
+        "nativeRequestsRunning": 0
+      },
+      "newCommonSourceUses": 0,
+      "sourceCommonCoverage": 53,
+      "outcome": "experiments/animation-authoring-compare-v1/ROOT-ADJUDICATION.json",
+      "rootAdjudicationSHA256": "3db45276726d6b27552f0116c2cf1b086cf54122224e7ba070dcdedf1deff51e",
+      "artifactLinks": [
+        {
+          "file": "arm-a-baseline/source-handoff.json",
+          "bytes": 7717,
+          "sha256": "817344e8923401408df57a1477d42da789df17ac0bb19ea615f4c2836a5be3f8"
+        },
+        {
+          "file": "arm-c-reference-edit/source-handoff.json",
+          "bytes": 7888,
+          "sha256": "38f17fc03ab1e9f04915c3a1dffc01e8b3a22d7d2098433c9ee8e44eaf7a1e51"
+        },
+        {
+          "file": "arm-c-reference-edit/PRIMARY-SOURCE-MANIFEST.json",
+          "bytes": 5779,
+          "sha256": "465e57583e96729f18f03f6276f068e6c330c5df020e86e9c9474b38bfb08086"
+        },
+        {
+          "file": "arm-d-hybrid-construction/source-handoff.json",
+          "bytes": 3467,
+          "sha256": "30df749b6d020c232babcbc5a914daec81c1a2c741ca924486623269cb4733fa"
+        },
+        {
+          "file": "arm-d-hybrid-construction/construction-recipe.json",
+          "bytes": 1789,
+          "sha256": "157f6a3f5779b4f58cab5d6223ecef067366d37813c870d2f20419e6427d9e74"
+        },
+        {
+          "file": "arm-d-hybrid-construction/build_hybrid.py",
+          "bytes": 12703,
+          "sha256": "baef66ad0b7adc309fabd51d0d28581f240e669591c6c3916724292bfa907a0e"
+        },
+        {
+          "file": "contract-intake/FINAL-COMPARISON.json",
+          "bytes": 8034,
+          "sha256": "7333b24b1d0b86a4ce501d0799e0e060b2d19de70a5e628c267a455751725144"
+        },
+        {
+          "file": "contract-intake/FINAL-OBSERVED-EFFORT.json",
+          "bytes": 1827,
+          "sha256": "1c2a9c9adb66b1ae69ffaaa1f53e9f0b886e7a7ab92060dda387155f870c68b0"
+        },
+        {
+          "file": "arm-b-rig-feasibility/BATH-CONTRACT-FINDINGS.json",
+          "bytes": 22518,
+          "sha256": "b32af0993fac975db44a07ae2c92964f65a076104e73e8e04cd1e006e7770490"
+        }
+      ],
+      "armOutcomes": {
+        "A": {
+          "method": "existing authored baseline",
+          "newNativeCalls": 0,
+          "sourceDisposition": "PROVISIONALLY_USEFUL",
+          "frames": 3,
+          "pixelCheck": "PASS",
+          "canonicalJSON": "PASS",
+          "historicalAuthoringTime": "UNKNOWN"
+        },
+        "B": {
+          "method": "preexisting Sparrow rig-assisted yaw",
+          "testStatus": "UNTESTED",
+          "reason": "No compatible Sparrow parts/rig; existing House Finch in-plane compositor is another species/action"
+        },
+        "C": {
+          "method": "reference-conditioned native edit",
+          "newNativeCalls": 1,
+          "newNativeDrawings": 1,
+          "sourceDisposition": "HELD",
+          "frames": 3,
+          "pixelCheck": "PASS",
+          "canonicalJSON": "PASS",
+          "failureReason": "Readable head turn but visibly bulkier/lower body and feet; lowest opaque row95 to103 at unchanged world/root"
+        },
+        "D": {
+          "method": "layered2D hybrid authored-head key selection",
+          "recipeId": "sparrow-visible-head-parts-v1",
+          "newNativeCalls": 0,
+          "newNativeDrawings": 0,
+          "sourceDisposition": "PROVISIONALLY_USEFUL_BOUNDED_CONSTRUCTION",
+          "frames": 2,
+          "pixelCheck": "PASS",
+          "canonicalJSON": "PASS",
+          "protectedBodyRGBAChanges": 0,
+          "headPixelChanges": 168,
+          "oldVisibleHeadPixelsClearedByDonorTransparency": 26,
+          "newDonorSilhouettePixels": 9,
+          "newEnclosedHoles": 0,
+          "caveat": "Enlarged gray neckline cluster boundary remains abrupt; no blanket premium-art approval",
+          "scope": "Two genuine authored head keys; no articulated3D yaw, interpolation, hidden anatomy, blink or wing-fold proof"
+        },
+        "E": {
+          "method": "simple3D rig rendered to pixel sprites",
+          "testStatus": "UNTESTED",
+          "evidence": "arm-b-rig-feasibility/FEASIBILITY.json",
+          "reason": "No compatible Sparrow model/weights/rig/views located; installed Blender observed but not invoked under original constraint"
+        }
+      },
+      "sourceFileIndex": "experiments/animation-authoring-compare-v1/FINAL-source-files.sha256.json",
+      "sourceFileIndexSHA256": "07490b4910b69007707cbcf5d9a7e4c9d85e35cab630133698c5126ef9dfdfe8"
     }
   ]
 }

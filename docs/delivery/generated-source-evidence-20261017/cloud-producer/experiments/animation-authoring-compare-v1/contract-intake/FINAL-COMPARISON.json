@@ -1,0 +1,219 @@
+{
+  "experiment": "ANIM-AUTHORING-COMPARE-1",
+  "state": "BOUNDED TECHNICAL COMPARISON COMPLETE",
+  "runtimeCommit": "c4ae7529786e28cf55e2008b7f7b64215fc6542c",
+  "tested": [
+    {
+      "arm": "A",
+      "method": "Existing authored-native baseline copied exactly",
+      "currentNativeCalls": 0,
+      "newNativeDrawings": 0,
+      "uniqueTestedRenderFrames": 3,
+      "containsActualBlink": true,
+      "canvas": [
+        61,
+        45
+      ],
+      "density": 1,
+      "pixelStatus": "PASS exact canonical pixel normalization subset",
+      "rectangles": 2205,
+      "decodedArea": 8235,
+      "attentionPairRectangleSumFromActualPerFrameResults": 1480,
+      "attentionPairAreaArithmetic": 5490,
+      "attentionPairIsAdditionalCodecRun": false,
+      "canonicalRawJSONBytes": 83301,
+      "JSONFrameCount": 3,
+      "lookVsNeutralFullWorld": {
+        "RGBAChangedPixels": 794,
+        "alphaChangedPixels": 93,
+        "fixedFootROIChangedPixels": 67,
+        "scope": "Pixel differences, not anatomy quality or semantic foot contact verdict"
+      },
+      "contacts": [],
+      "physicalSupportReviewed": false,
+      "runtimeAdmission": false
+    },
+    {
+      "arm": "C",
+      "method": "One reference-conditioned native whole-pose edit",
+      "currentNativeCalls": 1,
+      "newNativeDrawings": 1,
+      "uniqueTestedRenderFrames": 3,
+      "containsActualBlink": true,
+      "canvas": [
+        64,
+        52
+      ],
+      "density": 1,
+      "pixelStatus": "PASS exact canonical pixel normalization subset",
+      "rectangles": 2337,
+      "decodedArea": 9984,
+      "attentionPairRectangleSumFromActualPerFrameResults": 1623,
+      "attentionPairAreaArithmetic": 6656,
+      "attentionPairIsAdditionalCodecRun": false,
+      "canonicalRawJSONBytes": 98452,
+      "JSONFrameCount": 3,
+      "lookVsNeutralFullWorld": {
+        "RGBAChangedPixels": 1321,
+        "alphaChangedPixels": 827,
+        "fixedFootROIChangedPixels": 279,
+        "scope": "Pixel differences, not anatomy quality or semantic foot contact verdict"
+      },
+      "contacts": [],
+      "physicalSupportReviewed": false,
+      "runtimeAdmission": false
+    },
+    {
+      "arm": "D",
+      "method": "Explicit visible-head source-pixel replacement; neutral body protected, authored head donor",
+      "currentNativeCalls": 0,
+      "newNativeDrawings": 0,
+      "uniqueTestedRenderFrames": 2,
+      "containsActualBlink": false,
+      "canvas": [
+        61,
+        45
+      ],
+      "density": 1,
+      "pixelStatus": "PASS exact canonical pixel normalization subset",
+      "rectangles": 1456,
+      "decodedArea": 5490,
+      "attentionPairRectangleSumFromActualPerFrameResults": 1456,
+      "attentionPairAreaArithmetic": 5490,
+      "attentionPairIsAdditionalCodecRun": false,
+      "canonicalRawJSONBytes": 55370,
+      "JSONFrameCount": 2,
+      "lookVsNeutralFullWorld": {
+        "RGBAChangedPixels": 168,
+        "alphaChangedPixels": 35,
+        "fixedFootROIChangedPixels": 0,
+        "scope": "Fixed image region only; exact protected pixels do not establish physical planting"
+      },
+      "protectedVisibleCanonicalPixels": 656,
+      "protectedRGBAChangedPixels": 0,
+      "canonicalAPaletteExact": true,
+      "canonicalANeutralPNGBytesExact": true,
+      "contacts": [],
+      "physicalSupportReviewed": false,
+      "runtimeAdmission": false
+    }
+  ],
+  "untested": {
+    "B": {
+      "status": "UNTESTED",
+      "sourceFamiliesExported": 0,
+      "derivedAssemblies": 0,
+      "newNativeCalls": 0,
+      "newGeneratedDrawings": 0,
+      "authoringTimeSeconds": null,
+      "exportTimeSeconds": null,
+      "cleanupMinutes": null
+    },
+    "E": {
+      "status": "UNTESTED feasibility only, supported by explicit fields inside B; no separate E implementation or packet",
+      "compatible3DBirdRigFound": false,
+      "producerThreeDStatus": "UNTESTED; no compatible mesh/weights/camera/source-art views located in bounded asset search; Blender excluded by instruction.",
+      "actualRigOrRendererExecuted": false
+    }
+  },
+  "commonProtocol": {
+    "species": "white_crowned_sparrow",
+    "worldExtent": 123.42857142857143,
+    "ceilFullStage": [
+      124,
+      124
+    ],
+    "density": 1,
+    "sampler": "floor((worldPixel+0.5)*nativeDimension/worldExtent); out-of-native ceil margin transparent",
+    "roundedFullRoot": [
+      73,
+      96
+    ],
+    "alphaThreshold": 128,
+    "opaquePaletteLimit": 63,
+    "palette": "one common cohort palette; no dither; retain any actual palette differences between A and C",
+    "crop": "one common zero-only crop including root per arm; any difference recorded, never fit per pose",
+    "contacts": [],
+    "geometryScope": "image-registration-only",
+    "physicalSupportReviewed": false,
+    "supportWorld": null,
+    "timing30Hz": {
+      "idle": [
+        90
+      ],
+      "blink": [
+        60,
+        3,
+        27
+      ],
+      "look": [
+        60,
+        18,
+        12
+      ]
+    },
+    "maximumNewNativeCalls": {
+      "A": 0,
+      "B": 0,
+      "C": 1
+    },
+    "rawSourceReuseCountsAreNotNewDrawings": true,
+    "runtimeAdmission": false
+  },
+  "sourcePreservation": [
+    {
+      "arm": "A",
+      "ledgerSHA256": "da100f4748f8093a7245d66848a9e8da344c1ec3d2ed7a2872922fee8dbc90fb",
+      "producerGOsha256": "ff6842e288ea7c607f071721190414b1bc2735a764b986fb4236b3d159474019",
+      "filesExact": 60,
+      "sourceModified": false
+    },
+    {
+      "arm": "C",
+      "ledgerSHA256": "f7d60a8cb5d05095f7380d8bbffe67f0434649c442b1d46922e1b0a41b41bc69",
+      "producerGOsha256": "6f50dbb85a24fdbdf45f779dfef5adeb9d9ebf070835e90e9f2f5cc1b82a8d13",
+      "filesExact": 36,
+      "sourceModified": false
+    },
+    {
+      "arm": "D",
+      "ledgerSHA256": "5d8db0eb79055d34cd87f96916a1d575b2e987c5b5bb6cc365023ff234ffc884",
+      "producerGOsha256": "6a29c5361551c89a6c22e95da7c3e1e686b61950c9222b5d6397f7d97c660234",
+      "filesExact": 47,
+      "sourceModified": false
+    },
+    {
+      "arm": "B and E evidence",
+      "ledgerSHA256": "bb3f6eaf0c3364ffb33742ad38d697805309bc1d94f5ca7ef7237c16ca4ec819",
+      "producerGOsha256": "64f56ed225c6f8495c872090948d038dbc607cdcc2da536f766729b8484f6820",
+      "filesExact": 8,
+      "sourceModified": false
+    }
+  ],
+  "totalFrozenProducerFilesExact": 151,
+  "nativeGenerationCallsByTechnicalWorkstream": 0,
+  "newNativeCallsInExperimentAsObserved": 1,
+  "newNativeDrawingsInExperimentAsObserved": 1,
+  "DRenderConstructionIsNotNewDrawing": true,
+  "familyCompleteness": {
+    "A": "3-frame actual neutral/blink/look",
+    "C": "3-frame actual neutral/blink/look",
+    "D": "2-frame attention-only derivative; no blink or full common family"
+  },
+  "comparisonQualification": [
+    "A/C full-family totals include blink, whereas D has two attention frames. Per-attention rectangle/area values are arithmetic selections from actual per-frame results, not extra runs.",
+    "A/C both use native pose art; copying A did not test a parts rig. D is an explicit head-pixel construction using genuine authored head art.",
+    "D exactly protects canonical body/feet pixels; this cannot certify a natural neck join, silhouette, lighting, or physical foot contact.",
+    "C raw reused neutral/blink bytes equal A, while its recomputed palette and larger common crop are explicit comparison differences.",
+    "No source-quality winner or authoring speed advantage can be inferred without independent normal-size appearance/geometry reviews and comparable human-effort measurements."
+  ],
+  "unresolved": [
+    "Independent art, seam, temporal and semantic-contact verdicts are separate from these technical metrics.",
+    "Full importer private provenance, rights/reference/fidelity recovery, input5 packaging and actual runtime admission were not executed.",
+    "New C native source remains proposed until root registration; no bank/queue/runtime or publication mutation by this workstream."
+  ],
+  "sourceAdmitted": false,
+  "runtimeAdmission": false,
+  "nextActualCheckQueued": null,
+  "checksRunning": 0
+}

@@ -1,0 +1,243 @@
+{
+  "auditId": "BATH-SUPPORT-CONTRACT-AUDIT-1",
+  "status": "READ_ONLY_SOURCE_FINDINGS",
+  "repository": "/workspace/runtime-resting-intake-v5-inspect",
+  "commit": "c4ae7529786e28cf55e2008b7f7b64215fc6542c",
+  "freshMacState": "UNKNOWN",
+  "cloudLag": "Checked-in cloud snapshot only; current Mac geometry, source adoption and renderer may differ.",
+  "authoredSceneGeometry": {
+    "objectKind": "bath",
+    "width": 100,
+    "depth": 54,
+    "height": 80,
+    "slots": [
+      {
+        "id": "left",
+        "affordance": "bath",
+        "dx": -18,
+        "dy": -68
+      },
+      {
+        "id": "right",
+        "affordance": "bath",
+        "dx": 18,
+        "dy": -68
+      }
+    ],
+    "meaning": "World object slots; not source-image foot/water rows."
+  },
+  "waterGeometry": {
+    "basinAreaM2": 0.12,
+    "basinCapacityM3": 0.006,
+    "waterlineExpression": "topY + 3 - level * 6",
+    "topY": "first authored bath slot y, fallback authored.y - 68",
+    "level": "min(1, volumeM3 / 0.006)",
+    "waterRectangleWidth": 88,
+    "fixedSourceImageWaterPlane": false,
+    "anatomicalBasinFloorRow": "NOT_EXPOSED in inspected source sprite contract"
+  },
+  "actionEvents": {
+    "requestActionEnum": [
+      "drink",
+      "bath"
+    ],
+    "runtimeStatusAnimationClip": [
+      "idle-fallback",
+      "bathing"
+    ],
+    "bathDurationSeconds": 3,
+    "timingAuthority": "synthetic product tuning, explicitly not measured bird physiology",
+    "contactPayload": [
+      "actorId",
+      "slotId",
+      "kind",
+      "objectId",
+      "generation",
+      "revision",
+      "x",
+      "y"
+    ],
+    "contactCoordinates": "Engine issues slot.x/slot.y after proximity/occupancy/wet/environment/generation validation; WeakMap-issued identity retained. Not an arbitrary source bill joint.",
+    "waterWithdrawal": "Drink emits mass withdrawal requests; bath contacts are cosmetic, not claimed ingestion.",
+    "sourcePoseSemanticBathEventField": "No per-pose splash/dip/feather event field found in inspected strict animationPoseSchema."
+  },
+  "spriteContractBoundary": {
+    "legacyActions": "V3 clips include optional bathing; named action alone is not scene adoption.",
+    "poseFields": [
+      "frame",
+      "durationTicks",
+      "pivot",
+      "contacts",
+      "poseId",
+      "rotation"
+    ],
+    "contactKinds": [
+      "left-foot",
+      "right-foot",
+      "perch",
+      "ground"
+    ],
+    "waterOrBillContactKindSupported": false,
+    "shapeLandmarks": "Separate shape schema can name beak/head/body/tail/feet; a named landmark is not an authorized water contact or action event.",
+    "commonFamilyV6": "Requires neutral-only static idle and no contacts/activity clips. commonMotion blink/look cannot silently carry bathing.",
+    "worldAnchor": "poseTransform uses reviewed shape support if present, otherwise pivot; world position is support anchor, not sprite top-left.",
+    "missingClip": "Sampler may fall back to idle; does not prove bathing art or correct live binding."
+  },
+  "producerHandoffRequirements": [
+    "Keep bird RGBA separate from pool/water/splash effect layer.",
+    "Retain source body/bill/feet landmark proposals, original canvas/density/pivot, source IDs and explicit authored pose clocks in source facts.",
+    "Importer must map actual reviewed support onto authored bath slot and dynamic waterline; source alpha positivity alone proves no support.",
+    "If phase-specific bill-water, basin-floor depth or splash event coupling is required, importer must select/extend an appropriate action contract; no unknown fields in current strict common-family manifest.",
+    "Use checked-in scene defaults for engineering proposals; do not ask Thomas to supply technical geometry."
+  ],
+  "unresolved": [
+    "Current live Mac bath/sprite mapping and geometry",
+    "Admitted bath-source action profile and actual source art quality",
+    "Per-phase toe/floor/waterline/bill event mapping and depth/occlusion review"
+  ],
+  "writesToApplication": false,
+  "runtimeAdmission": false,
+  "physicalSupportReviewed": false,
+  "supportWorld": null,
+  "evidence": [
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/domain/scene.ts",
+      "sha256": "b448260d50b3bab3033a66a41cf4c883171437de1f6b135438c042b46effeba3",
+      "bytes": 12798,
+      "excerpts": [
+        {
+          "startLine": 1,
+          "endLine": 35,
+          "text": "import { z } from 'zod';\nimport {\n  canonicalObjectIdSchema,\n  canonicalYardEntry,\n  canonicalObjectDefinition,\n  type CanonicalObjectId,\n} from './canonical-yard.ts';\nimport { YardValidationError } from './validation-error.ts';\nimport { idSchema } from './primitives.ts';\nimport { fixtureScene, legacyScenePin } from '../scenes/catalog.ts';\nimport {\n  sceneSettingSchema,\n  scenePinSchema,\n  type SceneManifest,\n  type SceneSetting,\n  type ScenePin,\n} from '../scenes/manifest.ts';\nexport {\n  WORLD_WIDTH,\n  WORLD_HEIGHT,\n  sceneSettingSchema,\n  type SceneSetting,\n} from '../scenes/manifest.ts';\nimport { WORLD_WIDTH, WORLD_HEIGHT, containsBounds } from '../scenes/manifest.ts';\nexport type SceneInput = SceneSetting | SceneManifest;\nexport const sceneManifestOf = (input: SceneInput): SceneManifest =>\n  typeof input === 'string' ? fixtureScene(input) : input;\n\nexport const MAX_OBJECTS = 12;\nexport const OBJECT_CLEARANCE = 8;\nexport const SCENE_LAYERS = [\n  'background',\n  'ground',\n  'objects',\n  'residents',"
+        },
+        {
+          "startLine": 88,
+          "endLine": 100,
+          "text": "  bath: {\n    label: 'Birdbath',\n    width: 100,\n    depth: 54,\n    height: 80,\n    slots: [\n      { id: 'left', affordance: 'bath', dx: -18, dy: -68 },\n      { id: 'right', affordance: 'bath', dx: 18, dy: -68 },\n    ],\n  },\n  plant: { label: 'California bush sunflower', width: 52, depth: 36, height: 100, slots: [] },\n  nest: {\n    label: 'Nest',"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/engine/surface-interactions.ts",
+      "sha256": "13b06dfd1e9804180840e80fffff1390faba11531d3b8c109912bc2ce2f4c8b4",
+      "bytes": 16849,
+      "excerpts": [
+        {
+          "startLine": 10,
+          "endLine": 76,
+          "text": "/** Synthetic product tuning, not a measurement of bird physiology. All quantities are SI. */\nexport const SURFACE_INTERACTION_TUNING = Object.freeze({\n  wetEnterDepthM: 0.001,\n  wetLeaveDepthM: 0.0005,\n  drinkingVolumeM3: 0.0000005,\n  drinkingRateM3PerSecond: 0.00000025,\n  bathingSeconds: 3,\n});\nexport type LocalSurfaceAction = 'drink' | 'bath';\nexport type SurfaceInteractionState =\n  | 'idle'\n  | 'seeking'\n  | 'drinking'\n  | 'bathing'\n  | 'complete'\n  | 'cancelled'\n  | 'blocked-dry'\n  | 'blocked-environment'\n  | 'occupied'\n  | 'stale-object'\n  | 'unavailable';\nexport interface SurfaceInteractionInput {\n  objectId: string | null;\n  generation: number;\n  revision: number;\n  waterVolumeM3: number;\n  waterDepthM: number;\n}\nexport interface SurfaceWithdrawal {\n  id: string;\n  sequence: number;\n  storeId: 'bath';\n  volumeM3: number;\n  reason: 'drinking';\n  actorId: string;\n  objectId: string;\n  generation: number;\n  revision: number;\n}\nexport interface SurfaceContact {\n  actorId: string;\n  slotId: string;\n  kind: LocalSurfaceAction;\n  objectId: string;\n  generation: number;\n  revision: number;\n  x: number;\n  y: number;\n}\nexport interface SurfaceInteractionStatus {\n  state: SurfaceInteractionState;\n  action: LocalSurfaceAction | null;\n  actorId: string | null;\n  objectId: string | null;\n  generation: number;\n  revision: number;\n  slotId: string | null;\n  wet: boolean;\n  elapsedSeconds: number;\n  drinkingVolumeM3: number;\n  animationClip: 'idle-fallback' | 'bathing';\n  clipNote: string;\n}\nexport interface SurfaceInteractionController {\n  readonly sim: Simulation;\n  status: SurfaceInteractionStatus;\n  surface: SurfaceInteractionInput | null;"
+        },
+        {
+          "startLine": 277,
+          "endLine": 337,
+          "text": "  if (!actor || !object || !valid) stop(controller, 'unavailable');\n  else if (!status.wet) {\n    if (!controller.active && support) cancelPreviewSurfaceActivity(controller.sim, actor.id);\n    stop(controller, 'blocked-dry');\n  } else if (environmentBlocked(controller)) stop(controller, 'blocked-environment');\n  else if (\n    !controller.active &&\n    !changed &&\n    ['unavailable', 'blocked-dry', 'blocked-environment'].includes(status.state)\n  )\n    status.state = 'idle';\n  else if (!controller.active && !changed && actor.behavior === 'bathing' && support) {\n    // Wet-only autonomous bathing still uses the actor's existing claim, never a fake actor.\n    status.action = 'bath';\n    status.state = 'seeking';\n    status.slotId = support.id;\n    status.elapsedSeconds = 0;\n    status.drinkingVolumeM3 = 0;\n    status.animationClip = 'bathing';\n    status.clipNote = 'Existing bathing clip; cosmetic contact withdraws no water.';\n    controller.active = true;\n  }\n  const withdrawals: SurfaceWithdrawal[] = [];\n  const contacts: SurfaceContact[] = [];\n  if (controller.active && actor && object && status.action && status.slotId) {\n    const slot = slots(controller).find((value) => value.id === status.slotId);\n    const claimed = controller.sim.occupancy.get(status.slotId) === actor.id;\n    if (!slot || !claimed || (actor.slotId !== slot.id && actor.targetSlotId !== slot.id))\n      stop(controller, 'occupied');\n    else if (\n      actor.slotId === slot.id &&\n      !actor.targetSlotId &&\n      Math.hypot(actor.x - slot.x, actor.y - slot.y) <= 1\n    ) {\n      if (!holdPreviewSurfaceActivity(controller.sim, actor.id, status.action))\n        stop(controller, 'blocked-environment');\n      else {\n        status.state = status.action === 'drink' ? 'drinking' : 'bathing';\n        const dt = Number.isFinite(dtSeconds) ? Math.max(0, Math.min(0.05, dtSeconds)) : 0;\n        status.elapsedSeconds += dt;\n        const contact: SurfaceContact = Object.freeze({\n          actorId: actor.id,\n          slotId: slot.id,\n          kind: status.action,\n          objectId: object.id,\n          generation: status.generation,\n          revision: status.revision,\n          x: slot.x,\n          y: slot.y,\n        });\n        issuedContacts.set(contact, {\n          controller,\n          episode: episodes.get(controller)!,\n          actor,\n          slot,\n          object,\n          geometry: controller.geometry,\n        });\n        contacts.push(contact);\n        if (status.action === 'drink' && !controller.pending && dt > 0) {\n          const volumeM3 = Math.min("
+        },
+        {
+          "startLine": 360,
+          "endLine": 372,
+          "text": "            withdrawals.push(request);\n          }\n        }\n        if (\n          status.action === 'bath' &&\n          status.elapsedSeconds >= SURFACE_INTERACTION_TUNING.bathingSeconds\n        )\n          stop(controller, 'complete');\n      }\n    } else status.state = 'seeking';\n  }\n  return { status: { ...status }, withdrawals, contacts: controller.active ? contacts : [] };\n}"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/engine/surface-runtime.ts",
+      "sha256": "f7919558523cd33db011a85cb01b9333bf0d599b62f35c3d648a13ca93619d3c",
+      "bytes": 28133,
+      "excerpts": [
+        {
+          "startLine": 138,
+          "endLine": 145,
+          "text": "  state.stores.reduce((sum, s) => sum + s.liquidM3 + s.snowWaterEquivalentM3, 0);\n/** Authored bath/fountain geometry, independent of pixel artwork. */\nexport const YARD_WATER_BODY = Object.freeze({\n  basinAreaM2: 0.12,\n  basinCapacityM3: 0.006,\n  reservoirCapacityM3: 0.012,\n});\nexport interface YardWaterBodyState {"
+        },
+        {
+          "startLine": 635,
+          "endLine": 657,
+          "text": "    )\n      snowBelowVisualThresholdM3 += bath.snowWaterEquivalentM3;\n  }\n  if (authored && runtime.present) {\n    const slots = input.slots.filter(\n        (slot) => slot.objectId === authored.id && slot.affordance === 'bath',\n      ),\n      centerX = authored.x,\n      topY = slots[0]?.y ?? authored.y - 68;\n    const rectangles: EnvironmentRect[] = [];\n    const volume = bath?.liquidM3 ?? 0,\n      level = Math.min(1, volume / 0.006);\n    bathWaterlineY = topY + 3 - level * 6;\n    if (visible && volume > 0) {\n      rectangles.push(\n        draw(centerX - 44, bathWaterlineY, 88, Math.max(1, 6 * level), 0x80b5b1, 0.95),\n      );\n      rectangles.push(draw(centerX - 31, bathWaterlineY, 23, 1, 0xd4e8d5, 0.65));\n    }\n    // A visual stream represents the last accepted internal transfer, never a new mass source.\n    const pumped = runtime.state?.diagnostics.at(-1)?.pumpedM3 ?? 0;\n    if (visible && pumped > 0) {\n      rectangles.push(draw(centerX - 1, topY - 26, 3, 24, 0xa6d7d2, 0.85));"
+        },
+        {
+          "startLine": 674,
+          "endLine": 707,
+          "text": "    if (visible && snowPixels > 0) {\n      rectangles.push(draw(centerX - 48, topY - snowPixels - 4, 96, snowPixels, 0xe7eef0, 0.9));\n    }\n    if (visible && volume > 0)\n      for (const effect of runtime.effects) {\n        if (\n          effect.revision !== runtime.geometryRevision ||\n          effect.generation !== runtime.generation\n        )\n          continue;\n        const radius = 3 + effect.age * 14;\n        rectangles.push(\n          draw(\n            effect.x - radius,\n            bathWaterlineY - 1,\n            Math.min(40, radius * 2),\n            1,\n            0xd7eee0,\n            0.55 * (1 - effect.age / 1.2),\n          ),\n        );\n        if (effect.kind === 'bath')\n          rectangles.push(\n            draw(\n              effect.x + 5,\n              bathWaterlineY - 3 - Math.sin(effect.age * Math.PI) * 7,\n              2,\n              2,\n              0xd7eee0,\n              0.8,\n            ),\n          );\n      }\n    objects.push({ id: authored.id, depth: authored.y, rectangles });"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/engine/physical-surface-contracts.ts",
+      "sha256": "21f0d4a5184ba853add51bc89b7044cb2c509463f3a5fe4e0bd0b8697222c82e",
+      "bytes": 2736,
+      "excerpts": []
+    },
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/assets/manifest-v3.ts",
+      "sha256": "9652bf5d1a277005ab9b82b4cfd1b9227d2ba53c9e1b971e2846beb6d9976923",
+      "bytes": 10936,
+      "excerpts": [
+        {
+          "startLine": 14,
+          "endLine": 51,
+          "text": "export const pointSchema = z.object({ x: integer.max(256), y: integer.max(256) }).strict();\nexport const contactSchema = pointSchema\n  .extend({\n    kind: z.enum(['left-foot', 'right-foot', 'perch', 'ground']),\n  })\n  .strict();\nexport const animationPoseSchema = z\n  .object({\n    frame: integer.max(63),\n    durationTicks: z.number().int().min(1).max(300),\n    pivot: pointSchema,\n    contacts: z.array(contactSchema).max(4),\n    poseId: id,\n    rotation: z.number().min(-0.5).max(0.5),\n  })\n  .strict();\nexport const animationClipV3Schema = z\n  .object({\n    action: z.enum(animationStates),\n    direction: z.literal('right-facing-mirrorable'),\n    loop: z.boolean(),\n    poses: z.array(animationPoseSchema).min(1).max(256),\n  })\n  .strict();\nexport const animationClipsV3Schema = z\n  .object({\n    idle: animationClipV3Schema,\n    moving: animationClipV3Schema.optional(),\n    perching: animationClipV3Schema.optional(),\n    singing: animationClipV3Schema.optional(),\n    feeding: animationClipV3Schema.optional(),\n    bathing: animationClipV3Schema.optional(),\n    sleeping: animationClipV3Schema.optional(),\n    playing: animationClipV3Schema.optional(),\n    nesting: animationClipV3Schema.optional(),\n  })\n  .strict();\nexport const taxonomyIdentitySchema = z"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/assets/manifest-v6.ts",
+      "sha256": "5b7aba250783dfda69880cc5328a5191883dcd0bb612cf858a4e2567c4c4384b",
+      "bytes": 1531,
+      "excerpts": [
+        {
+          "startLine": 1,
+          "endLine": 39,
+          "text": "import { z } from 'zod';\nimport { speciesManifestV5Schema } from './manifest-v5.ts';\nimport { commonMotionSchema, commonMotionIssues } from './common-motion.ts';\n/** Private development candidate with named idle presentation; no support/fidelity claim. */\nexport const speciesManifestV6Schema = speciesManifestV5Schema\n  .innerType()\n  .extend({\n    schemaVersion: z.literal(6),\n    commonMotion: commonMotionSchema,\n    shape: z.never().optional(),\n  })\n  .strict()\n  .superRefine((value, context) => {\n    const { commonMotion, ...legacy } = value;\n    const checked = speciesManifestV5Schema.safeParse({ ...legacy, schemaVersion: 5 });\n    if (!checked.success) {\n      for (const issue of checked.error.issues) context.addIssue(issue);\n      return;\n    }\n    if (\n      Object.keys(value.clips).length !== 1 ||\n      value.clips.idle.poses.length !== 1 ||\n      !value.clips.idle.loop ||\n      value.clips.idle.poses[0]!.contacts.length\n    )\n      context.addIssue({\n        code: 'custom',\n        message:\n          'Common-family candidates expose one neutral idle and no physical contact or activity clips.',\n      });\n    for (const message of commonMotionIssues(\n      commonMotion,\n      value.frames.length,\n      value.canvas.width,\n      value.canvas.height,\n      value.conditioning.references,\n      value.clips.idle.poses[0]!.pivot,\n      value.clips.idle.poses[0]!.frame,\n    ))"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/assets/manifest.ts",
+      "sha256": "e7884b001fed429c7ed495aeaf841ccfc2b03343b0342f1913a15581c6f0d55f",
+      "bytes": 4950,
+      "excerpts": [
+        {
+          "startLine": 64,
+          "endLine": 87,
+          "text": "/** Unknown/missing behaviors resolve directly to idle; no fallback chains or cycles. */\nexport function sampleClip(\n  manifest: SpeciesManifest,\n  behavior: string,\n  ticks: number,\n  reducedMotion = false,\n) {\n  const elapsedTicks =\n    reducedMotion || !Number.isFinite(ticks) ? 0 : Math.max(0, Math.floor(ticks));\n  if (\n    manifest.schemaVersion === 6 &&\n    (behavior === 'idle' || commonClipNames.includes(behavior as 'blink' | 'look'))\n  ) {\n    let name = behavior as 'idle' | 'blink' | 'look',\n      local = elapsedTicks;\n    if (name === 'idle') {\n      const duration = (id: 'idle' | 'blink' | 'look') =>\n        (id === 'idle' ? manifest.clips.idle : manifest.commonMotion.clips[id]).poses.reduce(\n          (sum, p) => sum + p.durationTicks,\n          0,\n        );\n      local %= manifest.commonMotion.idleSequence.reduce((sum, id) => sum + duration(id), 0);\n      for (const id of manifest.commonMotion.idleSequence) {\n        if (local < duration(id)) {"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/assets/pose-geometry.ts",
+      "sha256": "2403c3fd3eb43f936eed46049a3c22f5d4d0c628a418e2abca5ce91395486ba7",
+      "bytes": 4725,
+      "excerpts": [
+        {
+          "startLine": 40,
+          "endLine": 71,
+          "text": "  scale?: number;\n}\n/** World position is the support anchor, not a sprite top-left. Rotation follows mirroring. */\nexport function poseTransform(\n  manifest: SpeciesManifest,\n  sample: PoseSample,\n  position: Point,\n  direction: -1 | 1,\n  flightOffset = 0,\n  scale = sourceWorldScale(manifest),\n): PoseTransform {\n  const rotation = direction * sample.rotation;\n  const annotation = poseShape(manifest, sample);\n  const pivot = sample.pivot;\n  const anchor = annotation ? annotation.support : pivot;\n  const dx = direction * (anchor.x - pivot.x) * scale,\n    dy = (anchor.y - pivot.y) * scale;\n  return {\n    pivot,\n    direction,\n    rotation,\n    ...(scale === 1 ? {} : { scale }),\n    origin: {\n      x: position.x - (Math.cos(rotation) * dx - Math.sin(rotation) * dy),\n      y: position.y + flightOffset - (Math.sin(rotation) * dx + Math.cos(rotation) * dy),\n    },\n  };\n}\nexport function frameToWorld(point: Point, transform: PoseTransform): Point {\n  const x = (point.x - transform.pivot.x) * transform.direction * (transform.scale ?? 1),\n    y = (point.y - transform.pivot.y) * (transform.scale ?? 1);\n  return {"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/assets/animation-specification.ts",
+      "sha256": "36fe84110e7552024fa45b3f44861af93c560d5271f4ef58c42bec23fd06bd55",
+      "bytes": 21748,
+      "excerpts": [
+        {
+          "startLine": 198,
+          "endLine": 223,
+          "text": "    ],\n    contact: 'ground',\n    loop: true,\n  },\n  {\n    action: 'bathing',\n    ticks: 3,\n    purpose: 'Illustrative bathing body motion; water/splash belongs to a separate effect layer.',\n    phases: [\n      'ready',\n      'lower',\n      'dip',\n      'shake-left',\n      'shake-right',\n      'lift',\n      'recover',\n      'return-ready',\n    ],\n    contact: 'ground',\n    loop: true,\n  },\n  {\n    action: 'sleeping',\n    ticks: 30,\n    purpose:\n      'Perched restful-pose proposal; existing sleep also supports roost and safe ground, requiring separate support review before reuse.',"
+        }
+      ]
+    },
+    {
+      "file": "/workspace/runtime-resting-intake-v5-inspect/src/lib/assets/shape.ts",
+      "sha256": "9e292895995a0327b363e7a07521a80ed2afbbb3ebf4988b4bbb558d1013ff96",
+      "bytes": 6695,
+      "excerpts": [
+        {
+          "startLine": 32,
+          "endLine": 49,
+          "text": "  .object({\n    poseId: id,\n    frame: z.number().int().min(0).max(63),\n    visualBounds: visualBoundsSchema,\n    support: point,\n    footprint: physicalFootprintSchema,\n    landmarks: z\n      .array(\n        point\n          .extend({ kind: z.enum(['head', 'body', 'beak', 'tail', 'left-foot', 'right-foot']) })\n          .strict(),\n      )\n      .max(6),\n  })\n  .strict();\n/** Reviewed geometry only: pixel silhouette is always measured from the actual frame rectangles.\n * Model/reference provenance remains on the enclosing immutable source/manifest, never inferred here. */\nexport const shapeReviewSchema = z"
+        }
+      ]
+    }
+  ]
+}

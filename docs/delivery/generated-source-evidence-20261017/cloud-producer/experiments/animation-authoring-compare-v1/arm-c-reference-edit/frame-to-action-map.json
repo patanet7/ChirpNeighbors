@@ -1,0 +1,106 @@
+{
+  "manifest": {
+    "file": "source-handoff.json",
+    "sha256": "38f17fc03ab1e9f04915c3a1dffc01e8b3a22d7d2098433c9ee8e44eaf7a1e51"
+  },
+  "atlas": {
+    "file": "atlas.png",
+    "sha256": "0676f1ede3aca6977b950a064a2eccd337ecfa802efa022127a94379a3ee689c",
+    "width": 192,
+    "height": 52
+  },
+  "sourceToRenderFrames": [
+    {
+      "sourceFrameId": "frame.sha256.ef133cd544bc1767e7492ef9980f543c4ef485c8e72b6d12b26876ecf2126ef1",
+      "renderFrameId": "neutral",
+      "newDrawing": false,
+      "outputPNG": "frames/neutral.png",
+      "outputPNGsha256": "ccc6f114cedd3899253ce085b9fc06fbad7199d2301471faf779c14300ebde3a",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 64,
+        "height": 52
+      }
+    },
+    {
+      "sourceFrameId": "frame.sha256.75dc91f8a426229926bc979eb92b6e81fc0efa811913fd14cbbf273137074213",
+      "renderFrameId": "blink",
+      "newDrawing": false,
+      "outputPNG": "frames/blink.png",
+      "outputPNGsha256": "95743bf31e6f6aa7dba440ee1718b5122fa50cad5d946b21a016d30dd98d8b25",
+      "atlasRect": {
+        "x": 64,
+        "y": 0,
+        "width": 64,
+        "height": 52
+      }
+    },
+    {
+      "sourceFrameId": "frame.sha256.4242d513b9d141682546dde30acfa91ae20066074302234a5082c6df56ab1aac",
+      "renderFrameId": "look",
+      "newDrawing": true,
+      "outputPNG": "frames/look.png",
+      "outputPNGsha256": "ec5b0bc2d771c489ab28f7c82063c37c08bf9253d857b04f3576d65a05d7c104",
+      "atlasRect": {
+        "x": 128,
+        "y": 0,
+        "width": 64,
+        "height": 52
+      }
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "frames": [
+        {
+          "frameId": "neutral",
+          "durationTicks": 90
+        }
+      ],
+      "loop": true,
+      "authoredStaticHold": true
+    },
+    {
+      "id": "blink",
+      "tickRate": 30,
+      "frames": [
+        {
+          "frameId": "neutral",
+          "durationTicks": 60
+        },
+        {
+          "frameId": "blink",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "neutral",
+          "durationTicks": 27
+        }
+      ],
+      "loop": false
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "frames": [
+        {
+          "frameId": "neutral",
+          "durationTicks": 60
+        },
+        {
+          "frameId": "look",
+          "durationTicks": 18
+        },
+        {
+          "frameId": "neutral",
+          "durationTicks": 12
+        }
+      ],
+      "loop": false
+    }
+  ],
+  "runtimeAdmission": false
+}

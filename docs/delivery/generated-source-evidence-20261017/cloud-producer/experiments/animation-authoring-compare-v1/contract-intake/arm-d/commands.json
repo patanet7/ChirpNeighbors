@@ -1,0 +1,31 @@
+[
+  {
+    "command": [
+      "node",
+      "/workspace/asset-production/validation/shared-structural-check.mjs",
+      "--repo",
+      "/workspace/runtime-resting-intake-v5-inspect",
+      "--input",
+      "/workspace/asset-production/experiments/animation-authoring-compare-v1/contract-intake/arm-d/canonical-pixel-input.json",
+      "--receipt",
+      "/workspace/asset-production/experiments/animation-authoring-compare-v1/contract-intake/arm-d/pixel-receipt.json",
+      "--sharp",
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/dist/index.cjs"
+    ],
+    "exitCode": 0,
+    "stdout": "actual-pixel.stdout.txt",
+    "stderr": "actual-pixel.stderr.txt",
+    "observedWallSeconds": 0.08340365799995197
+  },
+  {
+    "command": [
+      "node",
+      "/workspace/asset-production/experiments/animation-authoring-compare-v1/contract-intake/actual-json-budget.mjs",
+      "/workspace/asset-production/experiments/animation-authoring-compare-v1/contract-intake/arm-d/json-budget-config.json"
+    ],
+    "exitCode": 0,
+    "stdout": "actual-json.stdout.txt",
+    "stderr": "actual-json.stderr.txt",
+    "observedWallSeconds": 0.052944028000638355
+  }
+]
