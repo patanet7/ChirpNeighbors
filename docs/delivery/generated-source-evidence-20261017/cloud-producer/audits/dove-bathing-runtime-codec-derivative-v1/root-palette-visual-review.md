@@ -1,0 +1,3 @@
+Provisionally useful six-pose derivative after direct normal-size light/dark source/C64 comparison. Head, bill, tail, wing pattern and the back-turned preen contact remain readable. The common palette retains feather detail; binary threshold sharpens edges and removes faint fringe. All footgroups remain visible, with the original contact-plane gaps unchanged.
+
+This adds0drawings/calls. No completed approach/exit travel, continuous flutter/shake cycle, planted support, water contact or current Mac admission is approved. See exact six PNG hashes in the JSON review and original threshold-loss diagnostics.
