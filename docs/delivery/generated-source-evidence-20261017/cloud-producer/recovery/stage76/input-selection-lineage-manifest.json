@@ -1,0 +1,1427 @@
+{
+  "kind": "Bounded real typed-grading input selection and exact lineage; not grading/admission output",
+  "createdUTC": "2026-10-18T16:51:42.594101+00:00",
+  "actualRequestedUICommit": "ba87917fc93c547dae07e78c3148542390c2456c",
+  "sourceSharedLabelInput": {
+    "file": "recovery/stage74/shared-label-records.json",
+    "sha256": "2166039e70ffa922dc13448d362bf01313ed235a96649574fb377cc0d7f2edf7",
+    "bytes": 33171
+  },
+  "sourceSharedContract": {
+    "canonicalFile": "docs/art/asset-defect-labels-v1.json",
+    "commit": "d104afbaf6949d71d24768a577f4eb9d8ef709c3",
+    "snapshot": "recovery/stage73/shared-asset-defect-labels-v1.snapshot.json",
+    "sha256": "b78e048b84bff2a99da153c6b3636bb5683b4d0ab015d8b68fa3745b39a56996",
+    "version": 1
+  },
+  "selectionSummary": {
+    "sourceRecordRows": 17,
+    "selectedUnits": 6,
+    "realArtCases": 4,
+    "validatorOnlyControls": 2,
+    "selectedRecordRows": 11,
+    "originalGradeCounts": {
+      "repair": 3,
+      "pass": 4,
+      "blocked": 4
+    },
+    "newGrades": 0,
+    "newSourceIDs": 0,
+    "modelCalls": 0
+  },
+  "cases": [
+    {
+      "caseId": "bushtit-v3-held-blink",
+      "kind": "actual-art-source",
+      "testFixture": false,
+      "speciesSourceFact": "bushtit",
+      "selectedSharedRecordIndices": [
+        12
+      ],
+      "recordCount": 1,
+      "sourceFacts": [
+        {
+          "file": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+          "PNGsha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40",
+          "canvas": [
+            64,
+            64
+          ],
+          "decodedRGBABytesSHA256": "8deda91ea3da62678f9c64428ecfdcb9017a40176fb8518c4f89bb0ce2606712",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.349f950a7e14a9deb91c60947bf430afc7e086e431b86e333990353fc781b9a0",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        }
+      ],
+      "producerMetadataEvidence": [
+        {
+          "file": "experiments/bushtit-logical64-eyelid-v3/source-handoff.json",
+          "sha256": "7e082ba30324099cf8edcbaa3f8afd8367ab1efa850107bf759de5e25ccace46",
+          "bytes": 3953
+        },
+        {
+          "file": "experiments/bushtit-logical64-eyelid-v3/PRIMARY-SOURCE-MANIFEST.json",
+          "sha256": "8dee0609d0866b6c7d849c88cb97224804a133bdf0d0e28e2a4872bf96362e69",
+          "bytes": 4176
+        },
+        {
+          "file": "experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json",
+          "sha256": "41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738",
+          "bytes": 3545
+        },
+        {
+          "file": "experiments/bushtit-logical64-eyelid-v3/PREREGISTRATION.json",
+          "sha256": "6424dccf856b2729495bf1b2ea82fbdeb9115d5bbb00c771d935e256b9e96b2c",
+          "bytes": 4546
+        }
+      ],
+      "declaredNativeIDReferencesFromLegacyAssetID": [
+        "frame.sha256.30e4c1a9bfc80fb146acd6c9a00afbe14ce67dcdfcbfde409b90cce1b429b63d"
+      ],
+      "nativeVsRenderIdentityQualification": "Legacy asset_id is retained verbatim. It can refer to a native original while source_file is a registered/export/construction derivative; these identities are not conflated.",
+      "retainedRecords": [
+        {
+          "sharedRecordIndex": 12,
+          "sourceJSONPointer": "/records/12",
+          "sourceByteRangeUTF8": [
+            23686,
+            25836
+          ],
+          "originalJson": "{\n      \"asset_id\": \"frame.sha256.30e4c1a9bfc80fb146acd6c9a00afbe14ce67dcdfcbfde409b90cce1b429b63d\",\n      \"variant_id\": \"blink\",\n      \"candidate_revision\": \"BUSHTIT-logical64-readable-eyelid-source-3\",\n      \"source_file\": \"experiments/bushtit-logical64-eyelid-v3/frames/closed.png\",\n      \"source_sha256\": \"9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40\",\n      \"scope\": \"state_coverage\",\n      \"grade\": \"repair\",\n      \"canonical_label\": \"motion.parts-unqualified\",\n      \"finding_state\": \"observed\",\n      \"reason\": \"Genuine native closed lid exists, but both normal64/100ms reviews hold readability as a displaced dark dot. This is not missing source art; logical-grid closure semantics remain unqualified.\",\n      \"evidence\": [\n        {\n          \"file\": \"experiments/bushtit-logical64-eyelid-v3/frames/closed.png\",\n          \"sha256\": \"9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40\"\n        },\n        {\n          \"file\": \"experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json\",\n          \"sha256\": \"41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738\"\n        },\n        {\n          \"file\": \"experiments/bushtit-logical64-eyelid-v3/reviews/appearance/independent-review.json\",\n          \"sha256\": \"74eabdf0bfab41f7b0f9fece43d9ccd550baccab1e841fcb11c8379a56eb29a9\"\n        },\n        {\n          \"file\": \"experiments/bushtit-logical64-eyelid-v3/reviews/geometry/independent-review.json\",\n          \"sha256\": \"ffe9e87496473d8a3659103f0917cb8f95c5e701e4f269aab46d9c0811b02a80\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      },\n      \"measurement_context\": {\n        \"canvas\": [\n          64,\n          64\n        ],\n        \"world\": [\n          64,\n          64\n        ],\n        \"density\": 1,\n        \"displayCSS\": [\n          64,\n          64\n        ],\n        \"closedMilliseconds\": 100,\n        \"patch\": [\n          39,\n          33,\n          44,\n          37\n        ]\n      }\n    }",
+          "originalJsonSHA256": "7731e7cebf59cb2135c94f5f288f0de18582ecf76087f7f3fa577a809b8b8e7c",
+          "originalRecord": {
+            "asset_id": "frame.sha256.30e4c1a9bfc80fb146acd6c9a00afbe14ce67dcdfcbfde409b90cce1b429b63d",
+            "variant_id": "blink",
+            "candidate_revision": "BUSHTIT-logical64-readable-eyelid-source-3",
+            "source_file": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+            "source_sha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40",
+            "scope": "state_coverage",
+            "grade": "repair",
+            "canonical_label": "motion.parts-unqualified",
+            "finding_state": "observed",
+            "reason": "Genuine native closed lid exists, but both normal64/100ms reviews hold readability as a displaced dark dot. This is not missing source art; logical-grid closure semantics remain unqualified.",
+            "evidence": [
+              {
+                "file": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+                "sha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40"
+              },
+              {
+                "file": "experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json",
+                "sha256": "41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738"
+              },
+              {
+                "file": "experiments/bushtit-logical64-eyelid-v3/reviews/appearance/independent-review.json",
+                "sha256": "74eabdf0bfab41f7b0f9fece43d9ccd550baccab1e841fcb11c8379a56eb29a9"
+              },
+              {
+                "file": "experiments/bushtit-logical64-eyelid-v3/reviews/geometry/independent-review.json",
+                "sha256": "ffe9e87496473d8a3659103f0917cb8f95c5e701e4f269aab46d9c0811b02a80"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            },
+            "measurement_context": {
+              "canvas": [
+                64,
+                64
+              ],
+              "world": [
+                64,
+                64
+              ],
+              "density": 1,
+              "displayCSS": [
+                64,
+                64
+              ],
+              "closedMilliseconds": 100,
+              "patch": [
+                39,
+                33,
+                44,
+                37
+              ]
+            }
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+                "sha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json",
+                "sha256": "41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/bushtit-logical64-eyelid-v3/reviews/appearance/independent-review.json",
+                "sha256": "74eabdf0bfab41f7b0f9fece43d9ccd550baccab1e841fcb11c8379a56eb29a9"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "74eabdf0bfab41f7b0f9fece43d9ccd550baccab1e841fcb11c8379a56eb29a9"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/bushtit-logical64-eyelid-v3/reviews/geometry/independent-review.json",
+                "sha256": "ffe9e87496473d8a3659103f0917cb8f95c5e701e4f269aab46d9c0811b02a80"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "ffe9e87496473d8a3659103f0917cb8f95c5e701e4f269aab46d9c0811b02a80"
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "subject-source only after actual migration builder confirms exact subject-image link; not authenticated consumer binding"
+        }
+      ],
+      "typedReportState": "NOT_BUILT_PENDING_CANONICAL_API_AND_REQUIRED_BINDING_DATA",
+      "fullSourceBinding": "BLOCKED_MISSING_AUTHENTICATED_UI_CONSUMER_CONTEXT",
+      "missingOrUnmappedFacts": [
+        "Authenticated current UI V2\u2013V6 source manifest/consumer context and current requirement binding are not supplied. Producer source-handoff/texture-review metadata is not substituted.",
+        "No evaluation-model call was performed. Model identity, timing or confidence must not be invented.",
+        "No explicit catalog-to-typed-rule mappings supplied yet; actual resolver must retain labels unclassified."
+      ]
+    },
+    {
+      "caseId": "crow-fixed11-attention",
+      "kind": "actual-art-source",
+      "testFixture": false,
+      "speciesSourceFact": "american_crow",
+      "selectedSharedRecordIndices": [
+        13,
+        14,
+        15,
+        16
+      ],
+      "recordCount": 4,
+      "sourceFacts": [
+        {
+          "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+          "PNGsha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+          "canvas": [
+            156,
+            112
+          ],
+          "decodedRGBABytesSHA256": "4a8e00ce6d430ebbb9a307368c4e6a3c8a0836ce07d71f28b9eae39034271a77",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.76b03de9dab9fe8204eb9fcf01bda95697fb78044631334273f6e2e393c22318",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        },
+        {
+          "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+          "PNGsha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+          "canvas": [
+            156,
+            112
+          ],
+          "decodedRGBABytesSHA256": "4a8e00ce6d430ebbb9a307368c4e6a3c8a0836ce07d71f28b9eae39034271a77",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.76b03de9dab9fe8204eb9fcf01bda95697fb78044631334273f6e2e393c22318",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        },
+        {
+          "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+          "PNGsha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+          "canvas": [
+            156,
+            112
+          ],
+          "decodedRGBABytesSHA256": "4a8e00ce6d430ebbb9a307368c4e6a3c8a0836ce07d71f28b9eae39034271a77",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.76b03de9dab9fe8204eb9fcf01bda95697fb78044631334273f6e2e393c22318",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        },
+        {
+          "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+          "PNGsha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+          "canvas": [
+            156,
+            112
+          ],
+          "decodedRGBABytesSHA256": "4a8e00ce6d430ebbb9a307368c4e6a3c8a0836ce07d71f28b9eae39034271a77",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.76b03de9dab9fe8204eb9fcf01bda95697fb78044631334273f6e2e393c22318",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        }
+      ],
+      "producerMetadataEvidence": [
+        {
+          "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+          "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2",
+          "bytes": 8404
+        },
+        {
+          "file": "experiments/crow-attention-selected-ground-palette-v1/PRIMARY-SOURCE-MANIFEST.json",
+          "sha256": "7027b89f7593d72be44a699a2e7e597b5df40c35d101e9f6e5ce6e404917fdac",
+          "bytes": 5720
+        },
+        {
+          "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+          "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee",
+          "bytes": 4522
+        },
+        {
+          "file": "experiments/crow-attention-selected-ground-palette-v1/PREREGISTRATION.json",
+          "sha256": "733bce9ce53805463923b38b4173e3196fc605e83e66a622f4d3ebada086b4ce",
+          "bytes": 8024
+        }
+      ],
+      "declaredNativeIDReferencesFromLegacyAssetID": [
+        "frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3"
+      ],
+      "nativeVsRenderIdentityQualification": "Legacy asset_id is retained verbatim. It can refer to a native original while source_file is a registered/export/construction derivative; these identities are not conflated.",
+      "retainedRecords": [
+        {
+          "sharedRecordIndex": 13,
+          "sourceJSONPointer": "/records/13",
+          "sourceByteRangeUTF8": [
+            25842,
+            28091
+          ],
+          "originalJson": "{\n      \"asset_id\": \"frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3\",\n      \"variant_id\": \"look\",\n      \"candidate_revision\": \"crow-attention-selected-ground-palette-v1\",\n      \"source_file\": \"experiments/crow-attention-selected-ground-palette-v1/frames/look.png\",\n      \"source_sha256\": \"65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0\",\n      \"scope\": \"media_preflight\",\n      \"grade\": \"pass\",\n      \"canonical_label\": \"media.constraint\",\n      \"finding_state\": \"corrected_in_candidate\",\n      \"reason\": \"Prior63/32color attention exports failed rectangle cap. One fixed11opaqueRGB candidate now passes4034/4085/3954 rectangles with exact source registration. Only nominated c4ae subset is established; full runtime envelope remains unadmitted.\",\n      \"evidence\": [\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/frames/look.png\",\n          \"sha256\": \"65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0\"\n        },\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json\",\n          \"sha256\": \"7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee\"\n        },\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/contract-intake/pixel-receipt.json\",\n          \"sha256\": \"ece99780eb9fa0edc65851064d52b2957942133c0da6a9b8153b838cf03a7d52\"\n        },\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/CHECK-RESULTS.json\",\n          \"sha256\": \"888f23160fbd5c8e945c76e4cac9e9a1ba5b576da7a48c59aa18034b64be7403\",\n          \"jsonPointer\": \"/pixelCheck\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      },\n      \"measurement_context\": {\n        \"canvas\": [\n          156,\n          112\n        ],\n        \"worldStage\": [\n          186,\n          186\n        ],\n        \"density\": 1,\n        \"pivot\": [\n          101,\n          109\n        ],\n        \"crop\": [\n          6,\n          36,\n          162,\n          148\n        ]\n      }\n    }",
+          "originalJsonSHA256": "719c1d09ee89d53d65bb55708843714c586256e14744608211fc28968d662322",
+          "originalRecord": {
+            "asset_id": "frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3",
+            "variant_id": "look",
+            "candidate_revision": "crow-attention-selected-ground-palette-v1",
+            "source_file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "source_sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+            "scope": "media_preflight",
+            "grade": "pass",
+            "canonical_label": "media.constraint",
+            "finding_state": "corrected_in_candidate",
+            "reason": "Prior63/32color attention exports failed rectangle cap. One fixed11opaqueRGB candidate now passes4034/4085/3954 rectangles with exact source registration. Only nominated c4ae subset is established; full runtime envelope remains unadmitted.",
+            "evidence": [
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+                "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+              },
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+                "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+              },
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/contract-intake/pixel-receipt.json",
+                "sha256": "ece99780eb9fa0edc65851064d52b2957942133c0da6a9b8153b838cf03a7d52"
+              },
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/CHECK-RESULTS.json",
+                "sha256": "888f23160fbd5c8e945c76e4cac9e9a1ba5b576da7a48c59aa18034b64be7403",
+                "jsonPointer": "/pixelCheck"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            },
+            "measurement_context": {
+              "canvas": [
+                156,
+                112
+              ],
+              "worldStage": [
+                186,
+                186
+              ],
+              "density": 1,
+              "pivot": [
+                101,
+                109
+              ],
+              "crop": [
+                6,
+                36,
+                162,
+                148
+              ]
+            }
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+                "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+                "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/contract-intake/pixel-receipt.json",
+                "sha256": "ece99780eb9fa0edc65851064d52b2957942133c0da6a9b8153b838cf03a7d52"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "ece99780eb9fa0edc65851064d52b2957942133c0da6a9b8153b838cf03a7d52"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/CHECK-RESULTS.json",
+                "sha256": "888f23160fbd5c8e945c76e4cac9e9a1ba5b576da7a48c59aa18034b64be7403",
+                "jsonPointer": "/pixelCheck"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "888f23160fbd5c8e945c76e4cac9e9a1ba5b576da7a48c59aa18034b64be7403",
+              "pointerResolved": true
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "subject-source only after actual migration builder confirms exact subject-image link; not authenticated consumer binding"
+        },
+        {
+          "sharedRecordIndex": 14,
+          "sourceJSONPointer": "/records/14",
+          "sourceByteRangeUTF8": [
+            28097,
+            29766
+          ],
+          "originalJson": "{\n      \"asset_id\": \"frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3\",\n      \"variant_id\": \"look\",\n      \"candidate_revision\": \"crow-attention-selected-ground-palette-v1\",\n      \"source_file\": \"experiments/crow-attention-selected-ground-palette-v1/frames/look.png\",\n      \"source_sha256\": \"65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0\",\n      \"scope\": \"static_visual\",\n      \"grade\": \"pass\",\n      \"canonical_label\": \"fidelity.subject-structure\",\n      \"finding_state\": \"not_detected_in_scope\",\n      \"reason\": \"Two fresh normal186 reviews retain recognizable quiet Crow and clear upward head/bill attention. Lost iris/glint and softer feather shading remain a scoped appearance caveat, not anatomy certainty.\",\n      \"evidence\": [\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/frames/look.png\",\n          \"sha256\": \"65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0\"\n        },\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/reviews/appearance/independent-review.json\",\n          \"sha256\": \"89640877b54447cdda35ed7cf07094a974d6e9bfc65c01b389b02b9573d2f47a\"\n        },\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/reviews/geometry/independent-review.json\",\n          \"sha256\": \"dbc682290ce2ad902441ffc06e68810423413a429a3041d54f0bee8bad0a0aed\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      }\n    }",
+          "originalJsonSHA256": "9c8c70fb6bbdd8f1fce539086709a30d8cd4ad6c2b4648ef48fa9e01be712769",
+          "originalRecord": {
+            "asset_id": "frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3",
+            "variant_id": "look",
+            "candidate_revision": "crow-attention-selected-ground-palette-v1",
+            "source_file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "source_sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+            "scope": "static_visual",
+            "grade": "pass",
+            "canonical_label": "fidelity.subject-structure",
+            "finding_state": "not_detected_in_scope",
+            "reason": "Two fresh normal186 reviews retain recognizable quiet Crow and clear upward head/bill attention. Lost iris/glint and softer feather shading remain a scoped appearance caveat, not anatomy certainty.",
+            "evidence": [
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+                "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+              },
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/reviews/appearance/independent-review.json",
+                "sha256": "89640877b54447cdda35ed7cf07094a974d6e9bfc65c01b389b02b9573d2f47a"
+              },
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/reviews/geometry/independent-review.json",
+                "sha256": "dbc682290ce2ad902441ffc06e68810423413a429a3041d54f0bee8bad0a0aed"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            }
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+                "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/reviews/appearance/independent-review.json",
+                "sha256": "89640877b54447cdda35ed7cf07094a974d6e9bfc65c01b389b02b9573d2f47a"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "89640877b54447cdda35ed7cf07094a974d6e9bfc65c01b389b02b9573d2f47a"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/reviews/geometry/independent-review.json",
+                "sha256": "dbc682290ce2ad902441ffc06e68810423413a429a3041d54f0bee8bad0a0aed"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "dbc682290ce2ad902441ffc06e68810423413a429a3041d54f0bee8bad0a0aed"
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "subject-source only after actual migration builder confirms exact subject-image link; not authenticated consumer binding"
+        },
+        {
+          "sharedRecordIndex": 15,
+          "sourceJSONPointer": "/records/15",
+          "sourceByteRangeUTF8": [
+            29772,
+            31437
+          ],
+          "originalJson": "{\n      \"asset_id\": \"frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3\",\n      \"variant_id\": \"look\",\n      \"candidate_revision\": \"crow-attention-selected-ground-palette-v1\",\n      \"source_file\": \"experiments/crow-attention-selected-ground-palette-v1/frames/look.png\",\n      \"source_sha256\": \"65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0\",\n      \"scope\": \"runtime_admission\",\n      \"grade\": \"blocked\",\n      \"canonical_label\": \"runtime.unadmitted\",\n      \"finding_state\": \"unknown\",\n      \"reason\": \"No exact current Mac route/policy/source/reference pins, selected manifest/atlas/tint/fallback or live admission verified. Newfamily neutral differs180mask pixels from safe selectedground12; review transition boundary without replacing current idle.\",\n      \"evidence\": [\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/frames/look.png\",\n          \"sha256\": \"65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0\"\n        },\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json\",\n          \"sha256\": \"7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee\"\n        },\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/source-handoff.json\",\n          \"sha256\": \"56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      }\n    }",
+          "originalJsonSHA256": "8c30aa12d33bc5f966ef589e6b151069c16ed7b944ba518f97ba46fcdb72e105",
+          "originalRecord": {
+            "asset_id": "frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3",
+            "variant_id": "look",
+            "candidate_revision": "crow-attention-selected-ground-palette-v1",
+            "source_file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "source_sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+            "scope": "runtime_admission",
+            "grade": "blocked",
+            "canonical_label": "runtime.unadmitted",
+            "finding_state": "unknown",
+            "reason": "No exact current Mac route/policy/source/reference pins, selected manifest/atlas/tint/fallback or live admission verified. Newfamily neutral differs180mask pixels from safe selectedground12; review transition boundary without replacing current idle.",
+            "evidence": [
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+                "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+              },
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+                "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+              },
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+                "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            }
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+                "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+                "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+                "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "subject-source only after actual migration builder confirms exact subject-image link; not authenticated consumer binding"
+        },
+        {
+          "sharedRecordIndex": 16,
+          "sourceJSONPointer": "/records/16",
+          "sourceByteRangeUTF8": [
+            31443,
+            32770
+          ],
+          "originalJson": "{\n      \"asset_id\": \"frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3\",\n      \"variant_id\": \"look\",\n      \"candidate_revision\": \"crow-attention-selected-ground-palette-v1\",\n      \"source_file\": \"experiments/crow-attention-selected-ground-palette-v1/frames/look.png\",\n      \"source_sha256\": \"65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0\",\n      \"scope\": \"physical_geometry\",\n      \"grade\": \"blocked\",\n      \"canonical_label\": \"physics.unreviewed\",\n      \"finding_state\": \"unknown\",\n      \"reason\": \"Image registration and foot ROI review are not support authority; contacts[] and supportWorld:null remain unapproved.\",\n      \"evidence\": [\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/frames/look.png\",\n          \"sha256\": \"65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0\"\n        },\n        {\n          \"file\": \"experiments/crow-attention-selected-ground-palette-v1/source-handoff.json\",\n          \"sha256\": \"56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      }\n    }",
+          "originalJsonSHA256": "6f8a325ecc9b9cf4f0e7b0e19104d4669d51dd56a9f2f8c3c28ea9e95028341c",
+          "originalRecord": {
+            "asset_id": "frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3",
+            "variant_id": "look",
+            "candidate_revision": "crow-attention-selected-ground-palette-v1",
+            "source_file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "source_sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+            "scope": "physical_geometry",
+            "grade": "blocked",
+            "canonical_label": "physics.unreviewed",
+            "finding_state": "unknown",
+            "reason": "Image registration and foot ROI review are not support authority; contacts[] and supportWorld:null remain unapproved.",
+            "evidence": [
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+                "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+              },
+              {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+                "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            }
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+                "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+                "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "subject-source only after actual migration builder confirms exact subject-image link; not authenticated consumer binding"
+        }
+      ],
+      "typedReportState": "NOT_BUILT_PENDING_CANONICAL_API_AND_REQUIRED_BINDING_DATA",
+      "fullSourceBinding": "BLOCKED_MISSING_AUTHENTICATED_UI_CONSUMER_CONTEXT",
+      "missingOrUnmappedFacts": [
+        "Authenticated current UI V2\u2013V6 source manifest/consumer context and current requirement binding are not supplied. Producer source-handoff/texture-review metadata is not substituted.",
+        "No evaluation-model call was performed. Model identity, timing or confidence must not be invented.",
+        "No explicit catalog-to-typed-rule mappings supplied yet; actual resolver must retain labels unclassified."
+      ]
+    },
+    {
+      "caseId": "bath-held-scale-and-unreviewed-geometry",
+      "kind": "actual-art-source",
+      "testFixture": false,
+      "speciesSourceFact": "mourning_dove",
+      "selectedSharedRecordIndices": [
+        7,
+        8,
+        9
+      ],
+      "recordCount": 3,
+      "sourceFacts": [
+        {
+          "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+          "PNGsha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+          "canvas": [
+            192,
+            192
+          ],
+          "decodedRGBABytesSHA256": "b479fb4960be637040c7f830eade9a9374e8a0b473dcdae3ec3cd36a87e4d62c",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.e3ea2df45fae5bbb4a850a3ac73d50ab3afa136cab64b0516743ddbd0af0930a",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        },
+        {
+          "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+          "PNGsha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+          "canvas": [
+            192,
+            192
+          ],
+          "decodedRGBABytesSHA256": "b479fb4960be637040c7f830eade9a9374e8a0b473dcdae3ec3cd36a87e4d62c",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.e3ea2df45fae5bbb4a850a3ac73d50ab3afa136cab64b0516743ddbd0af0930a",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        },
+        {
+          "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+          "PNGsha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+          "canvas": [
+            192,
+            192
+          ],
+          "decodedRGBABytesSHA256": "b479fb4960be637040c7f830eade9a9374e8a0b473dcdae3ec3cd36a87e4d62c",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.e3ea2df45fae5bbb4a850a3ac73d50ab3afa136cab64b0516743ddbd0af0930a",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        }
+      ],
+      "producerMetadataEvidence": [
+        {
+          "file": "experiments/bath-source-proposal-v1/source-handoff.json",
+          "sha256": "0d1f0a335aaaa85270b89dace190bba04288d376041d130d7404152890dded8f",
+          "bytes": 8228
+        },
+        {
+          "file": "experiments/bath-source-proposal-v1/PRIMARY-SOURCE-MANIFEST.json",
+          "sha256": "721b9a19c3c1200be662ec734db02cbde68c162b5ee3a7b40ac16b86ea59c168",
+          "bytes": 6691
+        },
+        {
+          "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+          "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af",
+          "bytes": 6932
+        },
+        {
+          "file": "experiments/bath-source-proposal-v1/PREREGISTRATION.json",
+          "sha256": "3e47160a6fafb151e4e2b21de760d77366b9ba957d526562c26102fb0884c1b7",
+          "bytes": 4490
+        }
+      ],
+      "declaredNativeIDReferencesFromLegacyAssetID": [],
+      "nativeVsRenderIdentityQualification": "Legacy asset_id is retained verbatim. It can refer to a native original while source_file is a registered/export/construction derivative; these identities are not conflated.",
+      "retainedRecords": [
+        {
+          "sharedRecordIndex": 7,
+          "sourceJSONPointer": "/records/7",
+          "sourceByteRangeUTF8": [
+            12092,
+            13648
+          ],
+          "originalJson": "{\n      \"asset_id\": \"bath-reviewed-held-scale-contact-proxies\",\n      \"variant_id\": \"bath-study\",\n      \"candidate_revision\": \"bath-source-proposal-v1\",\n      \"source_file\": \"experiments/bath-source-proposal-v1/raw192/lowered-ready.png\",\n      \"source_sha256\": \"e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a\",\n      \"scope\": \"registration\",\n      \"grade\": \"repair\",\n      \"canonical_label\": \"registration.scale\",\n      \"finding_state\": \"observed\",\n      \"reason\": \"Retained normal-size independent bath review holds per-state source scale.118\\u2192175world silhouette width and baseline+29 are corroborating image proxies, not body segmentation or physical measurements.\",\n      \"evidence\": [\n        {\n          \"file\": \"experiments/bath-source-proposal-v1/raw192/lowered-ready.png\",\n          \"sha256\": \"e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a\"\n        },\n        {\n          \"file\": \"recovery/stage71/golden-results/inspection.json\",\n          \"sha256\": \"c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7\",\n          \"jsonPointer\": \"/candidates/2/frames/1\"\n        },\n        {\n          \"file\": \"experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json\",\n          \"sha256\": \"c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      }\n    }",
+          "originalJsonSHA256": "c947bf2e4fa22dc6780ce0490fe73b581b872511c566af0996150de55226e6d2",
+          "originalRecord": {
+            "asset_id": "bath-reviewed-held-scale-contact-proxies",
+            "variant_id": "bath-study",
+            "candidate_revision": "bath-source-proposal-v1",
+            "source_file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+            "source_sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+            "scope": "registration",
+            "grade": "repair",
+            "canonical_label": "registration.scale",
+            "finding_state": "observed",
+            "reason": "Retained normal-size independent bath review holds per-state source scale.118\u2192175world silhouette width and baseline+29 are corroborating image proxies, not body segmentation or physical measurements.",
+            "evidence": [
+              {
+                "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+                "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+              },
+              {
+                "file": "recovery/stage71/golden-results/inspection.json",
+                "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+                "jsonPointer": "/candidates/2/frames/1"
+              },
+              {
+                "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+                "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            }
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+                "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+            },
+            {
+              "originalEvidence": {
+                "file": "recovery/stage71/golden-results/inspection.json",
+                "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+                "jsonPointer": "/candidates/2/frames/1"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+              "pointerResolved": true
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+                "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "subject-source only after actual migration builder confirms exact subject-image link; not authenticated consumer binding"
+        },
+        {
+          "sharedRecordIndex": 8,
+          "sourceJSONPointer": "/records/8",
+          "sourceByteRangeUTF8": [
+            13654,
+            14929
+          ],
+          "originalJson": "{\n      \"asset_id\": \"bath-reviewed-held-scale-contact-proxies\",\n      \"variant_id\": \"bath-study\",\n      \"candidate_revision\": \"bath-source-proposal-v1\",\n      \"source_file\": \"experiments/bath-source-proposal-v1/raw192/lowered-ready.png\",\n      \"source_sha256\": \"e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a\",\n      \"scope\": \"physical_geometry\",\n      \"grade\": \"blocked\",\n      \"canonical_label\": \"physics.unreviewed\",\n      \"finding_state\": \"unknown\",\n      \"reason\": \"No accepted foot/sole support or bath water-plane/rim/immersion binding; apparent alpha and lower-image baseline do not establish physical support.\",\n      \"evidence\": [\n        {\n          \"file\": \"experiments/bath-source-proposal-v1/raw192/lowered-ready.png\",\n          \"sha256\": \"e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a\"\n        },\n        {\n          \"file\": \"experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json\",\n          \"sha256\": \"c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      }\n    }",
+          "originalJsonSHA256": "db7c665edef0ef49cfef5c293c235e337e5cc8e5ac06c298615e3b6b3a81caf1",
+          "originalRecord": {
+            "asset_id": "bath-reviewed-held-scale-contact-proxies",
+            "variant_id": "bath-study",
+            "candidate_revision": "bath-source-proposal-v1",
+            "source_file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+            "source_sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+            "scope": "physical_geometry",
+            "grade": "blocked",
+            "canonical_label": "physics.unreviewed",
+            "finding_state": "unknown",
+            "reason": "No accepted foot/sole support or bath water-plane/rim/immersion binding; apparent alpha and lower-image baseline do not establish physical support.",
+            "evidence": [
+              {
+                "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+                "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+              },
+              {
+                "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+                "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            }
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+                "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+                "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "subject-source only after actual migration builder confirms exact subject-image link; not authenticated consumer binding"
+        },
+        {
+          "sharedRecordIndex": 9,
+          "sourceJSONPointer": "/records/9",
+          "sourceByteRangeUTF8": [
+            14935,
+            16180
+          ],
+          "originalJson": "{\n      \"asset_id\": \"bath-reviewed-held-scale-contact-proxies\",\n      \"variant_id\": \"bath-study\",\n      \"candidate_revision\": \"bath-source-proposal-v1\",\n      \"source_file\": \"experiments/bath-source-proposal-v1/raw192/lowered-ready.png\",\n      \"source_sha256\": \"e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a\",\n      \"scope\": \"functional_fit\",\n      \"grade\": \"blocked\",\n      \"canonical_label\": \"interaction.unreviewed\",\n      \"finding_state\": \"unknown\",\n      \"reason\": \"Bath functional fit, water contact and immersion/rim relationship remain unreviewed against actual runtime geometry.\",\n      \"evidence\": [\n        {\n          \"file\": \"experiments/bath-source-proposal-v1/raw192/lowered-ready.png\",\n          \"sha256\": \"e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a\"\n        },\n        {\n          \"file\": \"experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json\",\n          \"sha256\": \"c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      }\n    }",
+          "originalJsonSHA256": "3d60bf720901676f890485c757747f42b93a4c789486ce8b55db31f426d544b6",
+          "originalRecord": {
+            "asset_id": "bath-reviewed-held-scale-contact-proxies",
+            "variant_id": "bath-study",
+            "candidate_revision": "bath-source-proposal-v1",
+            "source_file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+            "source_sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+            "scope": "functional_fit",
+            "grade": "blocked",
+            "canonical_label": "interaction.unreviewed",
+            "finding_state": "unknown",
+            "reason": "Bath functional fit, water contact and immersion/rim relationship remain unreviewed against actual runtime geometry.",
+            "evidence": [
+              {
+                "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+                "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+              },
+              {
+                "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+                "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            }
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+                "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+            },
+            {
+              "originalEvidence": {
+                "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+                "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "subject-source only after actual migration builder confirms exact subject-image link; not authenticated consumer binding"
+        }
+      ],
+      "typedReportState": "NOT_BUILT_PENDING_CANONICAL_API_AND_REQUIRED_BINDING_DATA",
+      "fullSourceBinding": "BLOCKED_MISSING_AUTHENTICATED_UI_CONSUMER_CONTEXT",
+      "missingOrUnmappedFacts": [
+        "Authenticated current UI V2\u2013V6 source manifest/consumer context and current requirement binding are not supplied. Producer source-handoff/texture-review metadata is not substituted.",
+        "No evaluation-model call was performed. Model identity, timing or confidence must not be invented.",
+        "No explicit catalog-to-typed-rule mappings supplied yet; actual resolver must retain labels unclassified.",
+        "Actual water plane/rim/immersion/support authority is unknown; scale proxy is image-only and geometry/functional labels remain blocked."
+      ]
+    },
+    {
+      "caseId": "finch-female-empty-anchor-annotations",
+      "kind": "actual-art-source",
+      "testFixture": false,
+      "speciesSourceFact": "house_finch",
+      "selectedSharedRecordIndices": [
+        10
+      ],
+      "recordCount": 1,
+      "sourceFacts": [
+        {
+          "file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+          "PNGsha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472",
+          "canvas": [
+            1024,
+            1024
+          ],
+          "decodedRGBABytesSHA256": "5ee4a945ac006c012c6bac23303337d522136a91d8c73f2151d567235a0cb110",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        }
+      ],
+      "producerMetadataEvidence": [
+        {
+          "file": "batches/house-finch-female-feed-v1/manifest.json",
+          "sha256": "fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3",
+          "bytes": 7553
+        }
+      ],
+      "declaredNativeIDReferencesFromLegacyAssetID": [],
+      "nativeVsRenderIdentityQualification": "Legacy asset_id is retained verbatim. It can refer to a native original while source_file is a registered/export/construction derivative; these identities are not conflated.",
+      "retainedRecords": [
+        {
+          "sharedRecordIndex": 10,
+          "sourceJSONPointer": "/records/10",
+          "sourceByteRangeUTF8": [
+            16186,
+            19934
+          ],
+          "originalJson": "{\n      \"asset_id\": \"house-finch-female-feed-v1\",\n      \"variant_id\": \"adult-female\",\n      \"candidate_revision\": \"house-finch-canon-v1\",\n      \"source_file\": \"frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png\",\n      \"source_sha256\": \"ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472\",\n      \"scope\": \"registration\",\n      \"grade\": \"repair\",\n      \"canonical_label\": \"registration.anchor-empty\",\n      \"finding_state\": \"observed\",\n      \"reason\": \"All12 approximate foot-coordinate annotations in this sex packet sample alpha0 and require reannotation. This does not reject the visible toes or useful illustrative feeding gestures.\",\n      \"evidence\": [\n        {\n          \"file\": \"frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png\",\n          \"sha256\": \"ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472\"\n        },\n        {\n          \"file\": \"batches/house-finch-female-feed-v1/manifest.json\",\n          \"sha256\": \"fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3\",\n          \"jsonPointer\": \"/frames\"\n        },\n        {\n          \"file\": \"batches/house-finch-female-feed-v1/reviews/geometry/independent-review.json\",\n          \"sha256\": \"b3ee8b507432cbdb38a040ccafb92d099c7ac0c2b218a38e5933622d3feb0577\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      },\n      \"measurement_context\": {\n        \"sourceCanvas\": [\n          1024,\n          1024\n        ],\n        \"worldSize\": null,\n        \"coordinateSpace\": \"source1024; not the review384 atlas\",\n        \"allSourceFrames\": [\n          {\n            \"frame_id\": \"frame.sha256.7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa\",\n            \"source_file\": \"frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png\",\n            \"sha256\": \"ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472\"\n          },\n          {\n            \"frame_id\": \"frame.sha256.8b65af206bba26b5748082748203618dd7d26fc5fa0c5dd44d785add7edfab7a\",\n            \"source_file\": \"frames/8b65af206bba26b5748082748203618dd7d26fc5fa0c5dd44d785add7edfab7a.png\",\n            \"sha256\": \"686e2b2e83e1aa3dd25ebf7b98a140c9d8489e37a78aa7ef5bfd0e2f7a0c438f\"\n          },\n          {\n            \"frame_id\": \"frame.sha256.195cf1b32ebffabeef9ffd57c5e9ef16bb4d3a9db95c24eb25edf6ece20ef3d0\",\n            \"source_file\": \"frames/195cf1b32ebffabeef9ffd57c5e9ef16bb4d3a9db95c24eb25edf6ece20ef3d0.png\",\n            \"sha256\": \"487b27bf4e8cb4d9b1e21861fe0f86559c0840f17537cbcd76b0f653f5af412d\"\n          },\n          {\n            \"frame_id\": \"frame.sha256.8e1edea263e5e79ceeb252b5e1825376d4aa8635f2086d1401e3f8179a78156d\",\n            \"source_file\": \"frames/8e1edea263e5e79ceeb252b5e1825376d4aa8635f2086d1401e3f8179a78156d.png\",\n            \"sha256\": \"ecb9d3d2a268696ab4934c00fd3afbc2953f158d792d8ac4007dad937ec18f2a\"\n          },\n          {\n            \"frame_id\": \"frame.sha256.967542e5af758085756aa3e94eeb09cd5b94f0b94a51c2a44e4a5336cc0ca793\",\n            \"source_file\": \"frames/967542e5af758085756aa3e94eeb09cd5b94f0b94a51c2a44e4a5336cc0ca793.png\",\n            \"sha256\": \"b886034104d88970595c579dfaaa04aa76e7b90393a756d0d34bca08834a096f\"\n          },\n          {\n            \"frame_id\": \"frame.sha256.574b167a4f11daf0095b9b22a3afdec7845ac23286f39e8d0f6a91cb3708c06f\",\n            \"source_file\": \"frames/574b167a4f11daf0095b9b22a3afdec7845ac23286f39e8d0f6a91cb3708c06f.png\",\n            \"sha256\": \"a68f4829b517bd97bcae011dacfe00dcc6f78554b58c03bc85f3cdfc13814c58\"\n          }\n        ]\n      }\n    }",
+          "originalJsonSHA256": "42e786d3ce80b23f271ea1d3546d0251fc3ce1abd538bd14b1f74d8cec43179e",
+          "originalRecord": {
+            "asset_id": "house-finch-female-feed-v1",
+            "variant_id": "adult-female",
+            "candidate_revision": "house-finch-canon-v1",
+            "source_file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+            "source_sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472",
+            "scope": "registration",
+            "grade": "repair",
+            "canonical_label": "registration.anchor-empty",
+            "finding_state": "observed",
+            "reason": "All12 approximate foot-coordinate annotations in this sex packet sample alpha0 and require reannotation. This does not reject the visible toes or useful illustrative feeding gestures.",
+            "evidence": [
+              {
+                "file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+                "sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472"
+              },
+              {
+                "file": "batches/house-finch-female-feed-v1/manifest.json",
+                "sha256": "fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3",
+                "jsonPointer": "/frames"
+              },
+              {
+                "file": "batches/house-finch-female-feed-v1/reviews/geometry/independent-review.json",
+                "sha256": "b3ee8b507432cbdb38a040ccafb92d099c7ac0c2b218a38e5933622d3feb0577"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            },
+            "measurement_context": {
+              "sourceCanvas": [
+                1024,
+                1024
+              ],
+              "worldSize": null,
+              "coordinateSpace": "source1024; not the review384 atlas",
+              "allSourceFrames": [
+                {
+                  "frame_id": "frame.sha256.7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa",
+                  "source_file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+                  "sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472"
+                },
+                {
+                  "frame_id": "frame.sha256.8b65af206bba26b5748082748203618dd7d26fc5fa0c5dd44d785add7edfab7a",
+                  "source_file": "frames/8b65af206bba26b5748082748203618dd7d26fc5fa0c5dd44d785add7edfab7a.png",
+                  "sha256": "686e2b2e83e1aa3dd25ebf7b98a140c9d8489e37a78aa7ef5bfd0e2f7a0c438f"
+                },
+                {
+                  "frame_id": "frame.sha256.195cf1b32ebffabeef9ffd57c5e9ef16bb4d3a9db95c24eb25edf6ece20ef3d0",
+                  "source_file": "frames/195cf1b32ebffabeef9ffd57c5e9ef16bb4d3a9db95c24eb25edf6ece20ef3d0.png",
+                  "sha256": "487b27bf4e8cb4d9b1e21861fe0f86559c0840f17537cbcd76b0f653f5af412d"
+                },
+                {
+                  "frame_id": "frame.sha256.8e1edea263e5e79ceeb252b5e1825376d4aa8635f2086d1401e3f8179a78156d",
+                  "source_file": "frames/8e1edea263e5e79ceeb252b5e1825376d4aa8635f2086d1401e3f8179a78156d.png",
+                  "sha256": "ecb9d3d2a268696ab4934c00fd3afbc2953f158d792d8ac4007dad937ec18f2a"
+                },
+                {
+                  "frame_id": "frame.sha256.967542e5af758085756aa3e94eeb09cd5b94f0b94a51c2a44e4a5336cc0ca793",
+                  "source_file": "frames/967542e5af758085756aa3e94eeb09cd5b94f0b94a51c2a44e4a5336cc0ca793.png",
+                  "sha256": "b886034104d88970595c579dfaaa04aa76e7b90393a756d0d34bca08834a096f"
+                },
+                {
+                  "frame_id": "frame.sha256.574b167a4f11daf0095b9b22a3afdec7845ac23286f39e8d0f6a91cb3708c06f",
+                  "source_file": "frames/574b167a4f11daf0095b9b22a3afdec7845ac23286f39e8d0f6a91cb3708c06f.png",
+                  "sha256": "a68f4829b517bd97bcae011dacfe00dcc6f78554b58c03bc85f3cdfc13814c58"
+                }
+              ]
+            }
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+                "sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472"
+            },
+            {
+              "originalEvidence": {
+                "file": "batches/house-finch-female-feed-v1/manifest.json",
+                "sha256": "fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3",
+                "jsonPointer": "/frames"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3",
+              "pointerResolved": true
+            },
+            {
+              "originalEvidence": {
+                "file": "batches/house-finch-female-feed-v1/reviews/geometry/independent-review.json",
+                "sha256": "b3ee8b507432cbdb38a040ccafb92d099c7ac0c2b218a38e5933622d3feb0577"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "b3ee8b507432cbdb38a040ccafb92d099c7ac0c2b218a38e5933622d3feb0577"
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "subject-source only after actual migration builder confirms exact subject-image link; not authenticated consumer binding"
+        }
+      ],
+      "typedReportState": "NOT_BUILT_PENDING_CANONICAL_API_AND_REQUIRED_BINDING_DATA",
+      "fullSourceBinding": "BLOCKED_MISSING_AUTHENTICATED_UI_CONSUMER_CONTEXT",
+      "missingOrUnmappedFacts": [
+        "Authenticated current UI V2\u2013V6 source manifest/consumer context and current requirement binding are not supplied. Producer source-handoff/texture-review metadata is not substituted.",
+        "No evaluation-model call was performed. Model identity, timing or confidence must not be invented.",
+        "No explicit catalog-to-typed-rule mappings supplied yet; actual resolver must retain labels unclassified.",
+        "Declared current world size/density is unknown; source1024 anchor samples must not be interpreted in review384 coordinates."
+      ]
+    },
+    {
+      "caseId": "control-declared-image-translation",
+      "kind": "validator-only-synthetic-control",
+      "testFixture": true,
+      "speciesSourceFact": "american_crow",
+      "selectedSharedRecordIndices": [
+        2
+      ],
+      "recordCount": 1,
+      "sourceFacts": [
+        {
+          "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+          "PNGsha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200",
+          "canvas": [
+            186,
+            186
+          ],
+          "decodedRGBABytesSHA256": "7072278eb635afb4781865b62c3a4d9d58e71e60250111dcf987a90eaaa51af5",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.48617d68730631197820126d5acb7de8de9cebd5126f04c34a3c568dea05bafa",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        }
+      ],
+      "producerMetadataEvidence": [
+        {
+          "file": "recovery/stage71/golden-config.json",
+          "sha256": "e1ccb70063a2a658c0d786c830ee124a92378160c4897766f9c711b3552c2371",
+          "bytes": 14035
+        },
+        {
+          "file": "recovery/stage71/validation-only-fixtures/DERIVATION.json",
+          "sha256": "e8e74108cf88ca910a73f5ecc9698036adff859424db9975b2216b0888976e1e",
+          "bytes": 649
+        },
+        {
+          "file": "recovery/stage71/golden-preregistration.json",
+          "sha256": "fa5be230d0af1b2a0f5267a7480174535fb597b5beb49f69aed031e32a231cbc",
+          "bytes": 1037
+        }
+      ],
+      "declaredNativeIDReferencesFromLegacyAssetID": [],
+      "nativeVsRenderIdentityQualification": "Legacy asset_id is retained verbatim. It can refer to a native original while source_file is a registered/export/construction derivative; these identities are not conflated.",
+      "retainedRecords": [
+        {
+          "sharedRecordIndex": 2,
+          "sourceJSONPointer": "/records/2",
+          "sourceByteRangeUTF8": [
+            4031,
+            5745
+          ],
+          "originalJson": "{\n      \"asset_id\": \"validation-only-declared-image-translation\",\n      \"variant_id\": \"idle\",\n      \"candidate_revision\": \"validation-only-declared-image-translation\",\n      \"source_file\": \"recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png\",\n      \"source_sha256\": \"0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200\",\n      \"scope\": \"registration\",\n      \"grade\": \"pass\",\n      \"canonical_label\": \"registration.pivot\",\n      \"finding_state\": \"not_detected_in_scope\",\n      \"reason\": \"The same4,3 image translation is declared intentional; residual0. Do not classify intended movement as jitter.\",\n      \"evidence\": [\n        {\n          \"file\": \"recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png\",\n          \"sha256\": \"0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200\"\n        },\n        {\n          \"file\": \"recovery/stage71/golden-results/inspection.json\",\n          \"sha256\": \"c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7\",\n          \"region\": [\n            0,\n            0,\n            186,\n            186\n          ],\n          \"canvas\": [\n            186,\n            186\n          ],\n          \"density\": 1,\n          \"display\": [\n            186.0,\n            186.0\n          ],\n          \"pivot\": [\n            108,\n            145\n          ],\n          \"jsonPointer\": \"/candidates/5/frames/1/stableRegion\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      },\n      \"test_fixture\": true\n    }",
+          "originalJsonSHA256": "587871a00ca753df47c7d38155726938a44f0c9ce2cb62f35764c2544c1e6c9c",
+          "originalRecord": {
+            "asset_id": "validation-only-declared-image-translation",
+            "variant_id": "idle",
+            "candidate_revision": "validation-only-declared-image-translation",
+            "source_file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+            "source_sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200",
+            "scope": "registration",
+            "grade": "pass",
+            "canonical_label": "registration.pivot",
+            "finding_state": "not_detected_in_scope",
+            "reason": "The same4,3 image translation is declared intentional; residual0. Do not classify intended movement as jitter.",
+            "evidence": [
+              {
+                "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+                "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+              },
+              {
+                "file": "recovery/stage71/golden-results/inspection.json",
+                "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+                "region": [
+                  0,
+                  0,
+                  186,
+                  186
+                ],
+                "canvas": [
+                  186,
+                  186
+                ],
+                "density": 1,
+                "display": [
+                  186.0,
+                  186.0
+                ],
+                "pivot": [
+                  108,
+                  145
+                ],
+                "jsonPointer": "/candidates/5/frames/1/stableRegion"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            },
+            "test_fixture": true
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+                "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+            },
+            {
+              "originalEvidence": {
+                "file": "recovery/stage71/golden-results/inspection.json",
+                "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+                "region": [
+                  0,
+                  0,
+                  186,
+                  186
+                ],
+                "canvas": [
+                  186,
+                  186
+                ],
+                "density": 1,
+                "display": [
+                  186.0,
+                  186.0
+                ],
+                "pivot": [
+                  108,
+                  145
+                ],
+                "jsonPointer": "/candidates/5/frames/1/stableRegion"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+              "pointerResolved": true
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "unverified"
+        }
+      ],
+      "typedReportState": "NOT_BUILT_PENDING_CANONICAL_API_AND_REQUIRED_BINDING_DATA",
+      "fullSourceBinding": "BLOCKED_MISSING_AUTHENTICATED_UI_CONSUMER_CONTEXT",
+      "missingOrUnmappedFacts": [
+        "Authenticated current UI V2\u2013V6 source manifest/consumer context and current requirement binding are not supplied. Producer source-handoff/texture-review metadata is not substituted.",
+        "No evaluation-model call was performed. Model identity, timing or confidence must not be invented.",
+        "No explicit catalog-to-typed-rule mappings supplied yet; actual resolver must retain labels unclassified.",
+        "Synthetic fixture has no new native primary ID, real-art adoption grade or authenticated production context. Only validator behavior is tested."
+      ]
+    },
+    {
+      "caseId": "control-declared-world-root-travel",
+      "kind": "validator-only-synthetic-control",
+      "testFixture": true,
+      "speciesSourceFact": "american_crow",
+      "selectedSharedRecordIndices": [
+        3
+      ],
+      "recordCount": 1,
+      "sourceFacts": [
+        {
+          "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+          "PNGsha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+          "canvas": [
+            186,
+            186
+          ],
+          "decodedRGBABytesSHA256": "33ee00ea97122616992cfa27896eb602fbb0bfd286368dc62d0456d32f2f7fab",
+          "RGBA8HeaderFrameIdentity": "frame.sha256.1813d867bc7c8673f9c2c5b084ff0783e498fef385d6a890d836a024344d21da",
+          "identityScope": "Decoded identity of these exact source/raster bytes; never substituted for a different native original ID."
+        }
+      ],
+      "producerMetadataEvidence": [
+        {
+          "file": "recovery/stage71/golden-config.json",
+          "sha256": "e1ccb70063a2a658c0d786c830ee124a92378160c4897766f9c711b3552c2371",
+          "bytes": 14035
+        },
+        {
+          "file": "recovery/stage71/validation-only-fixtures/DERIVATION.json",
+          "sha256": "e8e74108cf88ca910a73f5ecc9698036adff859424db9975b2216b0888976e1e",
+          "bytes": 649
+        },
+        {
+          "file": "recovery/stage71/golden-preregistration.json",
+          "sha256": "fa5be230d0af1b2a0f5267a7480174535fb597b5beb49f69aed031e32a231cbc",
+          "bytes": 1037
+        }
+      ],
+      "declaredNativeIDReferencesFromLegacyAssetID": [],
+      "nativeVsRenderIdentityQualification": "Legacy asset_id is retained verbatim. It can refer to a native original while source_file is a registered/export/construction derivative; these identities are not conflated.",
+      "retainedRecords": [
+        {
+          "sharedRecordIndex": 3,
+          "sourceJSONPointer": "/records/3",
+          "sourceByteRangeUTF8": [
+            5751,
+            7496
+          ],
+          "originalJson": "{\n      \"asset_id\": \"validation-only-declared-world-root-travel\",\n      \"variant_id\": \"idle\",\n      \"candidate_revision\": \"validation-only-declared-world-root-travel\",\n      \"source_file\": \"audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png\",\n      \"source_sha256\": \"6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91\",\n      \"scope\": \"registration\",\n      \"grade\": \"pass\",\n      \"canonical_label\": \"registration.pivot\",\n      \"finding_state\": \"not_detected_in_scope\",\n      \"reason\": \"Declared20world actor-root travel with identical image registration has zero image residual; global travel is not pivot jitter.\",\n      \"evidence\": [\n        {\n          \"file\": \"audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png\",\n          \"sha256\": \"6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91\"\n        },\n        {\n          \"file\": \"recovery/stage71/golden-results/inspection.json\",\n          \"sha256\": \"c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7\",\n          \"region\": [\n            0,\n            0,\n            186,\n            186\n          ],\n          \"canvas\": [\n            186,\n            186\n          ],\n          \"density\": 1,\n          \"display\": [\n            186.0,\n            186.0\n          ],\n          \"pivot\": [\n            108,\n            145\n          ],\n          \"jsonPointer\": \"/candidates/6/frames/1/stableRegion\"\n        }\n      ],\n      \"severity\": null,\n      \"confidence\": null,\n      \"provenance\": {\n        \"mappingAuthor\": \"root producer review of exact retained evidence\",\n        \"modelCalls\": 0,\n        \"runtimeAcceptanceAuthority\": false\n      },\n      \"test_fixture\": true\n    }",
+          "originalJsonSHA256": "7013c40c8e2b628d121ca133cb76552774fd8e10b08f4d714a64a8caa20f1d59",
+          "originalRecord": {
+            "asset_id": "validation-only-declared-world-root-travel",
+            "variant_id": "idle",
+            "candidate_revision": "validation-only-declared-world-root-travel",
+            "source_file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+            "source_sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+            "scope": "registration",
+            "grade": "pass",
+            "canonical_label": "registration.pivot",
+            "finding_state": "not_detected_in_scope",
+            "reason": "Declared20world actor-root travel with identical image registration has zero image residual; global travel is not pivot jitter.",
+            "evidence": [
+              {
+                "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+                "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+              },
+              {
+                "file": "recovery/stage71/golden-results/inspection.json",
+                "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+                "region": [
+                  0,
+                  0,
+                  186,
+                  186
+                ],
+                "canvas": [
+                  186,
+                  186
+                ],
+                "density": 1,
+                "display": [
+                  186.0,
+                  186.0
+                ],
+                "pivot": [
+                  108,
+                  145
+                ],
+                "jsonPointer": "/candidates/6/frames/1/stableRegion"
+              }
+            ],
+            "severity": null,
+            "confidence": null,
+            "provenance": {
+              "mappingAuthor": "root producer review of exact retained evidence",
+              "modelCalls": 0,
+              "runtimeAcceptanceAuthority": false
+            },
+            "test_fixture": true
+          },
+          "sourceLabelsPreservedExactly": true,
+          "sourceGradePreservedExactly": true,
+          "nullSeverityConfidencePreserved": true,
+          "evidenceBindings": [
+            {
+              "originalEvidence": {
+                "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+                "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+            },
+            {
+              "originalEvidence": {
+                "file": "recovery/stage71/golden-results/inspection.json",
+                "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+                "region": [
+                  0,
+                  0,
+                  186,
+                  186
+                ],
+                "canvas": [
+                  186,
+                  186
+                ],
+                "density": 1,
+                "display": [
+                  186.0,
+                  186.0
+                ],
+                "pivot": [
+                  108,
+                  145
+                ],
+                "jsonPointer": "/candidates/6/frames/1/stableRegion"
+              },
+              "hashState": "EXACT",
+              "actualSHA256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+              "pointerResolved": true
+            }
+          ],
+          "typedFindingConversion": "NOT_PERFORMED; no automatic grade/knowledge/verdict conversion",
+          "proposedSourceApplicability": "unverified"
+        }
+      ],
+      "typedReportState": "NOT_BUILT_PENDING_CANONICAL_API_AND_REQUIRED_BINDING_DATA",
+      "fullSourceBinding": "BLOCKED_MISSING_AUTHENTICATED_UI_CONSUMER_CONTEXT",
+      "missingOrUnmappedFacts": [
+        "Authenticated current UI V2\u2013V6 source manifest/consumer context and current requirement binding are not supplied. Producer source-handoff/texture-review metadata is not substituted.",
+        "No evaluation-model call was performed. Model identity, timing or confidence must not be invented.",
+        "No explicit catalog-to-typed-rule mappings supplied yet; actual resolver must retain labels unclassified.",
+        "Synthetic fixture has no new native primary ID, real-art adoption grade or authenticated production context. Only validator behavior is tested."
+      ]
+    }
+  ],
+  "canonicalAPIStatus": "Phoebe owns exact PR40 module/export/harness. No schema fork or local replacement validator. Await stable API pin before shape migration.",
+  "retentionAPIReportedByCanonicalOwner": {
+    "function": "retainCanonicalAssetDefectSourceLabel(originalJson,declaredSha256,applicability)",
+    "resolver": "resolveAssetQualitySourceLabel(retained,mappings=[])",
+    "emptyMappingMeaning": "Every retained row remains unclassified with no explicit mapping, regardless of whether its catalog ID is known.",
+    "catalogCardinalityReported": {
+      "uniqueIDs": 17,
+      "IDsWithPermittedClassifications": 5,
+      "catalogIDsWithNullClassification": 12
+    },
+    "notSelectedRecordCounts": true
+  },
+  "inputHashGuards": {
+    "allExactBeforeAfter": true,
+    "files": {
+      "recovery/stage74/shared-label-records.json": "2166039e70ffa922dc13448d362bf01313ed235a96649574fb377cc0d7f2edf7",
+      "experiments/bushtit-logical64-eyelid-v3/frames/closed.png": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40",
+      "experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json": "41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738",
+      "experiments/bushtit-logical64-eyelid-v3/reviews/appearance/independent-review.json": "74eabdf0bfab41f7b0f9fece43d9ccd550baccab1e841fcb11c8379a56eb29a9",
+      "experiments/bushtit-logical64-eyelid-v3/reviews/geometry/independent-review.json": "ffe9e87496473d8a3659103f0917cb8f95c5e701e4f269aab46d9c0811b02a80",
+      "experiments/bushtit-logical64-eyelid-v3/source-handoff.json": "7e082ba30324099cf8edcbaa3f8afd8367ab1efa850107bf759de5e25ccace46",
+      "experiments/bushtit-logical64-eyelid-v3/PRIMARY-SOURCE-MANIFEST.json": "8dee0609d0866b6c7d849c88cb97224804a133bdf0d0e28e2a4872bf96362e69",
+      "experiments/bushtit-logical64-eyelid-v3/PREREGISTRATION.json": "6424dccf856b2729495bf1b2ea82fbdeb9115d5bbb00c771d935e256b9e96b2c",
+      "experiments/crow-attention-selected-ground-palette-v1/frames/look.png": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+      "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee",
+      "experiments/crow-attention-selected-ground-palette-v1/contract-intake/pixel-receipt.json": "ece99780eb9fa0edc65851064d52b2957942133c0da6a9b8153b838cf03a7d52",
+      "experiments/crow-attention-selected-ground-palette-v1/CHECK-RESULTS.json": "888f23160fbd5c8e945c76e4cac9e9a1ba5b576da7a48c59aa18034b64be7403",
+      "experiments/crow-attention-selected-ground-palette-v1/reviews/appearance/independent-review.json": "89640877b54447cdda35ed7cf07094a974d6e9bfc65c01b389b02b9573d2f47a",
+      "experiments/crow-attention-selected-ground-palette-v1/reviews/geometry/independent-review.json": "dbc682290ce2ad902441ffc06e68810423413a429a3041d54f0bee8bad0a0aed",
+      "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2",
+      "experiments/crow-attention-selected-ground-palette-v1/PRIMARY-SOURCE-MANIFEST.json": "7027b89f7593d72be44a699a2e7e597b5df40c35d101e9f6e5ce6e404917fdac",
+      "experiments/crow-attention-selected-ground-palette-v1/PREREGISTRATION.json": "733bce9ce53805463923b38b4173e3196fc605e83e66a622f4d3ebada086b4ce",
+      "experiments/bath-source-proposal-v1/raw192/lowered-ready.png": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+      "recovery/stage71/golden-results/inspection.json": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+      "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af",
+      "experiments/bath-source-proposal-v1/source-handoff.json": "0d1f0a335aaaa85270b89dace190bba04288d376041d130d7404152890dded8f",
+      "experiments/bath-source-proposal-v1/PRIMARY-SOURCE-MANIFEST.json": "721b9a19c3c1200be662ec734db02cbde68c162b5ee3a7b40ac16b86ea59c168",
+      "experiments/bath-source-proposal-v1/PREREGISTRATION.json": "3e47160a6fafb151e4e2b21de760d77366b9ba957d526562c26102fb0884c1b7",
+      "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472",
+      "batches/house-finch-female-feed-v1/manifest.json": "fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3",
+      "batches/house-finch-female-feed-v1/reviews/geometry/independent-review.json": "b3ee8b507432cbdb38a040ccafb92d099c7ac0c2b218a38e5933622d3feb0577",
+      "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200",
+      "recovery/stage71/golden-config.json": "e1ccb70063a2a658c0d786c830ee124a92378160c4897766f9c711b3552c2371",
+      "recovery/stage71/validation-only-fixtures/DERIVATION.json": "e8e74108cf88ca910a73f5ecc9698036adff859424db9975b2216b0888976e1e",
+      "recovery/stage71/golden-preregistration.json": "fa5be230d0af1b2a0f5267a7480174535fb597b5beb49f69aed031e32a231cbc",
+      "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+    }
+  },
+  "bindingIssues": [],
+  "requirements": [
+    "Preserve exact raw source record slices, existing labels/grades/reasons/provenance and null severity/confidence.",
+    "Do not manufacture UI manifests, hashes, model IDs/timings, confidence, private rights or consumer binding.",
+    "Full source-binding validation remains explicitly blocked without actual authenticated context; blocked source binding is not a runtime/art failure.",
+    "Two controls remain validator-only and cannot provide art-usefulness evidence."
+  ],
+  "writes": [
+    "recovery/stage76/input-selection-lineage-manifest.json"
+  ],
+  "publicSourceOrRawSharedRecordsModified": false,
+  "nativeGenerationCalls": 0
+}

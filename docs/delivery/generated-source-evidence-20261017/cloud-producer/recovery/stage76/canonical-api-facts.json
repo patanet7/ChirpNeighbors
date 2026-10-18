@@ -1,0 +1,103 @@
+{
+  "kind": "API introspection from actual PR40 exports; not another schema or portable registration",
+  "commit": "ba87917fc93c547dae07e78c3148542390c2456c",
+  "sourceModule": "src/lib/assets/asset-quality-evaluation.ts",
+  "sourceModuleSHA256": "0c6049f0b485b110f676633e3639db1f57636586c094c6c5862204fcfa0105b7",
+  "exports": [
+    "ASSET_QUALITY_CATALOG_V1",
+    "ASSET_QUALITY_LIMITS",
+    "ASSET_QUALITY_SOURCE_LABEL_CLASSIFICATIONS_V1",
+    "CANONICAL_SOURCE_ART_LABEL_REFERENCE_V1",
+    "assetQualityEvaluationSchema",
+    "assetQualityFindingSchema",
+    "assetQualityReviewedContactProofSchema",
+    "parseAssetQualityEvaluationJson",
+    "resolveAssetQualitySourceLabel",
+    "retainCanonicalAssetDefectSourceLabel",
+    "serializeAssetQualityEvaluation",
+    "validateAssetQualityEvaluation"
+  ],
+  "requiredFieldNames": {
+    "report": [
+      "schemaVersion",
+      "authority",
+      "advisoryOnly",
+      "grantsAdmission",
+      "reportId",
+      "basis",
+      "subject",
+      "requirement",
+      "tools",
+      "evidence",
+      "findings"
+    ],
+    "finding": [
+      "id",
+      "category",
+      "label",
+      "target",
+      "knowledge",
+      "verdict",
+      "severity",
+      "confidence",
+      "toolId",
+      "evidenceIds",
+      "measurements",
+      "contactBasis",
+      "supersedes",
+      "supersedesExternal",
+      "repair",
+      "review"
+    ],
+    "subject": [
+      "assetId",
+      "speciesId",
+      "contentDigest",
+      "sourcePngSha256",
+      "rgbaSha256",
+      "manifestSha256",
+      "geometrySha256",
+      "canvas"
+    ],
+    "requirement": [
+      "sha256",
+      "speciesId",
+      "activity",
+      "motionPhase",
+      "requestedClip",
+      "facing",
+      "recipe",
+      "support"
+    ]
+  },
+  "limits": {
+    "bytes": 65536,
+    "findings": 256,
+    "evidence": 64,
+    "tools": 16,
+    "mappings": 128
+  },
+  "sourceLabelClassifications": {
+    "visual.alpha-matte": "transparency-noise",
+    "visual.crop-truncation": null,
+    "visual.display-density": null,
+    "fidelity.subject-structure": "identity-anatomy-mismatch",
+    "registration.pivot": "anchor-registration-drift",
+    "registration.scale": "relative-scale-mismatch",
+    "registration.anchor-empty": null,
+    "registration.contact-appearance": null,
+    "layer.seam": null,
+    "layer.ownership": null,
+    "state.art-missing": null,
+    "motion.parts-unqualified": null,
+    "media.constraint": null,
+    "provenance.incomplete": null,
+    "physics.unreviewed": null,
+    "interaction.unreviewed": null,
+    "runtime.unadmitted": "runtime-adoption-unverified"
+  },
+  "existingCanonicalCatalogSHA256": "b78e048b84bff2a99da153c6b3636bb5683b4d0ab015d8b68fa3745b39a56996",
+  "semanticAuthority": "canonical-export/src/lib/assets/asset-quality-evaluation.ts",
+  "contactAuthority": "Actual reviewed-contact proof requires exact subject/requirement/support geometry plus clip/frame/pose/contact/region coverage. Empty contacts and opaque pixels do not supply it.",
+  "runtimeAdmission": false
+}
