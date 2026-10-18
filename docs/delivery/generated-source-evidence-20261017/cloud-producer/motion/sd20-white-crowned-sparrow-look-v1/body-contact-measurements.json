@@ -1,0 +1,208 @@
+{
+  "sourceCanvases": [
+    [
+      1024,
+      1024
+    ],
+    [
+      1254,
+      1254
+    ]
+  ],
+  "outputCanvas": [
+    96,
+    96
+  ],
+  "worldCanvas": {
+    "width": 123.42857142857143,
+    "height": 123.42857142857143
+  },
+  "density": 0.7777777777777778,
+  "pivot": {
+    "x": 57,
+    "y": 75
+  },
+  "oldAwakeContacts": [
+    {
+      "id": "foot-1",
+      "x": 55,
+      "y": 73
+    },
+    {
+      "id": "foot-2",
+      "x": 58,
+      "y": 73
+    }
+  ],
+  "newFrameContacts": [],
+  "inheritedComparisonProbesByFrame": [
+    [
+      {
+        "id": "foot-1",
+        "x": 55,
+        "y": 73,
+        "sampledRGBA": [
+          161,
+          135,
+          119,
+          250
+        ],
+        "meaning": "actualoldawakefootprobe",
+        "newFrameContactClaim": null
+      },
+      {
+        "id": "foot-2",
+        "x": 58,
+        "y": 73,
+        "sampledRGBA": [
+          38,
+          25,
+          26,
+          242
+        ],
+        "meaning": "actualoldawakefootprobe",
+        "newFrameContactClaim": null
+      }
+    ],
+    [
+      {
+        "id": "foot-1",
+        "x": 55,
+        "y": 73,
+        "sampledRGBA": [
+          157,
+          141,
+          128,
+          253
+        ],
+        "meaning": "COMPARISON ONLY:these source pixels now lower-body/belly,notfeet",
+        "newFrameContactClaim": false
+      },
+      {
+        "id": "foot-2",
+        "x": 58,
+        "y": 73,
+        "sampledRGBA": [
+          153,
+          139,
+          130,
+          253
+        ],
+        "meaning": "COMPARISON ONLY:these source pixels now lower-body/belly,notfeet",
+        "newFrameContactClaim": false
+      }
+    ]
+  ],
+  "bboxAlpha128": [
+    [
+      26,
+      43,
+      68,
+      74
+    ],
+    [
+      21,
+      43,
+      73,
+      84
+    ]
+  ],
+  "visibleWidthWorld": [
+    54.0,
+    66.85714285714286
+  ],
+  "globalLowestRowsAlpha128": [
+    73,
+    83
+  ],
+  "lowestRowChangeOutputPx": 10,
+  "lowestRowChangeWorld": 12.857142857142858,
+  "actualNewToeInspectionROI": [
+    48,
+    78,
+    74,
+    86
+  ],
+  "newToeInspectionProbes": [
+    {
+      "id": "visible-toe-silhouette-a",
+      "x": 61,
+      "y": 82,
+      "sampledRGBA": [
+        162,
+        122,
+        108,
+        251
+      ],
+      "contactClaim": false
+    },
+    {
+      "id": "visible-toe-silhouette-b",
+      "x": 69,
+      "y": 80,
+      "sampledRGBA": [
+        108,
+        76,
+        62,
+        251
+      ],
+      "contactClaim": false
+    }
+  ],
+  "newToeInspectionMeaning": "Actualvisibletoesarelower;inspectionROIonly,nophysical/left-righttoeid orsupportapproval.",
+  "regionalComparisons": {
+    "head-crown": {
+      "roi": [
+        52,
+        40,
+        74,
+        57
+      ],
+      "changedRGBApixels": 258,
+      "alpha128SilhouetteIoU": 0.5327868852459017
+    },
+    "body-wing": {
+      "roi": [
+        36,
+        52,
+        70,
+        70
+      ],
+      "changedRGBApixels": 538,
+      "alpha128SilhouetteIoU": 0.5332068311195446
+    },
+    "tail": {
+      "roi": [
+        18,
+        63,
+        47,
+        82
+      ],
+      "changedRGBApixels": 192,
+      "alpha128SilhouetteIoU": 0.09090909090909091
+    },
+    "old-feet-window": {
+      "roi": [
+        48,
+        68,
+        66,
+        77
+      ],
+      "changedRGBApixels": 130,
+      "alpha128SilhouetteIoU": 0.23728813559322035
+    },
+    "new-toe-inspection": {
+      "roi": [
+        48,
+        78,
+        74,
+        86
+      ],
+      "changedRGBApixels": 72,
+      "alpha128SilhouetteIoU": 0.0
+    }
+  },
+  "bodyPixelEqualityAcceptanceGate": false,
+  "sourceAssessment": "HELD:largebodyenlargementandfeetdrop,notjustheadturn. Oldprobe positivity onbelly isnotcontactproof.",
+  "actualAngleMeasured": false
+}
