@@ -1,0 +1,2789 @@
+{
+  "document_kind": "integration10-selected-source-assembly",
+  "source_inventory_authority": "Existing canonical intake; this is a derived assembly, not a competing inventory.",
+  "asset_id": "scene.san_diego_inland_canyon",
+  "season_variant_ids": [
+    "depth09_inland_fenced_test.season_spring_v1",
+    "depth09_inland_fenced_test.season_summer_v1",
+    "depth09_inland_fenced_test.season_autumn_v1",
+    "depth09_inland_fenced_test.season_winter_v1"
+  ],
+  "source_scene_commit": "f955c7b97829cb647db6078cf1b7880438fdd886",
+  "native_canvas_px": [
+    1536,
+    1024
+  ],
+  "viewport_crop_xyxy": [
+    0,
+    160,
+    1536,
+    1024
+  ],
+  "world_canvas_px": [
+    960,
+    540
+  ],
+  "source_to_world_matrix": [
+    0.625,
+    0,
+    0,
+    0,
+    0.625,
+    -100,
+    0,
+    0,
+    1
+  ],
+  "world_units": "Authored screen units; 130nativepx/metre is illustrative only, never calibrated support or elevation.",
+  "background": {
+    "sky": "sky",
+    "mountains": "mountains",
+    "mountains_snow": "mountains_snow",
+    "fence": "fence",
+    "grounds": {
+      "spring": "ground_spring",
+      "summer": "ground_summer",
+      "autumn": "ground_autumn",
+      "winter": "ground_winter"
+    },
+    "litter": {
+      "autumn": "litter_autumn",
+      "winter": "litter_winter"
+    }
+  },
+  "instances": [
+    {
+      "instance_id": "tree",
+      "asset_id": "plant.california_sycamore",
+      "variant_id": "depth09_reused_sycamore_assembly",
+      "modules": {
+        "wood": "sycamore_wood_bare",
+        "canopy_healthy": "sycamore_canopy_healthy",
+        "canopy_autumn": "sycamore_canopy_sparse_senescent"
+      },
+      "root_source_px": [
+        279.6267942583732,
+        880.4784688995215
+      ],
+      "pivot_native_px": [
+        668,
+        1180
+      ],
+      "resize_px": [
+        585,
+        585
+      ],
+      "method": "resize_then_place",
+      "physical_calibration": false,
+      "depth": "Actual root source y; wood and canopy are separate visual parts of one sorted actor",
+      "season_policy": "Healthy spring/summer; sparse autumn; bare winter. Conditional deciduous tree, not universal regional behavior.",
+      "root_world_px": [
+        174.76674641148324,
+        450.29904306220095
+      ],
+      "native_to_world_scale_xy": [
+        0.29156698564593303,
+        0.29156698564593303
+      ]
+    },
+    {
+      "instance_id": "cedar_feeder",
+      "asset_id": "object.cedar_feeder",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "sprite": "object.cedar_feeder_native",
+      "pivot_native_px": [
+        196,
+        494
+      ],
+      "root_source_px": [
+        1100,
+        800
+      ],
+      "scale_native_to_source": 0.40219560878243515,
+      "method": "affine_nearest",
+      "physical_calibration": false,
+      "canonical_runtime_id": "cedar_feeder",
+      "geometry_match_to_existing_runtime": false,
+      "interaction_points": "Existing catalog slots must not be reused against these proposed scales without reviewed geometry mapping.",
+      "root_world_px": [
+        687.5,
+        400.0
+      ],
+      "native_to_world_scale_xy": [
+        0.251372255489022,
+        0.251372255489022
+      ]
+    },
+    {
+      "instance_id": "bench",
+      "asset_id": "object.bench",
+      "variant_id": "san_diego_20261017_candidate_v1",
+      "sprite": "object.bench_native",
+      "pivot_native_px": [
+        378,
+        429
+      ],
+      "root_source_px": [
+        950,
+        925
+      ],
+      "scale_native_to_source": 0.2505353319057816,
+      "method": "affine_nearest",
+      "physical_calibration": false,
+      "canonical_runtime_id": "bench",
+      "geometry_match_to_existing_runtime": false,
+      "interaction_points": "Existing catalog slots must not be reused against these proposed scales without reviewed geometry mapping.",
+      "root_world_px": [
+        593.75,
+        478.125
+      ],
+      "native_to_world_scale_xy": [
+        0.1565845824411135,
+        0.1565845824411135
+      ]
+    },
+    {
+      "instance_id": "bladderpod",
+      "asset_id": "plant.bladderpod",
+      "variant_id": "repair07_healthy_v1",
+      "sprite": "bladderpod_native",
+      "pivot_native_px": [
+        370,
+        895
+      ],
+      "root_source_px": [
+        1299.6410256410256,
+        899.694783573807
+      ],
+      "resize_px": [
+        170,
+        196
+      ],
+      "method": "resize_then_place",
+      "physical_calibration": false,
+      "season_policy": "Same healthy flowering/pods sprite across four yard seasons, manual conditional review only; no four plant states or year-round bloom claim.",
+      "runtime_catalog_registered": false,
+      "wind": "Static whole shrub; no independent flexible parts.",
+      "root_world_px": [
+        812.275641025641,
+        462.30923973362934
+      ],
+      "native_to_world_scale_xy": [
+        0.13621794871794873,
+        0.13596004439511655
+      ]
+    }
+  ],
+  "masks": [
+    {
+      "image": "mask_0",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/bench-footprint-PROPOSED.png",
+        "sha256": "ed051d5d8c7ebb4a140700543b274b7bb15badd8b67477be7486be82a3cba5a5",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "authored_proposed_placement_or_instance_envelope",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_1",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/bench-soft-alpha.png",
+        "sha256": "8317369bfbb6cd9b9bd7cf042eac324f61b24027d8c08f1612262ab73f979e79",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          253
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_2",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/bench-visual-alpha128.png",
+        "sha256": "819da563d6ff018ddb176baa9be928054eff8f01e39a4684ad503e9c528a655c",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_3",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/cedar_feeder-footprint-PROPOSED.png",
+        "sha256": "faca72a5b015750580e97bdaa0b7177dbbb3dc16da54dd2b5e0783ec0b382fa0",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "authored_proposed_placement_or_instance_envelope",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_4",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/cedar_feeder-soft-alpha.png",
+        "sha256": "dbc7a50d27e66bc1f596b09a8a70cd6f47149dddc763ff8daedfba6218fd970e",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          254
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_5",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/cedar_feeder-visual-alpha128.png",
+        "sha256": "a1299bbdc8431c75b83847f267439dca39005a5e5894f674df7c6358ab609794",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_6",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/fence-base-strip-PROPOSED.png",
+        "sha256": "ec31748bc80c34fce6ade1871c6fcc515cfcb01629130224ac4244d5626842d3",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "authored_proposed_placement_or_instance_envelope",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_7",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/fence-soft-alpha.png",
+        "sha256": "1b890fd130f3c86658d154ddab007fb5949e319404432b8d2776dccf2d99e156",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_8",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/fence-visual-alpha128.png",
+        "sha256": "3853df3421a1f1a8f584bc64edd5974b6ed1a7b7a6d0b54136539de1496ff35c",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_9",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/full-floor-PROPOSED.png",
+        "sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "authored_proposed_placement_or_instance_envelope",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_10",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/objects-soft-alpha.png",
+        "sha256": "2ea35a9fb9779efd965b329b8d86a62d6c7c2a2b9f0011cc91d9fb571c875ccf",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          254
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_11",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/objects-visual-alpha128.png",
+        "sha256": "5c898279579ea564ca5f6bd1807fa766989a03c8b5d931e053acde27c09200df",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_12",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/ground/full-visible-ground-mask-960.png",
+        "sha256": "e5389aa945c22d4cc486ca542a6d48c4fde8a2a821a3c69ddc5834b32a593f7b",
+        "dimensions_px": [
+          960,
+          540
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "authored_proposed_placement_or_instance_envelope",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_13",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/full-floor-PROPOSED.png",
+        "sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "authored_proposed_placement_or_instance_envelope",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_14",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/mountain-masks/mountains_base-soft-alpha.png",
+        "sha256": "c453a66d0e2106a0ef70788ce0896e21a3201b1153a7513af6dea6f969ad5b7f",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          254
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_15",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/mountain-masks/mountains_snow-soft-alpha.png",
+        "sha256": "7dc8cdaf5275a7c3f8ba7f8aa01ae793fbd83fa586bc7f6b4b2983dd371a5457",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          254
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_16",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-canopy-visual-coverage.png",
+        "sha256": "d1d7ac37c3d4d9d69508b9a34c024d3d7e3679362b6a5f4da0d0e744dbfaeca6",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_17",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-wood-visual-coverage.png",
+        "sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_18",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/root-contact-visual-coverage.png",
+        "sha256": "6ee40ec9d5f7c3bf3080dd2d8dd13c0572c351ff1daf6eb6b0d413f869efd74b",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_19",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/spring-canopy-visual-coverage.png",
+        "sha256": "57d64b132ed821981765efd9cb3bbc52e4f302e497a56c3cd92cce2c817aad40",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_20",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-wood-visual-coverage.png",
+        "sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_21",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/spring-canopy-visual-coverage.png",
+        "sha256": "57d64b132ed821981765efd9cb3bbc52e4f302e497a56c3cd92cce2c817aad40",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_22",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-wood-visual-coverage.png",
+        "sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_23",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/winter-canopy-visual-coverage.png",
+        "sha256": "7d76e71a63a8171d2fb932d53f8b55591f27b5e14fa0d4daad6762cc279a53be",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          0
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    },
+    {
+      "image": "mask_24",
+      "source_semantics": {
+        "file": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-wood-visual-coverage.png",
+        "sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+        "dimensions_px": [
+          1536,
+          1024
+        ],
+        "mode": "L",
+        "value_extrema": [
+          0,
+          255
+        ],
+        "raster_available": true,
+        "semantic_status": "usable_visual_coverage_only",
+        "automatic_physical_geometry": false
+      },
+      "physical_geometry_reviewed": false
+    }
+  ],
+  "full_ground_mask": "full_ground_authored",
+  "images": {
+    "sky": {
+      "file": "art/181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c.png",
+      "sha256": "181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c",
+      "bytes": 1485598,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+      "source_sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+      "operation": "RGB preserved; convert to RGBA; authored sky alpha255 for y<494, alpha0 below. Clouds remain flattened with blue sky.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mountains": {
+      "file": "art/9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc.png",
+      "sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+      "bytes": 875296,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/far-ground/layers/far-inland-base-alpha8-offset-minus120.png",
+      "source_sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mountains_snow": {
+      "file": "art/99b10bfccb88067e7588bb3f180ec98f07cac30a982bfcd10f1a34d1fa0a5692.png",
+      "sha256": "99b10bfccb88067e7588bb3f180ec98f07cac30a982bfcd10f1a34d1fa0a5692",
+      "bytes": 896541,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/far-ground/layers/far-inland-summit-snow-alpha8-offset-minus120.png",
+      "source_sha256": "99b10bfccb88067e7588bb3f180ec98f07cac30a982bfcd10f1a34d1fa0a5692",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "fence": {
+      "file": "art/2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b.png",
+      "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+      "bytes": 295918,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/cedar-privacy-fence-row.png",
+      "source_sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "ground_spring": {
+      "file": "art/2276a88411a9d94d7b170d687a695777882240c64e58d5019ea5e57bfbaf3094.png",
+      "sha256": "2276a88411a9d94d7b170d687a695777882240c64e58d5019ea5e57bfbaf3094",
+      "bytes": 2035837,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-r1.png",
+      "source_sha256": "4b9005b26b759330f60d36dfb0e913a793c74449647d72ce076f0736438d7d81",
+      "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "ground_summer": {
+      "file": "art/6e45cdaa060fa291639fc7fc779e4aaa86ce0485cb54f8f13218671bffc430f4.png",
+      "sha256": "6e45cdaa060fa291639fc7fc779e4aaa86ce0485cb54f8f13218671bffc430f4",
+      "bytes": 2277285,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-summer-r1.png",
+      "source_sha256": "6074c4d9d0685aaa52afb5bb6ca26aeccb7b9c6cf19490c6d236a9bf67d3c489",
+      "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "ground_autumn": {
+      "file": "art/4820cedcbc366caf89a73ec336f6a710b9cab7b0dcdfc911103ca3f367a40810.png",
+      "sha256": "4820cedcbc366caf89a73ec336f6a710b9cab7b0dcdfc911103ca3f367a40810",
+      "bytes": 2124990,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-autumn-r1.png",
+      "source_sha256": "c665f01747fda3c0a328ed0b9e84be9cbc5e0f39aaf9d83fbd3bf37a6b4cbf54",
+      "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "litter_autumn": {
+      "file": "art/175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682.png",
+      "sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "bytes": 12400,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-litter.png",
+      "source_sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "ground_winter": {
+      "file": "art/a0600f627f01c438d76bd7ea9a1e06f6035e59f2567b0db34826b3a72e62a69b.png",
+      "sha256": "a0600f627f01c438d76bd7ea9a1e06f6035e59f2567b0db34826b3a72e62a69b",
+      "bytes": 2011315,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-winter-r1.png",
+      "source_sha256": "a6d801c866250171d77d8726f05c3dad3add5e6cb6cdee36e2db650368e8bc24",
+      "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "litter_winter": {
+      "file": "art/175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682.png",
+      "sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "bytes": 12400,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-litter.png",
+      "source_sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "sycamore_wood_bare": {
+      "file": "art/a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a.png",
+      "sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "bytes": 1547480,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/originals/sycamore-bare-wood.png",
+      "source_sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "sycamore_canopy_healthy": {
+      "file": "art/df4b2429c718c1af709f015c5d54df1c9b564c90caa3f217976c9fbad3bd88e0.png",
+      "sha256": "df4b2429c718c1af709f015c5d54df1c9b564c90caa3f217976c9fbad3bd88e0",
+      "bytes": 1494942,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/sprites/canopy_healthy.png",
+      "source_sha256": "df4b2429c718c1af709f015c5d54df1c9b564c90caa3f217976c9fbad3bd88e0",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "sycamore_canopy_sparse_senescent": {
+      "file": "art/7fa2aef34f1bdf199bd5298e3224766257df702edd529b0dec8c01410ef22a0e.png",
+      "sha256": "7fa2aef34f1bdf199bd5298e3224766257df702edd529b0dec8c01410ef22a0e",
+      "bytes": 1492382,
+      "dimensions_px": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/sprites/canopy_sparse_senescent.png",
+      "source_sha256": "7fa2aef34f1bdf199bd5298e3224766257df702edd529b0dec8c01410ef22a0e",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "sycamore_leaf_healthy": {
+      "file": "art/d1dff63279aebed595fcf63d7299d97c51b962153049d18d0bbd79038133457a.png",
+      "sha256": "d1dff63279aebed595fcf63d7299d97c51b962153049d18d0bbd79038133457a",
+      "bytes": 356450,
+      "dimensions_px": [
+        565,
+        554
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/sprites/leaf_healthy.png",
+      "source_sha256": "d1dff63279aebed595fcf63d7299d97c51b962153049d18d0bbd79038133457a",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "sycamore_leaf_dry": {
+      "file": "art/d5175331708e03e7ccb7514b35b6347c9810de8bc600db1ce0cfc96346b56d17.png",
+      "sha256": "d5175331708e03e7ccb7514b35b6347c9810de8bc600db1ce0cfc96346b56d17",
+      "bytes": 274407,
+      "dimensions_px": [
+        513,
+        536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/sprites/leaf_dry.png",
+      "source_sha256": "d5175331708e03e7ccb7514b35b6347c9810de8bc600db1ce0cfc96346b56d17",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "sycamore_litter_cluster_a": {
+      "file": "art/b00eea55cbecfe1ad82ace11943fa2d35bcb5606e1873c5f424523f66f3925b4.png",
+      "sha256": "b00eea55cbecfe1ad82ace11943fa2d35bcb5606e1873c5f424523f66f3925b4",
+      "bytes": 437213,
+      "dimensions_px": [
+        723,
+        460
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/sprites/litter_cluster_a.png",
+      "source_sha256": "b00eea55cbecfe1ad82ace11943fa2d35bcb5606e1873c5f424523f66f3925b4",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "sycamore_litter_cluster_b": {
+      "file": "art/7d6e87b2949b513bd9ee3397f22d43c10ef4f2b410d9805b2176e897b403068d.png",
+      "sha256": "7d6e87b2949b513bd9ee3397f22d43c10ef4f2b410d9805b2176e897b403068d",
+      "bytes": 249139,
+      "dimensions_px": [
+        487,
+        389
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/sprites/litter_cluster_b.png",
+      "source_sha256": "7d6e87b2949b513bd9ee3397f22d43c10ef4f2b410d9805b2176e897b403068d",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "bladderpod_native": {
+      "file": "art/8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a.png",
+      "sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "bytes": 1418624,
+      "dimensions_px": [
+        780,
+        901
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "object.cedar_feeder_native": {
+      "file": "art/a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b.png",
+      "sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "bytes": 285605,
+      "dimensions_px": [
+        449,
+        528
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "object.bench_native": {
+      "file": "art/292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e.png",
+      "sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "bytes": 515507,
+      "dimensions_px": [
+        761,
+        511
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_0": {
+      "file": "art/ed051d5d8c7ebb4a140700543b274b7bb15badd8b67477be7486be82a3cba5a5.png",
+      "sha256": "ed051d5d8c7ebb4a140700543b274b7bb15badd8b67477be7486be82a3cba5a5",
+      "bytes": 1906,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/bench-footprint-PROPOSED.png",
+      "source_sha256": "ed051d5d8c7ebb4a140700543b274b7bb15badd8b67477be7486be82a3cba5a5",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_1": {
+      "file": "art/8317369bfbb6cd9b9bd7cf042eac324f61b24027d8c08f1612262ab73f979e79.png",
+      "sha256": "8317369bfbb6cd9b9bd7cf042eac324f61b24027d8c08f1612262ab73f979e79",
+      "bytes": 9437,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/bench-soft-alpha.png",
+      "source_sha256": "8317369bfbb6cd9b9bd7cf042eac324f61b24027d8c08f1612262ab73f979e79",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_2": {
+      "file": "art/819da563d6ff018ddb176baa9be928054eff8f01e39a4684ad503e9c528a655c.png",
+      "sha256": "819da563d6ff018ddb176baa9be928054eff8f01e39a4684ad503e9c528a655c",
+      "bytes": 2571,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/bench-visual-alpha128.png",
+      "source_sha256": "819da563d6ff018ddb176baa9be928054eff8f01e39a4684ad503e9c528a655c",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_3": {
+      "file": "art/faca72a5b015750580e97bdaa0b7177dbbb3dc16da54dd2b5e0783ec0b382fa0.png",
+      "sha256": "faca72a5b015750580e97bdaa0b7177dbbb3dc16da54dd2b5e0783ec0b382fa0",
+      "bytes": 1794,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/cedar_feeder-footprint-PROPOSED.png",
+      "source_sha256": "faca72a5b015750580e97bdaa0b7177dbbb3dc16da54dd2b5e0783ec0b382fa0",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_4": {
+      "file": "art/dbc7a50d27e66bc1f596b09a8a70cd6f47149dddc763ff8daedfba6218fd970e.png",
+      "sha256": "dbc7a50d27e66bc1f596b09a8a70cd6f47149dddc763ff8daedfba6218fd970e",
+      "bytes": 9373,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/cedar_feeder-soft-alpha.png",
+      "source_sha256": "dbc7a50d27e66bc1f596b09a8a70cd6f47149dddc763ff8daedfba6218fd970e",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_5": {
+      "file": "art/a1299bbdc8431c75b83847f267439dca39005a5e5894f674df7c6358ab609794.png",
+      "sha256": "a1299bbdc8431c75b83847f267439dca39005a5e5894f674df7c6358ab609794",
+      "bytes": 2586,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/cedar_feeder-visual-alpha128.png",
+      "source_sha256": "a1299bbdc8431c75b83847f267439dca39005a5e5894f674df7c6358ab609794",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_6": {
+      "file": "art/ec31748bc80c34fce6ade1871c6fcc515cfcb01629130224ac4244d5626842d3.png",
+      "sha256": "ec31748bc80c34fce6ade1871c6fcc515cfcb01629130224ac4244d5626842d3",
+      "bytes": 1646,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/fence-base-strip-PROPOSED.png",
+      "source_sha256": "ec31748bc80c34fce6ade1871c6fcc515cfcb01629130224ac4244d5626842d3",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_7": {
+      "file": "art/1b890fd130f3c86658d154ddab007fb5949e319404432b8d2776dccf2d99e156.png",
+      "sha256": "1b890fd130f3c86658d154ddab007fb5949e319404432b8d2776dccf2d99e156",
+      "bytes": 22144,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/fence-soft-alpha.png",
+      "source_sha256": "1b890fd130f3c86658d154ddab007fb5949e319404432b8d2776dccf2d99e156",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_8": {
+      "file": "art/3853df3421a1f1a8f584bc64edd5974b6ed1a7b7a6d0b54136539de1496ff35c.png",
+      "sha256": "3853df3421a1f1a8f584bc64edd5974b6ed1a7b7a6d0b54136539de1496ff35c",
+      "bytes": 2498,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/fence-visual-alpha128.png",
+      "source_sha256": "3853df3421a1f1a8f584bc64edd5974b6ed1a7b7a6d0b54136539de1496ff35c",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_9": {
+      "file": "art/b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89.png",
+      "sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+      "bytes": 2679,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/full-floor-PROPOSED.png",
+      "source_sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_10": {
+      "file": "art/2ea35a9fb9779efd965b329b8d86a62d6c7c2a2b9f0011cc91d9fb571c875ccf.png",
+      "sha256": "2ea35a9fb9779efd965b329b8d86a62d6c7c2a2b9f0011cc91d9fb571c875ccf",
+      "bytes": 17042,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/objects-soft-alpha.png",
+      "source_sha256": "2ea35a9fb9779efd965b329b8d86a62d6c7c2a2b9f0011cc91d9fb571c875ccf",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_11": {
+      "file": "art/5c898279579ea564ca5f6bd1807fa766989a03c8b5d931e053acde27c09200df.png",
+      "sha256": "5c898279579ea564ca5f6bd1807fa766989a03c8b5d931e053acde27c09200df",
+      "bytes": 3547,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/objects-visual-alpha128.png",
+      "source_sha256": "5c898279579ea564ca5f6bd1807fa766989a03c8b5d931e053acde27c09200df",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_12": {
+      "file": "art/e5389aa945c22d4cc486ca542a6d48c4fde8a2a821a3c69ddc5834b32a593f7b.png",
+      "sha256": "e5389aa945c22d4cc486ca542a6d48c4fde8a2a821a3c69ddc5834b32a593f7b",
+      "bytes": 1237,
+      "dimensions_px": [
+        960,
+        540
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/ground/full-visible-ground-mask-960.png",
+      "source_sha256": "e5389aa945c22d4cc486ca542a6d48c4fde8a2a821a3c69ddc5834b32a593f7b",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_13": {
+      "file": "art/b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89.png",
+      "sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+      "bytes": 2679,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/full-floor-PROPOSED.png",
+      "source_sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_14": {
+      "file": "art/c453a66d0e2106a0ef70788ce0896e21a3201b1153a7513af6dea6f969ad5b7f.png",
+      "sha256": "c453a66d0e2106a0ef70788ce0896e21a3201b1153a7513af6dea6f969ad5b7f",
+      "bytes": 82886,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/mountain-masks/mountains_base-soft-alpha.png",
+      "source_sha256": "c453a66d0e2106a0ef70788ce0896e21a3201b1153a7513af6dea6f969ad5b7f",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_15": {
+      "file": "art/7dc8cdaf5275a7c3f8ba7f8aa01ae793fbd83fa586bc7f6b4b2983dd371a5457.png",
+      "sha256": "7dc8cdaf5275a7c3f8ba7f8aa01ae793fbd83fa586bc7f6b4b2983dd371a5457",
+      "bytes": 23199,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/mountain-masks/mountains_snow-soft-alpha.png",
+      "source_sha256": "7dc8cdaf5275a7c3f8ba7f8aa01ae793fbd83fa586bc7f6b4b2983dd371a5457",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_16": {
+      "file": "art/d1d7ac37c3d4d9d69508b9a34c024d3d7e3679362b6a5f4da0d0e744dbfaeca6.png",
+      "sha256": "d1d7ac37c3d4d9d69508b9a34c024d3d7e3679362b6a5f4da0d0e744dbfaeca6",
+      "bytes": 11646,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-canopy-visual-coverage.png",
+      "source_sha256": "d1d7ac37c3d4d9d69508b9a34c024d3d7e3679362b6a5f4da0d0e744dbfaeca6",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_17": {
+      "file": "art/8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6.png",
+      "sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+      "bytes": 15742,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-wood-visual-coverage.png",
+      "source_sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_18": {
+      "file": "art/6ee40ec9d5f7c3bf3080dd2d8dd13c0572c351ff1daf6eb6b0d413f869efd74b.png",
+      "sha256": "6ee40ec9d5f7c3bf3080dd2d8dd13c0572c351ff1daf6eb6b0d413f869efd74b",
+      "bytes": 2135,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/root-contact-visual-coverage.png",
+      "source_sha256": "6ee40ec9d5f7c3bf3080dd2d8dd13c0572c351ff1daf6eb6b0d413f869efd74b",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_19": {
+      "file": "art/57d64b132ed821981765efd9cb3bbc52e4f302e497a56c3cd92cce2c817aad40.png",
+      "sha256": "57d64b132ed821981765efd9cb3bbc52e4f302e497a56c3cd92cce2c817aad40",
+      "bytes": 8042,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/spring-canopy-visual-coverage.png",
+      "source_sha256": "57d64b132ed821981765efd9cb3bbc52e4f302e497a56c3cd92cce2c817aad40",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_20": {
+      "file": "art/8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6.png",
+      "sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+      "bytes": 15742,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-wood-visual-coverage.png",
+      "source_sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_21": {
+      "file": "art/57d64b132ed821981765efd9cb3bbc52e4f302e497a56c3cd92cce2c817aad40.png",
+      "sha256": "57d64b132ed821981765efd9cb3bbc52e4f302e497a56c3cd92cce2c817aad40",
+      "bytes": 8042,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/spring-canopy-visual-coverage.png",
+      "source_sha256": "57d64b132ed821981765efd9cb3bbc52e4f302e497a56c3cd92cce2c817aad40",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_22": {
+      "file": "art/8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6.png",
+      "sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+      "bytes": 15742,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-wood-visual-coverage.png",
+      "source_sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_23": {
+      "file": "art/7d76e71a63a8171d2fb932d53f8b55591f27b5e14fa0d4daad6762cc279a53be.png",
+      "sha256": "7d76e71a63a8171d2fb932d53f8b55591f27b5e14fa0d4daad6762cc279a53be",
+      "bytes": 1605,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/winter-canopy-visual-coverage.png",
+      "source_sha256": "7d76e71a63a8171d2fb932d53f8b55591f27b5e14fa0d4daad6762cc279a53be",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "mask_24": {
+      "file": "art/8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6.png",
+      "sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+      "bytes": 15742,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/masks/autumn-wood-visual-coverage.png",
+      "source_sha256": "8af366b7617821fb46331e9efe0143721e0a2064140ef47c84e1770a4bc0b7a6",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "full_ground_authored": {
+      "file": "art/b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89.png",
+      "sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+      "bytes": 2679,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/full-floor-PROPOSED.png",
+      "source_sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "bladderpod_soft_alpha": {
+      "file": "art/d5bb3cd3bafe9b9f6942f2713e884de53c7ecebc5b52f1059c8cbf8c5ccc7973.png",
+      "sha256": "d5bb3cd3bafe9b9f6942f2713e884de53c7ecebc5b52f1059c8cbf8c5ccc7973",
+      "bytes": 169957,
+      "dimensions_px": [
+        780,
+        901
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Exact source alpha byte L mask, visual only",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "bladderpod_coverage128": {
+      "file": "art/9873c2f25652d8527d0fa31daefe6c685c2866b8ff6e3dd20d2fa3d1c1abfc8b.png",
+      "sha256": "9873c2f25652d8527d0fa31daefe6c685c2866b8ff6e3dd20d2fa3d1c1abfc8b",
+      "bytes": 18212,
+      "dimensions_px": [
+        780,
+        901
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Binary alpha>=128 L visual mask; no physical geometry",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_wood_spring": {
+      "file": "art/9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef.png",
+      "sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "bytes": 365428,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-wood.png",
+      "source_sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_canopy_spring": {
+      "file": "art/9ef897c41bf68fed74a2e77b7de12454978a2da32023bb4258f3dadbaaf82719.png",
+      "sha256": "9ef897c41bf68fed74a2e77b7de12454978a2da32023bb4258f3dadbaaf82719",
+      "bytes": 410437,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/spring-canopy.png",
+      "source_sha256": "9ef897c41bf68fed74a2e77b7de12454978a2da32023bb4258f3dadbaaf82719",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_wood_summer": {
+      "file": "art/9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef.png",
+      "sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "bytes": 365428,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-wood.png",
+      "source_sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_canopy_summer": {
+      "file": "art/9ef897c41bf68fed74a2e77b7de12454978a2da32023bb4258f3dadbaaf82719.png",
+      "sha256": "9ef897c41bf68fed74a2e77b7de12454978a2da32023bb4258f3dadbaaf82719",
+      "bytes": 410437,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/spring-canopy.png",
+      "source_sha256": "9ef897c41bf68fed74a2e77b7de12454978a2da32023bb4258f3dadbaaf82719",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_wood_autumn": {
+      "file": "art/9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef.png",
+      "sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "bytes": 365428,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-wood.png",
+      "source_sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_canopy_autumn": {
+      "file": "art/7b275d0f79a81ea9d8b7390755396811234a5c7742bdd568b291919cfe5602c6.png",
+      "sha256": "7b275d0f79a81ea9d8b7390755396811234a5c7742bdd568b291919cfe5602c6",
+      "bytes": 403086,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-canopy.png",
+      "source_sha256": "7b275d0f79a81ea9d8b7390755396811234a5c7742bdd568b291919cfe5602c6",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_wood_winter": {
+      "file": "art/9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef.png",
+      "sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "bytes": 365428,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-wood.png",
+      "source_sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_canopy_winter": {
+      "file": "art/64085d665f67f408b0cd67f69bebaa5a814b79eeed296c3d952e62988d7a440f.png",
+      "sha256": "64085d665f67f408b0cd67f69bebaa5a814b79eeed296c3d952e62988d7a440f",
+      "bytes": 6177,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        0
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/spring-litter.png",
+      "source_sha256": "64085d665f67f408b0cd67f69bebaa5a814b79eeed296c3d952e62988d7a440f",
+      "operation": "Exact canonical bytes",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_spring": {
+      "file": "art/9e0a6de9120ed5cad1abc6120c0de3003f6e00d465a3ee83dbd29e2fbd98e890.png",
+      "sha256": "9e0a6de9120ed5cad1abc6120c0de3003f6e00d465a3ee83dbd29e2fbd98e890",
+      "bytes": 502742,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/originals/sycamore-bare-wood.png",
+      "source_sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_cedar_feeder_spring": {
+      "file": "art/a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b.png",
+      "sha256": "a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b",
+      "bytes": 66605,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_bench_spring": {
+      "file": "art/31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c.png",
+      "sha256": "31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c",
+      "bytes": 53121,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_bladderpod_spring": {
+      "file": "art/893e8b42348b7ee24e6a5148145ba024f4b7a46a2f860db3d94d6da1e95012bc.png",
+      "sha256": "893e8b42348b7ee24e6a5148145ba024f4b7a46a2f860db3d94d6da1e95012bc",
+      "bytes": 84348,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_summer": {
+      "file": "art/9e0a6de9120ed5cad1abc6120c0de3003f6e00d465a3ee83dbd29e2fbd98e890.png",
+      "sha256": "9e0a6de9120ed5cad1abc6120c0de3003f6e00d465a3ee83dbd29e2fbd98e890",
+      "bytes": 502742,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/originals/sycamore-bare-wood.png",
+      "source_sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_cedar_feeder_summer": {
+      "file": "art/a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b.png",
+      "sha256": "a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b",
+      "bytes": 66605,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_bench_summer": {
+      "file": "art/31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c.png",
+      "sha256": "31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c",
+      "bytes": 53121,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_bladderpod_summer": {
+      "file": "art/893e8b42348b7ee24e6a5148145ba024f4b7a46a2f860db3d94d6da1e95012bc.png",
+      "sha256": "893e8b42348b7ee24e6a5148145ba024f4b7a46a2f860db3d94d6da1e95012bc",
+      "bytes": 84348,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_autumn": {
+      "file": "art/fcd29d54eff4758f731aca33668ac32888a081532536bc7a494823ff09c3792c.png",
+      "sha256": "fcd29d54eff4758f731aca33668ac32888a081532536bc7a494823ff09c3792c",
+      "bytes": 529330,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/originals/sycamore-bare-wood.png",
+      "source_sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_cedar_feeder_autumn": {
+      "file": "art/a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b.png",
+      "sha256": "a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b",
+      "bytes": 66605,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_bench_autumn": {
+      "file": "art/31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c.png",
+      "sha256": "31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c",
+      "bytes": 53121,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_bladderpod_autumn": {
+      "file": "art/893e8b42348b7ee24e6a5148145ba024f4b7a46a2f860db3d94d6da1e95012bc.png",
+      "sha256": "893e8b42348b7ee24e6a5148145ba024f4b7a46a2f860db3d94d6da1e95012bc",
+      "bytes": 84348,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_tree_winter": {
+      "file": "art/9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef.png",
+      "sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "bytes": 365428,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/originals/sycamore-bare-wood.png",
+      "source_sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_cedar_feeder_winter": {
+      "file": "art/a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b.png",
+      "sha256": "a64678d1ab6ebe2ffc5c046309916cd4b3746aff10e50ed09d0922ec4cfa141b",
+      "bytes": 66605,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_bench_winter": {
+      "file": "art/31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c.png",
+      "sha256": "31b76a8bccc306e0936e50249f46c8f226ee8ec582c019ec18781c8606e29c6c",
+      "bytes": 53121,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "registered_bladderpod_winter": {
+      "file": "art/893e8b42348b7ee24e6a5148145ba024f4b7a46a2f860db3d94d6da1e95012bc.png",
+      "sha256": "893e8b42348b7ee24e6a5148145ba024f4b7a46a2f860db3d94d6da1e95012bc",
+      "bytes": 84348,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Nearest native-source scene registration; root/pivot/resize or affine in assembly; no new art.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_ground_spring": {
+      "file": "art/625b9da12ae7c8f8bfe7c77c862ec28d766706333d7b26e8dc30ff977c827af9.png",
+      "sha256": "625b9da12ae7c8f8bfe7c77c862ec28d766706333d7b26e8dc30ff977c827af9",
+      "bytes": 253879,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-r1.png",
+      "source_sha256": "4b9005b26b759330f60d36dfb0e913a793c74449647d72ce076f0736438d7d81",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer ground_spring; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_ground_summer": {
+      "file": "art/137e558c40007bfb6d45a3bb5eb35124540c5890ad428103bb0b5c94aac13f09.png",
+      "sha256": "137e558c40007bfb6d45a3bb5eb35124540c5890ad428103bb0b5c94aac13f09",
+      "bytes": 278675,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-summer-r1.png",
+      "source_sha256": "6074c4d9d0685aaa52afb5bb6ca26aeccb7b9c6cf19490c6d236a9bf67d3c489",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer ground_summer; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_ground_autumn": {
+      "file": "art/a93b764d558d1a8e0da53c300185e388b0208fff7f0fa56a148b0fb28f37271e.png",
+      "sha256": "a93b764d558d1a8e0da53c300185e388b0208fff7f0fa56a148b0fb28f37271e",
+      "bytes": 267135,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-autumn-r1.png",
+      "source_sha256": "c665f01747fda3c0a328ed0b9e84be9cbc5e0f39aaf9d83fbd3bf37a6b4cbf54",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer ground_autumn; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_ground_winter": {
+      "file": "art/0fe9463d66c8e591e20dd87f5fd5723487e210fe8802aa7d179f5ce8d4aaa192.png",
+      "sha256": "0fe9463d66c8e591e20dd87f5fd5723487e210fe8802aa7d179f5ce8d4aaa192",
+      "bytes": 254961,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/ground-winter-r1.png",
+      "source_sha256": "a6d801c866250171d77d8726f05c3dad3add5e6cb6cdee36e2db650368e8bc24",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer ground_winter; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_sky": {
+      "file": "art/73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4.png",
+      "sha256": "73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4",
+      "bytes": 153785,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-06/files/expansion/depth-06/coastal/originals/sky-r1.png",
+      "source_sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer sky; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_mountains": {
+      "file": "art/335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687.png",
+      "sha256": "335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687",
+      "bytes": 112681,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/far-ground/layers/far-inland-base-alpha8-offset-minus120.png",
+      "source_sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer mountains; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_mountains_snow": {
+      "file": "art/71b156fc985a54ef19b54cdbe52e04946e2d19f5551b39fb267e1a5069e78f00.png",
+      "sha256": "71b156fc985a54ef19b54cdbe52e04946e2d19f5551b39fb267e1a5069e78f00",
+      "bytes": 116759,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/far-ground/layers/far-inland-summit-snow-alpha8-offset-minus120.png",
+      "source_sha256": "99b10bfccb88067e7588bb3f180ec98f07cac30a982bfcd10f1a34d1fa0a5692",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer mountains_snow; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_fence": {
+      "file": "art/f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497.png",
+      "sha256": "f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497",
+      "bytes": 55827,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/wood-fences-01/files/expansion/fences-01/root/layers/cedar-privacy-fence-row.png",
+      "source_sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer fence; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_litter_autumn": {
+      "file": "art/1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea.png",
+      "sha256": "1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea",
+      "bytes": 1357,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-litter.png",
+      "source_sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer litter_autumn; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_litter_winter": {
+      "file": "art/1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea.png",
+      "sha256": "1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea",
+      "bytes": 1357,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-litter.png",
+      "source_sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer litter_winter; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_wood_spring": {
+      "file": "art/79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39.png",
+      "sha256": "79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39",
+      "bytes": 45259,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-wood.png",
+      "source_sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_wood_spring; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_canopy_spring": {
+      "file": "art/d9a78f35b97a0f175445a68467251408782b4f83c8ace58cf5bba6010e81b687.png",
+      "sha256": "d9a78f35b97a0f175445a68467251408782b4f83c8ace58cf5bba6010e81b687",
+      "bytes": 47190,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/spring-canopy.png",
+      "source_sha256": "9ef897c41bf68fed74a2e77b7de12454978a2da32023bb4258f3dadbaaf82719",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_canopy_spring; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_wood_summer": {
+      "file": "art/79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39.png",
+      "sha256": "79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39",
+      "bytes": 45259,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-wood.png",
+      "source_sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_wood_summer; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_canopy_summer": {
+      "file": "art/d9a78f35b97a0f175445a68467251408782b4f83c8ace58cf5bba6010e81b687.png",
+      "sha256": "d9a78f35b97a0f175445a68467251408782b4f83c8ace58cf5bba6010e81b687",
+      "bytes": 47190,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/spring-canopy.png",
+      "source_sha256": "9ef897c41bf68fed74a2e77b7de12454978a2da32023bb4258f3dadbaaf82719",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_canopy_summer; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_wood_autumn": {
+      "file": "art/79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39.png",
+      "sha256": "79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39",
+      "bytes": 45259,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-wood.png",
+      "source_sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_wood_autumn; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_canopy_autumn": {
+      "file": "art/460b3e90b0ad675c3e36fbd44e5faa0afce29031ea8a1cac2b2989990ca20b3c.png",
+      "sha256": "460b3e90b0ad675c3e36fbd44e5faa0afce29031ea8a1cac2b2989990ca20b3c",
+      "bytes": 46512,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-canopy.png",
+      "source_sha256": "7b275d0f79a81ea9d8b7390755396811234a5c7742bdd568b291919cfe5602c6",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_canopy_autumn; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_wood_winter": {
+      "file": "art/79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39.png",
+      "sha256": "79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39",
+      "bytes": 45259,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/autumn-wood.png",
+      "source_sha256": "9e51afca03b038a149f5ca061623b3a61bf7b075993b815046104cd14ada88ef",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_wood_winter; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_canopy_winter": {
+      "file": "art/c278bab49628239d2c84e34f9796a3973e9d57581d083d15df97a6522feff1fa.png",
+      "sha256": "c278bab49628239d2c84e34f9796a3973e9d57581d083d15df97a6522feff1fa",
+      "bytes": 582,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        0
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/tree-leaves/layers/spring-litter.png",
+      "source_sha256": "64085d665f67f408b0cd67f69bebaa5a814b79eeed296c3d952e62988d7a440f",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_canopy_winter; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_spring": {
+      "file": "art/11741bcf2753b80b0d6added8ddd3ba1190382649fb980940c0aacd82a16c52d.png",
+      "sha256": "11741bcf2753b80b0d6added8ddd3ba1190382649fb980940c0aacd82a16c52d",
+      "bytes": 58028,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/originals/sycamore-bare-wood.png",
+      "source_sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_spring; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_cedar_feeder_spring": {
+      "file": "art/efdeb9054064a52f4583986caf4c6eb2d83ec7eb78f8023b8ddfb197cdead16e.png",
+      "sha256": "efdeb9054064a52f4583986caf4c6eb2d83ec7eb78f8023b8ddfb197cdead16e",
+      "bytes": 7805,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_cedar_feeder_spring; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_bench_spring": {
+      "file": "art/e81eea8886f130e72bbc9d0da858476e4eb00d0688d3ef905854ce251566de21.png",
+      "sha256": "e81eea8886f130e72bbc9d0da858476e4eb00d0688d3ef905854ce251566de21",
+      "bytes": 6513,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_bench_spring; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_bladderpod_spring": {
+      "file": "art/a06a79bc949850ce0167c324080b4bc6fd37dbb8caff5fe3892f4f0bf24871be.png",
+      "sha256": "a06a79bc949850ce0167c324080b4bc6fd37dbb8caff5fe3892f4f0bf24871be",
+      "bytes": 9507,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_bladderpod_spring; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_summer": {
+      "file": "art/11741bcf2753b80b0d6added8ddd3ba1190382649fb980940c0aacd82a16c52d.png",
+      "sha256": "11741bcf2753b80b0d6added8ddd3ba1190382649fb980940c0aacd82a16c52d",
+      "bytes": 58028,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/originals/sycamore-bare-wood.png",
+      "source_sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_summer; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_cedar_feeder_summer": {
+      "file": "art/efdeb9054064a52f4583986caf4c6eb2d83ec7eb78f8023b8ddfb197cdead16e.png",
+      "sha256": "efdeb9054064a52f4583986caf4c6eb2d83ec7eb78f8023b8ddfb197cdead16e",
+      "bytes": 7805,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_cedar_feeder_summer; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_bench_summer": {
+      "file": "art/e81eea8886f130e72bbc9d0da858476e4eb00d0688d3ef905854ce251566de21.png",
+      "sha256": "e81eea8886f130e72bbc9d0da858476e4eb00d0688d3ef905854ce251566de21",
+      "bytes": 6513,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_bench_summer; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_bladderpod_summer": {
+      "file": "art/a06a79bc949850ce0167c324080b4bc6fd37dbb8caff5fe3892f4f0bf24871be.png",
+      "sha256": "a06a79bc949850ce0167c324080b4bc6fd37dbb8caff5fe3892f4f0bf24871be",
+      "bytes": 9507,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_bladderpod_summer; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_autumn": {
+      "file": "art/b0d0dd6f8f5f082d9200b2d8397f56ba2be585fc59ea71815b69f431ed06e8e4.png",
+      "sha256": "b0d0dd6f8f5f082d9200b2d8397f56ba2be585fc59ea71815b69f431ed06e8e4",
+      "bytes": 60552,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/originals/sycamore-bare-wood.png",
+      "source_sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_autumn; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_cedar_feeder_autumn": {
+      "file": "art/efdeb9054064a52f4583986caf4c6eb2d83ec7eb78f8023b8ddfb197cdead16e.png",
+      "sha256": "efdeb9054064a52f4583986caf4c6eb2d83ec7eb78f8023b8ddfb197cdead16e",
+      "bytes": 7805,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_cedar_feeder_autumn; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_bench_autumn": {
+      "file": "art/e81eea8886f130e72bbc9d0da858476e4eb00d0688d3ef905854ce251566de21.png",
+      "sha256": "e81eea8886f130e72bbc9d0da858476e4eb00d0688d3ef905854ce251566de21",
+      "bytes": 6513,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_bench_autumn; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_bladderpod_autumn": {
+      "file": "art/a06a79bc949850ce0167c324080b4bc6fd37dbb8caff5fe3892f4f0bf24871be.png",
+      "sha256": "a06a79bc949850ce0167c324080b4bc6fd37dbb8caff5fe3892f4f0bf24871be",
+      "bytes": 9507,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_bladderpod_autumn; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_tree_winter": {
+      "file": "art/79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39.png",
+      "sha256": "79beedaf6514b7bf500b90bba59f67fc263547843296310cc79028144b940b39",
+      "bytes": 45259,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/files/expansion/trees_leaves/originals/sycamore-bare-wood.png",
+      "source_sha256": "a6540344697300510dfe9069c9c1b9a1cc9885321f37beac6651d9fe20b43f8a",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_tree_winter; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_cedar_feeder_winter": {
+      "file": "art/efdeb9054064a52f4583986caf4c6eb2d83ec7eb78f8023b8ddfb197cdead16e.png",
+      "sha256": "efdeb9054064a52f4583986caf4c6eb2d83ec7eb78f8023b8ddfb197cdead16e",
+      "bytes": 7805,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.cedar_feeder.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "a2bf087e4f7ca40847fc6677e5b6012bc7fdc0244ce934fa7f7a8e541e03480b",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_cedar_feeder_winter; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_bench_winter": {
+      "file": "art/e81eea8886f130e72bbc9d0da858476e4eb00d0688d3ef905854ce251566de21.png",
+      "sha256": "e81eea8886f130e72bbc9d0da858476e4eb00d0688d3ef905854ce251566de21",
+      "bytes": 6513,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/packs/chirp-functional-objects-sheet-2-20261017/sprites/object.bench.san_diego_20261017_candidate_v1.png",
+      "source_sha256": "292e62ee4ff98a38f1997d5cf392f85e74b1bc86a8dd72d8aa5c743c0013630e",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_bench_winter; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "review480_registered_bladderpod_winter": {
+      "file": "art/a06a79bc949850ce0167c324080b4bc6fd37dbb8caff5fe3892f4f0bf24871be.png",
+      "sha256": "a06a79bc949850ce0167c324080b4bc6fd37dbb8caff5fe3892f4f0bf24871be",
+      "bytes": 9507,
+      "dimensions_px": [
+        480,
+        270
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/repair-07/files/expansion/repair-07/native-shrubs/sprites/bladderpod.png",
+      "source_sha256": "8315fc96590f7e527bd210283f39dab75a363ac3cddfeacfc99b8f9752bd853a",
+      "operation": "Crop native scene[0,160,1536,1024], nearest resize480x270 of named registered/native layer registered_bladderpod_winter; world960x540 density0.5.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    },
+    "available_with_four_PROPOSED_envelopes": {
+      "file": "art/a8ebc36f6bdf231e115b1d5862bebfe5d5526586bb55139ec4a91755d43b246b.png",
+      "sha256": "a8ebc36f6bdf231e115b1d5862bebfe5d5526586bb55139ec4a91755d43b246b",
+      "bytes": 3342,
+      "dimensions_px": [
+        1536,
+        1024
+      ],
+      "mode": "L",
+      "alpha_extrema": null,
+      "source_canonical_path": "assets/generated/2026-10-17/regional-yard-packs/depth-09/files/expansion/depth-09/fence-objects/masks/full-floor-PROPOSED.png",
+      "source_sha256": "b47043e31197424aaf5a66df800930f432861f922807dfa12c509d1e3e98bb89",
+      "operation": "Authored full floor minus explicitly listed four proposed instance envelopes. Removing all instances restores full mask; physical support unreviewed.",
+      "source_rights": "Reused project-generated source; project/service terms; no independent rights or fidelity approval."
+    }
+  },
+  "default_summit_snow": false,
+  "sky_clouds_separately_extracted": false,
+  "visual_masks_are_physical_geometry": false,
+  "physical_geometry_reviewed": false,
+  "runtime_admitted": false,
+  "owner_accepted": false,
+  "new_image_generation_calls": 0,
+  "source_review_limits": [
+    "Source masks provide visual coverage, not 3D physical volume, collision, supports or bird anatomy.",
+    "Source-side schema proposal awaits parent relay; current V1 does not admit these PNG/mask fields.",
+    "Snow is an alternate whole far-mountain raster, not a separable snow-only layer; skyline drifts slightly and fine texture resynthesizes.",
+    "Managed sycamore seasonal color is conditional; left scene-edge canopy crop intentional, source masters preserved; outer-twig joins provisional.",
+    "Strict shared logical pixel-grid/style, physical scale/camera fit and runtime/owner acceptance remain pending.",
+    "One bench armrest trial crosses a void and remains held. Visual fence segment material occupancy alone does not validate perching."
+  ],
+  "edit_controls": "Change root_source_px; hide/remove any actor. Native tree sources preserve the canopy outside the initial scene crop. Source renderer groups tree wood/canopy by root y.",
+  "source_lineage": [
+    "depth09-catalog.json in existing depth09 publication",
+    "plant-selection.json",
+    "source-contact-checklist.json",
+    "field-requirements.json"
+  ],
+  "states": {
+    "generated": "Existing art reused; explicit alpha/nearest derivatives produced",
+    "reviewed": "Scoped visual/registration review",
+    "staged": "Selected source bundle only",
+    "integrated": false,
+    "accepted": false
+  },
+  "texture_review_exports": [
+    {
+      "image": "review480_ground_spring",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_ground_spring.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "ground_spring"
+    },
+    {
+      "image": "review480_ground_summer",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_ground_summer.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "ground_summer"
+    },
+    {
+      "image": "review480_ground_autumn",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_ground_autumn.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "ground_autumn"
+    },
+    {
+      "image": "review480_ground_winter",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_ground_winter.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "ground_winter"
+    },
+    {
+      "image": "review480_sky",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_sky.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "sky"
+    },
+    {
+      "image": "review480_mountains",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_mountains.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "mountains"
+    },
+    {
+      "image": "review480_mountains_snow",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_mountains_snow.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "mountains_snow"
+    },
+    {
+      "image": "review480_fence",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_fence.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "fence"
+    },
+    {
+      "image": "review480_litter_autumn",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_litter_autumn.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "litter_autumn"
+    },
+    {
+      "image": "review480_litter_winter",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_litter_winter.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "litter_winter"
+    },
+    {
+      "image": "review480_registered_tree_wood_spring",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_wood_spring.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_wood_spring"
+    },
+    {
+      "image": "review480_registered_tree_canopy_spring",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_canopy_spring.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_canopy_spring"
+    },
+    {
+      "image": "review480_registered_tree_wood_summer",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_wood_summer.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_wood_summer"
+    },
+    {
+      "image": "review480_registered_tree_canopy_summer",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_canopy_summer.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_canopy_summer"
+    },
+    {
+      "image": "review480_registered_tree_wood_autumn",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_wood_autumn.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_wood_autumn"
+    },
+    {
+      "image": "review480_registered_tree_canopy_autumn",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_canopy_autumn.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_canopy_autumn"
+    },
+    {
+      "image": "review480_registered_tree_wood_winter",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_wood_winter.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_wood_winter"
+    },
+    {
+      "image": "review480_registered_tree_canopy_winter",
+      "empty_state": true,
+      "texture_manifest": null
+    },
+    {
+      "image": "review480_registered_tree_spring",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_spring.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_spring"
+    },
+    {
+      "image": "review480_registered_cedar_feeder_spring",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_cedar_feeder_spring.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_cedar_feeder_spring"
+    },
+    {
+      "image": "review480_registered_bench_spring",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_bench_spring.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_bench_spring"
+    },
+    {
+      "image": "review480_registered_bladderpod_spring",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_bladderpod_spring.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_bladderpod_spring"
+    },
+    {
+      "image": "review480_registered_tree_summer",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_summer.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_summer"
+    },
+    {
+      "image": "review480_registered_cedar_feeder_summer",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_cedar_feeder_summer.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_cedar_feeder_summer"
+    },
+    {
+      "image": "review480_registered_bench_summer",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_bench_summer.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_bench_summer"
+    },
+    {
+      "image": "review480_registered_bladderpod_summer",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_bladderpod_summer.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_bladderpod_summer"
+    },
+    {
+      "image": "review480_registered_tree_autumn",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_autumn.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_autumn"
+    },
+    {
+      "image": "review480_registered_cedar_feeder_autumn",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_cedar_feeder_autumn.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_cedar_feeder_autumn"
+    },
+    {
+      "image": "review480_registered_bench_autumn",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_bench_autumn.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_bench_autumn"
+    },
+    {
+      "image": "review480_registered_bladderpod_autumn",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_bladderpod_autumn.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_bladderpod_autumn"
+    },
+    {
+      "image": "review480_registered_tree_winter",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_tree_winter.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_tree_winter"
+    },
+    {
+      "image": "review480_registered_cedar_feeder_winter",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_cedar_feeder_winter.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_cedar_feeder_winter"
+    },
+    {
+      "image": "review480_registered_bench_winter",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_bench_winter.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_bench_winter"
+    },
+    {
+      "image": "review480_registered_bladderpod_winter",
+      "empty_state": false,
+      "texture_manifest": "texture-review/review480_registered_bladderpod_winter.json",
+      "contact_meaning": "Visual alpha sample only; no foot/beak/support/perch approval; NOT native actor placement pivot.",
+      "upstream_registered_image": "registered_bladderpod_winter"
+    }
+  ],
+  "source_review_limits_scope": "Inherited depth09 source-review snapshot. SceneV1 and runtime admission still exclude this layered assembly. Current strict texture manifest and registered-ground candidate validation are recorded separately in current-contract-validation.json; neither creates admission or physical approval."
+}
