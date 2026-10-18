@@ -1,0 +1,94 @@
+{
+  "batchId": "sd20-anna-look-v1",
+  "speciesId": "anna_s_hummingbird",
+  "lookOnlyNewDrawing": true,
+  "renderClipId": "look",
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "ae30b4e9d56960e90e2c8442c19a193c4d431182633da6fa3dcb75d0c6c18e14",
+    "profile": "chirp-texture-review-v1"
+  },
+  "atlasBinding": {
+    "file": "look-atlas96.png",
+    "sha256": "f7a5d7fc738d7fe57788b8846d2d5c2034146282f35f3095cdabffde4012f7af",
+    "width": 192,
+    "height": 96,
+    "alpha": "straight-rgba8",
+    "bindRule": "wrapper PNG filename/sha/dimensions explicitly bound; strict profile has no atlas filename field"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.96b2cbe379067cb25d7d33963ae49cd4ce3fc615de22999472b8476e6408ea28",
+      "primarySourcePNG": "reused-awake-source1024.png",
+      "primarySourcePNGsha256": "bfde4b4e136867d46fddd1310436141e2d576f5346a23726c6d4faac332d96e0",
+      "newDrawing": false,
+      "lookOnlyNewDrawing": false,
+      "renderFrameId": "anna-look-96",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "reused-awake96.png",
+      "outputPNGsha256": "7a77258e1249b9e34eb6840b22b70741a43a462902242ed8749cf5f58d524105"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.01966c2e6c4208a8f0c69c0bc36a4550fc1eef7884dd32535d8a9c1b39deb2e9",
+      "primarySourcePNG": "look-native.png",
+      "primarySourcePNGsha256": "0f68080a655091665eb2bc64ce010f307558a6df0168d23cf32f13d41b76f84c",
+      "newDrawing": true,
+      "lookOnlyNewDrawing": true,
+      "renderFrameId": "anna-look-viewer-96",
+      "atlasRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "look96.png",
+      "outputPNGsha256": "5013d1e9178f1448651f0794972a72dd6ec835d1cd5c1d9f348e7ca7d1f83775"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "anna-look-96",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "anna-look-96",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "anna-look-viewer-96",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "anna-look-96",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ],
+  "projectionScope": "look-only overlay candidate; exact awake idle fallback; existing awake/blink intake untouched",
+  "canonicalSchemaValidation": "NOT_RUN",
+  "currentMacContract": "UNKNOWN",
+  "packetBindingReady": false,
+  "appBound": false,
+  "sourceHeld": true,
+  "useAsActiveSource": false,
+  "usefulSourceSlotsCompleted": [],
+  "contactStatus": "UNREVIEWED toe correspondence: inherited53,74 and59,73 remain positive; actual source toe shape redraw requires review; no contacts admitted yet"
+}

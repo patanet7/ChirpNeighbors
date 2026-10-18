@@ -9,7 +9,7 @@ Three awake-pair neutral slots and one Nuttall neutral-study slot incorrectly co
 
 Towhee hop uses **five unique playback sources: four new poses plus its reused old neutral**, six sequence steps,29ticks at30Hz. Bluebird hop uses four new sources and excludes its old neutral comparison from playback. These are reviewed one-shot studies, not admitted full locomotion.
 
-Verified 45 exact packages, 102 atlas frames and 195 alpha-positive contact samples. Shape/alpha checks do not establish anatomical support or runtime acceptance.
+Verified 46 exact packages, 104 atlas frames and 199 alpha-positive contact samples. Shape/alpha checks do not establish anatomical support or runtime acceptance.
 
 The proposed Python updater rebuilds from frozen baseline plus current reviewed overlay. It handles incoming closure-only batches by changing blink coverage only. It writes into its own directory by default; the coordinator must explicitly set `--output-dir` for publication. The audit did not run it against any global output target.
 

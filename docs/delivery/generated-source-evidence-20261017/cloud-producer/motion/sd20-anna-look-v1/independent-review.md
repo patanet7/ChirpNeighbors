@@ -1,0 +1,9 @@
+Anna quiet standing look independent visual review
+
+PROVISIONAL useful source pair. At actual64CSS/world canvas on light/dark, the head changes clearly from long up-right profile bill to a shorter toward-viewer projected bill/face. Rose crown/gorget and green body remain the same recognizable individual. In two retained normal-time playback cycles I found no conspicuous wholebody enlargement or stance jump. Enlarged crops retain small toe/claw and feather redraw; provisional usefulness does not require outside-eye byte equality. Exact head angle is unmeasured and two poses do not imply generated smooth motion.
+
+Manual native toe review confirms inherited53/74 and59/73 fall on corresponding visible near/foreground toe and right/front toe/claw regions in BOTH images, not belly or alpha fringe. Direct nearest-sample mappings and source crop overlays were inspected. Old/new alpha241→252 and245→248 corroborates occupied pixels, but alpha alone is not acceptance. These may be proposed as source-review proxies through a separate explicit annex. Frozen newcontacts[] stays unchanged. They are NOT certified soles, bilateral pressure/groundplane or supportWorld; allow at least1outputpixel boundary uncertainty and retained claw redraw.
+
+Eight ownbrowser samples retain hashes/dimensions/timestamps/numeric state only; actual CSS64×64,96backing,density1.5,pivot55/75. Fractional layout makes locator captures64×65 coverage; no source size change. Authored30Hz30/12/30 look returns/holds exactawake; no pageerrors. Selected96b2 standing awake reused, no oldcanon/flight substitution. All43 frozen inputs remain unchanged; initial held/pending labels are historical, this review additive.
+
+No image calls, source edits, browser PNG/base64 payloads or Mac binding. geometryReviewed=false/supportWorld=null/packetBindingReady=false. CanonicalZod/Sharp NOT_RUN; currentMac namedlook UNKNOWN; no biological/rights approval.

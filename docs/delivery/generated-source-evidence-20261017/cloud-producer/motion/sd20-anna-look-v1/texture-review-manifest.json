@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "f7a5d7fc738d7fe57788b8846d2d5c2034146282f35f3095cdabffde4012f7af",
+    "creator": "Chirp bounded native Anna look exporter",
+    "tool": "native image_gen; direct nearest wholecanvas output",
+    "toolVersion": "native model not exposed; Pillow12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 192,
+    "height": 96,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "anna-look-96",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 55,
+        "y": 75
+      },
+      "contacts": [
+        {
+          "id": "foot-1",
+          "x": 53,
+          "y": 74
+        },
+        {
+          "id": "foot-2",
+          "x": 59,
+          "y": 73
+        }
+      ],
+      "world": {
+        "width": 64,
+        "height": 64
+      },
+      "sourcePixelsPerWorldUnit": 1.5
+    },
+    {
+      "id": "anna-look-viewer-96",
+      "sourceRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 55,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 64,
+        "height": 64
+      },
+      "sourcePixelsPerWorldUnit": 1.5
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "anna-look-96",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "anna-look-96",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "anna-look-viewer-96",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "anna-look-96",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ]
+}
