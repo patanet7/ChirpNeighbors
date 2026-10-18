@@ -1,0 +1,299 @@
+{
+  "$ref": "#/definitions/ProjectGeneratedEvidenceV1",
+  "definitions": {
+    "ProjectGeneratedEvidenceV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "project-generated-source-evidence"
+        },
+        "speciesId": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]{0,159}$"
+        },
+        "sourceSetSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "usagePolicySource": {
+          "type": "object",
+          "properties": {
+            "jobId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            },
+            "artifactId": {
+              "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/usagePolicySource/properties/jobId"
+            },
+            "version": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "contentDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          },
+          "required": [
+            "jobId",
+            "artifactId",
+            "version",
+            "contentDigest"
+          ],
+          "additionalProperties": false
+        },
+        "privateUse": {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "type": "string",
+              "const": "owner-directed-private-project-work"
+            },
+            "requestSha256": {
+              "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/sourceSetSha256"
+            },
+            "publicRelease": {
+              "type": "boolean",
+              "const": false
+            },
+            "copyrightClearance": {
+              "type": "string",
+              "const": "not-certified"
+            }
+          },
+          "required": [
+            "kind",
+            "requestSha256",
+            "publicRelease",
+            "copyrightClearance"
+          ],
+          "additionalProperties": false
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/speciesId"
+              },
+              "tool": {
+                "type": "string",
+                "const": "image_gen.imagegen"
+              },
+              "model": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "seed": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "original": {
+                "type": "object",
+                "properties": {
+                  "sha256": {
+                    "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/sourceSetSha256"
+                  },
+                  "bytes": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 67108864
+                  }
+                },
+                "required": [
+                  "sha256",
+                  "bytes"
+                ],
+                "additionalProperties": false
+              },
+              "prompt": {
+                "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/records/items/properties/original"
+              },
+              "generationRecord": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "enum": [
+                      "native-return",
+                      "generation-receipt",
+                      "retained-generation-manifest"
+                    ]
+                  },
+                  "sha256": {
+                    "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/sourceSetSha256"
+                  }
+                },
+                "required": [
+                  "kind",
+                  "sha256"
+                ],
+                "additionalProperties": false
+              },
+              "inputEvidenceSha256s": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/sourceSetSha256"
+                },
+                "minItems": 1,
+                "maxItems": 16
+              },
+              "inputs": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "recordId": {
+                      "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/speciesId"
+                    },
+                    "pngSha256": {
+                      "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/sourceSetSha256"
+                    }
+                  },
+                  "required": [
+                    "recordId",
+                    "pngSha256"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 8
+              }
+            },
+            "required": [
+              "id",
+              "tool",
+              "model",
+              "seed",
+              "original",
+              "prompt",
+              "generationRecord",
+              "inputEvidenceSha256s",
+              "inputs"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "selectedFrames": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "frame": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 63
+              },
+              "recordId": {
+                "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/speciesId"
+              },
+              "sourceFrameId": {
+                "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/speciesId"
+              },
+              "registeredPngSha256": {
+                "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/sourceSetSha256"
+              },
+              "pngSha256": {
+                "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/sourceSetSha256"
+              },
+              "rgbaSha256": {
+                "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/sourceSetSha256"
+              }
+            },
+            "required": [
+              "frame",
+              "recordId",
+              "sourceFrameId",
+              "registeredPngSha256",
+              "pngSha256",
+              "rgbaSha256"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "factualCitations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "evidenceSha256": {
+                "$ref": "#/definitions/ProjectGeneratedEvidenceV1/properties/sourceSetSha256"
+              },
+              "use": {
+                "type": "string",
+                "const": "text-only-no-image-pixels"
+              }
+            },
+            "required": [
+              "evidenceSha256",
+              "use"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 16
+        },
+        "anatomyReviewed": {
+          "type": "boolean",
+          "const": false
+        },
+        "physicalSupportReviewed": {
+          "type": "boolean",
+          "const": false
+        },
+        "speciesFidelityReviewed": {
+          "type": "boolean",
+          "const": false
+        },
+        "browserReviewed": {
+          "type": "boolean",
+          "const": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "speciesId",
+        "sourceSetSha256",
+        "usagePolicySource",
+        "privateUse",
+        "records",
+        "selectedFrames",
+        "factualCitations",
+        "anatomyReviewed",
+        "physicalSupportReviewed",
+        "speciesFidelityReviewed",
+        "browserReviewed"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/project-generated-evidence-v1.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}
