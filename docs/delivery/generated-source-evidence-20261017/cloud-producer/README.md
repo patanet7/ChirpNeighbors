@@ -1,7 +1,7 @@
 # Cloud-produced source artwork — exact-byte preservation
 
 This directory retains actual project source bytes for the canonical repository.
-The current registered source checkpoint retains 72 native originals with exact prompts and 189 immutable primary drawing records. Animation and yard source production resumed after baseline PR33. See `release/animation-checkpoint-1-20261017/intake-overlay.json` and its `HANDOFF.md` for current additions, exact reviews and limitations.
+The current registered source checkpoint retains 73 native originals with exact prompts and 190 immutable primary drawing records. Animation and yard source production resumed after baseline PR33. See `release/animation-checkpoint-1-20261017/intake-overlay.json` and its `HANDOFF.md` for current additions, exact reviews and limitations.
 
 `release/san-diego-20-v1/All-20-Source-Intake-Index.json` is the historical PR33 baseline, containing102 drawings/21 originals; its prior stop flag is superseded by the resumed checkpoint. The baseline per-species slot audit is in `audits/animation-slot-inventory-20261017`. Source availability does not establish completed animation sets, owner approval, canonical Mac admission or actual-yard verification. This archive changes source evidence only.
 
@@ -215,3 +215,6 @@ Stage67 registers four exact native Bath source cells from one retained original
 
 
 Stage69 retains two separate source attempts: one static Crow art-internal toe edit and one Bushtit native closed-eyelid drawing. Total 189 source IDs/72 original-prompt pairs. Their separate ROOT adjudications remain authoritative; constructed render derivatives are not new primary drawings. Registration makes zero native calls, adds zero accepted runtime uses, and does not approve perching support, blink readability or app admission.
+
+
+Stage75 retains one Bushtit logical64 native eyelid attempt and a separate zero-native Crow selected-ground-palette experiment. The own ROOT outcomes determine source usefulness; native registration is independent of held/failed clip appearance. Total190 IDs/73 original-prompt pairs,27 experiments. No accepted uses, active inventory or runtime admission change.

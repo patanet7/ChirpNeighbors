@@ -1,0 +1,25 @@
+{
+  "failures": [
+    {
+      "action": "view_image preflight",
+      "target": "experiments/bushtit-readable-eyelid-v2/normal64-light-dark.png",
+      "outcome": "FAILED_NO_SUCH_FILE",
+      "reason": "Filename guessed incorrectly; actual normal64-source-comparison-light-dark.png then successfully inspected. No source edits or imagegen dispatch occurred."
+    },
+    {
+      "action": "Parse export_logical64.py",
+      "timestampUTC": "2026-10-18T16:13:30.193236+00:00",
+      "outcome": "FAILED_BEFORE_ANY_EXPORT_EXECUTION",
+      "error": "SyntaxError expected else after if expression, token else64 at atlas x ternary",
+      "remedy": "Whitespace syntax correction only. Python parses entire file before executing; no art generated/exported on failed parse. Recipe/parameters unchanged."
+    },
+    {
+      "action": "Browser verification harness range-event injection",
+      "timestampUTC": "2026-10-18T16:15:18.925989+00:00",
+      "outcome": "FAILED_HARNESS_JS_SYNTAX_BEFORE_RANGE_ASSERTION",
+      "error": "Unexpected end of input from test-only arrow function missing closing brace",
+      "remedy": "Test harness syntax only; source PNGs/export/recipe/player unchanged; no art reexport or native retry."
+    }
+  ],
+  "nativeFailures": []
+}

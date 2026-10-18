@@ -1,20 +1,13 @@
-"""Verify stage69 two-original source registration and exact stage67/65/63/61/57 history.
+"""DRAFT stage75: one native Bushtit original plus a zero-native Crow outcome.
 
-CLI: python verify_source_registration.py --root SOURCE_DELIVERY_DIRECTORY
-API: verify(Path(root)) -> JSON source-only report. No generation/admission.
-
-The exact previous verifier runs in a temporary HARDLINK corpus under root.parent.
-Eight historical metadata paths are unlinked before copying baseline bytes.
-No payload file is opened for writing. All temporary trees clean up on exit.
-Requires only existing Python/Pillow; no installs/network/private runtime data.
-
-Prepared against both actual frozen producer PRIMARY/receipt schemas; full root
-execution still requires final root seals and ledger. Ledger extends stage63 keys with per-batch preregistration/hash and
-adjudication/hash; top-level adjudications binds the two separate reviewed
-producer outcomes. No synthetic combined original or batch is introduced.
+Source-only, no generation/admission. Root owns mutation and publication. This
+module does not mutate D. verify(root) checks an ALREADY registered190/73 corpus,
+then runs the exact published stage69 verifier in a temporary hardlink view with
+all eight old metadata paths unlinked and restored to189/72/25/5726 snapshots.
+No byte-linked payload is opened for writing. Final producer references must be
+bound by root before this draft is selected for execution.
 """
 from __future__ import annotations
-
 import argparse
 from datetime import datetime
 import hashlib
@@ -28,602 +21,387 @@ import subprocess
 import sys
 import tempfile
 from typing import Any
-
 from PIL import Image
 
-# Exact pre-stage69 stage67 verifier and index pins anchor the historical callback.
-# New source/original counts remain ledger-derived.
-LEGACY_VERIFIER_SHA256 = "2ca3e9a36b96d94c1fd42d4385aa172371616cd37975a5d63441244c3001a184"
-PRIOR_INDEX_SHA256 = "066dca6dfa5fd508e6c6573bb7fe65a19d0bbcf061d8b93e2e9039576b7a4abf"
-PRIOR_INDEX_ENTRIES = 5530
-BASELINE_DIRECTORY = "registration-baseline-stage69"
-OVERLAY = "release/animation-checkpoint-1-20261017/intake-overlay.json"
-ACTIVE_INVENTORY = "release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json"
-OVERRIDES = {
-    "frame-bank.json": "frame-bank.json",
-    "original-source-inventory.json": "original-source-inventory.json",
-    "source-frame-map.json": "source-frame-map.json",
-    "verify_source_registration.py": "verify_source_registration.py",
-    OVERLAY: "intake-overlay.json",
-    "lessons-and-experiments.json": "lessons-and-experiments.json",
-    "source-files.sha256.json": "source-files.sha256.json",
-    "verify_source_files.py": "verify_source_files.py",
-}
+STAGE = 75
+BASELINE_DIRECTORY = 'registration-baseline-stage75'
+LEDGER = 'source-registration-stage75.json'
+PRIOR_INDEX_SHA256 = 'e153a00f7f41e9e0ebb203f69bbf12e21d3c2f8637f39544acf6390a06c896c2'
+PRIOR_INDEX_ENTRIES = 5726
+LEGACY_VERIFIER_SHA256 = '82086b056e6e04039b2beefac09fc0ace079c83263680c477390b59189b82bb5'
+ACTIVE = 'release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json'
+ACTIVE_SHA256 = '164507fddf904e892ec95868841271effc5a4e7da4232c4d1f6c18cc6385351a'
+OVERLAY = 'release/animation-checkpoint-1-20261017/intake-overlay.json'
+NATIVE_EXPERIMENT = 'BUSHTIT-logical64-readable-eyelid-source-3'
+NATIVE_PACKET = 'experiments/bushtit-logical64-eyelid-v3'
+ZERO_PACKET = 'experiments/crow-attention-selected-ground-palette-v1'
+REPORTS = 'reports/qualification-continuation-20261018'
+OVERRIDES = {'frame-bank.json':'frame-bank.json',
+ 'original-source-inventory.json':'original-source-inventory.json',
+ 'source-frame-map.json':'source-frame-map.json',
+ 'verify_source_registration.py':'verify_source_registration.py',
+ 'verify_source_files.py':'verify_source_files.py',
+ 'lessons-and-experiments.json':'lessons-and-experiments.json',
+ 'source-files.sha256.json':'source-files.sha256.json',OVERLAY:'intake-overlay.json'}
+BASELINE_SHA = {'frame-bank.json':'b7df3a39b2eb85da0407b8b4f89d98e6f5019db7e338685ba23ea252819b859e',
+ 'original-source-inventory.json':'0a0cc46e5c08be575b6a884d63c44659b722dfa480a6477087ed4af9a7259722',
+ 'source-frame-map.json':'6f15f0ab5771c7897090d35971861ca9e75ff38d2808dee2204de104725b217b',
+ 'verify_source_registration.py':LEGACY_VERIFIER_SHA256,
+ 'verify_source_files.py':'870995a0ec5da92c1b3b0e7e6b26e4432e2a5653ac028fde84d5a3d2cfd6d1c6',
+ 'lessons-and-experiments.json':'c7c20bc9d7b17481d058a51dce18a7d456371cd3f8a704216b4579859261c517',
+ 'source-files.sha256.json':PRIOR_INDEX_SHA256,
+ OVERLAY:'1fae8a71301e1e49b134759eedfc293ff5b0266dd24cb399b2ba2aeeb122fe40'}
 
-
-class VerificationError(RuntimeError):
-    pass
-
+class VerificationError(RuntimeError): pass
 
 def require(condition: Any, message: str) -> None:
-    if not condition:
-        raise VerificationError(message)
+ if not condition: raise VerificationError(message)
 
-
-def sha(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as stream:
-        for block in iter(lambda: stream.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
-
-
-def load(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
+def sha(path: Path) -> str: return hashlib.sha256(path.read_bytes()).hexdigest()
+def load(path: Path) -> Any: return json.loads(path.read_text(encoding='utf-8'))
 def inside(root: Path, relative: str) -> Path:
-    """Accept only existing, in-root paths without symlink components."""
-    require(isinstance(relative, str) and bool(relative), "Missing relative path")
-    rel = Path(relative)
-    require(not rel.is_absolute() and ".." not in rel.parts,
-            f"Non-local source path: {relative}")
-    current = root
-    for component in rel.parts:
-        current /= component
-        require(not current.is_symlink(), f"Symlink source path: {relative}")
-    resolved = current.resolve(strict=True)
-    require(resolved.is_relative_to(root), f"Source path escapes root: {relative}")
-    return resolved
+ require(isinstance(relative,str) and relative and not Path(relative).is_absolute()
+         and '..' not in Path(relative).parts,'Unsafe nonlocal source path')
+ require(not root.is_symlink(),'Symlink root forbidden')
+ p=root
+ for part in Path(relative).parts:
+  p/=part;require(not p.is_symlink(),f'Symlink source path: {relative}')
+ resolved=p.resolve(strict=True)
+ require(resolved.is_relative_to(root.resolve()),'Source path escapes root')
+ return resolved
 
-
-def checked_file(root: Path, relative: str, expected: str | None = None) -> Path:
-    path = inside(root, relative)
-    require(path.is_file(), f"Not a source file: {relative}")
-    if expected is not None:
-        require(sha(path) == expected, f"SHA256 mismatch: {relative}")
-    return path
-
+def checked_file(root: Path, relative: str, expected: str|None=None) -> Path:
+ p=inside(root,relative);require(p.is_file(),f'Missing source file: {relative}')
+ if expected is not None: require(sha(p)==expected,f'SHA mismatch: {relative}')
+ return p
 
 def rgba(path: Path) -> Image.Image:
-    with Image.open(path) as image:
-        require(image.format == "PNG", f"Source is not PNG: {path.name}")
-        return image.convert("RGBA")
+ with Image.open(path) as im:return im.convert('RGBA')
 
+def frame_id(im: Image.Image) -> str:
+ return 'frame.sha256.'+hashlib.sha256(f'RGBA8;{im.width}x{im.height};'.encode('ascii')+im.tobytes()).hexdigest()
 
-def frame_id(image: Image.Image) -> str:
-    prefix = f"RGBA8;{image.width}x{image.height};".encode("ascii")
-    return "frame.sha256." + hashlib.sha256(prefix + image.tobytes()).hexdigest()
+def legacy_definitions(baseline: Path) -> dict[str,Any]:
+ p=checked_file(baseline,'verify_source_registration.py',LEGACY_VERIFIER_SHA256)
+ helpers={'__name__':'stage75_exact_stage69_helpers','__file__':str(p)}
+ exec(compile(p.read_text(),str(p),'exec'),helpers)
+ return helpers
 
+def verify_logical64_conditioning(packet: Path, prereg: dict, arguments: dict,
+                                  old_bank: dict, old_root: Path) -> dict:
+ """Exact existing canonical64 ->16x1024 reference is not a new drawing."""
+ awake=prereg['awake'];cond=prereg['nativeConditioning']
+ old_by_id={f['frameId']:f for f in old_bank['frames']}
+ ident=awake['sourceFrameId'];require(ident in old_by_id,'Conditioning ancestry not registered')
+ native=checked_file(packet,awake['nativeFile'],awake['nativePNGsha256'])
+ bank_native=checked_file(old_root,old_by_id[ident]['file'],old_by_id[ident]['fileSha256'])
+ require(sha(native)==sha(bank_native) and frame_id(rgba(native))==ident,
+         'Retained registered native ancestry differs')
+ canonical_path=checked_file(packet,awake['canonical64'],awake['canonical64SHA256'])
+ canonical=rgba(canonical_path);require(canonical.size==(64,64),'Canonical grid is not64square')
+ # This published source-family manifest binds the existing rendered64 to the
+ # same registered native identity. No new quantization/phase/codec is run here.
+ family_rel='experiments/resting-repair-ground-motion-v1/blink-repairs/bushtit/family-handoff.json'
+ family=load(checked_file(old_root,family_rel))
+ matches=[f for f in family['frames'] if f.get('role')=='neutral'
+          and f.get('sourceFrameID')==ident and f.get('PNGsha256')==sha(canonical_path)]
+ require(len(matches)==1,'Canonical64 has no exact published source/native binding')
+ published64=checked_file((old_root/family_rel).parent,matches[0]['png'],sha(canonical_path))
+ require(published64.read_bytes()==canonical_path.read_bytes(),'Canonical64 differs from old indexed render')
+ conditioning_path=checked_file(packet,cond['soleImage'],cond['sha256'])
+ conditioning=rgba(conditioning_path)
+ require(conditioning.size==(1024,1024)==tuple(cond['canvas']),'Conditioning canvas differs')
+ # Existing whole integer nearest upscale, byte comparison only; no PNG export.
+ require(canonical.resize((1024,1024),Image.Resampling.NEAREST).tobytes()==conditioning.tobytes(),
+         'Conditioning is not exact16x RGBA replication')
+ refs=arguments.get('referenced_image_paths',[])
+ require(len(refs)==1 and Path(refs[0]).as_posix().endswith('/'+cond['soleImage']),
+         'Sole actual input differs; native ancestry must not be counted as a second input')
+ provenance=load(checked_file(packet,'input-provenance.json'))
+ inputs=provenance['actualSubmittedImages'];require(len(inputs)==1,'Actual submitted image enumeration differs')
+ item=inputs[0]
+ require(item['path']==cond['soleImage'] and item['sha256']==sha(conditioning_path)
+         and item['upstream']==awake['canonical64'] and item['upstreamSHA256']==sha(canonical_path)
+         and item['nativeSourceFrameId']==ident and item['newDrawing'] is False,
+         'Conditioning derivative provenance differs')
+ require(set(provenance['otherInputsRetainedNotSubmitted'])
+         .isdisjoint({item['path']}),'Submitted image mislabeled as unsubmitted')
+ return {'registeredNativeSourceID':ident,'canonical64SHA256':sha(canonical_path),
+         'conditioningSHA256':sha(conditioning_path),'conditionedRGBAId':frame_id(conditioning),
+         'integerUpscale':16,'newNativeDrawingsFromConditioning':0,'exactRoundtrip':True}
 
-def first(record: dict[str, Any], *keys: str) -> Any:
-    for key in keys:
-        if key in record:
-            return record[key]
-    return None
+def verify_stage75_receipts(batch: dict, prompt: bytes, arguments: dict,
+                            arguments_sha: str, dispatch: dict, returned: dict,
+                            packet: Path) -> dict:
+ """Validate actual v3 states directly; never rewrite them into the v2 protocol.
 
+ observedAwaitMs is a measured tool-await scope. Dispatch-to-receipt includes
+ other work and has different endpoints; neither implies a server duration.
+ """
+ require(dispatch.get('state')=='DISPATCHING_NATIVE_IMAGE_EDIT'
+         and returned.get('state')=='NATIVE_RETURNED_ONE_CALL_NO_RETRY',
+         'Unrecognized actual stage75 native receipt states')
+ require(dispatch.get('tool')=='image_gen.imagegen'
+         and dispatch.get('nativeCallNumber')==dispatch.get('nativeCallsStarted')==1
+         and dispatch.get('nativeCallsReturned')==0 and dispatch.get('nativeCallsRunning')==1
+         and dispatch.get('maxNativeCalls')==1 and dispatch.get('automaticRetries')==0,
+         'Actual dispatch does not bind exactly one in-flight request')
+ require(returned.get('nativeCallsStarted')==returned.get('nativeCallsReturned')==returned.get('newNativeDrawings')==1
+         and returned.get('nativeCallsRunning')==returned.get('automaticRetries')==0,
+         'Actual return count/retry/running state differs')
+ args_path=checked_file(packet,dispatch['argumentsFile'],arguments_sha)
+ record=load(args_path)
+ require(record.get('tool')=='image_gen.imagegen' and record.get('arguments')==arguments
+         and dispatch['argumentsSHA256']==sha(args_path),'Actual wrapped invocation arguments differ')
+ require(arguments.get('transparent_background')is True and arguments['prompt'].encode('utf-8')==prompt
+         and hashlib.sha256(prompt).hexdigest()==batch['promptSHA256']==dispatch['promptSHA256'],
+         'Literal prompt/transparency differs')
+ require(dispatch['preregistrationSHA256']==sha(checked_file(packet,'PREREGISTRATION.json')),
+         'Dispatch preregistration hash differs')
+ began=datetime.fromisoformat(dispatch['dispatchUTC'].replace('Z','+00:00'))
+ ended=datetime.fromisoformat(returned['returnedUTC'].replace('Z','+00:00'))
+ require(began.tzinfo is not None and ended.tzinfo is not None and began<=ended,
+         'Invalid actual dispatch/return chronology')
+ await_ms=returned.get('observedAwaitMs')
+ require(isinstance(await_ms,(int,float)) and not isinstance(await_ms,bool) and await_ms>=0,
+         'Missing observed await duration')
+ original=checked_file(packet,returned['original'],batch['originalSHA256']);image=rgba(original)
+ require(returned['originalSHA256']==sha(original) and returned['originalBytes']==original.stat().st_size
+         and returned['mode']=='RGBA' and returned['nativeCanvas']==list(image.size)==[1254,1254]
+         and returned['sourceFrameId']==frame_id(image)==batch['frames'][0]['sourceFrameId']
+         and returned['sourceOriginalRect']==[0,0,1254,1254]
+         and returned['sourceWholeCanvasOriginalUnchanged']is True,
+         'Native return original/canvas/primary identity differs')
+ require(returned.get('model')is None and returned.get('seed')is None,
+         'Do not invent an unexposed model/seed')
+ return {'protocol':'actual-v3-state-fields','nativeCallsReturned':1,'automaticRetries':0,
+         'wrappedArgumentsSHA256':arguments_sha,'observedAwaitMilliseconds':await_ms,
+         'dispatchToReturnReceiptSeconds':(ended-began).total_seconds(),
+         'timingScopesDistinct':True,'serverGenerationDuration':'UNKNOWN'}
 
-def native_rect(record: dict[str, Any], fallback: list[int] | None = None) -> list[int]:
-    rect = first(record, "nativeSourceRect", "nativeSourceRectXYWH",
-                 "sourceCellRect", "nativeCellRect", "sourceOriginalRectXYWH", "sourceOriginalRect")
-    if rect is None:
-        require(fallback is not None, "Missing native source rectangle")
-        rect = fallback
-    if isinstance(rect, dict):
-        rect = [rect.get("x"), rect.get("y"),
-                first(rect, "width", "w"), first(rect, "height", "h")]
-    require(isinstance(rect, list) and len(rect) == 4
-            and all(type(value) is int for value in rect),
-            f"Invalid integer XYWH rectangle: {rect}")
-    require(rect[0] >= 0 and rect[1] >= 0 and rect[2] > 0 and rect[3] > 0,
-            f"Invalid source rectangle extent: {rect}")
-    return rect
+def verify_packet_seal(root: Path, packet_rel: str) -> dict:
+ packet=inside(root,packet_rel)
+ rows=load(checked_file(packet,'FINAL-source-files.sha256.json'))['files'];seen=set()
+ for row in rows:
+  require(row['file'] not in seen,'Duplicate final seal path');seen.add(row['file'])
+  p=checked_file(packet,row['file'],row['sha256'])
+  if 'bytes' in row: require(p.stat().st_size==row['bytes'],'Final seal byte length differs')
+ require('ROOT-ADJUDICATION.json'in seen and 'PREREGISTRATION.json'in seen,'Root seal lacks outcome/preregistration')
+ actual=set()
+ for p in packet.rglob('*'):
+  require(not p.is_symlink(),'Symlink in source packet')
+  if p.is_file():actual.add(str(p.relative_to(packet)))
+ require(actual==seen|{'FINAL-source-files.sha256.json'},'Sealed packet has unindexed additions')
+ return {'packet':packet_rel,'sealedFiles':len(seen)}
 
+def prior_bytes(root: Path, baseline: Path, ledger: dict) -> dict:
+ old_index=load(checked_file(baseline,'source-files.sha256.json',PRIOR_INDEX_SHA256))
+ require(len(old_index['files'])==PRIOR_INDEX_ENTRIES==ledger['priorSourceIndexEntries']
+         and ledger['priorSourceIndexSHA256']==PRIOR_INDEX_SHA256,'Wrong prior5726 index')
+ allowed=set(OVERRIDES)|{'README.md'};seen=set();protected=0
+ for row in old_index['files']:
+  require(row['file']not in seen,'Duplicate historical index path');seen.add(row['file'])
+  p=checked_file(root,row['file'])
+  if row['file']not in allowed:
+   require(sha(p)==row['sha256'] and p.stat().st_size==row['bytes'],f'Old indexed bytes changed: {row["file"]}')
+   protected+=1
+ for target,snapshot in OVERRIDES.items():checked_file(baseline,snapshot,BASELINE_SHA[target])
+ # No historical ledger gets a metadata exception.
+ for name in ['source-registration-stage69.json','source-registration-stage67.json',
+              'source-registration-stage63.json','source-registration-stage61.json',
+              'source-registration-continuation-v1.json']:
+  row=next(r for r in old_index['files']if r['file']==name);checked_file(root,name,row['sha256'])
+ checker=checked_file(root,'verify_source_files.py').read_text();original=checker
+ for before,after in [("len(originals['originals']) == 72","len(originals['originals']) == 73"),
+   ("len(bank['frames']) == 189","len(bank['frames']) == 190"),
+   ("len({f['frameId'] for f in bank['frames']}) == 189","len({f['frameId'] for f in bank['frames']}) == 190"),
+   ('pixel_count = 189','pixel_count = 190'),("'originalPromptPairs': 72","'originalPromptPairs': 73")]:
+  require(original.count(after)==1,'General checker count edit ambiguous');original=original.replace(after,before)
+ require(hashlib.sha256(original.encode()).hexdigest()==BASELINE_SHA['verify_source_files.py'],
+         'General checker changed beyond five source-count assertions')
+ return {'oldIndexEntries':5726,'oldNonMetadataByteExact':protected,'oldLedgersByteExact':True,
+         'fiveGeneralCheckerEditsOnly':True,'newReportsAllowedBelow':REPORTS}
 
-def verify_receipts(batch: dict[str, Any], prompt: bytes, args: dict[str, Any],
-                    args_sha: str, dispatch: dict[str, Any], returned: dict[str, Any],
-                    arguments_root: Path) -> None:
-    started = any(dispatch.get(key) == 1 for key in (
-        "nativeCallsStarted", "callsDispatched", "nativeCalls",
-        "nativeCallsDispatched", "nativeCallOrdinal", "actualRequestCount"))
-    if not started:
-        require(str(dispatch.get("state","")).startswith("DISPATCH_PREPARED")
-                and dispatch.get("plannedRequestNumber") == 1
-                and returned.get("state") == "NATIVE_RETURNED"
-                and returned.get("nativeCallsStarted") == returned.get("nativeCallsReturned") == 1,
-                "Prepared Crow receipt lacks actual invocation/return evidence")
-        invoked = datetime.fromisoformat(returned["actualInvokeNotifyUTC"].replace("Z","+00:00"))
-        completed = datetime.fromisoformat(returned["returnUTC"].replace("Z","+00:00"))
-        require(invoked.tzinfo is not None and completed.tzinfo is not None and invoked <= completed,
-                "Invalid actual Crow invocation/return chronology")
-        require(abs((completed-invoked).total_seconds()*1000-returned["observedToolAwaitMilliseconds"]) < 1,
-                "Crow invocation elapsed receipt differs from timestamps")
-    else:
-        require(dispatch.get("status") == "DISPATCHING" and returned.get("status") == "RETURNED",
-                "Unrecognized actual Bushtit dispatch/return states")
-        require(dispatch["dispatchUTC"] == returned["dispatchUTC"],
-                "Bushtit return does not bind original dispatch timestamp")
-        began = datetime.fromisoformat(dispatch["dispatchUTC"].replace("Z","+00:00"))
-        ended = datetime.fromisoformat(returned["returnReceiptUTC"].replace("Z","+00:00"))
-        require(began.tzinfo is not None and ended.tzinfo is not None and began <= ended,
-                "Invalid Bushtit dispatch/return chronology")
-        require(abs((ended-began).total_seconds()-returned["observedDispatchToReturnReceiptSeconds"]) < 0.001,
-                "Bushtit dispatch-to-return receipt interval differs")
-    require(any(returned.get(key) == 1 for key in ("nativeCalls", "nativeCallsReturned", "actualRequestCount")),
-            f"Return has no affirmative completed request: {batch['batchId']}")
-    require(first(returned, "originalSHA256", "originalPNGsha256") == batch["originalSHA256"],
-            f"Return original identity differs: {batch['batchId']}")
-    dispatch_prompt = first(dispatch,"promptSHA256","literalPromptSHA256","promptSha256")
-    if dispatch_prompt is not None:
-        require(dispatch_prompt == batch["promptSHA256"],
-                f"Dispatch prompt hash differs: {batch['batchId']}")
-    else:
-        # The original flight receipt records its actual argument filename, not
-        # an invented later prompt hash. Bind that retained file semantically to
-        # the ledger-hashed original args, without rewriting UNKNOWN model/seed.
-        require(dispatch.get("actualRequestCount") == 1
-                and dispatch.get("status") == "DISPATCHING"
-                and returned.get("actualRequestCount") == 1
-                and returned.get("status") == "RETURNED",
-                "Unrecognized dispatch receipt without prompt hash")
-        dispatched_args = load(checked_file(arguments_root, dispatch["argumentsFile"]))
-        require(dispatched_args.get("arguments", dispatched_args) == args,
-                "Original dispatch argument-file alias differs from native arguments")
-    if "actualReturnedDrawings" in returned:
-        require(returned["actualReturnedDrawings"] == len(batch["frames"]),
-                "Return drawing count differs from ledger")
-    if "actualNewStaticDrawings" in returned:
-        require(returned["actualNewStaticDrawings"] == len(batch["frames"]),
-                "Return static drawing count differs from ledger")
-    if "actualDrawingCount" in returned:
-        require(returned["actualDrawingCount"] == len(batch["frames"]),
-                "Raw return drawing count differs from ledger source cells")
-    for receipt in (dispatch, returned):
-        for key in ("promptSHA256", "promptSha256", "literalPromptSHA256"):
-            if key in receipt:
-                require(receipt[key] == batch["promptSHA256"], f"Receipt {key} differs")
-        for key in ("promptBytes", "promptUTF8Bytes"):
-            if key in receipt:
-                require(receipt[key] == len(prompt), f"Receipt {key} differs")
-        for key in ("nativeArgsSHA256", "nativeArgumentsSHA256",
-                    "preparedArgsSHA256", "argumentsSHA256"):
-            if key in receipt:
-                require(receipt[key] == args_sha, f"Receipt {key} differs")
-        for key in ("automaticRetries", "retries"):
-            if key in receipt:
-                require(receipt[key] == 0, f"Unexpected automatic retries: {batch['batchId']}")
-    if "nativeRunning" in returned:
-        require(returned["nativeRunning"] is False or returned["nativeRunning"] == 0,
-                "Return still reports a running native request")
-    for receipt in (dispatch, returned):
-        require(receipt.get("status") not in {"FAILED","RUNNING"}, "Native receipt is not completed history")
-    require(args.get("transparent_background") is True,
-            f"Missing submitted transparency argument: {batch['batchId']}")
+def historical_stage69(root: Path, baseline: Path) -> dict:
+ legacy=checked_file(baseline,'verify_source_registration.py',LEGACY_VERIFIER_SHA256)
+ guards={k:sha(checked_file(root,k))for k in OVERRIDES}
+ with tempfile.TemporaryDirectory(prefix='.stage75-stage69-',dir=root.parent)as dirname:
+  temp=Path(dirname)
+  for directory,dirs,files in os.walk(root,followlinks=False):
+   srcdir=Path(directory);dst=temp/srcdir.relative_to(root);dst.mkdir(parents=True,exist_ok=True)
+   for name in dirs:require(not(srcdir/name).is_symlink(),'Symlink source directory')
+   for name in files:
+    p=srcdir/name;require(not p.is_symlink()and stat.S_ISREG(p.stat().st_mode),'Nonregular payload')
+    os.link(p,dst/name,follow_symlinks=False)
+  for target,snapshot in OVERRIDES.items():
+   (temp/target).unlink() # sever every hardlink before restoring old metadata
+   shutil.copyfile(checked_file(baseline,snapshot,BASELINE_SHA[target]),temp/target)
+  env=os.environ.copy();env['PYTHONDONTWRITEBYTECODE']='1'
+  result=subprocess.run([sys.executable,str(temp/'verify_source_registration.py'),'--root',str(temp)],
+    cwd=temp,env=env,text=True,capture_output=True,timeout=900)
+  require(result.returncode==0,'Exact stage69 reconstructed regression failed:\n'+result.stdout+result.stderr)
+  d=json.loads(result.stdout)
+  require(d.get('passed')is True and d.get('stage')==69
+          and d['totalBankDrawingIDs']==189 and d['totalOriginalPromptPairs']==72,
+          'Historical stage69 result/counts differ')
+ require(all(sha(checked_file(root,k))==v for k,v in guards.items()),'Historical callback mutated current metadata')
+ return {'verifierSHA256':sha(legacy),'overrides':list(OVERRIDES),'result':d,'sourceMetadataUnchanged':True}
 
+def safe_new_reports(root: Path) -> dict:
+ directory=root/REPORTS;count=0
+ if directory.exists():
+  for p in directory.rglob('*'):
+   require(not p.is_symlink(),'Symlink new report')
+   if not p.is_file():continue
+   count+=1
+   if p.suffix.lower()not in{'.json','.md','.txt','.html','.js'}:continue
+   text=p.read_text()
+   require(re.search(r'libfile_[a-f0-9]{32}|data:image/[^;,]+;base64,|https?://[^\s"<>]+[?&](?:X-Amz-Signature|Signature|sig)=',text,re.I)is None,
+           'Private Library/signed URL/capture payload in new report')
+   if p.suffix=='.json':
+    def walk(v):
+     if isinstance(v,dict):
+      for k,item in v.items():
+       if k.lower()in{'ownerid','actorid','residentid','activemanifestid','sourceartifactid','referencepinid','supportinstanceid'}:
+        require(item is None,'Concrete private runtime identifier in new report')
+       walk(item)
+     elif isinstance(v,list):
+      for item in v:walk(item)
+    walk(json.loads(text))
+ return {'path':REPORTS,'files':count,'privateBindingValuesAllowed':False,'reportsAddSourceDrawings':0}
 
-def verify_sole_reference(packet: Path, prereg: dict[str, Any], arguments: dict[str, Any],
-                          dispatch: dict[str, Any], returned: dict[str, Any],
-                          old_ids: set[str]) -> None:
-    reference = first(prereg,"reference","nativeReference")
-    require(isinstance(reference,dict),"Missing actual sole image reference")
-    expected = first(reference,"SHA256","PNGsha256")
-    require(isinstance(expected,str) and re.fullmatch(r"[0-9a-f]{64}",expected) is not None,
-            "Missing exact sole-reference PNG hash")
-    path = checked_file(packet,reference["file"],expected)
-    ident = first(reference,"sourceFrameId","sourceFrameID")
-    image = rgba(path)
-    require(frame_id(image) == ident and ident in old_ids
-            and list(image.size) == reference["canvas"],
-            "Sole reference differs from exact registered source")
-    submitted = arguments.get("referenced_image_paths",[])
-    require(len(submitted) == 1
-            and Path(submitted[0]).as_posix().endswith("/"+reference["file"]),
-            "Literal arguments do not bind the exact sole retained reference")
-    for receipt in (dispatch,returned):
-        if "referenceSHA256" in receipt:
-            require(receipt["referenceSHA256"] == sha(path),"Reference receipt hash differs")
+def verify(root: Path) -> dict:
+ require(not root.is_symlink(),'Symlink root');root=root.resolve(strict=True)
+ ledger=load(checked_file(root,LEDGER));require(ledger['stage']==75,'Wrong stage ledger')
+ require(ledger['baselineDirectory']==BASELINE_DIRECTORY,'Wrong baseline directory')
+ baseline=inside(root,BASELINE_DIRECTORY)
+ for target,snapshot in OVERRIDES.items():checked_file(baseline,snapshot,BASELINE_SHA[target])
+ require(ledger['priorVerifierSHA256']==LEGACY_VERIFIER_SHA256,'Wrong historical verifier pin')
+ for key,target in [('oldBankRecordsSHA256','frame-bank.json'),('oldOriginalRecordsSHA256','original-source-inventory.json'),
+                    ('oldFrameMapSHA256','source-frame-map.json'),('oldOverlaySHA256',OVERLAY),
+                    ('oldLessonsSHA256','lessons-and-experiments.json')]:
+  require(ledger[key]==BASELINE_SHA[target],'Ledger baseline hash binding differs: '+key)
+ old_bank=load(baseline/'frame-bank.json');old_inv=load(baseline/'original-source-inventory.json');old_map=load(baseline/'source-frame-map.json')
+ bank=load(checked_file(root,'frame-bank.json'));inv=load(checked_file(root,'original-source-inventory.json'));mapping=load(checked_file(root,'source-frame-map.json'))
+ require(len(old_bank['frames'])==len(old_map['frames'])==189 and len(old_inv['originals'])==72,'Old189/72 baseline differs')
+ require(ledger['baselineDrawings']==189 and ledger['baselineOriginals']==72,'Ledger old counts differ')
+ require(bank['frames'][:189]==old_bank['frames'] and inv['originals'][:72]==old_inv['originals']
+         and mapping['frames'][:189]==old_map['frames'],'Exact old189/72 prefix altered')
+ require(len(bank['frames'])==len(mapping['frames'])==bank['frameCount']==190
+         and len(inv['originals'])==73,'Final190/73 counts differ')
+ require({k:v for k,v in bank.items()if k not in{'frames','frameCount','status'}}
+         =={k:v for k,v in old_bank.items()if k not in{'frames','frameCount','status'}},'Bank authority/reuse metadata changed')
+ require({k:v for k,v in inv.items()if k not in{'originals','localGeneratedDrawings','newGenerationCallsForThisHandoff'}}
+         =={k:v for k,v in old_inv.items()if k not in{'originals','localGeneratedDrawings','newGenerationCallsForThisHandoff'}},'Old inventory metadata changed')
+ require({k:v for k,v in mapping.items()if k!='frames'}=={k:v for k,v in old_map.items()if k!='frames'},'Old map metadata changed')
+ require(inv['localGeneratedDrawings']==190 and inv['newGenerationCallsForThisHandoff']==1,'Inventory counter differs')
+ require(ledger['registeredDrawings']==190 and ledger['registeredOriginals']==73
+         and ledger['newNativeOriginals']==ledger['newNativeDrawings']==ledger['actualGenerationCallsInBatch']==1
+         and ledger['registrationMakesNativeCalls']==ledger['acceptedUsesAdded']==0
+         and ledger['runtimeAdmission']is False,'Source registration counts or admission differ')
+ appended=ledger['appendedBankRecords'];batches=ledger['registrationOnlyBatches']
+ require(len(appended)==len(batches)==1 and bank['frames'][189:]==appended,'Only one new native primary may append')
+ old_ids={f['frameId']for f in old_bank['frames']};ids=set()
+ for f,mp in zip(bank['frames'],mapping['frames']):
+  im=rgba(checked_file(root,f['file'],f['fileSha256']));ident=frame_id(im)
+  require(ident==f['frameId']and ident not in ids and list(im.size)==f['dimensions'],'Full bank identity/dimensions/uniqueness differs');ids.add(ident)
+  require(f.get('acceptedUses')==[],'Accepted uses changed')
+  require(mp['sourceFrameId']==ident and mp['sourcePNG']==f['file']and mp['sourcePNGsha256']==f['fileSha256']
+          and mp['dimensions']==f['dimensions']and mp['original']==f['sourceAtlas']
+          and mp.get('prompt')==f.get('sourcePrompt')and mp.get('acceptedUses')==[],'Map provenance differs')
+ for item in inv['originals']:
+  p=checked_file(root,item['file'],item['sha256']);q=checked_file(root,item['promptFile'],item['promptSha256'])
+  require(p.stat().st_size==item['bytes']and q.stat().st_size==item['promptBytes']and list(rgba(p).size)==item['dimensions'],'Original/prompt identity differs')
+ b=batches[0];f=appended[0];item=inv['originals'][72];legacy=legacy_definitions(baseline)
+ require(b['nativeCalls']==1 and b['acceptedUses']==[]and b['runtimeAdmission']is False,'Native batch count/admission differs')
+ require(b['originalSHA256']not in{v['sha256']for v in old_inv['originals']},'Native original already counted')
+ orig=checked_file(root,b['original'],b['originalSHA256']);im=rgba(orig);require(im.size==(1254,1254)==tuple(b['originalDimensions']),'Actual nativecanvas differs')
+ packet=orig.parent;require(str(packet.relative_to(root))==NATIVE_PACKET,'Wrong native packet')
+ prompt=checked_file(root,b['prompt'],b['promptSHA256']);require(len(prompt.read_bytes())==b['promptBytes'],'Prompt byte count differs')
+ args_path=checked_file(root,b['nativeArguments'],b['nativeArgumentsSHA256']);arg_record=load(args_path);args=arg_record.get('arguments',arg_record)
+ require(args['prompt'].encode()==prompt.read_bytes(),'Literal prompt bytes differ')
+ dispatch=load(checked_file(root,b['dispatchReceipt'],b['dispatchSHA256']));returned=load(checked_file(root,b['returnReceipt'],b['returnSHA256']))
+ # v3 dispatch names/hashes the wrapped file. Do not substitute the older flat convention.
+ require(dispatch['argumentsFile']==args_path.name and dispatch['argumentsSHA256']==sha(args_path),'Actual dispatch argument file/hash differs')
+ for alias in ['native-arguments.json','native-call-arguments.json','prepared-native-arguments.json']:
+  if(packet/alias).exists():
+   d=load(checked_file(packet,alias));require(d.get('arguments',d)==args,'Argument alias semantics differ')
+ verify_stage75_receipts(b,prompt.read_bytes(),args,sha(args_path),dispatch,returned,packet)
+ prereg_path=checked_file(root,b['preregistration'],b['preregistrationSHA256']);prereg=load(prereg_path)
+ require(prereg_path.parent==packet and prereg['id']==NATIVE_EXPERIMENT,'Native preregistration differs')
+ conditioning=verify_logical64_conditioning(packet,prereg,args,old_bank,root)
+ adjud_path=checked_file(root,b['adjudication'],b['adjudicationSHA256']);adjud=load(adjud_path)
+ require(adjud_path.parent==packet and adjud['nativeCallsReturned']==adjud['newNativeDrawings']==1
+         and adjud.get('runtimeAdmission',False)is False,'Own native outcome count/admission differs')
+ expected_adjud=[{'file':b['adjudication'],'sha256':sha(adjud_path),'nativeCallsReturned':1,'newNativeDrawings':1}]
+ require(ledger['adjudications']==expected_adjud,'Do not synthesize a native adjudication for deterministic Crow')
+ manifest_path=checked_file(root,b['manifest'],b['manifestSHA256']);manifest=load(manifest_path)
+ require(manifest_path.parent==packet and manifest['batchId']==b['batchId']and manifest['nativeCalls']==1
+         and len(manifest['frames'])==len(b['frames'])==1,'PRIMARY native count/batch differs')
+ require(manifest['frames'][0]['speciesId']=='bushtit','Wrong native species')
+ require(checked_file(packet,manifest['original'],manifest['originalSHA256'])==orig
+         and checked_file(packet,manifest['prompt'],manifest['promptSHA256'])==prompt,'PRIMARY input binding differs')
+ src=b['frames'][0];decl=manifest['frames'][0];src_path=checked_file(root,src['sourcePNG'],src['sourcePNGsha256']);src_im=rgba(src_path)
+ ident=frame_id(src_im);rect=legacy['native_rect'](src);dr=legacy['native_rect'](decl,[0,0,*im.size])
+ require(ident==src['sourceFrameId']==decl['sourceFrameId']==f['frameId']and ident not in old_ids
+         and checked_file(packet,decl['sourcePNG'],decl['sourcePNGsha256'])==src_path
+         and src['dimensions']==[1254,1254]and src_im.size==im.size==(1254,1254)and src_im.tobytes()==im.tobytes()
+         and rect==dr==[0,0,1254,1254],'Only the whole native original is a new primary, never a64 patch derivative')
+ require(f['file']==src['sourcePNG']and f['fileSha256']==src['sourcePNGsha256']and f['sourceAtlas']==b['original']
+         and f['sourceAtlasSha256']==b['originalSHA256']and f['sourcePrompt']==b['prompt']
+         and f['sourceNativeArguments']==b['nativeArguments']and f['appearanceVersion']==b['batchId']
+         and f['species']=='bushtit'and f['sourceReview']==b['adjudication']
+         and f['sourceReviewSHA256']==sha(adjud_path),'New bank provenance differs')
+ require(legacy['native_rect'](f['derivation'])==rect and f['derivation']['registrationOnly']is True
+         and f['derivation']['perFrameRescale']is False and f['anatomyScaleAccepted']is False
+         and f['rootContactAccepted']is False and f['runtimeAdmission']is False,'New record grants authority or changes source')
+ require(returned['sourceFrameId']==ident,'Return primary ID differs')
+ require(item['batch']==b['batchId']and item['file']==b['original']and item['sha256']==b['originalSHA256']
+         and item['promptFile']==b['prompt']and item['promptSha256']==b['promptSHA256']
+         and item['sourceReviewFile']==b['adjudication']and item['sourceReviewSha256']==sha(adjud_path)
+         and item['acceptedProductionArt']is False and item['stagedInMac']is False
+         and item['integratedInMac']is False,'New inventory record authority/provenance differs')
+ seals=[verify_packet_seal(root,NATIVE_PACKET)]
+ # The second outcome is explicitly zero-native, not a second original or source record.
+ zero=ledger['zeroNativeExperiments'];require(len(zero)==1,'Exactly one zero-native Crow outcome expected')
+ z=zero[0];require(z['packetDirectory']==ZERO_PACKET,'Wrong deterministic packet')
+ zp=inside(root,ZERO_PACKET);zpr=checked_file(root,z['preregistration'],z['preregistrationSHA256']);zpre=load(zpr)
+ za=checked_file(root,z['adjudication'],z['adjudicationSHA256']);zad=load(za)
+ zm=checked_file(root,z['manifest'],z['manifestSHA256']);zman=load(zm)
+ require(zpr.parent==za.parent==zm.parent==zp and zpre.get('batchId')=='crow-attention-selected-ground-palette-v1','Zero-native references belong to another packet')
+ require(zad['nativeCallsReturned']==zad['newNativeDrawings']==0,'Zero-native Crow outcome counted native art')
+ require(zman['nativeCalls']==0 and zman['frames']==[],'Deterministic PRIMARY cannot add native frames')
+ reused=zman['reusedFrames'];require(len(reused)==3,'Actual Crow packet retains exactly neutral/blink/look existing native sources')
+ require(set(z['reusedSourceFrameIDs'])=={v['sourceFrameId']for v in reused}and set(z['reusedSourceFrameIDs'])<=old_ids,'Crow reused sources differ from old bank')
+ for r in reused:
+  p=checked_file(zp,r['sourcePNG'],r['sourcePNGsha256']);require(frame_id(rgba(p))==r['sourceFrameId'],'Zero-native reused PNG identity differs')
+ require(zad.get('runtimeAdmission',False)is False,'Zero-native source outcome cannot admit runtime')
+ seals.append(verify_packet_seal(root,ZERO_PACKET))
+ old_lessons=load(baseline/'lessons-and-experiments.json');lessons=load(checked_file(root,'lessons-and-experiments.json'))
+ require(len(old_lessons['experiments'])==25 and len(lessons['experiments'])==27
+         and lessons['experiments'][:25]==old_lessons['experiments']
+         and {x['id']for x in lessons['experiments'][25:]}=={NATIVE_EXPERIMENT,z['experimentId']}
+         and len({x['id']for x in lessons['experiments']})==27
+         and {k:v for k,v in lessons.items()if k!='experiments'}=={k:v for k,v in old_lessons.items()if k!='experiments'},'Public registry prefix changed or duplicated outcomes')
+ require(ledger['activeInventorySHA256']==ACTIVE_SHA256,'Active inventory ledger pin changed');checked_file(root,ACTIVE,ACTIVE_SHA256)
+ overlay=load(checked_file(root,OVERLAY));old_overlay=load(baseline/'intake-overlay.json')
+ changed={'registeredDrawings','registeredOriginals','newSourceRegistration','sourceRegistrationNote','newDrawings','newNativeCalls'}
+ require(all(overlay.get(k)==v for k,v in old_overlay.items()if k not in changed),'Old overlay metadata changed')
+ require(overlay['newDrawings']==old_overlay['newDrawings']+1 and overlay['newNativeCalls']==old_overlay['newNativeCalls']+1
+         and overlay['registeredDrawings']==190 and overlay['registeredOriginals']==73
+         and overlay['newSourceRegistration']==LEDGER,'Overlay counted deterministic derivative as generated art')
+ prior=prior_bytes(root,baseline,ledger);reports=safe_new_reports(root);history=historical_stage69(root,baseline)
+ return {'passed':True,'stage':75,'totalBankDrawingIDs':190,'totalOriginalPromptPairs':73,
+         'newNativeDrawings':1,'newNativeOriginals':1,'zeroNativeExperimentCount':1,
+         'registrationOnlyNativeDrawings':history['result']['registrationOnlyNativeDrawings']+1,
+         'registrationOnlyNativeOriginals':history['result']['registrationOnlyNativeOriginals']+1,
+         'conditioning':conditioning,'old189And72PrefixesExact':True,'old25ExperimentPrefixExact':True,
+         'activeInventoryUnchanged':True,'acceptedUsesAdded':0,'registrationMakesNativeCalls':0,
+         'packetSeals':seals,'priorSourceIndex':prior,'newReports':reports,'historicalStage69':history,
+         'sourceAppearanceOrSupportApproved':False,'runtimeAdmission':False}
 
-
-def prior_index_and_metadata(root: Path, baseline: Path, ledger: dict[str, Any],
-                             drawings: int, originals: int, baseline_drawings: int,
-                             baseline_originals: int) -> dict[str, Any]:
-    """Preserve prior corpus except explicitly changed append-only metadata."""
-    index_path = checked_file(baseline, "source-files.sha256.json", PRIOR_INDEX_SHA256)
-    index = load(index_path)
-    require(ledger["priorSourceIndexSHA256"] == sha(index_path)
-            and ledger["priorSourceIndexEntries"] == len(index["files"]) == PRIOR_INDEX_ENTRIES,
-            "Historical source index identity/count differs")
-    allowed = set(OVERRIDES) | {"verify_source_files.py", "README.md"}
-    protected = 0
-    seen: set[str] = set()
-    old_rows = {}
-    for row in index["files"]:
-        name = row["file"]
-        require(name not in seen, "Duplicate path in historical source index")
-        seen.add(name)
-        old_rows[name] = row
-        path = checked_file(root, name)
-        if name not in allowed:
-            require(sha(path) == row["sha256"] and path.stat().st_size == row["bytes"],
-                    f"Historical payload bytes changed: {name}")
-            protected += 1
-    for current_name, snapshot_name in OVERRIDES.items():
-        if current_name in old_rows:
-            require(sha(checked_file(baseline, snapshot_name)) == old_rows[current_name]["sha256"],
-                    f"Baseline metadata differs from historical index: {current_name}")
-    # All prior native and zero-native registration histories stay byte-exact.
-    for name in ("source-registration-stage61.json","source-registration-stage63.json",
-                 "source-registration-stage67.json","source-registration-continuation-v1.json"):
-        checked_file(root,name,old_rows[name]["sha256"])
-    # Only count assertions in the separate byte/pixel verifier may advance.
-    current_checker = checked_file(root, "verify_source_files.py").read_text()
-    reconstructed_old_checker = current_checker
-    replacements = [
-        (f"len(originals['originals']) == {baseline_originals}", f"len(originals['originals']) == {originals}"),
-        (f"len(bank['frames']) == {baseline_drawings}", f"len(bank['frames']) == {drawings}"),
-        (f"len({{f['frameId'] for f in bank['frames']}}) == {baseline_drawings}",
-         f"len({{f['frameId'] for f in bank['frames']}}) == {drawings}"),
-        (f"pixel_count = {baseline_drawings}", f"pixel_count = {drawings}"),
-        (f"'originalPromptPairs': {baseline_originals}", f"'originalPromptPairs': {originals}"),
-    ]
-    for before, after in replacements:
-        require(reconstructed_old_checker.count(after) == 1,
-                "Updated count assertion not uniquely recognized")
-        reconstructed_old_checker = reconstructed_old_checker.replace(after, before)
-    require(hashlib.sha256(reconstructed_old_checker.encode("utf-8")).hexdigest()
-            == old_rows["verify_source_files.py"]["sha256"],
-            "General source verifier changed beyond declared count assertions")
-    return {"priorIndexSHA256":sha(index_path), "priorIndexEntries":len(seen),
-            "historicalNonMetadataFilesExact":protected,
-            "declaredMetadataExceptions":sorted(allowed),
-            "allPriorNativeLedgersAndContinuationReceiptByteExact":True,
-            "generalVerifierOnlyCountAssertionsAdvanced":True,
-            "readmeScope":"README may update source totals/add stage69 description; original hash remains in immutable prior index."}
-
-
-def historical_regression(root: Path, baseline: Path) -> dict[str, Any]:
-    """Run exact stage67 verifier, including unchanged65/63/61/57 historical regressions."""
-    legacy = checked_file(baseline, "verify_source_registration.py", LEGACY_VERIFIER_SHA256)
-    protected = {name:sha(checked_file(root, name)) for name in OVERRIDES}
-    # These counters are old legacy outputs, not assumptions about appended counts.
-    temp_path = None
-    with tempfile.TemporaryDirectory(prefix=".stage69-legacy-", dir=root.parent) as dirname:
-        temp_path = Path(dirname)
-        count = 0
-        for directory, dirs, files in os.walk(root, followlinks=False):
-            source_dir = Path(directory)
-            target_dir = temp_path / source_dir.relative_to(root)
-            target_dir.mkdir(parents=True, exist_ok=True)
-            for name in dirs:
-                require(not (source_dir/name).is_symlink(), f"Symlink directory: {source_dir/name}")
-            for name in files:
-                source = source_dir/name
-                require(not source.is_symlink() and stat.S_ISREG(source.stat().st_mode),
-                        f"Non-regular payload: {source}")
-                os.link(source, target_dir/name, follow_symlinks=False)
-                count += 1
-        for target_name, baseline_name in OVERRIDES.items():
-            target = temp_path/target_name
-            target.unlink()  # Always sever the hardlink before copying metadata.
-            shutil.copyfile(checked_file(baseline, baseline_name), target)
-        require(sha(temp_path/"verify_source_registration.py") == sha(legacy),
-                "Prior verifier callback bytes changed")
-        environment = os.environ.copy()
-        environment["PYTHONDONTWRITEBYTECODE"] = "1"
-        completed = subprocess.run([sys.executable,str(temp_path/"verify_source_registration.py"),
-                                    "--root",str(temp_path)],
-                                   cwd=temp_path,env=environment,text=True,capture_output=True,timeout=600)
-        require(completed.returncode == 0,
-                "Historical stage67/65/63/61/57 regression failed:\n"+completed.stdout+completed.stderr)
-        result = json.loads(completed.stdout.strip())
-        require(result.get("passed") is True and result.get("stage") == 67,
-                "Historical stage67 result did not pass")
-        require(result["registrationOnlyNativeDrawings"] == 37
-                and result["registrationOnlyNativeOriginals"] == 20
-                and result["totalBankDrawingIDs"] == 187
-                and result["totalOriginalPromptPairs"] == 70,
-                "Wrong prior source checkpoint counters")
-        report = {"result":result,"verifierSHA256":sha(legacy),"hardlinkedFiles":count,
-                  "baselineOverrides":list(OVERRIDES),"sourceSymlinksAllowed":False}
-    require(temp_path is not None and not temp_path.exists(), "Temporary corpus not removed")
-    require(all(sha(checked_file(root,name)) == digest for name,digest in protected.items()),
-            "Legacy callback changed real metadata")
-    report.update(temporaryTreeRemoved=True,actualPayloadMetadataUnchanged=True)
-    return report
-
-
-def verify(root: Path) -> dict[str, Any]:
-    require(not root.is_symlink(), "Source root cannot be a symlink")
-    root = root.resolve(strict=True)
-    require(root.is_dir(), "Source root is not a directory")
-    ledger = load(checked_file(root, "source-registration-stage69.json"))
-    require(ledger.get("stage") == 69, "Not a stage69 registration ledger")
-    require(ledger["baselineDirectory"] == BASELINE_DIRECTORY, "Baseline directory differs")
-    baseline = inside(root, BASELINE_DIRECTORY)
-    old_bank_path = checked_file(baseline, "frame-bank.json", ledger["oldBankRecordsSHA256"])
-    old_inv_path = checked_file(baseline, "original-source-inventory.json", ledger["oldOriginalRecordsSHA256"])
-    old_map_path = checked_file(baseline, "source-frame-map.json", ledger["oldFrameMapSHA256"])
-    old_overlay_path = checked_file(baseline, "intake-overlay.json", ledger["oldOverlaySHA256"])
-    require(ledger["priorVerifierSHA256"] == LEGACY_VERIFIER_SHA256, "Prior verifier pin differs")
-    checked_file(baseline, "verify_source_registration.py", LEGACY_VERIFIER_SHA256)
-    old_lessons_path = checked_file(baseline, "lessons-and-experiments.json", ledger["oldLessonsSHA256"])
-    old_lessons, current_lessons = load(old_lessons_path), load(checked_file(root,"lessons-and-experiments.json"))
-    require(current_lessons["experiments"][:len(old_lessons["experiments"])] == old_lessons["experiments"]
-            and {k:v for k,v in current_lessons.items() if k != "experiments"}
-                == {k:v for k,v in old_lessons.items() if k != "experiments"},
-            "Old lessons prefix/metadata changed")
-    require(len(old_lessons["experiments"]) == 23
-            and len(current_lessons["experiments"]) == 25
-            and {entry["id"] for entry in current_lessons["experiments"][23:]}
-                == {"CROW-perch-grip-art-internal-2","BUSHTIT-readable-eyelid-source-2"},
-            "Registry changed beyond the two declared source experiments")
-    old_bank, old_inv, old_map = load(old_bank_path), load(old_inv_path), load(old_map_path)
-    bank = load(checked_file(root, "frame-bank.json"))
-    inventory = load(checked_file(root, "original-source-inventory.json"))
-    frame_map = load(checked_file(root, "source-frame-map.json"))
-    baseline_drawings, baseline_originals = len(old_bank["frames"]), len(old_inv["originals"])
-    require(ledger["baselineDrawings"] == baseline_drawings
-            and ledger["baselineOriginals"] == baseline_originals,
-            "Ledger baseline counts differ from retained records")
-    require((baseline_drawings, baseline_originals) == (187,70), "Wrong historical stage69 baseline")
-    require(len(old_map["frames"]) == baseline_drawings, "Baseline frame map count differs")
-    require(bank["frames"][:baseline_drawings] == old_bank["frames"], "Old bank prefix changed")
-    require(inventory["originals"][:baseline_originals] == old_inv["originals"],
-            "Old original inventory prefix changed")
-    require(frame_map["frames"][:baseline_drawings] == old_map["frames"], "Old frame-map prefix changed")
-    require({k:v for k,v in bank.items() if k not in {"frames","frameCount","status"}}
-            == {k:v for k,v in old_bank.items() if k not in {"frames","frameCount","status"}},
-            "Historical bank clip/reuse/authority metadata changed")
-    inv_changes = {"originals","localGeneratedDrawings","newGenerationCallsForThisHandoff"}
-    require({k:v for k,v in inventory.items() if k not in inv_changes}
-            == {k:v for k,v in old_inv.items() if k not in inv_changes},
-            "Historical original inventory metadata changed")
-    require({k:v for k,v in frame_map.items() if k != "frames"}
-            == {k:v for k,v in old_map.items() if k != "frames"},
-            "Historical frame-map scope metadata changed")
-    appended = ledger["appendedBankRecords"]
-    batches = ledger["registrationOnlyBatches"]
-    require(len(appended) == len(batches) == 2,
-            "Stage69 must register exactly two native drawings from two originals")
-    require(bank["frames"][baseline_drawings:] == appended, "Appended bank records differ from ledger")
-    require(len(bank["frames"]) == ledger["registeredDrawings"]
-            == baseline_drawings + len(appended), "Final drawing counts differ")
-    require(len(inventory["originals"]) == ledger["registeredOriginals"]
-            == baseline_originals + len(batches), "Final original counts differ")
-    require(ledger["newNativeDrawings"] == len(appended)
-            and ledger["newNativeOriginals"] == len(batches)
-            and ledger["actualGenerationCallsInBatch"] == len(batches),
-            "Native source ledger totals differ")
-    require(ledger["registrationMakesNativeCalls"] == 0
-            and ledger["acceptedUsesAdded"] == 0 and ledger["runtimeAdmission"] is False,
-            "Registration claims generation or runtime admission")
-    require(bank["frameCount"] == len(bank["frames"])
-            and inventory["localGeneratedDrawings"] == len(bank["frames"])
-            and inventory["newGenerationCallsForThisHandoff"] == len(batches),
-            "Metadata totals differ from source records")
-
-    ids: set[str] = set()
-    by_id: dict[str, dict[str, Any]] = {}
-    for frame in bank["frames"]:
-        ident = frame["frameId"]
-        require(re.fullmatch(r"frame\.sha256\.[0-9a-f]{64}", ident) is not None,
-                f"Malformed frame ID: {ident}")
-        image_path = checked_file(root, frame["file"], frame["fileSha256"])
-        image = rgba(image_path)
-        require(frame_id(image) == ident and list(image.size) == frame["dimensions"],
-                f"Decoded frame identity/dimensions differ: {ident}")
-        require(ident not in ids, f"Duplicate source ID: {ident}")
-        require(frame.get("acceptedUses") == [], f"Accepted use added: {ident}")
-        ids.add(ident)
-        by_id[ident] = frame
-    require(len(frame_map["frames"]) == len(bank["frames"]), "Full frame-map count differs")
-    map_ids: set[str] = set()
-    for frame, mapping in zip(bank["frames"], frame_map["frames"]):
-        require(mapping["sourceFrameId"] == frame["frameId"]
-                and mapping["sourcePNG"] == frame["file"]
-                and mapping["sourcePNGsha256"] == frame["fileSha256"]
-                and mapping["dimensions"] == frame["dimensions"]
-                and mapping["original"] == frame["sourceAtlas"]
-                and mapping.get("prompt") == frame.get("sourcePrompt")
-                and mapping.get("acceptedUses") == [], "Full source-frame-map record differs")
-        require(mapping["sourceFrameId"] not in map_ids, "Duplicate mapped source ID")
-        map_ids.add(mapping["sourceFrameId"])
-    require(map_ids == ids, "Mapped IDs differ from full source bank")
-
-    original_paths: set[str] = set()
-    for item in inventory["originals"]:
-        path = checked_file(root, item["file"], item["sha256"])
-        prompt = checked_file(root, item["promptFile"], item["promptSha256"])
-        require(path.stat().st_size == item["bytes"] and prompt.stat().st_size == item["promptBytes"],
-                "Original/prompt byte counts differ")
-        require(item["file"] not in original_paths, "Duplicate original inventory path")
-        require(list(rgba(path).size) == item["dimensions"], "Original dimensions differ")
-        original_paths.add(item["file"])
-
-    appended_ids = {frame["frameId"] for frame in appended}
-    old_ids = {frame["frameId"] for frame in old_bank["frames"]}
-    require(not appended_ids.intersection(old_ids), "A historical drawing was registered again")
-    seen_new_ids: set[str] = set()
-    seen_original_hashes: set[str] = set()
-    old_original_hashes = {item["sha256"] for item in old_inv["originals"]}
-    actual_adjudications = []
-    for batch, item in zip(batches, inventory["originals"][baseline_originals:]):
-        require(batch["nativeCalls"] == 1 and batch["runtimeAdmission"] is False
-                and batch["acceptedUses"] == [], "Non-native or admitted registration batch")
-        require(batch["originalSHA256"] not in seen_original_hashes | old_original_hashes,
-                "Original was counted twice")
-        seen_original_hashes.add(batch["originalSHA256"])
-        original_path = checked_file(root, batch["original"], batch["originalSHA256"])
-        original = rgba(original_path)
-        require(list(original.size) == batch["originalDimensions"], "Native canvas differs")
-        prompt_path = checked_file(root, batch["prompt"], batch["promptSHA256"])
-        prompt = prompt_path.read_bytes()
-        require(len(prompt) == batch["promptBytes"], "Native prompt byte count differs")
-        args_path = checked_file(root, batch["nativeArguments"], batch["nativeArgumentsSHA256"])
-        args_record = load(args_path)
-        arguments = args_record.get("arguments", args_record)
-        require(isinstance(arguments, dict) and arguments["prompt"].encode("utf-8") == prompt,
-                "Submitted prompt bytes differ from retained prompt")
-        dispatch = load(checked_file(root, batch["dispatchReceipt"], batch["dispatchSHA256"]))
-        returned = load(checked_file(root, batch["returnReceipt"], batch["returnSHA256"]))
-        # Both original flat arguments and later compatibility wrappers may be
-        # present. Their actual tool arguments must agree; metadata can differ.
-        for alias_name in ("native-arguments.json", "native-call-arguments.json",
-                           "prepared-native-arguments.json"):
-            alias_path = args_path.parent / alias_name
-            if alias_path.exists():
-                alias = load(checked_file(args_path.parent, alias_name))
-                require(alias.get("arguments", alias) == arguments,
-                        f"Native argument compatibility alias differs: {alias_name}")
-        verify_receipts(batch, prompt, arguments, sha(args_path), dispatch, returned,
-                        args_path.parent)
-        provenance_path = args_path.parent / "input-provenance.json"
-        if provenance_path.exists():
-            provenance = load(checked_file(args_path.parent,"input-provenance.json"))
-            references = provenance["exactReferences"]
-            submitted = arguments.get("referenced_image_paths", [])
-            require(len(submitted) == len(references) > 0, "Submitted reference count differs")
-            for submitted_path, reference in zip(submitted,references):
-                retained = checked_file(args_path.parent, reference["retainedPath"], reference["PNGsha256"])
-                require(Path(submitted_path).as_posix().endswith("/"+reference["retainedPath"]),
-                        "Submitted path does not bind the retained input image")
-                require(frame_id(rgba(retained)) == reference["decodedRGBAId"],
-                        "Retained reference decoded identity differs")
-        manifest_path = checked_file(root, batch["manifest"], batch["manifestSHA256"])
-        prereg_path = checked_file(root,batch["preregistration"],batch["preregistrationSHA256"])
-        require(prereg_path.parent == manifest_path.parent,"Reference preregistration belongs to another packet")
-        verify_sole_reference(manifest_path.parent,load(prereg_path),arguments,dispatch,returned,old_ids)
-        adjudication_path = checked_file(root,batch["adjudication"],batch["adjudicationSHA256"])
-        adjudication = load(adjudication_path)
-        require(adjudication["nativeCallsReturned"] == 1 and adjudication["newNativeDrawings"] == 1,
-                "Per-producer actual native adjudication counts differ")
-        actual_adjudications.append({"file":batch["adjudication"],"sha256":sha(adjudication_path),
-                                    "nativeCallsReturned":1,"newNativeDrawings":1})
-        manifest = load(manifest_path)
-        require(manifest["nativeCalls"] == 1 and manifest["batchId"] == batch["batchId"],
-                "Primary manifest native call/batch identity differs")
-        require(checked_file(manifest_path.parent, manifest["original"], manifest["originalSHA256"])
-                == original_path, "Manifest native original binding differs")
-        require(checked_file(manifest_path.parent, manifest["prompt"], manifest["promptSHA256"])
-                == prompt_path, "Manifest prompt binding differs")
-        require(len(manifest["frames"]) == len(batch["frames"]) == 1, "Expected one whole native drawing per producer")
-        rectangles: list[list[int]] = []
-        for source, declared in zip(batch["frames"], manifest["frames"]):
-            ident = source["sourceFrameId"]
-            require(ident in appended_ids and ident not in seen_new_ids,
-                    f"Missing or duplicate newly generated frame: {ident}")
-            require(first(declared, "sourceFrameId", "sourceFrameID", "primarySourceFrameId") == ident
-                    and declared.get("newDrawing", True) is not False,
-                    "Manifest frames do not identify new native drawings")
-            image_path = checked_file(root, source["sourcePNG"], source["sourcePNGsha256"])
-            require(checked_file(manifest_path.parent, declared["sourcePNG"],
-                                 declared["sourcePNGsha256"]) == image_path,
-                    "Manifest source PNG binding differs")
-            image = rgba(image_path)
-            require(list(image.size) == source["dimensions"] and frame_id(image) == ident,
-                    "Registered source cell ID/dimensions differ")
-            rect = native_rect(source)
-            manifest_rect = native_rect(declared, [0, 0, original.width, original.height])
-            require(rect == manifest_rect == [0,0,original.width,original.height]
-                    and image.size == original.size == (1254,1254) and rect[2:] == list(image.size)
-                    and rect[0] + rect[2] <= original.width
-                    and rect[1] + rect[3] <= original.height,
-                    "Native source rectangle differs or exceeds original")
-            require(original.crop((rect[0], rect[1], rect[0]+rect[2], rect[1]+rect[3])).tobytes()
-                    == image.tobytes(), "Native source-cell roundtrip changes pixels")
-            for previous in rectangles:
-                overlap_w = min(rect[0]+rect[2], previous[0]+previous[2]) - max(rect[0], previous[0])
-                overlap_h = min(rect[1]+rect[3], previous[1]+previous[3]) - max(rect[1], previous[1])
-                require(overlap_w <= 0 or overlap_h <= 0, "Native source cells overlap")
-            rectangles.append(rect)
-            frame = by_id[ident]
-            require(frame["file"] == source["sourcePNG"]
-                    and frame["fileSha256"] == source["sourcePNGsha256"]
-                    and frame["sourceAtlas"] == batch["original"]
-                    and frame["sourceAtlasSha256"] == batch["originalSHA256"]
-                    and frame["sourcePrompt"] == batch["prompt"]
-                    and frame["sourceNativeArguments"] == batch["nativeArguments"]
-                    and frame["appearanceVersion"] == batch["batchId"],
-                    "New bank provenance differs from native ledger")
-            require(native_rect(frame["derivation"]) == rect
-                    and frame["derivation"]["registrationOnly"] is True
-                    and frame["derivation"]["perFrameRescale"] is False
-                    and frame["acceptedUses"] == [] and frame["runtimeAdmission"] is False
-                    and frame["anatomyScaleAccepted"] is False
-                    and frame["rootContactAccepted"] is False,
-                    "New registration claims geometry/admission or rescale")
-            require(frame["sourceReview"] == batch["adjudication"],
-                    "New drawing review path differs from source adjudication")
-            checked_file(root, frame["sourceReview"], frame["sourceReviewSHA256"])
-            seen_new_ids.add(ident)
-        if len(rectangles) > 1:
-            require(len({tuple(rect[2:]) for rect in rectangles}) == 1,
-                    "Native multi-pose source canvases have different sizes")
-        if len(batch["frames"]) == 1:
-            supplied_id = first(returned, "sourceFrameId", "sourceFrameID", "primarySourceFrameId")
-            if supplied_id is not None:
-                require(supplied_id == batch["frames"][0]["sourceFrameId"], "Return source ID differs")
-        if "decodedNativeID" in returned:
-            require(returned["decodedNativeID"] == frame_id(original), "Return native sheet ID differs")
-        require(item["batch"] == batch["batchId"] and item["file"] == batch["original"]
-                and item["sha256"] == batch["originalSHA256"]
-                and item["promptFile"] == batch["prompt"]
-                and item["promptSha256"] == batch["promptSHA256"]
-                and item["acceptedProductionArt"] is False
-                and item["stagedInMac"] is False and item["integratedInMac"] is False,
-                "New original inventory record differs or claims app/art acceptance")
-    require(seen_new_ids == appended_ids, "Ledger native cells do not cover appended bank exactly")
-
-    require(ledger["adjudications"] == actual_adjudications,
-            "Ledger must bind both separate actual producer adjudications exactly")
-    require(len({item["file"] for item in actual_adjudications}) == 2,
-            "Producer adjudications were combined or counted twice")
-    checked_file(root, ACTIVE_INVENTORY, ledger["activeInventorySHA256"])
-    overlay, old_overlay = load(checked_file(root, OVERLAY)), load(old_overlay_path)
-    require(overlay["registeredDrawings"] == len(bank["frames"])
-            and overlay["registeredOriginals"] == len(inventory["originals"])
-            and overlay["newSourceRegistration"] == "source-registration-stage69.json",
-            "Overlay registration totals differ")
-    changed_fields = {"registeredDrawings", "registeredOriginals",
-                      "newSourceRegistration", "sourceRegistrationNote", "newDrawings", "newNativeCalls"}
-    require(all(overlay.get(key) == value for key, value in old_overlay.items()
-                if key not in changed_fields), "Historical overlay metadata changed")
-    require(overlay["newDrawings"] == old_overlay["newDrawings"] + len(appended)
-            and overlay["newNativeCalls"] == old_overlay["newNativeCalls"] + len(batches),
-            "Cumulative checkpoint generation counts differ from immutable baseline plus new records")
-    prior_index = prior_index_and_metadata(root, baseline, ledger, len(bank["frames"]),
-                                           len(inventory["originals"]), baseline_drawings, baseline_originals)
-    legacy = historical_regression(root, baseline)
-    return {"passed": True, "stage": 69,
-            "registrationOnlyNativeDrawings": legacy["result"]["registrationOnlyNativeDrawings"] + len(appended),
-            "registrationOnlyNativeOriginals": legacy["result"]["registrationOnlyNativeOriginals"] + len(batches), "baselineDrawings": baseline_drawings,
-            "baselineOriginals": baseline_originals, "newNativeDrawings": len(appended),
-            "newNativeOriginals": len(batches), "totalBankDrawingIDs": len(bank["frames"]),
-            "totalOriginalPromptPairs": len(inventory["originals"]),
-            "oldBankInventoryAndMapPrefixesExact": True, "activeInventoryUnchanged": True,
-            "newSourceCellRoundtripsExact": True, "legacyStage67Regression": legacy, "priorSourceIndexVerification":prior_index,
-            "oldLessonsPrefixExact":True,
-            "registrationMakesNativeCalls": 0, "acceptedUsesAdded": 0,
-            "runtimeAdmission": False, "sourceAppearanceOrSupportApproved": False}
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, default=Path(__file__).parent)
-    arguments = parser.parse_args()
-    try:
-        print(json.dumps(verify(arguments.root), sort_keys=True))
-    except (VerificationError, OSError, ValueError, KeyError, TypeError) as error:
-        print(json.dumps({"passed": False, "error": str(error), "runtimeAdmission": False}),
-              file=sys.stderr)
-        raise SystemExit(1)
+if __name__=='__main__':
+ parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--root',type=Path,default=Path(__file__).parent);args=parser.parse_args()
+ try:print(json.dumps(verify(args.root),sort_keys=True))
+ except (VerificationError,OSError,ValueError,KeyError,TypeError)as e:
+  print(json.dumps({'passed':False,'error':str(e),'runtimeAdmission':False}),file=sys.stderr);raise SystemExit(1)

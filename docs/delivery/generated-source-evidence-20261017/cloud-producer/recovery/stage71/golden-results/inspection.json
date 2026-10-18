@@ -1,0 +1,2428 @@
+{
+  "schemaVersion": 1,
+  "scope": "source-raster diagnostics only; no anatomy, physical support, subjective art or runtime approval",
+  "configSHA256": "e1ccb70063a2a658c0d786c830ee124a92378160c4897766f9c711b3552c2371",
+  "externalConfigPinVerified": true,
+  "toolSHA256": "ae795cbb5e181d8275cb9cbe046db0cbce92c40e778587f4ac94d2d5f7f28a1a",
+  "toolVersions": {
+    "python": "3.12.14",
+    "Pillow": "12.3.0",
+    "NumPy": "2.3.5",
+    "OpenCV": "NOT_USED",
+    "SciPy": "1.17.0"
+  },
+  "canonicalDefectId": null,
+  "evaluationContractPin": null,
+  "canonicalLabelsStatus": "PENDING_SHARED_CONTRACT",
+  "severity": null,
+  "confidence": null,
+  "thresholds": {
+    "alphaCutoff": 128,
+    "maxOffsetWorld": 1,
+    "widthRelativeWarn": 0.2,
+    "searchRadiusPixels": 8,
+    "brightMin": 240,
+    "brightChromaMax": 15
+  },
+  "thresholdCalibration": "Static predeclared values; no fitting/learning/calibration in this run",
+  "inputs": [
+    {
+      "file": "/workspace/asset-production/audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+      "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+    },
+    {
+      "file": "/workspace/asset-production/experiments/crow-perch-grip-art-internal-v2/grip-study192.png",
+      "sha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29"
+    },
+    {
+      "file": "/workspace/asset-production/experiments/bath-source-proposal-v1/raw192/neutral.png",
+      "sha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800"
+    },
+    {
+      "file": "/workspace/asset-production/experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+      "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+    },
+    {
+      "file": "/workspace/asset-production/experiments/bath-source-proposal-v1/raw192/wing-ruffle.png",
+      "sha256": "20f64ef388d9857b005002dd087886197da3ff862fdf123aaef5efe36a1b97fd"
+    },
+    {
+      "file": "/workspace/asset-production/experiments/bath-source-proposal-v1/raw192/shake-wing-state.png",
+      "sha256": "c009ed372ff430ac71f6d1ae56489cac56ee191d67dc093f4cb6c8e98d5022b7"
+    },
+    {
+      "file": "/workspace/asset-production/experiments/bath-source-proposal-v1/raw192/folded-settle.png",
+      "sha256": "740885d47b6b062396495883713528a32eae90200055a3b1c5444d664468fc1e"
+    },
+    {
+      "file": "/workspace/asset-production/experiments/animation-authoring-compare-v1/arm-d-hybrid-construction/full-stage/neutral.png",
+      "sha256": "a8a3a835f77f961a627887a5ccb97e9751d9bc1ef1189b8171126bda76aa3130"
+    },
+    {
+      "file": "/workspace/asset-production/experiments/animation-authoring-compare-v1/arm-d-hybrid-construction/full-stage/look.png",
+      "sha256": "deba4169ce01ba82d3f62211ce41d47024d08d3e33d75f443f1d920f7bbbd972"
+    },
+    {
+      "file": "/workspace/asset-production/experiments/animation-authoring-compare-v1/arm-d-hybrid-construction/masks/canonical-body-protected.png",
+      "sha256": "53642a7216712120fb2836781e6393308be38b778399ef4562f7c699c9162129"
+    },
+    {
+      "file": "/workspace/asset-production/audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+      "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+    },
+    {
+      "file": "/workspace/asset-production/recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+      "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+    },
+    {
+      "file": "/workspace/asset-production/audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+      "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+    },
+    {
+      "file": "/workspace/asset-production/recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+      "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+    },
+    {
+      "file": "/workspace/asset-production/audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+      "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+    },
+    {
+      "file": "/workspace/asset-production/audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+      "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "crow-selected12-static",
+      "speciesId": "american_crow",
+      "assetId": "crow-selected12-static",
+      "clipId": "diagnostic",
+      "context": {
+        "evidenceScope": "Source raster diagnostics only; no runtime or physical support approval"
+      },
+      "supportRequirement": "Unbound; measurements are image proxies",
+      "repairDecision": null,
+      "repairDecisionAuthority": "Caller-supplied metadata, not an automatic art decision",
+      "reevaluationLinks": [],
+      "reevaluationRefs": [],
+      "canonicalDefectId": null,
+      "severity": null,
+      "confidence": null,
+      "motionIntent": {
+        "kind": "static-source",
+        "registrationExpectedStable": true,
+        "expectedROIChanges": []
+      },
+      "frames": [
+        {
+          "id": "crow-ground-idle186-total12",
+          "clipId": "diagnostic",
+          "action": "idle",
+          "pose": "crow-ground-idle186-total12",
+          "PNGsha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+          "canvasPixels": [
+            186,
+            186
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": [
+            0,
+            0,
+            186,
+            186
+          ],
+          "stableMaskPNG": null,
+          "expectedROIChanges": [],
+          "decodedRGBAId": "frame.sha256.1813d867bc7c8673f9c2c5b084ff0783e498fef385d6a890d836a024344d21da",
+          "density": 1,
+          "worldCanvas": [
+            186.0,
+            186.0
+          ],
+          "cssCanvas": [
+            186.0,
+            186.0
+          ],
+          "pivot": [
+            108,
+            145
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 0,
+          "alphaBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdCentroid": [
+            93.65910641200546,
+            90.54075716234652
+          ],
+          "alphaNonzeroPixels": 5864,
+          "partialAlphaPixels": 0,
+          "edgeTouchPixels": 0,
+          "componentCount": 1,
+          "tinyComponentsLE2": 0,
+          "tinyComponentPixels": 0,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 11,
+          "visibleRGBCountAtAlphaCutoff": 11,
+          "brightLowChromaBoundaryPixelsProxy": 0,
+          "fringePixelsProxy": 0,
+          "anchorRelativeCentroidWorld": [
+            -14.340893587994543,
+            -54.45924283765348
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "PASS",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "PASS",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 152.0,
+          "relativeWidthChangeFromFirst": 0.0,
+          "stableRegion": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "PASS"
+        }
+      ],
+      "expectedTrajectory": null,
+      "anatomyAndPhysicalSupport": "NOT_EVALUATED",
+      "subjectiveArt": "NOT_EVALUATED",
+      "actionCoverage": {
+        "status": "NOT_EVALUATED",
+        "reason": "No hash-bound declared action manifest; never infer action completeness from filenames."
+      },
+      "codec": {
+        "status": "NOT_RUN",
+        "reason": "No nominated current-code, exact-input, hash-bound codec receipt."
+      },
+      "stableRegistrationMaxResidualWorld": 0.0,
+      "temporalOrBiologicalActionCompleteness": "NOT_EVALUATED; declared keys and raster changes do not prove action semantics",
+      "status": "PASS"
+    },
+    {
+      "id": "crow-raw-grip-alpha-prerequisite",
+      "speciesId": "american_crow",
+      "assetId": "crow-raw-grip-alpha-prerequisite",
+      "clipId": "diagnostic",
+      "context": {
+        "evidenceScope": "Source raster diagnostics only; no runtime or physical support approval"
+      },
+      "supportRequirement": "Unbound; measurements are image proxies",
+      "repairDecision": null,
+      "repairDecisionAuthority": "Caller-supplied metadata, not an automatic art decision",
+      "reevaluationLinks": [],
+      "reevaluationRefs": [],
+      "canonicalDefectId": null,
+      "severity": null,
+      "confidence": null,
+      "motionIntent": {
+        "kind": "static-source",
+        "registrationExpectedStable": false,
+        "expectedROIChanges": []
+      },
+      "frames": [
+        {
+          "id": "grip-study192",
+          "clipId": "diagnostic",
+          "action": "idle",
+          "pose": "grip-study192",
+          "PNGsha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29",
+          "canvasPixels": [
+            192,
+            192
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": null,
+          "stableMaskPNG": null,
+          "expectedROIChanges": [],
+          "decodedRGBAId": "frame.sha256.013c750359a12bdfd0c901b08fb4fbd7938d7a619455b6f31e3a75dd56a652cc",
+          "density": 1.0328947368421053,
+          "worldCanvas": [
+            185.88535031847132,
+            185.88535031847132
+          ],
+          "cssCanvas": [
+            185.88535031847132,
+            185.88535031847132
+          ],
+          "pivot": [
+            111,
+            150
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 253,
+          "alphaBBox": [
+            5,
+            29,
+            179,
+            169
+          ],
+          "thresholdBBox": [
+            6,
+            40,
+            178,
+            160
+          ],
+          "thresholdCentroid": [
+            102.57060333761233,
+            99.13465982028241
+          ],
+          "alphaNonzeroPixels": 8200,
+          "partialAlphaPixels": 8182,
+          "edgeTouchPixels": 0,
+          "componentCount": 3,
+          "tinyComponentsLE2": 2,
+          "tinyComponentPixels": 2,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 13,
+          "visibleRGBCountAtAlphaCutoff": 3766,
+          "brightLowChromaBoundaryPixelsProxy": 10,
+          "fringePixelsProxy": 8182,
+          "anchorRelativeCentroidWorld": [
+            -8.160944539381697,
+            -49.24542488736989
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "FAIL",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "WARN",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 166.52229299363057,
+          "relativeWidthChangeFromFirst": 0.0,
+          "stableRegion": {
+            "status": "NOT_EVALUATED",
+            "reason": "No stable mask/ROI supplied; global centroid changes are report-only."
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "FAIL"
+        }
+      ],
+      "expectedTrajectory": null,
+      "anatomyAndPhysicalSupport": "NOT_EVALUATED",
+      "subjectiveArt": "NOT_EVALUATED",
+      "actionCoverage": {
+        "status": "NOT_EVALUATED",
+        "reason": "No hash-bound declared action manifest; never infer action completeness from filenames."
+      },
+      "codec": {
+        "status": "NOT_RUN",
+        "reason": "No nominated current-code, exact-input, hash-bound codec receipt."
+      },
+      "stableRegistrationMaxResidualWorld": null,
+      "temporalOrBiologicalActionCompleteness": "NOT_EVALUATED; declared keys and raster changes do not prove action semantics",
+      "status": "FAIL"
+    },
+    {
+      "id": "bath-reviewed-held-scale-contact-proxies",
+      "speciesId": "mourning_dove",
+      "assetId": "bath-reviewed-held-scale-contact-proxies",
+      "clipId": "diagnostic",
+      "context": {
+        "evidenceScope": "Source raster diagnostics only; no runtime or physical support approval"
+      },
+      "supportRequirement": "Unbound; measurements are image proxies",
+      "repairDecision": null,
+      "repairDecisionAuthority": "Caller-supplied metadata, not an automatic art decision",
+      "reevaluationLinks": [],
+      "reevaluationRefs": [],
+      "canonicalDefectId": null,
+      "severity": null,
+      "confidence": null,
+      "motionIntent": {
+        "kind": "articulated-bath-source-proposal",
+        "registrationExpectedStable": false,
+        "expectedROIChanges": [
+          "head",
+          "wings",
+          "body"
+        ]
+      },
+      "frames": [
+        {
+          "id": "neutral",
+          "clipId": "diagnostic",
+          "action": "bath-study",
+          "pose": "neutral",
+          "PNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+          "canvasPixels": [
+            192,
+            192
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": null,
+          "stableMaskPNG": null,
+          "expectedROIChanges": [
+            "head",
+            "wings",
+            "body"
+          ],
+          "decodedRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+          "density": 1,
+          "worldCanvas": [
+            192.0,
+            192.0
+          ],
+          "cssCanvas": [
+            192.0,
+            192.0
+          ],
+          "pivot": [
+            105,
+            150
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 4,
+          "alphaBBox": [
+            30,
+            73,
+            153,
+            152
+          ],
+          "thresholdBBox": [
+            32,
+            82,
+            150,
+            150
+          ],
+          "thresholdCentroid": [
+            105.58845299777943,
+            117.64470762398224
+          ],
+          "alphaNonzeroPixels": 3344,
+          "partialAlphaPixels": 3344,
+          "edgeTouchPixels": 0,
+          "componentCount": 2,
+          "tinyComponentsLE2": 1,
+          "tinyComponentPixels": 1,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 0,
+          "visibleRGBCountAtAlphaCutoff": 2576,
+          "brightLowChromaBoundaryPixelsProxy": 3,
+          "fringePixelsProxy": 3344,
+          "anchorRelativeCentroidWorld": [
+            0.5884529977794273,
+            -32.35529237601776
+          ],
+          "contactROIProxies": [
+            {
+              "id": "lower-image-inspection-window-NOT-sole-segmentation",
+              "rect": [
+                80,
+                135,
+                70,
+                50
+              ],
+              "maxAlpha": 253,
+              "thresholdPixelCount": 232,
+              "lowestThresholdRow": 149,
+              "baselineFromPivotWorld": -1.0,
+              "physicalContact": "NOT_EVALUATED"
+            }
+          ],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "NOT_EVALUATED",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "WARN",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 118.0,
+          "relativeWidthChangeFromFirst": 0.0,
+          "stableRegion": {
+            "status": "NOT_EVALUATED",
+            "reason": "No stable mask/ROI supplied; global centroid changes are report-only."
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "WARN"
+        },
+        {
+          "id": "lowered-ready",
+          "clipId": "diagnostic",
+          "action": "bath-study",
+          "pose": "lowered-ready",
+          "PNGsha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+          "canvasPixels": [
+            192,
+            192
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": null,
+          "stableMaskPNG": null,
+          "expectedROIChanges": [
+            "head",
+            "wings",
+            "body"
+          ],
+          "decodedRGBAId": "frame.sha256.e3ea2df45fae5bbb4a850a3ac73d50ab3afa136cab64b0516743ddbd0af0930a",
+          "density": 1,
+          "worldCanvas": [
+            192.0,
+            192.0
+          ],
+          "cssCanvas": [
+            192.0,
+            192.0
+          ],
+          "pivot": [
+            105,
+            150
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 253,
+          "alphaBBox": [
+            8,
+            6,
+            191,
+            189
+          ],
+          "thresholdBBox": [
+            9,
+            69,
+            184,
+            179
+          ],
+          "thresholdCentroid": [
+            121.83211387521618,
+            127.7315418384994
+          ],
+          "alphaNonzeroPixels": 8859,
+          "partialAlphaPixels": 8849,
+          "edgeTouchPixels": 0,
+          "componentCount": 1,
+          "tinyComponentsLE2": 0,
+          "tinyComponentPixels": 0,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 10,
+          "visibleRGBCountAtAlphaCutoff": 6705,
+          "brightLowChromaBoundaryPixelsProxy": 13,
+          "fringePixelsProxy": 8849,
+          "anchorRelativeCentroidWorld": [
+            16.83211387521618,
+            -22.268458161500604
+          ],
+          "contactROIProxies": [
+            {
+              "id": "lower-image-inspection-window-NOT-sole-segmentation",
+              "rect": [
+                80,
+                135,
+                70,
+                50
+              ],
+              "maxAlpha": 255,
+              "thresholdPixelCount": 2147,
+              "lowestThresholdRow": 178,
+              "baselineFromPivotWorld": 28.0,
+              "physicalContact": "NOT_EVALUATED",
+              "baselineDeltaWorldFromFirst": 29.0
+            }
+          ],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "NOT_EVALUATED",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "WARN",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "WARN",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 175.0,
+          "relativeWidthChangeFromFirst": 0.48305084745762716,
+          "previousFrameDelta": {
+            "anchorRelativeCentroidWorld": [
+              16.243660877436753,
+              10.086834214517154
+            ],
+            "bboxWorld": [
+              -23.0,
+              -13.0,
+              34.0,
+              29.0
+            ]
+          },
+          "stableRegion": {
+            "status": "NOT_EVALUATED",
+            "reason": "No stable mask/ROI supplied; global centroid changes are report-only."
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 10,
+            "jaccardDistance": 1.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 6437,
+            "jaccardDistance": 0.9702651725285698
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "WARN"
+        },
+        {
+          "id": "wing-ruffle",
+          "clipId": "diagnostic",
+          "action": "bath-study",
+          "pose": "wing-ruffle",
+          "PNGsha256": "20f64ef388d9857b005002dd087886197da3ff862fdf123aaef5efe36a1b97fd",
+          "canvasPixels": [
+            192,
+            192
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": null,
+          "stableMaskPNG": null,
+          "expectedROIChanges": [
+            "head",
+            "wings",
+            "body"
+          ],
+          "decodedRGBAId": "frame.sha256.0ba536cad1c4af44fcf68e57374beab0a80728c3259f51eaa2a24d08773548ed",
+          "density": 1,
+          "worldCanvas": [
+            192.0,
+            192.0
+          ],
+          "cssCanvas": [
+            192.0,
+            192.0
+          ],
+          "pivot": [
+            105,
+            150
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 253,
+          "alphaBBox": [
+            0,
+            25,
+            177,
+            183
+          ],
+          "thresholdBBox": [
+            8,
+            69,
+            173,
+            179
+          ],
+          "thresholdCentroid": [
+            106.81830822711471,
+            122.48389339513325
+          ],
+          "alphaNonzeroPixels": 10111,
+          "partialAlphaPixels": 10094,
+          "edgeTouchPixels": 6,
+          "componentCount": 1,
+          "tinyComponentsLE2": 0,
+          "tinyComponentPixels": 0,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 17,
+          "visibleRGBCountAtAlphaCutoff": 7798,
+          "brightLowChromaBoundaryPixelsProxy": 23,
+          "fringePixelsProxy": 10094,
+          "anchorRelativeCentroidWorld": [
+            1.8183082271147128,
+            -27.51610660486675
+          ],
+          "contactROIProxies": [
+            {
+              "id": "lower-image-inspection-window-NOT-sole-segmentation",
+              "rect": [
+                80,
+                135,
+                70,
+                50
+              ],
+              "maxAlpha": 255,
+              "thresholdPixelCount": 2083,
+              "lowestThresholdRow": 178,
+              "baselineFromPivotWorld": 28.0,
+              "physicalContact": "NOT_EVALUATED",
+              "baselineDeltaWorldFromFirst": 29.0
+            }
+          ],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "WARN",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "NOT_EVALUATED",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "WARN",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "WARN",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 165.0,
+          "relativeWidthChangeFromFirst": 0.39830508474576276,
+          "previousFrameDelta": {
+            "anchorRelativeCentroidWorld": [
+              -15.013805648101467,
+              -5.247648443366145
+            ],
+            "bboxWorld": [
+              -1.0,
+              0.0,
+              -11.0,
+              0.0
+            ]
+          },
+          "stableRegion": {
+            "status": "NOT_EVALUATED",
+            "reason": "No stable mask/ROI supplied; global centroid changes are report-only."
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 17,
+            "jaccardDistance": 1.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 7529,
+            "jaccardDistance": 0.9733795150915389
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "WARN"
+        },
+        {
+          "id": "shake-wing-state",
+          "clipId": "diagnostic",
+          "action": "bath-study",
+          "pose": "shake-wing-state",
+          "PNGsha256": "c009ed372ff430ac71f6d1ae56489cac56ee191d67dc093f4cb6c8e98d5022b7",
+          "canvasPixels": [
+            192,
+            192
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": null,
+          "stableMaskPNG": null,
+          "expectedROIChanges": [
+            "head",
+            "wings",
+            "body"
+          ],
+          "decodedRGBAId": "frame.sha256.ec536db66c3ca00949dc34dda49568489ebe46774410a97d032ece0e1c91dddb",
+          "density": 1,
+          "worldCanvas": [
+            192.0,
+            192.0
+          ],
+          "cssCanvas": [
+            192.0,
+            192.0
+          ],
+          "pivot": [
+            105,
+            150
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 243,
+          "alphaBBox": [
+            11,
+            10,
+            192,
+            176
+          ],
+          "thresholdBBox": [
+            13,
+            40,
+            188,
+            154
+          ],
+          "thresholdCentroid": [
+            124.90373395565928,
+            99.63558926487748
+          ],
+          "alphaNonzeroPixels": 10223,
+          "partialAlphaPixels": 10220,
+          "edgeTouchPixels": 2,
+          "componentCount": 2,
+          "tinyComponentsLE2": 1,
+          "tinyComponentPixels": 1,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 3,
+          "visibleRGBCountAtAlphaCutoff": 7731,
+          "brightLowChromaBoundaryPixelsProxy": 13,
+          "fringePixelsProxy": 10220,
+          "anchorRelativeCentroidWorld": [
+            19.903733955659277,
+            -50.36441073512252
+          ],
+          "contactROIProxies": [
+            {
+              "id": "lower-image-inspection-window-NOT-sole-segmentation",
+              "rect": [
+                80,
+                135,
+                70,
+                50
+              ],
+              "maxAlpha": 255,
+              "thresholdPixelCount": 439,
+              "lowestThresholdRow": 152,
+              "baselineFromPivotWorld": 2.0,
+              "physicalContact": "NOT_EVALUATED",
+              "baselineDeltaWorldFromFirst": 3.0
+            }
+          ],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "WARN",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "NOT_EVALUATED",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "WARN",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "WARN",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 175.0,
+          "relativeWidthChangeFromFirst": 0.48305084745762716,
+          "previousFrameDelta": {
+            "anchorRelativeCentroidWorld": [
+              18.085425728544564,
+              -22.84830413025577
+            ],
+            "bboxWorld": [
+              5.0,
+              -29.0,
+              15.0,
+              -25.0
+            ]
+          },
+          "stableRegion": {
+            "status": "NOT_EVALUATED",
+            "reason": "No stable mask/ROI supplied; global centroid changes are report-only."
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 3,
+            "jaccardDistance": 1.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 7492,
+            "jaccardDistance": 0.9762614223281685
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "WARN"
+        },
+        {
+          "id": "folded-settle",
+          "clipId": "diagnostic",
+          "action": "bath-study",
+          "pose": "folded-settle",
+          "PNGsha256": "740885d47b6b062396495883713528a32eae90200055a3b1c5444d664468fc1e",
+          "canvasPixels": [
+            192,
+            192
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": null,
+          "stableMaskPNG": null,
+          "expectedROIChanges": [
+            "head",
+            "wings",
+            "body"
+          ],
+          "decodedRGBAId": "frame.sha256.1af53bce03d77dcb37b0e902215fbb1c13d499e98111f3788144af892ea30d89",
+          "density": 1,
+          "worldCanvas": [
+            192.0,
+            192.0
+          ],
+          "cssCanvas": [
+            192.0,
+            192.0
+          ],
+          "pivot": [
+            105,
+            150
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 252,
+          "alphaBBox": [
+            2,
+            19,
+            182,
+            192
+          ],
+          "thresholdBBox": [
+            9,
+            43,
+            179,
+            154
+          ],
+          "thresholdCentroid": [
+            119.67521478781568,
+            101.04946628482166
+          ],
+          "alphaNonzeroPixels": 9253,
+          "partialAlphaPixels": 9244,
+          "edgeTouchPixels": 3,
+          "componentCount": 2,
+          "tinyComponentsLE2": 1,
+          "tinyComponentPixels": 1,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 9,
+          "visibleRGBCountAtAlphaCutoff": 6852,
+          "brightLowChromaBoundaryPixelsProxy": 18,
+          "fringePixelsProxy": 9244,
+          "anchorRelativeCentroidWorld": [
+            14.675214787815676,
+            -48.95053371517834
+          ],
+          "contactROIProxies": [
+            {
+              "id": "lower-image-inspection-window-NOT-sole-segmentation",
+              "rect": [
+                80,
+                135,
+                70,
+                50
+              ],
+              "maxAlpha": 255,
+              "thresholdPixelCount": 446,
+              "lowestThresholdRow": 153,
+              "baselineFromPivotWorld": 3.0,
+              "physicalContact": "NOT_EVALUATED",
+              "baselineDeltaWorldFromFirst": 4.0
+            }
+          ],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "WARN",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "NOT_EVALUATED",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "WARN",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "WARN",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 170.0,
+          "relativeWidthChangeFromFirst": 0.44067796610169485,
+          "previousFrameDelta": {
+            "anchorRelativeCentroidWorld": [
+              -5.228519167843601,
+              1.4138770199441808
+            ],
+            "bboxWorld": [
+              -4.0,
+              3.0,
+              -9.0,
+              0.0
+            ]
+          },
+          "stableRegion": {
+            "status": "NOT_EVALUATED",
+            "reason": "No stable mask/ROI supplied; global centroid changes are report-only."
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 9,
+            "jaccardDistance": 1.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 6560,
+            "jaccardDistance": 0.9680385288966725
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "WARN"
+        }
+      ],
+      "expectedTrajectory": null,
+      "anatomyAndPhysicalSupport": "NOT_EVALUATED",
+      "subjectiveArt": "NOT_EVALUATED",
+      "actionCoverage": {
+        "status": "NOT_EVALUATED",
+        "reason": "No hash-bound declared action manifest; never infer action completeness from filenames."
+      },
+      "codec": {
+        "status": "NOT_RUN",
+        "reason": "No nominated current-code, exact-input, hash-bound codec receipt."
+      },
+      "stableRegistrationMaxResidualWorld": null,
+      "temporalOrBiologicalActionCompleteness": "NOT_EVALUATED; declared keys and raster changes do not prove action semantics",
+      "status": "WARN"
+    },
+    {
+      "id": "sparrow-valid-articulated-head-protected-body",
+      "speciesId": "white_crowned_sparrow",
+      "assetId": "sparrow-valid-articulated-head-protected-body",
+      "clipId": "diagnostic",
+      "context": {
+        "evidenceScope": "Source raster diagnostics only; no runtime or physical support approval"
+      },
+      "supportRequirement": "Unbound; measurements are image proxies",
+      "repairDecision": null,
+      "repairDecisionAuthority": "Caller-supplied metadata, not an automatic art decision",
+      "reevaluationLinks": [],
+      "reevaluationRefs": [],
+      "canonicalDefectId": null,
+      "severity": null,
+      "confidence": null,
+      "motionIntent": {
+        "kind": "head-articulation-over-protected-body",
+        "registrationExpectedStable": true,
+        "expectedROIChanges": [
+          "head-upper-neck"
+        ]
+      },
+      "frames": [
+        {
+          "id": "0",
+          "clipId": "diagnostic",
+          "action": "look",
+          "pose": "0",
+          "PNGsha256": "a8a3a835f77f961a627887a5ccb97e9751d9bc1ef1189b8171126bda76aa3130",
+          "canvasPixels": [
+            124,
+            124
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": null,
+          "stableMaskPNG": {
+            "file": "/workspace/asset-production/experiments/animation-authoring-compare-v1/arm-d-hybrid-construction/masks/canonical-body-protected.png",
+            "sha256": "53642a7216712120fb2836781e6393308be38b778399ef4562f7c699c9162129"
+          },
+          "expectedROIChanges": [
+            "head-upper-neck"
+          ],
+          "decodedRGBAId": "frame.sha256.fa863171ccbcb240c1b57157ce9c48f011b478fbfe12d42ca9187037eabb2c82",
+          "density": 1,
+          "worldCanvas": [
+            124.0,
+            124.0
+          ],
+          "cssCanvas": [
+            124.0,
+            124.0
+          ],
+          "pivot": [
+            73,
+            96
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 0,
+          "alphaBBox": [
+            33,
+            56,
+            89,
+            96
+          ],
+          "thresholdBBox": [
+            33,
+            56,
+            89,
+            96
+          ],
+          "thresholdCentroid": [
+            68.11552346570397,
+            74.95788206979543
+          ],
+          "alphaNonzeroPixels": 831,
+          "partialAlphaPixels": 0,
+          "edgeTouchPixels": 0,
+          "componentCount": 3,
+          "tinyComponentsLE2": 1,
+          "tinyComponentPixels": 1,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 63,
+          "visibleRGBCountAtAlphaCutoff": 63,
+          "brightLowChromaBoundaryPixelsProxy": 0,
+          "fringePixelsProxy": 0,
+          "anchorRelativeCentroidWorld": [
+            -4.884476534296027,
+            -21.04211793020457
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "PASS",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "WARN",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 56.0,
+          "relativeWidthChangeFromFirst": 0.0,
+          "stableRegion": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "WARN"
+        },
+        {
+          "id": "1",
+          "clipId": "diagnostic",
+          "action": "look",
+          "pose": "1",
+          "PNGsha256": "deba4169ce01ba82d3f62211ce41d47024d08d3e33d75f443f1d920f7bbbd972",
+          "canvasPixels": [
+            124,
+            124
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": null,
+          "stableMaskPNG": {
+            "file": "/workspace/asset-production/experiments/animation-authoring-compare-v1/arm-d-hybrid-construction/masks/canonical-body-protected.png",
+            "sha256": "53642a7216712120fb2836781e6393308be38b778399ef4562f7c699c9162129"
+          },
+          "expectedROIChanges": [
+            "head-upper-neck"
+          ],
+          "decodedRGBAId": "frame.sha256.43e52afce8979f5423fc74bd26f040b60e7e5360b8cb44f10ca10d4fbbd3b102",
+          "density": 1,
+          "worldCanvas": [
+            124.0,
+            124.0
+          ],
+          "cssCanvas": [
+            124.0,
+            124.0
+          ],
+          "pivot": [
+            73,
+            96
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 0,
+          "alphaBBox": [
+            33,
+            56,
+            86,
+            96
+          ],
+          "thresholdBBox": [
+            33,
+            56,
+            86,
+            96
+          ],
+          "thresholdCentroid": [
+            68.09213759213759,
+            75.27518427518427
+          ],
+          "alphaNonzeroPixels": 814,
+          "partialAlphaPixels": 0,
+          "edgeTouchPixels": 0,
+          "componentCount": 3,
+          "tinyComponentsLE2": 1,
+          "tinyComponentPixels": 1,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 63,
+          "visibleRGBCountAtAlphaCutoff": 63,
+          "brightLowChromaBoundaryPixelsProxy": 0,
+          "fringePixelsProxy": 0,
+          "anchorRelativeCentroidWorld": [
+            -4.90786240786241,
+            -20.724815724815727
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "PASS",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "WARN",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 53.0,
+          "relativeWidthChangeFromFirst": -0.0535714285714286,
+          "previousFrameDelta": {
+            "anchorRelativeCentroidWorld": [
+              -0.023385873566382998,
+              0.3173022053888417
+            ],
+            "bboxWorld": [
+              0.0,
+              0.0,
+              -3.0,
+              0.0
+            ]
+          },
+          "stableRegion": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "WARN"
+        }
+      ],
+      "expectedTrajectory": null,
+      "anatomyAndPhysicalSupport": "NOT_EVALUATED",
+      "subjectiveArt": "NOT_EVALUATED",
+      "actionCoverage": {
+        "status": "NOT_EVALUATED",
+        "reason": "No hash-bound declared action manifest; never infer action completeness from filenames."
+      },
+      "codec": {
+        "status": "NOT_RUN",
+        "reason": "No nominated current-code, exact-input, hash-bound codec receipt."
+      },
+      "stableRegistrationMaxResidualWorld": 0.0,
+      "temporalOrBiologicalActionCompleteness": "NOT_EVALUATED; declared keys and raster changes do not prove action semantics",
+      "status": "WARN"
+    },
+    {
+      "id": "validation-only-unintended-jitter",
+      "speciesId": "american_crow",
+      "assetId": "validation-only-unintended-jitter",
+      "clipId": "diagnostic",
+      "context": {
+        "evidenceScope": "Source raster diagnostics only; no runtime or physical support approval"
+      },
+      "supportRequirement": "Unbound; measurements are image proxies",
+      "repairDecision": null,
+      "repairDecisionAuthority": "Caller-supplied metadata, not an automatic art decision",
+      "reevaluationLinks": [],
+      "reevaluationRefs": [],
+      "canonicalDefectId": null,
+      "severity": null,
+      "confidence": null,
+      "motionIntent": {
+        "kind": "fixture-fixed-body-expected-stationary",
+        "registrationExpectedStable": true,
+        "expectedROIChanges": []
+      },
+      "frames": [
+        {
+          "id": "reference",
+          "clipId": "diagnostic",
+          "action": "idle",
+          "pose": "reference",
+          "PNGsha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+          "canvasPixels": [
+            186,
+            186
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": [
+            0,
+            0,
+            186,
+            186
+          ],
+          "stableMaskPNG": null,
+          "expectedROIChanges": [],
+          "decodedRGBAId": "frame.sha256.1813d867bc7c8673f9c2c5b084ff0783e498fef385d6a890d836a024344d21da",
+          "density": 1,
+          "worldCanvas": [
+            186.0,
+            186.0
+          ],
+          "cssCanvas": [
+            186.0,
+            186.0
+          ],
+          "pivot": [
+            108,
+            145
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 0,
+          "alphaBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdCentroid": [
+            93.65910641200546,
+            90.54075716234652
+          ],
+          "alphaNonzeroPixels": 5864,
+          "partialAlphaPixels": 0,
+          "edgeTouchPixels": 0,
+          "componentCount": 1,
+          "tinyComponentsLE2": 0,
+          "tinyComponentPixels": 0,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 11,
+          "visibleRGBCountAtAlphaCutoff": 11,
+          "brightLowChromaBoundaryPixelsProxy": 0,
+          "fringePixelsProxy": 0,
+          "anchorRelativeCentroidWorld": [
+            -14.340893587994543,
+            -54.45924283765348
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "PASS",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "PASS",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 152.0,
+          "relativeWidthChangeFromFirst": 0.0,
+          "stableRegion": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "PASS"
+        },
+        {
+          "id": "known-shift",
+          "clipId": "diagnostic",
+          "action": "idle",
+          "pose": "known-shift",
+          "PNGsha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200",
+          "canvasPixels": [
+            186,
+            186
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": [
+            0,
+            0,
+            186,
+            186
+          ],
+          "stableMaskPNG": null,
+          "expectedROIChanges": [],
+          "decodedRGBAId": "frame.sha256.48617d68730631197820126d5acb7de8de9cebd5126f04c34a3c568dea05bafa",
+          "density": 1,
+          "worldCanvas": [
+            186.0,
+            186.0
+          ],
+          "cssCanvas": [
+            186.0,
+            186.0
+          ],
+          "pivot": [
+            108,
+            145
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 255,
+          "alphaBBox": [
+            12,
+            42,
+            164,
+            148
+          ],
+          "thresholdBBox": [
+            12,
+            42,
+            164,
+            148
+          ],
+          "thresholdCentroid": [
+            97.65910641200546,
+            93.54075716234652
+          ],
+          "alphaNonzeroPixels": 5864,
+          "partialAlphaPixels": 0,
+          "edgeTouchPixels": 0,
+          "componentCount": 1,
+          "tinyComponentsLE2": 0,
+          "tinyComponentPixels": 0,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 11,
+          "visibleRGBCountAtAlphaCutoff": 11,
+          "brightLowChromaBoundaryPixelsProxy": 0,
+          "fringePixelsProxy": 0,
+          "anchorRelativeCentroidWorld": [
+            -10.340893587994543,
+            -51.45924283765348
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "PASS",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "PASS",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 152.0,
+          "relativeWidthChangeFromFirst": 0.0,
+          "previousFrameDelta": {
+            "anchorRelativeCentroidWorld": [
+              4.0,
+              3.0
+            ],
+            "bboxWorld": [
+              4.0,
+              3.0,
+              4.0,
+              3.0
+            ]
+          },
+          "stableRegion": {
+            "status": "FAIL",
+            "observedPixelTranslation": [
+              4,
+              3
+            ],
+            "residualWorld": [
+              4.0,
+              3.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 6286,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "FAIL"
+        }
+      ],
+      "expectedTrajectory": null,
+      "anatomyAndPhysicalSupport": "NOT_EVALUATED",
+      "subjectiveArt": "NOT_EVALUATED",
+      "actionCoverage": {
+        "status": "NOT_EVALUATED",
+        "reason": "No hash-bound declared action manifest; never infer action completeness from filenames."
+      },
+      "codec": {
+        "status": "NOT_RUN",
+        "reason": "No nominated current-code, exact-input, hash-bound codec receipt."
+      },
+      "stableRegistrationMaxResidualWorld": 4.0,
+      "temporalOrBiologicalActionCompleteness": "NOT_EVALUATED; declared keys and raster changes do not prove action semantics",
+      "status": "FAIL"
+    },
+    {
+      "id": "validation-only-declared-image-translation",
+      "speciesId": "american_crow",
+      "assetId": "validation-only-declared-image-translation",
+      "clipId": "diagnostic",
+      "context": {
+        "evidenceScope": "Source raster diagnostics only; no runtime or physical support approval"
+      },
+      "supportRequirement": "Unbound; measurements are image proxies",
+      "repairDecision": null,
+      "repairDecisionAuthority": "Caller-supplied metadata, not an automatic art decision",
+      "reevaluationLinks": [],
+      "reevaluationRefs": [],
+      "canonicalDefectId": null,
+      "severity": null,
+      "confidence": null,
+      "motionIntent": {
+        "kind": "fixture-explicit-intentional-translation",
+        "registrationExpectedStable": true,
+        "expectedROIChanges": []
+      },
+      "frames": [
+        {
+          "id": "reference",
+          "clipId": "diagnostic",
+          "action": "idle",
+          "pose": "reference",
+          "PNGsha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+          "canvasPixels": [
+            186,
+            186
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": [
+            0,
+            0,
+            186,
+            186
+          ],
+          "stableMaskPNG": null,
+          "expectedROIChanges": [],
+          "decodedRGBAId": "frame.sha256.1813d867bc7c8673f9c2c5b084ff0783e498fef385d6a890d836a024344d21da",
+          "density": 1,
+          "worldCanvas": [
+            186.0,
+            186.0
+          ],
+          "cssCanvas": [
+            186.0,
+            186.0
+          ],
+          "pivot": [
+            108,
+            145
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 0,
+          "alphaBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdCentroid": [
+            93.65910641200546,
+            90.54075716234652
+          ],
+          "alphaNonzeroPixels": 5864,
+          "partialAlphaPixels": 0,
+          "edgeTouchPixels": 0,
+          "componentCount": 1,
+          "tinyComponentsLE2": 0,
+          "tinyComponentPixels": 0,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 11,
+          "visibleRGBCountAtAlphaCutoff": 11,
+          "brightLowChromaBoundaryPixelsProxy": 0,
+          "fringePixelsProxy": 0,
+          "anchorRelativeCentroidWorld": [
+            -14.340893587994543,
+            -54.45924283765348
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "PASS",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "PASS",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 152.0,
+          "relativeWidthChangeFromFirst": 0.0,
+          "stableRegion": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "PASS"
+        },
+        {
+          "id": "known-shift",
+          "clipId": "diagnostic",
+          "action": "idle",
+          "pose": "known-shift",
+          "PNGsha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200",
+          "canvasPixels": [
+            186,
+            186
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": [
+            0,
+            0,
+            186,
+            186
+          ],
+          "stableMaskPNG": null,
+          "expectedROIChanges": [],
+          "decodedRGBAId": "frame.sha256.48617d68730631197820126d5acb7de8de9cebd5126f04c34a3c568dea05bafa",
+          "density": 1,
+          "worldCanvas": [
+            186.0,
+            186.0
+          ],
+          "cssCanvas": [
+            186.0,
+            186.0
+          ],
+          "pivot": [
+            108,
+            145
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 255,
+          "alphaBBox": [
+            12,
+            42,
+            164,
+            148
+          ],
+          "thresholdBBox": [
+            12,
+            42,
+            164,
+            148
+          ],
+          "thresholdCentroid": [
+            97.65910641200546,
+            93.54075716234652
+          ],
+          "alphaNonzeroPixels": 5864,
+          "partialAlphaPixels": 0,
+          "edgeTouchPixels": 0,
+          "componentCount": 1,
+          "tinyComponentsLE2": 0,
+          "tinyComponentPixels": 0,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 11,
+          "visibleRGBCountAtAlphaCutoff": 11,
+          "brightLowChromaBoundaryPixelsProxy": 0,
+          "fringePixelsProxy": 0,
+          "anchorRelativeCentroidWorld": [
+            -10.340893587994543,
+            -51.45924283765348
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            4,
+            3
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "PASS",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "PASS",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": null,
+          "projectedCentroidAtDeclaredRootWorld": null,
+          "visibleBBoxWidthWorld": 152.0,
+          "relativeWidthChangeFromFirst": 0.0,
+          "previousFrameDelta": {
+            "anchorRelativeCentroidWorld": [
+              4.0,
+              3.0
+            ],
+            "bboxWorld": [
+              4.0,
+              3.0,
+              4.0,
+              3.0
+            ]
+          },
+          "stableRegion": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              4,
+              3
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "PASS"
+        }
+      ],
+      "expectedTrajectory": null,
+      "anatomyAndPhysicalSupport": "NOT_EVALUATED",
+      "subjectiveArt": "NOT_EVALUATED",
+      "actionCoverage": {
+        "status": "NOT_EVALUATED",
+        "reason": "No hash-bound declared action manifest; never infer action completeness from filenames."
+      },
+      "codec": {
+        "status": "NOT_RUN",
+        "reason": "No nominated current-code, exact-input, hash-bound codec receipt."
+      },
+      "stableRegistrationMaxResidualWorld": 0.0,
+      "temporalOrBiologicalActionCompleteness": "NOT_EVALUATED; declared keys and raster changes do not prove action semantics",
+      "status": "PASS"
+    },
+    {
+      "id": "validation-only-declared-world-root-travel",
+      "speciesId": "american_crow",
+      "assetId": "validation-only-declared-world-root-travel",
+      "clipId": "diagnostic",
+      "context": {
+        "evidenceScope": "Source raster diagnostics only; no runtime or physical support approval"
+      },
+      "supportRequirement": "Unbound; measurements are image proxies",
+      "repairDecision": null,
+      "repairDecisionAuthority": "Caller-supplied metadata, not an automatic art decision",
+      "reevaluationLinks": [],
+      "reevaluationRefs": [],
+      "canonicalDefectId": null,
+      "severity": null,
+      "confidence": null,
+      "motionIntent": {
+        "kind": "fixture-root-trajectory",
+        "registrationExpectedStable": true,
+        "expectedROIChanges": []
+      },
+      "frames": [
+        {
+          "id": "start",
+          "clipId": "diagnostic",
+          "action": "idle",
+          "pose": "start",
+          "PNGsha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+          "canvasPixels": [
+            186,
+            186
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": [
+            0,
+            0,
+            186,
+            186
+          ],
+          "stableMaskPNG": null,
+          "expectedROIChanges": [],
+          "decodedRGBAId": "frame.sha256.1813d867bc7c8673f9c2c5b084ff0783e498fef385d6a890d836a024344d21da",
+          "density": 1,
+          "worldCanvas": [
+            186.0,
+            186.0
+          ],
+          "cssCanvas": [
+            186.0,
+            186.0
+          ],
+          "pivot": [
+            108,
+            145
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 0,
+          "alphaBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdCentroid": [
+            93.65910641200546,
+            90.54075716234652
+          ],
+          "alphaNonzeroPixels": 5864,
+          "partialAlphaPixels": 0,
+          "edgeTouchPixels": 0,
+          "componentCount": 1,
+          "tinyComponentsLE2": 0,
+          "tinyComponentPixels": 0,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 11,
+          "visibleRGBCountAtAlphaCutoff": 11,
+          "brightLowChromaBoundaryPixelsProxy": 0,
+          "fringePixelsProxy": 0,
+          "anchorRelativeCentroidWorld": [
+            -14.340893587994543,
+            -54.45924283765348
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "PASS",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "PASS",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": [
+            0,
+            0
+          ],
+          "projectedCentroidAtDeclaredRootWorld": [
+            -14.340893587994543,
+            -54.45924283765348
+          ],
+          "visibleBBoxWidthWorld": 152.0,
+          "relativeWidthChangeFromFirst": 0.0,
+          "stableRegion": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "PASS"
+        },
+        {
+          "id": "end",
+          "clipId": "diagnostic",
+          "action": "idle",
+          "pose": "end",
+          "PNGsha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+          "canvasPixels": [
+            186,
+            186
+          ],
+          "contacts": [],
+          "evidenceType": "MEASURED_SOURCE_RASTER",
+          "inferredAnatomy": null,
+          "canonicalDefectId": null,
+          "severity": null,
+          "confidence": null,
+          "stableBodyROI": [
+            0,
+            0,
+            186,
+            186
+          ],
+          "stableMaskPNG": null,
+          "expectedROIChanges": [],
+          "decodedRGBAId": "frame.sha256.1813d867bc7c8673f9c2c5b084ff0783e498fef385d6a890d836a024344d21da",
+          "density": 1,
+          "worldCanvas": [
+            186.0,
+            186.0
+          ],
+          "cssCanvas": [
+            186.0,
+            186.0
+          ],
+          "pivot": [
+            108,
+            145
+          ],
+          "pivotInBounds": true,
+          "pivotAlpha": 0,
+          "alphaBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdBBox": [
+            8,
+            39,
+            160,
+            145
+          ],
+          "thresholdCentroid": [
+            93.65910641200546,
+            90.54075716234652
+          ],
+          "alphaNonzeroPixels": 5864,
+          "partialAlphaPixels": 0,
+          "edgeTouchPixels": 0,
+          "componentCount": 1,
+          "tinyComponentsLE2": 0,
+          "tinyComponentPixels": 0,
+          "componentBackend": "scipy.ndimage.label four-neighbor",
+          "opaqueRGBCount": 11,
+          "visibleRGBCountAtAlphaCutoff": 11,
+          "brightLowChromaBoundaryPixelsProxy": 0,
+          "fringePixelsProxy": 0,
+          "anchorRelativeCentroidWorld": [
+            -14.340893587994543,
+            -54.45924283765348
+          ],
+          "contactROIProxies": [],
+          "expectedPixelTranslation": [
+            0,
+            0
+          ],
+          "checks": {
+            "raster": {
+              "status": "PASS",
+              "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+            },
+            "binaryAlpha": {
+              "status": "PASS",
+              "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+            },
+            "whiteNoiseProxies": {
+              "status": "PASS",
+              "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+            },
+            "width": {
+              "status": "PASS",
+              "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+            }
+          },
+          "expectedRootWorld": [
+            20,
+            0
+          ],
+          "projectedCentroidAtDeclaredRootWorld": [
+            5.659106412005457,
+            -54.45924283765348
+          ],
+          "visibleBBoxWidthWorld": 152.0,
+          "relativeWidthChangeFromFirst": 0.0,
+          "previousFrameDelta": {
+            "anchorRelativeCentroidWorld": [
+              0.0,
+              0.0
+            ],
+            "bboxWorld": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "stableRegion": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          },
+          "paletteDriftFromFirst": {
+            "scope": "RGB tuples only where alpha==255",
+            "addedOpaqueRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "visiblePaletteDriftFromFirst": {
+            "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+            "addedRGBCount": 0,
+            "jaccardDistance": 0.0
+          },
+          "centeringSuggestion": {
+            "status": "NOT_EVALUATED",
+            "reason": "Directional asymmetry and off-center framing are not failures."
+          },
+          "status": "PASS"
+        }
+      ],
+      "expectedTrajectory": [
+        [
+          0,
+          0
+        ],
+        [
+          20,
+          0
+        ]
+      ],
+      "anatomyAndPhysicalSupport": "NOT_EVALUATED",
+      "subjectiveArt": "NOT_EVALUATED",
+      "actionCoverage": {
+        "status": "NOT_EVALUATED",
+        "reason": "No hash-bound declared action manifest; never infer action completeness from filenames."
+      },
+      "codec": {
+        "status": "NOT_RUN",
+        "reason": "No nominated current-code, exact-input, hash-bound codec receipt."
+      },
+      "stableRegistrationMaxResidualWorld": 0.0,
+      "temporalOrBiologicalActionCompleteness": "NOT_EVALUATED; declared keys and raster changes do not prove action semantics",
+      "status": "PASS"
+    }
+  ],
+  "runtimeAdmission": false,
+  "sourceImagesModified": false,
+  "modelCalls": 0,
+  "status": "FAIL",
+  "allInputHashesUnchanged": true
+}

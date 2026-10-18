@@ -1,0 +1,133 @@
+{
+  "manifest": {
+    "file": "source-handoff.json",
+    "sha256": "7e082ba30324099cf8edcbaa3f8afd8367ab1efa850107bf759de5e25ccace46"
+  },
+  "atlas": {
+    "file": "atlas.png",
+    "sha256": "a50dafaf6fc038b81fda248f2c9db0ce8ab0036f5d34fcadf5d2ad2946a69457",
+    "width": 128,
+    "height": 64
+  },
+  "renderFrames": [
+    {
+      "id": "awake",
+      "role": "neutral",
+      "png": "frames/awake.png",
+      "PNGsha256": "cf39c7ff2351478d26ecb4fd72c86f365393323c5a9e6fdacce4040d6c9a203f",
+      "decodedRGBAId": "frame.sha256.e24944df4a20f580c086572d7fb8c9f0863baa4d0fa4316077e2678c0efb6f4f",
+      "rawPNG": "raw/awake64.png",
+      "rawPNGsha256": "dc9cdeac32340321119209e261ac664f79bcbb084f17d08c72611c2e49495000",
+      "nativeSourceIDsContributing": [
+        "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2"
+      ],
+      "canvas": [
+        64,
+        64
+      ],
+      "world": [
+        64,
+        64
+      ],
+      "density": 1,
+      "pivot": [
+        38,
+        50
+      ],
+      "contacts": [],
+      "fullStageOrigin": [
+        0,
+        0
+      ],
+      "constructionDerivative": false,
+      "newNativeDrawingFromDerivative": false,
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 64,
+        "height": 64
+      }
+    },
+    {
+      "id": "closed",
+      "role": "blink",
+      "png": "frames/closed.png",
+      "PNGsha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40",
+      "decodedRGBAId": "frame.sha256.349f950a7e14a9deb91c60947bf430afc7e086e431b86e333990353fc781b9a0",
+      "rawPNG": "raw/constructed-closed64.png",
+      "rawPNGsha256": "4c9ecb7898e6704c616439683ddc211a5514d7f330b63e98ba8369a8d19e63bd",
+      "nativeSourceIDsContributing": [
+        "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+        "frame.sha256.30e4c1a9bfc80fb146acd6c9a00afbe14ce67dcdfcbfde409b90cce1b429b63d"
+      ],
+      "canvas": [
+        64,
+        64
+      ],
+      "world": [
+        64,
+        64
+      ],
+      "density": 1,
+      "pivot": [
+        38,
+        50
+      ],
+      "contacts": [],
+      "fullStageOrigin": [
+        0,
+        0
+      ],
+      "constructionDerivative": true,
+      "newNativeDrawingFromDerivative": false,
+      "atlasRect": {
+        "x": 64,
+        "y": 0,
+        "width": 64,
+        "height": 64
+      }
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "awake",
+          "durationTicks": 60
+        }
+      ],
+      "authoredStaticHold": true
+    },
+    {
+      "id": "blink",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "awake",
+          "durationTicks": 60
+        },
+        {
+          "frameId": "closed",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "awake",
+          "durationTicks": 27
+        }
+      ]
+    }
+  ],
+  "exactClosedHalfOpenTicks": [
+    60,
+    63
+  ],
+  "returnTick": 63,
+  "terminalTick": 89,
+  "newNativeDrawings": 1,
+  "derivativeAddsNativeDrawings": 0,
+  "runtimeAdmission": false
+}

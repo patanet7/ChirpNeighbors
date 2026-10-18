@@ -1,0 +1,1878 @@
+{
+  "valid": true,
+  "validationScope": "Received catalog required fields/enums and exact file/hash/pointer bindings only",
+  "fullTypedSchemaValidation": false,
+  "catalog": {
+    "file": "/workspace/asset-production/recovery/stage73/shared-asset-defect-labels-v1.snapshot.json",
+    "sha256": "b78e048b84bff2a99da153c6b3636bb5683b4d0ab015d8b68fa3745b39a56996",
+    "version": 1,
+    "status": "initial_canonical_source_review_labels",
+    "labelCount": 17
+  },
+  "recordsFile": "/workspace/asset-production/recovery/stage74/shared-label-records.json",
+  "recordsSHA256": "2166039e70ffa922dc13448d362bf01313ed235a96649574fb377cc0d7f2edf7",
+  "evidenceRoot": "/workspace/asset-production",
+  "declaredContractProvenance": {
+    "canonicalFile": "docs/art/asset-defect-labels-v1.json",
+    "commit": "d104afbaf6949d71d24768a577f4eb9d8ef709c3",
+    "snapshot": "recovery/stage73/shared-asset-defect-labels-v1.snapshot.json",
+    "sha256": "b78e048b84bff2a99da153c6b3636bb5683b4d0ab015d8b68fa3745b39a56996",
+    "version": 1
+  },
+  "recordCount": 17,
+  "validatedRecords": [
+    {
+      "record": {
+        "asset_id": "crow-selected12-static",
+        "variant_id": "idle",
+        "candidate_revision": "crow-selected12-static",
+        "source_file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+        "source_sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+        "scope": "registration",
+        "grade": "pass",
+        "canonical_label": "registration.pivot",
+        "finding_state": "not_detected_in_scope",
+        "reason": "Exact selected static image has zero configured stable-region residual; this is not physical support approval.",
+        "evidence": [
+          {
+            "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+            "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+          },
+          {
+            "file": "recovery/stage71/golden-results/inspection.json",
+            "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+            "region": [
+              0,
+              0,
+              186,
+              186
+            ],
+            "canvas": [
+              186,
+              186
+            ],
+            "density": 1,
+            "display": [
+              186.0,
+              186.0
+            ],
+            "pivot": [
+              108,
+              145
+            ],
+            "jsonPointer": "/candidates/0/frames/0/stableRegion"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        },
+        "test_fixture": false
+      },
+      "sourceBinding": {
+        "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+        "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[0]/evidence/0",
+          "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+          "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+        },
+        {
+          "location": "records[0]/evidence/1",
+          "file": "recovery/stage71/golden-results/inspection.json",
+          "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+          "jsonPointer": "/candidates/0/frames/0/stableRegion",
+          "resolvedValue": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          }
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "validation-only-unintended-jitter",
+        "variant_id": "idle",
+        "candidate_revision": "validation-only-unintended-jitter",
+        "source_file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+        "source_sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200",
+        "scope": "registration",
+        "grade": "repair",
+        "canonical_label": "registration.pivot",
+        "finding_state": "observed",
+        "reason": "Synthetic fixed-body control has observed4,3px translation and4,3world residual to the declared stable pivot; validator test only, not a defect in original Crow art.",
+        "evidence": [
+          {
+            "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+            "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+          },
+          {
+            "file": "recovery/stage71/golden-results/inspection.json",
+            "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+            "region": [
+              0,
+              0,
+              186,
+              186
+            ],
+            "canvas": [
+              186,
+              186
+            ],
+            "density": 1,
+            "display": [
+              186.0,
+              186.0
+            ],
+            "pivot": [
+              108,
+              145
+            ],
+            "jsonPointer": "/candidates/4/frames/1/stableRegion"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        },
+        "test_fixture": true
+      },
+      "sourceBinding": {
+        "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+        "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[1]/evidence/0",
+          "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+          "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+        },
+        {
+          "location": "records[1]/evidence/1",
+          "file": "recovery/stage71/golden-results/inspection.json",
+          "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+          "jsonPointer": "/candidates/4/frames/1/stableRegion",
+          "resolvedValue": {
+            "status": "FAIL",
+            "observedPixelTranslation": [
+              4,
+              3
+            ],
+            "residualWorld": [
+              4.0,
+              3.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 6286,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          }
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "validation-only-declared-image-translation",
+        "variant_id": "idle",
+        "candidate_revision": "validation-only-declared-image-translation",
+        "source_file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+        "source_sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200",
+        "scope": "registration",
+        "grade": "pass",
+        "canonical_label": "registration.pivot",
+        "finding_state": "not_detected_in_scope",
+        "reason": "The same4,3 image translation is declared intentional; residual0. Do not classify intended movement as jitter.",
+        "evidence": [
+          {
+            "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+            "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+          },
+          {
+            "file": "recovery/stage71/golden-results/inspection.json",
+            "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+            "region": [
+              0,
+              0,
+              186,
+              186
+            ],
+            "canvas": [
+              186,
+              186
+            ],
+            "density": 1,
+            "display": [
+              186.0,
+              186.0
+            ],
+            "pivot": [
+              108,
+              145
+            ],
+            "jsonPointer": "/candidates/5/frames/1/stableRegion"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        },
+        "test_fixture": true
+      },
+      "sourceBinding": {
+        "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+        "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[2]/evidence/0",
+          "file": "recovery/stage71/validation-only-fixtures/NOT-CANDIDATE-crow-shift-plus4-plus3.png",
+          "sha256": "0186feb05bb7ab39e731a8db9a4a551bfda90eff98eb5daefc8b92b51ca49200"
+        },
+        {
+          "location": "records[2]/evidence/1",
+          "file": "recovery/stage71/golden-results/inspection.json",
+          "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+          "jsonPointer": "/candidates/5/frames/1/stableRegion",
+          "resolvedValue": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              4,
+              3
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          }
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "validation-only-declared-world-root-travel",
+        "variant_id": "idle",
+        "candidate_revision": "validation-only-declared-world-root-travel",
+        "source_file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+        "source_sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91",
+        "scope": "registration",
+        "grade": "pass",
+        "canonical_label": "registration.pivot",
+        "finding_state": "not_detected_in_scope",
+        "reason": "Declared20world actor-root travel with identical image registration has zero image residual; global travel is not pivot jitter.",
+        "evidence": [
+          {
+            "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+            "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+          },
+          {
+            "file": "recovery/stage71/golden-results/inspection.json",
+            "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+            "region": [
+              0,
+              0,
+              186,
+              186
+            ],
+            "canvas": [
+              186,
+              186
+            ],
+            "density": 1,
+            "display": [
+              186.0,
+              186.0
+            ],
+            "pivot": [
+              108,
+              145
+            ],
+            "jsonPointer": "/candidates/6/frames/1/stableRegion"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        },
+        "test_fixture": true
+      },
+      "sourceBinding": {
+        "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+        "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[3]/evidence/0",
+          "file": "audits/crow-ground-runtime-compatible-v1/palette-variants/crow-ground-idle186-total12.png",
+          "sha256": "6832bffeb9a2a2dd871be0ca1315e29b184459ff535a4539001a9d73bda81a91"
+        },
+        {
+          "location": "records[3]/evidence/1",
+          "file": "recovery/stage71/golden-results/inspection.json",
+          "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+          "jsonPointer": "/candidates/6/frames/1/stableRegion",
+          "resolvedValue": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          }
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "sparrow-valid-articulated-head-protected-body",
+        "variant_id": "look",
+        "candidate_revision": "sparrow-valid-articulated-head-protected-body",
+        "source_file": "experiments/animation-authoring-compare-v1/arm-d-hybrid-construction/full-stage/look.png",
+        "source_sha256": "deba4169ce01ba82d3f62211ce41d47024d08d3e33d75f443f1d920f7bbbd972",
+        "scope": "registration",
+        "grade": "pass",
+        "canonical_label": "registration.pivot",
+        "finding_state": "not_detected_in_scope",
+        "reason": "Genuine head articulation changes the silhouette while protected body has0changed pixels and0residual. No false jitter rejection.",
+        "evidence": [
+          {
+            "file": "experiments/animation-authoring-compare-v1/arm-d-hybrid-construction/full-stage/look.png",
+            "sha256": "deba4169ce01ba82d3f62211ce41d47024d08d3e33d75f443f1d920f7bbbd972"
+          },
+          {
+            "file": "recovery/stage71/golden-results/inspection.json",
+            "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+            "region": null,
+            "canvas": [
+              124,
+              124
+            ],
+            "density": 1,
+            "display": [
+              124.0,
+              124.0
+            ],
+            "pivot": [
+              73,
+              96
+            ],
+            "jsonPointer": "/candidates/3/frames/1/stableRegion"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        },
+        "test_fixture": false
+      },
+      "sourceBinding": {
+        "file": "experiments/animation-authoring-compare-v1/arm-d-hybrid-construction/full-stage/look.png",
+        "sha256": "deba4169ce01ba82d3f62211ce41d47024d08d3e33d75f443f1d920f7bbbd972"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[4]/evidence/0",
+          "file": "experiments/animation-authoring-compare-v1/arm-d-hybrid-construction/full-stage/look.png",
+          "sha256": "deba4169ce01ba82d3f62211ce41d47024d08d3e33d75f443f1d920f7bbbd972"
+        },
+        {
+          "location": "records[4]/evidence/1",
+          "file": "recovery/stage71/golden-results/inspection.json",
+          "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+          "jsonPointer": "/candidates/3/frames/1/stableRegion",
+          "resolvedValue": {
+            "status": "PASS",
+            "observedPixelTranslation": [
+              0,
+              0
+            ],
+            "residualWorld": [
+              0.0,
+              0.0
+            ],
+            "meanAbsoluteRGBAErrorAtBestOffset": 0.0,
+            "changedPixelsAtDeclaredTranslation": 0,
+            "equallyBestOffsetCount": 1,
+            "scope": "configured stable raster region, integer translation estimate only; no bitmap/pivot changes or anatomical inference"
+          }
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "crow-raw-grip-alpha-prerequisite",
+        "variant_id": "static-grip-source",
+        "candidate_revision": "raw-grip-v2",
+        "source_file": "experiments/crow-perch-grip-art-internal-v2/grip-study192.png",
+        "source_sha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29",
+        "scope": "media_preflight",
+        "grade": "reject",
+        "canonical_label": "media.constraint",
+        "finding_state": "observed",
+        "reason": "Exact nominated c4ae binary-alpha consumer rejects this raw representation:8182partial-alpha pixels. The native source art is retained, not globally rejected.",
+        "evidence": [
+          {
+            "file": "experiments/crow-perch-grip-art-internal-v2/grip-study192.png",
+            "sha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29"
+          },
+          {
+            "file": "recovery/stage71/golden-results/inspection.json",
+            "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+            "jsonPointer": "/candidates/1/frames/0/partialAlphaPixels"
+          },
+          {
+            "file": "experiments/crow-perch-grip-art-internal-v2/contract-intake/RESULT.json",
+            "sha256": "9626ba9978ecfc2e529e29ae184674e0d69ce86692a8970f84c86ebb8da02957"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/crow-perch-grip-art-internal-v2/grip-study192.png",
+        "sha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[5]/evidence/0",
+          "file": "experiments/crow-perch-grip-art-internal-v2/grip-study192.png",
+          "sha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29"
+        },
+        {
+          "location": "records[5]/evidence/1",
+          "file": "recovery/stage71/golden-results/inspection.json",
+          "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+          "jsonPointer": "/candidates/1/frames/0/partialAlphaPixels",
+          "resolvedValue": 8182
+        },
+        {
+          "location": "records[5]/evidence/2",
+          "file": "experiments/crow-perch-grip-art-internal-v2/contract-intake/RESULT.json",
+          "sha256": "9626ba9978ecfc2e529e29ae184674e0d69ce86692a8970f84c86ebb8da02957"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "crow-raw-grip-alpha-prerequisite",
+        "variant_id": "static-grip-source",
+        "candidate_revision": "raw-grip-v2",
+        "source_file": "experiments/crow-perch-grip-art-internal-v2/grip-study192.png",
+        "source_sha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29",
+        "scope": "static_visual",
+        "grade": "blocked",
+        "canonical_label": "visual.alpha-matte",
+        "finding_state": "unknown",
+        "reason": "Fractional alpha alone does not prove a visible matte or unwanted halo at declared display size. CV counts are proxies; do not convert codec failure into this visual defect.",
+        "evidence": [
+          {
+            "file": "experiments/crow-perch-grip-art-internal-v2/grip-study192.png",
+            "sha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29"
+          },
+          {
+            "file": "recovery/stage71/golden-results/inspection.json",
+            "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+            "jsonPointer": "/candidates/1/frames/0/brightLowChromaBoundaryPixelsProxy"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/crow-perch-grip-art-internal-v2/grip-study192.png",
+        "sha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[6]/evidence/0",
+          "file": "experiments/crow-perch-grip-art-internal-v2/grip-study192.png",
+          "sha256": "37881c2571d09a419349d341aeaf6524fcb3a6ae6918caa27b6041c3ac871d29"
+        },
+        {
+          "location": "records[6]/evidence/1",
+          "file": "recovery/stage71/golden-results/inspection.json",
+          "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+          "jsonPointer": "/candidates/1/frames/0/brightLowChromaBoundaryPixelsProxy",
+          "resolvedValue": 10
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "bath-reviewed-held-scale-contact-proxies",
+        "variant_id": "bath-study",
+        "candidate_revision": "bath-source-proposal-v1",
+        "source_file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+        "source_sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+        "scope": "registration",
+        "grade": "repair",
+        "canonical_label": "registration.scale",
+        "finding_state": "observed",
+        "reason": "Retained normal-size independent bath review holds per-state source scale.118→175world silhouette width and baseline+29 are corroborating image proxies, not body segmentation or physical measurements.",
+        "evidence": [
+          {
+            "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+            "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+          },
+          {
+            "file": "recovery/stage71/golden-results/inspection.json",
+            "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+            "jsonPointer": "/candidates/2/frames/1"
+          },
+          {
+            "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+            "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+        "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[7]/evidence/0",
+          "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+          "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+        },
+        {
+          "location": "records[7]/evidence/1",
+          "file": "recovery/stage71/golden-results/inspection.json",
+          "sha256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7",
+          "jsonPointer": "/candidates/2/frames/1",
+          "resolvedValue": {
+            "id": "lowered-ready",
+            "clipId": "diagnostic",
+            "action": "bath-study",
+            "pose": "lowered-ready",
+            "PNGsha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+            "canvasPixels": [
+              192,
+              192
+            ],
+            "contacts": [],
+            "evidenceType": "MEASURED_SOURCE_RASTER",
+            "inferredAnatomy": null,
+            "canonicalDefectId": null,
+            "severity": null,
+            "confidence": null,
+            "stableBodyROI": null,
+            "stableMaskPNG": null,
+            "expectedROIChanges": [
+              "head",
+              "wings",
+              "body"
+            ],
+            "decodedRGBAId": "frame.sha256.e3ea2df45fae5bbb4a850a3ac73d50ab3afa136cab64b0516743ddbd0af0930a",
+            "density": 1,
+            "worldCanvas": [
+              192.0,
+              192.0
+            ],
+            "cssCanvas": [
+              192.0,
+              192.0
+            ],
+            "pivot": [
+              105,
+              150
+            ],
+            "pivotInBounds": true,
+            "pivotAlpha": 253,
+            "alphaBBox": [
+              8,
+              6,
+              191,
+              189
+            ],
+            "thresholdBBox": [
+              9,
+              69,
+              184,
+              179
+            ],
+            "thresholdCentroid": [
+              121.83211387521618,
+              127.7315418384994
+            ],
+            "alphaNonzeroPixels": 8859,
+            "partialAlphaPixels": 8849,
+            "edgeTouchPixels": 0,
+            "componentCount": 1,
+            "tinyComponentsLE2": 0,
+            "tinyComponentPixels": 0,
+            "componentBackend": "scipy.ndimage.label four-neighbor",
+            "opaqueRGBCount": 10,
+            "visibleRGBCountAtAlphaCutoff": 6705,
+            "brightLowChromaBoundaryPixelsProxy": 13,
+            "fringePixelsProxy": 8849,
+            "anchorRelativeCentroidWorld": [
+              16.83211387521618,
+              -22.268458161500604
+            ],
+            "contactROIProxies": [
+              {
+                "id": "lower-image-inspection-window-NOT-sole-segmentation",
+                "rect": [
+                  80,
+                  135,
+                  70,
+                  50
+                ],
+                "maxAlpha": 255,
+                "thresholdPixelCount": 2147,
+                "lowestThresholdRow": 178,
+                "baselineFromPivotWorld": 28.0,
+                "physicalContact": "NOT_EVALUATED",
+                "baselineDeltaWorldFromFirst": 29.0
+              }
+            ],
+            "expectedPixelTranslation": [
+              0,
+              0
+            ],
+            "checks": {
+              "raster": {
+                "status": "PASS",
+                "scope": "empty raster/pivot bounds; edge touch is a clipping proxy, not anatomy"
+              },
+              "binaryAlpha": {
+                "status": "NOT_EVALUATED",
+                "scope": "configured binary-alpha prerequisite only; not canonical codec execution"
+              },
+              "whiteNoiseProxies": {
+                "status": "WARN",
+                "scope": "proxy counts only; no automatic white-edge/noise/art rejection"
+              },
+              "width": {
+                "status": "WARN",
+                "scope": "silhouette width proxy; intentional wings/directional asymmetry may change width"
+              }
+            },
+            "expectedRootWorld": null,
+            "projectedCentroidAtDeclaredRootWorld": null,
+            "visibleBBoxWidthWorld": 175.0,
+            "relativeWidthChangeFromFirst": 0.48305084745762716,
+            "previousFrameDelta": {
+              "anchorRelativeCentroidWorld": [
+                16.243660877436753,
+                10.086834214517154
+              ],
+              "bboxWorld": [
+                -23.0,
+                -13.0,
+                34.0,
+                29.0
+              ]
+            },
+            "stableRegion": {
+              "status": "NOT_EVALUATED",
+              "reason": "No stable mask/ROI supplied; global centroid changes are report-only."
+            },
+            "paletteDriftFromFirst": {
+              "scope": "RGB tuples only where alpha==255",
+              "addedOpaqueRGBCount": 10,
+              "jaccardDistance": 1.0
+            },
+            "visiblePaletteDriftFromFirst": {
+              "scope": "RGB tuples where alpha>=128, not a canonical codec palette verdict",
+              "addedRGBCount": 6437,
+              "jaccardDistance": 0.9702651725285698
+            },
+            "centeringSuggestion": {
+              "status": "NOT_EVALUATED",
+              "reason": "Directional asymmetry and off-center framing are not failures."
+            },
+            "status": "WARN"
+          }
+        },
+        {
+          "location": "records[7]/evidence/2",
+          "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+          "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "bath-reviewed-held-scale-contact-proxies",
+        "variant_id": "bath-study",
+        "candidate_revision": "bath-source-proposal-v1",
+        "source_file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+        "source_sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+        "scope": "physical_geometry",
+        "grade": "blocked",
+        "canonical_label": "physics.unreviewed",
+        "finding_state": "unknown",
+        "reason": "No accepted foot/sole support or bath water-plane/rim/immersion binding; apparent alpha and lower-image baseline do not establish physical support.",
+        "evidence": [
+          {
+            "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+            "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+          },
+          {
+            "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+            "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+        "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[8]/evidence/0",
+          "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+          "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+        },
+        {
+          "location": "records[8]/evidence/1",
+          "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+          "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "bath-reviewed-held-scale-contact-proxies",
+        "variant_id": "bath-study",
+        "candidate_revision": "bath-source-proposal-v1",
+        "source_file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+        "source_sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a",
+        "scope": "functional_fit",
+        "grade": "blocked",
+        "canonical_label": "interaction.unreviewed",
+        "finding_state": "unknown",
+        "reason": "Bath functional fit, water contact and immersion/rim relationship remain unreviewed against actual runtime geometry.",
+        "evidence": [
+          {
+            "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+            "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+          },
+          {
+            "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+            "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+        "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[9]/evidence/0",
+          "file": "experiments/bath-source-proposal-v1/raw192/lowered-ready.png",
+          "sha256": "e8e086ee751ce33421b9f58c3fdb4f522da97a53600b2e3002543778f5dc6f3a"
+        },
+        {
+          "location": "records[9]/evidence/1",
+          "file": "experiments/bath-source-proposal-v1/ROOT-ADJUDICATION.json",
+          "sha256": "c1a22874f1175f0ba9e29c5e9bf5014a1205b6866d6f7ed74f33f9bf268292af"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "house-finch-female-feed-v1",
+        "variant_id": "adult-female",
+        "candidate_revision": "house-finch-canon-v1",
+        "source_file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+        "source_sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472",
+        "scope": "registration",
+        "grade": "repair",
+        "canonical_label": "registration.anchor-empty",
+        "finding_state": "observed",
+        "reason": "All12 approximate foot-coordinate annotations in this sex packet sample alpha0 and require reannotation. This does not reject the visible toes or useful illustrative feeding gestures.",
+        "evidence": [
+          {
+            "file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+            "sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472"
+          },
+          {
+            "file": "batches/house-finch-female-feed-v1/manifest.json",
+            "sha256": "fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3",
+            "jsonPointer": "/frames"
+          },
+          {
+            "file": "batches/house-finch-female-feed-v1/reviews/geometry/independent-review.json",
+            "sha256": "b3ee8b507432cbdb38a040ccafb92d099c7ac0c2b218a38e5933622d3feb0577"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        },
+        "measurement_context": {
+          "sourceCanvas": [
+            1024,
+            1024
+          ],
+          "worldSize": null,
+          "coordinateSpace": "source1024; not the review384 atlas",
+          "allSourceFrames": [
+            {
+              "frame_id": "frame.sha256.7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa",
+              "source_file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+              "sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472"
+            },
+            {
+              "frame_id": "frame.sha256.8b65af206bba26b5748082748203618dd7d26fc5fa0c5dd44d785add7edfab7a",
+              "source_file": "frames/8b65af206bba26b5748082748203618dd7d26fc5fa0c5dd44d785add7edfab7a.png",
+              "sha256": "686e2b2e83e1aa3dd25ebf7b98a140c9d8489e37a78aa7ef5bfd0e2f7a0c438f"
+            },
+            {
+              "frame_id": "frame.sha256.195cf1b32ebffabeef9ffd57c5e9ef16bb4d3a9db95c24eb25edf6ece20ef3d0",
+              "source_file": "frames/195cf1b32ebffabeef9ffd57c5e9ef16bb4d3a9db95c24eb25edf6ece20ef3d0.png",
+              "sha256": "487b27bf4e8cb4d9b1e21861fe0f86559c0840f17537cbcd76b0f653f5af412d"
+            },
+            {
+              "frame_id": "frame.sha256.8e1edea263e5e79ceeb252b5e1825376d4aa8635f2086d1401e3f8179a78156d",
+              "source_file": "frames/8e1edea263e5e79ceeb252b5e1825376d4aa8635f2086d1401e3f8179a78156d.png",
+              "sha256": "ecb9d3d2a268696ab4934c00fd3afbc2953f158d792d8ac4007dad937ec18f2a"
+            },
+            {
+              "frame_id": "frame.sha256.967542e5af758085756aa3e94eeb09cd5b94f0b94a51c2a44e4a5336cc0ca793",
+              "source_file": "frames/967542e5af758085756aa3e94eeb09cd5b94f0b94a51c2a44e4a5336cc0ca793.png",
+              "sha256": "b886034104d88970595c579dfaaa04aa76e7b90393a756d0d34bca08834a096f"
+            },
+            {
+              "frame_id": "frame.sha256.574b167a4f11daf0095b9b22a3afdec7845ac23286f39e8d0f6a91cb3708c06f",
+              "source_file": "frames/574b167a4f11daf0095b9b22a3afdec7845ac23286f39e8d0f6a91cb3708c06f.png",
+              "sha256": "a68f4829b517bd97bcae011dacfe00dcc6f78554b58c03bc85f3cdfc13814c58"
+            }
+          ]
+        }
+      },
+      "sourceBinding": {
+        "file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+        "sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[10]/evidence/0",
+          "file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+          "sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472"
+        },
+        {
+          "location": "records[10]/evidence/1",
+          "file": "batches/house-finch-female-feed-v1/manifest.json",
+          "sha256": "fd8399373b0d7a9590141c9693f02ddfea461b328a76ca4ba75ebd16d1df8fa3",
+          "jsonPointer": "/frames",
+          "resolvedValue": [
+            {
+              "frameId": "frame.sha256.7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa",
+              "durationMs": 300,
+              "phase": "ready",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": null,
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/00.png",
+              "reviewPNGSha256": "4a66b7488164d53e419b0af92b1cd907644cd589c5a5b938cf6d4ab34f6b7786",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  479,
+                  796
+                ],
+                [
+                  553,
+                  800
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                658,
+                509
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.8b65af206bba26b5748082748203618dd7d26fc5fa0c5dd44d785add7edfab7a",
+              "durationMs": 200,
+              "phase": "bow-to-seed",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": null,
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/01.png",
+              "reviewPNGSha256": "b01794eae5a004bf2dbc4e083a6fd2fc598710ebd36fa43eeb444f50c53b01dc",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  480,
+                  796
+                ],
+                [
+                  551,
+                  800
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                697,
+                685
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.195cf1b32ebffabeef9ffd57c5e9ef16bb4d3a9db95c24eb25edf6ece20ef3d0",
+              "durationMs": 180,
+              "phase": "pickup",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": "beak-seed-candidate",
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/02.png",
+              "reviewPNGSha256": "8b00b2ebb991a55303239d5ff520b62a8d4bd374d35cb6eed87080471ba4d52b",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  480,
+                  797
+                ],
+                [
+                  552,
+                  800
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                699,
+                757
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.8e1edea263e5e79ceeb252b5e1825376d4aa8635f2086d1401e3f8179a78156d",
+              "durationMs": 260,
+              "phase": "seed-held",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": "beak-seed-candidate",
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/03.png",
+              "reviewPNGSha256": "4039da8b0d1c191f6aac8fd56e7f591c585b356e63c6025198c570f412a1e3e6",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  479,
+                  797
+                ],
+                [
+                  557,
+                  800
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                687,
+                503
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.967542e5af758085756aa3e94eeb09cd5b94f0b94a51c2a44e4a5336cc0ca793",
+              "durationMs": 280,
+              "phase": "kernel-bite",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": "beak-seed-candidate",
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/04.png",
+              "reviewPNGSha256": "8a0bafaaaa772bb6022147d8e3027ef06568e3801f7281060259dbbe5f2c2943",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  479,
+                  800
+                ],
+                [
+                  558,
+                  800
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                652,
+                472
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.574b167a4f11daf0095b9b22a3afdec7845ac23286f39e8d0f6a91cb3708c06f",
+              "durationMs": 280,
+              "phase": "swallow-recovery",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": null,
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/05.png",
+              "reviewPNGSha256": "4d30b7e6ea53a7c909d93548fc888fc97a994ca1c75505bd3ad49c1eccebeb8c",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  479,
+                  798
+                ],
+                [
+                  558,
+                  800
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                652,
+                491
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            }
+          ]
+        },
+        {
+          "location": "records[10]/evidence/2",
+          "file": "batches/house-finch-female-feed-v1/reviews/geometry/independent-review.json",
+          "sha256": "b3ee8b507432cbdb38a040ccafb92d099c7ac0c2b218a38e5933622d3feb0577"
+        },
+        {
+          "location": "records[10]/measurement_context/allSourceFrames/0",
+          "file": "frames/7906df7c17d32cb75c0e1b8f9cd91e318df34696e82e6e3fddf8bd37e9f5f6aa.png",
+          "sha256": "ce772e95e85e775abee2d31c5621025f0aab50ec990aee1cb05c532524ce8472"
+        },
+        {
+          "location": "records[10]/measurement_context/allSourceFrames/1",
+          "file": "frames/8b65af206bba26b5748082748203618dd7d26fc5fa0c5dd44d785add7edfab7a.png",
+          "sha256": "686e2b2e83e1aa3dd25ebf7b98a140c9d8489e37a78aa7ef5bfd0e2f7a0c438f"
+        },
+        {
+          "location": "records[10]/measurement_context/allSourceFrames/2",
+          "file": "frames/195cf1b32ebffabeef9ffd57c5e9ef16bb4d3a9db95c24eb25edf6ece20ef3d0.png",
+          "sha256": "487b27bf4e8cb4d9b1e21861fe0f86559c0840f17537cbcd76b0f653f5af412d"
+        },
+        {
+          "location": "records[10]/measurement_context/allSourceFrames/3",
+          "file": "frames/8e1edea263e5e79ceeb252b5e1825376d4aa8635f2086d1401e3f8179a78156d.png",
+          "sha256": "ecb9d3d2a268696ab4934c00fd3afbc2953f158d792d8ac4007dad937ec18f2a"
+        },
+        {
+          "location": "records[10]/measurement_context/allSourceFrames/4",
+          "file": "frames/967542e5af758085756aa3e94eeb09cd5b94f0b94a51c2a44e4a5336cc0ca793.png",
+          "sha256": "b886034104d88970595c579dfaaa04aa76e7b90393a756d0d34bca08834a096f"
+        },
+        {
+          "location": "records[10]/measurement_context/allSourceFrames/5",
+          "file": "frames/574b167a4f11daf0095b9b22a3afdec7845ac23286f39e8d0f6a91cb3708c06f.png",
+          "sha256": "a68f4829b517bd97bcae011dacfe00dcc6f78554b58c03bc85f3cdfc13814c58"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "house-finch-male-feed-v1",
+        "variant_id": "adult-male",
+        "candidate_revision": "house-finch-canon-v1",
+        "source_file": "frames/afe7fb34eff7b9eace50a74818f06bb42921dc71fcbe2e058ed7415d87e7d16c.png",
+        "source_sha256": "27b0df2bc86db322f2324f6b2bde147af8e2538cfa9d583d9ca22ce1d1404031",
+        "scope": "registration",
+        "grade": "repair",
+        "canonical_label": "registration.anchor-empty",
+        "finding_state": "observed",
+        "reason": "All12 approximate foot-coordinate annotations in this sex packet sample alpha0 and require reannotation. This does not reject the visible toes or useful illustrative feeding gestures.",
+        "evidence": [
+          {
+            "file": "frames/afe7fb34eff7b9eace50a74818f06bb42921dc71fcbe2e058ed7415d87e7d16c.png",
+            "sha256": "27b0df2bc86db322f2324f6b2bde147af8e2538cfa9d583d9ca22ce1d1404031"
+          },
+          {
+            "file": "batches/house-finch-male-feed-v1/manifest.json",
+            "sha256": "eb2f4ee08a2fddac5d198b2ddde1da968d91908118740f247bddd0c4999a48a7",
+            "jsonPointer": "/frames"
+          },
+          {
+            "file": "batches/house-finch-male-feed-v1/reviews/geometry/independent-review.json",
+            "sha256": "cf8ffc3bc4b16f3ffdaab25e95f13b5d020f9f53232829cf0e37ec6858633cce"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        },
+        "measurement_context": {
+          "sourceCanvas": [
+            1024,
+            1024
+          ],
+          "worldSize": null,
+          "coordinateSpace": "source1024; not the review384 atlas",
+          "allSourceFrames": [
+            {
+              "frame_id": "frame.sha256.afe7fb34eff7b9eace50a74818f06bb42921dc71fcbe2e058ed7415d87e7d16c",
+              "source_file": "frames/afe7fb34eff7b9eace50a74818f06bb42921dc71fcbe2e058ed7415d87e7d16c.png",
+              "sha256": "27b0df2bc86db322f2324f6b2bde147af8e2538cfa9d583d9ca22ce1d1404031"
+            },
+            {
+              "frame_id": "frame.sha256.df48dcaf02767123af405e7572cdce0eb7cccdbe5531862f468338ca0532aa22",
+              "source_file": "frames/df48dcaf02767123af405e7572cdce0eb7cccdbe5531862f468338ca0532aa22.png",
+              "sha256": "f50086cb5a02cbd65c798d664e121353aba278e1c52dfe58f461345491ce7ebb"
+            },
+            {
+              "frame_id": "frame.sha256.b750930d7d10657fa3218ea5cab432ca85f980df035f38d8bcc7de4aaf3c7e3a",
+              "source_file": "frames/b750930d7d10657fa3218ea5cab432ca85f980df035f38d8bcc7de4aaf3c7e3a.png",
+              "sha256": "904eae0b54aa9af077f9daf096633cc933499c25ed0a211f4a5bbde9373be812"
+            },
+            {
+              "frame_id": "frame.sha256.95873b30c1eef500d286bdcd78416c1186fd0f3d278d29999282f9ff925efd5d",
+              "source_file": "frames/95873b30c1eef500d286bdcd78416c1186fd0f3d278d29999282f9ff925efd5d.png",
+              "sha256": "4c2bd3217306e20342cf5b1fe526e61c4b17cdd01e857df38775a0857f024cee"
+            },
+            {
+              "frame_id": "frame.sha256.4a926262c1d92aa9b442682eef7b0b881e76f0bd818f1e485313d036616efab5",
+              "source_file": "frames/4a926262c1d92aa9b442682eef7b0b881e76f0bd818f1e485313d036616efab5.png",
+              "sha256": "b591e44314f285ac4591fca57aee15d1550f18d653832a749db8d4ea932fe20b"
+            },
+            {
+              "frame_id": "frame.sha256.22a9faa8a677af637c744d6632e4b80a706eaabde4ea6db048a6be4f27180d7a",
+              "source_file": "frames/22a9faa8a677af637c744d6632e4b80a706eaabde4ea6db048a6be4f27180d7a.png",
+              "sha256": "e87208850d2189f9696a17fb757f52f025be3d3f4891dbbcf4fe3990d1e0bc9f"
+            }
+          ]
+        }
+      },
+      "sourceBinding": {
+        "file": "frames/afe7fb34eff7b9eace50a74818f06bb42921dc71fcbe2e058ed7415d87e7d16c.png",
+        "sha256": "27b0df2bc86db322f2324f6b2bde147af8e2538cfa9d583d9ca22ce1d1404031"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[11]/evidence/0",
+          "file": "frames/afe7fb34eff7b9eace50a74818f06bb42921dc71fcbe2e058ed7415d87e7d16c.png",
+          "sha256": "27b0df2bc86db322f2324f6b2bde147af8e2538cfa9d583d9ca22ce1d1404031"
+        },
+        {
+          "location": "records[11]/evidence/1",
+          "file": "batches/house-finch-male-feed-v1/manifest.json",
+          "sha256": "eb2f4ee08a2fddac5d198b2ddde1da968d91908118740f247bddd0c4999a48a7",
+          "jsonPointer": "/frames",
+          "resolvedValue": [
+            {
+              "frameId": "frame.sha256.afe7fb34eff7b9eace50a74818f06bb42921dc71fcbe2e058ed7415d87e7d16c",
+              "durationMs": 300,
+              "phase": "ready",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": null,
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/00.png",
+              "reviewPNGSha256": "4e9a0055530e19360397f82968120676fc7271b53562c5cff74d42d503b3165b",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  483,
+                  800
+                ],
+                [
+                  564,
+                  798
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                668,
+                500
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.df48dcaf02767123af405e7572cdce0eb7cccdbe5531862f468338ca0532aa22",
+              "durationMs": 200,
+              "phase": "bow-to-seed",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": null,
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/01.png",
+              "reviewPNGSha256": "8907e2e2da037192e3923ab3e29729dfbc116bd8a2df94322a4c773ca9701185",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  480,
+                  800
+                ],
+                [
+                  568,
+                  796
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                701,
+                697
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.b750930d7d10657fa3218ea5cab432ca85f980df035f38d8bcc7de4aaf3c7e3a",
+              "durationMs": 180,
+              "phase": "pickup",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": "beak-seed-candidate",
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/02.png",
+              "reviewPNGSha256": "bd384d7479b7fa81a3d6ae1e0db9e6e4e859b36beaf976a4b1508b64a5340303",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  480,
+                  800
+                ],
+                [
+                  569,
+                  796
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                701,
+                704
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.95873b30c1eef500d286bdcd78416c1186fd0f3d278d29999282f9ff925efd5d",
+              "durationMs": 260,
+              "phase": "seed-held",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": "beak-seed-candidate",
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/03.png",
+              "reviewPNGSha256": "306eceacbddcac173487553bdc11f606e681f101d54ec38c04b51097423a5db3",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  483,
+                  800
+                ],
+                [
+                  569,
+                  795
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                675,
+                486
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.4a926262c1d92aa9b442682eef7b0b881e76f0bd818f1e485313d036616efab5",
+              "durationMs": 280,
+              "phase": "kernel-bite",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": "beak-seed-candidate",
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/04.png",
+              "reviewPNGSha256": "e286ee701f3b96e3b2e4011e735c77156eee14a99043264211a2227b269553ba",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  482,
+                  800
+                ],
+                [
+                  568,
+                  796
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                654,
+                454
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            },
+            {
+              "frameId": "frame.sha256.22a9faa8a677af637c744d6632e4b80a706eaabde4ea6db048a6be4f27180d7a",
+              "durationMs": 280,
+              "phase": "swallow-recovery",
+              "feetContactState": "both-planted-candidate",
+              "seedContactState": null,
+              "contactVerified": false,
+              "reviewPNG": "frames-review384/05.png",
+              "reviewPNGSha256": "0364a60db3d9066d4c14729f88a5e3cd30781a0428e072ca2e8d4213ed05d70e",
+              "sourceSupportRoot": [
+                512,
+                800
+              ],
+              "sourceFeetContactsApprox": [
+                [
+                  481,
+                  800
+                ],
+                [
+                  567,
+                  797
+                ]
+              ],
+              "sourceBeakAnchorApprox": [
+                665,
+                487
+              ],
+              "reviewSupportRoot": [
+                192,
+                300
+              ],
+              "anchorValidation": "approximate, no scene contact acceptance"
+            }
+          ]
+        },
+        {
+          "location": "records[11]/evidence/2",
+          "file": "batches/house-finch-male-feed-v1/reviews/geometry/independent-review.json",
+          "sha256": "cf8ffc3bc4b16f3ffdaab25e95f13b5d020f9f53232829cf0e37ec6858633cce"
+        },
+        {
+          "location": "records[11]/measurement_context/allSourceFrames/0",
+          "file": "frames/afe7fb34eff7b9eace50a74818f06bb42921dc71fcbe2e058ed7415d87e7d16c.png",
+          "sha256": "27b0df2bc86db322f2324f6b2bde147af8e2538cfa9d583d9ca22ce1d1404031"
+        },
+        {
+          "location": "records[11]/measurement_context/allSourceFrames/1",
+          "file": "frames/df48dcaf02767123af405e7572cdce0eb7cccdbe5531862f468338ca0532aa22.png",
+          "sha256": "f50086cb5a02cbd65c798d664e121353aba278e1c52dfe58f461345491ce7ebb"
+        },
+        {
+          "location": "records[11]/measurement_context/allSourceFrames/2",
+          "file": "frames/b750930d7d10657fa3218ea5cab432ca85f980df035f38d8bcc7de4aaf3c7e3a.png",
+          "sha256": "904eae0b54aa9af077f9daf096633cc933499c25ed0a211f4a5bbde9373be812"
+        },
+        {
+          "location": "records[11]/measurement_context/allSourceFrames/3",
+          "file": "frames/95873b30c1eef500d286bdcd78416c1186fd0f3d278d29999282f9ff925efd5d.png",
+          "sha256": "4c2bd3217306e20342cf5b1fe526e61c4b17cdd01e857df38775a0857f024cee"
+        },
+        {
+          "location": "records[11]/measurement_context/allSourceFrames/4",
+          "file": "frames/4a926262c1d92aa9b442682eef7b0b881e76f0bd818f1e485313d036616efab5.png",
+          "sha256": "b591e44314f285ac4591fca57aee15d1550f18d653832a749db8d4ea932fe20b"
+        },
+        {
+          "location": "records[11]/measurement_context/allSourceFrames/5",
+          "file": "frames/22a9faa8a677af637c744d6632e4b80a706eaabde4ea6db048a6be4f27180d7a.png",
+          "sha256": "e87208850d2189f9696a17fb757f52f025be3d3f4891dbbcf4fe3990d1e0bc9f"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "frame.sha256.30e4c1a9bfc80fb146acd6c9a00afbe14ce67dcdfcbfde409b90cce1b429b63d",
+        "variant_id": "blink",
+        "candidate_revision": "BUSHTIT-logical64-readable-eyelid-source-3",
+        "source_file": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+        "source_sha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40",
+        "scope": "state_coverage",
+        "grade": "repair",
+        "canonical_label": "motion.parts-unqualified",
+        "finding_state": "observed",
+        "reason": "Genuine native closed lid exists, but both normal64/100ms reviews hold readability as a displaced dark dot. This is not missing source art; logical-grid closure semantics remain unqualified.",
+        "evidence": [
+          {
+            "file": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+            "sha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40"
+          },
+          {
+            "file": "experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json",
+            "sha256": "41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738"
+          },
+          {
+            "file": "experiments/bushtit-logical64-eyelid-v3/reviews/appearance/independent-review.json",
+            "sha256": "74eabdf0bfab41f7b0f9fece43d9ccd550baccab1e841fcb11c8379a56eb29a9"
+          },
+          {
+            "file": "experiments/bushtit-logical64-eyelid-v3/reviews/geometry/independent-review.json",
+            "sha256": "ffe9e87496473d8a3659103f0917cb8f95c5e701e4f269aab46d9c0811b02a80"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        },
+        "measurement_context": {
+          "canvas": [
+            64,
+            64
+          ],
+          "world": [
+            64,
+            64
+          ],
+          "density": 1,
+          "displayCSS": [
+            64,
+            64
+          ],
+          "closedMilliseconds": 100,
+          "patch": [
+            39,
+            33,
+            44,
+            37
+          ]
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+        "sha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[12]/evidence/0",
+          "file": "experiments/bushtit-logical64-eyelid-v3/frames/closed.png",
+          "sha256": "9bbcf815478623a6e63bf2695c35d08d449d46fa728372042e92e93cb0942a40"
+        },
+        {
+          "location": "records[12]/evidence/1",
+          "file": "experiments/bushtit-logical64-eyelid-v3/ROOT-ADJUDICATION.json",
+          "sha256": "41324afa68bbb5aecfbd9dba80dd1e3abdb100da2c5a9eb65b81bbf026704738"
+        },
+        {
+          "location": "records[12]/evidence/2",
+          "file": "experiments/bushtit-logical64-eyelid-v3/reviews/appearance/independent-review.json",
+          "sha256": "74eabdf0bfab41f7b0f9fece43d9ccd550baccab1e841fcb11c8379a56eb29a9"
+        },
+        {
+          "location": "records[12]/evidence/3",
+          "file": "experiments/bushtit-logical64-eyelid-v3/reviews/geometry/independent-review.json",
+          "sha256": "ffe9e87496473d8a3659103f0917cb8f95c5e701e4f269aab46d9c0811b02a80"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3",
+        "variant_id": "look",
+        "candidate_revision": "crow-attention-selected-ground-palette-v1",
+        "source_file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+        "source_sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+        "scope": "media_preflight",
+        "grade": "pass",
+        "canonical_label": "media.constraint",
+        "finding_state": "corrected_in_candidate",
+        "reason": "Prior63/32color attention exports failed rectangle cap. One fixed11opaqueRGB candidate now passes4034/4085/3954 rectangles with exact source registration. Only nominated c4ae subset is established; full runtime envelope remains unadmitted.",
+        "evidence": [
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+            "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/contract-intake/pixel-receipt.json",
+            "sha256": "ece99780eb9fa0edc65851064d52b2957942133c0da6a9b8153b838cf03a7d52"
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/CHECK-RESULTS.json",
+            "sha256": "888f23160fbd5c8e945c76e4cac9e9a1ba5b576da7a48c59aa18034b64be7403",
+            "jsonPointer": "/pixelCheck"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        },
+        "measurement_context": {
+          "canvas": [
+            156,
+            112
+          ],
+          "worldStage": [
+            186,
+            186
+          ],
+          "density": 1,
+          "pivot": [
+            101,
+            109
+          ],
+          "crop": [
+            6,
+            36,
+            162,
+            148
+          ]
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+        "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[13]/evidence/0",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+          "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+        },
+        {
+          "location": "records[13]/evidence/1",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+          "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+        },
+        {
+          "location": "records[13]/evidence/2",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/contract-intake/pixel-receipt.json",
+          "sha256": "ece99780eb9fa0edc65851064d52b2957942133c0da6a9b8153b838cf03a7d52"
+        },
+        {
+          "location": "records[13]/evidence/3",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/CHECK-RESULTS.json",
+          "sha256": "888f23160fbd5c8e945c76e4cac9e9a1ba5b576da7a48c59aa18034b64be7403",
+          "jsonPointer": "/pixelCheck",
+          "resolvedValue": {
+            "file": "contract-intake/pixel-receipt.json",
+            "sha256": "ece99780eb9fa0edc65851064d52b2957942133c0da6a9b8153b838cf03a7d52",
+            "nominatedRepoCommit": "c4ae7529786e28cf55e2008b7f7b64215fc6542c",
+            "perFrameRectangles": {
+              "neutral": 4034,
+              "blink": 4085,
+              "look": 3954
+            },
+            "totalRectangles": 12073,
+            "decodedArea": 52416,
+            "RGBAReconstructionExact": true,
+            "blinkPerFrameCapHeadroom": 11
+          }
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3",
+        "variant_id": "look",
+        "candidate_revision": "crow-attention-selected-ground-palette-v1",
+        "source_file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+        "source_sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+        "scope": "static_visual",
+        "grade": "pass",
+        "canonical_label": "fidelity.subject-structure",
+        "finding_state": "not_detected_in_scope",
+        "reason": "Two fresh normal186 reviews retain recognizable quiet Crow and clear upward head/bill attention. Lost iris/glint and softer feather shading remain a scoped appearance caveat, not anatomy certainty.",
+        "evidence": [
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/reviews/appearance/independent-review.json",
+            "sha256": "89640877b54447cdda35ed7cf07094a974d6e9bfc65c01b389b02b9573d2f47a"
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/reviews/geometry/independent-review.json",
+            "sha256": "dbc682290ce2ad902441ffc06e68810423413a429a3041d54f0bee8bad0a0aed"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+        "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[14]/evidence/0",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+          "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+        },
+        {
+          "location": "records[14]/evidence/1",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/reviews/appearance/independent-review.json",
+          "sha256": "89640877b54447cdda35ed7cf07094a974d6e9bfc65c01b389b02b9573d2f47a"
+        },
+        {
+          "location": "records[14]/evidence/2",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/reviews/geometry/independent-review.json",
+          "sha256": "dbc682290ce2ad902441ffc06e68810423413a429a3041d54f0bee8bad0a0aed"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3",
+        "variant_id": "look",
+        "candidate_revision": "crow-attention-selected-ground-palette-v1",
+        "source_file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+        "source_sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+        "scope": "runtime_admission",
+        "grade": "blocked",
+        "canonical_label": "runtime.unadmitted",
+        "finding_state": "unknown",
+        "reason": "No exact current Mac route/policy/source/reference pins, selected manifest/atlas/tint/fallback or live admission verified. Newfamily neutral differs180mask pixels from safe selectedground12; review transition boundary without replacing current idle.",
+        "evidence": [
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+            "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+            "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+        "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[15]/evidence/0",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+          "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+        },
+        {
+          "location": "records[15]/evidence/1",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/ROOT-ADJUDICATION.json",
+          "sha256": "7d38723cc6af52edba7ca5d8e275439b913a681837cb779229cfb33717eea0ee"
+        },
+        {
+          "location": "records[15]/evidence/2",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+          "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+        }
+      ],
+      "valid": true
+    },
+    {
+      "record": {
+        "asset_id": "frame.sha256.cb96a6d0d82c761020a67a412886bfbae374abc37395a89c09e33191e775ebe3",
+        "variant_id": "look",
+        "candidate_revision": "crow-attention-selected-ground-palette-v1",
+        "source_file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+        "source_sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0",
+        "scope": "physical_geometry",
+        "grade": "blocked",
+        "canonical_label": "physics.unreviewed",
+        "finding_state": "unknown",
+        "reason": "Image registration and foot ROI review are not support authority; contacts[] and supportWorld:null remain unapproved.",
+        "evidence": [
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+            "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+          },
+          {
+            "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+            "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+          }
+        ],
+        "severity": null,
+        "confidence": null,
+        "provenance": {
+          "mappingAuthor": "root producer review of exact retained evidence",
+          "modelCalls": 0,
+          "runtimeAcceptanceAuthority": false
+        }
+      },
+      "sourceBinding": {
+        "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+        "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+      },
+      "verifiedReferences": [
+        {
+          "location": "records[16]/evidence/0",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/frames/look.png",
+          "sha256": "65d05e8d1794843b8eebd340aa751f07c1cc1e71fa840e6ebc7c4b78ffb0bdd0"
+        },
+        {
+          "location": "records[16]/evidence/1",
+          "file": "experiments/crow-attention-selected-ground-palette-v1/source-handoff.json",
+          "sha256": "56f9376a97d99a41bfcb9d53da303260ce1f994a6c3fe7515b51c58073882cd2"
+        }
+      ],
+      "valid": true
+    }
+  ],
+  "inputFilesUnchanged": true,
+  "modelCalls": 0,
+  "sourceMutations": 0,
+  "artGradesAssignedByAdapter": 0,
+  "runtimeAdmission": false,
+  "limits": [
+    "No subjective, anatomical, physical, rights or runtime acceptance inferred.",
+    "Lineage versions/provenance are retained as supplied; exact nested references and pointers are verified.",
+    "Missing unstructured context is not certified by this small adapter."
+  ],
+  "adapterSHA256": "2d86065a1d96d044aa30f66ab427f981eafc486ed74ffc3d5bc156184c0cebec"
+}

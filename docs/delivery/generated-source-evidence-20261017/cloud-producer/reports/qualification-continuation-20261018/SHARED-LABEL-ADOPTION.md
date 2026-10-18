@@ -1,0 +1,9 @@
+The producer adopts an explicit versioned mapping to the existing PR89 shared-source-art-defect-label-contract v1 at docs/art/asset-defect-labels-v1.json, commit d104afbaf6949d71d24768a577f4eb9d8ef709c3, exact SHA b78e048b84bff2a99da153c6b3636bb5683b4d0ab015d8b68fa3745b39a56996. The retained snapshot is byte-identical evidence of that authority, not a new taxonomy.
+
+17 root-curated records use10 existing canonical labels. The adapter validates the actual10 required fields, enums, catalog pin and56 source/evidence references, including JSON pointers. It assigns no art grades itself. Unknown-label control rejects. Earlier adapter parsing failure is retained beside the successful validation; records/catalog/artwork are unchanged.
+
+The inspector also actually ran with the received catalog pin:17 IDs found, original measurements retained,0 automatic label assignments or model calls. Shared-label records provide the explicit scoped mapping. Severity/confidence remain null because this catalog supplies no rubric.
+
+Examples: raw partial alpha fails media.constraint in the nominated codec, without proving visual.alpha-matte. Genuine but unreadable Bushtit eyelid uses motion.parts-unqualified, not state.art-missing. Crow's new fixed palette is media.constraint corrected_in_candidate; runtime.unadmitted and physics.unreviewed remain blocked. Controlled translation uses registration.pivot; intentional image translation, root travel and protected head motion do not become jitter defects. A valid Sparrow's one-component proxy warning remains unassigned to an art defect.
+
+Existing producer case/native IDs are retained; no runtime owner asset identifier is invented. The parent contract worker is reconciling the actual typed quality-evaluation schemas. Full typed-envelope validation remains false until that authority/versioned mapping arrives. No original findings or prior null-catalog measurements were rewritten.
