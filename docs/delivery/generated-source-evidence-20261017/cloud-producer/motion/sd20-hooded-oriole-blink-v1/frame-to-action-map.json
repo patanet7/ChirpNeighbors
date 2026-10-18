@@ -1,0 +1,91 @@
+{
+  "batchId": "sd20-hooded-oriole-blink-v1",
+  "speciesId": "hooded_oriole",
+  "renderClipId": "blink",
+  "newNeutralDrawings": 0,
+  "newLookDrawings": 0,
+  "newSourceHeld": true,
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "851b12131768f4bf4199da5b5556e5a0e71a22b5eae9b46f3860b4363b11af35",
+    "profile": "chirp-texture-review-v1"
+  },
+  "atlasBinding": {
+    "file": "blink-atlas192.png",
+    "sha256": "5900dd641f3e3a315e0684f11c42ec88781f62a7ef7213a8dcfcd808a078c336",
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+      "primarySourcePNG": "reused-awake-source1024.png",
+      "primarySourcePNGsha256": "ae4323d2f7bc9434df6c469867b728a2be5b901381e0798d833c5442db768749",
+      "newDrawing": false,
+      "renderFrameId": "hooded_oriole-neutral-192",
+      "outputPNG": "reused-awake192.png",
+      "outputPNGsha256": "395e32ca9218775efa5a7437dab391a78a7f8c0a19a1d6f13e18b2d020141b2a",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      }
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb",
+      "primarySourcePNG": "closed-native.png",
+      "primarySourcePNGsha256": "23d003252fa855959fb22f0fd9d00d873e45e11f3813ee1aa39a017e549578cd",
+      "newDrawing": true,
+      "renderFrameId": "hooded_oriole-closed-blink-study-192",
+      "outputPNG": "closed192.png",
+      "outputPNGsha256": "69c84c524a71fcdb01ac01504de8100d0b80eb4fb663722b864571c2f9ce6594",
+      "atlasRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      }
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "hooded_oriole-neutral-192",
+          "durationTicks": 60
+        }
+      ]
+    },
+    {
+      "id": "blink",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "hooded_oriole-neutral-192",
+          "durationTicks": 60
+        },
+        {
+          "frameId": "hooded_oriole-closed-blink-study-192",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "hooded_oriole-neutral-192",
+          "durationTicks": 27
+        }
+      ]
+    }
+  ],
+  "baselineNeutralFirstHoldTicks": 60,
+  "originalNeutralLookProfileUntouched": true,
+  "canonicalZodValidation": "NOT_RUN",
+  "canonicalSharpAdmission": "NOT_RUN",
+  "currentMacNamedBlinkContract": "UNKNOWN",
+  "packetBindingReady": false,
+  "appBound": false
+}
