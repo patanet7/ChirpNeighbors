@@ -1,0 +1,13 @@
+# Quail fixed-stance authored attention
+
+One preregistered head/plume/upperneck ownership contour and one deterministic export, zero image calls or new native drawings. The actual original upward-look source2a696fca is the donor; later555489look and gait sources are excluded. Full native originals, historical prompt, existing source codec samples and source hashes are retained. Rights/clearance remain UNKNOWN.
+
+Outside the contour the neutral body/wing/tail/legs/feet are byte-identical. Inside it every pixel copies the existing donor at the same coordinates, including transparent pixels to clear old head/plume. No hidden underpaint, fill, pose fit, warp, recolor, requantization or second mask/export occurred. All bodypixels at/below fullstage131 are identical; footROI unchanged. There are777 changed pixels inside the1774pixel mask and157 oldopaque headpixels are cleared. The constructed silhouette has zero newly enclosed transparent pixels, but that diagnostic is not anatomical neck approval.
+
+The historical native extent is236.307692world with a237pixel ceiling stage. Existing237sampled codec pixels are copied directly, atdensity1. The95×100crop at90,92 andpivot50,93 matches the prior neutral’s PNG bytes exactly; fullstage image-root140,185 is a technical registration. All63opaque colors are from the exact existing cohort; no paletteconfound is introduced.
+
+`review.html`/FAMILY_REVIEW shows exactneutral, oldwholelook control and constructed episode on light/dark at237CSS. Source-only look timing60/18/12@30Hz, return78, terminal89 neutral held to3seconds. One APNG’s composedframes and2/.6/.4second durations are verified. Layers, ownership mask and same-coordinate maps document construction; a potential neck texture/silhouette seam must be judged independently atnormal size. This is authoredkey reuse, not a general rig or generatedbody animation.
+
+The first process wrote all artwork and then failed while serializing numpyuint8 palette metadata. The error is retained. Metadata continued from existing files; no image was exported again and all19written art hashes stayed exact. Corrected serializer and an art-written guard remain in the script. Internalexport timing was not saved before the metadata error; processwall0.163646545seconds is retained separately without inventing missing timings.
+
+Independent appearance/geometry and the actual current sharedpixel/JSONcheck are pending. This two-frame attention proposal does not fabricate a completecommonfamily or new blink. Contacts[], geometryfalse/supportnull; physicalsupport, sourceadmission, currentMac and livebindings remain unapproved. No globalqueue/bank/registry/repository/app changes.
