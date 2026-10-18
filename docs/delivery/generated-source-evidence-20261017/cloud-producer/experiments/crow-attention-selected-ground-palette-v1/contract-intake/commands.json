@@ -1,0 +1,29 @@
+[
+  {
+    "command": [
+      "node",
+      "/workspace/asset-production/validation/shared-structural-check.mjs",
+      "--repo",
+      "/workspace/runtime-resting-intake-v5-inspect",
+      "--input",
+      "/workspace/asset-production/experiments/crow-attention-selected-ground-palette-v1/contract-intake/canonical-pixel-input.json",
+      "--receipt",
+      "/workspace/asset-production/experiments/crow-attention-selected-ground-palette-v1/contract-intake/pixel-receipt.json",
+      "--sharp",
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/dist/index.cjs"
+    ],
+    "exitCode": 0,
+    "stdout": "actual-pixel-subset.stdout.txt",
+    "stderr": "actual-pixel-subset.stderr.txt"
+  },
+  {
+    "command": [
+      "node",
+      "/workspace/asset-production/experiments/crow-attention-selected-ground-palette-v1/contract-intake/actual-json-budget.mjs",
+      "/workspace/asset-production/experiments/crow-attention-selected-ground-palette-v1/contract-intake"
+    ],
+    "exitCode": 0,
+    "stdout": "actual-json-budget.stdout.txt",
+    "stderr": "actual-json-budget.stderr.txt"
+  }
+]

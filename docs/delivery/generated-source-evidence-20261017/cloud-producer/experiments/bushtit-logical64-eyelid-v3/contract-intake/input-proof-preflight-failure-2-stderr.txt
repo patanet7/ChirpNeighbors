@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/asset-production/experiments/bushtit-logical64-eyelid-v3/contract-intake/check-packet.py", line 48, in <module>
+    maps=load('source-pixel-maps.json')['insideEyePatch'];check('all twenty donor maps exact',len(maps)==20 and all(r['nativeDonorXY']==[int(xx[r['outputXY'][0]]),int(yy[r['outputXY'][1]])] and r['fixedPaletteProjectedRGBA']==proj[r['outputXY'][1],r['outputXY'][0]].tolist() and r['rawNativeRGBA']==donor[r['outputXY'][1],r['outputXY'][0]].tolist() for r in maps))
+         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+KeyError: 'insideEyePatch'

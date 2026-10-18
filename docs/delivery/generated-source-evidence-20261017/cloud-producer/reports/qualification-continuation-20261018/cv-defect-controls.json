@@ -1,0 +1,206 @@
+{
+  "id": "stage73-cv-defect-controls-summary",
+  "createdUTC": "2026-10-18T16:12:04.172841+00:00",
+  "scope": "Persistence of the previously reported seven-control measured summary. No golden execution, threshold adjustment, source pixel change or original report edit.",
+  "aggregate": "Expected diagnostic aggregate FAIL is not a harness failure; calibration-verification status is PASS.",
+  "cases": [
+    {
+      "id": "crow-selected12-static",
+      "output": "case000",
+      "status": "PASS",
+      "measures": {
+        "partialAlphaPixels": 0,
+        "registrationResidualWorld": [
+          0,
+          0
+        ]
+      },
+      "conclusion": "Raster prerequisites pass; this report did not run the codec or approve anatomy."
+    },
+    {
+      "id": "crow-raw-grip-alpha-prerequisite",
+      "output": "case001",
+      "status": "FAIL_EXPECTED",
+      "measures": {
+        "partialAlphaPixels": 8182
+      },
+      "conclusion": "Configured binary-alpha prerequisite detects the known raw-alpha incompatibility, not an art-quality failure."
+    },
+    {
+      "id": "bath-reviewed-held-scale-contact-proxies",
+      "output": "case002",
+      "status": "WARN",
+      "measures": {
+        "firstSilhouetteWidthWorld": 118,
+        "laterSilhouetteWidthsWorld": [
+          175,
+          165,
+          175,
+          170
+        ],
+        "lowerImageWindowBaselineDeltasWorld": [
+          29,
+          29,
+          3,
+          4
+        ]
+      },
+      "conclusion": "Measures extent and lower-image-window changes; no stable region was supplied, so jitter is NOT_EVALUATED. Width includes articulation and the window is not anatomical sole segmentation."
+    },
+    {
+      "id": "sparrow-valid-articulated-head-protected-body",
+      "output": "case003",
+      "status": "WARN_WITH_REGISTRATION_PASS",
+      "measures": {
+        "protectedBodyResidualWorld": [
+          0,
+          0
+        ],
+        "tinyComponentsPerFrame": [
+          1,
+          1
+        ],
+        "brightBoundaryPixelsPerFrame": [
+          0,
+          0
+        ],
+        "partialAlphaPixelsPerFrame": [
+          0,
+          0
+        ]
+      },
+      "conclusion": "Actual head change causes no false jitter failure. The existing tiny component triggers a proxy warning; promoting it to a noise/art rejection would be a false positive."
+    },
+    {
+      "id": "validation-only-unintended-jitter",
+      "output": "case004",
+      "status": "FAIL_EXPECTED",
+      "measures": {
+        "observedPixelTranslation": [
+          4,
+          3
+        ],
+        "residualWorld": [
+          4,
+          3
+        ]
+      },
+      "conclusion": "Detects the labeled synthetic unintended translation, above the predeclared1world maximum-offset threshold. Not candidate art."
+    },
+    {
+      "id": "validation-only-declared-image-translation",
+      "output": "case005",
+      "status": "PASS",
+      "measures": {
+        "observedPixelTranslation": [
+          4,
+          3
+        ],
+        "residualWorld": [
+          0,
+          0
+        ]
+      },
+      "conclusion": "Subtracts declared intentional translation; no false jitter failure."
+    },
+    {
+      "id": "validation-only-declared-world-root-travel",
+      "output": "case006",
+      "status": "PASS",
+      "measures": {
+        "imageResidualWorld": [
+          0,
+          0
+        ],
+        "projectedWorldTravel": [
+          20,
+          0
+        ]
+      },
+      "conclusion": "Separates unchanged image registration from declared root movement; no false jitter failure."
+    }
+  ],
+  "warningFalsePositiveCaveat": "The valid Sparrow is WARN solely from one existing tiny component per frame, with zero bright-boundary and partial-alpha pixels. That is not proven bad art/noise. Raw Crow and bath antialiasing/highlights can also trigger proxy warnings without establishing white garbage.",
+  "clippingCaveat": "Bath edge touches of6/2/3 pixels on wing-ruffle/shake/settle are clipping proxies, not proof of source clipping.",
+  "notEvaluated": {
+    "codec": "NOT_RUN for all seven; no nominated current-code exact-input hash-bound codec receipt attached",
+    "actionCoverage": "NOT_EVALUATED; no hash-bound declared action manifest attached",
+    "anatomyPhysicalSupport": "NOT_EVALUATED",
+    "subjectiveArt": "NOT_EVALUATED",
+    "temporalBiologicalCompleteness": "NOT_EVALUATED",
+    "canonicalDefectLabelsSeverityConfidence": "Null pending shared evaluation contract/defect catalog; no invented score",
+    "VLM": "PROPOSAL_ONLY, no analysis provider/model called"
+  },
+  "thresholdsAsRun": {
+    "alphaCutoff": 128,
+    "maxOffsetWorld": 1,
+    "widthRelativeWarn": 0.2,
+    "searchRadiusPixels": 8,
+    "brightMin": 240,
+    "brightChromaMax": 15,
+    "preregisteredBeforeExecution": true,
+    "noPosthocTuning": true
+  },
+  "hashPins": {
+    "tool": {
+      "path": "/workspace/asset-production/validation/sprite-inspection.py",
+      "SHA256": "ae795cbb5e181d8275cb9cbe046db0cbce92c40e778587f4ac94d2d5f7f28a1a"
+    },
+    "config": {
+      "path": "/workspace/asset-production/recovery/stage71/golden-config.json",
+      "SHA256": "e1ccb70063a2a658c0d786c830ee124a92378160c4897766f9c711b3552c2371"
+    },
+    "report": {
+      "path": "/workspace/asset-production/recovery/stage71/golden-results/inspection.json",
+      "SHA256": "c507bd9958757b0cd554e54c5c1bbf5c6c258e6ba68809c66dac4344bfa655f7"
+    },
+    "calibration": {
+      "path": "/workspace/asset-production/recovery/stage71/calibration-verification.json",
+      "SHA256": "ab4fe81a4970ffadf223d4a93f6574b5332d52e2549e7a2892d954ab96dfa3e5"
+    },
+    "case000": {
+      "path": "/workspace/asset-production/recovery/stage71/golden-results/000/candidate.json",
+      "SHA256": "871f6e32be9eb04733a19e993cf1b860191116a3242d498d9036c66936eae828"
+    },
+    "case001": {
+      "path": "/workspace/asset-production/recovery/stage71/golden-results/001/candidate.json",
+      "SHA256": "f26104306216427c50f87b3d05eefe7f62553436ab6880a3bdc9f1019b047237"
+    },
+    "case002": {
+      "path": "/workspace/asset-production/recovery/stage71/golden-results/002/candidate.json",
+      "SHA256": "b0faf401770730e77de8d71d93c5241f43e2cbf58024b8e6d9dfb38636eb3668"
+    },
+    "case003": {
+      "path": "/workspace/asset-production/recovery/stage71/golden-results/003/candidate.json",
+      "SHA256": "76a30c69164adcef6be17f22a7c0ebf67248d888f234cb66ef0602d9ab1619eb"
+    },
+    "case004": {
+      "path": "/workspace/asset-production/recovery/stage71/golden-results/004/candidate.json",
+      "SHA256": "0e3235aef779ccefb3017f2b1c7bdc0a28a11a2de09695aeea1ce50dc7c9ea7e"
+    },
+    "case005": {
+      "path": "/workspace/asset-production/recovery/stage71/golden-results/005/candidate.json",
+      "SHA256": "50a57f29979027c545664fb1163043eb5b5552a662e7f2a84f04d76bba056353"
+    },
+    "case006": {
+      "path": "/workspace/asset-production/recovery/stage71/golden-results/006/candidate.json",
+      "SHA256": "94e539c029ed3f9b19100db9b04f09ceb9e1bd21180933eaf9fd1b13c5d12a48"
+    }
+  },
+  "hashOnlyVerification": {
+    "tool": true,
+    "config": true,
+    "report": true,
+    "calibration": true,
+    "case000": true,
+    "case001": true,
+    "case002": true,
+    "case003": true,
+    "case004": true,
+    "case005": true,
+    "case006": true
+  },
+  "goldenRerunsByThisTask": 0,
+  "originalEditsByThisTask": 0,
+  "runtimeAdmission": false
+}
