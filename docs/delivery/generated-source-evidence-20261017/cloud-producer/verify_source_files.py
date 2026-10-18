@@ -16,7 +16,7 @@ for item in index['files']:
     assert len(payload) == item['bytes'], item['file']
     assert hashlib.sha256(payload).hexdigest() == item['sha256'], item['file']
 originals = json.loads((root / 'original-source-inventory.json').read_text())
-assert len(originals['originals']) == 49
+assert len(originals['originals']) == 50
 for item in originals['originals']:
     for path_key, hash_key in [('file', 'sha256'), ('promptFile', 'promptSha256')]:
         assert hashlib.sha256((root / item[path_key]).read_bytes()).hexdigest() == item[hash_key]
@@ -25,7 +25,7 @@ animation_pairs = None
 if args.pixel_checks:
     from PIL import Image
     bank = json.loads((root / 'frame-bank.json').read_text())
-    assert len(bank['frames']) == 149
+    assert len(bank['frames']) == 150
     for frame in bank['frames']:
         with Image.open(root / frame['file']) as source:
             rgba = source.convert('RGBA')
@@ -61,11 +61,11 @@ if args.pixel_checks:
                 image.load()
                 assert image.info['duration'] == 800
     assert not json.loads((control / 'manifest.json').read_text())['comparison']['isFinishedAnimation']
-    pixel_count = 149
+    pixel_count = 150
 print(json.dumps({
     'passed': True,
     'byteHashedFiles': len(index['files']),
-    'originalPromptPairs': 49,
+    'originalPromptPairs': 50,
     'decodedFrameIdentities': pixel_count,
     'decodedReviewApngGifPairs': animation_pairs,
     'runtimeIntegrationChecked': False,

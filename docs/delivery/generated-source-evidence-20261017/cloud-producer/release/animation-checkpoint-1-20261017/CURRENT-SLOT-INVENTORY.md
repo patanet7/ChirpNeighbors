@@ -1,6 +1,6 @@
 # Current per-species source slots
 
-149 registered primary source IDs across 49 retained originals. Useful provisional idle semantic uses: 19 neutral, 14 look, 16 blink. These uses overlap drawings. Source studies do not complete species action sets.
+150 registered primary source IDs across 50 retained originals. Useful provisional idle semantic uses: 19 neutral, 14 look, 17 blink. These uses overlap drawings. Source studies do not complete species action sets.
 
 | Species | Neutral | Look | Blink | Locomotion | Feed / drink / preen | Flight |
 |---|---|---|---|---|---|---|
@@ -23,7 +23,7 @@
 | Bewick's Wren | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
 | Spotted Towhee | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
 | Dark-eyed Junco | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
-| California Quail | provisional still | study-only-stance-or-support-defect | missing | missing | missing / missing / missing | missing |
+| California Quail | provisional still | study-only-stance-or-support-defect | provisional source | missing | missing / missing / missing | missing |
 
 Anna's Hummingbird / sd20-anna-hover-cycle-v2: 2 new + 2 reused source drawings; reviewed-source-study-with-qualifications. Additive flight study only; perched selections and semantic completion flags unchanged.
 
