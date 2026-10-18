@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 4,
+  "source": {
+    "schemaVersion": 1,
+    "speciesId": "cn-species-haemorhous-mexicanus",
+    "representation": "Existing technical fixture with versioned pose metadata; no fidelity claim.",
+    "source": "provider",
+    "creator": "builtin-fixture",
+    "sourceVersion": "1",
+    "license": {
+      "id": "project-authored-development-fixture",
+      "status": "development-only",
+      "derivativesAllowed": true,
+      "redistributionAllowed": true,
+      "evidenceId": "synthetic-authorized-study",
+      "attribution": "ChirpNeighbors authored development fixture; no generated or reviewed species art."
+    },
+    "references": [
+      {
+        "id": "reviewed-fixture-reference",
+        "speciesId": "cn-species-haemorhous-mexicanus",
+        "contentDigest": "41aff85b8488265e68ad2065387a7ad2bfae8f20943b4b7bab59722835adfec0",
+        "role": "technical-fixture"
+      }
+    ],
+    "fidelityReview": null,
+    "reviewScope": "development-candidate"
+  },
+  "pixels": {
+    "schemaVersion": 2,
+    "format": "rgba8-frames",
+    "canvas": {
+      "width": 1,
+      "height": 1
+    },
+    "logicalPixelSize": 1,
+    "paletteLimit": 4,
+    "frames": [
+      {
+        "rgba": [
+          20,
+          40,
+          60,
+          255
+        ]
+      },
+      {
+        "rgba": [
+          21,
+          40,
+          60,
+          255
+        ]
+      },
+      {
+        "rgba": [
+          22,
+          40,
+          60,
+          255
+        ]
+      },
+      {
+        "rgba": [
+          23,
+          40,
+          60,
+          255
+        ]
+      }
+    ]
+  },
+  "clips": {
+    "idle": {
+      "action": "idle",
+      "direction": "right-facing-mirrorable",
+      "loop": true,
+      "poses": [
+        {
+          "frame": 0,
+          "poseId": "neutral-idle",
+          "durationTicks": 42,
+          "pivot": {
+            "x": 0,
+            "y": 1
+          },
+          "contacts": [],
+          "rotation": 0
+        }
+      ]
+    }
+  },
+  "conditioning": {
+    "taxonomy": {
+      "catalog": "chirp-display-catalog",
+      "version": 1,
+      "speciesId": "cn-species-haemorhous-mexicanus"
+    },
+    "references": [
+      {
+        "id": "reviewed-fixture-reference",
+        "roles": [
+          "style",
+          "pose"
+        ],
+        "pin": {
+          "jobId": "synthetic-ref",
+          "artifactId": "synthetic-artifact",
+          "version": 1,
+          "contentDigest": "41aff85b8488265e68ad2065387a7ad2bfae8f20943b4b7bab59722835adfec0"
+        }
+      }
+    ],
+    "poseGraph": {
+      "nodes": [
+        {
+          "id": "neutral-idle",
+          "frame": 0,
+          "action": "idle",
+          "referenceId": "reviewed-fixture-reference"
+        }
+      ],
+      "edges": [
+        {
+          "from": "neutral-idle",
+          "to": "neutral-idle"
+        }
+      ]
+    }
+  },
+  "strategy": {
+    "kind": "decoded-rgba",
+    "version": 1,
+    "alphaOrigin": "upstream-cleanup",
+    "output": "rgba8-binary"
+  },
+  "presentation": {
+    "schemaVersion": 1,
+    "sourcePixelsPerWorldUnit": 1
+  },
+  "commonMotion": {
+    "schemaVersion": 1,
+    "geometryScope": "image-registration-only",
+    "physicalSupportReviewed": false,
+    "idleSequence": [
+      "idle",
+      "blink",
+      "idle",
+      "look"
+    ],
+    "clips": {
+      "blink": {
+        "name": "blink",
+        "loop": true,
+        "poses": [
+          {
+            "frame": 0,
+            "poseId": "blink-0",
+            "durationTicks": 42,
+            "pivot": {
+              "x": 0,
+              "y": 1
+            },
+            "contacts": [],
+            "rotation": 0
+          },
+          {
+            "frame": 1,
+            "poseId": "blink-1",
+            "durationTicks": 2,
+            "pivot": {
+              "x": 0,
+              "y": 1
+            },
+            "contacts": [],
+            "rotation": 0
+          },
+          {
+            "frame": 2,
+            "poseId": "blink-2",
+            "durationTicks": 3,
+            "pivot": {
+              "x": 0,
+              "y": 1
+            },
+            "contacts": [],
+            "rotation": 0
+          },
+          {
+            "frame": 1,
+            "poseId": "blink-3",
+            "durationTicks": 2,
+            "pivot": {
+              "x": 0,
+              "y": 1
+            },
+            "contacts": [],
+            "rotation": 0
+          },
+          {
+            "frame": 0,
+            "poseId": "blink-4",
+            "durationTicks": 20,
+            "pivot": {
+              "x": 0,
+              "y": 1
+            },
+            "contacts": [],
+            "rotation": 0
+          }
+        ]
+      },
+      "look": {
+        "name": "look",
+        "loop": false,
+        "poses": [
+          {
+            "frame": 0,
+            "poseId": "look-0",
+            "durationTicks": 30,
+            "pivot": {
+              "x": 0,
+              "y": 1
+            },
+            "contacts": [],
+            "rotation": 0
+          },
+          {
+            "frame": 3,
+            "poseId": "look-1",
+            "durationTicks": 12,
+            "pivot": {
+              "x": 0,
+              "y": 1
+            },
+            "contacts": [],
+            "rotation": 0
+          },
+          {
+            "frame": 0,
+            "poseId": "look-2",
+            "durationTicks": 30,
+            "pivot": {
+              "x": 0,
+              "y": 1
+            },
+            "contacts": [],
+            "rotation": 0
+          }
+        ]
+      }
+    },
+    "poseGraph": {
+      "nodes": [
+        {
+          "id": "blink-0",
+          "frame": 0,
+          "clip": "blink",
+          "referenceId": "reviewed-fixture-reference"
+        },
+        {
+          "id": "blink-1",
+          "frame": 1,
+          "clip": "blink",
+          "referenceId": "reviewed-fixture-reference"
+        },
+        {
+          "id": "blink-2",
+          "frame": 2,
+          "clip": "blink",
+          "referenceId": "reviewed-fixture-reference"
+        },
+        {
+          "id": "blink-3",
+          "frame": 1,
+          "clip": "blink",
+          "referenceId": "reviewed-fixture-reference"
+        },
+        {
+          "id": "blink-4",
+          "frame": 0,
+          "clip": "blink",
+          "referenceId": "reviewed-fixture-reference"
+        },
+        {
+          "id": "look-0",
+          "frame": 0,
+          "clip": "look",
+          "referenceId": "reviewed-fixture-reference"
+        },
+        {
+          "id": "look-1",
+          "frame": 3,
+          "clip": "look",
+          "referenceId": "reviewed-fixture-reference"
+        },
+        {
+          "id": "look-2",
+          "frame": 0,
+          "clip": "look",
+          "referenceId": "reviewed-fixture-reference"
+        }
+      ],
+      "edges": [
+        {
+          "from": "blink-0",
+          "to": "blink-1"
+        },
+        {
+          "from": "blink-1",
+          "to": "blink-2"
+        },
+        {
+          "from": "blink-2",
+          "to": "blink-3"
+        },
+        {
+          "from": "blink-3",
+          "to": "blink-4"
+        },
+        {
+          "from": "blink-4",
+          "to": "blink-0"
+        },
+        {
+          "from": "look-0",
+          "to": "look-1"
+        },
+        {
+          "from": "look-1",
+          "to": "look-2"
+        }
+      ]
+    }
+  }
+}
