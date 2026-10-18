@@ -1,0 +1,116 @@
+{
+  "scope": "candidate support hypotheses only; independent-ground-review pair owns visual verdict",
+  "imagePixelConvention": "RGBA indices identify pixel samples; occupied pixel area is[x,x+1)\u00d7[y,y+1). Contract pivot is an image-coordinate origin, not a pressure centre.",
+  "density": 1.0328947368421053,
+  "imagePivot": [
+    111,
+    150
+  ],
+  "groundDiagnosticImageY": 150,
+  "worldPerOutputPixel": 0.9681528662420382,
+  "inheritedMarkers": [
+    {
+      "pixel": [
+        99,
+        146
+      ],
+      "alpha": 248,
+      "meaning": "old technical interior foot-region marker, not sole boundary"
+    },
+    {
+      "pixel": [
+        124,
+        144
+      ],
+      "alpha": 247,
+      "meaning": "old technical interior foot-region marker, not sole boundary"
+    }
+  ],
+  "rasterExtremaHypotheses": [
+    {
+      "roi": [
+        82,
+        132,
+        112,
+        154
+      ],
+      "lowestAlpha128Pixel": [
+        109,
+        149
+      ],
+      "RGBA": [
+        4,
+        4,
+        4,
+        168
+      ],
+      "pixelAreaBottomProxy": [
+        109.5,
+        150
+      ],
+      "worldOffsetFromPivot": [
+        -1.4522292993630572,
+        0
+      ],
+      "independentAnatomicalOwnership": "PENDING"
+    },
+    {
+      "roi": [
+        112,
+        132,
+        145,
+        154
+      ],
+      "lowestAlpha128Pixel": [
+        114,
+        147
+      ],
+      "RGBA": [
+        0,
+        0,
+        0,
+        244
+      ],
+      "pixelAreaBottomProxy": [
+        114.5,
+        148
+      ],
+      "worldOffsetFromPivot": [
+        3.3885350318471334,
+        -1.9363057324840764
+      ],
+      "independentAnatomicalOwnership": "PENDING; ROI split may include cross-foot toes"
+    }
+  ],
+  "samePlaneResidualOutputPixels": 2,
+  "samePlaneResidualWorld": 1.9363057324840764,
+  "hypotheses": [
+    "Perspective-depth raster offset between supported foot groups on a ground plane; requires reviewer/integrator decision, not exact2D sole coincidence.",
+    "Foot grouping/lowest anti-aliased claw tip may not represent weight-bearing sole. One deep alpha168 pixel drives first boundary.",
+    "Image pivot/root and support plane may be conflated by consumer. Keep logical actor origin and measured support binding separate."
+  ],
+  "groundOriginProposal": "Diagnostic pivot placement only: W(q)=R+(q-[111,150])/density. Imagey150 maps to actorrootY. No per-foot snapping/warp; no accepted physical contacts emitted.",
+  "geometryReviewed": false,
+  "supportWorld": null,
+  "noFitSnapPaint": true,
+  "anatomicalQualificationFromIndependentReviewerPreliminary": {
+    "nearToeRegion": [
+      101,
+      146,
+      115,
+      150
+    ],
+    "farToeRegion": [
+      124,
+      143,
+      139,
+      147
+    ],
+    "uncertaintyOutputPx": [
+      1,
+      2
+    ],
+    "splitX112Problem": "Near foot extends to113..114,y147, so second ROI boundary148 does not locate far-foot sole. Far toe underside roughly127..135,y144..146 and outer138,y144.",
+    "status": "Preliminary reviewer text; final independent-ground-review pair authoritative; no support assignment"
+  }
+}

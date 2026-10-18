@@ -1,0 +1,85 @@
+{
+  "batchId": "sd20-crow-perched-rest-v1",
+  "speciesId": "american_crow",
+  "renderClipId": "perching",
+  "newSourceHeld": true,
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "2706d340a722e57ab8a86695b1bd5dfde56217b17a5048eaace24c959345ba87",
+    "profile": "chirp-texture-review-v1",
+    "canonicalSchemaValidation": "NOT_RUN;MacUNKNOWN,heldunboundperchingcandidate"
+  },
+  "atlasBinding": {
+    "file": "perched-rest-atlas192.png",
+    "sha256": "9055b305c0af972830482ec1664d5ab2abda58e44a0265ce4f0f40e2f683c3d4",
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+      "primarySourcePNG": "reference-ground-awake-source1024.png",
+      "primarySourcePNGsha256": "64a3199e6509cccf3e578c46e796246b5fca35b25e94d5d54bf88fab31c3bcec",
+      "newDrawing": false,
+      "renderFrameId": "crow-supported-neutral-192",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "outputPNG": "reused-ground-awake192.png",
+      "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+      "semantic": "groundidleonly"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8",
+      "primarySourcePNG": "perched-rest-native.png",
+      "primarySourcePNGsha256": "505dcd1f738740110b24b27e7f54e5a799a0d921f2903b6d1e4f0374e1463d5a",
+      "newDrawing": true,
+      "renderFrameId": "crow-perched-rest-study-192",
+      "atlasRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "outputPNG": "perched-rest192.png",
+      "outputPNGsha256": "ce4bd0c87ea68753969328a05c93ac2ff439d105a688952d5afe3c33c9d22c90",
+      "semantic": "newstaticperchingcandidateonly"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "perching",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "crow-perched-rest-study-192",
+          "durationTicks": 90
+        }
+      ]
+    }
+  ],
+  "projectionScope": "Purposeperchingstaticstudy;groundidleexplicitlyseparate;neverwalk/groundasperchedfallback",
+  "customSupportProposal": {
+    "file": "perch-support-proposal.json",
+    "sha256": "4fbdea292f2cf6a53df83ea6eedf1fb6cf854411b3ef6172b479b1b8beae8d79"
+  },
+  "actualPixelAnnotation": "perch-contact-annotations.json",
+  "appBound": false,
+  "SharpCanonicalAdmission": false
+}

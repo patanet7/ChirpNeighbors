@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "9055b305c0af972830482ec1664d5ab2abda58e44a0265ce4f0f40e2f683c3d4",
+    "creator": "Chirp standalone perched-rest source exporter",
+    "tool": "Pillow whole-native-canvas nearest export",
+    "toolVersion": "12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "crow-supported-neutral-192",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 111,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-a-review",
+          "x": 99,
+          "y": 146
+        },
+        {
+          "id": "foot-b-review",
+          "x": 124,
+          "y": 144
+        }
+      ],
+      "world": {
+        "width": 185.88535031847132,
+        "height": 185.88535031847132
+      },
+      "sourcePixelsPerWorldUnit": 1.0328947368421053
+    },
+    {
+      "id": "crow-perched-rest-study-192",
+      "sourceRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 111,
+        "y": 150
+      },
+      "contacts": [],
+      "world": {
+        "width": 185.88535031847132,
+        "height": 185.88535031847132
+      },
+      "sourcePixelsPerWorldUnit": 1.0328947368421053
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "crow-supported-neutral-192",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "perching",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "crow-perched-rest-study-192",
+          "durationTicks": 90
+        }
+      ]
+    }
+  ]
+}

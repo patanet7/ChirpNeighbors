@@ -7,7 +7,7 @@ parser.add_argument('--root',type=Path,default=(Path(__file__).resolve().parent 
 a=parser.parse_args();root=a.root
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 overlay=json.loads((root/'release/animation-checkpoint-1-20261017/intake-overlay.json').read_text())
-files=0;frames=0;previews=0;ids=set()
+files=0;frames=0;previews=0;staticpreviews=0;ids=set()
 for batch in overlay['batches']:
  p=root/batch['sourcePath']
  for filekey,hashkey in [('primaryManifest','primaryManifestSha256'),('original','originalSHA256'),('exactNativePrompt','exactNativePromptSHA256'),('review','reviewSHA256'),('sourceFileIndex','sourceFileIndexSHA256')]:
@@ -26,9 +26,15 @@ for batch in overlay['batches']:
  for path in p.rglob('*'):
   if path.suffix.lower() not in ['.gif','.apng']:continue
   with Image.open(path) as im:
-   assert im.n_frames>=2,str(path)
+   explicit_static = batch.get('perchExtraSourceStudy') is True and batch.get('batchId') == 'sd20-crow-perched-rest-v1' and path.name in {'STATIC-perching-pose.gif', 'STATIC-perching-hold.apng'}
+   if explicit_static:
+    assert batch.get('sourceHeld') is True and batch.get('useAsActiveSource') is False and batch.get('usefulSourceSlotsCompleted') == []
+    assert im.n_frames == 1 and im.size == (192,192) and im.info.get('duration') == 3000,str(path)
+   else:
+    assert im.n_frames>=2,str(path)
    for i in range(im.n_frames):im.seek(i);im.load();assert im.info.get('duration',0)>0,str(path)
-  previews+=1
+  if explicit_static:staticpreviews+=1
+  else:previews+=1
  assert set(batch['sourceFrameIds'])=={f['sourceFrameId'] for f in j['frames']}
 assert frames==overlay['newDrawings'] and len(overlay['batches'])==overlay['newNativeCalls']
-print(json.dumps({'passed':True,'nativeOriginals':len(overlay['batches']),'newPrimaryDrawingIDs':frames,'indexedBatchFiles':files,'decodedMultiFramePreviews':previews,'appAdmissionChecked':False,'artAnatomicalAcceptance':False}))
+print(json.dumps({'passed':True,'nativeOriginals':len(overlay['batches']),'newPrimaryDrawingIDs':frames,'indexedBatchFiles':files,'decodedMultiFramePreviews':previews,'decodedStaticPosePreviews':staticpreviews,'appAdmissionChecked':False,'artAnatomicalAcceptance':False}))

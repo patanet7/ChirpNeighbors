@@ -1,6 +1,6 @@
 # Current per-species source slots
 
-143 registered primary source IDs across 43 retained originals. Useful provisional idle semantic uses: 19 neutral, 15 blink, 13 look. These uses overlap drawings. Source studies do not complete species action sets.
+144 registered primary source IDs across 44 retained originals. Useful provisional idle semantic uses: 19 neutral, 15 blink, 13 look. These uses overlap drawings. Source studies do not complete species action sets.
 
 | Species | Neutral | Look | Blink | Locomotion | Feed / drink / preen | Flight |
 |---|---|---|---|---|---|---|

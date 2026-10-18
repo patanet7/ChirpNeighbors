@@ -1,0 +1,107 @@
+{
+  "batchId": "crow-ground-standing-runtime-candidate-v1",
+  "state": "SOURCE_READY_FOR_INDEPENDENT_GROUND_REVIEW;notMacready",
+  "newNativeCalls": 0,
+  "newDrawings": 0,
+  "liveObservationReportedByParent": {
+    "jobId": "b2fcc3b9-cba1-46f2-805a-6314926908b9",
+    "artifactId": "153da268-1d6d-46f0-8419-12e0d9965dc8",
+    "version": 3,
+    "contentDigest": "8d3d2fb453b0401d7bfc27bd0660b9cd263844b110128e00db131db322dabcff",
+    "state": "idle",
+    "resolvedState": "idle",
+    "frame": 0,
+    "poseId": "idle-0",
+    "fallback": false,
+    "surface": "GROUND",
+    "supportId": "ground:2:5",
+    "actorRootReported": [
+      640,
+      498
+    ],
+    "geometryReviewed": false,
+    "supportWorld": null,
+    "exactPixelIdentity": "UNRESOLVED: slot_inventory reports no matching UUID/digest or canonicalized digest in available metadata; actual live manifest payload+referenced atlas unavailable. Cloud runtime store absent/retained backend tables empty. Candidate is separately identified."
+  },
+  "candidate": {
+    "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+    "sourcePNG": "neutral-source1024.png",
+    "sourcePNGsha256": "64a3199e6509cccf3e578c46e796246b5fca35b25e94d5d54bf88fab31c3bcec",
+    "outputPNG": "neutral192.png",
+    "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+    "manifest": {
+      "file": "ground-idle-texture-review-manifest.json",
+      "sha256": "713ff97a955f2f6284e3903f4b10dbc534f8962c66e14741b32d70bb09c374fd"
+    },
+    "atlas": {
+      "file": "neutral-blink-atlas192.png",
+      "sha256": "808eb70449dc24ea486bed40ffc80532be83007a2f5998e590e42fdeb98df373",
+      "width": 384,
+      "height": 192
+    },
+    "renderFrameId": "crow-supported-neutral-192",
+    "atlasRect": {
+      "x": 0,
+      "y": 0,
+      "width": 192,
+      "height": 192
+    },
+    "canvas": [
+      192,
+      192
+    ],
+    "worldCanvas": [
+      185.88535031847132,
+      185.88535031847132
+    ],
+    "sourcePixelsPerWorldUnit": 1.0328947368421053,
+    "pivot": [
+      111,
+      150
+    ],
+    "contractSlot": "GROUND idle only",
+    "clipId": "idle",
+    "tickRate": 30,
+    "durationTicks": 120,
+    "stillFrameOnly": true,
+    "blinkCellPresentButUnused": "Original atlas secondcell retained for byte identity; ground idle maps only firstcell.",
+    "perching": "EXCLUDED",
+    "walking": "EXCLUDED"
+  },
+  "adapterRecipe": [
+    "Resolve actual currentlive digest/PNGs first via slot_inventory; retain live and candidate provenance separately.",
+    "For a source-only GROUND idle proposal bind candidate firstatlasrect/renderID/staticidle120ticks only. Do not route perching or moving through this frame.",
+    "Use exact existing scale/pivot. Example actorroot[640,498] is hypothetical candidate placement, not established live geometry equivalence.",
+    "Keep inherited review markers separate from additive sole-region hypotheses. Do not silently promote contact probes to accepted physics.",
+    "Mac owner reviews actual candidate at yard scale and binds supportWorld only after adoption; until then geometryReviewed=false and supportWorld=null."
+  ],
+  "exampleCandidatePlacement": {
+    "actorRoot": [
+      640,
+      498
+    ],
+    "imageGroundBoundaryY150World": 498,
+    "secondRasterBoundaryY148World": 496.0636942675159,
+    "meaning": "Diagnostic proposed image placement only; 2px residual retained."
+  },
+  "geometryReviewed": false,
+  "supportWorld": null,
+  "currentMacContract": "UNKNOWN",
+  "canonicalZodSharp": "NOT_RUN",
+  "appBindingPerformed": false,
+  "independentGroundReview": "PENDING; independent-ground-review.json/.md by preen",
+  "liveResolutionBlocker": {
+    "action": "resolve current live animationmanifest and atlas pixel identity",
+    "target": "job b2fcc3b9-cba1-46f2-805a-6314926908b9 / artifact153da268-1d6d-46f0-8419-12e0d9965dc8 v3 digest8d3d2fb453b0401d7bfc27bd0660b9cd263844b110128e00db131db322dabcff",
+    "outcome": "BLOCKED missing payload; no access denial claimed",
+    "needed": "Mac owner export actual live manifest+atlas or source IDs to establish equivalence.",
+    "candidateMayProceed": "Standalone source+ground review; no liveidentity or runtimefix claim."
+  },
+  "liveResolutionReceipt": {
+    "file": "audits/crow-rest-walk-perch-diagnosis-v1/runtime-evidence.json",
+    "sha256": "e0d76703f19740f68073e12ed913311af86057371e6de95bcbbddffb26c6f0ee",
+    "status": "Missing actual live manifest/atlas/frame0pixels; no access denial claimed. Candidate independent."
+  },
+  "actualSharpRasterVerified": true,
+  "sharpRasterReceipt": "sharp-raster-verification.json"
+}
