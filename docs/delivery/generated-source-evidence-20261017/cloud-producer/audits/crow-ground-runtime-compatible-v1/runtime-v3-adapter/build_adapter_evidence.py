@@ -1,0 +1,59 @@
+from pathlib import Path
+from PIL import Image
+import hashlib,json,shutil,subprocess,copy,datetime
+from jsonschema import Draft7Validator
+A=Path(__file__).resolve().parent;P=A.parent;repo=Path('/workspace/birdsong-yard-sprites');sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest();save=lambda n,v:(A/n).write_text(json.dumps(v,indent=2)+'\n');load=lambda p:json.loads(Path(p).read_text())
+L=load(P/'review-target-hashes.json');protected={n:sha(P/n)for n in L};protected.update({n:sha(P/n)for n in ['review-target-hashes.json','source-technical-review.json','source-technical-review.md']});assert all(protected[n]==h for n,h in L.items())
+paths=['src/lib/assets/manifest-v3.ts','src/lib/assets/manifest-v2.ts','src/lib/assets/metrics-v3.ts','src/lib/assets/shape.ts','src/lib/domain/yard.ts','src/lib/server/asset-pipeline/package.ts','contracts/species-manifest-v3.schema.json'];head=subprocess.check_output(['git','-C',str(repo),'rev-parse','HEAD'],text=True).strip();snap=[]
+for n in paths:
+ target=A/'contract-snapshot'/n;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(repo/n,target);committed=subprocess.check_output(['git','-C',str(repo),'show','HEAD:'+n]);snap.append({'path':n,'sha256':sha(target),'bytes':target.stat().st_size,'matchesCheckedOutHEAD':hashlib.sha256(committed).hexdigest()==sha(target)})
+save('code-snapshot.json',{'repository':'available local birdsong-yard-sprites checkout; not verified current Mac','head':head,'files':snap,'canonicalRuntimeClaim':False})
+assert sha(P/'ground-idle186.png')=='8551357c15f722bb74056d3888a1f35d830d1a9cb6200cce0acf41931bb01261';shutil.copy2(P/'ground-idle186.png',A/'ground-idle186.png');im=Image.open(A/'ground-idle186.png');im.load();rects=[];prior={}
+for y in range(im.height):
+ current={};x=0
+ while x<im.width:
+  pixel=im.getpixel((x,y));start=x;x+=1
+  if not pixel[3]:continue
+  assert pixel[3]==255
+  while x<im.width and im.getpixel((x,y))==pixel:x+=1
+  color=(pixel[0]<<16)|(pixel[1]<<8)|pixel[2];key=(start,x-start,color);above=prior.get(key)
+  if above is None:current[key]=len(rects);rects.append({'x':start,'y':y,'width':x-start,'height':1,'color':color})
+  else:rects[above]['height']+=1;current[key]=above
+ prior=current
+reconstructed=Image.new('RGBA',im.size)
+for r in rects:
+ rgb=(r['color']>>16,(r['color']>>8)&255,r['color']&255,255)
+ for y in range(r['y'],r['y']+r['height']):
+  for x in range(r['x'],r['x']+r['width']):reconstructed.putpixel((x,y),rgb)
+assert reconstructed.tobytes()==im.tobytes();assert len(rects)==5332
+legacy=load(P/'runtime-idle-proposal.json');pivot=legacy['frames'][0]['pivot'];poseid='crow-ground-static-0'
+draft={'schemaVersion':3,'speciesId':'american_crow','representation':'UNVALIDATED source-only static Crow derivative; no canonical runtime binding','fixture':False,'taxonFidelityReviewed':False,'format':'pixel-rects','canvas':{'width':186,'height':186},'frames':[rects],'clips':{'idle':{'action':'idle','direction':'right-facing-mirrorable','loop':True,'poses':[{'frame':0,'durationTicks':120,'pivot':pivot,'contacts':[],'poseId':poseid,'rotation':0}]}},'provenance':{'source':'provider','creator':'OpenAI source plus deterministic reviewed derivative','sourceVersion':'sd20-crow-neutral-blink-v1/runtime-compatible-v1','references':[],'license':'UNREVIEWED runtime provenance; no clearance receipt supplied','usage':'unreviewed','attribution':'Original source54329; derivative5153; no new drawing or generation'},'conditioning':None,'sourceArtifact':None,'normalization':{'algorithm':'lossless-rgba-rects-v2','alpha':'binary','logicalPixelSize':1,'palette':sorted({r['color']for r in rects}),'loopEdges':[{'action':'idle','comparedPixels':34596,'changedPixels':0,'pivotDistance':0,'contactLayoutChanged':False}]}}
+save('crow-manifest-v3.DRAFT-REJECTED.json',draft)
+# Actual unchanged Zod TypeScript module attempt: native Node24 TS support; no installs.
+command=['node','--experimental-strip-types','--input-type=module','-e',"import {speciesManifestV3Schema} from 'file://"+str(repo/'src/lib/assets/manifest-v3.ts')+"'; import fs from 'node:fs'; const j=JSON.parse(fs.readFileSync(process.argv[1],'utf8')); const r=speciesManifestV3Schema.safeParse(j); console.log(JSON.stringify(r.success?{success:true}:{success:false,issues:r.error.issues})); if(!r.success)process.exitCode=1;",str(A/'crow-manifest-v3.DRAFT-REJECTED.json')]
+r=subprocess.run(command,capture_output=True,text=True);(A/'actual-validator.stdout.txt').write_text(r.stdout);(A/'actual-validator.stderr.txt').write_text(r.stderr)
+assert r.returncode!=0 and 'ERR_MODULE_NOT_FOUND'in r.stderr and "package 'zod'"in r.stderr
+schema=load(repo/'contracts/species-manifest-v3.schema.json');errors=[]
+for err in Draft7Validator(schema).iter_errors(draft):
+ row={'instancePath':'/'+('/'.join(map(str,err.absolute_path))),'schemaPath':'/'+('/'.join(map(str,err.absolute_schema_path))),'validator':err.validator}
+ if err.validator=='maxItems':row.update(actualItems=len(err.instance),limit=err.validator_value)
+ elif err.validator=='type':row.update(actualType=type(err.instance).__name__,requiredType=err.validator_value)
+ elif err.validator=='enum':row.update(value=err.instance,allowed=err.validator_value)
+ else:row['reason']=str(err.message)[:240]
+ errors.append(row)
+assert errors and any(e['validator']=='maxItems'and e.get('actualItems')==5332 for e in errors)
+save('validator-receipt.json',{'status':'BLOCKED unchanged Zod execution; actual exported JSON schema rejects draft','recordedUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'actualZodAttempt':{'command':command,'exitCode':r.returncode,'errorCode':'ERR_MODULE_NOT_FOUND','missingPackage':'zod','stdoutSHA256':sha(A/'actual-validator.stdout.txt'),'stderrSHA256':sha(A/'actual-validator.stderr.txt'),'validatorSourcePath':'src/lib/assets/manifest-v3.ts','validatorSourceSHA256':sha(repo/'src/lib/assets/manifest-v3.ts'),'noInstallAttempted':True},'supplementalActualExportedJSONSchema':{'schema':'contracts/species-manifest-v3.schema.json','sha256':sha(repo/'contracts/species-manifest-v3.schema.json'),'validatorLibrary':'Python jsonschema Draft7Validator','success':False,'errors':errors,'doesNotExecuteZodSuperRefinements':True},'runtimeAdmitted':False,'schemaWeakened':False,'appFilesChanged':False})
+save('field-mapping-draft.json',{'status':'NOT AN INTAKE MANIFEST; exact blocked v3 mapping draft','sourceFrameId':'frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5','derivativeRGBAId':'frame.sha256.5153f219681f8609eac38744271b2ebe69c3ee491ef83ff7dc85fe069d09b2a2','nativeCalls':0,'newDrawings':0,'actualAvailableContract':'speciesManifestV3Schema; schemaVersion3 pixel-rects, not chirp-texture-review-v1 or a PNG-path cloud manifest','literalCloudAssetManifestV3ContractFound':False,'head':head,'PNG':{'file':'ground-idle186.png','sha256':sha(A/'ground-idle186.png'),'unchanged':True,'area':34596,'binaryAlpha':True,'RGBAColorsIncludingTransparent':64,'opaquePaletteColors':63,'density':1},'mapping':{'schemaVersion':3,'format':'pixel-rects','canvas':[186,186],'frames':'lossless horizontal runs/adjacent same-run vertical merge of existing PNG; reconstruction exact','frameCount':1,'rectangles':5332,'perFrameRectangleLimit':4096,'totalRectangleLimit':16384,'clip':'idle loop, frame0 held120ticks; no animation claim','pivot':pivot,'pivotIntegerRequired':True,'contacts':[],'normalization':'binary alpha/logicalPixelSize1/palette63; loop edge change0','density':'v3 has no sourcePixelsPerWorldUnit field; density1 remains adapter intent, current Mac mapping unverified'},'blockingFields':[{'field':'frames/0','reason':'5332 exceeds4096; unchanged repository normalizer throws at rectangle4097. No source pixels altered to force a pass.'},{'field':'clips/idle/poses/0/pivot','reason':'107.53125,145.3125 are continuous; schema requires integers. No authorized pivot rounding or actor offset transform supplied.'},{'field':'conditioning,sourceArtifact','reason':'Actual immutable runtime artifact/reference pins unavailable. Null placeholders deliberately fail; no fabricated job/artifact IDs.'},{'field':'fixture,taxonFidelityReviewed,provenance','reason':'Generated Crow is not deterministic_fixture; source-only review does not grant required production taxonFidelityReviewed/cleared usage. Honest false/unreviewed labels intentionally reject.'},{'field':'conditioning/taxonomy/speciesId','reason':'Source species american_crow retained; no Crow entry found in available older displayCatalog. Current Mac catalog contract required.'},{'field':'validator dependency','reason':'Native Node24 TypeScript import of unchanged repo validator fails ERR_MODULE_NOT_FOUND zod; no installed zod/TS runner at checked dependency roots, no installs.'}], 'scope':'No valid/admitted v3 runtime manifest delivered; coordinator should not put DRAFT-REJECTED JSON into a runtime intake ZIP. Existing one-PNG review proposal remains a distinct source proposal. Current Mac expected schema unresolved.','geometryReviewed':False,'supportWorld':None,'appBound':False})
+assert {n:sha(P/n)for n in protected}==protected;save('preservation-receipt.json',{'original24FrozenFilesAndReviewPairUnchanged':True,'files':protected,'onlyWrites':'runtime-v3-adapter/','PNGCopyByteIdentical':True,'newDrawings':0,'nativeCalls':0,'globalWrites':False,'runtimeAdmission':False})
+(A/'README.md').write_text('''Crow v3 adapter checkpoint — BLOCKED
+
+No compatible/admitted manifest is claimed. The available cloud snapshot is birdsong-yard-sprites6f23d988… `speciesManifestV3Schema`, a pixel-rectangle format, not PNG filename intake. The existing186PNG is copied byte-identically; zero image calls/new drawings.
+
+The exact repository-style lossless rectangle mapping reproduces every output RGBA byte but needs5,332 rectangles, above4,096 per frame. The continuous pivot107.53125,145.3125 violates integer-only v3 points. Generated source is not a deterministic fixture; reviewed/cleared production flags and actual immutable source/reference pins cannot be invented. Source species american_crow has no entry in this available older display catalog. No pivot rounding, source recoloring or schema weakening was performed.
+
+The unchanged TypeScript Zod validator was actually invoked with Node24 native TS support; it fails ERR_MODULE_NOT_FOUND for zod. No dependencies were installed. Supplemental validation against the repository's actual exported JSON schema rejects the concrete draft and records bounded error paths; it does not execute Zod semantic refinements or establish Mac compatibility.
+
+`crow-manifest-v3.DRAFT-REJECTED.json` is a deliberately rejected mapping draft with truthful unresolved provenance/pin fields. DO NOT put it into a runtime intake ZIP as a working manifest. `field-mapping-draft.json`, exact code snapshots and validator receipts let the runtime coordinator review the actual blockers without a human schema relay. Current Mac contract/admission remains unverified. Original24 frozen artifacts and original technical review pair remain hash-identical; only this subfolder was written.
+''')
+files=[p for p in sorted(A.rglob('*'))if p.is_file()and p.name!='adapter-files.sha256.json'];save('adapter-files.sha256.json',{'files':[{'file':str(p.relative_to(A)),'bytes':p.stat().st_size,'sha256':sha(p)}for p in files],'status':'blocked source-to-current-available-cloud-v3 mapping, not runtime-ready'})
+print(json.dumps({'state':'BLOCKED; concrete mapping draft and exact validator attempt retained','rectangles':len(rects),'JSONSchemaErrorPaths':[e['instancePath']for e in errors],'indexSHA256':sha(A/'adapter-files.sha256.json'),'mappingSHA256':sha(A/'field-mapping-draft.json'),'validatorReceiptSHA256':sha(A/'validator-receipt.json'),'protectedFilesUnchanged':len(protected),'files':len(files)},indent=2))

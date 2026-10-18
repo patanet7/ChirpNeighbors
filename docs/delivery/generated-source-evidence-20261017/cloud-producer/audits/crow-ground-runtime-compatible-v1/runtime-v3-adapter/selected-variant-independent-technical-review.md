@@ -1,0 +1,7 @@
+Selected Crow12-color derivative — independent technical review
+
+PASS for the selected pixel/codec field subset. The actual unchanged normalizer with its actual PermanentStageError class accepts4,021 rectangles; descriptor reconstruction matches every PNG RGBA byte. All larger authorized tested palettes56,48,40,32,24,16,15,14,13 fail the same strict codec. Exact same186² alpha mask and deterministic eleven-opaque-color/no-dither reproduction verified; twelve colors total including transparent black. No source drawing/call added.
+
+Actual exported v3 JSON schema reports only omitted required top-level production metadata; every supplied pixel/rectangle/pose/normalization field is structurally valid. This is intentionally an incomplete descriptor, not a full manifest pass. No real pins, cleared provenance or fidelity labels were invented; unchanged complete Zod import remains blocked by missingzod. Runtime coordinator must wrap actual metadata/catalog/pins and validate current Mac admission.
+
+The new integer pivot108,145 differs from continuous107.53125,145.3125 by+.46875,-.3125world; at fixed actor root the sprite origin shifts-.46875,+.3125. No pixels or foot placement were moved. Prior alpha128 loss remains;12-color visual fidelity needs separate review. Static120tick idle only, contacts[]/supportnull/geometryfalse, no pressure/grip/plant or app binding. Original24 frozen files,64-color PNG and original technical reviews remain exact; no browser captures/global edits.

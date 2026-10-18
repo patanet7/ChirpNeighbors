@@ -1,0 +1,9 @@
+Crow runtime derivative independent technical review
+
+PASS for19 checks against24 frozen targets. Independent PNG chunk CRC/filter decode, Pillow and an actual read-only Sharp decode agree on every output RGBA byte. Integer center-sample nearest lookup (lower-neighbor tie rule) plus alpha128 and opaque-only median-cut63/no-dither quantization reproduce the186×186 PNG exactly. It has64 RGBA colors including transparent black, alpha0/255 only, decoded runtime area34596≤65536, density1. Runtime bitmap subset is one image; source-reference originals are audit evidence, not runtime bitmap inputs.
+
+This is zero new drawings/calls: original54329… retained, derivative5153… is not a primary drawing. The single static idle holds120ticks/4s, with no generated motion/blink. Six canonical source references remain exact. Actual player6 boundaries/3 invalid-time controls pass; no independent browser/rAF or Mac actor test.
+
+Continuous pivot equals111,150 ×186/192 =107.53125,145.3125 without pivot rounding. World canvas185.885350318→186 changes scale+0.061677632%; it is disclosed authored rounding. Diagnostic proxies96,141 and120,139 plus near-claw106,144 survive. Second old foot row144 is skipped by NN; proposed120,139 actually samples old124,143. Alpha128 removes496 nonzero fringe samples,79 in the fixed foot ROI. No foot reconstruction, morphology, painting or per-foot translation occurs; these losses and visual toe integrity still need independent review.
+
+contacts[]/supportWorld null/geometryReviewed false remain honest. Positive pixels do not establish soles, pressure or physical support. This checks the parent-reported runtime limits only: full current Mac expected schema remains unprovided, Zod/canonical admission NOT_RUN, app binding false. The failed original live pin is not changed. No art acceptance or runtime-ready claim; no browser captures or global edits.
