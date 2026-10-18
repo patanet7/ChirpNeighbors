@@ -44,6 +44,12 @@ closed experiment presets, intent versus travel transitions, maximal slot IDs,
 and invalid candidate elections. These fixtures establish mechanics only;
 species science, observed personality and approved visual fidelity remain absent.
 
+## Current execution and proposed extensions
+
+The [maintained UI specification](https://github.com/patanet7/birdsong-yard-sprites/blob/main/docs/engine/specification.md) describes current consumers and gaps. Actor activity, root-motion phase, attention, placement, resource context, reserved/settled support and interaction episode are separate concerns. Existing closed unions and input validation do not encode every legal cross-product or a complete event/guard/effect table. A focused legal-state/guard projection is proposed within tasks 204/205, preserving the public activity vocabulary, existing clock/reservations and same-runtime workbench/customer invariants. New resource/coverage/contact/replay/lesson payloads require independent type/schema/consumer review and paired compatibility checks where portable; do not append fields or enum members to a frozen same-version authority. No new schema or biological mapping is approved by this prose.
+
+**Shared quality-evaluation extension — planned paired authority:** The [canonical source-defect catalog](../art/asset-defect-labels-v1.json), version 1, is the sole source-defect label namespace. The reviewed `asset-quality-evaluation-v1` proposal references its exact catalog/version and preserves original scope, grade, finding state, reason and evidence; provisional evaluation-rule classifications are a distinct diagnostic vocabulary with explicit conservative mapping or unclassified results. Producer/runtime grading also references existing taxon/Behavior/motion/manifest clip/contact/support IDs. Exact asset/clip/frame/region/requirement/source/model/config/tool/repair/supersession identity, observed/inferred/unknown evidence, independent severity/confidence and review outcomes belong to this same paired evaluation boundary. The catalog required-field list does not prove an existing producer serializer or automatic migration. Unknown or colliding codes cannot silently acquire a known meaning. Add focused version/migration/golden/mutation/compile/semantic tests before portable schema adoption; this prose changes no existing strict digest or enum and grants no asset, geometry or admission authority.
+
 ## Focused contract verification
 
 The additive boundary checks passed on 2026-10-09: 393 cross-language goldens
