@@ -106,6 +106,12 @@ def held_new_look_empty_contacts(frame,oldAwake,awakeID,newID,b):
  assert b.get('sourceHeld') is True and b.get('useAsActiveSource') is False and b.get('usefulSourceSlotsCompleted')==[],('Empty new look contacts require explicitly held inactive metadata with no useful completed slot',b.get('batchId'))
  return True
 
+def validate_held_perch_extra_flags(b):
+ assert b.get('perchExtraSourceStudy') is True and not b.get('lookOnlyNewDrawing') and not b.get('flightMotionProposal')
+ assert b.get('slot')=='extra_slot' and b.get('extraSourceSlot')=='rest_perch_extra' and b.get('renderClipId')=='perching'
+ assert b.get('sourceHeld') is True and b.get('useAsActiveSource') is False and b.get('usefulSourceSlotsCompleted')==[]
+ assert b.get('geometryReviewed') is False and 'support' in b and b['support'] is None and b.get('runtimeAdmission') is False
+
 def binding(pkg,c,neutralHold=False):
  result={'manifest':pkg['manifest'],'atlasPNG':pkg['atlasPNG'],'clipId':c['id'],'tickRate':c['tickRate'],'loop':c['loop'],'durationTicks':c['durationTicks'],'orderedSourceFrameSequence':c['orderedSourceFrameSequence'],'contactsMeaning':'technical alpha markers, not physical support approval','appBinding':'UNKNOWN','actualYardVerification':'UNKNOWN'}
  if neutralHold:
@@ -168,6 +174,47 @@ for b in overlay['batches']:
   bird=byid[sid];bird['currentSourceIssues'].append(b['scope']);bird['sourceIssues']=['Baseline PR33: '+x for x in bird['baselineSourceIssues']]+['Current checkpoint: '+x for x in bird['currentSourceIssues']];rows={r['slot']:r for r in bird['slots']};new=[f for f in primary['frames'] if f.get('speciesId')==sid];newIDs=[f['sourceFrameId'] for f in new]
   if b.get('flightMotionProposal') is True:
    proposal=validate_flight_motion_batch(root,b);attach_flight_motion_proposal(bird,b,proposal)
+   continue
+  if b.get('perchExtraSourceStudy') is True:
+   # Separate held perch study: never replace ground idle, blink, look or primary.
+   validate_held_perch_extra_flags(b)
+   assert b.get('speciesIds')==[sid] and len(newIDs)==1 and len(primary['frames'])==1 and len(primary.get('reusedFrames',[]))==1
+   assert rows['neutral']['provisionalUsefulSourceForThisSemanticSlot'] is True and len(rows['neutral']['sourceFrameIds'])==1
+   awakeID=rows['neutral']['sourceFrameIds'][0]
+   assert b.get('expectedAwakeSourceFrameId')==awakeID and primary['reusedFrames'][0]['sourceFrameId']==awakeID and newIDs[0]!=awakeID
+   guards=['primaryManifest','renderManifest','frameToActionMap','review','customSupportProposal','actualContactAnnotations']
+   for field in guards:
+    assert b.get(field) and b.get(field+'SHA256') and sha(safe(b[field]).read_bytes())==b[field+'SHA256'],('Held perch exact input guard required',field)
+   protectedRest=copy.deepcopy([rows[k] for k in ['neutral','look','blink']]);protectedPrimary={k:copy.deepcopy(bird.get(k)) for k in ['primaryManifest','primaryAtlas','primaryClipId','selectedIdleSourceIDs']}
+   row=rows['rest_perch_extra'];protectedExtra={k:copy.deepcopy(v) for k,v in row.items() if k!='heldPerchCandidates'}
+   man=render_manifest(b,primary,parent);assert man==b['renderManifest'];pkg=package(man)
+   assert pkg['profile']=='chirp-texture-review-v1' and pkg['approval']=='unreviewed' and pkg['activation']=='none'
+   if b.get('renderAtlas'):assert b['renderAtlas']==pkg['atlasPNG'] and b.get('renderAtlasSHA256')==pkg['atlasSHA256']
+   oldPkg=package(bird['primaryManifest'],bird['primaryAtlas']);oldAwake=next(f for f in oldPkg['frames'] if f['sourceFrameId']==awakeID)
+   assert len(pkg['frames'])==2 and {f['sourceFrameId'] for f in pkg['frames']}=={awakeID,newIDs[0]}
+   reuse=next(f for f in pkg['frames'] if f['sourceFrameId']==awakeID);perch=next(f for f in pkg['frames'] if f['sourceFrameId']==newIDs[0])
+   assert reuse['outputRGBAId']==oldAwake['outputRGBAId'] and reuse['contacts']==oldAwake['contacts'],('Held perch must retain exact ground awake pixels/contacts',sid)
+   for frame in pkg['frames']:
+    for geometry in ['canvas','world','sourcePixelsPerWorldUnit','pivot']:assert frame[geometry]==oldAwake[geometry],('Held perch family geometry changed',frame['outputFrameId'],geometry)
+   assert perch['contacts']==[] and perch['alphaContactChecks']==[],('Unbound held perch may not claim ground/proxy contacts',sid)
+   c=clip(pkg,'perching');idleClip=clip(pkg,'idle')
+   assert c['uniqueSourceFrameIds']==newIDs and idleClip['uniqueSourceFrameIds']==[awakeID],('Perching is new source only; separate idle is old ground only',sid)
+   actionMap=read(b['frameToActionMap']);assert actionMap['manifest']['sha256']==pkg['manifestSHA256'] and actionMap['atlasBinding']['sha256']==pkg['atlasSHA256']
+   assert actionMap['manifest']['file']==Path(man).name and actionMap['atlasBinding']['file']==Path(pkg['atlasPNG']).name
+   mapped=actionMap['sourceToRenderFrames'];assert len(mapped)==2
+   for entry in mapped:
+    frame=next(f for f in pkg['frames'] if f['outputFrameId']==entry['renderFrameId'])
+    assert entry['primarySourceFrameId']==frame['sourceFrameId'] and entry['atlasRect']==frame['sourceRect']
+    ep=safe(str(parent/entry['outputPNG']));assert sha(ep.read_bytes())==entry['outputPNGsha256'] and rid(rgba(ep))==frame['outputRGBAId']
+   proposal=read(b['customSupportProposal']);annotations=read(b['actualContactAnnotations'])
+   assert proposal['bodyIdentitySourceFrameId']==awakeID and annotations['newSourceFrameId']==newIDs[0]
+   assert annotations['newFrameContacts']==[] and annotations['physicalSupportApproved'] is False and annotations['anatomicalGripApproved'] is False
+   assert annotations['density']==perch['sourcePixelsPerWorldUnit'] and annotations['pivot']==[perch['pivot']['x'],perch['pivot']['y']] and annotations['outputCanvas']==[perch['canvas']['width'],perch['canvas']['height']]
+   rb=binding(pkg,c);rb.update(held=True,useAsActiveSource=False,geometryReviewed=False,support=None)
+   review=read(b['review']);candidate={'batchId':b.get('batchId',primary.get('batchId')),'kind':'held-static-perch-extra-source-study','sourceFrameIds':newIDs,'newSourceFrameIds':newIDs,'reusedSourceFrameIds':[awakeID],'idleContextSourceFrameIds':[awakeID],'newDrawingCount':1,'reusedDrawingCount':1,'newNeutralDrawings':0,'newBlinkDrawings':0,'newLookDrawings':0,'sourceHeld':True,'useAsActiveSource':False,'usefulSourceSlotsCompleted':[],'geometryReviewed':False,'support':None,'supportWorld':None,'primaryManifest':b['primaryManifest'],'manifest':man,'atlasPNG':pkg['atlasPNG'],'clipId':'perching','orderedSourceFrameSequence':c['orderedSourceFrameSequence'],'renderBinding':rb,'idleContextBinding':{'manifest':man,'clipId':'idle','sourceFrameIds':[awakeID],'changesGroundSelection':False},'customSupportProposal':b['customSupportProposal'],'actualContactAnnotations':b['actualContactAnnotations'],'retainedFileSHA256':{b[field]:b[field+'SHA256'] for field in guards},'reviewReceipt':{'path':b['review'],'sha256':b['reviewSHA256'],**{k:review[k] for k in ['disposition','decision','verdict'] if k in review}},'productionAccepted':False,'runtimeAdmission':False,'packetBindingReady':False,'sourceReviewState':'reviewed-held-source-study','appBinding':'UNKNOWN','actualYardVerification':'UNKNOWN','qualifications':['Perching clip contains only the new held static source. Old ground awake is separate provenance/idle context, never a perching fallback.','Proposed branch geometry and alpha landmarks are not accepted loaded grip, anatomical endpoints, world support or ground-rest repair.']}
+   row.setdefault('heldPerchCandidates',[]).append(candidate)
+   assert protectedRest==[rows[k] for k in ['neutral','look','blink']] and protectedPrimary=={k:bird.get(k) for k in protectedPrimary},('Held perch changed resting primary',sid)
+   assert protectedExtra=={k:v for k,v in row.items() if k!='heldPerchCandidates'},('Held perch changed active extra-slot semantics',sid)
    continue
   if b.get('lookOnlyNewDrawing') is True:
    # A bounded new head-turn source belongs to look only. Existing neutral/blink

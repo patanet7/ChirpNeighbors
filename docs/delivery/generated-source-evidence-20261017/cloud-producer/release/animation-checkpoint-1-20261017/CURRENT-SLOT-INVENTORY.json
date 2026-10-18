@@ -13634,7 +13634,7 @@
         "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
         "frame.sha256.5e7db50d969fde6d366ab3dbec44b7fc93b28b1857d83f1bb4b5a2c1179d10c5"
       ],
-      "nativeBankDrawings": 3,
+      "nativeBankDrawings": 4,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
@@ -13789,6 +13789,64 @@
           ],
           "reuseStatus": "Independently reviewed look-only source study; HELD matched-look playback; native head study retained. New head/bill direction is readable but body/tail/feet pop at normal size; zero useful look gain. Existing Crow look state/sourceIDs/active bindings and useful45 retained; append inactive held candidate only. One new drawing plus exact existing awake reuse; no new neutral/blink, no runtime admission/app binding.",
           "sourceReview": "motion/sd20-crow-look-v1/independent-review.json"
+        },
+        {
+          "frameId": "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8",
+          "file": "motion/sd20-crow-perched-rest-v1/perched-rest-native.png",
+          "fileSha256": "505dcd1f738740110b24b27e7f54e5a799a0d921f2903b6d1e4f0374e1463d5a",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "american_crow",
+          "appearanceVersion": "sd20-crow-perched-rest-v1",
+          "poseTags": [
+            "perched-rest-unbound-study",
+            "candidate-source",
+            "held-static-perch-extra"
+          ],
+          "sourceAtlas": "motion/sd20-crow-perched-rest-v1/original.png",
+          "sourceAtlasSha256": "505dcd1f738740110b24b27e7f54e5a799a0d921f2903b6d1e4f0374e1463d5a",
+          "derivation": {
+            "method": "whole native canvas nearest resize only",
+            "sourceCanvas": [
+              1254,
+              1254
+            ],
+            "outputCanvas": [
+              192,
+              192
+            ],
+            "wholeCanvasScaleXY": [
+              0.15311004784688995,
+              0.15311004784688995
+            ],
+            "nativeToReferenceWholeCanvasScaleXY": [
+              0.8165869218500797,
+              0.8165869218500797
+            ],
+            "perPoseFit": false,
+            "perPoseTranslation": false,
+            "snap": false,
+            "pixelPaint": false
+          },
+          "sourcePrompt": "motion/sd20-crow-perched-rest-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-crow-perched-rest-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "rest_perch_extra"
+          ],
+          "sourceHeld": true,
+          "geometryReviewed": false,
+          "support": null,
+          "reuseStatus": "Independently reviewed HELD static perch-extra study; HELD standalone static perch-extra source study. One new native drawing, exact old GROUND awake reuse separately; perching clip uses only new static pose. No useful resting/perching gain, contacts[], supportnull, geometryReviewedfalse; no grip/occlusion/physical support acceptance. Current live ground idle is separate and this source is not its fix. Mac admission/binding UNKNOWN; Zod/Sharp admission NOT_RUN.",
+          "sourceReview": "motion/sd20-crow-perched-rest-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [
@@ -13802,7 +13860,8 @@
         "Baseline PR33: Selected neutral is a held correctedcharcoal stride pose; no new neutral/look/blink.",
         "Baseline PR33: 4legpose moving draft is weakalternation and opt-in; worldcontact/rootcurve unverified.",
         "Current checkpoint: Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending.",
-        "Current checkpoint: HELD matched-look playback; native head study retained. New head/bill direction is readable but body/tail/feet pop at normal size; zero useful look gain. Existing Crow look state/sourceIDs/active bindings and useful45 retained; append inactive held candidate only. One new drawing plus exact existing awake reuse; no new neutral/blink, no runtime admission/app binding."
+        "Current checkpoint: HELD matched-look playback; native head study retained. New head/bill direction is readable but body/tail/feet pop at normal size; zero useful look gain. Existing Crow look state/sourceIDs/active bindings and useful45 retained; append inactive held candidate only. One new drawing plus exact existing awake reuse; no new neutral/blink, no runtime admission/app binding.",
+        "Current checkpoint: HELD standalone static perch-extra source study. One new native drawing, exact old GROUND awake reuse separately; perching clip uses only new static pose. No useful resting/perching gain, contacts[], supportnull, geometryReviewedfalse; no grip/occlusion/physical support acceptance. Current live ground idle is separate and this source is not its fix. Mac admission/binding UNKNOWN; Zod/Sharp admission NOT_RUN."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -14284,7 +14343,104 @@
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "heldPerchCandidates": [
+            {
+              "batchId": "sd20-crow-perched-rest-v1",
+              "kind": "held-static-perch-extra-source-study",
+              "sourceFrameIds": [
+                "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8"
+              ],
+              "newSourceFrameIds": [
+                "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8"
+              ],
+              "reusedSourceFrameIds": [
+                "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5"
+              ],
+              "idleContextSourceFrameIds": [
+                "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5"
+              ],
+              "newDrawingCount": 1,
+              "reusedDrawingCount": 1,
+              "newNeutralDrawings": 0,
+              "newBlinkDrawings": 0,
+              "newLookDrawings": 0,
+              "sourceHeld": true,
+              "useAsActiveSource": false,
+              "usefulSourceSlotsCompleted": [],
+              "geometryReviewed": false,
+              "support": null,
+              "supportWorld": null,
+              "primaryManifest": "motion/sd20-crow-perched-rest-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "manifest": "motion/sd20-crow-perched-rest-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-crow-perched-rest-v1/perched-rest-atlas192.png",
+              "clipId": "perching",
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "crow-perched-rest-study-192",
+                  "durationTicks": 90,
+                  "sourceFrameId": "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8",
+                  "outputRGBAId": "frame.sha256.cce9c0efbb052535982fbbd4804eeaf1c067b7a19ff622fcc899283c445ec965"
+                }
+              ],
+              "renderBinding": {
+                "manifest": "motion/sd20-crow-perched-rest-v1/texture-review-manifest.json",
+                "atlasPNG": "motion/sd20-crow-perched-rest-v1/perched-rest-atlas192.png",
+                "clipId": "perching",
+                "tickRate": 30,
+                "loop": true,
+                "durationTicks": 90,
+                "orderedSourceFrameSequence": [
+                  {
+                    "frameId": "crow-perched-rest-study-192",
+                    "durationTicks": 90,
+                    "sourceFrameId": "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8",
+                    "outputRGBAId": "frame.sha256.cce9c0efbb052535982fbbd4804eeaf1c067b7a19ff622fcc899283c445ec965"
+                  }
+                ],
+                "contactsMeaning": "technical alpha markers, not physical support approval",
+                "appBinding": "UNKNOWN",
+                "actualYardVerification": "UNKNOWN",
+                "held": true,
+                "useAsActiveSource": false,
+                "geometryReviewed": false,
+                "support": null
+              },
+              "idleContextBinding": {
+                "manifest": "motion/sd20-crow-perched-rest-v1/texture-review-manifest.json",
+                "clipId": "idle",
+                "sourceFrameIds": [
+                  "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5"
+                ],
+                "changesGroundSelection": false
+              },
+              "customSupportProposal": "motion/sd20-crow-perched-rest-v1/perch-support-proposal.json",
+              "actualContactAnnotations": "motion/sd20-crow-perched-rest-v1/perch-contact-annotations.json",
+              "retainedFileSHA256": {
+                "motion/sd20-crow-perched-rest-v1/PRIMARY-SOURCE-MANIFEST.json": "2bd16491b5b0070101b9ad3d3e7b97f3f4103fd6369854ab4fa70dbea45096e9",
+                "motion/sd20-crow-perched-rest-v1/texture-review-manifest.json": "2706d340a722e57ab8a86695b1bd5dfde56217b17a5048eaace24c959345ba87",
+                "motion/sd20-crow-perched-rest-v1/frame-to-action-map.json": "4de466a59d8d9a0d2a0c7a32f540529ec42526f3eb9e421d9abbb850fdd35f6f",
+                "motion/sd20-crow-perched-rest-v1/independent-review.json": "d1032dc3ee09bbcd5b13217c19787145d29c2fe2729d397de00b079fd2927219",
+                "motion/sd20-crow-perched-rest-v1/perch-support-proposal.json": "4fbdea292f2cf6a53df83ea6eedf1fb6cf854411b3ef6172b479b1b8beae8d79",
+                "motion/sd20-crow-perched-rest-v1/perch-contact-annotations.json": "4dc5f40bf11c68382f2751677e81aa492fa080d804d238dc24215a8127cca90d"
+              },
+              "reviewReceipt": {
+                "path": "motion/sd20-crow-perched-rest-v1/independent-review.json",
+                "sha256": "d1032dc3ee09bbcd5b13217c19787145d29c2fe2729d397de00b079fd2927219",
+                "disposition": "HELD perch study; zero accepted supported-perching slots"
+              },
+              "productionAccepted": false,
+              "runtimeAdmission": false,
+              "packetBindingReady": false,
+              "sourceReviewState": "reviewed-held-source-study",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN",
+              "qualifications": [
+                "Perching clip contains only the new held static source. Old ground awake is separate provenance/idle context, never a perching fallback.",
+                "Proposed branch geometry and alpha landmarks are not accepted loaded grip, anatomical endpoints, world support or ground-rest repair."
+              ]
+            }
+          ]
         },
         {
           "speciesId": "american_crow",
@@ -14314,7 +14470,8 @@
       ],
       "currentSourceIssues": [
         "Matched relaxed awake/closed source pair replaces held-stride fallback; minor feather and toe redraw retained, owner and app review pending.",
-        "HELD matched-look playback; native head study retained. New head/bill direction is readable but body/tail/feet pop at normal size; zero useful look gain. Existing Crow look state/sourceIDs/active bindings and useful45 retained; append inactive held candidate only. One new drawing plus exact existing awake reuse; no new neutral/blink, no runtime admission/app binding."
+        "HELD matched-look playback; native head study retained. New head/bill direction is readable but body/tail/feet pop at normal size; zero useful look gain. Existing Crow look state/sourceIDs/active bindings and useful45 retained; append inactive held candidate only. One new drawing plus exact existing awake reuse; no new neutral/blink, no runtime admission/app binding.",
+        "HELD standalone static perch-extra source study. One new native drawing, exact old GROUND awake reuse separately; perching clip uses only new static pose. No useful resting/perching gain, contacts[], supportnull, geometryReviewedfalse; no grip/occlusion/physical support acceptance. Current live ground idle is separate and this source is not its fix. Mac admission/binding UNKNOWN; Zod/Sharp admission NOT_RUN."
       ],
       "overlayQualifications": [
         "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings."
@@ -14346,6 +14503,16 @@
               "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
               "evidence": "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-perched-rest-v1/reference-ground-awake-source1024.png",
+              "outputPNG": "motion/sd20-crow-perched-rest-v1/reused-ground-awake192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-perched-rest-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-ground-awake-NOT-perching-fallback",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -28391,6 +28558,16 @@
               "evidence": "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "existing supported awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-perched-rest-v1/reference-ground-awake-source1024.png",
+              "outputPNG": "motion/sd20-crow-perched-rest-v1/reused-ground-awake192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-perched-rest-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-ground-awake-NOT-perching-fallback",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -30345,6 +30522,16 @@
               "evidence": "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "existing supported awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-perched-rest-v1/reference-ground-awake-source1024.png",
+              "outputPNG": "motion/sd20-crow-perched-rest-v1/reused-ground-awake192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-perched-rest-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-ground-awake-NOT-perching-fallback",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -31398,6 +31585,197 @@
           "uniqueSourceFrameIds": [
             "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
             "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-crow-perched-rest-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-crow-perched-rest-v1/texture-review-manifest.json",
+      "manifestSHA256": "2706d340a722e57ab8a86695b1bd5dfde56217b17a5048eaace24c959345ba87",
+      "atlasPNG": "motion/sd20-crow-perched-rest-v1/perched-rest-atlas192.png",
+      "atlasSHA256": "9055b305c0af972830482ec1664d5ab2abda58e44a0265ce4f0f40e2f683c3d4",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "crow-supported-neutral-192",
+          "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+          "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-neutral-blink-v1/neutral-source1024.png",
+              "outputPNG": "motion/sd20-crow-neutral-blink-v1/neutral192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-neutral-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "neutral",
+              "mappingMethod": "exact full-source nearest resize matches declared export RGBA"
+            },
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-crow-look-v1/reused-awake192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "sourcePNG": "motion/sd20-crow-perched-rest-v1/reference-ground-awake-source1024.png",
+              "outputPNG": "motion/sd20-crow-perched-rest-v1/reused-ground-awake192.png",
+              "outputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5",
+              "evidence": "motion/sd20-crow-perched-rest-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing-ground-awake-NOT-perching-fallback",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 185.88535031847132,
+            "height": 185.88535031847132
+          },
+          "sourcePixelsPerWorldUnit": 1.0328947368421053,
+          "pivot": {
+            "x": 111,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-a-review",
+              "x": 99,
+              "y": 146
+            },
+            {
+              "id": "foot-b-review",
+              "x": 124,
+              "y": 144
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-a-review",
+              "x": 99,
+              "y": 146,
+              "sampledAlpha": 248,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-b-review",
+              "x": 124,
+              "y": 144,
+              "sampledAlpha": 247,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "crow-perched-rest-study-192",
+          "outputRGBAId": "frame.sha256.cce9c0efbb052535982fbbd4804eeaf1c067b7a19ff622fcc899283c445ec965",
+          "sourceFrameId": "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8",
+              "sourcePNG": "motion/sd20-crow-perched-rest-v1/perched-rest-native.png",
+              "outputPNG": "motion/sd20-crow-perched-rest-v1/perched-rest192.png",
+              "outputPNGsha256": "ce4bd0c87ea68753969328a05c93ac2ff439d105a688952d5afe3c33c9d22c90",
+              "outputRGBAId": "frame.sha256.cce9c0efbb052535982fbbd4804eeaf1c067b7a19ff622fcc899283c445ec965",
+              "evidence": "motion/sd20-crow-perched-rest-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "perched-rest-unbound-study",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 185.88535031847132,
+            "height": 185.88535031847132
+          },
+          "sourcePixelsPerWorldUnit": 1.0328947368421053,
+          "pivot": {
+            "x": 111,
+            "y": 150
+          },
+          "contacts": [],
+          "alphaContactChecks": []
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "crow-supported-neutral-192",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "crow-supported-neutral-192",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+              "outputRGBAId": "frame.sha256.5475b7298336fa60b46becc0d0675060551a1421fd8057f4b01e957b8f98e2d5"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5"
+          ]
+        },
+        {
+          "id": "perching",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "crow-perched-rest-study-192",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "crow-perched-rest-study-192",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8",
+              "outputRGBAId": "frame.sha256.cce9c0efbb052535982fbbd4804eeaf1c067b7a19ff622fcc899283c445ec965"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.75728082870165ded2e8a33930ddbf3f3e320ece57bfca18f69de141cd92e8d8"
           ]
         }
       ],
@@ -32811,7 +33189,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/dark-eyed-junco-look-ingest-build-w22994vf/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/crow-perch-extra-ingest-build-wagnbmxv/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -32890,12 +33268,12 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-18T00:04:03.531802+00:00",
+  "projectionAsOfUTC": "2026-10-18T00:22:03.083508+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 143,
-    "registeredNativeOriginals": 43,
-    "newNativeCalls": 22,
-    "newDrawings": 41,
+    "registeredPrimaryDrawingIDs": 144,
+    "registeredNativeOriginals": 44,
+    "newNativeCalls": 23,
+    "newDrawings": 42,
     "semanticQuestions": 200,
     "usefulProvisionalIdleSemanticUses": 47,
     "usefulIdleUsesByAction": {

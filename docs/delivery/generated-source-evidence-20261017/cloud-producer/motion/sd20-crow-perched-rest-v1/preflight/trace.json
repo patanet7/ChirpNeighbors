@@ -1,0 +1,629 @@
+{
+  "auditId": "crow-live-mapping-source-trace-v1",
+  "createdUTC": "2026-10-17T23:59:50.539946+00:00",
+  "scope": "read-only cloud UI/source/retained-Mac trace;only traceJSON/MD written",
+  "result": "Historical stride-as-idle mapping exists;current producer neutral is ground rest;actualcurrentMacCrowselectionUNKNOWN",
+  "nativeCalls": 0,
+  "appSourceMutations": 0,
+  "queueBankGitMutations": 0,
+  "liveMacTaskId": "01a14730-019a-7062-a294-ba507c06f004",
+  "liveMacState": "UNKNOWN;not accessed in this task",
+  "cloudUI": {
+    "path": "/workspace/birdsong-yard-sprites",
+    "HEAD": "6f23d988a788a29de509f92af7c1f24f7e63c6b4",
+    "crowSpecificSourceIdReferencesFoundInSrc": false,
+    "pathsChecked": "src/**/*.ts,*.svelte,*.json for american_crow/american-crow/crow",
+    "genericResolution": [
+      {
+        "path": "src/lib/assets/registry.ts",
+        "line": 88,
+        "finding": "actor.artworkId resolves admitted pinned manifest;not ready/unpinned falls back fixtureManifest. No hardcoded Crow atlas selection."
+      },
+      {
+        "path": "src/lib/engine/simulation.ts",
+        "line": 210,
+        "finding": "restAtSlot picks perching on perch affordance,otherwise idle."
+      },
+      {
+        "path": "src/lib/assets/manifest.ts",
+        "line": 25,
+        "finding": "Unknown/missing behavior resolves directly to idle;there is no missing-perch anatomy gate. A walking pose already stored under idle is not recognized or rejected here."
+      },
+      {
+        "path": "src/lib/engine/renderer.ts",
+        "line": 495,
+        "finding": "registry.resolve(actor),then sampleClip(manifest,actor.behavior,actor.behaviorTicks);paints selected geometry."
+      },
+      {
+        "path": "src/lib/components/YardScene.svelte",
+        "line": 513,
+        "finding": "Static fallback explicitly samples idle tick0 (or sleeping night),regardless of actual surface."
+      },
+      {
+        "path": "src/lib/assets/fixtures.ts",
+        "line": 64,
+        "finding": "Built-in generic fixture aliases perching to idle;fixture is not generated Crow likeness."
+      },
+      {
+        "path": "src/lib/engine/behavior-diagnostics.ts",
+        "line": 15,
+        "finding": "Owner-local diagnostics expose artworkId,status,requested/resolved clip,fallback,frame,pivot,contacts,supportWorld/contactsWorld,slotId and display scale. Raw opaque registry key is private and should not be copied."
+      },
+      {
+        "path": "src/lib/engine/renderer.ts",
+        "line": 728,
+        "finding": "canvas.dataset.assetPins serializes these actor diagnostics in this snapshot."
+      }
+    ],
+    "runtimePNGMapping": "No Crow-specific PNG mapped in this older UI checkout. Actor registry accepts speciesManifest schemaVersion2/3/4 pixel-rect manifests; chirp-texture-review-v1 sources are not this registry schema. Later retained Mac review-texture code is separate and does not prove current actor binding."
+  },
+  "publishedCloudSource": {
+    "repositoryPath": "/workspace/chirp-finch-preen-canon",
+    "HEAD": "4549c969234ecb4ea1ae2e07116b528f50a15f49",
+    "inventoryPath": "/workspace/chirp-finch-preen-canon/docs/delivery/generated-source-evidence-20261017/cloud-producer/release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json",
+    "primaryManifest": "motion/sd20-crow-neutral-blink-v1/texture-review-manifest.json",
+    "primaryAtlas": "motion/sd20-crow-neutral-blink-v1/neutral-blink-atlas192.png",
+    "primaryIntakeStatus": "provisional-source-review-candidate",
+    "selectedIdleSourceIDs": [
+      "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+      "frame.sha256.5e7db50d969fde6d366ab3dbec44b7fc93b28b1857d83f1bb4b5a2c1179d10c5"
+    ],
+    "publishedFilesExact": [
+      {
+        "publishedPath": "/workspace/chirp-finch-preen-canon/docs/delivery/generated-source-evidence-20261017/cloud-producer/motion/sd20-crow-neutral-blink-v1/texture-review-manifest.json",
+        "workingPath": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/texture-review-manifest.json",
+        "SHA256": "add3141992dbf57da63ff104b9d8368b46b67ccfeb7cb133313cc57d9544fd03",
+        "matchesWorkingProducer": true
+      },
+      {
+        "publishedPath": "/workspace/chirp-finch-preen-canon/docs/delivery/generated-source-evidence-20261017/cloud-producer/motion/sd20-crow-neutral-blink-v1/neutral-source1024.png",
+        "workingPath": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/neutral-source1024.png",
+        "SHA256": "64a3199e6509cccf3e578c46e796246b5fca35b25e94d5d54bf88fab31c3bcec",
+        "matchesWorkingProducer": true
+      },
+      {
+        "publishedPath": "/workspace/chirp-finch-preen-canon/docs/delivery/generated-source-evidence-20261017/cloud-producer/motion/sd20-crow-neutral-blink-v1/neutral192.png",
+        "workingPath": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/neutral192.png",
+        "SHA256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+        "matchesWorkingProducer": true
+      },
+      {
+        "publishedPath": "/workspace/chirp-finch-preen-canon/docs/delivery/generated-source-evidence-20261017/cloud-producer/motion/sd20-crow-neutral-blink-v1/neutral-blink-atlas192.png",
+        "workingPath": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/neutral-blink-atlas192.png",
+        "SHA256": "808eb70449dc24ea486bed40ffc80532be83007a2f5998e590e42fdeb98df373",
+        "matchesWorkingProducer": true
+      }
+    ],
+    "slots": [
+      {
+        "slot": "neutral",
+        "state": "provisional-drawn-neutral",
+        "provisionalUsefulSourceForThisSemanticSlot": true,
+        "appBinding": "UNKNOWN",
+        "actualYardVerification": "UNKNOWN"
+      },
+      {
+        "slot": "blink",
+        "state": "provisional-drawn-blink",
+        "provisionalUsefulSourceForThisSemanticSlot": true,
+        "appBinding": "UNKNOWN",
+        "actualYardVerification": "UNKNOWN"
+      },
+      {
+        "slot": "locomotion",
+        "state": "weak-drawn-walk-draft-contact-unbound",
+        "provisionalUsefulSourceForThisSemanticSlot": false,
+        "appBinding": "UNKNOWN",
+        "actualYardVerification": "UNKNOWN"
+      },
+      {
+        "slot": "rest_perch_extra",
+        "state": "missing",
+        "provisionalUsefulSourceForThisSemanticSlot": false,
+        "appBinding": "UNKNOWN",
+        "actualYardVerification": "UNKNOWN"
+      }
+    ],
+    "notRuntimeAdmission": true
+  },
+  "currentGroundRestContract": {
+    "sourceFrameId": "frame.sha256.54329ae7d715c698c9be4e025d0841adc4bff478fa10b080a88d8d141db3ffd5",
+    "sourcePNG": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/neutral-source1024.png",
+    "sourcePNGsha256": "64a3199e6509cccf3e578c46e796246b5fca35b25e94d5d54bf88fab31c3bcec",
+    "neutralOutputPNG": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/neutral192.png",
+    "neutralOutputPNGsha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05",
+    "atlas": {
+      "file": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/neutral-blink-atlas192.png",
+      "sha256": "808eb70449dc24ea486bed40ffc80532be83007a2f5998e590e42fdeb98df373",
+      "width": 384,
+      "height": 192
+    },
+    "renderFrame": {
+      "id": "crow-supported-neutral-192",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 111,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-a-review",
+          "x": 99,
+          "y": 146
+        },
+        {
+          "id": "foot-b-review",
+          "x": 124,
+          "y": 144
+        }
+      ],
+      "world": {
+        "width": 185.88535031847132,
+        "height": 185.88535031847132
+      },
+      "sourcePixelsPerWorldUnit": 1.0328947368421053
+    },
+    "clips": [
+      {
+        "id": "idle",
+        "tickRate": 30,
+        "loop": true,
+        "frames": [
+          {
+            "frameId": "crow-supported-neutral-192",
+            "durationTicks": 75
+          },
+          {
+            "frameId": "crow-supported-blink-192",
+            "durationTicks": 3
+          },
+          {
+            "frameId": "crow-supported-neutral-192",
+            "durationTicks": 42
+          }
+        ]
+      }
+    ],
+    "perchingClipExists": false,
+    "sourceIntent": "relaxed supported ground neutral/blink,replaces heldstridefallback;spread-toe groundrest is not curvedbranchgrip",
+    "physicalGripApproved": false,
+    "currentMacBinding": "UNKNOWN"
+  },
+  "historicalStrideIdle": {
+    "retainedMacMetadataPath": "/workspace/chirp-finch-preen-canon/docs/delivery/surface-workbench-20261017/preservation-20261017/project-asset-manifests.json",
+    "candidateJSONPointer": "/candidates/25",
+    "id": "corvid-crow-walk-v2",
+    "label": "Crow walk v2 fallback \u2014 palette fixed; gait not accepted",
+    "includeInGarden": false,
+    "activation": "none",
+    "approval": "unreviewed",
+    "profile": "chirp-texture-review-v1",
+    "sourcePNGSHA256": "afeeb0e7add1800ebc34c22e75bef9c939c8f0a03e844720bd03d6111ad8f11a",
+    "historicalCanonicalPNGReceipt": {
+      "bytes": 259914,
+      "height": 768,
+      "rgbaSha256": "a8e72c2b6b2dc02a0364762d91032e8d8eff4cd9717963c6a4958260e72a6529",
+      "sha256": "37124e2a3d6c0fd0265ec07ab006223e0fab281cf2aba6714cbe6bc4dd0c0d64",
+      "width": 768
+    },
+    "frame0": {
+      "canvas": {
+        "height": 384,
+        "width": 384
+      },
+      "contacts": [
+        {
+          "id": "foot-0-review",
+          "x": 192,
+          "y": 295
+        },
+        {
+          "id": "foot-1-review",
+          "x": 310,
+          "y": 286
+        }
+      ],
+      "id": "crow-walk-v2-0",
+      "pivot": {
+        "x": 254,
+        "y": 240
+      },
+      "sourcePixelsPerWorldUnit": 3,
+      "sourceRect": {
+        "height": 384,
+        "width": 384,
+        "x": 0,
+        "y": 0
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "world": {
+        "height": 128,
+        "width": 128
+      }
+    },
+    "clips": [
+      {
+        "frames": [
+          {
+            "durationTicks": 30,
+            "frameId": "crow-walk-v2-0"
+          }
+        ],
+        "id": "idle",
+        "loop": true,
+        "tickRate": 30
+      },
+      {
+        "frames": [
+          {
+            "durationTicks": 5,
+            "frameId": "crow-walk-v2-0"
+          },
+          {
+            "durationTicks": 6,
+            "frameId": "crow-walk-v2-1"
+          },
+          {
+            "durationTicks": 5,
+            "frameId": "crow-walk-v2-2"
+          },
+          {
+            "durationTicks": 6,
+            "frameId": "crow-walk-v2-3"
+          }
+        ],
+        "id": "moving",
+        "loop": true,
+        "tickRate": 30
+      }
+    ],
+    "sourceNativeFrameId": "frame.sha256.59c7fcf5c54bfe1f9526fc6aa5078695eb5951088940244cae2130fb0a6d076c",
+    "currentMacBinding": "UNKNOWN;retainedmetadataisnotliveadoptionproof"
+  },
+  "derivedLegacyFallback": {
+    "manifest": "/workspace/asset-production/reuse/sd20-corvid-reuse-v1/american_crow/texture-review-manifest.json",
+    "atlas": "/workspace/asset-production/reuse/sd20-corvid-reuse-v1/american_crow/atlas.png",
+    "atlasSHA256": "753c6aaafcd397c423b17caccd9d947c74b57df915f33acb80569a2dce3775fe",
+    "idle": {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "american_crow-0",
+          "durationTicks": 90
+        }
+      ]
+    },
+    "renderFrame": {
+      "id": "american_crow-0",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 127,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-0-review",
+          "x": 96,
+          "y": 147
+        },
+        {
+          "id": "foot-1-review",
+          "x": 155,
+          "y": 143
+        }
+      ],
+      "world": {
+        "width": 192,
+        "height": 192
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    "movingDraftManifest": "/workspace/asset-production/reuse/sd20-corvid-reuse-v1/american_crow/moving-draft-texture-review-manifest.json",
+    "movingDraftAtlasSHA256": "2872b9f583874f182286d396f31ebd73ae12525c0d0708faee04564e6be0291b",
+    "movingDraftClips": [
+      {
+        "id": "idle",
+        "tickRate": 30,
+        "loop": true,
+        "frames": [
+          {
+            "frameId": "american_crow-0",
+            "durationTicks": 90
+          }
+        ]
+      },
+      {
+        "id": "moving",
+        "tickRate": 30,
+        "loop": true,
+        "frames": [
+          {
+            "frameId": "american_crow-0",
+            "durationTicks": 5
+          },
+          {
+            "frameId": "american_crow-1",
+            "durationTicks": 6
+          },
+          {
+            "frameId": "american_crow-2",
+            "durationTicks": 5
+          },
+          {
+            "frameId": "american_crow-3",
+            "durationTicks": 6
+          }
+        ]
+      }
+    ],
+    "sourceLineage": "/workspace/asset-production/reuse/sd20-corvid-reuse-v1/american_crow/source-lineage.json",
+    "scope": "held-stride legacy reuse source,not a valid perched rest and not currentrenderer proof"
+  },
+  "retainedMacEvidenceLimits": {
+    "normalReceiptPath": "/workspace/chirp-finch-preen-canon/docs/delivery/surface-workbench-20261017/preservation-20261017/normal-runtime-capabilities.json",
+    "observedAt": "2026-10-17T15:45:55.255Z",
+    "normalReceiptScope": "Historical normal yard:3otherfixturebirdactors,NO Crow;zero generated clips pinned/in use;cannot identify current Crow. Unrelated residentidentifiers/personality notcopied.",
+    "textureContractSnapshot": "/workspace/asset-production/experiments/house-finch-male-blink-runtime-assessment-v2/contract-snapshot",
+    "snapshotMeaning": "Retained laterMaccontract copy,not currentMac HEAD. review-texture.ts selects clipId idle only and says noactor/slot/physicalauthority;review-texture-view creates subtextures only for selectedidleFrameIds. Accepting a source into isolatedreview does not bindresidentCrow or surface-specific perching."
+  },
+  "diagnosticBranches": [
+    {
+      "if": "Liveframe=crow-walk-v2-0 or american_crow-0 / sourceNative59c7fcf5\u2026",
+      "then": "Old walking/stride source is being held as idle. Treat as source/mapping problem;must not fill perchedrest."
+    },
+    {
+      "if": "Liveframe=crow-supported-neutral-192 / sourceID54329ae7\u2026 on ground/platform",
+      "then": "Current spread-toe ground rest may match its intended surface;inspect normal feet and support,not walkingcycle solely from toe spread."
+    },
+    {
+      "if": "Liveframe54329ae7\u2026 or legacystride is placed on roundbranch",
+      "then": "Ground rest/walk art does not establish curled-toe branch grip. Surface-specific perch drawing/admission is missing;do not mark walk as perched rest."
+    },
+    {
+      "if": "Livebehavior=perching but resolvedclip=idle with clipFallback=true",
+      "then": "Missingperchingclipfallback explains semantic mismatch in this code family,but must verify currentMacmapper/source before changing it."
+    }
+  ],
+  "requestedRuntimeEvidenceForParentRelay": [
+    {
+      "need": "Current runtime/build and exact route",
+      "request": "Read current Mac UI git HEAD/build revision and route path, renderer mode and observed time. Identify main yard versus garden-demo/candidate-yard/art-lab. Do not infer adoption from PR/source presence."
+    },
+    {
+      "need": "Exact Crow asset/profile/PNG",
+      "request": "For the visible Crow only, resolve speciesId, actor artworkId or source-candidate/texture entry id, profile/version, selected manifest path+SHA256, source PNG SHA256 and loaded canonical PNG SHA256/content digest. Do not share owner tokens, raw opaque registry key or unrelated resident data."
+    },
+    {
+      "need": "Actual idle/rest/perch/walk sample",
+      "request": "Read actor behavior, locomotion, requestedClip, resolved clip, clipFallback, frame/renderFrameId, sourceRect, poseId and sourceFrameId or exact source-tile hash. Sample rest over several ticks to distinguish a static held stride from a moving cycle."
+    },
+    {
+      "need": "Surface/support identity",
+      "request": "Read selected slot affordance/capability/surface kind (ground/platform/branch/roost), support geometry/plane or branch radius, actor/root coordinates, canvas/world/density/pivot and declared versus rendered contactsWorld. Determine whether toes physically touch ground or curl around branch; alpha-positive points alone do not prove that."
+    },
+    {
+      "need": "Normal render confirmation",
+      "request": "Inspect actual Crow at current normal CSS/world size on the actual surface/background, with bounded live rest and moving observations. Report body/feet phase, actual source/world/CSS size and source/normal-frame hashes; no embedded or published browser capture bytes. Keep any owner-local inspection private."
+    }
+  ],
+  "remainingBlocker": {
+    "action": "Resolve actual live Crow asset/clip/surface and normalrender",
+    "target": "Current Mac implementation task01a14730-019a-7062-a294-ba507c06f004",
+    "reason": "Selectedcloud environment has no liveMacsession/currentactorreceipt;cloudproducerselection/publishedsource and historicalMacmetadata cannot prove currentadoption.",
+    "status": "pending external runtime evidence;not denied",
+    "independentWorkCompleted": "Read-only cloud source/contracts/code path and old stride-idle provenance traced."
+  },
+  "evidenceFiles": [
+    {
+      "path": "/workspace/birdsong-yard-sprites/src/lib/assets/manifest.ts",
+      "bytes": 3110,
+      "sha256": "89d1f3fd648ed1ccbb21b424d7c26a60cdb9b343e734026da9c30a10616d063e"
+    },
+    {
+      "path": "/workspace/birdsong-yard-sprites/src/lib/assets/registry.ts",
+      "bytes": 4798,
+      "sha256": "52955bd2aa68c772953bc87ed3f0f2ecd8e9a674dd19f1ef1d6b3cb1be8b0a87"
+    },
+    {
+      "path": "/workspace/birdsong-yard-sprites/src/lib/assets/fixtures.ts",
+      "bytes": 2884,
+      "sha256": "48a1c9ecdf6f4d0f9e4ba23073487f88864c1e9a6f9e0201e0194d2c6f0231cd"
+    },
+    {
+      "path": "/workspace/birdsong-yard-sprites/src/lib/engine/simulation.ts",
+      "bytes": 48998,
+      "sha256": "f82c5c663befe863eb7467a05329ea6a43d720013ee390ac52b465f169265485"
+    },
+    {
+      "path": "/workspace/birdsong-yard-sprites/src/lib/engine/renderer.ts",
+      "bytes": 32529,
+      "sha256": "14228fd9ba4955aac4ef3ae9e1b452459652deef2e9375042b596e9cb8d0ebed"
+    },
+    {
+      "path": "/workspace/birdsong-yard-sprites/src/lib/engine/behavior-diagnostics.ts",
+      "bytes": 4130,
+      "sha256": "be4698963eaa905b77becb7613d9caa6e307e676fe86545874803aa850a94ed4"
+    },
+    {
+      "path": "/workspace/birdsong-yard-sprites/src/lib/components/YardScene.svelte",
+      "bytes": 29614,
+      "sha256": "2e6d4410a5e2b6bc51c3b60f1dde5268092cb95d860d995b0eb8e9e1a49b9ede"
+    },
+    {
+      "path": "/workspace/asset-production/experiments/house-finch-male-blink-runtime-assessment-v2/contract-snapshot/review-texture.ts",
+      "bytes": 8706,
+      "sha256": "bd950b60efb905db877c9fdc5532af6d7d009f5216a3e28ef7f6a4dc1e22a1dc"
+    },
+    {
+      "path": "/workspace/asset-production/experiments/house-finch-male-blink-runtime-assessment-v2/contract-snapshot/review-texture-view.ts",
+      "bytes": 6818,
+      "sha256": "05d71ba0f29503bfc32d5586b04f22598f353360b615898b17758eae48c36c76"
+    },
+    {
+      "path": "/workspace/asset-production/experiments/house-finch-male-blink-runtime-assessment-v2/contract-snapshot/renderer.ts",
+      "bytes": 76367,
+      "sha256": "f5dbae3a5819ab1b8828dd199698d6446d9fa15d51a33d22946c3475e817d3e6"
+    },
+    {
+      "path": "/workspace/chirp-finch-preen-canon/docs/delivery/surface-workbench-20261017/preservation-20261017/project-asset-manifests.json",
+      "bytes": 201617,
+      "sha256": "9c21aae6e94c6ddc81bf2418a12d0a853fda2c024264ec2a7ee6fe0131fc2d76"
+    },
+    {
+      "path": "/workspace/chirp-finch-preen-canon/docs/delivery/surface-workbench-20261017/preservation-20261017/normal-runtime-capabilities.json",
+      "bytes": 26238,
+      "sha256": "e697aa8057dd93b0f3acba2fd18457a1209ab3f2e0c5ea53320879c78f208ced"
+    },
+    {
+      "path": "/workspace/chirp-finch-preen-canon/docs/delivery/surface-workbench-20261017/preservation-20261017/runtime-capability-inventory.md",
+      "bytes": 7833,
+      "sha256": "2b9a82f5e8aaca45f8a6f6b9c29a8b1dd54fd7bb52878192ce33d6787f36a2a6"
+    },
+    {
+      "path": "/workspace/chirp-finch-preen-canon/docs/delivery/generated-source-evidence-20261017/cloud-producer/release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json",
+      "bytes": 1354397,
+      "sha256": "b6facaf87df6c0e9baf27a644517193b8a4df1f85d1e0966eb73e372768d418f"
+    },
+    {
+      "path": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+      "bytes": 3312,
+      "sha256": "10df802adf7aa30400ea415627bbc529b872590ee24df57bdde7656127dd0ffb"
+    },
+    {
+      "path": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/texture-review-manifest.json",
+      "bytes": 2508,
+      "sha256": "add3141992dbf57da63ff104b9d8368b46b67ccfeb7cb133313cc57d9544fd03"
+    },
+    {
+      "path": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/neutral-source1024.png",
+      "bytes": 394786,
+      "sha256": "64a3199e6509cccf3e578c46e796246b5fca35b25e94d5d54bf88fab31c3bcec"
+    },
+    {
+      "path": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/neutral192.png",
+      "bytes": 21344,
+      "sha256": "52b7e13d4621706c983a027b60d36340b9068800247b25ef6c84390e41c54f05"
+    },
+    {
+      "path": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/blink192.png",
+      "bytes": 21370,
+      "sha256": "c5c570d1c02beb51d7785fe40e3906c54566002c2f59af45f9a84c729fc17cba"
+    },
+    {
+      "path": "/workspace/asset-production/motion/sd20-crow-neutral-blink-v1/neutral-blink-atlas192.png",
+      "bytes": 42128,
+      "sha256": "808eb70449dc24ea486bed40ffc80532be83007a2f5998e590e42fdeb98df373"
+    },
+    {
+      "path": "/workspace/asset-production/reuse/sd20-corvid-reuse-v1/american_crow/source-lineage.json",
+      "bytes": 4801,
+      "sha256": "5c4ccfdfcc85f42001a236854c115b1b7799d30b9473a7435d92e7e4bd86e697"
+    },
+    {
+      "path": "/workspace/asset-production/reuse/sd20-corvid-reuse-v1/american_crow/texture-review-manifest.json",
+      "bytes": 1437,
+      "sha256": "2fc85d2265a2c9c355664495c62281447da566a920e261343e40f0874f9ef24e"
+    },
+    {
+      "path": "/workspace/asset-production/reuse/sd20-corvid-reuse-v1/american_crow/atlas.png",
+      "bytes": 33183,
+      "sha256": "753c6aaafcd397c423b17caccd9d947c74b57df915f33acb80569a2dce3775fe"
+    },
+    {
+      "path": "/workspace/asset-production/reuse/sd20-corvid-reuse-v1/american_crow/moving-draft-texture-review-manifest.json",
+      "bytes": 3881,
+      "sha256": "f1005cc2675064db98fc7e790bb4865227d53cc794ac5dfe69888f220188e044"
+    },
+    {
+      "path": "/workspace/asset-production/reuse/sd20-corvid-reuse-v1/american_crow/moving-draft-atlas.png",
+      "bytes": 130824,
+      "sha256": "2872b9f583874f182286d396f31ebd73ae12525c0d0708faee04564e6be0291b"
+    }
+  ],
+  "writesLimitedTo": [
+    "trace.json",
+    "TRACE.md"
+  ],
+  "supportOffsetComparison": {
+    "currentGroundRest": [
+      {
+        "id": "foot-a-review",
+        "offsetWorld": [
+          -11.617834394904458,
+          -3.872611464968153
+        ]
+      },
+      {
+        "id": "foot-b-review",
+        "offsetWorld": [
+          12.585987261146496,
+          -5.808917197452229
+        ]
+      }
+    ],
+    "historicalMacWalkFrame0": [
+      {
+        "id": "foot-0-review",
+        "offsetWorld": [
+          -20.666666666666668,
+          18.333333333333332
+        ]
+      },
+      {
+        "id": "foot-1-review",
+        "offsetWorld": [
+          18.666666666666668,
+          15.333333333333334
+        ]
+      }
+    ],
+    "derivedLegacyIdle": [
+      {
+        "id": "foot-0-review",
+        "offsetWorld": [
+          -31.0,
+          -3.0
+        ]
+      },
+      {
+        "id": "foot-1-review",
+        "offsetWorld": [
+          28.0,
+          -7.0
+        ]
+      }
+    ],
+    "warning": "These contracts have different pivots/densities and must not be rebound by filename/cliplabel alone;runtime support/root must be checked. Offsets are arithmetic from declared markers,not anatomical certification."
+  }
+}
