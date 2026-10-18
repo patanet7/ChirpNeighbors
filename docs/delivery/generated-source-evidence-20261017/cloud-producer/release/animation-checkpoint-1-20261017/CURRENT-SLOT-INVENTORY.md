@@ -1,6 +1,6 @@
 # Current per-species source slots
 
-145 registered primary source IDs across 45 retained originals. Useful provisional idle semantic uses: 19 neutral, 15 blink, 13 look. These uses overlap drawings. Source studies do not complete species action sets.
+146 registered primary source IDs across 46 retained originals. Useful provisional idle semantic uses: 19 neutral, 16 blink, 13 look. These uses overlap drawings. Source studies do not complete species action sets.
 
 | Species | Neutral | Look | Blink | Locomotion | Feed / drink / preen | Flight |
 |---|---|---|---|---|---|---|
@@ -9,7 +9,7 @@
 | Lesser Goldfinch | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
 | Black Phoebe | provisional source | provisional source | provisional source | rig-only-static-translation-proof | missing / missing / missing | missing |
 | California Towhee | provisional source | provisional source | provisional source | reviewed one-shot study | missing / missing / missing | missing |
-| Mourning Dove | provisional still | missing | missing | drawn-walk-candidate-contact-unbound | missing / drawn-drink-candidate-water-contact-unbound / missing | missing |
+| Mourning Dove | provisional still | missing | provisional source | drawn-walk-candidate-contact-unbound | missing / drawn-drink-candidate-water-contact-unbound / missing | missing |
 | Northern Mockingbird | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
 | California Scrub-Jay | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
 | Bushtit | provisional source | provisional source | new source held | missing | missing / missing / missing | missing |

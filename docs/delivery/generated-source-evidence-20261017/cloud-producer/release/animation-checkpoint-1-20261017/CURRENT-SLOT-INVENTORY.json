@@ -10095,12 +10095,12 @@
       "id": "mourning_dove",
       "name": "Mourning Dove",
       "primaryIntakeStatus": "provisional-source-review-candidate",
-      "primaryManifest": "reuse/sd20-dove-reuse-v1/standing-manifest.json",
-      "primaryAtlas": "reuse/sd20-dove-reuse-v1/standing-atlas.png",
+      "primaryManifest": "motion/sd20-mourning-dove-blink-v1/texture-review-manifest.json",
+      "primaryAtlas": "motion/sd20-mourning-dove-blink-v1/blink-atlas192.png",
       "selectedIdleSourceIDs": [
         "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81"
       ],
-      "nativeBankDrawings": 13,
+      "nativeBankDrawings": 14,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.c1414820ee17416e01661beff544491dfb2e22de412d668a30e89adf007a8e30",
@@ -10733,6 +10733,61 @@
           ],
           "reuseStatus": "Independently reviewed look-only source study; HELD matched-look playback: native head turn retained as unbound source study. Body/tail/feet pop at normal size; zero useful look gain. New frame contacts[] explicit, inherited probes0/0 disclosed; no support or airborne meaning. Exact awake retains2positive technical contacts, existing look state/IDs/bindings and useful46 unchanged; one inactive held candidate only. No neutral/blink generation or runtime/app admission.",
           "sourceReview": "motion/sd20-mourning-dove-look-v1/independent-review.json"
+        },
+        {
+          "frameId": "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2",
+          "file": "motion/sd20-mourning-dove-blink-v1/closed-native.png",
+          "fileSha256": "30445fe66f83fe7afde9b15fa2a46921dc12a4f97aa45edbb9c9e073c9b89282",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "mourning_dove",
+          "appearanceVersion": "sd20-mourning-dove-blink-v1",
+          "poseTags": [
+            "fully-closed-eye-standing",
+            "candidate-source",
+            "blink-only"
+          ],
+          "sourceAtlas": "motion/sd20-mourning-dove-blink-v1/original.png",
+          "sourceAtlasSha256": "30445fe66f83fe7afde9b15fa2a46921dc12a4f97aa45edbb9c9e073c9b89282",
+          "derivation": {
+            "method": "full native canvas nearest resize only",
+            "sourceCanvas": [
+              1254,
+              1254
+            ],
+            "outputCanvas": [
+              192,
+              192
+            ],
+            "wholeCanvasScaleXY": [
+              0.15311004784688995,
+              0.15311004784688995
+            ],
+            "nativeToReferenceWholeCanvasScaleXY": [
+              0.6124401913875598,
+              0.6124401913875598
+            ],
+            "perPoseFit": false,
+            "perPoseTranslation": false,
+            "snap": false,
+            "pixelPaint": false
+          },
+          "sourcePrompt": "motion/sd20-mourning-dove-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-mourning-dove-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "blink"
+          ],
+          "reuseStatus": "Independently reviewed common resting source study; Provisional useful closure source only, one new closed drawing and exact standing awake reuse. Neutral source pixels/geometry/idle90 unchanged; target primary manifest/atlas and neutral render-binding metadata may change explicitly to own awake-only idle. Separate authored blink42/3/45 at30Hz, mild feather/toe shimmer and one-row baseline change disclosed. No physical support, Mac admission or active app binding approval.",
+          "sourceReview": "motion/sd20-mourning-dove-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -10744,7 +10799,8 @@
         "Baseline PR33: Standing fallback is a single openeye source, not blink/look animation.",
         "Baseline PR33: 6drawn gait poses are stepped/weakalternation; roottravel/supportphase binding missing.",
         "Baseline PR33: 5selected drinkdrawings use reversebendrecovery; sixthnewrecovery source retained but notselected. Footproxy drift≤3.25world; lowbill x147.5–149.25,y151.25–151.75 needsmatchedwater.",
-        "Current checkpoint: HELD matched-look playback: native head turn retained as unbound source study. Body/tail/feet pop at normal size; zero useful look gain. New frame contacts[] explicit, inherited probes0/0 disclosed; no support or airborne meaning. Exact awake retains2positive technical contacts, existing look state/IDs/bindings and useful46 unchanged; one inactive held candidate only. No neutral/blink generation or runtime/app admission."
+        "Current checkpoint: HELD matched-look playback: native head turn retained as unbound source study. Body/tail/feet pop at normal size; zero useful look gain. New frame contacts[] explicit, inherited probes0/0 disclosed; no support or airborne meaning. Exact awake retains2positive technical contacts, existing look state/IDs/bindings and useful46 unchanged; one inactive held candidate only. No neutral/blink generation or runtime/app admission.",
+        "Current checkpoint: Provisional useful closure source only, one new closed drawing and exact standing awake reuse. Neutral source pixels/geometry/idle90 unchanged; target primary manifest/atlas and neutral render-binding metadata may change explicitly to own awake-only idle. Separate authored blink42/3/45 at30Hz, mild feather/toe shimmer and one-row baseline change disclosed. No physical support, Mac admission or active app binding approval."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -10782,8 +10838,8 @@
           ],
           "renderBindings": [
             {
-              "manifest": "reuse/sd20-dove-reuse-v1/standing-manifest.json",
-              "atlasPNG": "reuse/sd20-dove-reuse-v1/standing-atlas.png",
+              "manifest": "motion/sd20-mourning-dove-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-mourning-dove-blink-v1/blink-atlas192.png",
               "clipId": "idle",
               "tickRate": 30,
               "loop": false,
@@ -10957,19 +11013,90 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "standing look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-blink",
+          "sourceFrameIds": [
+            "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+            "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-mourning-dove-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-mourning-dove-blink-v1/texture-review-manifest.json",
+            "motion/sd20-mourning-dove-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-mourning-dove-blink-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye→closed lid→same open state; half lid only if useful."
+            "Provisional useful closure source only, one new closed drawing and exact standing awake reuse. Neutral source pixels/geometry/idle90 unchanged; target primary manifest/atlas and neutral render-binding metadata may change explicitly to own awake-only idle. Separate authored blink42/3/45 at30Hz, mild feather/toe shimmer and one-row baseline change disclosed. No physical support, Mac admission or active app binding approval.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "dove-standing-0",
+              "durationTicks": 42,
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5"
+            },
+            {
+              "frameId": "dove-blink-closed-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2",
+              "outputRGBAId": "frame.sha256.bd818ef35bbd3c16449a1be539e6c667d31b49607f08b11357668f3a250ec9f5"
+            },
+            {
+              "frameId": "dove-standing-0",
+              "durationTicks": 45,
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-mourning-dove-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-mourning-dove-blink-v1/blink-atlas192.png",
+              "clipId": "blink",
+              "tickRate": 30,
+              "loop": false,
+              "durationTicks": 90,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "dove-standing-0",
+                  "durationTicks": 42,
+                  "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+                  "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5"
+                },
+                {
+                  "frameId": "dove-blink-closed-192",
+                  "durationTicks": 3,
+                  "sourceFrameId": "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2",
+                  "outputRGBAId": "frame.sha256.bd818ef35bbd3c16449a1be539e6c667d31b49607f08b11357668f3a250ec9f5"
+                },
+                {
+                  "frameId": "dove-standing-0",
+                  "durationTicks": 45,
+                  "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+                  "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "selectedClipId": "blink",
+          "newSourceFrameIds": [
+            "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81"
+          ]
         },
         {
           "speciesId": "mourning_dove",
@@ -11360,13 +11487,15 @@
         "5selected drinkdrawings use reversebendrecovery; sixthnewrecovery source retained but notselected. Footproxy drift≤3.25world; lowbill x147.5–149.25,y151.25–151.75 needsmatchedwater."
       ],
       "currentSourceIssues": [
-        "HELD matched-look playback: native head turn retained as unbound source study. Body/tail/feet pop at normal size; zero useful look gain. New frame contacts[] explicit, inherited probes0/0 disclosed; no support or airborne meaning. Exact awake retains2positive technical contacts, existing look state/IDs/bindings and useful46 unchanged; one inactive held candidate only. No neutral/blink generation or runtime/app admission."
+        "HELD matched-look playback: native head turn retained as unbound source study. Body/tail/feet pop at normal size; zero useful look gain. New frame contacts[] explicit, inherited probes0/0 disclosed; no support or airborne meaning. Exact awake retains2positive technical contacts, existing look state/IDs/bindings and useful46 unchanged; one inactive held candidate only. No neutral/blink generation or runtime/app admission.",
+        "Provisional useful closure source only, one new closed drawing and exact standing awake reuse. Neutral source pixels/geometry/idle90 unchanged; target primary manifest/atlas and neutral render-binding metadata may change explicitly to own awake-only idle. Separate authored blink42/3/45 at30Hz, mild feather/toe shimmer and one-row baseline change disclosed. No physical support, Mac admission or active app binding approval."
       ],
       "overlayQualifications": [
-        "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings."
+        "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings.",
+        "Closure-only source batch: existing awake source reused; neutral coverage unchanged; no new neutral drawing counted."
       ],
-      "primaryManifestSHA256": "eeea6ead9a740a3930673e3fff794f0ccef1ff8d98ca53f5401c3beb3851ddeb",
-      "primaryAtlasSHA256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+      "primaryManifestSHA256": "ec6b3c207b00c6bb6281693ed1acaab46151b21da374f938162f739f27f1d521",
+      "primaryAtlasSHA256": "9f174dce3a6459cfc2a9bab60f6a4184da3fad33d756b2c20dfad99ee0180664",
       "primaryClipId": "idle",
       "primaryFrameMappings": [
         {
@@ -11402,6 +11531,16 @@
               "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
               "evidence": "motion/sd20-mourning-dove-look-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "sourcePNG": "motion/sd20-mourning-dove-blink-v1/reference-awake-source768.png",
+              "outputPNG": "motion/sd20-mourning-dove-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+              "evidence": "motion/sd20-mourning-dove-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake-standing",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -11449,6 +11588,70 @@
               "x": 116,
               "y": 149,
               "sampledAlpha": 133,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "dove-blink-closed-192",
+          "outputRGBAId": "frame.sha256.bd818ef35bbd3c16449a1be539e6c667d31b49607f08b11357668f3a250ec9f5",
+          "sourceFrameId": "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2",
+              "sourcePNG": "motion/sd20-mourning-dove-blink-v1/closed-native.png",
+              "outputPNG": "motion/sd20-mourning-dove-blink-v1/closed192.png",
+              "outputPNGsha256": "8b8a9459080dd4e82152deeb7759b936d70b0308dc169e2fc54f72d8c3b59479",
+              "outputRGBAId": "frame.sha256.bd818ef35bbd3c16449a1be539e6c667d31b49607f08b11357668f3a250ec9f5",
+              "evidence": "motion/sd20-mourning-dove-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "fully-closed-eye-standing",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 192,
+            "height": 192
+          },
+          "sourcePixelsPerWorldUnit": 1,
+          "pivot": {
+            "x": 105,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "support-0",
+              "x": 97,
+              "y": 149
+            },
+            {
+              "id": "support-1",
+              "x": 116,
+              "y": 149
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "support-0",
+              "x": 97,
+              "y": 149,
+              "sampledAlpha": 247,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "support-1",
+              "x": 116,
+              "y": 149,
+              "sampledAlpha": 230,
               "anatomicallyApproved": false
             }
           ]
@@ -23511,6 +23714,16 @@
               "evidence": "motion/sd20-mourning-dove-look-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "existing supported awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "sourcePNG": "motion/sd20-mourning-dove-blink-v1/reference-awake-source768.png",
+              "outputPNG": "motion/sd20-mourning-dove-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+              "evidence": "motion/sd20-mourning-dove-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake-standing",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -27301,6 +27514,16 @@
               "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
               "evidence": "motion/sd20-mourning-dove-look-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "sourcePNG": "motion/sd20-mourning-dove-blink-v1/reference-awake-source768.png",
+              "outputPNG": "motion/sd20-mourning-dove-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+              "evidence": "motion/sd20-mourning-dove-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake-standing",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -31199,6 +31422,16 @@
               "evidence": "motion/sd20-mourning-dove-look-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "existing supported awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "sourcePNG": "motion/sd20-mourning-dove-blink-v1/reference-awake-source768.png",
+              "outputPNG": "motion/sd20-mourning-dove-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+              "evidence": "motion/sd20-mourning-dove-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake-standing",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -32179,6 +32412,254 @@
           "uniqueSourceFrameIds": [
             "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
             "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-mourning-dove-blink-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-mourning-dove-blink-v1/texture-review-manifest.json",
+      "manifestSHA256": "ec6b3c207b00c6bb6281693ed1acaab46151b21da374f938162f739f27f1d521",
+      "atlasPNG": "motion/sd20-mourning-dove-blink-v1/blink-atlas192.png",
+      "atlasSHA256": "9f174dce3a6459cfc2a9bab60f6a4184da3fad33d756b2c20dfad99ee0180664",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "dove-standing-0",
+          "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+          "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "sourcePNG": "batches/dove-drink-v1/frames-source/00.png",
+              "outputPNG": "reuse/sd20-dove-reuse-v1/frames192/standing-0.png",
+              "outputPNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+              "evidence": "reuse/sd20-dove-reuse-v1/handoff.json",
+              "phase": "dove-standing-0",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "sourcePNG": "batches/dove-drink-v1/frames-source/00.png",
+              "outputPNG": "reuse/sd20-dove-reuse-v1/frames192/drink-0.png",
+              "outputPNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+              "evidence": "reuse/sd20-dove-reuse-v1/handoff.json",
+              "phase": "dove-drink-0",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "sourcePNG": "motion/sd20-mourning-dove-look-v1/reused-awake-source768.png",
+              "outputPNG": "motion/sd20-mourning-dove-look-v1/reused-awake192.png",
+              "outputPNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+              "evidence": "motion/sd20-mourning-dove-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "sourcePNG": "motion/sd20-mourning-dove-blink-v1/reference-awake-source768.png",
+              "outputPNG": "motion/sd20-mourning-dove-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "a92f5d4aec30ecab1ba4aa6ce2e45e93faa4395e301428936f252273bf9da800",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5",
+              "evidence": "motion/sd20-mourning-dove-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake-standing",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 192,
+            "height": 192
+          },
+          "sourcePixelsPerWorldUnit": 1,
+          "pivot": {
+            "x": 105,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "support-0",
+              "x": 97,
+              "y": 149
+            },
+            {
+              "id": "support-1",
+              "x": 116,
+              "y": 149
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "support-0",
+              "x": 97,
+              "y": 149,
+              "sampledAlpha": 206,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "support-1",
+              "x": 116,
+              "y": 149,
+              "sampledAlpha": 133,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "dove-blink-closed-192",
+          "outputRGBAId": "frame.sha256.bd818ef35bbd3c16449a1be539e6c667d31b49607f08b11357668f3a250ec9f5",
+          "sourceFrameId": "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2",
+              "sourcePNG": "motion/sd20-mourning-dove-blink-v1/closed-native.png",
+              "outputPNG": "motion/sd20-mourning-dove-blink-v1/closed192.png",
+              "outputPNGsha256": "8b8a9459080dd4e82152deeb7759b936d70b0308dc169e2fc54f72d8c3b59479",
+              "outputRGBAId": "frame.sha256.bd818ef35bbd3c16449a1be539e6c667d31b49607f08b11357668f3a250ec9f5",
+              "evidence": "motion/sd20-mourning-dove-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "fully-closed-eye-standing",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 192,
+            "height": 192
+          },
+          "sourcePixelsPerWorldUnit": 1,
+          "pivot": {
+            "x": 105,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "support-0",
+              "x": 97,
+              "y": 149
+            },
+            {
+              "id": "support-1",
+              "x": 116,
+              "y": 149
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "support-0",
+              "x": 97,
+              "y": 149,
+              "sampledAlpha": 247,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "support-1",
+              "x": 116,
+              "y": 149,
+              "sampledAlpha": 230,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "dove-standing-0",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "dove-standing-0",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81"
+          ]
+        },
+        {
+          "id": "blink",
+          "tickRate": 30,
+          "loop": false,
+          "frames": [
+            {
+              "frameId": "dove-standing-0",
+              "durationTicks": 42
+            },
+            {
+              "frameId": "dove-blink-closed-192",
+              "durationTicks": 3
+            },
+            {
+              "frameId": "dove-standing-0",
+              "durationTicks": 45
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "dove-standing-0",
+              "durationTicks": 42,
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5"
+            },
+            {
+              "frameId": "dove-blink-closed-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2",
+              "outputRGBAId": "frame.sha256.bd818ef35bbd3c16449a1be539e6c667d31b49607f08b11357668f3a250ec9f5"
+            },
+            {
+              "frameId": "dove-standing-0",
+              "durationTicks": 45,
+              "sourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+              "outputRGBAId": "frame.sha256.1d9d70e509c6a2689e8e1dd9ce5d5bdb24b91885d54b273e4b09cbb8cb9153e5"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+            "frame.sha256.3d8652745686a643174e42d31245822af39e47f7e5c190cf08ff8dd812edbef2"
           ]
         }
       ],
@@ -33592,7 +34073,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/dark-eyed-junco-look-ingest-build-py8itci0/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/dark-eyed-junco-look-ingest-build-0r3m0xha/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -33671,17 +34152,17 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-18T00:34:32.259872+00:00",
+  "projectionAsOfUTC": "2026-10-18T00:39:19.743964+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 145,
-    "registeredNativeOriginals": 45,
-    "newNativeCalls": 24,
-    "newDrawings": 43,
+    "registeredPrimaryDrawingIDs": 146,
+    "registeredNativeOriginals": 46,
+    "newNativeCalls": 25,
+    "newDrawings": 44,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 47,
+    "usefulProvisionalIdleSemanticUses": 48,
     "usefulIdleUsesByAction": {
       "neutral": 19,
-      "blink": 15,
+      "blink": 16,
       "look": 13
     },
     "reviewedOneShotHopStudies": 2,
@@ -33691,9 +34172,9 @@
     "states": {
       "provisional-drawn-neutral": 17,
       "single-open-look-pose-no-matched-turn": 1,
-      "provisional-drawn-blink": 15,
+      "provisional-drawn-blink": 16,
       "two-drawn-hover-wing-study-only": 1,
-      "missing": 136,
+      "missing": 135,
       "provisional-drawn-look": 13,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,
