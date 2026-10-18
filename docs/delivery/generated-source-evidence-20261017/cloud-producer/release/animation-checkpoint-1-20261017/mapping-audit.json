@@ -1,11 +1,11 @@
 {
   "kind": "read-only-current-intake-projection-audit",
-  "createdUTC": "2026-10-18T00:40:59.848344+00:00",
-  "canonicalSourceRoot": "/tmp/dark-eyed-junco-look-ingest-build-sk8lmapl/cloud-producer",
+  "createdUTC": "2026-10-18T00:44:24.072320+00:00",
+  "canonicalSourceRoot": "/tmp/dark-eyed-junco-look-ingest-build-vpfo4109/cloud-producer",
   "auditedInventory": "release/animation-checkpoint-1-20261017/CURRENT-SLOT-INVENTORY.json",
-  "inputInventorySHA256": "871d96a7629175ba243edd2282432205b516c86ff0e528e241b99ba3b8a8ca7c",
-  "inputOverlaySHA256": "659388dfe5d17b8d209b60be31c243d9377c38d35471a51001a03cb3b45bff0b",
-  "currentRegisteredDrawings": 147,
+  "inputInventorySHA256": "abd87f2db53bab8c876b82bda58753c8b22191911cdf02688338613c07fb58da",
+  "inputOverlaySHA256": "6bdbe973ff5c6ffe643029afe7f79673de8e1ed520453aac2a427a8319e620a1",
+  "currentRegisteredDrawings": 148,
   "actualAtlasMismatches": 0,
   "issues": [],
   "primarySourceChecks": [
@@ -674,24 +674,42 @@
       "actualSourceID": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
       "pass": true,
       "newDrawing": false
+    },
+    {
+      "kind": "primary-source-identity",
+      "manifest": "motion/sd20-anna-look-v1/contact-reviewed-PRIMARY-SOURCE-MANIFEST.json",
+      "sourcePNG": "motion/sd20-anna-look-v1/look-native.png",
+      "expectedSourceID": "frame.sha256.01966c2e6c4208a8f0c69c0bc36a4550fc1eef7884dd32535d8a9c1b39deb2e9",
+      "actualSourceID": "frame.sha256.01966c2e6c4208a8f0c69c0bc36a4550fc1eef7884dd32535d8a9c1b39deb2e9",
+      "pass": true,
+      "newDrawing": true
+    },
+    {
+      "kind": "primary-source-identity",
+      "manifest": "motion/sd20-anna-look-v1/contact-reviewed-PRIMARY-SOURCE-MANIFEST.json",
+      "sourcePNG": "motion/sd20-anna-look-v1/reused-awake-source1024.png",
+      "expectedSourceID": "frame.sha256.96b2cbe379067cb25d7d33963ae49cd4ce3fc615de22999472b8476e6408ea28",
+      "actualSourceID": "frame.sha256.96b2cbe379067cb25d7d33963ae49cd4ce3fc615de22999472b8476e6408ea28",
+      "pass": true,
+      "newDrawing": false
     }
   ],
   "allPrimarySourceChecksPassed": true,
-  "exactPackagesVerified": 45,
-  "exactPrimaryAtlasFramesVerified": 102,
-  "alphaContactSamplesVerified": 195,
+  "exactPackagesVerified": 46,
+  "exactPrimaryAtlasFramesVerified": 104,
+  "alphaContactSamplesVerified": 199,
   "currentCountsUnchanged": false,
   "proposedCounts": {
-    "registeredPrimaryDrawingIDs": 147,
-    "registeredNativeOriginals": 47,
-    "newNativeCalls": 26,
-    "newDrawings": 45,
+    "registeredPrimaryDrawingIDs": 148,
+    "registeredNativeOriginals": 48,
+    "newNativeCalls": 27,
+    "newDrawings": 46,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 48,
+    "usefulProvisionalIdleSemanticUses": 49,
     "usefulIdleUsesByAction": {
       "neutral": 19,
-      "blink": 16,
-      "look": 13
+      "look": 14,
+      "blink": 16
     },
     "reviewedOneShotHopStudies": 2,
     "sourceAcceptedFullLocomotionSlots": 0,
@@ -699,11 +717,10 @@
     "appBindingCurrentState": "UNKNOWN",
     "states": {
       "provisional-drawn-neutral": 17,
-      "single-open-look-pose-no-matched-turn": 1,
+      "provisional-drawn-look": 14,
       "provisional-drawn-blink": 16,
       "two-drawn-hover-wing-study-only": 1,
       "missing": 134,
-      "provisional-drawn-look": 13,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,
       "drawn-perch-candidate-failed-registration": 1,
