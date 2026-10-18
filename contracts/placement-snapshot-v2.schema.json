@@ -1,0 +1,212 @@
+{
+  "$ref": "#/definitions/PlacementSnapshotV2",
+  "definitions": {
+    "PlacementSnapshotV2": {
+      "type": "object",
+      "properties": {
+        "scene": {
+          "type": "string",
+          "enum": [
+            "garden",
+            "courtyard"
+          ]
+        },
+        "scenePin": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                  "not": {
+                    "enum": [
+                      "__proto__",
+                      "prototype",
+                      "constructor"
+                    ]
+                  }
+                },
+                "version": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000000
+                }
+              },
+              "required": [
+                "id",
+                "version"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/PlacementSnapshotV2/properties/scenePin/anyOf/0/properties/id"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "perch",
+                  "feeder",
+                  "bath",
+                  "nest",
+                  "plant"
+                ]
+              },
+              "catalogId": {
+                "type": "string",
+                "enum": [
+                  "california_bush_sunflower",
+                  "san_diego_monkeyflower",
+                  "blue_eyed_grass",
+                  "crassula_ovata",
+                  "hollyleaf_cherry",
+                  "torrey_pine",
+                  "cedar_feeder",
+                  "platform_feeder",
+                  "bench",
+                  "pedestal_birdbath",
+                  "cedar_fence"
+                ]
+              },
+              "x": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 960
+              },
+              "y": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 540
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "x",
+              "y"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 12
+        },
+        "schemaVersion": {
+          "type": "number",
+          "const": 2
+        },
+        "ownerId": {
+          "$ref": "#/definitions/PlacementSnapshotV2/properties/scenePin/anyOf/0/properties/id"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "enum": [
+                    "coastal",
+                    "oak",
+                    "courtyard",
+                    "sd-coastal-spring-v1",
+                    "sd-coastal-summer-v1",
+                    "sd-coastal-autumn-v1",
+                    "sd-coastal-winter-v1",
+                    "sd-oak-spring-v1",
+                    "sd-oak-summer-v1",
+                    "sd-oak-autumn-v1",
+                    "sd-oak-winter-v1",
+                    "sd-courtyard-spring-v1",
+                    "sd-courtyard-summer-v1",
+                    "sd-courtyard-autumn-v1",
+                    "sd-courtyard-winter-v1",
+                    "sd-inland-spring-v1",
+                    "sd-inland-summer-v1",
+                    "sd-inland-autumn-v1",
+                    "sd-inland-winter-v1",
+                    "sd-patio-spring-v1",
+                    "sd-patio-summer-v1",
+                    "sd-patio-autumn-v1",
+                    "sd-patio-winter-v1"
+                  ]
+                },
+                "revision": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "id",
+                "revision"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ground": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/PlacementSnapshotV2/properties/scenePin/anyOf/0/properties/id"
+                },
+                "version": {
+                  "type": "integer",
+                  "exclusiveMinimum": 0,
+                  "maximum": 1000000
+                },
+                "sourceReleaseDigest": {
+                  "$ref": "#/definitions/PlacementSnapshotV2/properties/source/anyOf/0/properties/revision"
+                },
+                "geometryDigest": {
+                  "$ref": "#/definitions/PlacementSnapshotV2/properties/source/anyOf/0/properties/revision"
+                },
+                "calibrationDigest": {
+                  "$ref": "#/definitions/PlacementSnapshotV2/properties/source/anyOf/0/properties/revision"
+                }
+              },
+              "required": [
+                "id",
+                "version",
+                "sourceReleaseDigest",
+                "geometryDigest",
+                "calibrationDigest"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "scene",
+        "objects",
+        "schemaVersion",
+        "ownerId",
+        "source",
+        "ground"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/placement-snapshot-v2.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}
