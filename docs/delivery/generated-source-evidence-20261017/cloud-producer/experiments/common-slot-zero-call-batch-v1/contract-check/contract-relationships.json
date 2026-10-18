@@ -1,0 +1,317 @@
+{
+  "authority": "Exact official public schema exports; fields only, not source-refinement execution",
+  "schemas": [
+    {
+      "schema": "asset-packaging-input-v4.schema.json",
+      "sha256": "b4d6f04e63ab8b5178e4143433c7c6199e3ff4cc7ea28cc012ac37ca391bb86c",
+      "rootRequiredFields": [
+        "schemaVersion",
+        "source",
+        "pixels",
+        "clips",
+        "conditioning",
+        "strategy",
+        "presentation",
+        "commonMotion"
+      ],
+      "rootProperties": [
+        "schemaVersion",
+        "source",
+        "pixels",
+        "clips",
+        "conditioning",
+        "strategy",
+        "shape",
+        "fileOrigin",
+        "presentation",
+        "commonMotion"
+      ]
+    },
+    {
+      "schema": "common-motion-v1.schema.json",
+      "sha256": "9c92dbb2fe26743e0bfe95b92f096632b7f874ec8b5ef6ff330d312b6365e0ef",
+      "rootRequiredFields": [
+        "schemaVersion",
+        "geometryScope",
+        "physicalSupportReviewed",
+        "idleSequence",
+        "clips",
+        "poseGraph"
+      ],
+      "rootProperties": [
+        "schemaVersion",
+        "geometryScope",
+        "physicalSupportReviewed",
+        "idleSequence",
+        "clips",
+        "poseGraph"
+      ]
+    },
+    {
+      "schema": "job-command-v4.schema.json",
+      "sha256": "31a3aff6cbee64307d6d1fc7665ccfb8ed67dfc6fe71ede7e0b09debec4722a6",
+      "rootRequiredFields": null,
+      "rootProperties": [],
+      "alternatives": [
+        {
+          "required": [
+            "action",
+            "key",
+            "input"
+          ],
+          "properties": [
+            "action",
+            "key",
+            "input"
+          ],
+          "operationConstants": {
+            "action": "package-asset"
+          }
+        },
+        {
+          "required": [
+            "action",
+            "key",
+            "input"
+          ],
+          "properties": [
+            "action",
+            "key",
+            "input"
+          ],
+          "operationConstants": {
+            "action": "plan-animation"
+          }
+        },
+        {
+          "required": [
+            "action",
+            "requestId",
+            "basePin",
+            "shape"
+          ],
+          "properties": [
+            "action",
+            "requestId",
+            "basePin",
+            "shape"
+          ],
+          "operationConstants": {
+            "action": "revise-shape"
+          }
+        },
+        {
+          "required": [
+            "action",
+            "key",
+            "input"
+          ],
+          "properties": [
+            "action",
+            "key",
+            "input"
+          ],
+          "operationConstants": {
+            "action": "generate-asset"
+          }
+        },
+        {
+          "required": [
+            "action",
+            "definition",
+            "key"
+          ],
+          "properties": [
+            "action",
+            "definition",
+            "key"
+          ],
+          "operationConstants": {
+            "action": "queue"
+          }
+        },
+        {
+          "required": [
+            "action",
+            "jobId"
+          ],
+          "properties": [
+            "action",
+            "jobId"
+          ],
+          "operationConstants": {
+            "action": "advance"
+          }
+        },
+        {
+          "required": [
+            "action",
+            "jobId"
+          ],
+          "properties": [
+            "action",
+            "jobId"
+          ],
+          "operationConstants": {
+            "action": "cancel"
+          }
+        },
+        {
+          "required": [
+            "action",
+            "artifactId",
+            "decision"
+          ],
+          "properties": [
+            "action",
+            "artifactId",
+            "decision"
+          ],
+          "operationConstants": {
+            "action": "review"
+          }
+        }
+      ]
+    },
+    {
+      "schema": "png-file-package-command-v3.schema.json",
+      "sha256": "c2054ec94da432c106b8f9a72358746f3f7d0bcb8ff184af6edc597f5939ef59",
+      "rootRequiredFields": [
+        "requestId",
+        "layout",
+        "logicalPixelSize",
+        "paletteLimit",
+        "clips",
+        "conditioning",
+        "schemaVersion",
+        "presentation",
+        "commonMotion",
+        "alphaOrigin"
+      ],
+      "rootProperties": [
+        "requestId",
+        "layout",
+        "logicalPixelSize",
+        "paletteLimit",
+        "clips",
+        "conditioning",
+        "schemaVersion",
+        "presentation",
+        "commonMotion",
+        "alphaOrigin"
+      ]
+    },
+    {
+      "schema": "png-workshop-plan-v3.schema.json",
+      "sha256": "524c801bc2e75f9c07e72d983829d208b6cf77e3e537757a119d5bc35936ba0a",
+      "rootRequiredFields": [
+        "source",
+        "plan",
+        "schemaVersion"
+      ],
+      "rootProperties": [
+        "source",
+        "plan",
+        "schemaVersion"
+      ]
+    },
+    {
+      "schema": "rgba-source-artifact-v3.schema.json",
+      "sha256": "2411ed3e016d2c7bd553a13098f7fad9411b29ef9f0e13ed9c95caa409d4c149",
+      "rootRequiredFields": [
+        "schemaVersion",
+        "format",
+        "lifecycle",
+        "inputDigest",
+        "input",
+        "blobs"
+      ],
+      "rootProperties": [
+        "schemaVersion",
+        "format",
+        "lifecycle",
+        "inputDigest",
+        "input",
+        "blobs"
+      ]
+    },
+    {
+      "schema": "species-manifest-v6.schema.json",
+      "sha256": "d993ed660a0b828ff9de69a736d90acd99f9cd4de11aedeffeb65f0cfc67902e",
+      "rootRequiredFields": [
+        "schemaVersion",
+        "speciesId",
+        "representation",
+        "fixture",
+        "taxonFidelityReviewed",
+        "format",
+        "canvas",
+        "frames",
+        "clips",
+        "provenance",
+        "conditioning",
+        "sourceArtifact",
+        "normalization",
+        "reviewScope",
+        "presentation",
+        "commonMotion"
+      ],
+      "rootProperties": [
+        "schemaVersion",
+        "speciesId",
+        "representation",
+        "fixture",
+        "taxonFidelityReviewed",
+        "format",
+        "canvas",
+        "frames",
+        "clips",
+        "provenance",
+        "conditioning",
+        "sourceArtifact",
+        "normalization",
+        "shape",
+        "reviewScope",
+        "presentation",
+        "commonMotion"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "input": "asset-packaging-input-v4",
+      "purpose": "Decoded producer input. Our incomplete templates contain actual decoded bytes and honest metadata; missing rights and owner-local reviewed pins are not filled."
+    },
+    {
+      "input": "rgba-source-artifact-v3",
+      "purpose": "Retained private RGBA source wrapper with inputDigest, V4 input and per-frame blob byte/hash descriptors. Not a label for PNG source eligibility handoffs."
+    },
+    {
+      "input": "species-manifest-v6",
+      "purpose": "Normalized runtime rectangle manifest. Requires sourceArtifact pin, provenance, normalization, conditioning, neutral-only clips and commonMotion. Not constructed or admitted here."
+    },
+    {
+      "input": "png-file-package-command-v3 / png-workshop-plan-v3",
+      "purpose": "Alternative immutable-file workshop path with layout, package plan, common motion and declared alpha origin. File and rights identity are not supplied by this source pair."
+    },
+    {
+      "input": "job-command-v4",
+      "purpose": "Actual runtime job command union, with owner/review operations and immutable pins; not invoked here."
+    }
+  ],
+  "unknownOwnerReferenceFields": [
+    "conditioning.references[].id",
+    "conditioning.references[].roles",
+    "conditioning.references[].pin.jobId",
+    "conditioning.references[].pin.artifactId",
+    "conditioning.references[].pin.version",
+    "conditioning.references[].pin.contentDigest",
+    "source.references[].id",
+    "source.references[].contentDigest",
+    "conditioning.poseGraph.nodes[].referenceId",
+    "commonMotion.poseGraph.nodes[].referenceId"
+  ],
+  "ownerRequirements": "Use actual reviewed references with matching species/content digests, pose-role nodes, and exactly one style reference. No values synthesized from local frame IDs.",
+  "noPrivateAuthorityValuesIncluded": true,
+  "sourceAdmitted": false
+}

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "9f174dce3a6459cfc2a9bab60f6a4184da3fad33d756b2c20dfad99ee0180664",
+    "creator": "Chirp Dove blink source exporter",
+    "tool": "Pillow full-canvas nearest resize only",
+    "toolVersion": "12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "dove-standing-0",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 105,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "support-0",
+          "x": 97,
+          "y": 149
+        },
+        {
+          "id": "support-1",
+          "x": 116,
+          "y": 149
+        }
+      ],
+      "world": {
+        "width": 192,
+        "height": 192
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "dove-blink-closed-192",
+      "sourceRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 105,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "support-0",
+          "x": 97,
+          "y": 149
+        },
+        {
+          "id": "support-1",
+          "x": 116,
+          "y": 149
+        }
+      ],
+      "world": {
+        "width": 192,
+        "height": 192
+      },
+      "sourcePixelsPerWorldUnit": 1
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "dove-standing-0",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "blink",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "dove-standing-0",
+          "durationTicks": 42
+        },
+        {
+          "frameId": "dove-blink-closed-192",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "dove-standing-0",
+          "durationTicks": 45
+        }
+      ]
+    }
+  ]
+}

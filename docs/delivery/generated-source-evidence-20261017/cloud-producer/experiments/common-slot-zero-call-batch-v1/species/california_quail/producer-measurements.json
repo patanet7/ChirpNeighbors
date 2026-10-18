@@ -1,0 +1,89 @@
+{
+  "scope": "Producer measurements, not an independent source-art acceptance or runtime admission.",
+  "alphaThresholdLoss": [
+    {
+      "role": "neutral",
+      "rawPositiveAlphaPixels": 3423,
+      "rawPartialAlphaPixels": 3416,
+      "positivePixelsRemovedByAlpha128": 243,
+      "opaquePixelsAfterThreshold": 3180,
+      "cropNonzeroDiscardedPixels": 0
+    },
+    {
+      "role": "look-v1",
+      "rawPositiveAlphaPixels": 3396,
+      "rawPartialAlphaPixels": 3392,
+      "positivePixelsRemovedByAlpha128": 249,
+      "opaquePixelsAfterThreshold": 3147,
+      "cropNonzeroDiscardedPixels": 0
+    },
+    {
+      "role": "look-v2",
+      "rawPositiveAlphaPixels": 4157,
+      "rawPartialAlphaPixels": 4148,
+      "positivePixelsRemovedByAlpha128": 375,
+      "opaquePixelsAfterThreshold": 3782,
+      "cropNonzeroDiscardedPixels": 0
+    }
+  ],
+  "rootRounding": {
+    "legacyWorldPivot": [
+      140.30769230769232,
+      184.6153846153846
+    ],
+    "roundedFullPivot": [
+      140,
+      185
+    ],
+    "deltaWorld": [
+      -0.3076923076923208,
+      0.3846153846153868
+    ],
+    "method": "One common Python round-to-nearest-integer pivot for the cohort; no per-pose correction.",
+    "commonCropOrigin": [
+      90,
+      92
+    ],
+    "croppedPivot": [
+      50,
+      93
+    ],
+    "cropAndPivotOriginShiftSameForEveryFrame": true
+  },
+  "rawFullStagePreserved": true,
+  "commonCropAppliesToCleanedBinaryPaletteFramesOnly": true,
+  "sharedCropDiscardedOnlyExactRGBAZero": true,
+  "actualPixelSubsetChecks": [
+    {
+      "candidate": "look-v1",
+      "actualReceiptSHA256": "3f499f9ccdfcb3799cd753d5561b64d1efac6b3741a4506b91c120cb25bacf28",
+      "status": "PASS exact canonical pixel normalization subset",
+      "perFrameRectangles": [
+        2579,
+        2557
+      ],
+      "totalRectangles": 5136,
+      "decodedArea": 19000,
+      "reconstructionExact": true,
+      "actualPermanentStageErrorUsed": true
+    },
+    {
+      "candidate": "look-v2",
+      "actualReceiptSHA256": "a7012eed97a15754cf7b564b79e89f5c00fe187ad26b650839baecb7bf5d537a",
+      "status": "PASS exact canonical pixel normalization subset",
+      "perFrameRectangles": [
+        2579,
+        3046
+      ],
+      "totalRectangles": 5625,
+      "decodedArea": 19000,
+      "reconstructionExact": true,
+      "actualPermanentStageErrorUsed": true
+    }
+  ],
+  "alternativesAreSeparateTwoFrameCandidates": true,
+  "threeFrameInstalledFamilyClaim": false,
+  "normalSourceUsefulness": "Pending independent raw and codec light/dark review. Prior held source-art findings remain operative.",
+  "newCalls": 0,
+  "newDrawingIDs": 0
+}

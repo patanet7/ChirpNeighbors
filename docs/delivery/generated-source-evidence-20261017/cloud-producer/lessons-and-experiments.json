@@ -458,6 +458,93 @@
           "Actual structural and JSON checks pass; integrator confirms full admission before live acceptance."
         ]
       }
+    },
+    {
+      "id": "COMMON-remaining-existing-preflights-1",
+      "source": "experiments/common-slot-zero-call-batch-v1/PREREGISTRATION.json",
+      "state": "completed-source-preflight",
+      "actualImageCalls": 0,
+      "generatedDrawings": 0,
+      "sourceUsefulSlotGain": 2,
+      "sourceCoverageBefore": 50,
+      "sourceCoverageAfter": 52,
+      "remainingQuestions": 8,
+      "selectedExistingLookPairs": [
+        {
+          "species": "mourning_dove",
+          "candidate": "neck-bend"
+        },
+        {
+          "species": "yellow_rumped_warbler",
+          "candidate": "look-v1"
+        }
+      ],
+      "outcome": "experiments/common-slot-zero-call-batch-v1/OUTCOME.json",
+      "runtimeAcceptance": "NOT_SUBMITTED_NOT_TESTED",
+      "liveAcceptance": "NOT_TESTED",
+      "priorOrioleResult": "0/1 and 0/1 unchanged; no winner",
+      "remainingNeeds": [
+        {
+          "species": "bushtit",
+          "slot": "blink",
+          "classification": "new or revised readable pose required under the fixed normal-scale target",
+          "reason": "Existing closure and direct64 cleanup both remain ambiguous during 100 ms; new pose cue must survive normal 64 CSS pixels sampling. No generation is started.",
+          "evidence": "Prior completed zero-call Bushtit study; gap remains."
+        },
+        {
+          "species": "hooded_oriole",
+          "slot": "blink",
+          "classification": "new or revised readable closure pose required",
+          "reason": "Existing cleanup and one reference edit each yielded 0/1 useful clips at normal scale; neither is a winner.",
+          "evidence": "Prior bounded Oriole comparison, unchanged."
+        },
+        {
+          "species": "american_crow",
+          "slot": "look",
+          "classification": "matched replacement pose required in current whole-frame source pool; separate packaging repair also needed",
+          "reason": "Both reviewers see torso/tail and lower-foot stance pop. Current codec additionally exceeds actual rectangle budget; a new drawing alone does not prove technical admission."
+        },
+        {
+          "species": "white_crowned_sparrow",
+          "slot": "look",
+          "classification": "matched replacement pose required in current whole-frame source pool",
+          "reason": "Both reviewers see body enlargement and dropped/rearranged feet. Passing codec/JSON cannot repair these source pixels."
+        },
+        {
+          "species": "nuttall_s_woodpecker",
+          "slot": "blink",
+          "classification": "genuine closed-eye drawing missing",
+          "reason": "All 4 registered drawings are open-eyed. Select the canonical supported posture/reference before drawing closure."
+        },
+        {
+          "species": "california_quail",
+          "slot": "look",
+          "classification": "existing V1 disputed; new drawing not proven necessary yet",
+          "reason": "Appearance accepts V1; geometry sees rocking/narrowing and toe replant. Keep V1 unselected pending targeted normal-scene/owner adjudication. Both roles hold V2."
+        },
+        {
+          "species": "nuttall_s_woodpecker",
+          "slot": "neutral",
+          "classification": "support-scene decision first; new drawing conditional",
+          "reason": "Existing clinging art exists. Decide vertical versus inclined trunk support and anatomy/contacts; source unknown support is not airborne. Vertical-only requirements may need corrected support art."
+        },
+        {
+          "species": "nuttall_s_woodpecker",
+          "slot": "look",
+          "classification": "support-scene decision first; new drawing conditional",
+          "reason": "Real open-eye look art exists within both cohorts. Resolve canonical support posture and scene before assuming another look drawing is needed."
+        }
+      ],
+      "contractAddendum": {
+        "outcome": "experiments/common-slot-zero-call-batch-v1/FAMILY-COMPATIBILITY-OUTCOME.json",
+        "existingThreeFrameFamilies": 2,
+        "actualPixelSubsetPASS": 2,
+        "actualIntakeMetadataComplete": false,
+        "unresolvedAuthorityPathsEach": 11,
+        "runtimeAdmission": false,
+        "privatePinsInvented": false,
+        "sourceGainUnchanged": 2
+      }
     }
   ]
 }

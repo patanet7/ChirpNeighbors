@@ -1,0 +1,213 @@
+{
+  "$ref": "#/definitions/CommonMotionV1",
+  "definitions": {
+    "CommonMotionV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "geometryScope": {
+          "type": "string",
+          "const": "image-registration-only"
+        },
+        "physicalSupportReviewed": {
+          "type": "boolean",
+          "const": false
+        },
+        "idleSequence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "idle",
+              "blink",
+              "look"
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 8
+        },
+        "clips": {
+          "type": "object",
+          "properties": {
+            "blink": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "enum": [
+                    "blink",
+                    "look"
+                  ]
+                },
+                "loop": {
+                  "type": "boolean"
+                },
+                "poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "durationTicks": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 300
+                      },
+                      "pivot": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 256
+                          },
+                          "y": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 256
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "y"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "contacts": {
+                        "type": "array",
+                        "items": {
+                          "not": {}
+                        },
+                        "minItems": 0,
+                        "maxItems": 0
+                      },
+                      "poseId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160,
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                      },
+                      "rotation": {
+                        "type": "number",
+                        "const": 0
+                      }
+                    },
+                    "required": [
+                      "frame",
+                      "durationTicks",
+                      "pivot",
+                      "contacts",
+                      "poseId",
+                      "rotation"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 32
+                }
+              },
+              "required": [
+                "name",
+                "loop",
+                "poses"
+              ],
+              "additionalProperties": false
+            },
+            "look": {
+              "$ref": "#/definitions/CommonMotionV1/properties/clips/properties/blink"
+            }
+          },
+          "required": [
+            "blink",
+            "look"
+          ],
+          "additionalProperties": false
+        },
+        "poseGraph": {
+          "type": "object",
+          "properties": {
+            "nodes": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160,
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                  },
+                  "frame": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 63
+                  },
+                  "clip": {
+                    "$ref": "#/definitions/CommonMotionV1/properties/clips/properties/blink/properties/name"
+                  },
+                  "referenceId": {
+                    "$ref": "#/definitions/CommonMotionV1/properties/poseGraph/properties/nodes/items/properties/id"
+                  }
+                },
+                "required": [
+                  "id",
+                  "frame",
+                  "clip",
+                  "referenceId"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 2,
+              "maxItems": 64
+            },
+            "edges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "from": {
+                    "$ref": "#/definitions/CommonMotionV1/properties/poseGraph/properties/nodes/items/properties/id"
+                  },
+                  "to": {
+                    "$ref": "#/definitions/CommonMotionV1/properties/poseGraph/properties/nodes/items/properties/id"
+                  }
+                },
+                "required": [
+                  "from",
+                  "to"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 128
+            }
+          },
+          "required": [
+            "nodes",
+            "edges"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "geometryScope",
+        "physicalSupportReviewed",
+        "idleSequence",
+        "clips",
+        "poseGraph"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/common-motion-v1.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

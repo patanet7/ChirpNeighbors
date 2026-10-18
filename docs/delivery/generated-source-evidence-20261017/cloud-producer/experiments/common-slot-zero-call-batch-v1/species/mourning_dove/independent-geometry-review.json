@@ -1,0 +1,267 @@
+{
+  "reviewerId": "/root/new_three_species",
+  "scope": "Independent normal-yard geometry/temporal and look source usefulness",
+  "sealedUTC": "2026-10-18T03:14:53.413677+00:00",
+  "otherNewAppearanceReviewReadBeforeSeal": false,
+  "preregistration": "../../PREREGISTRATION.json",
+  "criteriaChanged": false,
+  "verdicts": {
+    "native-look": {
+      "sourceUseful": false,
+      "disposition": "HELD",
+      "reason": "Head turn is real, but body envelope grows118\u00d768\u2192132\u00d785 and foot/belly baseline shifts visibly. At normal192 staging the bird pops larger/lower on entry and reverse, so it is not a quiet stationary look.",
+      "needs": "Matched-scale viewer-look drawing if this direction is required; no re-fit or snap."
+    },
+    "neck-bend": {
+      "sourceUseful": true,
+      "disposition": "PROVISIONAL_DOWNWARD_ATTENTION_LOOK",
+      "reason": "Recognizable forward/down head and neck flexion reads at normal size during0.6s. Tail/torso and grounded foot region stay coherent, without a conspicuous whole-body scale change or sliding stance. Bill remains raised and requires no water/object contact. Minor contour/toe redraw retained.",
+      "limits": "Attention-only reuse of existing historical drinking-related source; no drinking/bathing or physical support claim."
+    },
+    "recovery": {
+      "sourceUseful": true,
+      "disposition": "PROVISIONAL_SUBTLE_DOWNWARD_ATTENTION_ALTERNATIVE",
+      "reason": "Shallower lowered/forward head and bill position is a genuine attention change versus awake while torso/feet remain coherent. This is subtler than neck-bend, but readable on a large Dove during0.6s and not merely translating/bobbing the sprite.",
+      "limits": "Quiet attention alternate only, not a complete recovery/drinking behavior. Prefer neck-bend as stronger first candidate."
+    }
+  },
+  "recommendedFirstLook": "neck-bend",
+  "uniqueSourceLookSlotGainProposed": 1,
+  "usefulCandidateCount": 2,
+  "candidateCountIsNotUniqueSlotCount": true,
+  "sourceIDMapping": [
+    {
+      "role": "neutral",
+      "registeredSourceID": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81"
+    },
+    {
+      "role": "native-look",
+      "registeredSourceID": "frame.sha256.c8cdf30829ae47720e66fc65cc44abd25574445fb5d2c35401c4ef74e59cce98"
+    },
+    {
+      "role": "neck-bend",
+      "registeredSourceID": "frame.sha256.6d37dd4147c8a7864ca401e13043145c442b8df752318d799a4b3039c8cf4a66"
+    },
+    {
+      "role": "recovery",
+      "registeredSourceID": "frame.sha256.1f46f3e4982aebc402b0ba16d880fb0e38d9fb8b1577fc07314f9ce447617eff"
+    }
+  ],
+  "geometryAndPackaging": [
+    "Common192world/density1, zero-only crop136\u00d789 at22,73 and pivot83,77 preserve old root105,150 for every frame; no per-pose fit, paint or snap.",
+    "Native-look actual full bounds and visible foot/body pop are the failure basis; exact bodyRGBA equality is not required for other candidates.",
+    "Neck-bend/recovery are eligible only as object-independent downward attention. Their historical drinking labels do not impose water contact in this source-only look use. Gait, body bob and static translation do not count.",
+    "Contacts remain empty; rendered toe/foot regions and image root are not calibrated sole/pressure or ground support."
+  ],
+  "timing": {
+    "scheduleTicks": [
+      60,
+      18,
+      12
+    ],
+    "tickRate": 30,
+    "loop": false,
+    "poseHalfOpenTicks": [
+      60,
+      78
+    ],
+    "returnTick": 78,
+    "terminalHoldTick": 89,
+    "actualThreeClipsTested": [
+      {
+        "id": "native-look",
+        "midTick": 60,
+        "midRole": "native-look",
+        "terminalTick": 89,
+        "terminalRole": "neutral",
+        "runningAtTerminal": false
+      },
+      {
+        "id": "neck-bend",
+        "midTick": 60,
+        "midRole": "neck-bend",
+        "terminalTick": 89,
+        "terminalRole": "neutral",
+        "runningAtTerminal": false
+      },
+      {
+        "id": "recovery",
+        "midTick": 60,
+        "midRole": "recovery",
+        "terminalTick": 89,
+        "terminalRole": "neutral",
+        "runningAtTerminal": false
+      }
+    ],
+    "boundaries": [
+      {
+        "id": "native-look",
+        "tick": 59,
+        "role": "neutral"
+      },
+      {
+        "id": "native-look",
+        "tick": 60,
+        "role": "native-look"
+      },
+      {
+        "id": "native-look",
+        "tick": 77,
+        "role": "native-look"
+      },
+      {
+        "id": "native-look",
+        "tick": 78,
+        "role": "neutral"
+      },
+      {
+        "id": "native-look",
+        "tick": 89,
+        "role": "neutral"
+      },
+      {
+        "id": "neck-bend",
+        "tick": 59,
+        "role": "neutral"
+      },
+      {
+        "id": "neck-bend",
+        "tick": 60,
+        "role": "neck-bend"
+      },
+      {
+        "id": "neck-bend",
+        "tick": 77,
+        "role": "neck-bend"
+      },
+      {
+        "id": "neck-bend",
+        "tick": 78,
+        "role": "neutral"
+      },
+      {
+        "id": "neck-bend",
+        "tick": 89,
+        "role": "neutral"
+      },
+      {
+        "id": "recovery",
+        "tick": 59,
+        "role": "neutral"
+      },
+      {
+        "id": "recovery",
+        "tick": 60,
+        "role": "recovery"
+      },
+      {
+        "id": "recovery",
+        "tick": 77,
+        "role": "recovery"
+      },
+      {
+        "id": "recovery",
+        "tick": 78,
+        "role": "neutral"
+      },
+      {
+        "id": "recovery",
+        "tick": 89,
+        "role": "neutral"
+      }
+    ],
+    "limits": "Authored0.6s pose study and exact awake return, not full action/motion or biological timing."
+  },
+  "verification": {
+    "frozenCount": 61,
+    "ledgerSHA256": "3b1fbea7ee00fc728ae3b462e8386113c58ef0d6ca87b041e2d5d5a13b8c3f6a",
+    "allFrozenAndCandidatePNGHashesExactBeforeAfter": true,
+    "structuralReceiptsExistingPASS": [
+      {
+        "id": "native-look",
+        "receiptSHA256": "205aada9d5d92d88ae9db3392597ad7a233c61319d6f23163c7c02e731e23ca9",
+        "status": "PASS exact canonical pixel normalization subset"
+      },
+      {
+        "id": "neck-bend",
+        "receiptSHA256": "42450af9c4d8080625e5125b93edf45128e237f7f35ca9fe20aee34487628209",
+        "status": "PASS exact canonical pixel normalization subset"
+      },
+      {
+        "id": "recovery",
+        "receiptSHA256": "c159c4fdbd6c9388588b228a76f8acaccfc76e6b389cc00046482546aeb10503",
+        "status": "PASS exact canonical pixel normalization subset"
+      }
+    ],
+    "canonicalJSONBudgetReceiptSHA256": "14b29728e88a5be9fff4b1487f358f0445d3270e36923f45c30629a3bf827e4f",
+    "noCodecOrCapsRerun": true,
+    "normalCanvas": {
+      "backing": [
+        192,
+        192
+      ],
+      "CSS": [
+        "192px",
+        "192px"
+      ],
+      "DPR": 1
+    },
+    "pageErrors": [],
+    "method": "Existing exact candidate PNGs, normal192 browser renderer and raw/codec light/dark playback. Memory-only image diagnostics; no screenshot files or image payloads retained. No continuous video/Mac observation claim.",
+    "memoryCaptureMetadataOnly": [
+      {
+        "id": "native-look",
+        "tick": 0,
+        "sha256": "f48d43f4cd0bc14e2d7449d1766ff26f457c652da59e2e1dbf8517a4d36bb05e",
+        "dimensions": [
+          590,
+          523
+        ],
+        "UTC": "2026-10-18T03:12:16.435062+00:00",
+        "storedFile": false
+      },
+      {
+        "id": "native-look",
+        "tick": 65,
+        "sha256": "b54cec95b74eab3c6b41485e84a0320cb2809f287cf60225c27c29ea3b46444b",
+        "dimensions": [
+          590,
+          523
+        ],
+        "UTC": "2026-10-18T03:12:16.511699+00:00",
+        "storedFile": false
+      },
+      {
+        "id": "neck-bend",
+        "tick": 65,
+        "sha256": "4ec9e57b1ab88bd26bb8a10fbd63981225b4a98e15ef797bddaf2ee273dc6127",
+        "dimensions": [
+          590,
+          523
+        ],
+        "UTC": "2026-10-18T03:12:19.611787+00:00",
+        "storedFile": false
+      },
+      {
+        "id": "recovery",
+        "tick": 65,
+        "sha256": "f3d6cdef1b121970b02c9e265332e592a16efc272d1155a3b2aa56d3664a1f8b",
+        "dimensions": [
+          590,
+          523
+        ],
+        "UTC": "2026-10-18T03:12:22.711483+00:00",
+        "storedFile": false
+      }
+    ]
+  },
+  "runtimeDisposition": "NOT_SUBMITTED_NOT_TESTED",
+  "contacts": [],
+  "geometryReviewedRuntime": false,
+  "supportWorld": null,
+  "physicalSupportApproved": false,
+  "newCalls": 0,
+  "newDrawings": 0,
+  "frozenSourceEdits": 0,
+  "generalization": "Existing same-species reuse only; no model superiority or universal pixel quota."
+}
