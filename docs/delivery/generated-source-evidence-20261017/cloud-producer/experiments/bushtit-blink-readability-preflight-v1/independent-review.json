@@ -1,0 +1,694 @@
+{
+  "reviewType": "independent-normal-size-appearance-and-useful-clip-review",
+  "experimentId": "BUSHTIT-existing-readability-preflight-1",
+  "reviewer": "slot_inventory",
+  "sealedAtUTC": "2026-10-18T02:58:52.658423+00:00",
+  "scope": "Existing source reuse/direct64 readability preflight; not a model comparison.",
+  "independence": {
+    "otherIndependentRoleReadBeforeVerdict": false,
+    "sourceVerdictSentToCoordinatorBeforeWriting": true,
+    "noMethodWinnerInspectedOrInferredAsAcceptance": true
+  },
+  "frozen": {
+    "ledger": "review-target-hashes.json",
+    "SHA256": "1e1512bba25701f59090e51d3f7f6f580db829584ef390c3ff9b209e22951083",
+    "stableGO": "STABLE-GO.json",
+    "stableGOSHA256": "cf251240caa373ec5bfdeefb7eef22c5d5971284b7de48cda82ee580e15fc4ba",
+    "targetCount": 32,
+    "verifiedBefore": 32,
+    "verifiedAfter": 32,
+    "failures": []
+  },
+  "criteria": {
+    "file": "PREREGISTRATION.json",
+    "SHA256": "30f7ffdf329398477268a43ee4d443bcb252d55e4c9928a032889471dd8e08f9",
+    "criticalCriterion": "Independent clear closed-eye recognition at64CSS during100ms on light/dark. Enlarged crops and difference hashes cannot substitute.",
+    "criteriaChanged": false,
+    "sameNormalSizeAndClockForRawCodec": true
+  },
+  "sourceIdentity": [
+    {
+      "role": "awake",
+      "registeredID": "frame.sha256.1f5654e2fe3ec1717eeffc5c6ae3382b1c26518bd0db956fb5310ccd143434b2",
+      "source": "sources/awake-source1024.png"
+    },
+    {
+      "role": "closed",
+      "registeredID": "frame.sha256.9a5d88903a9df569d5a2fa27f6157a261506236f6c0ed1f44b56221f5710210b",
+      "source": "sources/closed-native1254.png"
+    }
+  ],
+  "codecDerivativeIdentity": [
+    {
+      "role": "awake",
+      "png": "codec64/awake.png",
+      "PNGsha256": "f75f2fdad8d6c57e9b8ca8c68d17ee469edc7c245221a58f1d672c8b777ebee5",
+      "decodedRGBAId": "frame.sha256.7de9473e4ed8cdd2d2ccbc40995e5c212370558929d8bf65c49f9d7ea040de96"
+    },
+    {
+      "role": "closed",
+      "png": "codec64/closed.png",
+      "PNGsha256": "56904884b63b7abc519aef90e6583daf99e0df48012b91bff22ae89368720892",
+      "decodedRGBAId": "frame.sha256.cb1f751f14de98dd1b8646591055f7936ce3dd56f9a88bd7dbe01343a9f2cf12"
+    }
+  ],
+  "normalPresentation": {
+    "worldCanvas": [
+      64,
+      64
+    ],
+    "actualCanvasCSS": [
+      64,
+      64
+    ],
+    "density": 1,
+    "DPR": 1,
+    "rootWorld": [
+      38,
+      50
+    ],
+    "visibleBirdWidthApproxWorld": [
+      27,
+      28
+    ],
+    "backgrounds": [
+      "light",
+      "dark"
+    ],
+    "scheduleTicks": [
+      60,
+      3,
+      27
+    ],
+    "tickRate": 30,
+    "closedDurationMs": 100,
+    "loop": false,
+    "legacy": "Existing96 pair shown at64CSS retained only as held diagnostic baseline.",
+    "normalAndEnlargedSheet": "normal64-and-eye-diagnostic.png",
+    "sheetSHA256": "f100a7c7d2ca7021d2e4db955366d3ac1b653e1d23e892681e10fbbfe2a81078",
+    "enlargementUsedForAcceptance": false
+  },
+  "appearanceVerdicts": {
+    "raw64": {
+      "state": "HELD",
+      "sourceClipUseful": false,
+      "usableClipYield": 0,
+      "possibleClipCount": 1,
+      "soleNewAdmissionCandidate": false,
+      "reason": "At actual64CSS on light and dark, the tiny eye-area change is not confidently identifiable as eyelid closure during the actual100ms phase. Enlarged pixels show a real change, but cannot establish normal-size semantic readability.",
+      "stanceIdentity": "Broad identity, body scale and stance remain coherent; minor head/feather/toe detail changes are not the rejection gate.",
+      "cleanupEffect": "Direct source sampling retains real source eye changes but does not make the normal100ms cue unambiguous.",
+      "frames": [
+        {
+          "role": "awake",
+          "PNG": "raw64/awake.png",
+          "PNGsha256": "dc9cdeac32340321119209e261ac664f79bcbb084f17d08c72611c2e49495000"
+        },
+        {
+          "role": "closed",
+          "PNG": "raw64/closed.png",
+          "PNGsha256": "0406856554eed78e0d2707fb80a2ccdda0ac02d6f09db5eff67495d8382d3520"
+        }
+      ],
+      "runtimeSubmission": "NOT_SUBMITTED",
+      "runtimeTesting": "NOT_TESTED",
+      "actualRuntimeYield": null,
+      "runtimeReason": "Source-readability criterion failed; no current Mac runtime trial performed."
+    },
+    "codec64": {
+      "state": "HELD",
+      "sourceClipUseful": false,
+      "usableClipYield": 0,
+      "possibleClipCount": 1,
+      "soleNewAdmissionCandidate": true,
+      "reason": "At actual64CSS on light and dark, the tiny eye-area change is not confidently identifiable as eyelid closure during the actual100ms phase. Enlarged pixels show a real change, but cannot establish normal-size semantic readability.",
+      "stanceIdentity": "Broad identity, body scale and stance remain coherent; minor head/feather/toe detail changes are not the rejection gate.",
+      "cleanupEffect": "Firmer thresholded silhouette and reduced palette do not provide a distinct normal-size closed-lid cue.",
+      "frames": [
+        {
+          "role": "awake",
+          "PNG": "codec64/awake.png",
+          "PNGsha256": "f75f2fdad8d6c57e9b8ca8c68d17ee469edc7c245221a58f1d672c8b777ebee5"
+        },
+        {
+          "role": "closed",
+          "PNG": "codec64/closed.png",
+          "PNGsha256": "56904884b63b7abc519aef90e6583daf99e0df48012b91bff22ae89368720892"
+        }
+      ],
+      "runtimeSubmission": "NOT_SUBMITTED",
+      "runtimeTesting": "NOT_TESTED",
+      "actualRuntimeYield": null,
+      "runtimeReason": "Source-readability criterion failed; no current Mac runtime trial performed."
+    }
+  },
+  "decisiveFinding": "Both direct64 raw and common-palette/binary-alpha codec remain HELD,0/1 useful blink clips each. A small face/eye pixel change is visible under scrutiny, but not an unambiguous closed-eye cue during the normal100ms interval. The codec is structurally cleaner without resolving the semantic failure.",
+  "continuity": "Same broad bird identity, scale and quiet stance are retained. Small feather/toe changes do not alone cause rejection; exact pixel equality and numeric bounds are not semantic gates. No root translation/bob, eye paint, pose fit, snap, crop or time extension is used by this review.",
+  "diagnosticLimits": "Eye ROI dark-pixel coordinates are not tracked eyelid masks; some may be beak/head. Matching27x18 opaque bounds and small foot ROI differences do not prove physical support. Positive alpha is not pressure or grip. The normal-size eye ambiguity, rather than numeric mismatches, is the held reason.",
+  "liveEvidence": {
+    "viewer": "review.html",
+    "viewerSHA256": "7da542eba12e12450bdbc72263537cd2a868ecbcf186b31ffb30ecb58607c2bb",
+    "playerSHA256": "5d05b4bdc70d2dd21470d132b2055541b002ebf6703681c4da56e4aee20e6580",
+    "API": "BUSHTIT_PREFLIGHT",
+    "canvases": [
+      {
+        "id": "legacy-light",
+        "backing": [
+          64,
+          64
+        ],
+        "css": [
+          64,
+          64
+        ]
+      },
+      {
+        "id": "raw64-light",
+        "backing": [
+          64,
+          64
+        ],
+        "css": [
+          64,
+          64
+        ]
+      },
+      {
+        "id": "codec64-light",
+        "backing": [
+          64,
+          64
+        ],
+        "css": [
+          64,
+          64
+        ]
+      },
+      {
+        "id": "legacy-dark",
+        "backing": [
+          64,
+          64
+        ],
+        "css": [
+          64,
+          64
+        ]
+      },
+      {
+        "id": "raw64-dark",
+        "backing": [
+          64,
+          64
+        ],
+        "css": [
+          64,
+          64
+        ]
+      },
+      {
+        "id": "codec64-dark",
+        "backing": [
+          64,
+          64
+        ],
+        "css": [
+          64,
+          64
+        ]
+      }
+    ],
+    "pausedControlTicks": [
+      0,
+      59,
+      60,
+      61,
+      62,
+      63,
+      89
+    ],
+    "episodes": [
+      [
+        {
+          "tick": 0,
+          "elapsedMs": 0,
+          "running": true,
+          "phase": "awake",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 60,
+          "elapsedMs": 2012.0000000000464,
+          "running": true,
+          "phase": "closed",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 61,
+          "elapsedMs": 2062.0000000000464,
+          "running": true,
+          "phase": "closed",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 62,
+          "elapsedMs": 2078.7000000000467,
+          "running": true,
+          "phase": "closed",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 63,
+          "elapsedMs": 2112.0000000000464,
+          "running": true,
+          "phase": "awake",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 89,
+          "elapsedMs": 3012.0000000000464,
+          "running": false,
+          "phase": "awake",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        }
+      ],
+      [
+        {
+          "tick": 0,
+          "elapsedMs": 0,
+          "running": true,
+          "phase": "awake",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 60,
+          "elapsedMs": 2011.1000000000467,
+          "running": true,
+          "phase": "closed",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 61,
+          "elapsedMs": 2044.400000000047,
+          "running": true,
+          "phase": "closed",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 62,
+          "elapsedMs": 2077.700000000046,
+          "running": true,
+          "phase": "closed",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 63,
+          "elapsedMs": 2111.0000000000464,
+          "running": true,
+          "phase": "awake",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        {
+          "tick": 89,
+          "elapsedMs": 3011.0000000000464,
+          "running": false,
+          "phase": "awake",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        }
+      ]
+    ],
+    "transientInMemoryInspectionWindows": [
+      {
+        "phase": "live-awake",
+        "before": {
+          "tick": 0,
+          "elapsedMs": 0,
+          "running": true,
+          "phase": "awake",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        "after": {
+          "tick": 1,
+          "elapsedMs": 45.500000000046555,
+          "running": true,
+          "phase": "awake",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        }
+      },
+      {
+        "phase": "live-closed",
+        "before": {
+          "tick": 60,
+          "elapsedMs": 2012.0000000000464,
+          "running": true,
+          "phase": "closed",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        },
+        "after": {
+          "tick": 61,
+          "elapsedMs": 2062.0000000000464,
+          "running": true,
+          "phase": "closed",
+          "canvasWorld": [
+            64,
+            64
+          ],
+          "rootWorld": [
+            38,
+            50
+          ],
+          "scheduleTicks": [
+            60,
+            3,
+            27
+          ],
+          "tickRate": 30,
+          "loop": false,
+          "terminalTick": 89,
+          "sourceStudy": true,
+          "runtimeAdmission": false
+        }
+      }
+    ],
+    "closedTicks": [
+      60,
+      61,
+      62
+    ],
+    "returnTick": 63,
+    "terminalTick": 89,
+    "terminalHeldThroughMs": 3000,
+    "pageErrors": [],
+    "captureFilesSaved": 0,
+    "captureBytesInPacket": 0
+  },
+  "structuralEvidence": {
+    "receipt": "structural-receipt.json",
+    "SHA256": "8df33437b5f64d64b25d0eb08e4c6a03f147a154b75d961ac278842b3cbb83ff",
+    "status": "PASS per frozen shared current canonical receipt; export/caps not rerun by appearance reviewer",
+    "sharedRunnerSHA256": "5317b37dbd7229f7e0cf62302f70ad526890c99b56b2c0704b441cebfcb141e7",
+    "canonicalHead": "3b20073eb96dc9e1d7385746dcfd8316eed85641",
+    "rectangles": 311,
+    "decodedArea": 8192,
+    "exactRGBAReconstruction": true,
+    "actualCanonicalErrorNegativeControl": true,
+    "canonicalJSONReceiptSHA256": "0822aba3d0d168eb432025159e83f35ae62c44eb505b6b94511cf0d10291037f",
+    "rawCanonicalJSONBytes": 67986,
+    "compactCanonicalJSONBytes": 1522,
+    "fullProductionSchemaValidation": false
+  },
+  "recommendation": {
+    "codec64SourceAdmission": "HELD; do not submit this blink clip as useful source. Retain the bounded zero-call preflight and unchanged originals.",
+    "rawUsefulClipYield": 0,
+    "codecUsefulClipYield": 0,
+    "runtimeSubmission": "NOT_SUBMITTED",
+    "runtimeTesting": "NOT_TESTED",
+    "runtimeYield": null,
+    "automaticRetryOrGeneration": false
+  },
+  "admission": {
+    "acceptedUsefulBlinkClips": 0,
+    "currentMacRuntimeTest": "NOT_TESTED",
+    "runtimeSubmission": "NOT_SUBMITTED",
+    "currentMacSchema": "UNKNOWN",
+    "geometryReviewed": false,
+    "supportWorld": null,
+    "contacts": [],
+    "physicalSupportApproved": false,
+    "activeBindingsChanged": false
+  },
+  "priorOrioleResult": {
+    "AUsableClips": 0,
+    "APossibleClips": 1,
+    "BUsableClips": 0,
+    "BPossibleClips": 1,
+    "winner": null,
+    "superiorityClaim": false
+  },
+  "mutations": {
+    "newNativeCalls": 0,
+    "newPrimaryDrawingIDs": 0,
+    "sourceChanges": false,
+    "globalChanges": false,
+    "onlyAdded": [
+      "independent-review.json",
+      "independent-review.md"
+    ],
+    "all32FrozenTargetsUnchanged": true
+  }
+}
