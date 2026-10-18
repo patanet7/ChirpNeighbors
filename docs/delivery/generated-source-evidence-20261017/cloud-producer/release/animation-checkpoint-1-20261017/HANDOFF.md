@@ -61,3 +61,6 @@ sd20-california-quail-blink-v1: one actual new blink drawing + exact existing aw
 
 
 Stage51 source-only registration:166 native drawing IDs/58 original-prompt pairs. Added16 previously published sources; existing binding inventory remains its prior checkpoint byte-for-byte. No new accepted hop/bathing slot, runtime profile, support binding, or selected clip. Live queue execution remains coordinator-owned.
+
+
+Stage53 source-only registration:169 native drawing IDs/61 original-prompt pairs. Added3 previously published sources; existing binding inventory remains its prior checkpoint byte-for-byte. No new accepted hop/bathing slot, runtime profile, support binding, or selected clip. Live queue execution remains coordinator-owned.
