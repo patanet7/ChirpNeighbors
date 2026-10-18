@@ -1,0 +1,9 @@
+# Mourning Dove single-pose DIP pilot
+
+One native edit call produced one new1536×1024RGBA drawing. Original PNG/prompt/arguments/dispatch/return receipts are retained. Exact existing awake supplied in the shared576×384 conditioning reference is reused; no new neutral or full bath animation is claimed.
+
+The whole native3:2 canvas is reduced to144×96 by explicit nearest sample indices floor((index+0.5)*nativeEdge/outputEdge), copying straight RGBA bytes. Pillow's own nearest tie selections differed at2502pixels during the comparator check; the explicit index convention is authoritative and retained in export.py. No Sharp premultiplication, body fitting, painting, toe snapping, rescaling by pose bounds or alpha cleanup occurred. The identical crop[4,8,140,88] gives136×80, density1, pivot[77,76]. No positive-alpha output pixel is lost in this crop.
+
+The new pose is a real low body/neck dip. Old alpha128 envelope118×68 versus new123×42 shows much better framing than the failed six-cell V1, but is not anatomical scale acceptance. New foot-region pixels sit at y80/79 against proposedfloor84, while inherited toe markers now have zero alpha. The bill-region sample129,79 is onepixel below the illustrativewater78. Contact regions/markers are diagnostic; contacts=[], geometryReviewed=false and supportWorld=null. No calibrated bath geometry or accepted event schema was supplied.
+
+Open review.html for exact-size light/dark comparison, enlarged feet/head and a one-shot old/dip/old APNG. The2800ms proof timing is authored comparison only. Current producer status is HELD for parent pilot review; no support/full bathing/runtime admission, automatic retry or settle generation is authorized by this packet. Existing V1 files were untouched. This folder has no Git/global queue/bank/Library writes. Only an existing generated image was conditioned; generated-reference rights remain unreviewed, no third-party photo pixels used. Root owns any next action.

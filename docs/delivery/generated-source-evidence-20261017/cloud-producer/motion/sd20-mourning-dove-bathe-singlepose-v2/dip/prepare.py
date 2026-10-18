@@ -1,0 +1,18 @@
+from pathlib import Path
+import json,hashlib,datetime
+p=Path(__file__).parent
+ref=p.parent/'shared/conditioning-awake576x384.png'
+prompt='''Edit this exact Mourning Dove reference into ONE grounded shallow-bath DIP pose. This is a single pose pilot, not an atlas. Return a transparent RGBA image with EXACTLY the same 3:2 whole-canvas composition/aspect as the576x384 reference. No panels or extra birds.
+
+LOCK THE INDIVIDUAL SCALE AND FRAMING. The reference is a whole144x96 logical pixel canvas enlarged4x without changing RGBA pixels. Preserve its same individual bird, head/torso/limb anatomical size, detailed naturalistic pixel-art clusters, warm gray-brown plumage, dark spotted folded wing, slim long pointed tail, dark bill and eye, and pink legs. Do NOT zoom the bird, recenter it, fit its body to the output, or make it fill the canvas. At logical144x96 the old individual is about118pixels long; retain comparable anatomical scale while changing the pose. Keep the whole canvas and margins, scaling the entire composition uniformly only if the native output resolution differs.
+
+ACTUAL NEW ACTION: one low grounded bathing dip. Lower and flex the body and neck naturally, angle the head forward/down so the dark bill reaches toward logical image water y78. The toes remain near logical y83 just above the authored floor y84, roughly x73 and92 as in the reference; root/image pivot stays[81,84]. Bend limbs/neck and lower the chest with real new anatomy, rather than translating the standing bird. Keep folded wings close, the tail balanced behind, and make the dipped bill readable. Keep the foot-support zone near the exact existing baseline rather than growing longer legs or lifting the entire body. The plane is only a layout guide, not something to draw.
+
+EVERY VISIBLE PART must remain safely inside the SAME logical inner crop x4..139,y8..87 of the144x96 canvas (equivalent x16..559,y32..351 in the576x384 reference). Preserve enough empty room around the bird; do not crop the bill/tail/toes or let any detached feather marks escape. Keep intentional connected feather clusters at actual pixel size, no random glitter/pale dots, no every-feather outline, no excessive darkness. Transparent empty background: no pool, water, splash, shadow, ground, environment, labels, grid or text. One bird only. Preserve quiet Mourning Dove identity and old framing over decorative detail. This is a new dip drawing only; do not return another neutral standing pose.'''
+(p/'prompt.txt').write_text(prompt)
+h=lambda f:hashlib.sha256(Path(f).read_bytes()).hexdigest()
+args={'prompt':prompt,'referenced_image_paths':[str(ref)],'transparent_background':True}
+def save(f,d):(p/f).write_text(json.dumps(d,indent=2)+'\n')
+save('native-call-arguments.json',{'tool':'image_gen.imagegen','arguments':args,'maxCalls':1,'automaticRetry':False})
+save('call-dispatch-receipt.json',{'batchId':'sd20-mourning-dove-bathe-singlepose-v2-dip','state':'DISPATCHING_ONE_AUTHORIZED_CALL','dispatchedUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'nativeCalls':1,'requestedNewDrawings':1,'promptBytes':len(prompt.encode()),'promptSHA256':h(p/'prompt.txt'),'nativeArgumentsSHA256':h(p/'native-call-arguments.json'),'reference':str(ref),'referenceSHA256':h(ref),'referenceContract':'../shared/reference-contract.json','referenceContractSHA256':h(p.parent/'shared/reference-contract.json'),'sourceOnly':True,'geometryReviewed':False,'supportWorld':None,'noAutomaticRetry':True})
+print(json.dumps({'promptBytes':len(prompt.encode()),'promptSHA256':h(p/'prompt.txt'),'referenceSHA256':h(ref),'argumentsSHA256':h(p/'native-call-arguments.json')}))

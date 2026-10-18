@@ -1,0 +1,144 @@
+{
+  "batchId": "sd20-house-finch-hop-v1",
+  "speciesId": "house_finch",
+  "renderClipId": "moving",
+  "newSourceHeld": true,
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "b5bb82fe2c063ca319dd18f2a59c6fb601c53bafbec9c66f68bd280d401ea30f",
+    "profile": "chirp-texture-review-v1",
+    "canonicalSchemaValidation": "NOT_RUN"
+  },
+  "atlasBinding": {
+    "file": "hop-atlas96.png",
+    "sha256": "c3a54ef55821d2634a2837d05dbaf9adc0b1432371491ba21acf259071a5ba78",
+    "width": 480,
+    "height": 96,
+    "alpha": "straight-rgba8"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "primarySourcePNG": "reference-awake-source1024.png",
+      "primarySourcePNGsha256": "bab4bfb8ffc82f533f776b1b6596b76b59c7fef2354615fc7fe0dfc495db1bca",
+      "newDrawing": false,
+      "renderFrameId": "finch-male-open-96",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "exact-awake96.png",
+      "outputPNGsha256": "861516935f36c32b486a1f0da2cb7171fd892e7f003b4b615a6c590ff7836974"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.a46742f11a5816eeefa838c2d2c640cdde08fab8ccbe8a8b25f1b71ec5a79985",
+      "primarySourcePNG": "cells627/compression.png",
+      "primarySourcePNGsha256": "fcb8c938897d57cfdadbb2aee4664255afff8371249ff2aef17a291f9d407628",
+      "newDrawing": true,
+      "renderFrameId": "finch-hop-compression-96",
+      "atlasRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "frames96/compression.png",
+      "outputPNGsha256": "21bcf4d6dced67d09e2d5d00385de6be92dc3c9703c65def6d236161686d2f8e"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.122d3b28e2de12daa24e36b75cb55ae750281f414d313e833303e775a173a7db",
+      "primarySourcePNG": "cells627/tucked-air.png",
+      "primarySourcePNGsha256": "4f0cf38fb238e82e47121392dc9c7f32232984e47962d3ad91e1fdff8404edaf",
+      "newDrawing": true,
+      "renderFrameId": "finch-hop-tucked-air-96",
+      "atlasRect": {
+        "x": 192,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "frames96/tucked-air.png",
+      "outputPNGsha256": "f71895686576586cba7e3a7d60acc2cf9f213bf365cfde41510e9a216e8abdfa"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.f0e35a3a41b1671d5f52141982738501a60082cd8cc85d6054555b6f89a8e401",
+      "primarySourcePNG": "cells627/landing-reach-air.png",
+      "primarySourcePNGsha256": "b48a6750262500dae003ffed3e630c672eaf8d92aa502290ad1be61dc705bc8e",
+      "newDrawing": true,
+      "renderFrameId": "finch-hop-landing-reach-air-96",
+      "atlasRect": {
+        "x": 288,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "frames96/landing-reach-air.png",
+      "outputPNGsha256": "5dba04f68bec70508bb81a7e6290330c88eb0d020341be8a6bfc29aeee6c3968"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.ef0f3b41511c5837ac87ff0565c98bed01da62dddee95b8eee445fed80693370",
+      "primarySourcePNG": "cells627/supported-settle.png",
+      "primarySourcePNGsha256": "d1453eb45b52efc08ee7f3b7a2b873f2a3a95789bb9d49bb0ce16402ef8c547c",
+      "newDrawing": true,
+      "renderFrameId": "finch-hop-supported-settle-96",
+      "atlasRect": {
+        "x": 384,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "frames96/supported-settle.png",
+      "outputPNGsha256": "38bc139a014f1f9225614c4d92feb7ab2fabf58587d31bec6df41e04c207e317"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "finch-male-open-96",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "moving",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "finch-male-open-96",
+          "durationTicks": 6
+        },
+        {
+          "frameId": "finch-hop-compression-96",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "finch-hop-tucked-air-96",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "finch-hop-landing-reach-air-96",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "finch-hop-supported-settle-96",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "finch-male-open-96",
+          "durationTicks": 12
+        }
+      ]
+    }
+  ],
+  "customMotionManifest": "motion-manifest.json",
+  "projectionScope": "HELD source posture family only; not active locomotion or neutral replacement",
+  "appBound": false,
+  "SharpCanonicalAdmission": false
+}

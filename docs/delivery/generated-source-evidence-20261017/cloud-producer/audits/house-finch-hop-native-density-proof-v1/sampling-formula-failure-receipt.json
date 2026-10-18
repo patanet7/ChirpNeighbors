@@ -1,0 +1,193 @@
+{
+  "status": "Resolved independent sampling-formula check failure; source/output pixels unchanged",
+  "initialAssumption": "floor((i+.5)*1024/96) using independent product for each i",
+  "failure": "17tie-boundary indices differ from actual Pillow12.3nearest due double accumulation. No source edit/retry/fitting used.",
+  "exactObservedAndReproducedMethod": "step=1024/96;position=step*.5;for output i: select int(position);position+=step (double floating accumulation)",
+  "differences": [
+    {
+      "outputIndex": 4,
+      "analyticProduct": 48,
+      "actualIterative": 47
+    },
+    {
+      "outputIndex": 16,
+      "analyticProduct": 176,
+      "actualIterative": 175
+    },
+    {
+      "outputIndex": 19,
+      "analyticProduct": 208,
+      "actualIterative": 207
+    },
+    {
+      "outputIndex": 22,
+      "analyticProduct": 240,
+      "actualIterative": 239
+    },
+    {
+      "outputIndex": 25,
+      "analyticProduct": 272,
+      "actualIterative": 271
+    },
+    {
+      "outputIndex": 61,
+      "analyticProduct": 656,
+      "actualIterative": 655
+    },
+    {
+      "outputIndex": 64,
+      "analyticProduct": 688,
+      "actualIterative": 687
+    },
+    {
+      "outputIndex": 67,
+      "analyticProduct": 720,
+      "actualIterative": 719
+    },
+    {
+      "outputIndex": 70,
+      "analyticProduct": 752,
+      "actualIterative": 751
+    },
+    {
+      "outputIndex": 73,
+      "analyticProduct": 784,
+      "actualIterative": 783
+    },
+    {
+      "outputIndex": 76,
+      "analyticProduct": 816,
+      "actualIterative": 815
+    },
+    {
+      "outputIndex": 79,
+      "analyticProduct": 848,
+      "actualIterative": 847
+    },
+    {
+      "outputIndex": 82,
+      "analyticProduct": 880,
+      "actualIterative": 879
+    },
+    {
+      "outputIndex": 85,
+      "analyticProduct": 912,
+      "actualIterative": 911
+    },
+    {
+      "outputIndex": 88,
+      "analyticProduct": 944,
+      "actualIterative": 943
+    },
+    {
+      "outputIndex": 91,
+      "analyticProduct": 976,
+      "actualIterative": 975
+    },
+    {
+      "outputIndex": 94,
+      "analyticProduct": 1008,
+      "actualIterative": 1007
+    }
+  ],
+  "exactSharedXandYIndices": [
+    5,
+    16,
+    26,
+    37,
+    47,
+    58,
+    69,
+    80,
+    90,
+    101,
+    112,
+    122,
+    133,
+    144,
+    154,
+    165,
+    175,
+    186,
+    197,
+    207,
+    218,
+    229,
+    239,
+    250,
+    261,
+    271,
+    282,
+    293,
+    304,
+    314,
+    325,
+    336,
+    346,
+    357,
+    368,
+    378,
+    389,
+    400,
+    410,
+    421,
+    432,
+    442,
+    453,
+    464,
+    474,
+    485,
+    496,
+    506,
+    517,
+    528,
+    538,
+    549,
+    560,
+    570,
+    581,
+    592,
+    602,
+    613,
+    624,
+    634,
+    645,
+    655,
+    666,
+    677,
+    687,
+    698,
+    709,
+    719,
+    730,
+    741,
+    751,
+    762,
+    773,
+    783,
+    794,
+    805,
+    815,
+    826,
+    837,
+    847,
+    858,
+    869,
+    879,
+    890,
+    901,
+    911,
+    922,
+    933,
+    943,
+    954,
+    965,
+    975,
+    986,
+    997,
+    1007,
+    1018
+  ],
+  "nativeCalls": 0,
+  "newDrawings": 0
+}

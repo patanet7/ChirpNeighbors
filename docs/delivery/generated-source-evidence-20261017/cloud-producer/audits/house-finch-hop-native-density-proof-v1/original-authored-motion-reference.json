@@ -1,0 +1,1055 @@
+{
+  "kind": "held-hop-motion-proposal",
+  "batchId": "sd20-house-finch-hop-v1",
+  "scope": "source-only",
+  "sourceHeld": true,
+  "useAsActiveSource": false,
+  "tickRate": 30,
+  "durationTicks": 30,
+  "sampleTickConvention": "frame-starts",
+  "poseClock": {
+    "tickRate": 30,
+    "clipId": "moving",
+    "sourceManifest": "texture-review-manifest.json",
+    "frames": [
+      {
+        "frameId": "finch-male-open-96",
+        "durationTicks": 6
+      },
+      {
+        "frameId": "finch-hop-compression-96",
+        "durationTicks": 3
+      },
+      {
+        "frameId": "finch-hop-tucked-air-96",
+        "durationTicks": 3
+      },
+      {
+        "frameId": "finch-hop-landing-reach-air-96",
+        "durationTicks": 3
+      },
+      {
+        "frameId": "finch-hop-supported-settle-96",
+        "durationTicks": 3
+      },
+      {
+        "frameId": "finch-male-open-96",
+        "durationTicks": 12
+      }
+    ]
+  },
+  "trajectoryClock": {
+    "rootOriginMeaning": "nominal inheritedpivot48,75,notvalidatednewbodyroot",
+    "distanceWorld": 16,
+    "apexHeightWorld": 8,
+    "authoringOnly": true,
+    "biologicalTimingObserved": false,
+    "horizontalInterpolation": "smoothstep over sixairbornesamples: u=(tick-9)/5,s=u\u00b2(3-2u)",
+    "verticalInterpolation": "100-8*4*u*(1-u); endpoints100,two interior samplesmax7.68lift; analytic apex8between sample11/12",
+    "airborneTicks": [
+      9,
+      15
+    ],
+    "supportedIntentRootsStationary": true,
+    "supportPlaneY": 100,
+    "supportPlaneStatus": "diagnostic proposal only; known source footplane mismatch retained",
+    "sourceRegistrationValid": false
+  },
+  "segments": [
+    {
+      "ticks": [
+        0,
+        6
+      ],
+      "poseFrameId": "finch-male-open-96",
+      "rootFrom": [
+        70,
+        100
+      ],
+      "rootTo": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound"
+    },
+    {
+      "ticks": [
+        6,
+        9
+      ],
+      "poseFrameId": "finch-hop-compression-96",
+      "rootFrom": [
+        70,
+        100
+      ],
+      "rootTo": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound"
+    },
+    {
+      "ticks": [
+        9,
+        15
+      ],
+      "poseFrameIds": [
+        "finch-hop-tucked-air-96",
+        "finch-hop-landing-reach-air-96"
+      ],
+      "rootFrom": [
+        70,
+        100
+      ],
+      "rootTo": [
+        86,
+        100
+      ],
+      "intendedSupportState": "airborne",
+      "supportState": "airborne"
+    },
+    {
+      "ticks": [
+        15,
+        18
+      ],
+      "poseFrameId": "finch-hop-supported-settle-96",
+      "rootFrom": [
+        86,
+        100
+      ],
+      "rootTo": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound"
+    },
+    {
+      "ticks": [
+        18,
+        30
+      ],
+      "poseFrameId": "finch-male-open-96",
+      "rootFrom": [
+        86,
+        100
+      ],
+      "rootTo": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound"
+    }
+  ],
+  "samples": [
+    {
+      "tick": 0,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            67,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            70,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 1,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            67,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            70,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 2,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            67,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            70,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 3,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            67,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            70,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 4,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            67,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            70,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 5,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            67,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            70,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 6,
+      "renderFrameId": "finch-hop-compression-96",
+      "sourceFrameId": "frame.sha256.a46742f11a5816eeefa838c2d2c640cdde08fab8ccbe8a8b25f1b71ec5a79985",
+      "rootWorld": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            82,
+            115
+          ],
+          "planeY100Delta": 15
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            96,
+            114
+          ],
+          "planeY100Delta": 14
+        }
+      ]
+    },
+    {
+      "tick": 7,
+      "renderFrameId": "finch-hop-compression-96",
+      "sourceFrameId": "frame.sha256.a46742f11a5816eeefa838c2d2c640cdde08fab8ccbe8a8b25f1b71ec5a79985",
+      "rootWorld": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            82,
+            115
+          ],
+          "planeY100Delta": 15
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            96,
+            114
+          ],
+          "planeY100Delta": 14
+        }
+      ]
+    },
+    {
+      "tick": 8,
+      "renderFrameId": "finch-hop-compression-96",
+      "sourceFrameId": "frame.sha256.a46742f11a5816eeefa838c2d2c640cdde08fab8ccbe8a8b25f1b71ec5a79985",
+      "rootWorld": [
+        70,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            82,
+            115
+          ],
+          "planeY100Delta": 15
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            96,
+            114
+          ],
+          "planeY100Delta": 14
+        }
+      ]
+    },
+    {
+      "tick": 9,
+      "renderFrameId": "finch-hop-tucked-air-96",
+      "sourceFrameId": "frame.sha256.122d3b28e2de12daa24e36b75cb55ae750281f414d313e833303e775a173a7db",
+      "rootWorld": [
+        70.0,
+        100.0
+      ],
+      "intendedSupportState": "airborne",
+      "supportState": "airborne",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            75.0,
+            108.0
+          ],
+          "planeY100Delta": 8.0
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            82.0,
+            106.0
+          ],
+          "planeY100Delta": 6.0
+        }
+      ]
+    },
+    {
+      "tick": 10,
+      "renderFrameId": "finch-hop-tucked-air-96",
+      "sourceFrameId": "frame.sha256.122d3b28e2de12daa24e36b75cb55ae750281f414d313e833303e775a173a7db",
+      "rootWorld": [
+        71.664,
+        94.88
+      ],
+      "intendedSupportState": "airborne",
+      "supportState": "airborne",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            76.664,
+            102.88
+          ],
+          "planeY100Delta": 2.8799999999999955
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            83.66399999999999,
+            100.88
+          ],
+          "planeY100Delta": 0.8799999999999955
+        }
+      ]
+    },
+    {
+      "tick": 11,
+      "renderFrameId": "finch-hop-tucked-air-96",
+      "sourceFrameId": "frame.sha256.122d3b28e2de12daa24e36b75cb55ae750281f414d313e833303e775a173a7db",
+      "rootWorld": [
+        75.632,
+        92.32
+      ],
+      "intendedSupportState": "airborne",
+      "supportState": "airborne",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            80.632,
+            100.32
+          ],
+          "planeY100Delta": 0.3199999999999932
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            87.632,
+            98.32
+          ],
+          "planeY100Delta": -1.6800000000000068
+        }
+      ]
+    },
+    {
+      "tick": 12,
+      "renderFrameId": "finch-hop-landing-reach-air-96",
+      "sourceFrameId": "frame.sha256.f0e35a3a41b1671d5f52141982738501a60082cd8cc85d6054555b6f89a8e401",
+      "rootWorld": [
+        80.368,
+        92.32
+      ],
+      "intendedSupportState": "airborne",
+      "supportState": "airborne",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            95.368,
+            89.32
+          ],
+          "planeY100Delta": -10.680000000000007
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            111.368,
+            82.32
+          ],
+          "planeY100Delta": -17.680000000000007
+        }
+      ]
+    },
+    {
+      "tick": 13,
+      "renderFrameId": "finch-hop-landing-reach-air-96",
+      "sourceFrameId": "frame.sha256.f0e35a3a41b1671d5f52141982738501a60082cd8cc85d6054555b6f89a8e401",
+      "rootWorld": [
+        84.336,
+        94.88
+      ],
+      "intendedSupportState": "airborne",
+      "supportState": "airborne",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            99.33600000000001,
+            91.88
+          ],
+          "planeY100Delta": -8.120000000000005
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            115.33600000000001,
+            84.88
+          ],
+          "planeY100Delta": -15.120000000000005
+        }
+      ]
+    },
+    {
+      "tick": 14,
+      "renderFrameId": "finch-hop-landing-reach-air-96",
+      "sourceFrameId": "frame.sha256.f0e35a3a41b1671d5f52141982738501a60082cd8cc85d6054555b6f89a8e401",
+      "rootWorld": [
+        86.0,
+        100.0
+      ],
+      "intendedSupportState": "airborne",
+      "supportState": "airborne",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            101.0,
+            97.0
+          ],
+          "planeY100Delta": -3.0
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            117.0,
+            90.0
+          ],
+          "planeY100Delta": -10.0
+        }
+      ]
+    },
+    {
+      "tick": 15,
+      "renderFrameId": "finch-hop-supported-settle-96",
+      "sourceFrameId": "frame.sha256.ef0f3b41511c5837ac87ff0565c98bed01da62dddee95b8eee445fed80693370",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            98,
+            104
+          ],
+          "planeY100Delta": 4
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            111,
+            103
+          ],
+          "planeY100Delta": 3
+        }
+      ]
+    },
+    {
+      "tick": 16,
+      "renderFrameId": "finch-hop-supported-settle-96",
+      "sourceFrameId": "frame.sha256.ef0f3b41511c5837ac87ff0565c98bed01da62dddee95b8eee445fed80693370",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            98,
+            104
+          ],
+          "planeY100Delta": 4
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            111,
+            103
+          ],
+          "planeY100Delta": 3
+        }
+      ]
+    },
+    {
+      "tick": 17,
+      "renderFrameId": "finch-hop-supported-settle-96",
+      "sourceFrameId": "frame.sha256.ef0f3b41511c5837ac87ff0565c98bed01da62dddee95b8eee445fed80693370",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            98,
+            104
+          ],
+          "planeY100Delta": 4
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            111,
+            103
+          ],
+          "planeY100Delta": 3
+        }
+      ]
+    },
+    {
+      "tick": 18,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 19,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 20,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 21,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 22,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 23,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 24,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 25,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 26,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 27,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 28,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    },
+    {
+      "tick": 29,
+      "renderFrameId": "finch-male-open-96",
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "rootWorld": [
+        86,
+        100
+      ],
+      "intendedSupportState": "supported",
+      "supportState": "unbound",
+      "contacts": [],
+      "footImageProjections": [
+        {
+          "id": "visible-foot-image-probe-1",
+          "world": [
+            83,
+            98
+          ],
+          "planeY100Delta": -2
+        },
+        {
+          "id": "visible-foot-image-probe-2",
+          "world": [
+            86,
+            99
+          ],
+          "planeY100Delta": -1
+        }
+      ]
+    }
+  ],
+  "supportWorld": null,
+  "contactOrLocomotionAccepted": false,
+  "loop": false,
+  "resetPolicy": "explicit buttonrestartteleportsstartonly; no seamlessloop claim",
+  "qualification": "Counterexample visualization of failed scale/contact pairing, not a physically valid hop. Native source body/footplacements change in addition to nominal authoredroot path."
+}

@@ -1,0 +1,21 @@
+{
+  "scope": "zero-call deterministic reference preparation; no generated body art or source mutation",
+  "failures": [
+    {
+      "action": "compare historical768crop\u2192NN144 with exactcurrent192\u2192crop144",
+      "outcome": "FAILED reference NN mismatch, exit1",
+      "reason": "Different decoded sample choices and alpha handling; exactcurrentawake pixels are authority",
+      "correction": "Keep historicalcrop diagnostic; condition from exactcurrent144crop upscaled4 by straightRGBA byte replication"
+    },
+    {
+      "action": "Sharp resize upscale4/downscale144 roundtrip",
+      "outcome": "FAILED reference NN mismatch, exit1",
+      "reason": "Partial-alpha resampling changes stored RGBA; no byteequal claim",
+      "correction": "Explicit straightRGBA channel-copy nearest; equality passed; referencecontract records sampler"
+    }
+  ],
+  "nativeImageCalls": 0,
+  "newDrawings": 0,
+  "denied": false,
+  "remainingBlocker": false
+}

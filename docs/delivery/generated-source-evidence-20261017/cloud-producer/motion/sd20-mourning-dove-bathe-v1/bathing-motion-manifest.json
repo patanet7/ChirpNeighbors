@@ -1,0 +1,165 @@
+{
+  "schema": "chirp-bathing-source-proposal-v1",
+  "speciesId": "mourning_dove",
+  "sourceStatus": "HELD",
+  "tickRate": 30,
+  "durationTicks": 135,
+  "loop": false,
+  "steps": [
+    {
+      "phase": "awake-entry",
+      "ticks": [
+        0,
+        24
+      ],
+      "renderFrameId": "dove-standing-0",
+      "primarySourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+      "supportState": "existing-standing-unbound"
+    },
+    {
+      "phase": "approach",
+      "ticks": [
+        24,
+        39
+      ],
+      "renderFrameId": "dove-bathe-approach-study-192",
+      "primarySourceFrameId": "frame.sha256.ffb0143996fd2d33aeb9af59e736a79bce9ba78062f8f16c8025f78be78c3b0a",
+      "supportState": "grounded-bath-proposal-unreviewed"
+    },
+    {
+      "phase": "settle",
+      "ticks": [
+        39,
+        57
+      ],
+      "renderFrameId": "dove-bathe-settle-study-192",
+      "primarySourceFrameId": "frame.sha256.68834dbbc1236aa3b8fc364fc433a1a5c79e800e81574007ba257f8637261cee",
+      "supportState": "grounded-bath-proposal-unreviewed"
+    },
+    {
+      "phase": "dip",
+      "ticks": [
+        57,
+        69
+      ],
+      "renderFrameId": "dove-bathe-dip-study-192",
+      "primarySourceFrameId": "frame.sha256.6a3ff0782941d3b7e8ee79fa561d413de1adc85de06f03fb2ec2982c972d2af3",
+      "supportState": "grounded-bath-proposal-unreviewed"
+    },
+    {
+      "phase": "wingflutter",
+      "ticks": [
+        69,
+        78
+      ],
+      "renderFrameId": "dove-bathe-wingflutter-study-192",
+      "primarySourceFrameId": "frame.sha256.66f900839317fd467d1d1d3fb5c9e0d2071c84416356b18fcd806c88d6c63190",
+      "supportState": "grounded-bath-proposal-unreviewed"
+    },
+    {
+      "phase": "shake",
+      "ticks": [
+        78,
+        87
+      ],
+      "renderFrameId": "dove-bathe-shake-study-192",
+      "primarySourceFrameId": "frame.sha256.783199b79de9a4f4d8cfada469bc43f9218162557369b1fe9dbc20e32d2b4bf9",
+      "supportState": "grounded-bath-proposal-unreviewed"
+    },
+    {
+      "phase": "exit-preen",
+      "ticks": [
+        87,
+        111
+      ],
+      "renderFrameId": "dove-bathe-exit-preen-study-192",
+      "primarySourceFrameId": "frame.sha256.5ccdf8fea3200f237b8d57b80d709790d74f5c4a01f58321064b6cf760ad51d7",
+      "supportState": "grounded-bath-proposal-unreviewed"
+    },
+    {
+      "phase": "awake-return",
+      "ticks": [
+        111,
+        135
+      ],
+      "renderFrameId": "dove-standing-0",
+      "primarySourceFrameId": "frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81",
+      "supportState": "existing-standing-unbound"
+    }
+  ],
+  "eventMarkers": [
+    {
+      "label": "approach-enter",
+      "tick": 24,
+      "status": "AUTHORED_PROPOSAL_UNBOUND_NOT_ACCEPTED_ENGINE_EVENT",
+      "physicalEventEmitted": false
+    },
+    {
+      "label": "settle",
+      "tick": 39,
+      "status": "AUTHORED_PROPOSAL_UNBOUND_NOT_ACCEPTED_ENGINE_EVENT",
+      "physicalEventEmitted": false
+    },
+    {
+      "label": "feet-planted",
+      "tick": 40,
+      "status": "AUTHORED_PROPOSAL_UNBOUND_NOT_ACCEPTED_ENGINE_EVENT",
+      "physicalEventEmitted": false
+    },
+    {
+      "label": "dip",
+      "tick": 57,
+      "status": "AUTHORED_PROPOSAL_UNBOUND_NOT_ACCEPTED_ENGINE_EVENT",
+      "physicalEventEmitted": false
+    },
+    {
+      "label": "beak-water",
+      "tick": 60,
+      "status": "UNSATISFIED_AT_PROPOSED_WATERPLANE",
+      "physicalEventEmitted": false
+    },
+    {
+      "label": "flutter",
+      "tick": 69,
+      "status": "AUTHORED_PROPOSAL_UNBOUND_NOT_ACCEPTED_ENGINE_EVENT",
+      "physicalEventEmitted": false
+    },
+    {
+      "label": "shake",
+      "tick": 78,
+      "status": "AUTHORED_PROPOSAL_UNBOUND_NOT_ACCEPTED_ENGINE_EVENT",
+      "physicalEventEmitted": false
+    },
+    {
+      "label": "exit",
+      "tick": 87,
+      "status": "AUTHORED_PROPOSAL_UNBOUND_NOT_ACCEPTED_ENGINE_EVENT",
+      "physicalEventEmitted": false
+    },
+    {
+      "label": "preen",
+      "tick": 93,
+      "status": "UNSUPPORTED_BY_OUTPUT_EXIT_KEY_NO_CLEAR_BILL_FEATHER_CONTACT",
+      "physicalEventEmitted": false
+    }
+  ],
+  "rootTrajectory": {
+    "file": "body-root-trajectory.json",
+    "sha256": "e214424f1b47badef73727d69441b19de7de2d2c4de1159d5b7b68f35e4279b9"
+  },
+  "frameMap": {
+    "file": "frame-to-action-map.json",
+    "sha256": "4eeb8f0c2c55cd2435502999a5fe57a543e73078cf621cd50b5b33516eaa5e93"
+  },
+  "newSourceDrawings": 6,
+  "reusedExactAwake": 1,
+  "uniqueFrames": 7,
+  "timedReferences": 8,
+  "claimedGeneratedLocomotion": false,
+  "geometryReviewed": false,
+  "supportWorld": null,
+  "actualBathGeometryProvided": false,
+  "acceptedBathEventSchemaProvided": false,
+  "sourceOnlyNoRuntimeAdmission": true,
+  "requestedVsObserved": "Phase names retain requested intent. Final exit/preen key is a raised-foot exit posture; clear bill-to-feather preening was not delivered. Dip/flutter/shake are isolated keys, not complete repeated bathing cycles."
+}

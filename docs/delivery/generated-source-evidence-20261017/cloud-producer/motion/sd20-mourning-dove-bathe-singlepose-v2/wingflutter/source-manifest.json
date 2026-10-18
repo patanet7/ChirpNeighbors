@@ -1,0 +1,89 @@
+{
+  "kind": "single-pose-bath-source-pilot-v2",
+  "pose": "wingflutter",
+  "nativeCalls": 1,
+  "newDrawings": 1,
+  "sourceStatus": "HELD unbound phase study; parent targeted framing gate passed, not full bathing or source/support admission",
+  "nativeRunning": false,
+  "automaticRetries": 0,
+  "original": {
+    "file": "original.png",
+    "sha256": "c482eae9a042f4ff889d5704e1716699309bd8ec913ddab07e3f867a594d7e8b",
+    "canvas": [
+      1536,
+      1024
+    ],
+    "RGBAsha256": "abf8e04a99aa63e5a3bab5fe8511a88d99afed5e4db172644583a106c6fb6be4"
+  },
+  "conditioning": {
+    "file": "../shared/conditioning-awake576x384.png",
+    "sha256": "aad8c5136f0b7423e127daf6034daacd19b7eb88f726ca54f3f38b68c857a394",
+    "contract": "../shared/reference-contract.json",
+    "contractSHA256Observed": "3cbf5be1ffdd1a89f4136ed238f1319360458f1fb6a4f5dc7840f8f87fce42e8"
+  },
+  "exports": [
+    {
+      "file": "wingflutter144x96.png",
+      "sha256": "ba8125a08a68c88b5c35a5a991b36926c8804e7a3ee8307a04fafec28b32de04",
+      "canvas": [
+        144,
+        96
+      ]
+    },
+    {
+      "file": "wingflutter136x80.png",
+      "sha256": "82d305578e6a392285d4838e53a73c3a453013bb34196fa9391cc5279430196b",
+      "canvas": [
+        136,
+        80
+      ]
+    }
+  ],
+  "conversion": "Exact Pillow nearest source-index maps, all4RGBA uint8 channel byte-copy. Then fixed[4,8,140,88] crop, no fitting/offset/body warp/paint/alpha cleanup. Known mathematical floor-center alternative differed; first failure receipt retained; exports frozen unchanged.",
+  "cropRetention": {
+    "allPositiveAlphaGate": "FAIL",
+    "positiveAlphaPixelsExcludedFrom136x80": 256,
+    "excludedAlpha1": 255,
+    "excludedAlpha2": 1,
+    "alphaGreaterThan8Excluded": 0,
+    "originalAndFull144Retained": true,
+    "interpretation": "Strict allRGBA runtimecrop retention fails. No visible bird/wing silhouette is clipped at alpha>8; no hidden erased source pixels."
+  },
+  "producerVisualObservation": "Actual compact raised bent-wing/crouched key, with recognizably warm Mourning Dove/black wing spots/long tail; no giant family enlargement seen in normal136world comparison. Alpha>128 envelope old118width vsnew122 includes changed wing silhouette; head/body exact scale not biologically certified. Lower raster baseline old83/new82 is not a sole contact. Warm diffuse alpha field and redraw remain.",
+  "parentNextPhaseGate": "Root directly viewed comparison and authorized one separate shake edit; this is not fullart/physics approval.",
+  "geometry": {
+    "sourceCanvas": [
+      144,
+      96
+    ],
+    "sourceNominalPivot": [
+      81,
+      84
+    ],
+    "sourceFloorY": 84,
+    "illustrativeWaterY": 78,
+    "runtimeCanvas": [
+      136,
+      80
+    ],
+    "runtimeNominalPivot": [
+      77,
+      76
+    ],
+    "density": 1,
+    "contacts": [],
+    "geometryReviewed": false,
+    "supportWorld": null
+  },
+  "reviewArtifacts": [
+    "light-dark-awake-comparison.png",
+    "export-verification.json",
+    "export-attempt-failure-receipt.json",
+    "review.html"
+  ],
+  "limits": [
+    "One source key, not a wing cycle or completed bathing action.",
+    "Any timing is authored; no biological rate, actual water interaction, pressure/grip or Mac support validation.",
+    "No q/framebank/Git/Library edits or native retries."
+  ]
+}

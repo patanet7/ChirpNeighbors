@@ -1,0 +1,19 @@
+from pathlib import Path
+import hashlib,json,datetime
+p=Path(__file__).parent;ref=p.parent/'shared/conditioning-awake576x384.png'
+prompt='''Edit the attached exact Mourning Dove into ONE new LOW WADING SETTLE pose for a shallow-bath source study. ONE bird, one pose, transparent RGBA. Return the SAME 3:2 whole-canvas composition as the576x384 reference; ideally1536x1024. No sprite atlas, panels, extra birds or scene.
+
+FIXED INDIVIDUAL AND FRAMING: the reference is an exact144x96 logical RGBA canvas enlarged4x. Preserve the same detailed naturalistic pixel-art individual, warm gray/tan Mourning Dove palette, small rounded head, slim dark bill/eye, dark-spotted folded wing, long pointed tail and pink legs. Preserve the same anatomical scale: old bird visible length about118 logical pixels. Keep the old whole-canvas composition and margins; do not zoom, recenter, enlarge the bird to fill the image, or fit each pose's bounding box. If native resolution differs, scale the ENTIRE144x96 composition uniformly, not the bird independently.
+
+ACTUAL SETTLE ACTION: lower the torso/chest into a comfortable crouched shallow-water wading settle while keeping BOTH feet down at the original baseline. Flex legs and body genuinely; modestly round/fluff the low chest and folded-wing feather mass. Keep head alert and modestly raised, bill forward, wings CLOSED against sides; no head-down dip, wing flutter or walking stride. Preserve readable leg/toe anatomy below the lowered body; do not lengthen legs or hide all toes. The same small individual is lowering through limb flexion, not becoming a larger bird or translating a static standing drawing.
+
+CONTACT LAYOUT IS CRITICAL: at logical144x96 the source floor is y84, old toe reference pixels are[73,83] and[92,83], and image pivot/root is[81,84]. Draw supported feet/toes near those exact zones, with lowest toe outlines around y83 so their pixel-area boundary meets illustrative floor84. Do not lift the entire foot set above the line. Keep the whole bird inside the fixed common inner crop x4..139,y8..87. The reference576x384 equivalent crop is x16..559,y32..351; floor336. These are invisible layout guides; do NOT draw a line or markers. Bath water guide y78 is illustrative only and must NOT be painted.
+
+Maintain intentional connected quiet pixel clusters, diagnostic dark wing spots and soft naturalistic plumage; avoid isolated bright dithering/glitter, dense feather outlines or needless darkness. Empty transparent background only: NO pool, water, splash, ground, shadow, text, labels, grid or decorations. No clipped tail/bill/toes or detached fragments. One real new settle drawing only; no new neutral.'''
+(p/'prompt.txt').write_text(prompt)
+h=lambda f:hashlib.sha256(Path(f).read_bytes()).hexdigest()
+args={'prompt':prompt,'referenced_image_paths':[str(ref)],'transparent_background':True}
+def save(f,d):(p/f).write_text(json.dumps(d,indent=2)+'\n')
+save('native-call-arguments.json',{'tool':'image_gen.imagegen','arguments':args,'maxCalls':1,'automaticRetry':False})
+save('call-dispatch-receipt.json',{'batchId':'sd20-mourning-dove-bathe-singlepose-v2-settle','state':'DISPATCHING_ONE_AUTHORIZED_CALL','dispatchedUTC':datetime.datetime.now(datetime.timezone.utc).isoformat(),'nativeCalls':1,'requestedNewDrawings':1,'promptBytes':len(prompt.encode()),'promptSHA256':h(p/'prompt.txt'),'nativeArgumentsSHA256':h(p/'native-call-arguments.json'),'reference':str(ref),'referenceSHA256':h(ref),'referenceContract':'../shared/reference-contract.json','referenceContractSHA256':h(p.parent/'shared/reference-contract.json'),'sourceOnly':True,'geometryReviewed':False,'supportWorld':None,'noAutomaticRetry':True})
+print(json.dumps({'promptBytes':len(prompt.encode()),'promptSHA256':h(p/'prompt.txt'),'argumentsSHA256':h(p/'native-call-arguments.json')}))

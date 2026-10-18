@@ -1,0 +1,84 @@
+{
+  "status": "PLANNED ONLY; zero native calls authorized in this preflight",
+  "speciesId": "house_finch",
+  "action": "one-shot short grounded hop proposal",
+  "referenceSourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+  "preserve": {
+    "individual": "same adultmale, head/breast red pattern, wing/tail texture, originalcanvas placement and individual scale",
+    "sourceCanvas": [
+      1024,
+      1024
+    ],
+    "outputCanvas": [
+      96,
+      96
+    ],
+    "density": 1,
+    "worldCanvas": [
+      96,
+      96
+    ],
+    "pivot": [
+      48,
+      75
+    ],
+    "newNeutral": false,
+    "newBlink": false,
+    "newLook": false,
+    "perPoseFit": false,
+    "translationAsNewDrawing": false
+  },
+  "proposedNewDrawings": [
+    {
+      "phase": "crouch-compression",
+      "supportState": "supported-proposal",
+      "actualRedrawRequired": "Folded ankle/knee stance and lower breast/body with same planted visible toes; not vertical translation of unchanged body.",
+      "contactGate": "Inspect actual toe pixels and anatomical plausibility; root stationary while supported."
+    },
+    {
+      "phase": "push-release/ascending-airborne",
+      "supportState": "airborne",
+      "actualRedrawRequired": "Body pitches/balances and legs flex/tuck clear of ground, distinct tail balance and foot silhouette.",
+      "contacts": []
+    },
+    {
+      "phase": "descending-landing-reach",
+      "supportState": "airborne",
+      "actualRedrawRequired": "Legs extend toward landing, actual foot/toe spread and body pitch change; no planted contacts before actual first support.",
+      "contacts": []
+    },
+    {
+      "phase": "supported-settle",
+      "supportState": "supported-proposal",
+      "actualRedrawRequired": "Real load/compression posture with visible supported feet, distinguish from airborne; neutral return gate independently reviewed.",
+      "contactGate": "Choose support after source pixels exist, never snap/paint markers or fake bilateral support."
+    }
+  ],
+  "reusedDrawings": [
+    {
+      "sourceFrameId": "frame.sha256.fb5f058c135a34076976050ba12327a9e120f1d98009954068eb91dff1f83b1b",
+      "role": "exact unchanged awake entry/return;0newdrawings"
+    }
+  ],
+  "callProposal": {
+    "maximumNativeCalls": 1,
+    "newDrawingsTarget": 4,
+    "state": "NOT_DISPATCHED",
+    "actualCallsThisAudit": 0,
+    "nextGate": "Coordinator decides bounded generation after preflight; no native call in this assignment."
+  },
+  "separateClocks": {
+    "poseClock": "30Hz authored schedule references exact new/reused primary IDs after generation; no timing asserted by this preflight",
+    "bodyTrajectoryClock": "Proposed forward16world, apex8world, root translation only while airborne. Planted crouch/settle roots stationary. Proposal parameters, not measured biology.",
+    "supportClock": "contacts[] airborne; actual meaningful positive toe markers only during supported samples; no fixed-foot root travel.",
+    "loopPolicy": "One-shot travel plus explicit reset if preview restarted; do not claim seamless loop with teleport."
+  },
+  "reviewRequirements": [
+    "Native original, exact prompt/arguments/receipt, RGBA IDs and hashes, shared canvas/density; no autoretry.",
+    "One call-wide uniform calibration only if explicitly declared; do not hide pose-scale repair or perposefit.",
+    "Separate frame PNGs/atlas/APNG sourcepose preview and traveled normal96CSS light/dark preview with root/contact overlay and enlarged feet.",
+    "Verify actual pose/limb changes and contact/identity transitions; classify held useful studies if incomplete.",
+    "Retain actual trajectories and source clock separately, authored values labeled.",
+    "No physical support, full locomotion slot or current Mac binding acceptance inferred from source export."
+  ]
+}

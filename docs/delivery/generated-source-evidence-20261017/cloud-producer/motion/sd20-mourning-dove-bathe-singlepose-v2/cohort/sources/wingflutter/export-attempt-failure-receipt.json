@@ -1,0 +1,9 @@
+{
+  "action": "explicit mathematical pixelcenter sampling crosscheck against Pillow nearest",
+  "outcome": "assertion failed before export files were written",
+  "nativeCallsAdded": 0,
+  "differingRGBApixels": 3358,
+  "reason": "Pillow nearest uses implementation-specific rounding at exact source-boundary samples; naive floating floor center map is not identical.",
+  "resolution": "Use Pillow nearest on integer index ramps to obtain exact source sample indices, then explicitly copy all sourceRGBA bytes. Verify copied output equals direct Pillow nearest RGBA. No alpha premultiplication or paint.",
+  "recordedUTC": "2026-10-18T01:11:57.324737+00:00"
+}

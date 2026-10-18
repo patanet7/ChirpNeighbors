@@ -1,0 +1,41 @@
+from pathlib import Path
+from PIL import Image,ImageDraw
+import json,hashlib,numpy as np,datetime,shutil
+p=Path(__file__).parent;shared=p.parent/'shared'
+h=lambda f:hashlib.sha256(Path(f).read_bytes()).hexdigest()
+def save(f,d):(p/f).write_text(json.dumps(d,indent=2)+'\n')
+a=Image.open(p/'original.png').convert('RGBA');old=Image.open(shared/'exact-awake144x96.png').convert('RGBA')
+idof=lambda a:'frame.sha256.'+hashlib.sha256(f'RGBA8;{a.width}x{a.height};'.encode()+a.tobytes()).hexdigest()
+# Pillow NEAREST copies selected straight RGBA bytes; verify explicit sample-index selection.
+b=a.resize((144,96),Image.Resampling.NEAREST);src=np.array(a);xx=np.floor((np.arange(144)+.5)*a.width/144).astype(int);yy=np.floor((np.arange(96)+.5)*a.height/96).astype(int);expected=src[yy[:,None],xx[None,:],:];pillowNearestDifferingPixels=int(np.any(expected!=np.array(b),axis=2).sum());b=Image.fromarray(expected,'RGBA');assert np.array_equal(expected,np.array(b))
+b.save(p/'settle144x96.png');crop=[4,8,140,88];c=b.crop(tuple(crop));c.save(p/'settle136x80.png');shutil.copyfile(shared/'exact-awake144x96.png',p/'reused-awake144x96.png');shutil.copyfile(shared/'exact-awake136x80.png',p/'reused-awake136x80.png')
+def bbox(im,t):return im.getchannel('A').point(lambda v:255 if v>=t else 0).getbbox()
+arr=np.array(b);mask=np.ones((96,144),bool);mask[8:88,4:140]=False
+outside={str(t):int(((arr[:,:,3]>=t)&mask).sum()) for t in [1,16,128,240]}
+# Review pink lower-foot regions separately from inherited references.
+feet=[]
+for roi in [[57,71,86,88],[86,71,113,88]]:
+ x0,y0,x1,y1=roi;z=arr[y0:y1,x0:x1];m=(z[:,:,0]>z[:,:,1]*1.2)&(z[:,:,0]>z[:,:,2]*1.1)&(z[:,:,3]>=128);ys,xs=np.nonzero(m)
+ if len(ys):i=np.lexsort((xs,ys))[-1];x=x0+int(xs[i]);y=y0+int(ys[i]);feet.append({'ROI':roi,'pixel':[x,y],'RGBA':arr[y,x].tolist(),'ground84Residual':y-84,'meaning':'Lower pink-region sample only;not weighted sole/contact or anatomical correspondence proof'})
+beakROI=[118,24,134,43];x0,y0,x1,y1=beakROI;z=arr[y0:y1,x0:x1];m=(z[:,:,3]>=128)&(z[:,:,:3].max(2)<100);ys,xs=np.nonzero(m);i=np.lexsort((ys,xs))[-1];beak=[x0+int(xs[i]),y0+int(ys[i])]
+measure={'nativeCanvas':list(a.size),'nativeAspect3to2':a.width*2==a.height*3,'sourceID':idof(a),'output144DecodedID':idof(b),'oldBBoxAlpha128':bbox(old,128),'newBBoxAlpha128':bbox(b,128),'oldBBoxAnyAlpha':bbox(old,1),'newBBoxAnyAlpha':bbox(b,1),'commonCrop':crop,'positiveAlphaOutsideCommonCropByThreshold':outside,'sourceDensity':1,'sourcePivot':[81,84],'runtimePivot':[77,76],'beforeToeImageMarkers':[[73,83],[92,83]],'beforeToeRGBA':[list(old.getpixel(tuple(q))) for q in [[73,83],[92,83]]],'afterInheritedToeMarkerRGBA':[list(b.getpixel(tuple(q))) for q in [[73,83],[92,83]]],'actualFootRegionSamples':feet,'beakRegionSample':{'ROI':beakROI,'pixel':beak,'RGBA':arr[beak[1],beak[0]].tolist(),'water78Residual':beak[1]-78,'meaning':'Dark forward bill-region diagnostic;settle has no beak-water contact intent'},'newContacts':[],'geometryReviewed':False,'supportWorld':None,'perPoseFit':False,'snap':False,'paint':False,'premultiply':False,'nearestByteCopyProof':True,'sampleIndexConvention':'floor((outputIndex+0.5)*nativeEdge/outputEdge), byte-copy straight RGBA','PillowNearestSelectionDifferences':pillowNearestDifferingPixels}
+save('measurement-proof.json',measure)
+# Actual logical size comparison light and dark. Guides are diagnostic derivatives only.
+sheet=Image.new('RGBA',(144*2+32,96*2+60),(239,239,232,255));d=ImageDraw.Draw(sheet)
+for row,bg in enumerate([(243,238,220,255),(27,37,47,255)]):
+ for col,(name,im) in enumerate([('Exact awake',old),('Single-pose SETTLE',b)]):
+  x=col*160;y=row*120+20;pane=Image.new('RGBA',(144,96),bg);pane.alpha_composite(im);pd=ImageDraw.Draw(pane);pd.line((0,84,143,84),fill=(255,140,30,255));pd.line((0,78,143,78),fill=(30,155,245,255));pd.rectangle((4,8,139,87),outline=(140,160,100,255));pd.rectangle((80,83,82,85),outline=(225,30,220,255));sheet.paste(pane,(x,y));d.text((x,y-15),name,fill=(20,20,20,255))
+sheet.save(p/'normal144-light-dark-comparison.png')
+# Enlarged foot+bill portions, no source changes.
+regions=Image.new('RGBA',(800,230),(235,235,225,255));rd=ImageDraw.Draw(regions)
+for i,(name,im) in enumerate([('Old',old),('SETTLE',b)]):
+ feetim=im.crop((52,62,116,90)).resize((384,168),Image.Resampling.NEAREST);regions.alpha_composite(feetim,(i*400,28));rd.text((i*400,8),name+' feet (6x)',fill='black')
+regions.save(p/'enlarged-foot-comparison.png')
+bill=b.crop((110,20,140,52)).resize((180,192),Image.Resampling.NEAREST);bill.save(p/'enlarged-settle-head.png')
+# Authored comparison clock only; a pilot drawing is not full bathing animation.
+old.save(p/'awake-settle-proof.apng',format='PNG',save_all=True,append_images=[b,old],duration=[1000,800,1000],loop=1,disposal=0,blend=0)
+prompt=(p/'prompt.txt').read_bytes();args=json.loads((p/'native-call-arguments.json').read_text());assert args['arguments']['prompt'].encode()==prompt
+primary={'batchId':'sd20-mourning-dove-bathe-singlepose-v2-settle','nativeCalls':1,'original':'original.png','originalSHA256':h(p/'original.png'),'prompt':'prompt.txt','promptSHA256':h(p/'prompt.txt'),'frames':[{'sourceFrameId':idof(a),'sourcePNG':'original.png','sourcePNGsha256':h(p/'original.png'),'speciesId':'mourning_dove','pose':'single low grounded bath settle','registration':{'nativeCanvas':list(a.size),'wholeCanvasOutput':[144,96],'wholeCanvasScale':[144/a.width,96/a.height],'nearest':'Explicit floor-center nearest sample indices copying straight-RGBA bytes; Pillow tie selections differ and are not used','commonCrop144':crop,'outputCanvas':[136,80],'sourcePivot':[81,84],'outputPivot':[77,76],'density':1,'perPoseFit':False,'snap':False,'paint':False,'warp':False,'alphaCleanup':False},'outputPNG':'settle136x80.png','outputPNGsha256':h(p/'settle136x80.png')}],'reusedFrames':[{'sourceFrameId':'frame.sha256.168bf85942235e125601c6e245b5f2060f4a254ef2427d1f2d9adeb88ef90b81','newDrawing':False,'sourceOrigin':'batches/dove-drink-v1/frames-source/00.png','exactCurrentDerivedAwake':'reused-awake144x96.png','derivedPNGsha256':h(p/'reused-awake144x96.png'),'originAndCropContract':'../shared/reference-contract.json','conditioningReference':'../shared/conditioning-awake576x384.png','conditioningSHA256':h(shared/'conditioning-awake576x384.png')}],'newActualDrawings':1,'newNeutralDrawings':0,'newBathingAdmission':0,'sourceStatus':'HELD_PENDING_PARENT_PILOT_REVIEW','outputMetadata':['measurement-proof.json','normal144-light-dark-comparison.png','enlarged-foot-comparison.png','enlarged-settle-head.png','awake-settle-proof.apng','review.html'],'notes':['Single-pose autofocus/scale pilot only;no full bath sequence','Common crop excludes one very faint positivealpha output pixel;exact full144/native retained;no cleanup','No support/admission claim;no settle or retry call','Existing generated reference only;rights remain unreviewed;no external photo pixels']}
+save('PRIMARY-SOURCE-MANIFEST.json',primary)
+(p/'review.html').write_text('''<!doctype html><meta charset="utf-8"><title>Dove SETTLE pilot</title><style>body{font:15px system-ui;background:#eee9dc;margin:24px}img{image-rendering:pixelated}p{max-width:850px}</style><h1>Dove single-pose SETTLE pilot — pending / held</h1><p>ONE new native drawing; no full bathing or contact admission. Unchanged old awake versus direct whole-canvas144×96 output; same136×80 crop. Orange floor84, blue water78, green common crop, magenta image pivot81,84. Guides are diagnostic only. New contact list remains empty.</p><img src="normal144-light-dark-comparison.png"><p>Authored one-shot comparison: old1000ms / settle800ms / old1000ms. This is a pose proof, not a completed action.</p><img src="awake-settle-proof.apng" width="144" height="96"><p>Native original and exact RGBA nearest output retained. No pixel painting, body fitting, contact snapping or alpha cleanup. Fixed crop excludes one faint positivealpha output pixel;full144/native preserved. Source-foot placement remains held. geometryReviewed=false; supportWorld=null.</p><img src="enlarged-foot-comparison.png"><img src="enlarged-settle-head.png"><p><a href="measurement-proof.json">Numeric evidence</a> · <a href="PRIMARY-SOURCE-MANIFEST.json">Primary source identity</a></p>''')
+print(json.dumps(measure,indent=2))
