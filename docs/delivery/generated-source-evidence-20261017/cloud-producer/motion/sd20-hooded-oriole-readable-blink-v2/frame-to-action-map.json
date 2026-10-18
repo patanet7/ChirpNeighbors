@@ -1,0 +1,70 @@
+{
+  "batchId": "sd20-hooded-oriole-readable-blink-v2",
+  "speciesId": "hooded_oriole",
+  "sourceToRenderFrames": [
+    {
+      "id": "oriole-awake-141",
+      "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+      "outputPNG": "awake141.png",
+      "rect": [
+        0,
+        0,
+        141,
+        141
+      ]
+    },
+    {
+      "id": "oriole-closed-readable-141",
+      "sourceFrameId": "frame.sha256.7cfa94d7761f083ee60076fab1b79e9e80c3c096b03fd0e6909e130c880d9347",
+      "outputPNG": "closed141.png",
+      "rect": [
+        141,
+        0,
+        141,
+        141
+      ]
+    }
+  ],
+  "worldCanvas": [
+    141,
+    141
+  ],
+  "density": 1,
+  "pivot": [
+    84,
+    110
+  ],
+  "contacts": [],
+  "geometryReviewed": false,
+  "supportWorld": null,
+  "clips": {
+    "idle": {
+      "frameIds": [
+        "oriole-awake-141"
+      ],
+      "durationTicks": [
+        90
+      ],
+      "tickRate": 30,
+      "loop": true
+    },
+    "blink": {
+      "frameIds": [
+        "oriole-awake-141",
+        "oriole-closed-readable-141",
+        "oriole-awake-141"
+      ],
+      "durationTicks": [
+        60,
+        3,
+        27
+      ],
+      "tickRate": 30,
+      "loop": false,
+      "durationTicksTotal": 90,
+      "durationMs": 3000
+    }
+  },
+  "activation": "none",
+  "packetBindingReady": false
+}

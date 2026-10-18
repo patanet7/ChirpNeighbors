@@ -1,0 +1,87 @@
+{
+  "batchId": "sd20-yellow-rumped-warbler-look-v2",
+  "speciesId": "yellow_rumped_warbler",
+  "newSourceHeld": true,
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "37c50c885cf1b3e2258edc548102b262fe5fbcaa035317309422cf361a018005",
+    "profile": "chirp-texture-review-v1",
+    "canonicalSchemaValidation": "NOT_RUN"
+  },
+  "atlasBinding": {
+    "file": "look-atlas119.png",
+    "sha256": "52996ee2c4dfeec5b3cfddf9ab7a1b3097d9f1c043ffb9c2c999a976e318538e",
+    "width": 238,
+    "height": 119,
+    "alpha": "straight-rgba8"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+      "primarySourcePNG": "reference-awake-source1024.png",
+      "primarySourcePNGsha256": "94508329626cbb2551bacfc1be7036f54c0214348cb6998e0cecd536572ffd32",
+      "newDrawing": false,
+      "renderFrameId": "warbler-awake-derived-119",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 119,
+        "height": 119
+      },
+      "outputPNG": "reused-awake119.png",
+      "outputPNGsha256": "112465d8cfa240c144044eeda278a1fabec76eb10a98d96ef7a2902a02decbee"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.1b4c35c2fe251e4d6280be1ed23377de04a0fba2841eea37e68b33671c37e824",
+      "primarySourcePNG": "original.png",
+      "primarySourcePNGsha256": "66f6573df40b3a5ef09d88aa0c397c278ac29b5baee9f0e6090a8d57aee60fdf",
+      "newDrawing": true,
+      "renderFrameId": "warbler-look-v2-study-119",
+      "atlasRect": {
+        "x": 119,
+        "y": 0,
+        "width": 119,
+        "height": 119
+      },
+      "outputPNG": "look119.png",
+      "outputPNGsha256": "c756a05abd16219a20f7c5a08808a7dba190fdf939ee27a448db03464c4d3882"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "warbler-awake-derived-119",
+          "durationTicks": 60
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "warbler-awake-derived-119",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "warbler-look-v2-study-119",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "warbler-awake-derived-119",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ],
+  "renderClipId": "look",
+  "standalone119Proposal": true,
+  "current96ProfileChanged": false,
+  "appBound": false,
+  "SharpCanonicalAdmission": false
+}

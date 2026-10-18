@@ -1,0 +1,19 @@
+# House Finch complete common family — zero new art
+
+**Neutral + blink + look source family is provisionally useful.** The exact currentC/D inventory selects the same adult-male awake as both blink and look reference. Blink uses awake/half/closed, and look adds its independently useful toward-viewer drawing: **4existingregistered IDs,3semantic actions,0newdrawings,0imagecalls**. The halfclosure is retained on both sides; no closed-only simplification, female, feeding, perch or HELDhop is reused. This bundles existing useful slots; it adds no new coverage or activebinding.
+
+Actualworldcanvas96²/density1, pivot48,75;4storedframes=36,864pixels. Exactcurrent96RGBA PNGs are byte-copied into `raw/`, and registered1024/actual1254sources into `sources/`. Their singlewholecanvas original nearest exports reproduce read-only. Registered1024historiccomponent-derived IDs stay primary; originalnativecells are lineage, not extra drawings. No sourcefitting, scalingchange, perposeoffset, crop, rootbob, toe snap or artpainting. All old PNGs/profiles/currentselectedsources unchanged. Parent registration advanced globalbank/originalinventorymetadata during audit; before/later snapshots and unchanged selectedsource proof are explicit in `metadata-concurrency-note.json`.
+
+Standalone clips preserve authored schedules at30Hz:
+
+- Quietidle: same awake42tick repeated hold, from canonicalneutral projection’s firststep. That projection has no separate authoritative sourceclock; this choice is explicit.
+- Blink:42/2/3/2/20ticks,2.3s, originalsource looptrue; halfclosed reused bothsides.
+- Look:30/12/30ticks,2.4s, nonlooping, exactawake return.
+
+Raw/selected APNGs retain exactticks/30 rational delays and their source loopflags. The comparison viewer intentionally plays one episode and holds the finalframe until explicitreplay; it does not silently alter sourceclip metadata. API `FINCH_COMPLETE_FAMILY_REVIEW` exposes `ready`, `play(action)`, `setAction(action)`, `seek(tick)`, `hold(role)`, `getState()`. Actual96world source and derivative appear together on light/dark.27bounded producer samples observed halfclosing42,closed44,halfopening47,return49 and look30/return42, plus terminal holds through2.3/2.4seconds;0pageerrors. No capturebytes retained, no continuous-video or Mac-yard claim.
+
+**Actual unchanged pixel codec PASS on the first candidate.** One pooled median-cut63opaque palette+transparent (64totalRGBAcolors), alpha128, no dither. InstalledSharp decoded all4PNG IDs; unchanged `normalizeDecodedPixels` and actual retained `PermanentStageError` yielded711/702/706/701rectangles,total2,820, area36,864. Rectangle reconstruction equals every binaryRGBA byte. Function/error source hashes and extractionreceipt retained; only a generalized dimension/frame-count driver was authored. No weakened validator, fake receipt or lowerpalette search.
+
+Threshold removes55/64/62/95positivealpha pixels across awake/half/closed/look. Fixedfootwindowloses22/22/23/28; fixedeyewindow5/7/7/15. These windows are not exact semantictoe/eye segmentation. Both oldtoeimageprobes survive128threshold in all4, but alpha/retainedshape is not solepressure, commonplane, toe-lock or perchgrip. Contacts[]; geometryReviewedfalse; supportWorldnull. The rawart and enlarged fixedROIs remain visible for independent naturalblink/look/feet/readability judgment. Candidate visualapproval is PENDING.
+
+`selected-field-mapping.json` and `pixel-family-fields.partial.json` provide concrete pixelgeometry/sourceclocks, **not a complete/admitted runtime manifest**. Availablev3namedclips omit explicitblink/look; currentadapter, canonicalfullschema, catalog, fidelity/rights/reference/sourceArtifact pins and actualMacadmission remain pending. The optional texture-review profiles remain unreviewed/activationnone. No globalqueue/framebank/Git/Library/appwrites. Root/Slot independentreview follows frozenGO.

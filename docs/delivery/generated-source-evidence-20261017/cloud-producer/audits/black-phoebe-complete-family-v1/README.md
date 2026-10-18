@@ -1,0 +1,15 @@
+# Black Phoebe reused complete common family proposal
+
+Zero native calls, zero new drawings, zero new source slots. Reuses the three existing neutral/blink/look drawings with a separate uniform91×91density1 proposal. Legacy96PNGs,1024/native originals, profiles and actionbindings remain unchanged and hash-guarded.
+
+Family references: neutralafdb3163…, registeredblink9b499790… and look7a9195b4…. The current bank's raw blink entry10446a4c… points through derivation.registeredDerivativeFrameId to9b499790…. These are aliases of ONE drawing, not a new registration or fourth source. The historical724native→1024registration uses+100,+161 pixel origin translation; its original bytes and exact derivation are retained. Family canonical registered-source reference9b499… remains as instructed, with explicit bank alias resolution.
+
+Each exact current96renderPNG is floor-center nearest sampled to91 with directRGBA channel copying, no per-pose fit/offset/paint or sourcealpha cleanup. source91/ retains all sampled originalRGBA, including partialalpha and hiddenRGB. runtime91/ is an optional explicitly lossy derivative: alpha>=128opaque/otherwise transparentRGBAzero; one common63opaqueRGB palette over all three surviving frames, no dithering. No derivative is a new drawing.
+
+Old declared world90.94736842105263/density19/18 differs from observed90.9375CSSbrowser rounding. New world91/density1 adds0.05787037%. Continuous pivot54.03125,71.09375 rounds explicitly to54,71 (−.03125,−.09375world); no sourcefoot snapping. Oldfootrefs53,74/58,74 map to diagnostic91pixels50,70/55,70 with actualsamples retained. Positive proxies do not approve physical support; contacts[], geometryReviewedfalse/supportWorldnull.
+
+Idle uses unchangedawake90tickloop. Separateblink keeps legacy90/3/90tickloop at30Hz; separatelook keeps30/12/30one-shot. This naming is a source proposal only: legacyblink-manifest's originalidle binding is NOT edited. Four APNG proofs contain exact source/runtimeRGBA for blink and look, each one demonstration play. review.html compares legacy96atoldworld, source91RGBA and binary/commonpalette91, with enlargedeye/toe inspection. Timing is authored, not biological frequency or generated smooth headturn.
+
+Actual unchanged local normalizeDecodedPixels with its actualPermanentStageError dependency accepts all3frames:866/865/855rectangles,2586total,24,843decodedpixels,64totalRGBAcolors. Sharp0.35.4 decode matches Pillow IDs and exactrectangle reconstruction. This is pixelcodecPASS only, not source-family visual acceptance or fullschema admission. Independent91normalreview remains required. runtime-pixel-fields.partial.json is INCOMPLETE; productionpins/fidelitylabels remain UNSUPPLIED, canonicalruntimeZod NOT_RUN/currentMacunverified, activationnone.
+
+Existing warm-brown/pale-edge plumagelimitation and minor nativeblink/look feather/toe redraw remain visible. No new seasonal/adultcanon or quiet recoloring. No Library/Git/globalqueue/bank/catalog/app writes are performed. Source art and diagnostic images are owned-source derivatives, not browser captures.

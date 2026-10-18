@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "b0e9bcb922178df5df58774a5d5f6ed18dbb5ec329852bd28b22e490afffe6f7",
+    "creator": "Chirp cloud bounded Oriole correction producer",
+    "tool": "OpenAI image edit + explicit floorcenter wholecanvas RGBA index-copy export",
+    "toolVersion": "declared maps retained",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 282,
+    "height": 141,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "oriole-awake-141",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 141,
+        "height": 141
+      },
+      "canvas": {
+        "width": 141,
+        "height": 141
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 84,
+        "y": 110
+      },
+      "contacts": [],
+      "world": {
+        "width": 141,
+        "height": 141
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "oriole-closed-readable-141",
+      "sourceRect": {
+        "x": 141,
+        "y": 0,
+        "width": 141,
+        "height": 141
+      },
+      "canvas": {
+        "width": 141,
+        "height": 141
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 84,
+        "y": 110
+      },
+      "contacts": [],
+      "world": {
+        "width": 141,
+        "height": 141
+      },
+      "sourcePixelsPerWorldUnit": 1
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "oriole-awake-141",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "blink",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "oriole-awake-141",
+          "durationTicks": 60
+        },
+        {
+          "frameId": "oriole-closed-readable-141",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "oriole-awake-141",
+          "durationTicks": 27
+        }
+      ]
+    }
+  ]
+}

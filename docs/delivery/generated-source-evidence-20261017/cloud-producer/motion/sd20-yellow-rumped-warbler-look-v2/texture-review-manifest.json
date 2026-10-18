@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "52996ee2c4dfeec5b3cfddf9ab7a1b3097d9f1c043ffb9c2c999a976e318538e",
+    "creator": "Chirp Warbler look correction source exporter",
+    "tool": "Pillow whole-native RGBA nearest only",
+    "toolVersion": "12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 238,
+    "height": 119,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "warbler-awake-derived-119",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 119,
+        "height": 119
+      },
+      "canvas": {
+        "width": 119,
+        "height": 119
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 71,
+        "y": 93
+      },
+      "contacts": [],
+      "world": {
+        "width": 119,
+        "height": 119
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "warbler-look-v2-study-119",
+      "sourceRect": {
+        "x": 119,
+        "y": 0,
+        "width": 119,
+        "height": 119
+      },
+      "canvas": {
+        "width": 119,
+        "height": 119
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 71,
+        "y": 93
+      },
+      "contacts": [],
+      "world": {
+        "width": 119,
+        "height": 119
+      },
+      "sourcePixelsPerWorldUnit": 1
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "warbler-awake-derived-119",
+          "durationTicks": 60
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "warbler-awake-derived-119",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "warbler-look-v2-study-119",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "warbler-awake-derived-119",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ]
+}
