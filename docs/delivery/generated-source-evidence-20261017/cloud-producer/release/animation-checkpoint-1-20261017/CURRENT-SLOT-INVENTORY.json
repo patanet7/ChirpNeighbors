@@ -20394,7 +20394,7 @@
         "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
         "frame.sha256.aa40dd8caa67c9fe0db6b6c822413257d553f0b7500dcee99bdfaa05bf339c0c"
       ],
-      "nativeBankDrawings": 4,
+      "nativeBankDrawings": 5,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.be776b9d704990d1b9950238e1291303d8024dcaadfebc55b559f830e6981b45",
@@ -20607,6 +20607,58 @@
           ],
           "reuseStatus": "independently reviewed source candidate; Provisional awake neutral/blink source; old rest study retained separately.",
           "sourceReview": "motion/sd20-junco-awake-v1/independent-review.json"
+        },
+        {
+          "frameId": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a",
+          "file": "motion/sd20-dark-eyed-junco-look-v1/look-native.png",
+          "fileSha256": "13ac2bfab23582cdfd17e4e82905cc4082c3dee63b844de32e421d6c01160f8b",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "dark_eyed_junco",
+          "appearanceVersion": "sd20-dark-eyed-junco-look-v1",
+          "poseTags": [
+            "toward-viewer skull/bill turn open eyes; compatibility pending",
+            "candidate-source",
+            "look-only"
+          ],
+          "sourceAtlas": "motion/sd20-dark-eyed-junco-look-v1/original.png",
+          "sourceAtlasSha256": "13ac2bfab23582cdfd17e4e82905cc4082c3dee63b844de32e421d6c01160f8b",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "referenceCanvas": [
+              1024,
+              1024
+            ],
+            "wholeCallDensityNormalization": 0.8165869218500797,
+            "directNativeToOutputRatio": 0.15311004784688995,
+            "integerOriginTranslation": [
+              0,
+              0
+            ],
+            "perPoseBodyFit": false,
+            "paint": false,
+            "warp": false,
+            "alphaErasure": false
+          },
+          "sourcePrompt": "motion/sd20-dark-eyed-junco-look-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-dark-eyed-junco-look-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "look"
+          ],
+          "reuseStatus": "Independently reviewed look-only source study; Provisionally useful Junco head-look source, one new drawing and exact corrected awake entry/return. Minor body/feather/toe redraw retained; technical positive toe-region samples and fixed geometry do not certify planting/support physics. No generated turn intermediates, measured yaw or smooth-motion acceptance. Old neutral/blink and all other source bindings preserved; runtime admission/Mac binding unverified, canonical Zod/Sharp NOT_RUN.",
+          "sourceReview": "motion/sd20-dark-eyed-junco-look-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -20621,7 +20673,8 @@
       ],
       "sourceIssues": [
         "Baseline PR33: Both retained eye states narrow/closed; sourcefile neutral/blink names do not establish awakeidle or open→closed→open. Reststudyonly.",
-        "Current checkpoint: Provisional awake neutral/blink source; old rest study retained separately."
+        "Current checkpoint: Provisional awake neutral/blink source; old rest study retained separately.",
+        "Current checkpoint: Provisionally useful Junco head-look source, one new drawing and exact corrected awake entry/return. Minor body/feather/toe redraw retained; technical positive toe-region samples and fixed geometry do not certify planting/support physics. No generated turn intermediates, measured yaw or smooth-motion acceptance. Old neutral/blink and all other source bindings preserved; runtime admission/Mac binding unverified, canonical Zod/Sharp NOT_RUN."
       ],
       "nextAssignedTask": null,
       "slots": [
@@ -20702,19 +20755,192 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "Oregon-type ground look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
-          "provisionalUsefulSourceForThisSemanticSlot": false,
+          "state": "provisional-drawn-look",
+          "sourceFrameIds": [
+            "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+            "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a"
+          ],
+          "uniqueKnownSourceIDs": 2,
+          "provisionalUsefulSourceForThisSemanticSlot": true,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-dark-eyed-junco-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-dark-eyed-junco-look-v1/texture-review-manifest.json",
+            "motion/sd20-dark-eyed-junco-look-v1/frame-to-action-map.json",
+            "motion/sd20-dark-eyed-junco-look-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-dark-eyed-junco-look-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Matched neutral→distinct head/bill look→return source poses."
+            "Provisionally useful Junco head-look source, one new drawing and exact corrected awake entry/return. Minor body/feather/toe redraw retained; technical positive toe-region samples and fixed geometry do not certify planting/support physics. No generated turn intermediates, measured yaw or smooth-motion acceptance. Old neutral/blink and all other source bindings preserved; runtime admission/Mac binding unverified, canonical Zod/Sharp NOT_RUN.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "junco-awake-192",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+            },
+            {
+              "frameId": "junco-look-viewer-192",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a",
+              "outputRGBAId": "frame.sha256.18f820b4c3c3a409fb45635b1eeca76f86430fd7f7eec0fac2ba99d069567719"
+            },
+            {
+              "frameId": "junco-awake-192",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-dark-eyed-junco-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-dark-eyed-junco-look-v1/look-atlas192.png",
+              "clipId": "look",
+              "tickRate": 30,
+              "loop": false,
+              "durationTicks": 72,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "junco-awake-192",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+                  "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+                },
+                {
+                  "frameId": "junco-look-viewer-192",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a",
+                  "outputRGBAId": "frame.sha256.18f820b4c3c3a409fb45635b1eeca76f86430fd7f7eec0fac2ba99d069567719"
+                },
+                {
+                  "frameId": "junco-awake-192",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+                  "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            }
+          ],
+          "lookOnlyNewDrawing": true,
+          "selectedLookManifest": "motion/sd20-dark-eyed-junco-look-v1/texture-review-manifest.json",
+          "selectedClipId": "look",
+          "newSourceFrameIds": [
+            "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7"
+          ],
+          "batchNewDrawings": 1,
+          "batchReusedDrawings": 1,
+          "newNeutralDrawings": 0,
+          "newBlinkDrawings": 0,
+          "packetBindingReady": false,
+          "lookOnlySourceReview": {
+            "batchId": "sd20-dark-eyed-junco-look-v1",
+            "kind": "look-only-new-drawing-source-candidate",
+            "canonicalSchemaValidation": "NOT_RUN; explicit look clip needs current Mac contract confirmation",
+            "profileLabelIsRuntimeAdmission": false,
+            "primaryManifest": "motion/sd20-dark-eyed-junco-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "manifest": "motion/sd20-dark-eyed-junco-look-v1/texture-review-manifest.json",
+            "atlasPNG": "motion/sd20-dark-eyed-junco-look-v1/look-atlas192.png",
+            "manifestSHA256": "3e72ef79a7870e98bc68afb35fdc730f23745f58b2d1bd7354dc74e3a926eff8",
+            "atlasSHA256": "2c1ab8fb81d162fc0c9a07a4589e2e8a1a428f583d7c0b240eb1a3676dce16f0",
+            "sourceFrameIds": [
+              "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a"
+            ],
+            "newSourceFrameIds": [
+              "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a"
+            ],
+            "reusedSourceFrameIds": [
+              "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7"
+            ],
+            "newDrawingCount": 1,
+            "reusedDrawingCount": 1,
+            "newNeutralDrawings": 0,
+            "newBlinkDrawings": 0,
+            "clipId": "look",
+            "orderedSourceFrameSequence": [
+              {
+                "frameId": "junco-awake-192",
+                "durationTicks": 30,
+                "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+                "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+              },
+              {
+                "frameId": "junco-look-viewer-192",
+                "durationTicks": 12,
+                "sourceFrameId": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a",
+                "outputRGBAId": "frame.sha256.18f820b4c3c3a409fb45635b1eeca76f86430fd7f7eec0fac2ba99d069567719"
+              },
+              {
+                "frameId": "junco-awake-192",
+                "durationTicks": 30,
+                "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+                "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+              }
+            ],
+            "renderBinding": {
+              "manifest": "motion/sd20-dark-eyed-junco-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-dark-eyed-junco-look-v1/look-atlas192.png",
+              "clipId": "look",
+              "tickRate": 30,
+              "loop": false,
+              "durationTicks": 72,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "junco-awake-192",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+                  "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+                },
+                {
+                  "frameId": "junco-look-viewer-192",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a",
+                  "outputRGBAId": "frame.sha256.18f820b4c3c3a409fb45635b1eeca76f86430fd7f7eec0fac2ba99d069567719"
+                },
+                {
+                  "frameId": "junco-awake-192",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+                  "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN"
+            },
+            "evidencePaths": [
+              "motion/sd20-dark-eyed-junco-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "motion/sd20-dark-eyed-junco-look-v1/texture-review-manifest.json",
+              "motion/sd20-dark-eyed-junco-look-v1/frame-to-action-map.json",
+              "motion/sd20-dark-eyed-junco-look-v1/independent-review.json"
+            ],
+            "sourceHeld": false,
+            "sourceReviewState": "reviewed-source-look-with-qualifications",
+            "productionAccepted": false,
+            "runtimeAdmission": false,
+            "packetBindingReady": false,
+            "appBinding": "UNKNOWN",
+            "actualYardVerification": "UNKNOWN",
+            "reviewReceipt": {
+              "path": "motion/sd20-dark-eyed-junco-look-v1/independent-review.json",
+              "sha256": "6ddeff6297289e46a60ccb8a7dc184231bffb1dae91616e231eb82ce2259aa7c"
+            }
+          }
         },
         {
           "speciesId": "dark_eyed_junco",
@@ -21017,7 +21243,11 @@
         "Both retained eye states narrow/closed; sourcefile neutral/blink names do not establish awakeidle or open→closed→open. Reststudyonly."
       ],
       "currentSourceIssues": [
-        "Provisional awake neutral/blink source; old rest study retained separately."
+        "Provisional awake neutral/blink source; old rest study retained separately.",
+        "Provisionally useful Junco head-look source, one new drawing and exact corrected awake entry/return. Minor body/feather/toe redraw retained; technical positive toe-region samples and fixed geometry do not certify planting/support physics. No generated turn intermediates, measured yaw or smooth-motion acceptance. Old neutral/blink and all other source bindings preserved; runtime admission/Mac binding unverified, canonical Zod/Sharp NOT_RUN."
+      ],
+      "overlayQualifications": [
+        "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings."
       ],
       "primaryManifestSHA256": "3457ca0cef270413c456b29e5b56fdc23b1926ea3b8e56be70796d1111ea455b",
       "primaryAtlasSHA256": "fe0b227130adf97495fdabe7890cac60858d4ecc3df15cf907c47bab3a145a84",
@@ -21036,6 +21266,16 @@
               "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c",
               "evidence": "motion/sd20-junco-awake-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "awake open-eye neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "sourcePNG": "motion/sd20-dark-eyed-junco-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-dark-eyed-junco-look-v1/reused-awake192.png",
+              "outputPNGsha256": "db536cbdfee1f074b98820855b5ffd65d75d1ddfa7cef17551bc774f4a573587",
+              "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c",
+              "evidence": "motion/sd20-dark-eyed-junco-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -27719,6 +27959,16 @@
               "evidence": "motion/sd20-junco-awake-v1/PRIMARY-SOURCE-MANIFEST.json",
               "phase": "awake open-eye neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "sourcePNG": "motion/sd20-dark-eyed-junco-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-dark-eyed-junco-look-v1/reused-awake192.png",
+              "outputPNGsha256": "db536cbdfee1f074b98820855b5ffd65d75d1ddfa7cef17551bc774f4a573587",
+              "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c",
+              "evidence": "motion/sd20-dark-eyed-junco-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -30926,6 +31176,234 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-dark-eyed-junco-look-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-dark-eyed-junco-look-v1/texture-review-manifest.json",
+      "manifestSHA256": "3e72ef79a7870e98bc68afb35fdc730f23745f58b2d1bd7354dc74e3a926eff8",
+      "atlasPNG": "motion/sd20-dark-eyed-junco-look-v1/look-atlas192.png",
+      "atlasSHA256": "2c1ab8fb81d162fc0c9a07a4589e2e8a1a428f583d7c0b240eb1a3676dce16f0",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "junco-awake-192",
+          "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c",
+          "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "sourcePNG": "motion/sd20-junco-awake-v1/awake-source1024.png",
+              "outputPNG": "motion/sd20-junco-awake-v1/awake192.png",
+              "outputPNGsha256": "db536cbdfee1f074b98820855b5ffd65d75d1ddfa7cef17551bc774f4a573587",
+              "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c",
+              "evidence": "motion/sd20-junco-awake-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "awake open-eye neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "sourcePNG": "motion/sd20-dark-eyed-junco-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-dark-eyed-junco-look-v1/reused-awake192.png",
+              "outputPNGsha256": "db536cbdfee1f074b98820855b5ffd65d75d1ddfa7cef17551bc774f4a573587",
+              "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c",
+              "evidence": "motion/sd20-dark-eyed-junco-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 78,
+            "height": 78
+          },
+          "sourcePixelsPerWorldUnit": 2.4615384615384617,
+          "pivot": {
+            "x": 122,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 114,
+              "y": 146
+            },
+            {
+              "id": "foot-2",
+              "x": 143,
+              "y": 146
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 114,
+              "y": 146,
+              "sampledAlpha": 238,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 143,
+              "y": 146,
+              "sampledAlpha": 230,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "junco-look-viewer-192",
+          "outputRGBAId": "frame.sha256.18f820b4c3c3a409fb45635b1eeca76f86430fd7f7eec0fac2ba99d069567719",
+          "sourceFrameId": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a",
+              "sourcePNG": "motion/sd20-dark-eyed-junco-look-v1/look-native.png",
+              "outputPNG": "motion/sd20-dark-eyed-junco-look-v1/look192.png",
+              "outputPNGsha256": "d15a085ebf8bc1abb30f9cf53d8e4e4553fc6d2a64f3ad395f114e8eef3712f9",
+              "outputRGBAId": "frame.sha256.18f820b4c3c3a409fb45635b1eeca76f86430fd7f7eec0fac2ba99d069567719",
+              "evidence": "motion/sd20-dark-eyed-junco-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "toward-viewer skull/bill turn open eyes; compatibility pending",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 78,
+            "height": 78
+          },
+          "sourcePixelsPerWorldUnit": 2.4615384615384617,
+          "pivot": {
+            "x": 122,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 114,
+              "y": 146
+            },
+            {
+              "id": "foot-2",
+              "x": 143,
+              "y": 146
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 114,
+              "y": 146,
+              "sampledAlpha": 250,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 143,
+              "y": 146,
+              "sampledAlpha": 247,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "junco-awake-192",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "junco-awake-192",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7"
+          ]
+        },
+        {
+          "id": "look",
+          "tickRate": 30,
+          "loop": false,
+          "frames": [
+            {
+              "frameId": "junco-awake-192",
+              "durationTicks": 30
+            },
+            {
+              "frameId": "junco-look-viewer-192",
+              "durationTicks": 12
+            },
+            {
+              "frameId": "junco-awake-192",
+              "durationTicks": 30
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "junco-awake-192",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+            },
+            {
+              "frameId": "junco-look-viewer-192",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a",
+              "outputRGBAId": "frame.sha256.18f820b4c3c3a409fb45635b1eeca76f86430fd7f7eec0fac2ba99d069567719"
+            },
+            {
+              "frameId": "junco-awake-192",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+              "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c"
+            }
+          ],
+          "durationTicks": 72,
+          "durationSeconds": 2.4,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+            "frame.sha256.5e9592fd4dfbc9e45deec2795a3b9b83431bf5ce9e8cc14d34c2e892acc34d8a"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -32333,7 +32811,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/white-crowned-sparrow-look-ingest-build-u05jqz9v/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/dark-eyed-junco-look-ingest-build-w22994vf/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -32384,12 +32862,6 @@
           "existingStudyBeforeNewCall": false
         },
         {
-          "speciesId": "dark_eyed_junco",
-          "actualSlotState": "missing",
-          "sourceFrameIds": [],
-          "existingStudyBeforeNewCall": false
-        },
-        {
           "speciesId": "california_quail",
           "actualSlotState": "study-only-stance-or-support-defect",
           "sourceFrameIds": [
@@ -32418,18 +32890,18 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-17T23:58:45.302154+00:00",
+  "projectionAsOfUTC": "2026-10-18T00:04:03.531802+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 142,
-    "registeredNativeOriginals": 42,
-    "newNativeCalls": 21,
-    "newDrawings": 40,
+    "registeredPrimaryDrawingIDs": 143,
+    "registeredNativeOriginals": 43,
+    "newNativeCalls": 22,
+    "newDrawings": 41,
     "semanticQuestions": 200,
-    "usefulProvisionalIdleSemanticUses": 46,
+    "usefulProvisionalIdleSemanticUses": 47,
     "usefulIdleUsesByAction": {
       "neutral": 19,
       "blink": 15,
-      "look": 12
+      "look": 13
     },
     "reviewedOneShotHopStudies": 2,
     "sourceAcceptedFullLocomotionSlots": 0,
@@ -32440,8 +32912,8 @@
       "single-open-look-pose-no-matched-turn": 1,
       "provisional-drawn-blink": 15,
       "two-drawn-hover-wing-study-only": 1,
-      "missing": 137,
-      "provisional-drawn-look": 12,
+      "missing": 136,
+      "provisional-drawn-look": 13,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,
       "drawn-perch-candidate-failed-registration": 1,

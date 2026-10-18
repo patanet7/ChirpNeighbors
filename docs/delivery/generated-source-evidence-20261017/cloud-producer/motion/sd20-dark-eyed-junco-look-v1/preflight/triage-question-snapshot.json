@@ -1,0 +1,155 @@
+{
+  "source": "audits/common-resting-all15-triage-139-v1/triage.json",
+  "sourceSHA256": "a3f099972372548926fe66c9299fa709e9cc99a31b4195b3ec4ebd513f282793",
+  "question": {
+    "speciesId": "dark_eyed_junco",
+    "speciesName": "Dark-eyed Junco",
+    "action": "look",
+    "oldSlotState": "missing",
+    "oldSourceFrameIds": [],
+    "usefulSourceSlotCompleted": false,
+    "category": "next-bounded-source-candidate",
+    "proposedOrderAfterFinchAndDoveLook": 2,
+    "reason": "Use corrected awake2f48 source only. Old rest/eyelid source must not be reused as awake. Neutral/blink covered; look genuinely missing.",
+    "selectedAwakeState": "provisional-drawn-neutral",
+    "selectedAwakeIDs": [
+      "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7"
+    ],
+    "selectedAwakeSources": [
+      {
+        "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+        "sourcePNG": "motion/sd20-junco-awake-v1/awake-source1024.png",
+        "absoluteSourcePNG": "/workspace/chirp-finch-preen-canon/docs/delivery/generated-source-evidence-20261017/cloud-producer/motion/sd20-junco-awake-v1/awake-source1024.png",
+        "sourcePNGsha256": "f20fef50b6bc698a7e9860d8c0f954ef336277038743e4a766e5aab3684a0c0e",
+        "sourceCanvas": [
+          1024,
+          1024
+        ],
+        "decodedRGBAIdentityVerified": true
+      }
+    ],
+    "existingQuestionSources": [],
+    "selectedAwakeRenderContracts": [
+      {
+        "manifest": "motion/sd20-junco-awake-v1/texture-review-manifest.json",
+        "manifestSHA256": "3457ca0cef270413c456b29e5b56fdc23b1926ea3b8e56be70796d1111ea455b",
+        "atlasPNG": "motion/sd20-junco-awake-v1/idle-blink-atlas192.png",
+        "atlasSHA256": "fe0b227130adf97495fdabe7890cac60858d4ecc3df15cf907c47bab3a145a84",
+        "outputFrameId": "junco-awake-192",
+        "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c",
+        "exactExportMappings": [
+          {
+            "sourceFrameId": "frame.sha256.2f48bd6c947dea3ba9226a8bfd22f52246ce8c6aaa9272a8d9f5fe55ea8949d7",
+            "sourcePNG": "motion/sd20-junco-awake-v1/awake-source1024.png",
+            "outputPNG": "motion/sd20-junco-awake-v1/awake192.png",
+            "outputPNGsha256": "db536cbdfee1f074b98820855b5ffd65d75d1ddfa7cef17551bc774f4a573587",
+            "outputRGBAId": "frame.sha256.b32a27b2a16a4603e9af05ab0eea8c8c7b00c3bb80bd229ee6306b5baca1826c",
+            "evidence": "motion/sd20-junco-awake-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "phase": "awake open-eye neutral",
+            "mappingMethod": "recorded explicit export verified by pixels"
+          }
+        ],
+        "sourceRect": {
+          "x": 0,
+          "y": 0,
+          "width": 192,
+          "height": 192
+        },
+        "canvas": {
+          "width": 192,
+          "height": 192
+        },
+        "world": {
+          "width": 78,
+          "height": 78
+        },
+        "sourcePixelsPerWorldUnit": 2.4615384615384617,
+        "pivot": {
+          "x": 122,
+          "y": 150
+        },
+        "contacts": [
+          {
+            "id": "foot-1",
+            "x": 114,
+            "y": 146
+          },
+          {
+            "id": "foot-2",
+            "x": 143,
+            "y": 146
+          }
+        ],
+        "alphaContactChecks": [
+          {
+            "id": "foot-1",
+            "x": 114,
+            "y": 146,
+            "sampledAlpha": 238,
+            "anatomicallyApproved": false
+          },
+          {
+            "id": "foot-2",
+            "x": 143,
+            "y": 146,
+            "sampledAlpha": 230,
+            "anatomicallyApproved": false
+          }
+        ]
+      }
+    ],
+    "primaryRowManifest": "motion/sd20-junco-awake-v1/texture-review-manifest.json",
+    "activeNeutralSlotManifestPaths": [
+      "motion/sd20-junco-awake-v1/texture-review-manifest.json"
+    ],
+    "sourceIssues": [
+      "Baseline PR33: Both retained eye states narrow/closed; sourcefile neutral/blink names do not establish awakeidle or open\u2192closed\u2192open. Reststudyonly.",
+      "Current checkpoint: Provisional awake neutral/blink source; old rest study retained separately."
+    ],
+    "inactiveHeldCandidates": [],
+    "evidence": [
+      {
+        "path": "new-species/sd20-final-four-v1/reference-rights-provenance.json",
+        "sha256": "e2d60c0c940dda9e67d0d14168bc31c9568a0087aa838fb9988ab4eff33c8de6"
+      },
+      {
+        "path": "new-species/sd20-final-four-v1/animation-gap-handoff.json",
+        "sha256": "8fec99b9ab2457f2765318ec37e6bb6fe876a77f5a431f177fc98dd64f82493e"
+      },
+      {
+        "path": "new-species/sd20-final-four-v1/species-references.json",
+        "sha256": "dd4242a37a9f0a00481035e5d5ca3ac26fb8898a91b16e5f237f346c573a010a"
+      },
+      {
+        "path": "new-species/sd20-final-four-v1/style-reference-provenance.json",
+        "sha256": "bed5d88b8c83629a0e08d752255409d5212e89823c79fd7c89fc7971eeed0c73"
+      },
+      {
+        "path": "new-species/sd20-final-four-v1/intake-manifest.json",
+        "sha256": "3b3256a1da668b65aa3fe681cb43c90c604bfc88980e1b45870193b20d813733"
+      },
+      {
+        "path": "new-species/sd20-final-four-v1/independent-review.json",
+        "sha256": "55166a5e2441ea62aa46510a6a103f0b3f8b56f5c50073ac4cfe45f878fc84d9"
+      },
+      {
+        "path": "new-species/sd20-final-four-v1/README.md",
+        "sha256": "40063d2c9504a2ffe3197474ea55d8bc7c9e3b3ce962e7727cb8fb6f657621d3"
+      },
+      {
+        "path": "motion/sd20-junco-awake-v1/PRIMARY-SOURCE-MANIFEST.json",
+        "sha256": "5b9729574d6198ea1af5da188dbf78c9c76acb0f74b772caed0b8495d580e734"
+      },
+      {
+        "path": "motion/sd20-junco-awake-v1/texture-review-manifest.json",
+        "sha256": "3457ca0cef270413c456b29e5b56fdc23b1926ea3b8e56be70796d1111ea455b"
+      },
+      {
+        "path": "motion/sd20-junco-awake-v1/independent-review.json",
+        "sha256": "daa41578d80871a610f3e738365912e6ab4477d681ff99ef313ed1846ef1cdf9"
+      }
+    ],
+    "appBinding": "UNKNOWN",
+    "actualYardVerification": "UNKNOWN"
+  }
+}
