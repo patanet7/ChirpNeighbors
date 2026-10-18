@@ -1,0 +1,1516 @@
+{
+  "document_kind": "qualification11-four-background-source-review",
+  "reviewed_at_utc": "2026-10-18T16:12:30.495669+00:00",
+  "shared_label_contract": {
+    "canonical_path": "docs/art/asset-defect-labels-v1.json",
+    "sha256": "b78e048b84bff2a99da153c6b3636bb5683b4d0ab015d8b68fa3745b39a56996",
+    "adoption": "Parent-established shared generic labels; cross-producer adoption coordinated by parent, not claimed complete here."
+  },
+  "records": [
+    {
+      "asset_id": "scene.san_diego_inland_canyon",
+      "variant_id": "depth09_inland_fenced_test.season_spring_v1",
+      "season": "spring",
+      "qualification_scope": "Existing I10 derived static source assembly only, actual960x540 and384x216 display. No new drawing or runtime certification.",
+      "grade": "pass",
+      "grade_qualifier": "Scoped static source/preview pass with minor display limitations; other gates remain blocked.",
+      "fresh_pixel_review": true,
+      "reviewed_previews": [
+        {
+          "file": "production/expansion/integration-10/previews/spring-960.png",
+          "sha256": "36fac10ef606c3c34f7789ee966968a665ffee1ad858f8de948a1f782bb20a2f",
+          "dimensions": [
+            960,
+            540
+          ],
+          "actual_pixels_viewed": true
+        },
+        {
+          "file": "production/expansion/integration-10/previews/spring-384.png",
+          "sha256": "0e0ed2e8138e7fb0c27e2fb0bdbb5724d6e8c064a7737177dc86a83309c31366",
+          "dimensions": [
+            384,
+            216
+          ],
+          "actual_pixels_viewed": true
+        }
+      ],
+      "source_manifest": {
+        "file": "production/expansion/integration-10/bundle/yard-source.json",
+        "sha256": "bb6d432144e7ba7b5847be1ff7d325b4d5acff8bbffb90505b80ec6874d37b1d"
+      },
+      "sourceReleaseDigest": "3de66c0b4d5278196a493cd7637f11fd2000ec928198ef82d62f9f3cab139e57",
+      "background_layer_keys": [
+        "sky",
+        "mountains",
+        "ground_spring",
+        "fence"
+      ],
+      "native_layer_evidence": {
+        "sky": {
+          "image_key": "sky",
+          "file": "production/expansion/integration-10/bundle/art/181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c.png",
+          "sha256": "181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 814080,
+          "alpha255_pixels": 758784,
+          "bbox_alpha_ge8": [
+            0,
+            0,
+            1536,
+            494
+          ],
+          "upstream_source_sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "operation": "RGB preserved; convert to RGBA; authored sky alpha255 for y<494, alpha0 below. Clouds remain flattened with blue sky.",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4.png",
+            "sha256": "73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "mountains": {
+          "image_key": "mountains",
+          "file": "production/expansion/integration-10/bundle/art/9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc.png",
+          "sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha0_pixels": 1140133,
+          "alpha255_pixels": 0,
+          "bbox_alpha_ge8": [
+            0,
+            194,
+            1536,
+            530
+          ],
+          "upstream_source_sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687.png",
+            "sha256": "335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "ground_spring": {
+          "image_key": "ground_spring",
+          "file": "production/expansion/integration-10/bundle/art/2276a88411a9d94d7b170d687a695777882240c64e58d5019ea5e57bfbaf3094.png",
+          "sha256": "2276a88411a9d94d7b170d687a695777882240c64e58d5019ea5e57bfbaf3094",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 685855,
+          "alpha255_pixels": 814080,
+          "bbox_alpha_ge8": [
+            0,
+            451,
+            1536,
+            1024
+          ],
+          "upstream_source_sha256": "4b9005b26b759330f60d36dfb0e913a793c74449647d72ce076f0736438d7d81",
+          "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/625b9da12ae7c8f8bfe7c77c862ec28d766706333d7b26e8dc30ff977c827af9.png",
+            "sha256": "625b9da12ae7c8f8bfe7c77c862ec28d766706333d7b26e8dc30ff977c827af9",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "fence": {
+          "image_key": "fence",
+          "file": "production/expansion/integration-10/bundle/art/2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b.png",
+          "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 1240146,
+          "alpha255_pixels": 6564,
+          "bbox_alpha_ge8": [
+            0,
+            253,
+            1536,
+            490
+          ],
+          "upstream_source_sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497.png",
+            "sha256": "f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        }
+      },
+      "seam_and_alpha_qa": {
+        "all_viewport_alpha255": true,
+        "uncovered_viewport_pixels": 0,
+        "partial_viewport_alpha_pixels": 0,
+        "ground_y494_to1024_all_alpha255": true,
+        "method": "Actual RGBA alpha compositing of four native source layers, then declared crop; coverage evidence only, not a physical ground mask."
+      },
+      "actual_season_art": "Distinct seasonal ground; shared sky/far/fence; tree instance healthy spring/summer, sparse autumn, bare winter. Same healthy flowering bladderpod remains reused conditional artwork; no four shrub states.",
+      "winter_summit_snow_default": false,
+      "wind_capability": "Static source assembly; independent visual wood/canopy can be addressed separately, but perbranch masks/physics and runtime wind are not qualified. No global foliage pivot or animation implementation inferred.",
+      "labels": [
+        {
+          "id": "visual.display-density",
+          "description": "Grass clusters remain visually busy; distant rocky texture warmer/more granular than the calm pale-distance target. Scene remains legible at normal/mobile sizes; no canonical bird/contact/species visibility assertion.",
+          "finding_state": "observed"
+        },
+        {
+          "id": "layer.seam",
+          "description": "No obvious fence/ground transparency gap, abrupt alpha seam or detached background strip in reviewed960/384. Actual background alpha composition has zero uncovered viewport pixels.",
+          "finding_state": "not_detected_in_scope"
+        },
+        {
+          "id": "visual.crop-truncation",
+          "description": "Left-edge tree crown/branches are framed partly outside the viewport. Native source modules remain retained. This source framing does not establish per-instance safe runtime placement.",
+          "finding_state": "not_applicable"
+        },
+        {
+          "id": "physics.unreviewed",
+          "description": "Authored support polygon, illustrative scale and mathematical ground registration are not physically calibrated.",
+          "finding_state": "unknown"
+        },
+        {
+          "id": "runtime.unadmitted",
+          "description": "Official PNG decoder receipts, layer adapter/allowlist, exact geometry/slot reconciliation and actual route/browser acceptance remain pending.",
+          "finding_state": "unknown"
+        }
+      ],
+      "interaction_review": "Prop silhouettes/ground contact look plausible at these display sizes; feeder/bench scale differs from current runtime catalog, so no functional-slot acceptance or automatic geometry replacement.",
+      "physical_geometry_reviewed": false,
+      "runtime_admitted": false,
+      "owner_accepted": false,
+      "source_hold_changes": false,
+      "candidate_revision": "frozen_integration10_source_v1_review_qualification11",
+      "scope_grades": {
+        "static_visual": "pass",
+        "registration": "pass_for_declared_source_crop_density_only",
+        "state_coverage": "pass_for_four_background_choices_only",
+        "wind_parts": "blocked",
+        "physical_geometry": "blocked",
+        "functional_fit": "blocked",
+        "runtime_admission": "blocked",
+        "rights_review": "blocked"
+      }
+    },
+    {
+      "asset_id": "scene.san_diego_inland_canyon",
+      "variant_id": "depth09_inland_fenced_test.season_summer_v1",
+      "season": "summer",
+      "qualification_scope": "Existing I10 derived static source assembly only, actual960x540 and384x216 display. No new drawing or runtime certification.",
+      "grade": "pass",
+      "grade_qualifier": "Scoped static source/preview pass with minor display limitations; other gates remain blocked.",
+      "fresh_pixel_review": true,
+      "reviewed_previews": [
+        {
+          "file": "production/expansion/integration-10/previews/summer-960.png",
+          "sha256": "1aa30c0910bfd509faaca9f55c3ddb490dbca3f4b9025523a3ebfd33d8ee37c7",
+          "dimensions": [
+            960,
+            540
+          ],
+          "actual_pixels_viewed": true
+        },
+        {
+          "file": "production/expansion/integration-10/previews/summer-384.png",
+          "sha256": "b68ab679eb701fc3763092868c672fad89aac859655fb40e7e505844578b39fd",
+          "dimensions": [
+            384,
+            216
+          ],
+          "actual_pixels_viewed": true
+        }
+      ],
+      "source_manifest": {
+        "file": "production/expansion/integration-10/bundle/yard-source.json",
+        "sha256": "bb6d432144e7ba7b5847be1ff7d325b4d5acff8bbffb90505b80ec6874d37b1d"
+      },
+      "sourceReleaseDigest": "3de66c0b4d5278196a493cd7637f11fd2000ec928198ef82d62f9f3cab139e57",
+      "background_layer_keys": [
+        "sky",
+        "mountains",
+        "ground_summer",
+        "fence"
+      ],
+      "native_layer_evidence": {
+        "sky": {
+          "image_key": "sky",
+          "file": "production/expansion/integration-10/bundle/art/181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c.png",
+          "sha256": "181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 814080,
+          "alpha255_pixels": 758784,
+          "bbox_alpha_ge8": [
+            0,
+            0,
+            1536,
+            494
+          ],
+          "upstream_source_sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "operation": "RGB preserved; convert to RGBA; authored sky alpha255 for y<494, alpha0 below. Clouds remain flattened with blue sky.",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4.png",
+            "sha256": "73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "mountains": {
+          "image_key": "mountains",
+          "file": "production/expansion/integration-10/bundle/art/9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc.png",
+          "sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha0_pixels": 1140133,
+          "alpha255_pixels": 0,
+          "bbox_alpha_ge8": [
+            0,
+            194,
+            1536,
+            530
+          ],
+          "upstream_source_sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687.png",
+            "sha256": "335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "ground_summer": {
+          "image_key": "ground_summer",
+          "file": "production/expansion/integration-10/bundle/art/6e45cdaa060fa291639fc7fc779e4aaa86ce0485cb54f8f13218671bffc430f4.png",
+          "sha256": "6e45cdaa060fa291639fc7fc779e4aaa86ce0485cb54f8f13218671bffc430f4",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 684087,
+          "alpha255_pixels": 814080,
+          "bbox_alpha_ge8": [
+            0,
+            451,
+            1536,
+            1024
+          ],
+          "upstream_source_sha256": "6074c4d9d0685aaa52afb5bb6ca26aeccb7b9c6cf19490c6d236a9bf67d3c489",
+          "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/137e558c40007bfb6d45a3bb5eb35124540c5890ad428103bb0b5c94aac13f09.png",
+            "sha256": "137e558c40007bfb6d45a3bb5eb35124540c5890ad428103bb0b5c94aac13f09",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "fence": {
+          "image_key": "fence",
+          "file": "production/expansion/integration-10/bundle/art/2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b.png",
+          "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 1240146,
+          "alpha255_pixels": 6564,
+          "bbox_alpha_ge8": [
+            0,
+            253,
+            1536,
+            490
+          ],
+          "upstream_source_sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497.png",
+            "sha256": "f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        }
+      },
+      "seam_and_alpha_qa": {
+        "all_viewport_alpha255": true,
+        "uncovered_viewport_pixels": 0,
+        "partial_viewport_alpha_pixels": 0,
+        "ground_y494_to1024_all_alpha255": true,
+        "method": "Actual RGBA alpha compositing of four native source layers, then declared crop; coverage evidence only, not a physical ground mask."
+      },
+      "actual_season_art": "Distinct seasonal ground; shared sky/far/fence; tree instance healthy spring/summer, sparse autumn, bare winter. Same healthy flowering bladderpod remains reused conditional artwork; no four shrub states.",
+      "winter_summit_snow_default": false,
+      "wind_capability": "Static source assembly; independent visual wood/canopy can be addressed separately, but perbranch masks/physics and runtime wind are not qualified. No global foliage pivot or animation implementation inferred.",
+      "labels": [
+        {
+          "id": "visual.display-density",
+          "description": "Grass clusters remain visually busy; distant rocky texture warmer/more granular than the calm pale-distance target. Scene remains legible at normal/mobile sizes; no canonical bird/contact/species visibility assertion.",
+          "finding_state": "observed"
+        },
+        {
+          "id": "layer.seam",
+          "description": "No obvious fence/ground transparency gap, abrupt alpha seam or detached background strip in reviewed960/384. Actual background alpha composition has zero uncovered viewport pixels.",
+          "finding_state": "not_detected_in_scope"
+        },
+        {
+          "id": "visual.crop-truncation",
+          "description": "Left-edge tree crown/branches are framed partly outside the viewport. Native source modules remain retained. This source framing does not establish per-instance safe runtime placement.",
+          "finding_state": "not_applicable"
+        },
+        {
+          "id": "physics.unreviewed",
+          "description": "Authored support polygon, illustrative scale and mathematical ground registration are not physically calibrated.",
+          "finding_state": "unknown"
+        },
+        {
+          "id": "runtime.unadmitted",
+          "description": "Official PNG decoder receipts, layer adapter/allowlist, exact geometry/slot reconciliation and actual route/browser acceptance remain pending.",
+          "finding_state": "unknown"
+        }
+      ],
+      "interaction_review": "Prop silhouettes/ground contact look plausible at these display sizes; feeder/bench scale differs from current runtime catalog, so no functional-slot acceptance or automatic geometry replacement.",
+      "physical_geometry_reviewed": false,
+      "runtime_admitted": false,
+      "owner_accepted": false,
+      "source_hold_changes": false,
+      "candidate_revision": "frozen_integration10_source_v1_review_qualification11",
+      "scope_grades": {
+        "static_visual": "pass",
+        "registration": "pass_for_declared_source_crop_density_only",
+        "state_coverage": "pass_for_four_background_choices_only",
+        "wind_parts": "blocked",
+        "physical_geometry": "blocked",
+        "functional_fit": "blocked",
+        "runtime_admission": "blocked",
+        "rights_review": "blocked"
+      }
+    },
+    {
+      "asset_id": "scene.san_diego_inland_canyon",
+      "variant_id": "depth09_inland_fenced_test.season_autumn_v1",
+      "season": "autumn",
+      "qualification_scope": "Existing I10 derived static source assembly only, actual960x540 and384x216 display. No new drawing or runtime certification.",
+      "grade": "pass",
+      "grade_qualifier": "Scoped static source/preview pass with minor display limitations; other gates remain blocked.",
+      "fresh_pixel_review": true,
+      "reviewed_previews": [
+        {
+          "file": "production/expansion/integration-10/previews/autumn-960.png",
+          "sha256": "f2fc9987315a24ee431da62e8c0fbde595e1791ced55d885cf9a200e7da6c859",
+          "dimensions": [
+            960,
+            540
+          ],
+          "actual_pixels_viewed": true
+        },
+        {
+          "file": "production/expansion/integration-10/previews/autumn-384.png",
+          "sha256": "c3575cd3d2a8c3b208ad8306617a05d91560b1fa2602d200927febcb99b132e7",
+          "dimensions": [
+            384,
+            216
+          ],
+          "actual_pixels_viewed": true
+        }
+      ],
+      "source_manifest": {
+        "file": "production/expansion/integration-10/bundle/yard-source.json",
+        "sha256": "bb6d432144e7ba7b5847be1ff7d325b4d5acff8bbffb90505b80ec6874d37b1d"
+      },
+      "sourceReleaseDigest": "3de66c0b4d5278196a493cd7637f11fd2000ec928198ef82d62f9f3cab139e57",
+      "background_layer_keys": [
+        "sky",
+        "mountains",
+        "ground_autumn",
+        "fence",
+        "litter_autumn"
+      ],
+      "native_layer_evidence": {
+        "sky": {
+          "image_key": "sky",
+          "file": "production/expansion/integration-10/bundle/art/181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c.png",
+          "sha256": "181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 814080,
+          "alpha255_pixels": 758784,
+          "bbox_alpha_ge8": [
+            0,
+            0,
+            1536,
+            494
+          ],
+          "upstream_source_sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "operation": "RGB preserved; convert to RGBA; authored sky alpha255 for y<494, alpha0 below. Clouds remain flattened with blue sky.",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4.png",
+            "sha256": "73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "mountains": {
+          "image_key": "mountains",
+          "file": "production/expansion/integration-10/bundle/art/9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc.png",
+          "sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha0_pixels": 1140133,
+          "alpha255_pixels": 0,
+          "bbox_alpha_ge8": [
+            0,
+            194,
+            1536,
+            530
+          ],
+          "upstream_source_sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687.png",
+            "sha256": "335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "ground_autumn": {
+          "image_key": "ground_autumn",
+          "file": "production/expansion/integration-10/bundle/art/4820cedcbc366caf89a73ec336f6a710b9cab7b0dcdfc911103ca3f367a40810.png",
+          "sha256": "4820cedcbc366caf89a73ec336f6a710b9cab7b0dcdfc911103ca3f367a40810",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 595152,
+          "alpha255_pixels": 814080,
+          "bbox_alpha_ge8": [
+            0,
+            451,
+            1536,
+            1024
+          ],
+          "upstream_source_sha256": "c665f01747fda3c0a328ed0b9e84be9cbc5e0f39aaf9d83fbd3bf37a6b4cbf54",
+          "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/a93b764d558d1a8e0da53c300185e388b0208fff7f0fa56a148b0fb28f37271e.png",
+            "sha256": "a93b764d558d1a8e0da53c300185e388b0208fff7f0fa56a148b0fb28f37271e",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "fence": {
+          "image_key": "fence",
+          "file": "production/expansion/integration-10/bundle/art/2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b.png",
+          "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 1240146,
+          "alpha255_pixels": 6564,
+          "bbox_alpha_ge8": [
+            0,
+            253,
+            1536,
+            490
+          ],
+          "upstream_source_sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497.png",
+            "sha256": "f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "litter_autumn": {
+          "image_key": "litter_autumn",
+          "file": "production/expansion/integration-10/bundle/art/175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682.png",
+          "sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "alpha0_pixels": 1571555,
+          "alpha255_pixels": 0,
+          "bbox_alpha_ge8": [
+            220,
+            900,
+            429,
+            940
+          ],
+          "upstream_source_sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea.png",
+            "sha256": "1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        }
+      },
+      "seam_and_alpha_qa": {
+        "all_viewport_alpha255": true,
+        "uncovered_viewport_pixels": 0,
+        "partial_viewport_alpha_pixels": 0,
+        "ground_y494_to1024_all_alpha255": true,
+        "method": "Actual RGBA alpha compositing of four native source layers, then declared crop; coverage evidence only, not a physical ground mask."
+      },
+      "actual_season_art": "Distinct seasonal ground; shared sky/far/fence; tree instance healthy spring/summer, sparse autumn, bare winter. Same healthy flowering bladderpod remains reused conditional artwork; no four shrub states.",
+      "winter_summit_snow_default": false,
+      "wind_capability": "Static source assembly; independent visual wood/canopy can be addressed separately, but perbranch masks/physics and runtime wind are not qualified. No global foliage pivot or animation implementation inferred.",
+      "labels": [
+        {
+          "id": "visual.display-density",
+          "description": "Grass clusters remain visually busy; distant rocky texture warmer/more granular than the calm pale-distance target. Scene remains legible at normal/mobile sizes; no canonical bird/contact/species visibility assertion.",
+          "finding_state": "observed"
+        },
+        {
+          "id": "layer.seam",
+          "description": "No obvious fence/ground transparency gap, abrupt alpha seam or detached background strip in reviewed960/384. Actual background alpha composition has zero uncovered viewport pixels.",
+          "finding_state": "not_detected_in_scope"
+        },
+        {
+          "id": "visual.crop-truncation",
+          "description": "Left-edge tree crown/branches are framed partly outside the viewport. Native source modules remain retained. This source framing does not establish per-instance safe runtime placement.",
+          "finding_state": "not_applicable"
+        },
+        {
+          "id": "physics.unreviewed",
+          "description": "Authored support polygon, illustrative scale and mathematical ground registration are not physically calibrated.",
+          "finding_state": "unknown"
+        },
+        {
+          "id": "runtime.unadmitted",
+          "description": "Official PNG decoder receipts, layer adapter/allowlist, exact geometry/slot reconciliation and actual route/browser acceptance remain pending.",
+          "finding_state": "unknown"
+        }
+      ],
+      "interaction_review": "Prop silhouettes/ground contact look plausible at these display sizes; feeder/bench scale differs from current runtime catalog, so no functional-slot acceptance or automatic geometry replacement.",
+      "physical_geometry_reviewed": false,
+      "runtime_admitted": false,
+      "owner_accepted": false,
+      "source_hold_changes": false,
+      "candidate_revision": "frozen_integration10_source_v1_review_qualification11",
+      "scope_grades": {
+        "static_visual": "pass",
+        "registration": "pass_for_declared_source_crop_density_only",
+        "state_coverage": "pass_for_four_background_choices_only",
+        "wind_parts": "blocked",
+        "physical_geometry": "blocked",
+        "functional_fit": "blocked",
+        "runtime_admission": "blocked",
+        "rights_review": "blocked"
+      }
+    },
+    {
+      "asset_id": "scene.san_diego_inland_canyon",
+      "variant_id": "depth09_inland_fenced_test.season_winter_v1",
+      "season": "winter",
+      "qualification_scope": "Existing I10 derived static source assembly only, actual960x540 and384x216 display. No new drawing or runtime certification.",
+      "grade": "pass",
+      "grade_qualifier": "Scoped static source/preview pass with minor display limitations; other gates remain blocked.",
+      "fresh_pixel_review": true,
+      "reviewed_previews": [
+        {
+          "file": "production/expansion/integration-10/previews/winter-960.png",
+          "sha256": "19dd28dc307d139b1339b6c547107f29b6a5e369c02a512a8c4229c96463eb3d",
+          "dimensions": [
+            960,
+            540
+          ],
+          "actual_pixels_viewed": true
+        },
+        {
+          "file": "production/expansion/integration-10/previews/winter-384.png",
+          "sha256": "8bc38bd0f1aeedfc83a0e5a72e2e522d4dab3b4512265b0d1e6f5e232ab4c693",
+          "dimensions": [
+            384,
+            216
+          ],
+          "actual_pixels_viewed": true
+        }
+      ],
+      "source_manifest": {
+        "file": "production/expansion/integration-10/bundle/yard-source.json",
+        "sha256": "bb6d432144e7ba7b5847be1ff7d325b4d5acff8bbffb90505b80ec6874d37b1d"
+      },
+      "sourceReleaseDigest": "3de66c0b4d5278196a493cd7637f11fd2000ec928198ef82d62f9f3cab139e57",
+      "background_layer_keys": [
+        "sky",
+        "mountains",
+        "ground_winter",
+        "fence",
+        "litter_winter"
+      ],
+      "native_layer_evidence": {
+        "sky": {
+          "image_key": "sky",
+          "file": "production/expansion/integration-10/bundle/art/181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c.png",
+          "sha256": "181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 814080,
+          "alpha255_pixels": 758784,
+          "bbox_alpha_ge8": [
+            0,
+            0,
+            1536,
+            494
+          ],
+          "upstream_source_sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+          "operation": "RGB preserved; convert to RGBA; authored sky alpha255 for y<494, alpha0 below. Clouds remain flattened with blue sky.",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4.png",
+            "sha256": "73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "mountains": {
+          "image_key": "mountains",
+          "file": "production/expansion/integration-10/bundle/art/9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc.png",
+          "sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            254
+          ],
+          "alpha0_pixels": 1140133,
+          "alpha255_pixels": 0,
+          "bbox_alpha_ge8": [
+            0,
+            194,
+            1536,
+            530
+          ],
+          "upstream_source_sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687.png",
+            "sha256": "335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "ground_winter": {
+          "image_key": "ground_winter",
+          "file": "production/expansion/integration-10/bundle/art/a0600f627f01c438d76bd7ea9a1e06f6035e59f2567b0db34826b3a72e62a69b.png",
+          "sha256": "a0600f627f01c438d76bd7ea9a1e06f6035e59f2567b0db34826b3a72e62a69b",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 688373,
+          "alpha255_pixels": 814080,
+          "bbox_alpha_ge8": [
+            0,
+            451,
+            1536,
+            1024
+          ],
+          "upstream_source_sha256": "a6d801c866250171d77d8726f05c3dad3add5e6cb6cdee36e2db650368e8bc24",
+          "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/0fe9463d66c8e591e20dd87f5fd5723487e210fe8802aa7d179f5ce8d4aaa192.png",
+            "sha256": "0fe9463d66c8e591e20dd87f5fd5723487e210fe8802aa7d179f5ce8d4aaa192",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "fence": {
+          "image_key": "fence",
+          "file": "production/expansion/integration-10/bundle/art/2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b.png",
+          "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            255
+          ],
+          "alpha0_pixels": 1240146,
+          "alpha255_pixels": 6564,
+          "bbox_alpha_ge8": [
+            0,
+            253,
+            1536,
+            490
+          ],
+          "upstream_source_sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497.png",
+            "sha256": "f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        },
+        "litter_winter": {
+          "image_key": "litter_winter",
+          "file": "production/expansion/integration-10/bundle/art/175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682.png",
+          "sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+          "dimensions": [
+            1536,
+            1024
+          ],
+          "mode": "RGBA",
+          "alpha_extrema": [
+            0,
+            253
+          ],
+          "alpha0_pixels": 1571555,
+          "alpha255_pixels": 0,
+          "bbox_alpha_ge8": [
+            220,
+            900,
+            429,
+            940
+          ],
+          "upstream_source_sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+          "operation": "Exact canonical bytes",
+          "review480": {
+            "file": "production/expansion/integration-10/bundle/art/1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea.png",
+            "sha256": "1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea",
+            "dimensions": [
+              480,
+              270
+            ],
+            "world": [
+              960,
+              540
+            ],
+            "density": 0.5,
+            "decoded_rgba_bytes": 518400,
+            "exact_rgba_NEAREST_crop_match": true
+          }
+        }
+      },
+      "seam_and_alpha_qa": {
+        "all_viewport_alpha255": true,
+        "uncovered_viewport_pixels": 0,
+        "partial_viewport_alpha_pixels": 0,
+        "ground_y494_to1024_all_alpha255": true,
+        "method": "Actual RGBA alpha compositing of four native source layers, then declared crop; coverage evidence only, not a physical ground mask."
+      },
+      "actual_season_art": "Distinct seasonal ground; shared sky/far/fence; tree instance healthy spring/summer, sparse autumn, bare winter. Same healthy flowering bladderpod remains reused conditional artwork; no four shrub states.",
+      "winter_summit_snow_default": false,
+      "wind_capability": "Static source assembly; independent visual wood/canopy can be addressed separately, but perbranch masks/physics and runtime wind are not qualified. No global foliage pivot or animation implementation inferred.",
+      "labels": [
+        {
+          "id": "visual.display-density",
+          "description": "Grass clusters remain visually busy; distant rocky texture warmer/more granular than the calm pale-distance target. Scene remains legible at normal/mobile sizes; no canonical bird/contact/species visibility assertion.",
+          "finding_state": "observed"
+        },
+        {
+          "id": "layer.seam",
+          "description": "No obvious fence/ground transparency gap, abrupt alpha seam or detached background strip in reviewed960/384. Actual background alpha composition has zero uncovered viewport pixels.",
+          "finding_state": "not_detected_in_scope"
+        },
+        {
+          "id": "visual.crop-truncation",
+          "description": "Left-edge tree crown/branches are framed partly outside the viewport. Native source modules remain retained. This source framing does not establish per-instance safe runtime placement.",
+          "finding_state": "not_applicable"
+        },
+        {
+          "id": "physics.unreviewed",
+          "description": "Authored support polygon, illustrative scale and mathematical ground registration are not physically calibrated.",
+          "finding_state": "unknown"
+        },
+        {
+          "id": "runtime.unadmitted",
+          "description": "Official PNG decoder receipts, layer adapter/allowlist, exact geometry/slot reconciliation and actual route/browser acceptance remain pending.",
+          "finding_state": "unknown"
+        }
+      ],
+      "interaction_review": "Prop silhouettes/ground contact look plausible at these display sizes; feeder/bench scale differs from current runtime catalog, so no functional-slot acceptance or automatic geometry replacement.",
+      "physical_geometry_reviewed": false,
+      "runtime_admitted": false,
+      "owner_accepted": false,
+      "source_hold_changes": false,
+      "candidate_revision": "frozen_integration10_source_v1_review_qualification11",
+      "scope_grades": {
+        "static_visual": "pass",
+        "registration": "pass_for_declared_source_crop_density_only",
+        "state_coverage": "pass_for_four_background_choices_only",
+        "wind_parts": "blocked",
+        "physical_geometry": "blocked",
+        "functional_fit": "blocked",
+        "runtime_admission": "blocked",
+        "rights_review": "blocked"
+      }
+    }
+  ],
+  "native_component_alpha_and_density": {
+    "sky": {
+      "image_key": "sky",
+      "file": "production/expansion/integration-10/bundle/art/181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c.png",
+      "sha256": "181181692c2ed80266cee88a3274a561db339016d81d0ee28de2ad22c455b84c",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha0_pixels": 814080,
+      "alpha255_pixels": 758784,
+      "bbox_alpha_ge8": [
+        0,
+        0,
+        1536,
+        494
+      ],
+      "upstream_source_sha256": "47a7f7c65ac9a9c22bbe1de41c48fa5f360404d03cedc04c5595dd56629bf934",
+      "operation": "RGB preserved; convert to RGBA; authored sky alpha255 for y<494, alpha0 below. Clouds remain flattened with blue sky.",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4.png",
+        "sha256": "73260814d81935fc893b985e666a0e9c7f523abe4355624e27910b1b0a1219c4",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    },
+    "mountains": {
+      "image_key": "mountains",
+      "file": "production/expansion/integration-10/bundle/art/9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc.png",
+      "sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha0_pixels": 1140133,
+      "alpha255_pixels": 0,
+      "bbox_alpha_ge8": [
+        0,
+        194,
+        1536,
+        530
+      ],
+      "upstream_source_sha256": "9762a22ba927e84d903cfbe1b4eddf7f9a4e91c9b5fa593c6d4e16277bfb00dc",
+      "operation": "Exact canonical bytes",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687.png",
+        "sha256": "335234a4841d11f873c70757e93edced1f2165501cc55ddbdac40bb22054f687",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    },
+    "mountains_snow": {
+      "image_key": "mountains_snow",
+      "file": "production/expansion/integration-10/bundle/art/99b10bfccb88067e7588bb3f180ec98f07cac30a982bfcd10f1a34d1fa0a5692.png",
+      "sha256": "99b10bfccb88067e7588bb3f180ec98f07cac30a982bfcd10f1a34d1fa0a5692",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "alpha0_pixels": 1140872,
+      "alpha255_pixels": 0,
+      "bbox_alpha_ge8": [
+        0,
+        194,
+        1536,
+        531
+      ],
+      "upstream_source_sha256": "99b10bfccb88067e7588bb3f180ec98f07cac30a982bfcd10f1a34d1fa0a5692",
+      "operation": "Exact canonical bytes",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/71b156fc985a54ef19b54cdbe52e04946e2d19f5551b39fb267e1a5069e78f00.png",
+        "sha256": "71b156fc985a54ef19b54cdbe52e04946e2d19f5551b39fb267e1a5069e78f00",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    },
+    "fence": {
+      "image_key": "fence",
+      "file": "production/expansion/integration-10/bundle/art/2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b.png",
+      "sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha0_pixels": 1240146,
+      "alpha255_pixels": 6564,
+      "bbox_alpha_ge8": [
+        0,
+        253,
+        1536,
+        490
+      ],
+      "upstream_source_sha256": "2a05dd226f8511ab57388ca2121b1e2e2b4cf4d59f2b3f91313f831aa1a4a43b",
+      "operation": "Exact canonical bytes",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497.png",
+        "sha256": "f103fb9f242e275cb35b6cad945c7fb6cf0681245c19c1820bdc29da2bf62497",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    },
+    "ground_spring": {
+      "image_key": "ground_spring",
+      "file": "production/expansion/integration-10/bundle/art/2276a88411a9d94d7b170d687a695777882240c64e58d5019ea5e57bfbaf3094.png",
+      "sha256": "2276a88411a9d94d7b170d687a695777882240c64e58d5019ea5e57bfbaf3094",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha0_pixels": 685855,
+      "alpha255_pixels": 814080,
+      "bbox_alpha_ge8": [
+        0,
+        451,
+        1536,
+        1024
+      ],
+      "upstream_source_sha256": "4b9005b26b759330f60d36dfb0e913a793c74449647d72ce076f0736438d7d81",
+      "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/625b9da12ae7c8f8bfe7c77c862ec28d766706333d7b26e8dc30ff977c827af9.png",
+        "sha256": "625b9da12ae7c8f8bfe7c77c862ec28d766706333d7b26e8dc30ff977c827af9",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    },
+    "ground_summer": {
+      "image_key": "ground_summer",
+      "file": "production/expansion/integration-10/bundle/art/6e45cdaa060fa291639fc7fc779e4aaa86ce0485cb54f8f13218671bffc430f4.png",
+      "sha256": "6e45cdaa060fa291639fc7fc779e4aaa86ce0485cb54f8f13218671bffc430f4",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha0_pixels": 684087,
+      "alpha255_pixels": 814080,
+      "bbox_alpha_ge8": [
+        0,
+        451,
+        1536,
+        1024
+      ],
+      "upstream_source_sha256": "6074c4d9d0685aaa52afb5bb6ca26aeccb7b9c6cf19490c6d236a9bf67d3c489",
+      "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/137e558c40007bfb6d45a3bb5eb35124540c5890ad428103bb0b5c94aac13f09.png",
+        "sha256": "137e558c40007bfb6d45a3bb5eb35124540c5890ad428103bb0b5c94aac13f09",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    },
+    "ground_autumn": {
+      "image_key": "ground_autumn",
+      "file": "production/expansion/integration-10/bundle/art/4820cedcbc366caf89a73ec336f6a710b9cab7b0dcdfc911103ca3f367a40810.png",
+      "sha256": "4820cedcbc366caf89a73ec336f6a710b9cab7b0dcdfc911103ca3f367a40810",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha0_pixels": 595152,
+      "alpha255_pixels": 814080,
+      "bbox_alpha_ge8": [
+        0,
+        451,
+        1536,
+        1024
+      ],
+      "upstream_source_sha256": "c665f01747fda3c0a328ed0b9e84be9cbc5e0f39aaf9d83fbd3bf37a6b4cbf54",
+      "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/a93b764d558d1a8e0da53c300185e388b0208fff7f0fa56a148b0fb28f37271e.png",
+        "sha256": "a93b764d558d1a8e0da53c300185e388b0208fff7f0fa56a148b0fb28f37271e",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    },
+    "ground_winter": {
+      "image_key": "ground_winter",
+      "file": "production/expansion/integration-10/bundle/art/a0600f627f01c438d76bd7ea9a1e06f6035e59f2567b0db34826b3a72e62a69b.png",
+      "sha256": "a0600f627f01c438d76bd7ea9a1e06f6035e59f2567b0db34826b3a72e62a69b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha0_pixels": 688373,
+      "alpha255_pixels": 814080,
+      "bbox_alpha_ge8": [
+        0,
+        451,
+        1536,
+        1024
+      ],
+      "upstream_source_sha256": "a6d801c866250171d77d8726f05c3dad3add5e6cb6cdee36e2db650368e8bc24",
+      "operation": "Source RGBA/RGB retained except alpha normalized255 across authored filled-floor y>=494; no color repaint or physical inference.",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/0fe9463d66c8e591e20dd87f5fd5723487e210fe8802aa7d179f5ce8d4aaa192.png",
+        "sha256": "0fe9463d66c8e591e20dd87f5fd5723487e210fe8802aa7d179f5ce8d4aaa192",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    },
+    "litter_autumn": {
+      "image_key": "litter_autumn",
+      "file": "production/expansion/integration-10/bundle/art/175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682.png",
+      "sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "alpha0_pixels": 1571555,
+      "alpha255_pixels": 0,
+      "bbox_alpha_ge8": [
+        220,
+        900,
+        429,
+        940
+      ],
+      "upstream_source_sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "operation": "Exact canonical bytes",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea.png",
+        "sha256": "1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    },
+    "litter_winter": {
+      "image_key": "litter_winter",
+      "file": "production/expansion/integration-10/bundle/art/175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682.png",
+      "sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "alpha0_pixels": 1571555,
+      "alpha255_pixels": 0,
+      "bbox_alpha_ge8": [
+        220,
+        900,
+        429,
+        940
+      ],
+      "upstream_source_sha256": "175c53eb3ccf8b3af4f1b7220ce32938db35fb4d749efb18b4bb222b663e2682",
+      "operation": "Exact canonical bytes",
+      "review480": {
+        "file": "production/expansion/integration-10/bundle/art/1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea.png",
+        "sha256": "1974dea0cc7244cd447c867b7ef320b4fbccdf2573dc3fb7849006b6affe72ea",
+        "dimensions": [
+          480,
+          270
+        ],
+        "world": [
+          960,
+          540
+        ],
+        "density": 0.5,
+        "decoded_rgba_bytes": 518400,
+        "exact_rgba_NEAREST_crop_match": true
+      }
+    }
+  },
+  "fresh_scope": {
+    "family_count": 1,
+    "pair_count": 4,
+    "normal_previews": 4,
+    "mobile_previews": 4,
+    "all163_newly_pixel_reviewed": false
+  },
+  "inherited_initial_yards": "Three initial families remain metadata/source availability only. Their flattened opaque base and separate edge overlays are retained; no fresh semantic separation, seasonal completeness or display qualification granted.",
+  "background_slots_truth": "Four actual base slots sky/far/ground/fence, plus autumn/winter litter only when present. No separately extracted cloud layer; skies/clouds remain flattened together. Independent editable tree/props/shrub are instances, not baked into clean ground. Empty layer states are omitted, not counted as art.",
+  "new_art_generation_calls": 0,
+  "nonpromotion": {
+    "physical_geometry_reviewed": false,
+    "runtime_admitted": false,
+    "owner_accepted": false
+  },
+  "label_search_receipt": {
+    "searched_pin": "e040fc4d05167db16148415de69cc3a2723c7855",
+    "actions": [
+      "Read-only git ls-tree filename search limited to origin/main docs and cloud-producer roots",
+      "Read-only limited producer README review; no shared defect-label contract located",
+      "A broad content search produced no output and was stopped rather than continued"
+    ],
+    "outcome": "Earlier shared contract not established by those searches. Owner authorized parent to establish v1; search stopped. No denial or tool blocker."
+  },
+  "actual_layer_pixel_review": [
+    "layer-alpha-contact-1.png",
+    "layer-alpha-contact-2.png",
+    "layer-alpha-contact-3.png"
+  ]
+}
