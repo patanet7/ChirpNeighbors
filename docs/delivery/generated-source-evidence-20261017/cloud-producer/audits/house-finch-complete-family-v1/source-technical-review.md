@@ -1,0 +1,3 @@
+Independent source/field integrity PASS: 43 frozen targets exact, 4 existing source drawings and zero calls/new drawings. Source identities resolve through direct bank IDs or explicit same-drawing legacy aliases. Declared uniform source sampling/current render copies are exact. Binaryalpha masks, shared palette and every partial-field pixel rectangle reconstruct the candidate PNGs exactly: [711, 702, 706, 701], sum 2820, area 36864.
+
+Idle/blink/look clocks are retained as source proposals. Source usefulness remains the independent visual verdict; physical support, production metadata/pins, complete current schema validation and Mac admission remain unapproved.

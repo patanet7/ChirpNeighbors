@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import sharp from '/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/dist/index.cjs';
+import { normalizeDecodedPixels } from './exact-runtime-codec.ts';
+const cfgPath=process.argv[2],dir=path.dirname(cfgPath),cfg=JSON.parse(fs.readFileSync(cfgPath)),{width,height}=cfg.canvas,decoded=[];
+for(const f of cfg.frames){const {data,info}=await sharp(path.join(dir,f.PNG)).ensureAlpha().raw().toBuffer({resolveWithObject:true});if(info.width!==width||info.height!==height||info.channels!==4)throw Error('canvas mismatch');const id='frame.sha256.'+crypto.createHash('sha256').update(`RGBA8;${width}x${height};`).update(data).digest('hex');if(id!==f.derivativeDecodedRGBAId)throw Error('Sharp decodedRGBA ID mismatch');decoded.push(data);}
+try {
+ const frames=normalizeDecodedPixels({canvas:{width,height},frames:decoded.map(data=>({rgba:Array.from(data)})),logicalPixelSize:cfg.logicalPixelSize,paletteLimit:cfg.paletteLimit});
+ for(let i=0;i<frames.length;i++){const reconstructed=Buffer.alloc(width*height*4);for(const r of frames[i])for(let y=r.y;y<r.y+r.height;y++)for(let x=r.x;x<r.x+r.width;x++){const j=(y*width+x)*4;reconstructed[j]=r.color>>>16;reconstructed[j+1]=(r.color>>>8)&255;reconstructed[j+2]=r.color&255;reconstructed[j+3]=255;}if(!reconstructed.equals(decoded[i]))throw Error('RGBA reconstruction mismatch');}
+ const palette=[...new Set(frames.flatMap(f=>f.map(r=>r.color)))].sort((a,b)=>a-b),byrole=new Map(cfg.frames.map((f,i)=>[f.role,i]));
+ const sourceClips=Object.fromEntries(Object.entries(cfg.clips).map(([id,c])=>[id,{tickRate:c.tickRate,loop:c.loop,poses:c.frames.map((role,i)=>({frame:byrole.get(role),durationTicks:c.durationTicks[i],pivot:cfg.pivot,contacts:[],poseId:`house-finch-${role}`,rotation:0}))}]));
+ const descriptor={kind:'partial exact-codec pixel fields plus explicit source clip schedules; NOT an admitted runtime manifest',canvas:cfg.canvas,frames,normalization:{algorithm:'lossless-rgba-rects-v2',alpha:'binary',logicalPixelSize:1,palette},sourceClips,clipContractGap:'Available v3 namedclips do not include blink/look; current app adapter and actual admission required. No fake enum alias or accepted provenance.',presentationIntent:{sourcePixelsPerWorldUnit:1},contacts:[],geometryReviewed:false,supportWorld:null};
+ fs.writeFileSync(path.join(dir,'pixel-family-fields.partial.json'),JSON.stringify(descriptor,null,2)+'\n');
+ console.log(JSON.stringify({passed:true,perFrameRectangles:frames.map(f=>f.length),sumRectangles:frames.reduce((n,f)=>n+f.length,0),decodedArea:width*height*frames.length,frameCount:frames.length,commonOpaquePaletteColors:palette.length,pixelReconstructionExact:true,actualSharpDecodedIDsVerified:true,exactCodec:'UNCHANGED normalizeDecodedPixels with actual retained PermanentStageError',functionSHA256:crypto.createHash('sha256').update(fs.readFileSync(path.join(dir,'exact-runtime-codec.ts'))).digest('hex'),fullManifestValidation:false,currentMacAdmission:false}));
+} catch(e) {console.log(JSON.stringify({passed:false,errorClass:e.constructor.name,error:e.message,exactCodec:'UNCHANGED normalizeDecodedPixels with actual retained PermanentStageError',decodedArea:width*height*cfg.frames.length,fullManifestValidation:false,currentMacAdmission:false}));process.exitCode=1;}

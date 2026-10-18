@@ -1,0 +1,190 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "5d04434efedb9a7ac8c7d7485334c17a717a9c3da5bae93736572ca0da8d847b",
+    "creator": "Chirp source-preserving family derivative exporter",
+    "tool": "Exact96rawcopies",
+    "toolVersion": "Pillow12.3.0; actualcodecsource retained",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 384,
+    "height": 96,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "finch-family-awake",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 48,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 96,
+        "height": 96
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "finch-family-half",
+      "sourceRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 48,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 96,
+        "height": 96
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "finch-family-closed",
+      "sourceRect": {
+        "x": 192,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 48,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 96,
+        "height": 96
+      },
+      "sourcePixelsPerWorldUnit": 1
+    },
+    {
+      "id": "finch-family-look",
+      "sourceRect": {
+        "x": 288,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "canvas": {
+        "width": 96,
+        "height": 96
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 48,
+        "y": 75
+      },
+      "contacts": [],
+      "world": {
+        "width": 96,
+        "height": 96
+      },
+      "sourcePixelsPerWorldUnit": 1
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "finch-family-awake",
+          "durationTicks": 42
+        }
+      ]
+    },
+    {
+      "id": "blink",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "finch-family-awake",
+          "durationTicks": 42
+        },
+        {
+          "frameId": "finch-family-half",
+          "durationTicks": 2
+        },
+        {
+          "frameId": "finch-family-closed",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "finch-family-half",
+          "durationTicks": 2
+        },
+        {
+          "frameId": "finch-family-awake",
+          "durationTicks": 20
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "finch-family-awake",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "finch-family-look",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "finch-family-awake",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ]
+}
