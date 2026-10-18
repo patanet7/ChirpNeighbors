@@ -1,0 +1,13 @@
+# Resting repairs, natural movement and flight source studies
+
+Six native requests returned twelve real source drawing attempts: four resting keys, four Quail gait cells and four Anna Hummingbird transition cells. Every exact prompt, native original, reference, attempt and failure is retained. No more generation is running. Derivative exports and the thirteen reused flight keys add zero drawings. Source registration advances170/62 to182/68 without runtime accepted uses.
+
+Selected new common source use: White-crowned Sparrow toward-viewer attention. Both independent roles find a restrained clear pose with quiet stance; actual pixel and producer-proposal checks pass. Provisional source coverage52→53/60. Crow attention also reads usefully, but both63 and32palette exports exceed the rectangle budget, so it is unselected pending packaging repair. Both new Bushtit/Oriole blinks remain ambiguous at actual64/141CSS during100ms; geometry or pixel passes do not promote them.
+
+Existing Dove gait is a useful bounded stepping study but fails grounded travel. New Quail four-cell gait is held for nearly1.86×body width, row/root mismatches, unproven support alternation and area/JSON failures. Nuttall remains a conditional inclined-trunk source posture proposal, with physical support unreviewed and no closed-eye drawing. QuailV1 attention fails the stricter planted quiet stance criterion.
+
+The four existing hummingbird airborne keys are useful as a bounded source cycle, now exported with ONE common wholecanvas96→64nearest-neighbor transform, binary alpha and shared palette at density1. This preserves64world individual scale and creates no new drawings. It passes actual pixel checks and independent normal-size review; it is not a complete or biologically certified flight. Takeoff/landing joins remain held. Four genuine new bridge drawings did not match individual/footplane/wingfold continuity and remain rejected attempts.
+
+Three baseline APNG previews lost held-frame durations through coalescing; those exact failures remain. Additive corrected previews preserve every authored tick:0.8/1.4/1.4/1.2seconds. Additive slider fixes preserve all frozen source/art/clock files. New bridge APNGs already retained their holds; they were not regenerated.
+
+Read ROOT-ADJUDICATION.json for exact decisions and native IDs, SOURCE-COVERAGE-20-AFTER.json for all20 species, reviews/ for24 independent review pairs, and contract-intake/ for actual unchanged runtime commands/failures. Producer facts are separate from importer recovery: PR80/UI22 uses input5/source4/manifest6, not invented rights or private pins. Motion/flight source proposals are not commonMotion packages. No app/runtime contracts, active inventory, saved data or live pins changed.

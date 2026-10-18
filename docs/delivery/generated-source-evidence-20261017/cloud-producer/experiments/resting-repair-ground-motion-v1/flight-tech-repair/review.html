@@ -1,0 +1,15 @@
+<!doctype html><meta charset="utf-8"><title>Anna airborne subset — one technical export</title>
+<style>body{font:16px system-ui;background:#eee9da;margin:24px}table{border-spacing:14px}td{padding:12px}canvas{width:64px;height:64px;image-rendering:pixelated}pre{font-size:12px;white-space:pre-wrap}button{padding:8px}img.corrected{width:360px;height:170px;image-rendering:pixelated}</style>
+<h1>Anna — four existing airborne wing keys</h1><p>Zero new drawings/calls. One wholecanvas96→64 transform, fixed64-world display. Raw96 at density1.5 is compared with binary-alpha/common-palette64 at density1. No body trajectory, fitting or per-pose shift. This is a source subset, not full flight admission.</p>
+<button id="play">Play authored24 ticks once</button><input id="tick" type="range" min="0" max="23" value="0">
+<table><tr><th></th><th>Exact raw96 at64CSS</th><th>One new64 derivative at64CSS</th></tr>
+<tr><th>Light</th><td><canvas id="raw96-light" width="96" height="96"></canvas></td><td><canvas id="codec64-light" width="64" height="64"></canvas></td></tr>
+<tr><th>Dark</th><td><canvas id="raw96-dark" width="96" height="96"></canvas></td><td><canvas id="codec64-dark" width="64" height="64"></canvas></td></tr></table>
+<p>Four real wing drawings repeat six times over24 authored ticks at30Hz, then hold. This pose cadence is not a biological wingbeat measurement. Common virtual torso pivot36,45 rounds continuous36,45.333; no bitmap moves to satisfy that annotation. Airborne contacts remain empty.</p>
+<pre id="state"></pre><p><a href="airborne-four-pose-cycle.apng">New64 RGBA four-pose APNG</a> · <a href="airborne-source-handoff.json">Source subset handoff</a> · <a href="apng-timing-proof.json">Exact timing/failure proof</a></p>
+<h2>Additive baseline timing corrections</h2><p>These previews use the exact original source-frame composition and authored body paths. Every authored tick is retained explicitly. Timing repair does not approve takeoff/landing joins or make a complete13-frame flight asset.</p>
+<p>Hover24 ticks /0.8s</p><a href="corrected-previews/hover-existing-four-poses.apng"><img class="corrected" src="corrected-previews/hover-existing-four-poses.apng"></a>
+<p>Takeoff42 ticks /1.4s — terminal join remains held</p><a href="corrected-previews/takeoff-held-join.apng"><img class="corrected" src="corrected-previews/takeoff-held-join.apng"></a>
+<p>Landing42 ticks /1.4s — abrupt fold/compression remains held</p><a href="corrected-previews/landing-stepped-contact-study.apng"><img class="corrected" src="corrected-previews/landing-stepped-contact-study.apng"></a>
+<p>Drive/brake36 ticks /1.2s — cross-pack diagnostic only</p><a href="corrected-previews/drive-brake-common-body-origin.apng"><img class="corrected" src="corrected-previews/drive-brake-common-body-origin.apng"></a>
+<p>Old files remain in original-previews; the original frozen flight-art player is unchanged. Current pixel/JSON checks and independent appearance/geometry reviews are separate; no source rights or runtime binding is granted.</p><script src="player.js"></script>

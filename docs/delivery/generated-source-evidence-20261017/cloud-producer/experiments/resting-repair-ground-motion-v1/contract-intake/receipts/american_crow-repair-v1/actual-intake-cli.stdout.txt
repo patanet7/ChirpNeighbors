@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 2,
+  "boundary": "asset-packaging-input-v5",
+  "metadataComplete": false,
+  "sourceAdmitted": false,
+  "rightsGranted": false,
+  "referenceRightsAssessed": false,
+  "generationInputsAssessed": false,
+  "physicalSupportReviewed": false,
+  "browserAcceptance": "pending",
+  "reviewRequired": [
+    "immutable-file-and-rights",
+    "exact-owner-reference-pins",
+    "source",
+    "manifest"
+  ],
+  "issues": [
+    {
+      "path": "source.license.id",
+      "code": "invalid_type",
+      "message": "Expected string, received null",
+      "category": "output-use-declaration",
+      "responsibleParty": "authorized-requester"
+    },
+    {
+      "path": "source.license.derivativesAllowed",
+      "code": "invalid_type",
+      "message": "Expected boolean, received null",
+      "category": "output-use-declaration",
+      "responsibleParty": "authorized-requester"
+    },
+    {
+      "path": "source.license.redistributionAllowed",
+      "code": "invalid_type",
+      "message": "Expected boolean, received null",
+      "category": "output-use-declaration",
+      "responsibleParty": "authorized-requester"
+    },
+    {
+      "path": "source.license.attribution",
+      "code": "invalid_type",
+      "message": "Expected string, received null",
+      "category": "output-use-declaration",
+      "responsibleParty": "authorized-requester"
+    },
+    {
+      "path": "source.references",
+      "code": "too_small",
+      "message": "Array must contain at least 1 element(s)",
+      "category": "runtime-reference-binding",
+      "responsibleParty": "runtime-integrator"
+    },
+    {
+      "path": "conditioning.references",
+      "code": "too_small",
+      "message": "Array must contain at least 1 element(s)",
+      "category": "runtime-reference-binding",
+      "responsibleParty": "runtime-integrator"
+    },
+    {
+      "path": "conditioning.poseGraph.nodes.0.referenceId",
+      "code": "invalid_type",
+      "message": "Expected string, received null",
+      "category": "runtime-reference-binding",
+      "responsibleParty": "runtime-integrator"
+    },
+    {
+      "path": "commonMotion.poseGraph.nodes.0.referenceId",
+      "code": "invalid_type",
+      "message": "Expected string, received null",
+      "category": "runtime-reference-binding",
+      "responsibleParty": "runtime-integrator"
+    },
+    {
+      "path": "commonMotion.poseGraph.nodes.1.referenceId",
+      "code": "invalid_type",
+      "message": "Expected string, received null",
+      "category": "runtime-reference-binding",
+      "responsibleParty": "runtime-integrator"
+    },
+    {
+      "path": "commonMotion.poseGraph.nodes.2.referenceId",
+      "code": "invalid_type",
+      "message": "Expected string, received null",
+      "category": "runtime-reference-binding",
+      "responsibleParty": "runtime-integrator"
+    },
+    {
+      "path": "commonMotion.poseGraph.nodes.3.referenceId",
+      "code": "invalid_type",
+      "message": "Expected string, received null",
+      "category": "runtime-reference-binding",
+      "responsibleParty": "runtime-integrator"
+    },
+    {
+      "path": "projectGeneratedEvidence",
+      "code": "invalid_type",
+      "message": "Required",
+      "category": "source-metadata",
+      "responsibleParty": "source-producer"
+    }
+  ],
+  "classificationCounts": {
+    "outputUseDeclaration": 4,
+    "runtimeReferenceBinding": 7,
+    "sourceMetadata": 1
+  },
+  "sourceDeclarationState": "unparseable",
+  "sourceDeclarationIssues": [],
+  "inputSha256": "72b311cf8d67e5030d85b14ae6f5f47e8ce0f475d7bec62bf1d4efa816e390d1",
+  "structuralSchemaSha256": "76f22cf31ef7172de2eb269db7516e96a58b2d34691a38dcfeca51e4e2cfdd4e",
+  "authorityFiles": [
+    {
+      "path": "src/lib/assets/intake.ts",
+      "sha256": "afc5aa991afe921db6c96d919c8f24b9b35f2b6ac76549882104bed8be6bcdf5"
+    },
+    {
+      "path": "src/lib/assets/intake-v2.ts",
+      "sha256": "d9a8261b2739e62b5b302847573a1fdb5f48c2eceff5a394c9b9fb498c9b1ca8"
+    },
+    {
+      "path": "src/lib/assets/intake-v3.ts",
+      "sha256": "ba16171a1ca2769a25d107c44782fb3f5ba43671fd9459162fadad1ac5fd8ab9"
+    },
+    {
+      "path": "src/lib/assets/manifest-v3.ts",
+      "sha256": "9652bf5d1a277005ab9b82b4cfd1b9227d2ba53c9e1b971e2846beb6d9976923"
+    },
+    {
+      "path": "src/lib/assets/common-motion.ts",
+      "sha256": "be9906c7e7e2d748d8e7dd28dff4ef75b9c4879ef214074a71e15b3423cd8c02"
+    },
+    {
+      "path": "src/lib/assets/common-intake-report-v2.ts",
+      "sha256": "c5d8fc4ec126267cd2f98b82cad4b19262a1f107470560286731cb24168088e2"
+    },
+    {
+      "path": "src/lib/assets/source-review.ts",
+      "sha256": "3ff02dce61366d63eb9821b3f464fcac721dd328f79bf0d0dd0461040a3b9328"
+    },
+    {
+      "path": "src/lib/assets/common-intake-report.ts",
+      "sha256": "c7299adbb67a22b6e14032812317f56e6584336c656afe6261469dc7c14d0c8c"
+    },
+    {
+      "path": "src/lib/assets/project-generated-evidence.ts",
+      "sha256": "13cb120988aee311bc7a55259849654b4bda39f5b3dc7eeb35ead662ccd8467c"
+    },
+    {
+      "path": "src/lib/assets/project-common-proposal.ts",
+      "sha256": "9d0e5d2096de3448f2b56efafb5d3e05c60d2f299a9974e7140efa26feb2dd0d"
+    }
+  ]
+}

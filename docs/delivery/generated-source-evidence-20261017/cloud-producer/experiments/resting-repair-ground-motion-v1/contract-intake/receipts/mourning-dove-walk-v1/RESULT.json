@@ -1,0 +1,40 @@
+{
+  "status": "COMPLETED bounded source checks; inspect actual failure receipts and incomplete authority",
+  "candidateId": "mourning-dove-walk-v1",
+  "kind": "movement-source-only",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "/workspace/asset-production/validation/shared-structural-check.mjs",
+        "--repo",
+        "/workspace/runtime-resting-intake-v5-inspect",
+        "--input",
+        "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/contract-intake/receipts/mourning-dove-walk-v1/canonical-pixel-input.json",
+        "--receipt",
+        "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/contract-intake/receipts/mourning-dove-walk-v1/pixel-receipt.json",
+        "--sharp",
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp/dist/index.cjs"
+      ],
+      "exitCode": 0,
+      "stdout": "actual-pixel-subset.stdout.txt",
+      "stderr": "actual-pixel-subset.stderr.txt"
+    },
+    {
+      "command": [
+        "node",
+        "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/contract-intake/check-official.mjs",
+        "/workspace/asset-production/experiments/resting-repair-ground-motion-v1/contract-intake/receipts/mourning-dove-walk-v1"
+      ],
+      "exitCode": 0,
+      "stdout": "official-proposal-json.stdout.txt",
+      "stderr": "official-proposal-json.stderr.txt"
+    }
+  ],
+  "sourceAdmitted": false,
+  "runtimeAdmission": false,
+  "sourceArtGenerationCalls": 0,
+  "noSourcePixelsOrFilesModified": true,
+  "fullGeneratedAncestryOrPrivateBindingRecoveryExecuted": false,
+  "fullGraphCustomRefinementsValidated": false
+}

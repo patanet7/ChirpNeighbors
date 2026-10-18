@@ -1,0 +1,12 @@
+# California Quail — new four-cell walk source appearance
+
+HELD in raw and codec for matched-individual walking source. Genuine new leg drawings are retained, but scale/framing and inherited floor/root placement visibly fail.
+
+- **four-cell walk attempt — HELD_RAW_AND_CODEC:** At actual237CSS against the old individual, new body width164world is dramatically larger than the old88world. Feet fall far below the inherited root/floor proposal; the lower atlas row shifts vertically. This is a visible individual-scale/framing failure, without relying on canonical budgets.
+- **anatomical gait alternation — UNVERIFIED_NOT_ACCEPTED:** Real leg variants exist, but four distinct source cells/hashes do not prove coherent near/far support alternation, planted phases or a complete walking cycle. No neutral start/stop transition is supplied.
+
+Own live16tick nonlooping4/4/4/4@30Hz study observed all four source indices and terminal15 held after the533.33ms episode. Actual237CSS/density1 panels show old reference, raw new source and codec on light/dark. A live sourceIndex2 inspection is bounded by ticks8→11; its proposed toe lies near215 versus inherited root185. New raw/codec body scale is conspicuously enlarged, not corrected by common transparent crop. No page errors. An initial oversized in-memory tool result exceeded its output token budget; the subsequent single-phase in-memory inspection recovered the view, without source/producer retry or capture files.
+
+The broad species identity remains recognizable, but the intended same individual/scale is not preserved. No deep-crouch, long-reach or planted-stance approval follows from these oversized frames, and no physical slide or anatomical foot ownership is claimed proven. Reported four-frame decoded area117600 and actual normalizer/proposal outcome are separate technical gates owned by the coordinator. Raw originals/cells and single codec remain unchanged; no rescale, per-pose fit, foot snap, painting, registration correction or new native retry was performed by this reviewer. Runtime NOT_SUBMITTED/NOT_TESTED for this held source.
+
+All 30 frozen inputs match before/after. Exact source IDs, retained contract, hashes and own phase observations are in the JSON. Zero reviewer generation, exports, codec changes, old/source/global edits or saved capture files. Appearance usefulness does not approve pressure/support, full technical admission, private app binding or live runtime acceptance.
