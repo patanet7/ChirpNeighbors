@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "profile": "chirp-texture-review-v1",
+  "scope": "review-only",
+  "approval": "unreviewed",
+  "activation": "none",
+  "source": {
+    "sha256": "5900dd641f3e3a315e0684f11c42ec88781f62a7ef7213a8dcfcd808a078c336",
+    "creator": "Chirp bounded eyelid-only native edit exporter",
+    "tool": "Native image_gen;wholecanvas RGBA nearest output",
+    "toolVersion": "Native model not exposed;Pillow12.3.0",
+    "rights": "unreviewed",
+    "fidelity": "unreviewed"
+  },
+  "atlas": {
+    "width": 384,
+    "height": 192,
+    "alpha": "straight-rgba8",
+    "colorSpace": "srgb"
+  },
+  "frames": [
+    {
+      "id": "hooded_oriole-neutral-192",
+      "sourceRect": {
+        "x": 0,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 114,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-1",
+          "x": 113,
+          "y": 148
+        },
+        {
+          "id": "foot-2",
+          "x": 116,
+          "y": 148
+        }
+      ],
+      "world": {
+        "width": 140.8,
+        "height": 140.8
+      },
+      "sourcePixelsPerWorldUnit": 1.3636363636363635
+    },
+    {
+      "id": "hooded_oriole-closed-blink-study-192",
+      "sourceRect": {
+        "x": 192,
+        "y": 0,
+        "width": 192,
+        "height": 192
+      },
+      "canvas": {
+        "width": 192,
+        "height": 192
+      },
+      "trim": {
+        "x": 0,
+        "y": 0
+      },
+      "pivot": {
+        "x": 114,
+        "y": 150
+      },
+      "contacts": [
+        {
+          "id": "foot-1",
+          "x": 113,
+          "y": 148
+        },
+        {
+          "id": "foot-2",
+          "x": 116,
+          "y": 148
+        }
+      ],
+      "world": {
+        "width": 140.8,
+        "height": 140.8
+      },
+      "sourcePixelsPerWorldUnit": 1.3636363636363635
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "hooded_oriole-neutral-192",
+          "durationTicks": 60
+        }
+      ]
+    },
+    {
+      "id": "blink",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "hooded_oriole-neutral-192",
+          "durationTicks": 60
+        },
+        {
+          "frameId": "hooded_oriole-closed-blink-study-192",
+          "durationTicks": 3
+        },
+        {
+          "frameId": "hooded_oriole-neutral-192",
+          "durationTicks": 27
+        }
+      ]
+    }
+  ]
+}

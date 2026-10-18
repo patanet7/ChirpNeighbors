@@ -1,6 +1,6 @@
 # Current per-species source slots
 
-146 registered primary source IDs across 46 retained originals. Useful provisional idle semantic uses: 19 neutral, 16 blink, 13 look. These uses overlap drawings. Source studies do not complete species action sets.
+147 registered primary source IDs across 47 retained originals. Useful provisional idle semantic uses: 19 neutral, 16 blink, 13 look. These uses overlap drawings. Source studies do not complete species action sets.
 
 | Species | Neutral | Look | Blink | Locomotion | Feed / drink / preen | Flight |
 |---|---|---|---|---|---|---|
@@ -18,7 +18,7 @@
 | Nuttall's Woodpecker | inclined-support-endpoint-hypothesis-vertical-unresolved | inclined-support-endpoint-hypothesis-vertical-unresolved | missing | missing | missing / missing / missing | missing |
 | White-crowned Sparrow | provisional source | missing | provisional source | missing | missing / missing / missing | missing |
 | Yellow-rumped Warbler | provisional source | missing | provisional source | missing | missing / missing / missing | missing |
-| Hooded Oriole | provisional source | provisional source | missing | missing | missing / missing / missing | missing |
+| Hooded Oriole | provisional source | provisional source | new source held | missing | missing / missing / missing | missing |
 | Western Bluebird | provisional source | provisional source | provisional source | reviewed one-shot study | missing / missing / missing | missing |
 | Bewick's Wren | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |
 | Spotted Towhee | provisional source | provisional source | provisional source | missing | missing / missing / missing | missing |

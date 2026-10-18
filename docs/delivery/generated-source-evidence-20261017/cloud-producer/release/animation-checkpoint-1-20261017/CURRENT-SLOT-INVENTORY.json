@@ -17829,7 +17829,7 @@
         "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
         "frame.sha256.a80c7fa0cefe3ebcc414b9b42e99612ed7c2a79034332c8899931895e22865b8"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
@@ -17944,6 +17944,63 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb",
+          "file": "motion/sd20-hooded-oriole-blink-v1/closed-native.png",
+          "fileSha256": "23d003252fa855959fb22f0fd9d00d873e45e11f3813ee1aa39a017e549578cd",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "hooded_oriole",
+          "appearanceVersion": "sd20-hooded-oriole-blink-v1",
+          "poseTags": [
+            "closed-eyelid-blink-study",
+            "candidate-source",
+            "blink-only"
+          ],
+          "sourceAtlas": "motion/sd20-hooded-oriole-blink-v1/original.png",
+          "sourceAtlasSha256": "23d003252fa855959fb22f0fd9d00d873e45e11f3813ee1aa39a017e549578cd",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "referenceCanvas": [
+              1024,
+              1024
+            ],
+            "outputCanvas": [
+              192,
+              192
+            ],
+            "wholeNativeToReferenceScale": 0.8165869218500797,
+            "directNativeToOutputScale": 0.15311004784688995,
+            "integerOriginTranslation": [
+              0,
+              0
+            ],
+            "perPoseFit": false,
+            "snap": false,
+            "paint": false,
+            "warp": false,
+            "alphaCleanup": false
+          },
+          "sourcePrompt": "motion/sd20-hooded-oriole-blink-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-hooded-oriole-blink-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "blink"
+          ],
+          "reuseStatus": "Independently reviewed common resting source study; HELD native eyelid-closure study; zero useful normal-yard blink gain. Toe/feather outline jump remains visible at normal scale; positive toe alpha is not physical support or smoothness acceptance. Exact existing awake neutral/source/profile/firsthold60 and oldlook retained; no primary override, held blink binding explicitly inactive. No Mac or runtime admission.",
+          "sourceReview": "motion/sd20-hooded-oriole-blink-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -17953,7 +18010,9 @@
         "new-species/sd20-woodpecker-warbler-oriole-v1/independent-review.json",
         "new-species/sd20-woodpecker-warbler-oriole-v1/README.md"
       ],
-      "sourceIssues": [],
+      "sourceIssues": [
+        "Current checkpoint: HELD native eyelid-closure study; zero useful normal-yard blink gain. Toe/feather outline jump remains visible at normal scale; positive toe alpha is not physical support or smoothness acceptance. Exact existing awake neutral/source/profile/firsthold60 and oldlook retained; no primary override, held blink binding explicitly inactive. No Mac or runtime admission."
+      ],
       "nextAssignedTask": null,
       "slots": [
         {
@@ -18101,19 +18160,94 @@
           "productExpectedScreenUse": "dominant",
           "productActionContext": "perched look",
           "biologicalFrequencyRank": null,
-          "state": "missing",
-          "sourceFrameIds": [],
-          "uniqueKnownSourceIDs": 0,
+          "state": "new-drawn-blink-held-source-study",
+          "sourceFrameIds": [
+            "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+            "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb"
+          ],
+          "uniqueKnownSourceIDs": 2,
           "provisionalUsefulSourceForThisSemanticSlot": false,
           "productionAccepted": false,
-          "evidencePaths": [],
-          "preparedPackagePaths": [],
+          "evidencePaths": [
+            "motion/sd20-hooded-oriole-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+            "motion/sd20-hooded-oriole-blink-v1/texture-review-manifest.json",
+            "motion/sd20-hooded-oriole-blink-v1/independent-review.json"
+          ],
+          "preparedPackagePaths": [
+            "motion/sd20-hooded-oriole-blink-v1/texture-review-manifest.json"
+          ],
           "remainingPhasesOrReview": [
-            "Demonstrably open eye→closed lid→same open state; half lid only if useful."
+            "HELD native eyelid-closure study; zero useful normal-yard blink gain. Toe/feather outline jump remains visible at normal scale; positive toe alpha is not physical support or smoothness acceptance. Exact existing awake neutral/source/profile/firsthold60 and oldlook retained; no primary override, held blink binding explicitly inactive. No Mac or runtime admission.",
+            "Canonical Mac admission, actor binding and actual-yard verification unknown here."
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "baselineState": "missing",
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "hooded_oriole-neutral-192",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+              "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a"
+            },
+            {
+              "frameId": "hooded_oriole-closed-blink-study-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb",
+              "outputRGBAId": "frame.sha256.934ddd49a08dffb9b0b901d0b2660094d21d59918e24812d95bcdae434e8b4c7"
+            },
+            {
+              "frameId": "hooded_oriole-neutral-192",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+              "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a"
+            }
+          ],
+          "renderBindings": [
+            {
+              "manifest": "motion/sd20-hooded-oriole-blink-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-hooded-oriole-blink-v1/blink-atlas192.png",
+              "clipId": "blink",
+              "tickRate": 30,
+              "loop": true,
+              "durationTicks": 90,
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "hooded_oriole-neutral-192",
+                  "durationTicks": 60,
+                  "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+                  "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a"
+                },
+                {
+                  "frameId": "hooded_oriole-closed-blink-study-192",
+                  "durationTicks": 3,
+                  "sourceFrameId": "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb",
+                  "outputRGBAId": "frame.sha256.934ddd49a08dffb9b0b901d0b2660094d21d59918e24812d95bcdae434e8b4c7"
+                },
+                {
+                  "frameId": "hooded_oriole-neutral-192",
+                  "durationTicks": 27,
+                  "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+                  "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a"
+                }
+              ],
+              "contactsMeaning": "technical alpha markers, not physical support approval",
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN",
+              "held": true,
+              "useAsActiveSource": false
+            }
+          ],
+          "selectedClipId": "blink",
+          "newSourceFrameIds": [
+            "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb"
+          ],
+          "reusedSourceFrameIds": [
+            "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f"
+          ],
+          "newSourceHeld": true,
+          "sourceHeld": true
         },
         {
           "speciesId": "hooded_oriole",
@@ -18264,7 +18398,9 @@
         }
       ],
       "baselineSourceIssues": [],
-      "currentSourceIssues": [],
+      "currentSourceIssues": [
+        "HELD native eyelid-closure study; zero useful normal-yard blink gain. Toe/feather outline jump remains visible at normal scale; positive toe alpha is not physical support or smoothness acceptance. Exact existing awake neutral/source/profile/firsthold60 and oldlook retained; no primary override, held blink binding explicitly inactive. No Mac or runtime admission."
+      ],
       "primaryManifestSHA256": "ef70fd022a936a9fabd056ee301210db7b46a718d46938e4db652da68cdfb292",
       "primaryAtlasSHA256": "6b8cf79906db3e3797bf3822c6ff2a69abb1fa135c509edad3d0dcda2c5d0773",
       "primaryClipId": "idle",
@@ -18282,6 +18418,16 @@
               "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a",
               "evidence": "new-species/sd20-woodpecker-warbler-oriole-v1/intake-manifest.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+              "sourcePNG": "motion/sd20-hooded-oriole-blink-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-hooded-oriole-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "395e32ca9218775efa5a7437dab391a78a7f8c0a19a1d6f13e18b2d020141b2a",
+              "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a",
+              "evidence": "motion/sd20-hooded-oriole-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -25554,6 +25700,16 @@
               "evidence": "new-species/sd20-woodpecker-warbler-oriole-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+              "sourcePNG": "motion/sd20-hooded-oriole-blink-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-hooded-oriole-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "395e32ca9218775efa5a7437dab391a78a7f8c0a19a1d6f13e18b2d020141b2a",
+              "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a",
+              "evidence": "motion/sd20-hooded-oriole-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -32666,6 +32822,234 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-hooded-oriole-blink-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-hooded-oriole-blink-v1/texture-review-manifest.json",
+      "manifestSHA256": "851b12131768f4bf4199da5b5556e5a0e71a22b5eae9b46f3860b4363b11af35",
+      "atlasPNG": "motion/sd20-hooded-oriole-blink-v1/blink-atlas192.png",
+      "atlasSHA256": "5900dd641f3e3a315e0684f11c42ec88781f62a7ef7213a8dcfcd808a078c336",
+      "atlasDimensions": [
+        384,
+        192
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "hooded_oriole-neutral-192",
+          "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a",
+          "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+              "sourcePNG": "new-species/sd20-woodpecker-warbler-oriole-v1/hooded_oriole/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-woodpecker-warbler-oriole-v1/hooded_oriole/neutral192.png",
+              "outputPNGsha256": "395e32ca9218775efa5a7437dab391a78a7f8c0a19a1d6f13e18b2d020141b2a",
+              "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a",
+              "evidence": "new-species/sd20-woodpecker-warbler-oriole-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+              "sourcePNG": "motion/sd20-hooded-oriole-blink-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-hooded-oriole-blink-v1/reused-awake192.png",
+              "outputPNGsha256": "395e32ca9218775efa5a7437dab391a78a7f8c0a19a1d6f13e18b2d020141b2a",
+              "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a",
+              "evidence": "motion/sd20-hooded-oriole-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "exact-existing-awake",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 140.8,
+            "height": 140.8
+          },
+          "sourcePixelsPerWorldUnit": 1.3636363636363635,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 116,
+              "y": 148
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148,
+              "sampledAlpha": 246,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 116,
+              "y": 148,
+              "sampledAlpha": 244,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "hooded_oriole-closed-blink-study-192",
+          "outputRGBAId": "frame.sha256.934ddd49a08dffb9b0b901d0b2660094d21d59918e24812d95bcdae434e8b4c7",
+          "sourceFrameId": "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb",
+              "sourcePNG": "motion/sd20-hooded-oriole-blink-v1/closed-native.png",
+              "outputPNG": "motion/sd20-hooded-oriole-blink-v1/closed192.png",
+              "outputPNGsha256": "69c84c524a71fcdb01ac01504de8100d0b80eb4fb663722b864571c2f9ce6594",
+              "outputRGBAId": "frame.sha256.934ddd49a08dffb9b0b901d0b2660094d21d59918e24812d95bcdae434e8b4c7",
+              "evidence": "motion/sd20-hooded-oriole-blink-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "closed-eyelid-blink-study",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 192,
+            "y": 0,
+            "width": 192,
+            "height": 192
+          },
+          "canvas": {
+            "width": 192,
+            "height": 192
+          },
+          "world": {
+            "width": 140.8,
+            "height": 140.8
+          },
+          "sourcePixelsPerWorldUnit": 1.3636363636363635,
+          "pivot": {
+            "x": 114,
+            "y": 150
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148
+            },
+            {
+              "id": "foot-2",
+              "x": 116,
+              "y": 148
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 113,
+              "y": 148,
+              "sampledAlpha": 249,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 116,
+              "y": 148,
+              "sampledAlpha": 250,
+              "anatomicallyApproved": false
+            }
+          ]
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "hooded_oriole-neutral-192",
+              "durationTicks": 60
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "hooded_oriole-neutral-192",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+              "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a"
+            }
+          ],
+          "durationTicks": 60,
+          "durationSeconds": 2.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f"
+          ]
+        },
+        {
+          "id": "blink",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "hooded_oriole-neutral-192",
+              "durationTicks": 60
+            },
+            {
+              "frameId": "hooded_oriole-closed-blink-study-192",
+              "durationTicks": 3
+            },
+            {
+              "frameId": "hooded_oriole-neutral-192",
+              "durationTicks": 27
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "hooded_oriole-neutral-192",
+              "durationTicks": 60,
+              "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+              "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a"
+            },
+            {
+              "frameId": "hooded_oriole-closed-blink-study-192",
+              "durationTicks": 3,
+              "sourceFrameId": "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb",
+              "outputRGBAId": "frame.sha256.934ddd49a08dffb9b0b901d0b2660094d21d59918e24812d95bcdae434e8b4c7"
+            },
+            {
+              "frameId": "hooded_oriole-neutral-192",
+              "durationTicks": 27,
+              "sourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+              "outputRGBAId": "frame.sha256.9a29291dfca191761e375d390e6136471644b65a3ebfa5fb4d220eefb805566a"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+            "frame.sha256.fdb45e62d55ef1784c44d1fada134b6121f461fd01bc69eef0b5fe352f271cdb"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -34073,7 +34457,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/dark-eyed-junco-look-ingest-build-0r3m0xha/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/dark-eyed-junco-look-ingest-build-sk8lmapl/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -34152,12 +34536,12 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-18T00:39:19.743964+00:00",
+  "projectionAsOfUTC": "2026-10-18T00:40:59.848344+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 146,
-    "registeredNativeOriginals": 46,
-    "newNativeCalls": 25,
-    "newDrawings": 44,
+    "registeredPrimaryDrawingIDs": 147,
+    "registeredNativeOriginals": 47,
+    "newNativeCalls": 26,
+    "newDrawings": 45,
     "semanticQuestions": 200,
     "usefulProvisionalIdleSemanticUses": 48,
     "usefulIdleUsesByAction": {
@@ -34174,7 +34558,7 @@
       "single-open-look-pose-no-matched-turn": 1,
       "provisional-drawn-blink": 16,
       "two-drawn-hover-wing-study-only": 1,
-      "missing": 135,
+      "missing": 134,
       "provisional-drawn-look": 13,
       "drawn-feed-candidate-object-contact-unaccepted": 1,
       "drawn-preen-failed-review-plus-rig-proof": 1,
@@ -34184,7 +34568,7 @@
       "provisional-held-static-fallback": 2,
       "drawn-walk-candidate-contact-unbound": 1,
       "drawn-drink-candidate-water-contact-unbound": 1,
-      "new-drawn-blink-held-source-study": 1,
+      "new-drawn-blink-held-source-study": 2,
       "weak-drawn-walk-draft-contact-unbound": 1,
       "drawn-hop-source-study-unpackaged": 1,
       "inclined-support-endpoint-hypothesis-vertical-unresolved": 2,

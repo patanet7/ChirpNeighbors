@@ -1,0 +1,9 @@
+One new Hooded Oriole eyelid-closure source study from one native edit; exact current awake1024/192 reused unchanged. Existing neutral/look source slots are not regenerated.
+
+Open review.html through a local static server for actual140.8CSS light/dark playback; one-cycle preview returns/holds awake. Explicit renderClipId=blink, authored30Hz60/3/27ticks; separate idle exactawake60ticks preserves the old first-neutral hold. PNG/APNG141 previews are explicitly rounded.
+
+Whole native1254canvas→192 RGBA nearest only, ratio192/1254; reference1024→1254 canvas difference declared. No perposefit, translation, snap, paint, alpha threshold or cleanup. Original native source retained unmodified. Native eyelid is closed, but toe/claw/feather redraw remains. Both alpha128 envelopes[55,89,145,151] match; footROIlowest row changes2outputpixels=1.4667world and centroid.2793world. Producer holds usefulness pending independent normal-size review; no retry. Oldcontacts positive246/244,new249/250 are foot-region samples, not bilateral sole/support approval. Twelve bright-red outputpixels allalpha1 remain unchanged; rawRGB can exaggerate invisible fringes.
+
+PRIMARY manifest separates one new native primary from one exact oldawake reuse; conditioning-provenance retains source/original/prompt/oldalpha-derivative lineage references and factual-reference provenance. Generated-reference rights unreviewed; no external photo pixels, cleared/CC claim or biological timing assertion.
+
+Strict texture-review profile source-only, approvalunreviewed/activationnone; canonicalZod/Sharp admission NOT_RUN, currentMac namedblink UNKNOWN, appbindingfalse/supportWorldnull/geometryReviewedfalse. Parent owns global registration, Git and app handoff; independent review before Library seal. No captures/privateLibraryIDs/signedURLs in public artifacts.
