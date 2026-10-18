@@ -16855,7 +16855,7 @@
         "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
         "frame.sha256.35ad0ec221da58f71fc3e82deef598f3f23901cbb5dd570b548aabe514b7703e"
       ],
-      "nativeBankDrawings": 2,
+      "nativeBankDrawings": 3,
       "nativeSourceRecords": [
         {
           "frameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
@@ -16970,6 +16970,58 @@
             "idle"
           ],
           "reuseStatus": "sourcecandidate; actualappbindingandpurpose-specificreviewpending"
+        },
+        {
+          "frameId": "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008",
+          "file": "motion/sd20-yellow-rumped-warbler-look-v1/look-native.png",
+          "fileSha256": "e15942754b7381863728a9109e1690154869030e9ee756eebe8cddbb9968a8a3",
+          "pixelIdentity": "SHA256 of RGBA8;WxH; plus decoded bytes",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "species": "yellow_rumped_warbler",
+          "appearanceVersion": "sd20-yellow-rumped-warbler-look-v1",
+          "poseTags": [
+            "toward-viewer skull/bill turn open eyes; compatibility pending",
+            "candidate-source",
+            "look-only"
+          ],
+          "sourceAtlas": "motion/sd20-yellow-rumped-warbler-look-v1/original.png",
+          "sourceAtlasSha256": "e15942754b7381863728a9109e1690154869030e9ee756eebe8cddbb9968a8a3",
+          "derivation": {
+            "nativeCanvas": [
+              1254,
+              1254
+            ],
+            "referenceCanvas": [
+              1024,
+              1024
+            ],
+            "wholeCallDensityNormalization": 0.8165869218500797,
+            "directNativeToOutputRatio": 0.07655502392344497,
+            "integerOriginTranslation": [
+              0,
+              0
+            ],
+            "perPoseBodyFit": false,
+            "paint": false,
+            "warp": false,
+            "alphaErasure": false
+          },
+          "sourcePrompt": "motion/sd20-yellow-rumped-warbler-look-v1/prompt.txt",
+          "authoredPrompt": "motion/sd20-yellow-rumped-warbler-look-v1/prompt.txt",
+          "generator": "OpenAI image_gen.imagegen",
+          "model": null,
+          "seed": null,
+          "anatomyScaleAccepted": false,
+          "rootContactAccepted": false,
+          "acceptedUses": [],
+          "candidateUses": [
+            "look"
+          ],
+          "reuseStatus": "Independently reviewed common resting source study; HELD matched-grounded-look source; native head turn retained but foot/toe outlines reconfigure and planted correspondence is unresolved at normal119.34375CSS. Zero useful look gain; cause is visual contact instability, not a numeric or alpha-only gate. Newcontacts[] explicitly unbound; exact awake/blink and old look state/bindings retained with inactive candidate only. Old bill69,54alpha0 sidecar is historically qualified by neighbor69,53alpha240, no endpoint certification. No app/physics admission.",
+          "sourceReview": "motion/sd20-yellow-rumped-warbler-look-v1/independent-review.json"
         }
       ],
       "inheritedSelectedSourceIDs": [],
@@ -16979,7 +17031,9 @@
         "new-species/sd20-woodpecker-warbler-oriole-v1/independent-review.json",
         "new-species/sd20-woodpecker-warbler-oriole-v1/README.md"
       ],
-      "sourceIssues": [],
+      "sourceIssues": [
+        "Current checkpoint: HELD matched-grounded-look source; native head turn retained but foot/toe outlines reconfigure and planted correspondence is unresolved at normal119.34375CSS. Zero useful look gain; cause is visual contact instability, not a numeric or alpha-only gate. Newcontacts[] explicitly unbound; exact awake/blink and old look state/bindings retained with inactive candidate only. Old bill69,54alpha0 sidecar is historically qualified by neighbor69,53alpha240, no endpoint certification. No app/physics admission."
+      ],
       "nextAssignedTask": null,
       "slots": [
         {
@@ -17060,7 +17114,129 @@
           ],
           "newAssignment": null,
           "appBinding": "UNKNOWN",
-          "actualYardVerification": "UNKNOWN"
+          "actualYardVerification": "UNKNOWN",
+          "heldLookCandidates": [
+            {
+              "batchId": "sd20-yellow-rumped-warbler-look-v1",
+              "kind": "look-only-new-drawing-source-candidate",
+              "canonicalSchemaValidation": "NOT_RUN; explicit look clip needs current Mac contract confirmation",
+              "profileLabelIsRuntimeAdmission": false,
+              "primaryManifest": "motion/sd20-yellow-rumped-warbler-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "manifest": "motion/sd20-yellow-rumped-warbler-look-v1/texture-review-manifest.json",
+              "atlasPNG": "motion/sd20-yellow-rumped-warbler-look-v1/look-atlas96.png",
+              "manifestSHA256": "34a48d7b6ffef192274bb2fe4699a4ff82c816ce192cd8b1741d31bd6f0fb1b4",
+              "atlasSHA256": "038be7482a1325dd3d8971eb6bd179af15601774547abbd1e4c080749234af0c",
+              "sourceFrameIds": [
+                "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+                "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008"
+              ],
+              "newSourceFrameIds": [
+                "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008"
+              ],
+              "reusedSourceFrameIds": [
+                "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e"
+              ],
+              "newDrawingCount": 1,
+              "reusedDrawingCount": 1,
+              "newNeutralDrawings": 0,
+              "newBlinkDrawings": 0,
+              "clipId": "look",
+              "orderedSourceFrameSequence": [
+                {
+                  "frameId": "yellow_rumped_warbler-neutral-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+                  "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb"
+                },
+                {
+                  "frameId": "yellow-rumped-warbler-look-viewer-96",
+                  "durationTicks": 12,
+                  "sourceFrameId": "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008",
+                  "outputRGBAId": "frame.sha256.75dd6b7f99943dadb74bafd550124829e0a4bf6f74bdb6960acb2d387825cecf"
+                },
+                {
+                  "frameId": "yellow_rumped_warbler-neutral-96",
+                  "durationTicks": 30,
+                  "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+                  "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb"
+                }
+              ],
+              "renderBinding": {
+                "manifest": "motion/sd20-yellow-rumped-warbler-look-v1/texture-review-manifest.json",
+                "atlasPNG": "motion/sd20-yellow-rumped-warbler-look-v1/look-atlas96.png",
+                "clipId": "look",
+                "tickRate": 30,
+                "loop": false,
+                "durationTicks": 72,
+                "orderedSourceFrameSequence": [
+                  {
+                    "frameId": "yellow_rumped_warbler-neutral-96",
+                    "durationTicks": 30,
+                    "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+                    "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb"
+                  },
+                  {
+                    "frameId": "yellow-rumped-warbler-look-viewer-96",
+                    "durationTicks": 12,
+                    "sourceFrameId": "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008",
+                    "outputRGBAId": "frame.sha256.75dd6b7f99943dadb74bafd550124829e0a4bf6f74bdb6960acb2d387825cecf"
+                  },
+                  {
+                    "frameId": "yellow_rumped_warbler-neutral-96",
+                    "durationTicks": 30,
+                    "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+                    "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb"
+                  }
+                ],
+                "contactsMeaning": "technical alpha markers, not physical support approval",
+                "appBinding": "UNKNOWN",
+                "actualYardVerification": "UNKNOWN",
+                "held": true,
+                "useAsActiveSource": false
+              },
+              "evidencePaths": [
+                "motion/sd20-yellow-rumped-warbler-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+                "motion/sd20-yellow-rumped-warbler-look-v1/texture-review-manifest.json",
+                "motion/sd20-yellow-rumped-warbler-look-v1/frame-to-action-map.json",
+                "motion/sd20-yellow-rumped-warbler-look-v1/independent-review.json"
+              ],
+              "sourceHeld": true,
+              "sourceReviewState": "held",
+              "productionAccepted": false,
+              "runtimeAdmission": false,
+              "packetBindingReady": false,
+              "appBinding": "UNKNOWN",
+              "actualYardVerification": "UNKNOWN",
+              "heldNewLookContactExceptions": [
+                {
+                  "sourceFrameId": "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008",
+                  "outputFrameId": "yellow-rumped-warbler-look-viewer-96",
+                  "contacts": [],
+                  "reason": "HELD new source has no supported inherited contact claim; unchanged registration, no snapping or fitting",
+                  "inheritedProbeDiagnostics": [
+                    {
+                      "id": "foot-1",
+                      "x": 56,
+                      "y": 74,
+                      "sampledAlpha": 236,
+                      "isContactClaim": false
+                    },
+                    {
+                      "id": "foot-2",
+                      "x": 60,
+                      "y": 73,
+                      "sampledAlpha": 0,
+                      "isContactClaim": false
+                    }
+                  ]
+                }
+              ],
+              "reviewReceipt": {
+                "path": "motion/sd20-yellow-rumped-warbler-look-v1/independent-review.json",
+                "sha256": "802e47921aeec05a9147f21fea1a6b5ece4efef70ab71be12b72fb304d8f7b28"
+              }
+            }
+          ]
         },
         {
           "speciesId": "yellow_rumped_warbler",
@@ -17290,7 +17466,12 @@
         }
       ],
       "baselineSourceIssues": [],
-      "currentSourceIssues": [],
+      "currentSourceIssues": [
+        "HELD matched-grounded-look source; native head turn retained but foot/toe outlines reconfigure and planted correspondence is unresolved at normal119.34375CSS. Zero useful look gain; cause is visual contact instability, not a numeric or alpha-only gate. Newcontacts[] explicitly unbound; exact awake/blink and old look state/bindings retained with inactive candidate only. Old bill69,54alpha0 sidecar is historically qualified by neighbor69,53alpha240, no endpoint certification. No app/physics admission."
+      ],
+      "overlayQualifications": [
+        "Look-only batch: one new head-turn plus the exact old awake source; zero new neutral/blink drawings and no primary replacement. Held/pending candidates retain prior look state and bindings."
+      ],
       "primaryManifestSHA256": "380ac0cac87fa303ee3d367b2858d5bf2cc18581664d013edebe72f5ffd366f7",
       "primaryAtlasSHA256": "d6244a5627b716f0ad482303591cb53a2d02e0ef06a6a07413aaf450babdfae1",
       "primaryClipId": "idle",
@@ -17308,6 +17489,16 @@
               "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb",
               "evidence": "new-species/sd20-woodpecker-warbler-oriole-v1/intake-manifest.json",
               "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+              "sourcePNG": "motion/sd20-yellow-rumped-warbler-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-yellow-rumped-warbler-look-v1/reused-awake96.png",
+              "outputPNGsha256": "94168dc7aac998f75b564e873650d0d3abcc8028742f2191567ec657af7d6818",
+              "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb",
+              "evidence": "motion/sd20-yellow-rumped-warbler-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
               "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
@@ -24946,6 +25137,16 @@
               "evidence": "new-species/sd20-woodpecker-warbler-oriole-v1/intake-manifest.json",
               "phase": "neutral",
               "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+              "sourcePNG": "motion/sd20-yellow-rumped-warbler-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-yellow-rumped-warbler-look-v1/reused-awake96.png",
+              "outputPNGsha256": "94168dc7aac998f75b564e873650d0d3abcc8028742f2191567ec657af7d6818",
+              "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb",
+              "evidence": "motion/sd20-yellow-rumped-warbler-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
             }
           ],
           "sourceRect": {
@@ -31782,6 +31983,208 @@
       "appBinding": "UNKNOWN",
       "actualYardVerification": "UNKNOWN",
       "technicalShapeIsArtOrPhysicsApproval": false
+    },
+    "motion/sd20-yellow-rumped-warbler-look-v1/texture-review-manifest.json": {
+      "manifest": "motion/sd20-yellow-rumped-warbler-look-v1/texture-review-manifest.json",
+      "manifestSHA256": "34a48d7b6ffef192274bb2fe4699a4ff82c816ce192cd8b1741d31bd6f0fb1b4",
+      "atlasPNG": "motion/sd20-yellow-rumped-warbler-look-v1/look-atlas96.png",
+      "atlasSHA256": "038be7482a1325dd3d8971eb6bd179af15601774547abbd1e4c080749234af0c",
+      "atlasDimensions": [
+        192,
+        96
+      ],
+      "scope": "review-only",
+      "profile": "chirp-texture-review-v1",
+      "approval": "unreviewed",
+      "activation": "none",
+      "frames": [
+        {
+          "outputFrameId": "yellow_rumped_warbler-neutral-96",
+          "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb",
+          "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+              "sourcePNG": "new-species/sd20-woodpecker-warbler-oriole-v1/yellow_rumped_warbler/neutral-source1024.png",
+              "outputPNG": "new-species/sd20-woodpecker-warbler-oriole-v1/yellow_rumped_warbler/neutral96.png",
+              "outputPNGsha256": "94168dc7aac998f75b564e873650d0d3abcc8028742f2191567ec657af7d6818",
+              "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb",
+              "evidence": "new-species/sd20-woodpecker-warbler-oriole-v1/intake-manifest.json",
+              "phase": "neutral",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            },
+            {
+              "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+              "sourcePNG": "motion/sd20-yellow-rumped-warbler-look-v1/reused-awake-source1024.png",
+              "outputPNG": "motion/sd20-yellow-rumped-warbler-look-v1/reused-awake96.png",
+              "outputPNGsha256": "94168dc7aac998f75b564e873650d0d3abcc8028742f2191567ec657af7d6818",
+              "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb",
+              "evidence": "motion/sd20-yellow-rumped-warbler-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "existing supported awake neutral unchanged",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 0,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 119.35135135135135,
+            "height": 119.35135135135135
+          },
+          "sourcePixelsPerWorldUnit": 0.8043478260869565,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74
+            },
+            {
+              "id": "foot-2",
+              "x": 60,
+              "y": 73
+            }
+          ],
+          "alphaContactChecks": [
+            {
+              "id": "foot-1",
+              "x": 56,
+              "y": 74,
+              "sampledAlpha": 201,
+              "anatomicallyApproved": false
+            },
+            {
+              "id": "foot-2",
+              "x": 60,
+              "y": 73,
+              "sampledAlpha": 248,
+              "anatomicallyApproved": false
+            }
+          ]
+        },
+        {
+          "outputFrameId": "yellow-rumped-warbler-look-viewer-96",
+          "outputRGBAId": "frame.sha256.75dd6b7f99943dadb74bafd550124829e0a4bf6f74bdb6960acb2d387825cecf",
+          "sourceFrameId": "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008",
+          "exactExportMappings": [
+            {
+              "sourceFrameId": "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008",
+              "sourcePNG": "motion/sd20-yellow-rumped-warbler-look-v1/look-native.png",
+              "outputPNG": "motion/sd20-yellow-rumped-warbler-look-v1/look96.png",
+              "outputPNGsha256": "7a1bfce310f97fa645526a55fe6972aec483f20048e827645463065dd0e98c78",
+              "outputRGBAId": "frame.sha256.75dd6b7f99943dadb74bafd550124829e0a4bf6f74bdb6960acb2d387825cecf",
+              "evidence": "motion/sd20-yellow-rumped-warbler-look-v1/PRIMARY-SOURCE-MANIFEST.json",
+              "phase": "toward-viewer skull/bill turn open eyes; compatibility pending",
+              "mappingMethod": "recorded explicit export verified by pixels"
+            }
+          ],
+          "sourceRect": {
+            "x": 96,
+            "y": 0,
+            "width": 96,
+            "height": 96
+          },
+          "canvas": {
+            "width": 96,
+            "height": 96
+          },
+          "world": {
+            "width": 119.35135135135135,
+            "height": 119.35135135135135
+          },
+          "sourcePixelsPerWorldUnit": 0.8043478260869565,
+          "pivot": {
+            "x": 57,
+            "y": 75
+          },
+          "contacts": [],
+          "alphaContactChecks": []
+        }
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "tickRate": 30,
+          "loop": true,
+          "frames": [
+            {
+              "frameId": "yellow_rumped_warbler-neutral-96",
+              "durationTicks": 90
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "yellow_rumped_warbler-neutral-96",
+              "durationTicks": 90,
+              "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+              "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb"
+            }
+          ],
+          "durationTicks": 90,
+          "durationSeconds": 3.0,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e"
+          ]
+        },
+        {
+          "id": "look",
+          "tickRate": 30,
+          "loop": false,
+          "frames": [
+            {
+              "frameId": "yellow_rumped_warbler-neutral-96",
+              "durationTicks": 30
+            },
+            {
+              "frameId": "yellow-rumped-warbler-look-viewer-96",
+              "durationTicks": 12
+            },
+            {
+              "frameId": "yellow_rumped_warbler-neutral-96",
+              "durationTicks": 30
+            }
+          ],
+          "orderedSourceFrameSequence": [
+            {
+              "frameId": "yellow_rumped_warbler-neutral-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+              "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb"
+            },
+            {
+              "frameId": "yellow-rumped-warbler-look-viewer-96",
+              "durationTicks": 12,
+              "sourceFrameId": "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008",
+              "outputRGBAId": "frame.sha256.75dd6b7f99943dadb74bafd550124829e0a4bf6f74bdb6960acb2d387825cecf"
+            },
+            {
+              "frameId": "yellow_rumped_warbler-neutral-96",
+              "durationTicks": 30,
+              "sourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+              "outputRGBAId": "frame.sha256.e8a3c35d348bd3472cf2a229b7b93c50cb1f154651aa95c856c13843065b15eb"
+            }
+          ],
+          "durationTicks": 72,
+          "durationSeconds": 2.4,
+          "uniqueSourceFrameIds": [
+            "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+            "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008"
+          ]
+        }
+      ],
+      "appBinding": "UNKNOWN",
+      "actualYardVerification": "UNKNOWN",
+      "technicalShapeIsArtOrPhysicsApproval": false
     }
   },
   "retainedIndependentReviewConclusions": {
@@ -33189,7 +33592,7 @@
       "newCallQueued": false,
       "sourceAcceptedFullFlight": false,
       "gapEvidence": {
-        "file": "/tmp/crow-perch-extra-ingest-build-wagnbmxv/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
+        "file": "/tmp/dark-eyed-junco-look-ingest-build-py8itci0/cloud-producer/motion/sd20-anna-transitions-v1/transition-gap-receipt.json",
         "sha256": "768a97f4f40a3bdc60852dd74ba84d9bb21493659920f2fed9d17ec5363c7d26",
         "pathScope": "canonical source"
       }
@@ -33268,12 +33671,12 @@
     }
   ],
   "currentOverlay": "release/animation-checkpoint-1-20261017/intake-overlay.json",
-  "projectionAsOfUTC": "2026-10-18T00:22:03.083508+00:00",
+  "projectionAsOfUTC": "2026-10-18T00:34:32.259872+00:00",
   "currentCounts": {
-    "registeredPrimaryDrawingIDs": 144,
-    "registeredNativeOriginals": 44,
-    "newNativeCalls": 23,
-    "newDrawings": 42,
+    "registeredPrimaryDrawingIDs": 145,
+    "registeredNativeOriginals": 45,
+    "newNativeCalls": 24,
+    "newDrawings": 43,
     "semanticQuestions": 200,
     "usefulProvisionalIdleSemanticUses": 47,
     "usefulIdleUsesByAction": {

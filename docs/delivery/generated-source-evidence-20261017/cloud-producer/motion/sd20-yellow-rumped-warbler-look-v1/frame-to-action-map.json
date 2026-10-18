@@ -1,0 +1,94 @@
+{
+  "batchId": "sd20-yellow-rumped-warbler-look-v1",
+  "speciesId": "yellow_rumped_warbler",
+  "lookOnlyNewDrawing": true,
+  "renderClipId": "look",
+  "manifest": {
+    "file": "texture-review-manifest.json",
+    "sha256": "34a48d7b6ffef192274bb2fe4699a4ff82c816ce192cd8b1741d31bd6f0fb1b4",
+    "profile": "chirp-texture-review-v1"
+  },
+  "atlasBinding": {
+    "file": "look-atlas96.png",
+    "sha256": "038be7482a1325dd3d8971eb6bd179af15601774547abbd1e4c080749234af0c",
+    "width": 192,
+    "height": 96,
+    "alpha": "straight-rgba8",
+    "bindRule": "wrapper PNG filename/sha/dimensions explicitly bound; strict profile has no atlas filename field"
+  },
+  "sourceToRenderFrames": [
+    {
+      "primarySourceFrameId": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+      "primarySourcePNG": "reused-awake-source1024.png",
+      "primarySourcePNGsha256": "94508329626cbb2551bacfc1be7036f54c0214348cb6998e0cecd536572ffd32",
+      "newDrawing": false,
+      "lookOnlyNewDrawing": false,
+      "renderFrameId": "yellow_rumped_warbler-neutral-96",
+      "atlasRect": {
+        "x": 0,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "reused-awake96.png",
+      "outputPNGsha256": "94168dc7aac998f75b564e873650d0d3abcc8028742f2191567ec657af7d6818"
+    },
+    {
+      "primarySourceFrameId": "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008",
+      "primarySourcePNG": "look-native.png",
+      "primarySourcePNGsha256": "e15942754b7381863728a9109e1690154869030e9ee756eebe8cddbb9968a8a3",
+      "newDrawing": true,
+      "lookOnlyNewDrawing": true,
+      "renderFrameId": "yellow-rumped-warbler-look-viewer-96",
+      "atlasRect": {
+        "x": 96,
+        "y": 0,
+        "width": 96,
+        "height": 96
+      },
+      "outputPNG": "look96.png",
+      "outputPNGsha256": "7a1bfce310f97fa645526a55fe6972aec483f20048e827645463065dd0e98c78"
+    }
+  ],
+  "clips": [
+    {
+      "id": "idle",
+      "tickRate": 30,
+      "loop": true,
+      "frames": [
+        {
+          "frameId": "yellow_rumped_warbler-neutral-96",
+          "durationTicks": 90
+        }
+      ]
+    },
+    {
+      "id": "look",
+      "tickRate": 30,
+      "loop": false,
+      "frames": [
+        {
+          "frameId": "yellow_rumped_warbler-neutral-96",
+          "durationTicks": 30
+        },
+        {
+          "frameId": "yellow-rumped-warbler-look-viewer-96",
+          "durationTicks": 12
+        },
+        {
+          "frameId": "yellow_rumped_warbler-neutral-96",
+          "durationTicks": 30
+        }
+      ]
+    }
+  ],
+  "projectionScope": "look-only overlay candidate; exact awake idle fallback; existing awake/blink intake untouched",
+  "canonicalSchemaValidation": "NOT_RUN",
+  "currentMacContract": "UNKNOWN",
+  "packetBindingReady": false,
+  "appBound": false,
+  "sourceHeld": true,
+  "useAsActiveSource": false,
+  "usefulSourceSlotsCompleted": [],
+  "contactStatus": "HELD: inherited60,73alpha0; actual toe-region probes not admitted contacts"
+}

@@ -1,0 +1,136 @@
+{
+  "profile": {
+    "schemaVersion": 1,
+    "profile": "chirp-texture-review-v1",
+    "scope": "review-only",
+    "approval": "unreviewed",
+    "activation": "none",
+    "source": {
+      "sha256": "038be7482a1325dd3d8971eb6bd179af15601774547abbd1e4c080749234af0c",
+      "creator": "Chirp bounded native Warbler look exporter",
+      "tool": "native image_gen; direct nearest wholecanvas output",
+      "toolVersion": "native model not exposed; Pillow12.3.0",
+      "rights": "unreviewed",
+      "fidelity": "unreviewed"
+    },
+    "atlas": {
+      "width": 192,
+      "height": 96,
+      "alpha": "straight-rgba8",
+      "colorSpace": "srgb"
+    },
+    "frames": [
+      {
+        "id": "yellow_rumped_warbler-neutral-96",
+        "sourceRect": {
+          "x": 0,
+          "y": 0,
+          "width": 96,
+          "height": 96
+        },
+        "canvas": {
+          "width": 96,
+          "height": 96
+        },
+        "trim": {
+          "x": 0,
+          "y": 0
+        },
+        "pivot": {
+          "x": 57,
+          "y": 75
+        },
+        "contacts": [
+          {
+            "id": "foot-1",
+            "x": 56,
+            "y": 74
+          },
+          {
+            "id": "foot-2",
+            "x": 60,
+            "y": 73
+          }
+        ],
+        "world": {
+          "width": 119.35135135135135,
+          "height": 119.35135135135135
+        },
+        "sourcePixelsPerWorldUnit": 0.8043478260869565
+      },
+      {
+        "id": "yellow-rumped-warbler-look-viewer-96",
+        "sourceRect": {
+          "x": 96,
+          "y": 0,
+          "width": 96,
+          "height": 96
+        },
+        "canvas": {
+          "width": 96,
+          "height": 96
+        },
+        "trim": {
+          "x": 0,
+          "y": 0
+        },
+        "pivot": {
+          "x": 57,
+          "y": 75
+        },
+        "contacts": [],
+        "world": {
+          "width": 119.35135135135135,
+          "height": 119.35135135135135
+        },
+        "sourcePixelsPerWorldUnit": 0.8043478260869565
+      }
+    ],
+    "clips": [
+      {
+        "id": "idle",
+        "tickRate": 30,
+        "loop": true,
+        "frames": [
+          {
+            "frameId": "yellow_rumped_warbler-neutral-96",
+            "durationTicks": 90
+          }
+        ]
+      },
+      {
+        "id": "look",
+        "tickRate": 30,
+        "loop": false,
+        "frames": [
+          {
+            "frameId": "yellow_rumped_warbler-neutral-96",
+            "durationTicks": 30
+          },
+          {
+            "frameId": "yellow-rumped-warbler-look-viewer-96",
+            "durationTicks": 12
+          },
+          {
+            "frameId": "yellow_rumped_warbler-neutral-96",
+            "durationTicks": 30
+          }
+        ]
+      }
+    ]
+  },
+  "atlas": "look-atlas96.png",
+  "frameToPrimary": {
+    "yellow_rumped_warbler-neutral-96": "frame.sha256.e221b49b5bb3fddf9a83a7e01541dadc5fc0d01c40d7edbf3344a0f7ee424f3e",
+    "yellow-rumped-warbler-look-viewer-96": "frame.sha256.357649ef194d852184afa68e0b9a90124f9a914ccfd60ae000c00e5f02f46008"
+  },
+  "actualWorldCanvas": {
+    "width": 119.35135135135135,
+    "height": 119.35135135135135
+  },
+  "normalCSSCanvas": [
+    119.35135135135135,
+    119.35135135135135
+  ],
+  "canonicalSchemaValidation": "NOT_RUN"
+}
