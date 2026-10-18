@@ -2,6 +2,326 @@
   "schemaVersion": 1,
   "cases": [
     {
+      "schema": "yard-layout-read-v1",
+      "name": "yard-layout-read-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": []
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        }
+      }
+    },
+    {
+      "schema": "yard-layout-read-v1",
+      "name": "yard-layout-read-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": []
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        },
+        "ownerId": "untrusted"
+      }
+    },
+    {
+      "schema": "yard-layout-command-response-v1",
+      "name": "yard-layout-command-response-v1: canonical synthetic boundary",
+      "valid": true,
+      "authoritativeValid": true,
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": []
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        },
+        "message": "Arrangement saved."
+      }
+    },
+    {
+      "schema": "yard-layout-command-response-v1",
+      "name": "yard-layout-command-response-v1: reject extra owner dimension",
+      "valid": false,
+      "authoritativeValid": false,
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": []
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        },
+        "message": "Arrangement saved.",
+        "ownerId": "untrusted"
+      }
+    },
+    {
       "schema": "arrival-adapter-capability-v1",
       "name": "arrival-adapter-capability-v1: canonical synthetic boundary",
       "valid": true,

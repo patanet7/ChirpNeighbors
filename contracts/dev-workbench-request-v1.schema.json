@@ -327,6 +327,32 @@
                           "properties": {
                             "operation": {
                               "type": "string",
+                              "const": "undo-return"
+                            },
+                            "objectId": {
+                              "$ref": "#/definitions/DevWorkbenchRequestV1/anyOf/2/properties/command/anyOf/0/properties/birdId"
+                            },
+                            "returnRequestId": {
+                              "type": "string",
+                              "format": "uuid"
+                            },
+                            "returnedFrom": {
+                              "$ref": "#/definitions/DevWorkbenchRequestV1/anyOf/2/properties/command/anyOf/1/properties/expected"
+                            }
+                          },
+                          "required": [
+                            "operation",
+                            "objectId",
+                            "returnRequestId",
+                            "returnedFrom"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "operation": {
+                              "type": "string",
                               "const": "move"
                             },
                             "objectId": {

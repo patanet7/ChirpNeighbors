@@ -1,0 +1,2133 @@
+{
+  "$ref": "#/definitions/YardLayoutCommandResponseV1",
+  "definitions": {
+    "YardLayoutCommandResponseV1": {
+      "type": "object",
+      "properties": {
+        "snapshot": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "number",
+              "const": 2
+            },
+            "species": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160,
+                    "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                    "not": {
+                      "enum": [
+                        "__proto__",
+                        "prototype",
+                        "constructor"
+                      ]
+                    }
+                  },
+                  "commonName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 120
+                  },
+                  "scientificName": {
+                    "type": "string",
+                    "minLength": 2,
+                    "maxLength": 160,
+                    "allOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))"
+                      }
+                    ]
+                  },
+                  "description": {
+                    "type": "string",
+                    "maxLength": 1000
+                  },
+                  "referencePhoto": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/referencePhoto/additionalProperties"
+                          }
+                        },
+                        {
+                          "type": "object",
+                          "additionalProperties": {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/referencePhoto/additionalProperties"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "id",
+                  "commonName",
+                  "scientificName"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "events": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "schemaVersion": {
+                    "type": "number",
+                    "const": 2
+                  },
+                  "id": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "species": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items"
+                  },
+                  "observedAt": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "ingestedAt": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                  },
+                  "source": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "fixture",
+                          "manual",
+                          "model",
+                          "external"
+                        ]
+                      },
+                      "label": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 120
+                      },
+                      "sourceEventId": {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                      },
+                      "provider": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 100
+                      },
+                      "modelVersion": {
+                        "type": "string",
+                        "maxLength": 100
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "label",
+                      "sourceEventId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "confidence": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "recordingId": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/referencePhoto/additionalProperties"
+                    }
+                  }
+                },
+                "required": [
+                  "schemaVersion",
+                  "id",
+                  "species",
+                  "observedAt",
+                  "ingestedAt",
+                  "source"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "corrections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "schemaVersion": {
+                    "type": "number",
+                    "const": 1
+                  },
+                  "id": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "eventId": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "expected": {
+                    "type": "object",
+                    "properties": {
+                      "speciesId": {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                      },
+                      "observedAt": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "correctionId": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "speciesId",
+                      "observedAt",
+                      "correctionId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "replacement": {
+                    "type": "object",
+                    "properties": {
+                      "speciesId": {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                      },
+                      "observedAt": {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/corrections/items/properties/expected/properties/observedAt"
+                      }
+                    },
+                    "required": [
+                      "speciesId",
+                      "observedAt"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500,
+                    "pattern": "\\S"
+                  },
+                  "recordedAt": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                  }
+                },
+                "required": [
+                  "schemaVersion",
+                  "id",
+                  "eventId",
+                  "expected",
+                  "replacement",
+                  "reason",
+                  "recordedAt"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 10000
+            },
+            "collection": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "speciesId": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "collectedAt": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                  }
+                },
+                "required": [
+                  "id",
+                  "speciesId",
+                  "collectedAt"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "birds": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "speciesId": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "name": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 60
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "lifecycle": {
+                    "type": "string",
+                    "enum": [
+                      "temporary",
+                      "permanent",
+                      "expired"
+                    ]
+                  },
+                  "createdAt": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                  },
+                  "expiresAt": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "promotedAt": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "artworkId": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "originEventId": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "behavior": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "type": "number",
+                        "const": 1
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 9007199254740990
+                      },
+                      "source": {
+                        "type": "string",
+                        "enum": [
+                          "owner-authored",
+                          "decorative-default"
+                        ]
+                      },
+                      "traits": {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "provenance": {
+                            "type": "object",
+                            "properties": {
+                              "kind": {
+                                "type": "string",
+                                "const": "fictional-individual"
+                              },
+                              "version": {
+                                "type": "number",
+                                "const": 1
+                              },
+                              "observationDerived": {
+                                "type": "boolean",
+                                "const": false
+                              },
+                              "seedBasis": {
+                                "type": "string",
+                                "const": "decorative-resident-id"
+                              }
+                            },
+                            "required": [
+                              "kind",
+                              "version",
+                              "observationDerived",
+                              "seedBasis"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "seed": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 4294967295
+                          },
+                          "curiosity": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "sociability": {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/birds/items/properties/behavior/properties/traits/properties/curiosity"
+                          },
+                          "boldness": {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/birds/items/properties/behavior/properties/traits/properties/curiosity"
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "provenance",
+                          "seed",
+                          "curiosity",
+                          "sociability",
+                          "boldness"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "schemaVersion",
+                      "revision",
+                      "source",
+                      "traits"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "starterArt": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "type": "number",
+                        "const": 1
+                      },
+                      "revision": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "mode": {
+                        "type": "string",
+                        "enum": [
+                          "fixed",
+                          "follow-compatible"
+                        ]
+                      },
+                      "channel": {
+                        "type": "object",
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "enum": [
+                              "bird",
+                              "background",
+                              "object-art"
+                            ]
+                          },
+                          "subjectId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160,
+                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+                          },
+                          "styleId": {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/birds/items/properties/starterArt/properties/channel/properties/subjectId"
+                          },
+                          "variantId": {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/birds/items/properties/starterArt/properties/channel/properties/subjectId"
+                          },
+                          "compatibilityMajor": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 9007199254740991
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "subjectId",
+                          "styleId",
+                          "variantId",
+                          "compatibilityMajor"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "compatibility": {
+                        "type": "object",
+                        "properties": {
+                          "rendererContract": {
+                            "type": "string",
+                            "enum": [
+                              "palette-pose-v1",
+                              "rgba-pose-v1",
+                              "scene-rgba-v1"
+                            ]
+                          },
+                          "anchorConvention": {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/birds/items/properties/starterArt/properties/channel/properties/subjectId"
+                          },
+                          "scaleConvention": {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/birds/items/properties/starterArt/properties/channel/properties/subjectId"
+                          },
+                          "geometrySha256": {
+                            "anyOf": [
+                              {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          }
+                        },
+                        "required": [
+                          "rendererContract",
+                          "anchorConvention",
+                          "scaleConvention",
+                          "geometrySha256"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "previousArtworkId": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "schemaVersion",
+                      "revision",
+                      "mode",
+                      "channel",
+                      "compatibility",
+                      "previousArtworkId"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "id",
+                  "speciesId",
+                  "name",
+                  "lifecycle",
+                  "createdAt",
+                  "expiresAt",
+                  "promotedAt",
+                  "artworkId",
+                  "originEventId"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "artworks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "speciesId": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "version": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "fixture",
+                      "reviewed",
+                      "candidate"
+                    ]
+                  },
+                  "animationPin": {
+                    "type": "object",
+                    "properties": {
+                      "jobId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160
+                      },
+                      "artifactId": {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/artworks/items/properties/animationPin/properties/jobId"
+                      },
+                      "version": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "contentDigest": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "jobId",
+                      "artifactId",
+                      "version",
+                      "contentDigest"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "catalogPin": {
+                    "type": "object",
+                    "properties": {
+                      "catalogKey": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "releaseVersion": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 9007199254740991
+                      },
+                      "renderSha256": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "catalogKey",
+                      "releaseVersion",
+                      "renderSha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "imageUrl": {
+                    "type": "string",
+                    "maxLength": 1500000
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "representation": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
+                  "provenance": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/referencePhoto/additionalProperties"
+                    }
+                  },
+                  "catalogKey": {
+                    "type": "string",
+                    "enum": [
+                      "fixture-robin",
+                      "fixture-sparrow",
+                      "fixture-bluejay"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "speciesId",
+                  "version",
+                  "status",
+                  "imageUrl",
+                  "representation",
+                  "provenance"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "starterUpdateReceipts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "requestId": {
+                    "type": "string",
+                    "format": "uuid"
+                  },
+                  "commandDigest": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "starter-art-policy",
+                      "revert-starter-art",
+                      "refresh-starter-art"
+                    ]
+                  },
+                  "changedBirdIds": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                    },
+                    "maxItems": 32
+                  },
+                  "createdAt": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                  }
+                },
+                "required": [
+                  "requestId",
+                  "commandDigest",
+                  "action",
+                  "changedBirdIds",
+                  "createdAt"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 128
+            },
+            "preferences": {
+              "type": "object",
+              "properties": {
+                "palette": {
+                  "type": "string",
+                  "enum": [
+                    "twilight",
+                    "fieldnotes",
+                    "moonlit"
+                  ]
+                },
+                "scene": {
+                  "type": "string",
+                  "enum": [
+                    "garden",
+                    "courtyard"
+                  ]
+                },
+                "scenePin": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                        },
+                        "version": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 1000000
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "version"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "regionPreference": {
+                  "type": "string",
+                  "enum": [
+                    "unspecified",
+                    "europe",
+                    "north-america",
+                    "south-america",
+                    "africa",
+                    "asia",
+                    "oceania"
+                  ]
+                },
+                "reducedMotion": {
+                  "type": "boolean"
+                },
+                "developmentCandidateArt": {
+                  "type": "boolean"
+                },
+                "hideLegacyShowcaseSamples": {
+                  "type": "boolean"
+                },
+                "candidateRegionalBackground": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "coastal",
+                        "oak",
+                        "courtyard",
+                        "sd-coastal-spring-v1",
+                        "sd-coastal-summer-v1",
+                        "sd-coastal-autumn-v1",
+                        "sd-coastal-winter-v1",
+                        "sd-oak-spring-v1",
+                        "sd-oak-summer-v1",
+                        "sd-oak-autumn-v1",
+                        "sd-oak-winter-v1",
+                        "sd-courtyard-spring-v1",
+                        "sd-courtyard-summer-v1",
+                        "sd-courtyard-autumn-v1",
+                        "sd-courtyard-winter-v1",
+                        "sd-inland-spring-v1",
+                        "sd-inland-summer-v1",
+                        "sd-inland-autumn-v1",
+                        "sd-inland-winter-v1",
+                        "sd-patio-spring-v1",
+                        "sd-patio-summer-v1",
+                        "sd-patio-autumn-v1",
+                        "sd-patio-winter-v1"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "candidateObjectArt": {
+                  "type": "object",
+                  "properties": {
+                    "objectId": {
+                      "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                    },
+                    "package": {
+                      "type": "object",
+                      "properties": {
+                        "metadata": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "schemaVersion": {
+                                  "type": "number",
+                                  "const": 1
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "const": "workbench-review-package"
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 80,
+                                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._-]*$"
+                                },
+                                "version": {
+                                  "type": "integer",
+                                  "minimum": 1,
+                                  "maximum": 1000000
+                                },
+                                "scope": {
+                                  "type": "string",
+                                  "const": "local-review-only"
+                                },
+                                "approval": {
+                                  "type": "string",
+                                  "const": "unreviewed"
+                                },
+                                "productionApproved": {
+                                  "type": "boolean",
+                                  "const": false
+                                },
+                                "projection": {
+                                  "type": "string",
+                                  "const": "side-view-orthographic"
+                                },
+                                "world": {
+                                  "type": "object",
+                                  "properties": {
+                                    "width": {
+                                      "type": "number",
+                                      "const": 960
+                                    },
+                                    "height": {
+                                      "type": "number",
+                                      "const": 540
+                                    }
+                                  },
+                                  "required": [
+                                    "width",
+                                    "height"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "provenance": {
+                                  "type": "object",
+                                  "properties": {
+                                    "creator": {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 200
+                                    },
+                                    "tool": {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 200
+                                    },
+                                    "toolVersion": {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 100
+                                    },
+                                    "originality": {
+                                      "type": "string",
+                                      "const": "claimed-original-unreviewed"
+                                    },
+                                    "rightsReview": {
+                                      "type": "string",
+                                      "const": "unreviewed"
+                                    },
+                                    "licenseId": {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 200
+                                    },
+                                    "licenseEvidence": {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 2000
+                                    },
+                                    "sourceDigests": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "pattern": "^[a-f0-9]{64}$"
+                                      },
+                                      "minItems": 1,
+                                      "maxItems": 32
+                                    }
+                                  },
+                                  "required": [
+                                    "creator",
+                                    "tool",
+                                    "toolVersion",
+                                    "originality",
+                                    "rightsReview",
+                                    "licenseId",
+                                    "licenseEvidence",
+                                    "sourceDigests"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "files": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                          },
+                                          "fileName": {
+                                            "type": "string",
+                                            "minLength": 3,
+                                            "maxLength": 100,
+                                            "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*\\.png$",
+                                            "allOf": [
+                                              {
+                                                "type": "string",
+                                                "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF]))|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])))"
+                                              }
+                                            ]
+                                          },
+                                          "sha256": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance/properties/sourceDigests/items"
+                                          },
+                                          "season": {
+                                            "type": "string",
+                                            "enum": [
+                                              "base",
+                                              "spring",
+                                              "summer",
+                                              "autumn",
+                                              "winter"
+                                            ]
+                                          },
+                                          "alpha": {
+                                            "type": "string",
+                                            "enum": [
+                                              "opaque",
+                                              "binary"
+                                            ]
+                                          },
+                                          "derivation": {
+                                            "type": "object",
+                                            "properties": {
+                                              "sourceSha256": {
+                                                "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance/properties/sourceDigests/items"
+                                              },
+                                              "operations": {
+                                                "type": "array",
+                                                "items": {
+                                                  "type": "object",
+                                                  "properties": {
+                                                    "operation": {
+                                                      "type": "string",
+                                                      "enum": [
+                                                        "crop",
+                                                        "nearest-neighbor-downsample",
+                                                        "palette-quantize",
+                                                        "binary-alpha"
+                                                      ]
+                                                    },
+                                                    "tool": {
+                                                      "type": "string",
+                                                      "minLength": 1,
+                                                      "maxLength": 120
+                                                    },
+                                                    "version": {
+                                                      "type": "string",
+                                                      "minLength": 1,
+                                                      "maxLength": 80
+                                                    },
+                                                    "details": {
+                                                      "type": "string",
+                                                      "minLength": 1,
+                                                      "maxLength": 1000
+                                                    }
+                                                  },
+                                                  "required": [
+                                                    "operation",
+                                                    "tool",
+                                                    "version",
+                                                    "details"
+                                                  ],
+                                                  "additionalProperties": false
+                                                },
+                                                "maxItems": 8
+                                              }
+                                            },
+                                            "required": [
+                                              "sourceSha256",
+                                              "operations"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "role": {
+                                            "type": "string",
+                                            "enum": [
+                                              "background",
+                                              "ground",
+                                              "foreground"
+                                            ]
+                                          },
+                                          "width": {
+                                            "type": "number",
+                                            "const": 240
+                                          },
+                                          "height": {
+                                            "type": "number",
+                                            "const": 135
+                                          },
+                                          "pivot": {
+                                            "type": "object",
+                                            "properties": {
+                                              "x": {
+                                                "type": "number",
+                                                "const": 0
+                                              },
+                                              "y": {
+                                                "type": "number",
+                                                "const": 0
+                                              }
+                                            },
+                                            "required": [
+                                              "x",
+                                              "y"
+                                            ],
+                                            "additionalProperties": false
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "fileName",
+                                          "sha256",
+                                          "season",
+                                          "alpha",
+                                          "derivation",
+                                          "role",
+                                          "width",
+                                          "height",
+                                          "pivot"
+                                        ],
+                                        "additionalProperties": false
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                          },
+                                          "fileName": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/fileName"
+                                          },
+                                          "sha256": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance/properties/sourceDigests/items"
+                                          },
+                                          "season": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/season"
+                                          },
+                                          "alpha": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/alpha"
+                                          },
+                                          "derivation": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/derivation"
+                                          },
+                                          "role": {
+                                            "type": "string",
+                                            "const": "object"
+                                          },
+                                          "kind": {
+                                            "type": "string",
+                                            "enum": [
+                                              "perch",
+                                              "feeder",
+                                              "bath",
+                                              "nest",
+                                              "plant"
+                                            ]
+                                          },
+                                          "width": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 256
+                                          },
+                                          "height": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 256
+                                          },
+                                          "pivot": {
+                                            "type": "object",
+                                            "properties": {
+                                              "x": {
+                                                "type": "integer",
+                                                "minimum": 0,
+                                                "maximum": 256
+                                              },
+                                              "y": {
+                                                "type": "integer",
+                                                "minimum": 0,
+                                                "maximum": 256
+                                              }
+                                            },
+                                            "required": [
+                                              "x",
+                                              "y"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "anchors": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "id": {
+                                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                                },
+                                                "affordance": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "perch",
+                                                    "feed",
+                                                    "bath",
+                                                    "nest"
+                                                  ]
+                                                },
+                                                "dx": {
+                                                  "type": "integer"
+                                                },
+                                                "dy": {
+                                                  "type": "integer"
+                                                },
+                                                "capability": {
+                                                  "type": "string",
+                                                  "enum": [
+                                                    "play",
+                                                    "nest-building"
+                                                  ]
+                                                }
+                                              },
+                                              "required": [
+                                                "id",
+                                                "affordance",
+                                                "dx",
+                                                "dy"
+                                              ],
+                                              "additionalProperties": false
+                                            },
+                                            "minItems": 1,
+                                            "maxItems": 4
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "fileName",
+                                          "sha256",
+                                          "season",
+                                          "alpha",
+                                          "derivation",
+                                          "role",
+                                          "kind",
+                                          "width",
+                                          "height",
+                                          "pivot",
+                                          "anchors"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    ]
+                                  },
+                                  "minItems": 1,
+                                  "maxItems": 12
+                                }
+                              },
+                              "required": [
+                                "schemaVersion",
+                                "kind",
+                                "id",
+                                "version",
+                                "scope",
+                                "approval",
+                                "productionApproved",
+                                "projection",
+                                "world",
+                                "provenance",
+                                "files"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "schemaVersion": {
+                                  "type": "number",
+                                  "const": 2
+                                },
+                                "kind": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/kind"
+                                },
+                                "id": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                },
+                                "version": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/version"
+                                },
+                                "scope": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/scope"
+                                },
+                                "approval": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/approval"
+                                },
+                                "productionApproved": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/productionApproved"
+                                },
+                                "projection": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/projection"
+                                },
+                                "world": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/world"
+                                },
+                                "provenance": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance"
+                                },
+                                "files": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                          },
+                                          "fileName": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/fileName"
+                                          },
+                                          "sha256": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance/properties/sourceDigests/items"
+                                          },
+                                          "season": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/season"
+                                          },
+                                          "alpha": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/alpha"
+                                          },
+                                          "derivation": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/derivation"
+                                          },
+                                          "role": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/role"
+                                          },
+                                          "width": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/width"
+                                          },
+                                          "height": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/height"
+                                          },
+                                          "pivot": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/pivot"
+                                          },
+                                          "family": {
+                                            "type": "string",
+                                            "const": "scene-layer"
+                                          },
+                                          "state": {
+                                            "type": "string",
+                                            "const": "default"
+                                          },
+                                          "coverageMask": {
+                                            "type": "string",
+                                            "const": "png-alpha"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "fileName",
+                                          "sha256",
+                                          "season",
+                                          "alpha",
+                                          "derivation",
+                                          "role",
+                                          "width",
+                                          "height",
+                                          "pivot",
+                                          "family",
+                                          "state",
+                                          "coverageMask"
+                                        ],
+                                        "additionalProperties": false
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                          },
+                                          "fileName": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/fileName"
+                                          },
+                                          "sha256": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance/properties/sourceDigests/items"
+                                          },
+                                          "season": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/season"
+                                          },
+                                          "alpha": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/alpha"
+                                          },
+                                          "derivation": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/derivation"
+                                          },
+                                          "role": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/1/properties/role"
+                                          },
+                                          "kind": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/1/properties/kind"
+                                          },
+                                          "width": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/1/properties/width"
+                                          },
+                                          "height": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/1/properties/height"
+                                          },
+                                          "pivot": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/1/properties/pivot"
+                                          },
+                                          "anchors": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/1/properties/anchors"
+                                          },
+                                          "family": {
+                                            "type": "string",
+                                            "const": "catalog-object"
+                                          },
+                                          "state": {
+                                            "type": "string",
+                                            "const": "default"
+                                          },
+                                          "coverageMask": {
+                                            "type": "string",
+                                            "const": "png-alpha"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "fileName",
+                                          "sha256",
+                                          "season",
+                                          "alpha",
+                                          "derivation",
+                                          "role",
+                                          "kind",
+                                          "width",
+                                          "height",
+                                          "pivot",
+                                          "anchors",
+                                          "family",
+                                          "state",
+                                          "coverageMask"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    ]
+                                  },
+                                  "minItems": 1,
+                                  "maxItems": 12
+                                }
+                              },
+                              "required": [
+                                "schemaVersion",
+                                "kind",
+                                "id",
+                                "version",
+                                "scope",
+                                "approval",
+                                "productionApproved",
+                                "projection",
+                                "world",
+                                "provenance",
+                                "files"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "schemaVersion": {
+                                  "type": "number",
+                                  "const": 3
+                                },
+                                "kind": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/kind"
+                                },
+                                "id": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                },
+                                "version": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/version"
+                                },
+                                "scope": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/scope"
+                                },
+                                "approval": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/approval"
+                                },
+                                "productionApproved": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/productionApproved"
+                                },
+                                "projection": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/projection"
+                                },
+                                "world": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/world"
+                                },
+                                "provenance": {
+                                  "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance"
+                                },
+                                "files": {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/1/properties/files/items/anyOf/0"
+                                      },
+                                      {
+                                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/1/properties/files/items/anyOf/1"
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                          },
+                                          "fileName": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/fileName"
+                                          },
+                                          "sha256": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance/properties/sourceDigests/items"
+                                          },
+                                          "season": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/season"
+                                          },
+                                          "alpha": {
+                                            "type": "string",
+                                            "const": "binary"
+                                          },
+                                          "derivation": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/0/properties/derivation"
+                                          },
+                                          "foliageId": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                          },
+                                          "themeId": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                                          },
+                                          "width": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 256
+                                          },
+                                          "height": {
+                                            "type": "integer",
+                                            "minimum": 1,
+                                            "maximum": 256
+                                          },
+                                          "pivot": {
+                                            "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/1/properties/pivot"
+                                          },
+                                          "placement": {
+                                            "type": "object",
+                                            "properties": {
+                                              "x": {
+                                                "type": "integer",
+                                                "minimum": 0,
+                                                "maximum": 960
+                                              },
+                                              "y": {
+                                                "type": "integer",
+                                                "minimum": 0,
+                                                "maximum": 540
+                                              }
+                                            },
+                                            "required": [
+                                              "x",
+                                              "y"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "scale": {
+                                            "type": "number",
+                                            "enum": [
+                                              1,
+                                              2,
+                                              4
+                                            ]
+                                          },
+                                          "depth": {
+                                            "type": "string",
+                                            "enum": [
+                                              "background",
+                                              "foreground"
+                                            ]
+                                          },
+                                          "physics": {
+                                            "type": "object",
+                                            "properties": {
+                                              "collision": {
+                                                "type": "boolean",
+                                                "const": false
+                                              },
+                                              "supports": {
+                                                "type": "boolean",
+                                                "const": false
+                                              },
+                                              "shelter": {
+                                                "type": "boolean",
+                                                "const": false
+                                              },
+                                              "wind": {
+                                                "type": "boolean",
+                                                "const": false
+                                              }
+                                            },
+                                            "required": [
+                                              "collision",
+                                              "supports",
+                                              "shelter",
+                                              "wind"
+                                            ],
+                                            "additionalProperties": false
+                                          },
+                                          "family": {
+                                            "type": "string",
+                                            "const": "foliage"
+                                          },
+                                          "state": {
+                                            "type": "string",
+                                            "const": "default"
+                                          },
+                                          "coverageMask": {
+                                            "type": "string",
+                                            "const": "png-alpha"
+                                          },
+                                          "role": {
+                                            "type": "string",
+                                            "const": "foliage"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "fileName",
+                                          "sha256",
+                                          "season",
+                                          "alpha",
+                                          "derivation",
+                                          "foliageId",
+                                          "themeId",
+                                          "width",
+                                          "height",
+                                          "pivot",
+                                          "placement",
+                                          "scale",
+                                          "depth",
+                                          "physics",
+                                          "family",
+                                          "state",
+                                          "coverageMask",
+                                          "role"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    ]
+                                  },
+                                  "minItems": 1,
+                                  "maxItems": 12
+                                }
+                              },
+                              "required": [
+                                "schemaVersion",
+                                "kind",
+                                "id",
+                                "version",
+                                "scope",
+                                "approval",
+                                "productionApproved",
+                                "projection",
+                                "world",
+                                "provenance",
+                                "files"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "assets": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "fileId": {
+                                "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/id"
+                              },
+                              "canonicalSha256": {
+                                "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance/properties/sourceDigests/items"
+                              },
+                              "rgbaSha256": {
+                                "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/provenance/properties/sourceDigests/items"
+                              },
+                              "decoder": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "const": "sharp"
+                                  },
+                                  "version": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 40
+                                  },
+                                  "libvips": {
+                                    "type": "string",
+                                    "minLength": 1,
+                                    "maxLength": 40
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "version",
+                                  "libvips"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "normalization": {
+                                "type": "string",
+                                "const": "chirp-png-straight-srgb8-hidden-rgb-zero-v1"
+                              },
+                              "rectangles": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "integer",
+                                      "minimum": 0
+                                    },
+                                    "y": {
+                                      "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/assets/items/properties/rectangles/items/properties/x"
+                                    },
+                                    "width": {
+                                      "type": "integer",
+                                      "minimum": 1,
+                                      "maximum": 256
+                                    },
+                                    "height": {
+                                      "type": "integer",
+                                      "minimum": 1,
+                                      "maximum": 256
+                                    },
+                                    "color": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 16777215
+                                    }
+                                  },
+                                  "required": [
+                                    "x",
+                                    "y",
+                                    "width",
+                                    "height",
+                                    "color"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "minItems": 1,
+                                "maxItems": 4096
+                              }
+                            },
+                            "required": [
+                              "fileId",
+                              "canonicalSha256",
+                              "rgbaSha256",
+                              "decoder",
+                              "normalization",
+                              "rectangles"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "minItems": 1,
+                          "maxItems": 12
+                        }
+                      },
+                      "required": [
+                        "metadata",
+                        "assets"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "objectId",
+                    "package"
+                  ],
+                  "additionalProperties": false
+                },
+                "visitorTtlHours": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2160
+                }
+              },
+              "required": [
+                "palette",
+                "scene",
+                "scenePin",
+                "regionPreference",
+                "reducedMotion",
+                "visitorTtlHours"
+              ],
+              "additionalProperties": false
+            },
+            "environment": {
+              "type": "object",
+              "properties": {
+                "version": {
+                  "type": "number",
+                  "const": 1
+                },
+                "objects": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                      },
+                      "kind": {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/preferences/properties/candidateObjectArt/properties/package/properties/metadata/anyOf/0/properties/files/items/anyOf/1/properties/kind"
+                      },
+                      "catalogId": {
+                        "type": "string",
+                        "enum": [
+                          "california_bush_sunflower",
+                          "san_diego_monkeyflower",
+                          "blue_eyed_grass",
+                          "crassula_ovata",
+                          "hollyleaf_cherry",
+                          "torrey_pine",
+                          "cedar_feeder",
+                          "platform_feeder",
+                          "bench",
+                          "pedestal_birdbath",
+                          "cedar_fence"
+                        ]
+                      },
+                      "x": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 960
+                      },
+                      "y": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 540
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "kind",
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 12
+                },
+                "weather": {
+                  "type": "object",
+                  "properties": {
+                    "mode": {
+                      "type": "string",
+                      "enum": [
+                        "simulated",
+                        "manual",
+                        "real"
+                      ]
+                    },
+                    "manual": {
+                      "type": "object",
+                      "properties": {
+                        "condition": {
+                          "type": "string",
+                          "enum": [
+                            "clear",
+                            "cloudy",
+                            "rain",
+                            "snow"
+                          ]
+                        },
+                        "hour": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 23
+                        }
+                      },
+                      "required": [
+                        "condition",
+                        "hour"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "simulation": {
+                      "type": "object",
+                      "properties": {
+                        "seed": {
+                          "type": "integer",
+                          "minimum": -9007199254740991,
+                          "maximum": 9007199254740991
+                        },
+                        "dayLengthSeconds": {
+                          "type": "integer",
+                          "minimum": 120,
+                          "maximum": 86400
+                        },
+                        "epoch": {
+                          "type": "string",
+                          "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                        }
+                      },
+                      "required": [
+                        "seed",
+                        "dayLengthSeconds",
+                        "epoch"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "mode",
+                    "manual",
+                    "simulation"
+                  ],
+                  "additionalProperties": false
+                },
+                "inventory": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "owned": {
+                      "type": "object",
+                      "properties": {
+                        "perch": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "feeder": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "bath": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "nest": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12
+                        },
+                        "plant": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 12,
+                          "default": 3
+                        }
+                      },
+                      "required": [
+                        "perch",
+                        "feeder",
+                        "bath",
+                        "nest"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "owned"
+                  ],
+                  "additionalProperties": false
+                },
+                "objectReceipts": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "requestId": {
+                        "type": "string",
+                        "format": "uuid"
+                      },
+                      "commandDigest": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "resultObjectId": {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                      }
+                    },
+                    "required": [
+                      "requestId",
+                      "commandDigest",
+                      "resultObjectId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 4096
+                }
+              },
+              "required": [
+                "version",
+                "objects",
+                "weather",
+                "inventory",
+                "objectReceipts"
+              ],
+              "additionalProperties": false
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 168
+                  },
+                  "speciesId": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "eventIds": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                    },
+                    "minItems": 1
+                  },
+                  "evidenceCount": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "firstObservedAt": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "lastObservedAt": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/observedAt/anyOf/0"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "sourceKinds": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/events/items/properties/source/properties/kind"
+                    },
+                    "minItems": 1
+                  },
+                  "hasUnknownTime": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "speciesId",
+                  "eventIds",
+                  "evidenceCount",
+                  "firstObservedAt",
+                  "lastObservedAt",
+                  "sourceKinds",
+                  "hasUnknownTime"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "effectiveEvidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "speciesId": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  },
+                  "observedAt": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/corrections/items/properties/expected/properties/observedAt"
+                  },
+                  "correctionId": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/corrections/items/properties/expected/properties/correctionId"
+                  },
+                  "eventId": {
+                    "$ref": "#/definitions/YardLayoutCommandResponseV1/properties/snapshot/properties/species/items/properties/id"
+                  }
+                },
+                "required": [
+                  "speciesId",
+                  "observedAt",
+                  "correctionId",
+                  "eventId"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "version",
+            "species",
+            "events",
+            "corrections",
+            "collection",
+            "birds",
+            "artworks",
+            "preferences",
+            "environment",
+            "findings",
+            "effectiveEvidence"
+          ],
+          "additionalProperties": false
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "snapshot",
+        "message"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/yard-layout-command-response-v1.schema.json",
+  "description": "Generated structural boundary only. Session binding is non-bearer context; owner, consent, admission capabilities, inventory stock/CAS, receipt identity, source freshness, reviewed catalog rights, actual provider execution and private scope require authoritative server semantics. Fixture schemas do not grant biological validation, public release or provider execution. Optional analytics stays disabled by default. Shared release payload and real generation adapters remain unimplemented."
+}

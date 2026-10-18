@@ -6,6 +6,11 @@ import { join } from "node:path";
 import { YardRepository } from "@chirp-runtime/lib/server/storage/repository.ts";
 import { backupSchema } from "@chirp-runtime/lib/domain/yard.ts";
 import { yardCommandSchema } from "@chirp-runtime/lib/domain/commands.ts";
+import { objectInventoryCommandSchema } from "@chirp-runtime/lib/domain/object-inventory.ts";
+import {
+  yardLayoutReadSchema,
+  yardLayoutCommandResponseSchema,
+} from "@chirp-runtime/lib/domain/yard-layout.ts";
 import { defaultFictionalPersonality } from "@chirp-runtime/lib/domain/bird-behavior.ts";
 import { runtimeControlSchema } from "@chirp-runtime/lib/engine/runtime-control-contracts.ts";
 import {
@@ -32,6 +37,9 @@ addFormats(ajv);
 const validators = new Map();
 const cases = [];
 const authorities = new Map([
+  ["object-inventory-command-v1", objectInventoryCommandSchema],
+  ["yard-layout-read-v1", yardLayoutReadSchema],
+  ["yard-layout-command-response-v1", yardLayoutCommandResponseSchema],
   ["yard-backup-v2", backupSchema],
   ["runtime-control-v1", runtimeControlSchema],
   ["physical-surface-options-v1", physicalSurfaceOptionsSchema],
@@ -479,6 +487,173 @@ try {
     "png-file-review-command-v1",
     "candidate scope cannot assert production approval",
     candidateReview,
+    false,
+  );
+  // Object-edit continuation: all writes are isolated synthetic in-memory owners.
+  const objectOwner = "synthetic-object-edit";
+  const placement = (snapshot) => ({
+    scene: snapshot.preferences.scene,
+    scenePin: snapshot.preferences.scenePin,
+    objects: snapshot.environment.objects,
+  });
+  const objectBefore = repository.snapshot(objectOwner, now);
+  const originalBath = objectBefore.environment.objects.find(
+    (object) => object.id === "fixture-bath",
+  );
+  assert(originalBath);
+  const returned = {
+    action: "object-inventory",
+    requestId: "3eb58505-05b6-466b-96e7-5002cb62e232",
+    expected: placement(objectBefore),
+    payload: { operation: "return", objectId: originalBath.id },
+  };
+  const afterReturn = repository.objectInventory(objectOwner, returned, now);
+  const undo = {
+    action: "object-inventory",
+    requestId: "68397060-d324-4aa0-8f48-34ed474202d0",
+    expected: placement(afterReturn),
+    payload: {
+      operation: "undo-return",
+      objectId: originalBath.id,
+      returnRequestId: returned.requestId,
+      returnedFrom: returned.expected,
+    },
+  };
+  add(
+    "object-inventory-command-v1",
+    "object edit: receipt-bound undo return",
+    undo,
+    true,
+  );
+  add(
+    "dev-workbench-request-v1",
+    "object edit: undo through existing workbench envelope",
+    { ...request, command: undo },
+    true,
+  );
+  for (const field of ["returnRequestId", "returnedFrom"]) {
+    const invalid = structuredClone(undo);
+    delete invalid.payload[field];
+    add(
+      "object-inventory-command-v1",
+      "object edit: undo requires " + field,
+      invalid,
+      false,
+    );
+  }
+  add(
+    "object-inventory-command-v1",
+    "object edit: undo requires UUID return receipt",
+    { ...undo, payload: { ...undo.payload, returnRequestId: "not-a-uuid" } },
+    false,
+  );
+  add(
+    "object-inventory-command-v1",
+    "object edit: undo rejects invented owner authority",
+    { ...undo, payload: { ...undo.payload, ownerId: "other-owner" } },
+    false,
+  );
+  const forged = structuredClone(undo);
+  forged.payload.returnedFrom.objects.find(
+    (object) => object.id === originalBath.id,
+  ).x += 10;
+  add(
+    "object-inventory-command-v1",
+    "object edit: structurally valid history still requires owner receipt semantics",
+    forged,
+    true,
+  );
+  assert.throws(
+    () => repository.objectInventory(objectOwner, forged, now),
+    /cannot be undone/,
+  );
+  assert.deepEqual(repository.snapshot(objectOwner, now), afterReturn);
+  const otherOwner = "synthetic-object-edit-other";
+  const otherBefore = repository.snapshot(otherOwner, now);
+  assert.throws(
+    () =>
+      repository.objectInventory(
+        otherOwner,
+        { ...undo, expected: placement(otherBefore) },
+        now,
+      ),
+    /cannot be undone/,
+  );
+  assert.deepEqual(repository.snapshot(otherOwner, now), otherBefore);
+  const move = {
+    action: "object-inventory",
+    requestId: "8f780d7c-a143-4f5b-b058-f41e22a37221",
+    expected: placement(afterReturn),
+    payload: { operation: "move", objectId: "fixture-perch", x: 280, y: 420 },
+  };
+  const afterMove = repository.objectInventory(objectOwner, move, now);
+  assert.throws(
+    () => repository.objectInventory(objectOwner, undo, now),
+    /yard changed/,
+  );
+  assert.deepEqual(repository.snapshot(objectOwner, now), afterMove);
+  const currentUndo = { ...undo, expected: placement(afterMove) };
+  const afterUndo = repository.objectInventory(objectOwner, currentUndo, now);
+  assert.deepEqual(
+    afterUndo.environment.objects.find(
+      (object) => object.id === originalBath.id,
+    ),
+    originalBath,
+  );
+  assert.equal(
+    afterUndo.environment.objects.length,
+    objectBefore.environment.objects.length,
+  );
+  assert.equal(
+    afterUndo.environment.objectReceipts.at(-1).requestId,
+    undo.requestId,
+  );
+  assert.deepEqual(
+    repository.objectInventory(objectOwner, currentUndo, now),
+    afterUndo,
+  );
+  const layoutRead = { snapshot: afterUndo };
+  const layoutAck = { ...layoutRead, message: "Arrangement saved." };
+  add(
+    "yard-layout-read-v1",
+    "object edit: actual owner snapshot without resolved assets",
+    layoutRead,
+    true,
+  );
+  add(
+    "yard-layout-command-response-v1",
+    "object edit: actual durable undo acknowledgment",
+    layoutAck,
+    true,
+  );
+  add(
+    "yard-layout-read-v1",
+    "object edit: layout read rejects asset bundle",
+    { ...layoutRead, assets: [] },
+    false,
+  );
+  add(
+    "yard-layout-command-response-v1",
+    "object edit: layout acknowledgment rejects asset bundle",
+    { ...layoutAck, assets: [] },
+    false,
+  );
+  add(
+    "yard-layout-command-response-v1",
+    "object edit: acknowledgment requires message",
+    layoutRead,
+    false,
+  );
+  add(
+    "yard-layout-command-response-v1",
+    "object edit: acknowledgment rejects empty message",
+    { ...layoutAck, message: "" },
+    false,
+  );
+  add(
+    "yard-layout-command-response-v1",
+    "object edit: acknowledgment cannot claim owner field",
+    { ...layoutAck, ownerId: otherOwner },
     false,
   );
   console.log(
