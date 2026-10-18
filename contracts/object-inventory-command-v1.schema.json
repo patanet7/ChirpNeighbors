@@ -197,6 +197,32 @@
               "properties": {
                 "operation": {
                   "type": "string",
+                  "const": "undo-return"
+                },
+                "objectId": {
+                  "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected/properties/scenePin/anyOf/0/properties/id"
+                },
+                "returnRequestId": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "returnedFrom": {
+                  "$ref": "#/definitions/ObjectInventoryCommandV1/properties/expected"
+                }
+              },
+              "required": [
+                "operation",
+                "objectId",
+                "returnRequestId",
+                "returnedFrom"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
                   "const": "move"
                 },
                 "objectId": {

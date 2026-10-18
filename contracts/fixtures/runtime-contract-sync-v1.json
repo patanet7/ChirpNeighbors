@@ -3683,6 +3683,1138 @@
       },
       "valid": false,
       "authoritativeValid": false
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "object edit: receipt-bound undo return",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "undo-return",
+          "objectId": "fixture-bath",
+          "returnRequestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+          "returnedFrom": {
+            "scene": "garden",
+            "scenePin": null,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ]
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "dev-workbench-request-v1",
+      "name": "object edit: undo through existing workbench envelope",
+      "value": {
+        "schemaVersion": 1,
+        "op": "command",
+        "scenarioId": "a328182e-26e8-443b-a58b-5a00cb3614ab",
+        "requestId": "ae36ab79-ae03-40b4-aedc-cb1187276694",
+        "expectedRevision": 0,
+        "command": {
+          "action": "object-inventory",
+          "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+          "expected": {
+            "scene": "garden",
+            "scenePin": null,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ]
+          },
+          "payload": {
+            "operation": "undo-return",
+            "objectId": "fixture-bath",
+            "returnRequestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+            "returnedFrom": {
+              "scene": "garden",
+              "scenePin": null,
+              "objects": [
+                {
+                  "id": "fixture-perch",
+                  "kind": "perch",
+                  "x": 180,
+                  "y": 420
+                },
+                {
+                  "id": "fixture-feeder",
+                  "kind": "feeder",
+                  "x": 400,
+                  "y": 465
+                },
+                {
+                  "id": "fixture-bath",
+                  "kind": "bath",
+                  "x": 700,
+                  "y": 445
+                },
+                {
+                  "id": "fixture-nest",
+                  "kind": "nest",
+                  "x": 820,
+                  "y": 475
+                }
+              ]
+            }
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "object edit: undo requires returnRequestId",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "undo-return",
+          "objectId": "fixture-bath",
+          "returnedFrom": {
+            "scene": "garden",
+            "scenePin": null,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ]
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "object edit: undo requires returnedFrom",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "undo-return",
+          "objectId": "fixture-bath",
+          "returnRequestId": "3eb58505-05b6-466b-96e7-5002cb62e232"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "object edit: undo requires UUID return receipt",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "undo-return",
+          "objectId": "fixture-bath",
+          "returnRequestId": "not-a-uuid",
+          "returnedFrom": {
+            "scene": "garden",
+            "scenePin": null,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ]
+          }
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "object edit: undo rejects invented owner authority",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "undo-return",
+          "objectId": "fixture-bath",
+          "returnRequestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+          "returnedFrom": {
+            "scene": "garden",
+            "scenePin": null,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ]
+          },
+          "ownerId": "other-owner"
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "object-inventory-command-v1",
+      "name": "object edit: structurally valid history still requires owner receipt semantics",
+      "value": {
+        "action": "object-inventory",
+        "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+        "expected": {
+          "scene": "garden",
+          "scenePin": null,
+          "objects": [
+            {
+              "id": "fixture-perch",
+              "kind": "perch",
+              "x": 180,
+              "y": 420
+            },
+            {
+              "id": "fixture-feeder",
+              "kind": "feeder",
+              "x": 400,
+              "y": 465
+            },
+            {
+              "id": "fixture-nest",
+              "kind": "nest",
+              "x": 820,
+              "y": 475
+            }
+          ]
+        },
+        "payload": {
+          "operation": "undo-return",
+          "objectId": "fixture-bath",
+          "returnRequestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+          "returnedFrom": {
+            "scene": "garden",
+            "scenePin": null,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 180,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 710,
+                "y": 445
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              }
+            ]
+          }
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-layout-read-v1",
+      "name": "object edit: actual owner snapshot without resolved assets",
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 280,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+                "commandDigest": "0ec02775c070deba47afa308b576526044aebd7245d01ebac56e02101fd8ceb0",
+                "resultObjectId": "fixture-bath"
+              },
+              {
+                "requestId": "8f780d7c-a143-4f5b-b058-f41e22a37221",
+                "commandDigest": "8c22a7c362a844b5f6075b5e6a7a24c803ad62c438d52427c9f7e87cc5ba7166",
+                "resultObjectId": "fixture-perch"
+              },
+              {
+                "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+                "commandDigest": "c0eabed9fc6cb1e848e970688b5db8e74b76232006bad80ff3e1deb526310624",
+                "resultObjectId": "fixture-bath"
+              }
+            ]
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        }
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-layout-command-response-v1",
+      "name": "object edit: actual durable undo acknowledgment",
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 280,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+                "commandDigest": "0ec02775c070deba47afa308b576526044aebd7245d01ebac56e02101fd8ceb0",
+                "resultObjectId": "fixture-bath"
+              },
+              {
+                "requestId": "8f780d7c-a143-4f5b-b058-f41e22a37221",
+                "commandDigest": "8c22a7c362a844b5f6075b5e6a7a24c803ad62c438d52427c9f7e87cc5ba7166",
+                "resultObjectId": "fixture-perch"
+              },
+              {
+                "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+                "commandDigest": "c0eabed9fc6cb1e848e970688b5db8e74b76232006bad80ff3e1deb526310624",
+                "resultObjectId": "fixture-bath"
+              }
+            ]
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        },
+        "message": "Arrangement saved."
+      },
+      "valid": true,
+      "authoritativeValid": true
+    },
+    {
+      "schema": "yard-layout-read-v1",
+      "name": "object edit: layout read rejects asset bundle",
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 280,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+                "commandDigest": "0ec02775c070deba47afa308b576526044aebd7245d01ebac56e02101fd8ceb0",
+                "resultObjectId": "fixture-bath"
+              },
+              {
+                "requestId": "8f780d7c-a143-4f5b-b058-f41e22a37221",
+                "commandDigest": "8c22a7c362a844b5f6075b5e6a7a24c803ad62c438d52427c9f7e87cc5ba7166",
+                "resultObjectId": "fixture-perch"
+              },
+              {
+                "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+                "commandDigest": "c0eabed9fc6cb1e848e970688b5db8e74b76232006bad80ff3e1deb526310624",
+                "resultObjectId": "fixture-bath"
+              }
+            ]
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        },
+        "assets": []
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-layout-command-response-v1",
+      "name": "object edit: layout acknowledgment rejects asset bundle",
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 280,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+                "commandDigest": "0ec02775c070deba47afa308b576526044aebd7245d01ebac56e02101fd8ceb0",
+                "resultObjectId": "fixture-bath"
+              },
+              {
+                "requestId": "8f780d7c-a143-4f5b-b058-f41e22a37221",
+                "commandDigest": "8c22a7c362a844b5f6075b5e6a7a24c803ad62c438d52427c9f7e87cc5ba7166",
+                "resultObjectId": "fixture-perch"
+              },
+              {
+                "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+                "commandDigest": "c0eabed9fc6cb1e848e970688b5db8e74b76232006bad80ff3e1deb526310624",
+                "resultObjectId": "fixture-bath"
+              }
+            ]
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        },
+        "message": "Arrangement saved.",
+        "assets": []
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-layout-command-response-v1",
+      "name": "object edit: acknowledgment requires message",
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 280,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+                "commandDigest": "0ec02775c070deba47afa308b576526044aebd7245d01ebac56e02101fd8ceb0",
+                "resultObjectId": "fixture-bath"
+              },
+              {
+                "requestId": "8f780d7c-a143-4f5b-b058-f41e22a37221",
+                "commandDigest": "8c22a7c362a844b5f6075b5e6a7a24c803ad62c438d52427c9f7e87cc5ba7166",
+                "resultObjectId": "fixture-perch"
+              },
+              {
+                "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+                "commandDigest": "c0eabed9fc6cb1e848e970688b5db8e74b76232006bad80ff3e1deb526310624",
+                "resultObjectId": "fixture-bath"
+              }
+            ]
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        }
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-layout-command-response-v1",
+      "name": "object edit: acknowledgment rejects empty message",
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 280,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+                "commandDigest": "0ec02775c070deba47afa308b576526044aebd7245d01ebac56e02101fd8ceb0",
+                "resultObjectId": "fixture-bath"
+              },
+              {
+                "requestId": "8f780d7c-a143-4f5b-b058-f41e22a37221",
+                "commandDigest": "8c22a7c362a844b5f6075b5e6a7a24c803ad62c438d52427c9f7e87cc5ba7166",
+                "resultObjectId": "fixture-perch"
+              },
+              {
+                "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+                "commandDigest": "c0eabed9fc6cb1e848e970688b5db8e74b76232006bad80ff3e1deb526310624",
+                "resultObjectId": "fixture-bath"
+              }
+            ]
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        },
+        "message": ""
+      },
+      "valid": false,
+      "authoritativeValid": false
+    },
+    {
+      "schema": "yard-layout-command-response-v1",
+      "name": "object edit: acknowledgment cannot claim owner field",
+      "value": {
+        "snapshot": {
+          "version": 2,
+          "species": [],
+          "events": [],
+          "corrections": [],
+          "collection": [],
+          "birds": [],
+          "artworks": [],
+          "preferences": {
+            "palette": "twilight",
+            "scene": "garden",
+            "scenePin": null,
+            "regionPreference": "unspecified",
+            "reducedMotion": false,
+            "visitorTtlHours": 24
+          },
+          "environment": {
+            "version": 1,
+            "objects": [
+              {
+                "id": "fixture-perch",
+                "kind": "perch",
+                "x": 280,
+                "y": 420
+              },
+              {
+                "id": "fixture-feeder",
+                "kind": "feeder",
+                "x": 400,
+                "y": 465
+              },
+              {
+                "id": "fixture-nest",
+                "kind": "nest",
+                "x": 820,
+                "y": 475
+              },
+              {
+                "id": "fixture-bath",
+                "kind": "bath",
+                "x": 700,
+                "y": 445
+              }
+            ],
+            "weather": {
+              "mode": "simulated",
+              "manual": {
+                "condition": "clear",
+                "hour": 12
+              },
+              "simulation": {
+                "seed": 17,
+                "dayLengthSeconds": 600,
+                "epoch": "2026-01-01T00:00:00Z"
+              }
+            },
+            "inventory": {
+              "version": 1,
+              "owned": {
+                "perch": 3,
+                "feeder": 3,
+                "bath": 3,
+                "nest": 3,
+                "plant": 3
+              }
+            },
+            "objectReceipts": [
+              {
+                "requestId": "3eb58505-05b6-466b-96e7-5002cb62e232",
+                "commandDigest": "0ec02775c070deba47afa308b576526044aebd7245d01ebac56e02101fd8ceb0",
+                "resultObjectId": "fixture-bath"
+              },
+              {
+                "requestId": "8f780d7c-a143-4f5b-b058-f41e22a37221",
+                "commandDigest": "8c22a7c362a844b5f6075b5e6a7a24c803ad62c438d52427c9f7e87cc5ba7166",
+                "resultObjectId": "fixture-perch"
+              },
+              {
+                "requestId": "68397060-d324-4aa0-8f48-34ed474202d0",
+                "commandDigest": "c0eabed9fc6cb1e848e970688b5db8e74b76232006bad80ff3e1deb526310624",
+                "resultObjectId": "fixture-bath"
+              }
+            ]
+          },
+          "effectiveEvidence": [],
+          "findings": []
+        },
+        "message": "Arrangement saved.",
+        "ownerId": "synthetic-object-edit-other"
+      },
+      "valid": false,
+      "authoritativeValid": false
     }
   ],
   "migration": {
