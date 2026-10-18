@@ -1429,10 +1429,10 @@
       "sourceSealReceiptSHA256": "48b5cb9936627544c04fcb6095caba791f2313a66a129bcaf17446d03796d412"
     }
   ],
-  "registeredDrawings": 169,
-  "registeredOriginals": 61,
-  "newDrawings": 67,
-  "newNativeCalls": 40,
+  "registeredDrawings": 170,
+  "registeredOriginals": 62,
+  "newDrawings": 68,
+  "newNativeCalls": 41,
   "nextQueued": [
     "Review the combined six-source checkpoint and its retained held/source-only limitations after stage46 publication",
     "Select the next actual common-source gap only through coordinator assignment; no native call scheduled or running by this ingester"
@@ -1989,7 +1989,51 @@
           "derivativeIsNewDrawing": false
         }
       ]
+    },
+    {
+      "registrationOnly": true,
+      "batchId": "experiments/oriole-blink-method-comparison-v1/native-edit",
+      "sourcePath": "experiments/oriole-blink-method-comparison-v1",
+      "original": "experiments/oriole-blink-method-comparison-v1/native-edit/original.png",
+      "originalSHA256": "1a48eb61dd59447cb41b9c399af2e581ceb836279f9e430cb5f4af461e35c95c",
+      "originalDimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "experiments/oriole-blink-method-comparison-v1/native-edit/prompt.txt",
+      "promptSHA256": "eec04f32f21e47e8abeb3056742814f79197916898899cfc51caa5c3d3ea5b93",
+      "promptBytes": 2313,
+      "nativeArguments": "experiments/oriole-blink-method-comparison-v1/native-edit/native-arguments.json",
+      "dispatchArguments": "experiments/oriole-blink-method-comparison-v1/native-edit/native-arguments.json",
+      "dispatchReceipt": "experiments/oriole-blink-method-comparison-v1/native-edit/call-dispatch-receipt.json",
+      "returnReceipt": "experiments/oriole-blink-method-comparison-v1/native-edit/native-return-receipt.json",
+      "nativeCalls": 1,
+      "newDrawings": 1,
+      "runtimeAdmission": false,
+      "acceptedUses": [],
+      "sourceDisposition": "HELD native experimental closure source;0/1 useful normal141 blink yield. Runtime NOT_SUBMITTED_NOT_TESTED; acceptedUses empty, no active common slot.",
+      "receiptVariant": "oriole-reference-edit-flat-v1",
+      "referenceSourceFrameId": "frame.sha256.b7741c8ea9988ac8cb6f8faf36563af4a4fb67a94a5c5ebc2fa50567517e781f",
+      "referenceCopy": "experiments/oriole-blink-method-comparison-v1/native-edit/reference-awake1024.png",
+      "referencePNGsha256": "ae4323d2f7bc9434df6c469867b728a2be5b901381e0798d833c5442db768749",
+      "preCallError": "experiments/oriole-blink-method-comparison-v1/native-edit/pre-call-orchestration-error.json",
+      "savedReferenceArgument": "/workspace/asset-production/experiments/oriole-blink-method-comparison-v1/native-edit/reference-awake1024.png",
+      "frames": [
+        {
+          "sourceFrameId": "frame.sha256.1a33a90a427d053b31bf2528bd025f2e20cdbcee13799e312a84e7347a8b1f0c",
+          "sourcePNG": "experiments/oriole-blink-method-comparison-v1/native-edit/original.png",
+          "sourcePNGsha256": "1a48eb61dd59447cb41b9c399af2e581ceb836279f9e430cb5f4af461e35c95c",
+          "nativeSourceRect": [
+            0,
+            0,
+            1254,
+            1254
+          ],
+          "pose": "experimental closed-eye source candidate",
+          "derivativeIsNewDrawing": false
+        }
+      ]
     }
   ],
-  "sourceRegistrationNote": "Stage53 adds3 historical native IDs/3 originals only; existing action batches and binding inventory remain byte-identical. Counts are retained source snapshots; live queue execution is coordinator-owned."
+  "sourceRegistrationNote": "Stage57 registration adds1 historical native ID/original; registration0 calls. Existing action/binding inventory unchanged. Live execution coordinator-owned."
 }
