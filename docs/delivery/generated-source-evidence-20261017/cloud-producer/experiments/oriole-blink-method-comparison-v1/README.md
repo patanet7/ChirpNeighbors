@@ -1,0 +1,9 @@
+# Oriole blink method comparison — both candidates held
+
+[Play the comparison](comparison/review.html) at its intended141CSS scale on light/dark backgrounds. X is the new reference-conditioned image edit; Y is the existing-source cleanup baseline. Both use the same awake image,141canvas, root84/110, sampling, palette, alpha cleanup and60/3/27 ticks at30Hz.
+
+Both independent reviewers rejected blink adoption: X remains an ambiguous dark eye mark; Y resembles a pale round eye patch. Each method yielded0 useful source blink clips out of1 reviewed. Identity, broad stance and timing were provisionally coherent. Structural pixel normalization and actual canonicalJSON budgets passed, but these are only part of runtime admission. Runtime yield was not tested or submitted because both artifacts failed source readability. No model-superiority claim follows from this one case.
+
+The edit used1 native OpenAI image call,0 retries and24.215seconds measured tool await. The baseline used0 new calls and retains provenance for its1 historical closure call. Prompt, flat arguments, exact reference, original returned PNG, measured export costs, pre-call metadata error receipt, preregistration and both independent reviews are retained. Service execution duration, model and seed were not exposed. No new paid service or software was installed.
+
+See [OUTCOME.json](OUTCOME.json), [costs](comparison/cost-and-rework.json), [appearance review](comparison/independent-review.md), [geometry/temporal review](comparison/independent-geometry-temporal-review.md) and [frozen targets](comparison/review-target-hashes.json). Exported PNGs and playable HTML are source studies; no active slot binding or app integration is included. Next queued work is a Bushtit eye-cue representability preflight, with no image call running.

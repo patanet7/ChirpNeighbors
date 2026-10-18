@@ -1,0 +1,95 @@
+{
+  "id": "ORIOLE-blink-method-comparison-1",
+  "state": "preregistered-pending-checkpoint8-completion",
+  "createdUTC": "2026-10-18T02:24:41.629112+00:00",
+  "targetSpecies": "hooded_oriole",
+  "actualMissingSlot": "blink",
+  "reason": "Current source inventory explicitly holds both prior Oriole closure studies; only neutral/look are useful. Oriole visiblebodyabout65world at141canvas permits a clearer one-case eye-readability test than Bushtit visiblebodyabout28world at64canvas. These are body extents versus canvas sizes, not interchangeable scale measures.",
+  "methods": [
+    {
+      "id": "A",
+      "method": "existing-frame reuse with deterministic common-canvas alpha/palette cleanup",
+      "nativeCallsAllowed": 0,
+      "sources": [
+        "motion/sd20-hooded-oriole-readable-blink-v2/exact-awake-source1024.png",
+        "motion/sd20-hooded-oriole-readable-blink-v2/original.png"
+      ],
+      "previousDisposition": "HELD: light round eye patch ambiguous as closure at141world"
+    },
+    {
+      "id": "B",
+      "method": "one native OpenAI reference-conditioned edit of exact existing awake",
+      "nativeCallsAllowed": 1,
+      "automaticRetries": 0,
+      "reference": "motion/sd20-hooded-oriole-readable-blink-v2/exact-awake-source1024.png",
+      "target": "One genuine fully closed readable horizontal eyelid drawing; preserve naturalistic pixel identity, common pose/scale and feet"
+    }
+  ],
+  "frameExportPredeclared": {
+    "canvas": [
+      141,
+      141
+    ],
+    "density": 1,
+    "sampling": "One whole-canvas nearest-neighbor mapping per original dimension, common origin, no per-pose fit/crop/snap/paint/warp",
+    "cleanup": "Same alpha128 and one shared63opaque+transparent palette for awake, oldclosure and newclosure, no dithering. Retain rawRGBA exports to distinguish art from cleanup loss.",
+    "awakeRuntimePNGIdenticalAcrossMethods": true,
+    "timing": {
+      "tickRate": 30,
+      "frames": [
+        "awake",
+        "closed",
+        "awake"
+      ],
+      "ticks": [
+        60,
+        3,
+        27
+      ],
+      "loop": false
+    },
+    "oneOptionTwoFrameArea": 39762,
+    "allThreeComparisonFrameArea": 59643
+  },
+  "acceptanceCriteria": {
+    "sourceClip": [
+      "Both independent roles identify actual eyelid closure during100msphase at141CSS, on light/dark yard backgrounds; no ambiguous open-eye/dot substitution",
+      "Species identity and individual body scale coherent; no conspicuous body/feet/beak jump at normal playback",
+      "Same canvas/origin/declared root; real pose change required. Translation/bobbing does not count",
+      "Quantitative bounds, foreground/feet/proxy changes and eye cue differences measured and disclosed; thresholds are localdiagnostics, not universal biological truth",
+      "Same shared canonical current-runtime checker passes binaryalpha/palette/area/rectangles/exactreconstruction and actualerror negativecontrol",
+      "Actual sourcehandoff/rawinput canonicalJSON size passes currentmodule"
+    ],
+    "runtimeAdoption": "Requires integrator actual currentyard/admission receipt; source-only PASS is not adoption"
+  },
+  "metrics": [
+    "source usableclipyield0or1 per method",
+    "actualruntimeyield separately pending/accepted/failed",
+    "identity/stance/feet/eye consistency at141world",
+    "canonical structural+JSONbudget",
+    "nativecalls/nativeelapsed/exportreviewelapsed/rework",
+    "exact prompts/nativeoriginals/reference hashes and retainedfailures"
+  ],
+  "tools": {
+    "referenceEdit": "available image_gen.imagegen",
+    "poseSegmentation": {
+      "available": false,
+      "run": false,
+      "reason": "No callable pose-estimation/segmentation tool exposed; not tested; no new software/service/license acquired"
+    },
+    "newPaidServicesOrCredentials": false
+  },
+  "interpretation": "One bird, one slot, one reference-edit call; no model-superiority or general workflow claims. Overall adopt/evaluate/reject recorded after evidence; currentruntime receipt may remain pending.",
+  "referenceSHA256": "ae4323d2f7bc9434df6c469867b728a2be5b901381e0798d833c5442db768749",
+  "existingClosureSHA256": "b0e9bcb922178df5df58774a5d5f6ed18dbb5ec329852bd28b22e490afffe6f7",
+  "runtimeContractCommit": "3b20073eb96dc9e1d7385746dcfd8316eed85641",
+  "reviewerIDs": {
+    "appearance": "/root/slot_inventory",
+    "geometryTemporal": "/root/new_three_species"
+  },
+  "publication": "Source evidence only, no active runtimebindings.",
+  "preCallCorrection": {
+    "originalSHA256": "6c9adfc7e158273c1e518d64add22a67645fa9be70dd11272f78ac0da12fd2ef",
+    "change": "Clarified body extent versus canvas size; no call or output exists yet. Actual Oriole141canvas export/criteria unchanged."
+  }
+}
