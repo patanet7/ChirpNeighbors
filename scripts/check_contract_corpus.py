@@ -29,6 +29,7 @@ NAMES = frozenset(
         "dev-workbench-scenario-v2",
         "dev-workbench-request-v2",
         "asset-quality-evaluation-v1",
+        "asset-quality-evaluation-v2",
         "registered-scene-manifest-v2",
         "integration10-source-request-v2",
         "integration10-source-response-v2",

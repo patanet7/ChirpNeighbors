@@ -65,3 +65,9 @@ catalog species, selected-priority coherence and duplicate candidates. The
 first roundtrip attempt identified the missing explicit Python allowlist entries;
 adding those four names made the subsequent run pass. Full engine, renderer and
 browser acceptance belongs to the integration evidence, not these contract counts.
+
+## Bounded drawing-capability repair — 2026-10-19
+
+The existing UI now shares a typed exact drawing descriptor across sampling, evaluation and inventory, with a separately versioned quality V2 and frozen V1. This does not add activities or biological rules. Behavior remains imperative typed transitions plus weighted eligibility, separate motion/attention clocks and one reservation map; slots form a complete directed graph with BFS and quadratic construction, distinct from checked ground corridors. Four explicit species travel exclusions are not general taxonomy inheritance. V7 pose edges are intra-phase sequence checks, and the pipeline runner advances ordered stages rather than a parallel DAG.
+
+Keep source inventory/held dispositions separate from release, drawing capability separate from semantic applicability, and the proposed legal state/resource/contact graph separate from this implemented descriptor. Unknown quality remains unmeasured. Shared semantic-rule extraction requires a future compatibility proof; adjacency/cache/spatial-index changes require profiling. The current authority details and limits are in the [maintained portable evaluation contract](../asset-quality-portable-contract.md). Existing tasks 202/203/204/205/643/611/623/1103 retain remaining replay, graph, source and visual acceptance; no task closure follows from schema generation.
