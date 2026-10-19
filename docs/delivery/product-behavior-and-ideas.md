@@ -6,6 +6,12 @@ The product is highly detailed species-correct pixel birds in simple regional ya
 
 [Documentation index](../README.md) · [Publication status](../publication/20261012/README.md) · [Historical 97-gate receipt](../publication/20261011/README.md) · [Historical verification ledger](verification-ledger.md) · [Reproduce the suite](quality.md)
 
+## Current integration reconciliation — 2026-10-19
+
+The [current integration boundary](../product/yard-and-behavior.md#current-integration-boundary--2026-10-19) supersedes delivery-WIP statements in the older table below. Current paired UI main is `5c52344`; public canonical main before this documentation pass is `81780b6`. Read-only GitHub inventory found zero open PRs in the UI, public canonical and private custody repositories. In the preceding 24 hours, 35 Chirp PRs were merged; one additional private PR was unrelated framework work. UI hosted verification did not execute because account billing prevented runner allocation; public canonical checks passed. No protection, billing or workflow settings were changed.
+
+Implemented, merged/adopted, selected and visually accepted remain separate facts. Existing private native tasks retain status/criteria; historical captures are not fresh acceptance. The new source contains explicit development-preview update/backout controls, guarded support actions and bounded Workshop V2 replay, but broader art/physical/behavior/environment/device gates remain open. No browser, CUA, new generation or saved-yard write was performed by this reconciliation.
+
 ## Current work and evidence — 2026-10-17
 
 **Planned** means specified or awaiting inputs; **implemented** means code/content exists; **verified** means only the named checks passed against their recorded source. These states are not interchangeable. Owners below are delivery roles, with independent review separate from implementation. Earlier topic-page statements and receipts retain their dated scope; this table reconciles the current work.
