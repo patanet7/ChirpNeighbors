@@ -23,6 +23,7 @@ CONTRACTS = (
     "scene-manifest-v1",
     "recording-metadata-v1",
     "asset-quality-evaluation-v1",
+    "asset-quality-evaluation-v2",
 )
 
 

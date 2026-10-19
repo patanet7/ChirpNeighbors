@@ -18,6 +18,12 @@ At reviewed UI `e41c4ed` (engine behavior unchanged by static intake PR55), [qua
 
 This is currently bird-specific evaluation. Frames, poses, pixel regions and contacts are not stable anatomical-part IDs. Plant physiology, branch attachments, object surfaces and receiver shadows require applicable family/part identities, coordinate/geometry contracts and independently reviewed evidence before schema generation can support them. Neither source alpha nor an evaluation verdict grants physical or runtime authority.
 
+## Additive drawing-target V2 — 2026-10-19
+
+UI source `ad100f85bd0f3775d7e562b6efa60918d91b20b6` implements the bounded repair above. The separately versioned `asset-quality-evaluation-v2` report and trusted proof require version 2. Shared typed discovery distinguishes nine activity clips, V6 blink/look and V7 takeoff/flight/landing; V7 does not inherit V6 expressions. Exact source sampling, CPU evaluation, actor flight sampling, lifecycle inventory and preview coverage use the same descriptor. All V1 source, schema and generated-client bytes remain unchanged. Contact applicability still requires independent subject, requirement, manifest, geometry, support, frame, pose, contact and region binding; an empty contact set cannot supply physical review.
+
+The paired V2 schema, generated TypeScript/Ajv and Python TypedDict add 57 synthetic grammar cases covering all fourteen targets. Cross-language checks pass 979 goldens and 26,982 mutations; all 641 old semantic exceptions retain order, with eight additive subject/requirement species and region/canvas checks. The 377 old structural digests are unchanged; only two equal V2 digest entries are added. Synthetic marker hashes, generated types and a valid report grant no source, rights, anatomical or runtime approval. Actual producer ingestion and non-bird family semantics remain open. The earlier V1 counts below are historical evidence, not current totals.
+
 ## Compatibility and tests
 
 Both repositories append only the one new schema and two equal digest entries. All old schema bytes, prior 341 digest entries, 854 corpus cases and 494 semantic exception entries retain their values/order. Two synthetic positive reports and 18 public-safe structural/source cases append to the shared corpus. Six property exceptions carry explicit existing source refinements into the new report only: four subject/requirement taxon mismatches and two regions exceeding a reduced canvas. They do not weaken validation.

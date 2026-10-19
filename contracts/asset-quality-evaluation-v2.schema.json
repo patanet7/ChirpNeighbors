@@ -1,0 +1,926 @@
+{
+  "$ref": "#/definitions/AssetQualityEvaluationV2",
+  "definitions": {
+    "AssetQualityEvaluationV2": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 2
+        },
+        "authority": {
+          "type": "string",
+          "const": "asset-quality-evaluation-v2"
+        },
+        "advisoryOnly": {
+          "type": "boolean",
+          "const": true
+        },
+        "grantsAdmission": {
+          "type": "boolean",
+          "const": false
+        },
+        "reportId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+          "not": {
+            "enum": [
+              "__proto__",
+              "prototype",
+              "constructor"
+            ]
+          }
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "synthetic-illustrative",
+            "source-bound"
+          ]
+        },
+        "subject": {
+          "type": "object",
+          "properties": {
+            "assetId": {
+              "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+            },
+            "speciesId": {
+              "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+            },
+            "contentDigest": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "sourcePngSha256": {
+              "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+            },
+            "rgbaSha256": {
+              "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+            },
+            "manifestSha256": {
+              "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+            },
+            "geometrySha256": {
+              "anyOf": [
+                {
+                  "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "canvas": {
+              "type": "object",
+              "properties": {
+                "width": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4096
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 4096
+                }
+              },
+              "required": [
+                "width",
+                "height"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "assetId",
+            "speciesId",
+            "contentDigest",
+            "sourcePngSha256",
+            "rgbaSha256",
+            "manifestSha256",
+            "geometrySha256",
+            "canvas"
+          ],
+          "additionalProperties": false
+        },
+        "requirement": {
+          "type": "object",
+          "properties": {
+            "sha256": {
+              "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+            },
+            "speciesId": {
+              "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+            },
+            "activity": {
+              "type": "string",
+              "enum": [
+                "idle",
+                "moving",
+                "perching",
+                "singing",
+                "feeding",
+                "bathing",
+                "sleeping",
+                "playing",
+                "nesting"
+              ]
+            },
+            "motionPhase": {
+              "type": "string",
+              "enum": [
+                "grounded",
+                "walk",
+                "hop",
+                "takeoff",
+                "flight",
+                "landing"
+              ]
+            },
+            "requestedClip": {
+              "type": "string",
+              "enum": [
+                "idle",
+                "moving",
+                "perching",
+                "singing",
+                "feeding",
+                "bathing",
+                "sleeping",
+                "playing",
+                "nesting",
+                "blink",
+                "look",
+                "takeoff",
+                "flight",
+                "landing"
+              ]
+            },
+            "facing": {
+              "type": "string",
+              "enum": [
+                "right",
+                "mirrored-left"
+              ]
+            },
+            "recipe": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                    },
+                    "version": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 9007199254740991
+                    },
+                    "sha256": {
+                      "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "version",
+                    "sha256"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "support": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "sceneId": {
+                      "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                    },
+                    "sceneVersion": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 9007199254740991
+                    },
+                    "objectId": {
+                      "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                    },
+                    "slotId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 167,
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                      "not": {
+                        "enum": [
+                          "__proto__",
+                          "prototype",
+                          "constructor"
+                        ]
+                      }
+                    },
+                    "geometrySha256": {
+                      "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                    }
+                  },
+                  "required": [
+                    "sceneId",
+                    "sceneVersion",
+                    "objectId",
+                    "slotId",
+                    "geometrySha256"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "sha256",
+            "speciesId",
+            "activity",
+            "motionPhase",
+            "requestedClip",
+            "facing",
+            "recipe",
+            "support"
+          ],
+          "additionalProperties": false
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "deterministic",
+                  "cv",
+                  "vl",
+                  "human"
+                ]
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160
+              },
+              "version": {
+                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/tools/items/properties/name"
+              },
+              "codeSha256": {
+                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+              },
+              "configurationSha256": {
+                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+              },
+              "model": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/tools/items/properties/name"
+                      },
+                      "version": {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/tools/items/properties/name"
+                      },
+                      "promptSha256": {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                      },
+                      "configurationSha256": {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "version",
+                      "promptSha256",
+                      "configurationSha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "name",
+              "version",
+              "codeSha256",
+              "configurationSha256",
+              "model"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+              },
+              "sha256": {
+                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+              },
+              "kind": {
+                "type": "string",
+                "enum": [
+                  "source",
+                  "configuration",
+                  "measurement",
+                  "diagnostic-overlay",
+                  "calibration",
+                  "rubric",
+                  "review",
+                  "mapping-review",
+                  "reviewed-contact"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "sha256",
+              "kind"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+              },
+              "category": {
+                "type": "string",
+                "enum": [
+                  "species-identity-anatomy",
+                  "pose-action-phase",
+                  "support-contact",
+                  "registration-centering",
+                  "relative-scale",
+                  "palette-style",
+                  "transparency-noise",
+                  "temporal-stability",
+                  "technical-budgets",
+                  "runtime-adoption"
+                ]
+              },
+              "label": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "const": "unclassified"
+                      },
+                      "source": {
+                        "type": "object",
+                        "properties": {
+                          "catalogId": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "catalogVersion": {
+                            "anyOf": [
+                              {
+                                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/tools/items/properties/name"
+                              },
+                              {
+                                "type": "null"
+                              }
+                            ]
+                          },
+                          "rawLabel": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 256
+                          },
+                          "originalRecord": {
+                            "type": "object",
+                            "properties": {
+                              "json": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 16384
+                              },
+                              "sha256": {
+                                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                              },
+                              "applicability": {
+                                "type": "string",
+                                "enum": [
+                                  "unverified",
+                                  "subject-source"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "json",
+                              "sha256",
+                              "applicability"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "catalogId",
+                          "catalogVersion",
+                          "rawLabel"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "source"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "status": {
+                        "type": "string",
+                        "const": "mapped"
+                      },
+                      "source": {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/findings/items/properties/label/anyOf/0/properties/source"
+                      },
+                      "ruleId": {
+                        "type": "string",
+                        "enum": [
+                          "identity-anatomy-mismatch",
+                          "pose-action-mismatch",
+                          "support-contact-mismatch",
+                          "anchor-registration-drift",
+                          "relative-scale-mismatch",
+                          "palette-style-mismatch",
+                          "transparency-noise",
+                          "temporal-instability",
+                          "technical-budget-exceeded",
+                          "runtime-adoption-unverified"
+                        ]
+                      },
+                      "mappingStatus": {
+                        "type": "string",
+                        "enum": [
+                          "proposed",
+                          "reviewed"
+                        ]
+                      },
+                      "mappingEvidenceSha256": {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                      }
+                    },
+                    "required": [
+                      "status",
+                      "source",
+                      "ruleId",
+                      "mappingStatus",
+                      "mappingEvidenceSha256"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "target": {
+                "type": "object",
+                "properties": {
+                  "clip": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/requirement/properties/requestedClip"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "frame": {
+                    "anyOf": [
+                      {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "poseId": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "region": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4096
+                          },
+                          "y": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 4096
+                          },
+                          "width": {
+                            "type": "number",
+                            "exclusiveMinimum": 0,
+                            "maximum": 4096
+                          },
+                          "height": {
+                            "type": "number",
+                            "exclusiveMinimum": 0,
+                            "maximum": 4096
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "y",
+                          "width",
+                          "height"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "contactKind": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "left-foot",
+                          "right-foot",
+                          "perch",
+                          "ground"
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "clip",
+                  "frame",
+                  "poseId",
+                  "region",
+                  "contactKind"
+                ],
+                "additionalProperties": false
+              },
+              "knowledge": {
+                "type": "string",
+                "enum": [
+                  "observed",
+                  "measured",
+                  "inferred",
+                  "unknown"
+                ]
+              },
+              "verdict": {
+                "type": "string",
+                "enum": [
+                  "pass",
+                  "fail",
+                  "held",
+                  "unmeasured"
+                ]
+              },
+              "severity": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": [
+                      "critical",
+                      "major",
+                      "minor",
+                      "note"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "const": "calibrated"
+                          },
+                          "value": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          "calibrationSha256": {
+                            "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "value",
+                          "calibrationSha256"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "const": "ordinal"
+                          },
+                          "level": {
+                            "type": "string",
+                            "enum": [
+                              "low",
+                              "medium",
+                              "high"
+                            ]
+                          },
+                          "rubricSha256": {
+                            "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "level",
+                          "rubricSha256"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "toolId": {
+                "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+              },
+              "evidenceIds": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                },
+                "maxItems": 32
+              },
+              "measurements": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "metricId": {
+                      "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                    },
+                    "value": {
+                      "type": "number",
+                      "minimum": -1000000000000,
+                      "maximum": 1000000000000
+                    },
+                    "unit": {
+                      "type": "string",
+                      "enum": [
+                        "source-px",
+                        "world-unit",
+                        "css-px",
+                        "ms",
+                        "ticks",
+                        "bytes",
+                        "count",
+                        "ratio",
+                        "degrees"
+                      ]
+                    },
+                    "tolerance": {
+                      "anyOf": [
+                        {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 1000000000000
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "metricId",
+                    "value",
+                    "unit",
+                    "tolerance"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 16
+              },
+              "contactBasis": {
+                "type": "string",
+                "enum": [
+                  "unavailable",
+                  "declared-only",
+                  "reviewed-reference",
+                  "synthetic-reference"
+                ]
+              },
+              "supersedes": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                },
+                "maxItems": 32
+              },
+              "supersedesExternal": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "reportId": {
+                      "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                    },
+                    "reportSha256": {
+                      "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                    },
+                    "findingId": {
+                      "$ref": "#/definitions/AssetQualityEvaluationV2/properties/reportId"
+                    }
+                  },
+                  "required": [
+                    "reportId",
+                    "reportSha256",
+                    "findingId"
+                  ],
+                  "additionalProperties": false
+                },
+                "maxItems": 32
+              },
+              "repair": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "none",
+                      "proposed",
+                      "applied",
+                      "rejected"
+                    ]
+                  },
+                  "proposalSha256": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "resultSha256": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "status",
+                  "proposalSha256",
+                  "resultSha256"
+                ],
+                "additionalProperties": false
+              },
+              "review": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "unreviewed",
+                      "accepted",
+                      "rejected",
+                      "needs-repair",
+                      "blocked"
+                    ]
+                  },
+                  "evidenceSha256": {
+                    "anyOf": [
+                      {
+                        "$ref": "#/definitions/AssetQualityEvaluationV2/properties/subject/properties/contentDigest"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "status",
+                  "evidenceSha256"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "category",
+              "label",
+              "target",
+              "knowledge",
+              "verdict",
+              "severity",
+              "confidence",
+              "toolId",
+              "evidenceIds",
+              "measurements",
+              "contactBasis",
+              "supersedes",
+              "supersedesExternal",
+              "repair",
+              "review"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 256
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "authority",
+        "advisoryOnly",
+        "grantsAdmission",
+        "reportId",
+        "basis",
+        "subject",
+        "requirement",
+        "tools",
+        "evidence",
+        "findings"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/asset-quality-evaluation-v2.schema.json",
+  "description": "Advisory asset evaluation report structure only. Canonical source labels retain their original catalog, version and raw record. Finite UTF-8 byte budget, knowledge/evidence consistency, exact source and requirement identities, actual bird manifest coverage, trusted scoped contact proof, source-record custody, repair ancestry and supersession require source and independently verified consumer semantics. Synthetic fixtures grant no source approval, biological validation, renderer admission, provider execution or public release. This report never grants admission."
+}
