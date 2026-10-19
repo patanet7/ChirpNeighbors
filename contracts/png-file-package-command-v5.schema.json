@@ -1,0 +1,616 @@
+{
+  "$ref": "#/definitions/PngFilePackageCommandV5",
+  "definitions": {
+    "PngFilePackageCommandV5": {
+      "type": "object",
+      "properties": {
+        "requestId": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "layout": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            },
+            "columns": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 64
+            },
+            "rows": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 64
+            }
+          },
+          "required": [
+            "width",
+            "height",
+            "columns",
+            "rows"
+          ],
+          "additionalProperties": false
+        },
+        "logicalPixelSize": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
+        "paletteLimit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "clips": {
+          "type": "object",
+          "properties": {
+            "idle": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "idle",
+                    "moving",
+                    "perching",
+                    "singing",
+                    "feeding",
+                    "bathing",
+                    "sleeping",
+                    "playing",
+                    "nesting"
+                  ]
+                },
+                "direction": {
+                  "type": "string",
+                  "const": "right-facing-mirrorable"
+                },
+                "loop": {
+                  "type": "boolean"
+                },
+                "poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "durationTicks": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 300
+                      },
+                      "pivot": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 256
+                          },
+                          "y": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 256
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "y"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "contacts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/x"
+                            },
+                            "y": {
+                              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/y"
+                            },
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "left-foot",
+                                "right-foot",
+                                "perch",
+                                "ground"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "x",
+                            "y",
+                            "kind"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 4
+                      },
+                      "poseId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160,
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                      },
+                      "rotation": {
+                        "type": "number",
+                        "minimum": -0.5,
+                        "maximum": 0.5
+                      }
+                    },
+                    "required": [
+                      "frame",
+                      "durationTicks",
+                      "pivot",
+                      "contacts",
+                      "poseId",
+                      "rotation"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 256
+                }
+              },
+              "required": [
+                "action",
+                "direction",
+                "loop",
+                "poses"
+              ],
+              "additionalProperties": false
+            },
+            "moving": {
+              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle"
+            },
+            "perching": {
+              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle"
+            },
+            "singing": {
+              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle"
+            },
+            "feeding": {
+              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle"
+            },
+            "bathing": {
+              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle"
+            },
+            "sleeping": {
+              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle"
+            },
+            "playing": {
+              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle"
+            },
+            "nesting": {
+              "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle"
+            }
+          },
+          "required": [
+            "idle"
+          ],
+          "additionalProperties": false
+        },
+        "conditioning": {
+          "type": "object",
+          "properties": {
+            "taxonomy": {
+              "type": "object",
+              "properties": {
+                "catalog": {
+                  "type": "string",
+                  "const": "chirp-display-catalog"
+                },
+                "version": {
+                  "type": "number",
+                  "const": 1
+                },
+                "speciesId": {
+                  "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                }
+              },
+              "required": [
+                "catalog",
+                "version",
+                "speciesId"
+              ],
+              "additionalProperties": false
+            },
+            "references": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                  },
+                  "roles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "species",
+                        "style",
+                        "pose"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  },
+                  "pin": {
+                    "type": "object",
+                    "properties": {
+                      "jobId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160
+                      },
+                      "artifactId": {
+                        "$ref": "#/definitions/PngFilePackageCommandV5/properties/conditioning/properties/references/items/properties/pin/properties/jobId"
+                      },
+                      "version": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "contentDigest": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "jobId",
+                      "artifactId",
+                      "version",
+                      "contentDigest"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "id",
+                  "roles",
+                  "pin"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "poseGraph": {
+              "type": "object",
+              "properties": {
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                      },
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "idle",
+                          "moving",
+                          "perching",
+                          "singing",
+                          "feeding",
+                          "bathing",
+                          "sleeping",
+                          "playing",
+                          "nesting"
+                        ]
+                      },
+                      "referenceId": {
+                        "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "frame",
+                      "action",
+                      "referenceId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 576
+                },
+                "edges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "from": {
+                        "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                      },
+                      "to": {
+                        "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 2304
+                }
+              },
+              "required": [
+                "nodes",
+                "edges"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "taxonomy",
+            "references",
+            "poseGraph"
+          ],
+          "additionalProperties": false
+        },
+        "schemaVersion": {
+          "type": "number",
+          "const": 5
+        },
+        "presentation": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "sourcePixelsPerWorldUnit": {
+              "type": "number",
+              "enum": [
+                1,
+                2,
+                4
+              ]
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "sourcePixelsPerWorldUnit"
+          ],
+          "additionalProperties": false
+        },
+        "flightMotion": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "tickRate": {
+              "type": "number",
+              "const": 30
+            },
+            "geometryScope": {
+              "type": "string",
+              "const": "image-registration-only"
+            },
+            "physicalSupportReviewed": {
+              "type": "boolean",
+              "const": false
+            },
+            "liftOffTick": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 19199
+            },
+            "touchdownTick": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 19199
+            },
+            "clips": {
+              "type": "object",
+              "properties": {
+                "takeoff": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "enum": [
+                        "takeoff",
+                        "flight",
+                        "landing"
+                      ]
+                    },
+                    "loop": {
+                      "type": "boolean"
+                    },
+                    "poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "frame": {
+                            "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/frame"
+                          },
+                          "durationTicks": {
+                            "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/durationTicks"
+                          },
+                          "pivot": {
+                            "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/pivot"
+                          },
+                          "contacts": {
+                            "type": "array",
+                            "items": {
+                              "not": {}
+                            },
+                            "minItems": 0,
+                            "maxItems": 0
+                          },
+                          "poseId": {
+                            "$ref": "#/definitions/PngFilePackageCommandV5/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                          },
+                          "rotation": {
+                            "type": "number",
+                            "const": 0
+                          }
+                        },
+                        "required": [
+                          "frame",
+                          "durationTicks",
+                          "pivot",
+                          "contacts",
+                          "poseId",
+                          "rotation"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 2,
+                      "maxItems": 64
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "loop",
+                    "poses"
+                  ],
+                  "additionalProperties": false
+                },
+                "flight": {
+                  "$ref": "#/definitions/PngFilePackageCommandV5/properties/flightMotion/properties/clips/properties/takeoff"
+                },
+                "landing": {
+                  "$ref": "#/definitions/PngFilePackageCommandV5/properties/flightMotion/properties/clips/properties/takeoff"
+                }
+              },
+              "required": [
+                "takeoff",
+                "flight",
+                "landing"
+              ],
+              "additionalProperties": false
+            },
+            "poseGraph": {
+              "type": "object",
+              "properties": {
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160,
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                      },
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "clip": {
+                        "$ref": "#/definitions/PngFilePackageCommandV5/properties/flightMotion/properties/clips/properties/takeoff/properties/name"
+                      },
+                      "referenceId": {
+                        "$ref": "#/definitions/PngFilePackageCommandV5/properties/flightMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "frame",
+                      "clip",
+                      "referenceId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 6,
+                  "maxItems": 192
+                },
+                "edges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "from": {
+                        "$ref": "#/definitions/PngFilePackageCommandV5/properties/flightMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                      },
+                      "to": {
+                        "$ref": "#/definitions/PngFilePackageCommandV5/properties/flightMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 4,
+                  "maxItems": 384
+                }
+              },
+              "required": [
+                "nodes",
+                "edges"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "tickRate",
+            "geometryScope",
+            "physicalSupportReviewed",
+            "liftOffTick",
+            "touchdownTick",
+            "clips",
+            "poseGraph"
+          ],
+          "additionalProperties": false
+        },
+        "alphaOrigin": {
+          "type": "string",
+          "const": "upstream-cleanup"
+        },
+        "projectGeneratedEvidence": {
+          "$ref": "#/definitions/PngFilePackageCommandV5/properties/conditioning/properties/references/items/properties/pin"
+        }
+      },
+      "required": [
+        "requestId",
+        "layout",
+        "logicalPixelSize",
+        "paletteLimit",
+        "clips",
+        "conditioning",
+        "schemaVersion",
+        "presentation",
+        "flightMotion",
+        "alphaOrigin"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/png-file-package-command-v5.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}
