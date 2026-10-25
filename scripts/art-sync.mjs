@@ -214,7 +214,8 @@ function resolvePick(slotId, pick) {
 function normalize(resolved, { kind, action }) {
   if (resolved.problem) return resolved;
   const isBird = kind !== 'object';
-  if (isBird && action !== 'canon' && resolved.frames.length < 2)
+  // Rig output is always clip frames; a one-frame rig idle is a hold pose, not a board.
+  if (isBird && action !== 'canon' && resolved.pack !== 'bodyplan-rig' && resolved.frames.length < 2)
     return { problem: `${resolved.candidate} is one drawing (a board or still), not clip frames; needs cutting or regeneration` };
   const k = Math.min(...resolved.frames.map((f) => blockFactor(f.img)));
   const sizes = new Set(resolved.frames.map((f) => `${f.img.width}x${f.img.height}`));
