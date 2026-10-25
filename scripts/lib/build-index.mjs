@@ -36,7 +36,7 @@ export function approvedArtRows(manifest) {
       row: 'art',
       status: 'approved',
       slot: id.replace(/\/v\d+$/, ''),
-      files: e.files,
+      files: e.files.map((f) => ({ ...f, path: `assets/approved/${f.path}` })),
       default: e.kind === 'bird-canon' || e.kind === 'scene' ? true : !!e.default,
       from: e.source?.candidate ? `c${e.source.candidate}` : undefined,
       made: { from: e.source?.path ?? null, pack: e.source?.pack ?? null, on: e.generated ?? null, prompt: e.prompt ?? null },
@@ -345,7 +345,7 @@ export function buildIndex({ app, plants, review, existing = readIndex() } = {})
   rows = mergeRows(rows, seeds);
 
   // stray files in approved/ (not in approved.json) become new art
-  const listed = new Set(approved.flatMap((a) => a.files.map((f) => f.path)));
+  const listed = new Set(approved.flatMap((a) => a.files.map((f) => f.path.replace(/^assets\/approved\//, ''))));
   for (const abs of walk(APPROVED)) {
     const rel = path.relative(APPROVED, abs).split(path.sep).join('/');
     if (!/\.(png|apng|gif|jpe?g|webp|svg)$/i.test(rel) || listed.has(rel)) continue;
@@ -355,7 +355,7 @@ export function buildIndex({ app, plants, review, existing = readIndex() } = {})
     try {
       size = pngSize(bytes);
     } catch {}
-    rows.push({ id: `inbox/${candidateVersion(sha)}`, row: 'art', status: 'new', files: [{ path: `approved/${rel}`, sha256: sha, ...size }], made: { from: `assets/approved/${rel}` } });
+    rows.push({ id: `inbox/${candidateVersion(sha)}`, row: 'art', status: 'new', files: [{ path: `assets/approved/${rel}`, sha256: sha, ...size }], made: { from: `assets/approved/${rel}` } });
     report.stray.push(rel);
   }
 
