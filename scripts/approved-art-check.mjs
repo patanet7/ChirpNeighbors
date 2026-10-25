@@ -1,31 +1,104 @@
 #!/usr/bin/env node
-// Verifies assets/approved matches assets/approved/approved.json (existence, sha256, no extras).
+// Verifies assets/approved against approved.json and the canonical layout (docs/ASSETS.md):
+// every listed file exists with its sha256, sits at its canonical path, is a decodable PNG at its
+// native pixel grid (not block-upscaled); every bird has bird.json, every clip clip.json with a
+// matching frame count, every object object.json and one default variant; no unlisted art files.
+// Scenes (kind scene, scenes/<yard>/<season>/<layer>.png) are owned by the scenes track.
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
-import { fileURLToPath } from 'node:url';
+import {
+  APPROVED as root,
+  MANIFEST,
+  REGEN_QUEUE,
+  SCHEMA,
+  sha256,
+  canonPath,
+  clipDir,
+  framePath,
+  objectPath,
+} from './lib/approved-layout.mjs';
+import { decodePng, blockFactor } from './lib/png.mjs';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'assets', 'approved');
-const manifest = JSON.parse(fs.readFileSync(path.join(root, 'approved.json'), 'utf8'));
+const manifest = JSON.parse(fs.readFileSync(MANIFEST, 'utf8'));
 const errors = [];
+if (manifest.schema !== SCHEMA) errors.push(`approved.json schema is ${manifest.schema}, expected ${SCHEMA}`);
 const listed = new Set();
-for (const e of manifest.approved) {
-  for (const f of e.files) {
+const ids = new Set();
+const ID = /^[a-z0-9_]+$/;
+const DATE = /20\d\d-?[01]\d-?[0-3]\d/;
+for (const e of manifest.entries ?? []) {
+  if (ids.has(e.id)) errors.push(`duplicate id ${e.id}`);
+  ids.add(e.id);
+  if (DATE.test(e.id)) errors.push(`${e.id}: a date in a path (dates are manifest fields)`);
+  const expected =
+    e.kind === 'bird-canon'
+      ? [canonPath(e.species)]
+      : e.kind === 'bird-clip'
+        ? e.files.map((_, i) => framePath(e.species, e.action, e.variant, i))
+        : e.kind === 'object'
+          ? [objectPath(e.object, e.variant)]
+          : e.kind === 'scene'
+            ? [`scenes/${e.yard}/${e.season}/${e.layer}.png`]
+            : null;
+  for (const word of [e.species, e.action, e.object, e.yard, e.season, e.layer].filter(Boolean))
+    if (!ID.test(word)) errors.push(`${e.id}: "${word}" is not a lowercase snake_case id`);
+  if (e.kind === 'bird-clip' || e.kind === 'object')
+    if (!/^v\d+$/.test(e.variant ?? '')) errors.push(`${e.id}: variant must be v1, v2, …`);
+  e.files.forEach((f, i) => {
     listed.add(f.path);
+    if (expected && expected[i] !== f.path)
+      errors.push(`${e.id}: ${f.path} is not at its canonical path ${expected[i]}`);
     const abs = path.join(root, f.path);
-    if (!fs.existsSync(abs)) { errors.push(`missing: ${f.path}`); continue; }
-    const sha = crypto.createHash('sha256').update(fs.readFileSync(abs)).digest('hex');
-    if (sha !== f.sha256) errors.push(`sha256 mismatch: ${f.path}`);
+    if (!fs.existsSync(abs)) return errors.push(`missing: ${f.path}`);
+    const bytes = fs.readFileSync(abs);
+    if (sha256(bytes) !== f.sha256) errors.push(`sha256 mismatch: ${f.path}`);
+    let img;
+    try {
+      img = decodePng(bytes);
+    } catch (err) {
+      return errors.push(`${f.path}: not a decodable PNG (${err.message})`);
+    }
+    if (img.width !== f.width || img.height !== f.height) errors.push(`${f.path}: size differs from approved.json`);
+    const k = blockFactor(img);
+    if (k > 1) errors.push(`${f.path}: upscaled ${k}x (store art at its native pixel grid)`);
+  });
+  if (e.kind === 'bird-clip') {
+    const clipFile = path.join(root, clipDir(e.species, e.action, e.variant), 'clip.json');
+    if (!fs.existsSync(clipFile)) errors.push(`${e.id}: no clip.json`);
+    else {
+      const clip = JSON.parse(fs.readFileSync(clipFile, 'utf8'));
+      if (clip.frames !== e.files.length)
+        errors.push(`${e.id}: clip.json says ${clip.frames} frames, ${e.files.length} listed`);
+      if (clip.frameMs && clip.frameMs.length !== e.files.length) errors.push(`${e.id}: frameMs length != frames`);
+    }
   }
-  const expected = e.frames * (e.variants ?? 1);
-  if (expected !== e.files.length) errors.push(`${e.slot}: frames × variants = ${expected} but ${e.files.length} files`);
 }
-const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((d) =>
-  d.isDirectory() ? walk(path.join(dir, d.name)) : [path.join(dir, d.name)]);
+const kindOf = (kind) => (manifest.entries ?? []).filter((e) => e.kind === kind);
+for (const species of new Set(kindOf('bird-canon').map((e) => e.species)))
+  if (!fs.existsSync(path.join(root, 'birds', species, 'bird.json'))) errors.push(`birds/${species}: no bird.json`);
+for (const species of new Set(kindOf('bird-clip').map((e) => e.species)))
+  if (!kindOf('bird-canon').some((e) => e.species === species))
+    errors.push(`birds/${species}: clips without an approved canon`);
+for (const object of new Set(kindOf('object').map((e) => e.object))) {
+  if (!fs.existsSync(path.join(root, 'objects', object, 'object.json')))
+    errors.push(`objects/${object}: no object.json`);
+  const defaults = kindOf('object').filter((e) => e.object === object && e.default).length;
+  if (defaults !== 1) errors.push(`objects/${object}: ${defaults} default variants (want 1)`);
+}
+const META = new Set(['bird.json', 'clip.json', 'object.json']);
+const walk = (dir) =>
+  fs
+    .readdirSync(dir, { withFileTypes: true })
+    .flatMap((d) => (d.isDirectory() ? walk(path.join(dir, d.name)) : [path.join(dir, d.name)]));
 for (const abs of walk(root)) {
   const rel = path.relative(root, abs).split(path.sep).join('/');
-  if (rel === 'approved.json' || rel === 'README.md') continue;
+  if (['approved.json', 'README.md', path.basename(REGEN_QUEUE)].includes(rel)) continue;
+  if (META.has(path.basename(rel))) continue;
   if (!listed.has(rel)) errors.push(`not in manifest: ${rel}`);
 }
-if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
-console.log(`ok: ${manifest.approved.length} slots, ${listed.size} files, ${manifest.pending.length} pending`);
+const queue = fs.existsSync(REGEN_QUEUE) ? JSON.parse(fs.readFileSync(REGEN_QUEUE, 'utf8')).items : [];
+if (errors.length) {
+  console.error(errors.join('\n'));
+  process.exit(1);
+}
+console.log(`ok: ${manifest.entries.length} entries, ${listed.size} files, ${queue.length} in regen queue`);
