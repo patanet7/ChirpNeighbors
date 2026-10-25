@@ -133,9 +133,9 @@ is separate from the actual installed Svelte compiler/check/build results.
 5. ESP32 work resumed separately in another environment. This workspace neither
    duplicated it nor assumes those firmware commits are present or integrated.
 
-The [product register](product-behavior-and-ideas.md) now has 22 stable entries:
+The [product register](../../delivery/product-behavior-and-ideas.md) now has 22 stable entries:
 **15 verified, 5 agreed, 1 implemented, 1 proposed**. PB-022 records this verified
 mechanism; PB-021 keeps the longer-term art goal agreed. The [task tree](visual-task-tree-20261008.md)
-and [delivery matrix](matrix.json) preserve prior checkpoints and remaining work.
+and [delivery matrix](../../delivery/matrix.json) preserve prior checkpoints and remaining work.
 Documentation/evidence commits after the tested revisions do not change runtime
 code. No push, PR, merge, deploy, credential change or publication retry occurred.

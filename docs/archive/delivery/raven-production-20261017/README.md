@@ -13,7 +13,7 @@ This is report evidence, not independent validation of its final atlas, previews
 creation/selection or motion measurements. The final atlas and optional 35.9 MB
 archive were not downloaded here. Claimed atlas dimensions/hash/73 populated frames
 and reported validations remain attributed to the case. Canonical reuse lessons
-are reconciled into [PB-021-B](../../product/artwork-and-assets.md#pb-021-b--review-actual-species-art-and-action-clips)
+are reconciled into [PB-021-B](../../../product/artwork-and-assets.md#pb-021-b--review-actual-species-art-and-action-clips)
 and paired UI `docs/animation-production-inventory.md`.
 
 The case is a stylized raven mascot produced for a ChatGPT pet atlas, not an

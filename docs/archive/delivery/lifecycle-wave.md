@@ -1,6 +1,6 @@
 # Recording lifecycle and real-journey implementation wave
 
-> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](../../delivery/product-behavior-and-ideas.md), including its architecture follow-up.
 
 Start from clean UI `83837529722ce48e210ed224e74cfbaf2f72881b` and companion
 `084b33dfac1160e1cc9b2db9336b0a16b9c4a831`. The previous 50-gate checkpoint stays
@@ -32,4 +32,4 @@ Offline backup copies cannot be remotely erased. Reconciliation can enforce only
 the retained ledger supplied by the operator; it must not invent missing history
 or assert that an old export is the latest one.
 
-Final evidence: [lifecycle checkpoint](verification-ledger.md#lifecycle-checkpoint-complete-run-and-separate-repair), [verification](lifecycle-verification-20261008.json), and [exact local commits](lifecycle-commits-20261008.md). All 55 gates have passing evidence across the full run and the targeted selector-fix rerun.
+Final evidence: [lifecycle checkpoint](../../delivery/verification-ledger.md#lifecycle-checkpoint-complete-run-and-separate-repair), [verification](lifecycle-verification-20261008.json), and [exact local commits](lifecycle-commits-20261008.md). All 55 gates have passing evidence across the full run and the targeted selector-fix rerun.

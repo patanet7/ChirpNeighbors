@@ -2,26 +2,26 @@
 
 The local engine has real shared authorities across authentication, owner storage, findings/residents, yard inventory, reviewed assets, job leases and recovery. It is **not uniformly optimized or reliable at every accepted data size**. The clearest outstanding correctness failure is that a valid stored yard can produce a response exceeding the client's 16 MiB bound. Passing functional tests alone do not establish performance or production readiness.
 
-This record reconciles four independent audits. It is evidence, not another backlog: the [canonical task index](../delivery/product-behavior-and-ideas.md#architecture-follow-up) owns status through its PB/EN entries. The archive-history implementation and verification receipt are [recorded separately](../delivery/archive-history-local-20261012.md). This task stays local; no publication, deployment, provider, credential, original data or visual-shell changes are implied.
+This record reconciles four independent audits. It is evidence, not another backlog: the [canonical task index](../../delivery/product-behavior-and-ideas.md#architecture-follow-up) owns status through its PB/EN entries. The archive-history implementation and verification receipt are [recorded separately](../delivery/archive-history-local-20261012.md). This task stays local; no publication, deployment, provider, credential, original data or visual-shell changes are implied.
 
 ## Findings and ownership
 
 | Evidence alias | Result / canonical task |
 | --- | --- |
-| JA-02 / ARCH-01–04 | Archived history repaired locally: separate bounded read, authenticated cursor, byte guards, request admission and accessible retries. [PB-022-A](../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable) owns final acceptance. |
-| JAQ-01 | Added exact owner/job artifact index with old-store/reopen/lock/isolation/query-plan tests. Further per-request work belongs to [PB-014-A](../product/artwork-and-assets.md#pb-014-a--reuse-retained-asset-validation-within-one-request). |
-| JAQ-02 | Standalone lifecycle reads use `BEGIN`, with mutations and nested command projection retaining their write transaction. Independently verified committed reads during a second WAL writer. [PB-022-A](../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable). |
-| JAQ-04 | Deep cursor reads now use one concrete rowid ceiling; no nullable-OR filtering. Existing cursor and byte-truncation semantics retained. [PB-022-A](../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable). |
-| EI-004 | Exact shared catalog key/release/hash checked at the common browser response boundary, with negative cases. Server authority was already exact. [EN-001](../engineering/roadmap.md#en-001--single-contract-authority-generated-consumers-and-strict-compatibility-gates). |
-| EI-005 | Unreadable initial jobs no longer prevent a valid yard/retention panel from loading. Explicit existing page controls offer working refresh/retry; invalid jobs remain unadmitted. [PB-022-A](../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable). |
-| CSA-04 / RQ01 | **Open P1:** stored-data and transport budget mismatch. [EN-003-E](../engineering/roadmap.md#en-003-e--bound-yard-responses-without-losing-retained-history). |
-| EI-001 | Open P2: repeated retained-source resolution per selected artwork. [PB-014-A](../product/artwork-and-assets.md#pb-014-a--reuse-retained-asset-validation-within-one-request). |
-| JAQ-03 / EI-002 | Open P2: repeated whole-graph hydration/reverse-reference scans. [PB-022-B](../product/artwork-and-assets.md#pb-022-b--project-lifecycle-state-from-one-bounded-graph). |
-| EI-003 | Open P2: equal-byte asset responses invalidate renderer geometry. [PB-011-D](../product/yard-and-behavior.md#pb-011-d--retain-unchanged-render-assets-within-one-owner-epoch). |
-| RQ02 | Open P2: repeated whole-owner snapshot/projection/validation, resident-origin scans and empty arrivals. [EN-003-F](../engineering/roadmap.md#en-003-f--reduce-repeated-owner-snapshot-work). |
-| RQ03 | Open P2: duplicate import/correction scans and unchanged inventory retry writes. [EN-003-G](../engineering/roadmap.md#en-003-g--index-event-identities-within-each-import-transaction). |
-| RQ04 | Open P2: synchronous writer contention blocks unrelated work for 5 seconds. [EN-003-H](../engineering/roadmap.md#en-003-h--bound-synchronous-writer-waits-and-preserve-retries). |
-| CSA-03 | Existing open streaming admission-lifetime task remains [EN-003-C](../engineering/roadmap.md#en-003-c--hold-read-admission-through-stream-completion). Not a newly discovered duplicate. |
+| JA-02 / ARCH-01–04 | Archived history repaired locally: separate bounded read, authenticated cursor, byte guards, request admission and accessible retries. [PB-022-A](../../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable) owns final acceptance. |
+| JAQ-01 | Added exact owner/job artifact index with old-store/reopen/lock/isolation/query-plan tests. Further per-request work belongs to [PB-014-A](../../product/artwork-and-assets.md#pb-014-a--reuse-retained-asset-validation-within-one-request). |
+| JAQ-02 | Standalone lifecycle reads use `BEGIN`, with mutations and nested command projection retaining their write transaction. Independently verified committed reads during a second WAL writer. [PB-022-A](../../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable). |
+| JAQ-04 | Deep cursor reads now use one concrete rowid ceiling; no nullable-OR filtering. Existing cursor and byte-truncation semantics retained. [PB-022-A](../../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable). |
+| EI-004 | Exact shared catalog key/release/hash checked at the common browser response boundary, with negative cases. Server authority was already exact. [EN-001](../engineering-roadmap.md#en-001--single-contract-authority-generated-consumers-and-strict-compatibility-gates). |
+| EI-005 | Unreadable initial jobs no longer prevent a valid yard/retention panel from loading. Explicit existing page controls offer working refresh/retry; invalid jobs remain unadmitted. [PB-022-A](../../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable). |
+| CSA-04 / RQ01 | **Open P1:** stored-data and transport budget mismatch. [EN-003-E](../engineering-roadmap.md#en-003-e--bound-yard-responses-without-losing-retained-history). |
+| EI-001 | Open P2: repeated retained-source resolution per selected artwork. [PB-014-A](../../product/artwork-and-assets.md#pb-014-a--reuse-retained-asset-validation-within-one-request). |
+| JAQ-03 / EI-002 | Open P2: repeated whole-graph hydration/reverse-reference scans. [PB-022-B](../../product/artwork-and-assets.md#pb-022-b--project-lifecycle-state-from-one-bounded-graph). |
+| EI-003 | Open P2: equal-byte asset responses invalidate renderer geometry. [PB-011-D](../../product/yard-and-behavior.md#pb-011-d--retain-unchanged-render-assets-within-one-owner-epoch). |
+| RQ02 | Open P2: repeated whole-owner snapshot/projection/validation, resident-origin scans and empty arrivals. [EN-003-F](../engineering-roadmap.md#en-003-f--reduce-repeated-owner-snapshot-work). |
+| RQ03 | Open P2: duplicate import/correction scans and unchanged inventory retry writes. [EN-003-G](../engineering-roadmap.md#en-003-g--index-event-identities-within-each-import-transaction). |
+| RQ04 | Open P2: synchronous writer contention blocks unrelated work for 5 seconds. [EN-003-H](../engineering-roadmap.md#en-003-h--bound-synchronous-writer-waits-and-preserve-retries). |
+| CSA-03 | Existing open streaming admission-lifetime task remains [EN-003-C](../engineering-roadmap.md#en-003-c--hold-read-admission-through-stream-completion). Not a newly discovered duplicate. |
 
 ## Measured results and limits
 

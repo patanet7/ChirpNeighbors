@@ -1,6 +1,6 @@
 # Independent review: isolated surface core and clock
 
-2026-10-17. **Verdict: approve the reviewed code for the bounded, fixed-domain pure-core experiment. No unresolved blocker was found within that scope after the clock repair and numerical guard hardening.** This is not approval to migrate the live renderer or a claim of physical calibration or production acceptance. The [architecture proposal](../../architecture/surface-weather-model.md) and [checkpoint receipt](README.md) retain those distinctions. `U:` denotes the paired `birdsong-yard-sprites` checkout.
+2026-10-17. **Verdict: approve the reviewed code for the bounded, fixed-domain pure-core experiment. No unresolved blocker was found within that scope after the clock repair and numerical guard hardening.** This is not approval to migrate the live renderer or a claim of physical calibration or production acceptance. The [architecture proposal](../../../architecture/surface-weather-model.md) and [checkpoint receipt](README.md) retain those distinctions. `U:` denotes the paired `birdsong-yard-sprites` checkout.
 
 ## Scope and evidence
 

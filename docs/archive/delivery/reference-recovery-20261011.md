@@ -10,7 +10,7 @@ commits follow tested sources and are reported separately.
 The preceding [reference-admission checkpoint](reference-admission-20261011.md)
 and its [95-gate report](LOCAL-EVIDENCE.md) are
 historical proof at their recorded commits. Their files remain unchanged. E-REC in
-the [consolidated register](product-behavior-and-ideas.md) tracks this new scope;
+the [consolidated register](../../delivery/product-behavior-and-ideas.md) tracks this new scope;
 all 36 requirement and 55 finding identities remain stable.
 
 ## Scope and trust boundary
@@ -58,17 +58,17 @@ assertions, and never certify biological identity, ownership or reuse rights.
 
 ## Existing authorities and consumers
 
-- [Shared reference authority](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/assets/reference-recovery.ts)
-  and [exported schema](../../contracts/reference-authority-v1.schema.json) define
+- [Shared reference authority](https://github.com/patanet7/birdsong-yard-sprites/blob/main/src/lib/assets/reference-recovery.ts)
+  and [exported schema](../../../contracts/reference-authority-v1.schema.json) define
   the new bounded interchange. They compose the existing admission contracts;
   they do not introduce a second species/review authority.
-- [Reference recovery service](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/reference-admission/recovery.ts),
-  [live admission service](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/reference-admission/service.ts)
-  and [private-backup CLI](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/private_backup.py)
+- [Reference recovery service](https://github.com/patanet7/birdsong-yard-sprites/blob/main/src/lib/server/reference-admission/recovery.ts),
+  [live admission service](https://github.com/patanet7/birdsong-yard-sprites/blob/main/src/lib/server/reference-admission/service.ts)
+  and [private-backup CLI](https://github.com/patanet7/birdsong-yard-sprites/blob/main/scripts/private_backup.py)
   are the implementation and consumption boundaries.
-- Existing [recovery tests](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/operations/reference-recovery.test.ts),
-  [backup tests](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/scripts/tests/test_private_backup.py)
-  and [aggregate runner](../../scripts/verify_system.py) are extended in this
+- Existing [recovery tests](https://github.com/patanet7/birdsong-yard-sprites/blob/main/src/lib/server/operations/reference-recovery.test.ts),
+  [backup tests](https://github.com/patanet7/birdsong-yard-sprites/blob/main/scripts/tests/test_private_backup.py)
+  and [aggregate runner](../../../scripts/verify_system.py) are extended in this
   workstream. Named focused proof and its exact limitations are recorded below;
   final aggregate counts derive from retained logs, never from file presence.
 

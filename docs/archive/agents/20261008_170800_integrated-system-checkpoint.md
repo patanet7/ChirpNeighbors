@@ -3,8 +3,8 @@
 Integrated the six same-workspace workstreams on the local review-descended branches:
 contracts, auth/session, media/frontend, audio, image assets and reliability. The
 implementation and next dependencies are recorded in
-[the delivery checkpoint](../delivery/verification-ledger.md#50-gate-foundation-checkpoint) and
-[task matrix](../delivery/matrix.json).
+[the delivery checkpoint](../../delivery/verification-ledger.md#50-gate-foundation-checkpoint) and
+[task matrix](../../delivery/matrix.json).
 
 The final frozen-source command passed all 50 gates: 469 UI tests, 127 Python tests,
 10 generator tests, 107 cross-language cases, 410 browser assertions, 39 actual

@@ -4,7 +4,7 @@ The most consequential reproduced defect is a storage/transport budget mismatch:
 
 This is read-only audit evidence and proposed work, not a second canonical backlog or a claim that fixes have landed. No application source, existing owner data, providers, credentials, or publication were changed.
 
-The paired [canonical requirements index](../../delivery/product-behavior-and-ideas.md) remains authoritative: reconcile accepted work under PB-001 (evidence/corrections), PB-002 (residents), PB-007 (inventory), PB-010 (arrivals) and EN-003 (runtime/recovery), rather than treating the RQ labels below as new product requirements.
+The paired [canonical requirements index](../../../delivery/product-behavior-and-ideas.md) remains authoritative: reconcile accepted work under PB-001 (evidence/corrections), PB-002 (residents), PB-007 (inventory), PB-010 (arrivals) and EN-003 (runtime/recovery), rather than treating the RQ labels below as new product requirements.
 
 ## Scope and reproducibility
 

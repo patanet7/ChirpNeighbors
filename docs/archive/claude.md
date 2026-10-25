@@ -1,6 +1,6 @@
 # ChirpNeighbors - Claude Context
 
-> Historical planning context. For the implemented topology, paths, current tests and authorized scope, use [README](README.md), the [authoritative task index](docs/delivery/product-behavior-and-ideas.md) and [current architecture audit](docs/delivery/product-audit-20261009.md). Runtime paths are `esp32-client`, `backend-inference`, and sibling `birdsong-yard-sprites` (SvelteKit/Pixi/SQLite). PostgreSQL/S3, React, the old folder layout and numerical performance targets below are proposals, not implementation or evidence. Commands that publish, deploy or flash still require the current task to authorize those actions.
+> Historical planning context. For the implemented topology, paths, current tests and authorized scope, use [README](../../README.md), the [authoritative task index](../delivery/product-behavior-and-ideas.md) and [current architecture audit](delivery/product-audit-20261009.md). Runtime paths are `esp32-client`, `backend-inference`, and sibling `birdsong-yard-sprites` (SvelteKit/Pixi/SQLite). PostgreSQL/S3, React, the old folder layout and numerical performance targets below are proposals, not implementation or evidence. Commands that publish, deploy or flash still require the current task to authorize those actions.
 
 IoT bird sound monitoring system: ESP32 audio capture → backend processing → identification.
 

@@ -102,7 +102,7 @@ Library action. No retry or alternative write occurred; no Library IDs exist.
 
 The living register is exactly
 `/workspace/ChirpNeighbors/docs/delivery/product-behavior-and-ideas.md`.
-[PB-001 through PB-021](product-behavior-and-ideas.md) preserve source types and
+[PB-001 through PB-021](../../delivery/product-behavior-and-ideas.md) preserve source types and
 stable IDs: **14 verified, 5 agreed, 1 implemented, 1 proposed**. PB-020 is the
 verified PNG mechanism; PB-021 is the agreed future art goal. Optional later
 variants remain optional. Daily credits, paid themes, ads and monetized
@@ -124,7 +124,7 @@ both repositories.
 5. Preserve the separate real import/audio, worker/ESP32, production identity,
    operating-policy and infrastructure dependencies. Publication is outside this task.
 
-The [task tree](visual-task-tree-20261008.md), [delivery matrix](matrix.json), and
+The [task tree](visual-task-tree-20261008.md), [delivery matrix](../../delivery/matrix.json), and
 UI `docs/png-intake-checklist.md` link dependencies to acceptance. Documentation
 and retained-evidence commits after the tested revisions change no runtime code.
 No push, PR, merge, deploy, paid service, credential change or publication retry

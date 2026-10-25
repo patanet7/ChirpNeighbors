@@ -27,7 +27,7 @@ All **70/70 aggregate gates passed** with both source trees frozen and clean.
 | Session privacy | Cookie/SQLite identity plus immutable document binding protect private requests, streams and backup download across account switches. Session-binding, expiry, sharing and owner tests pass. |
 | Optional analytics foundation | Off by default, explicit revisioned consent, closed coarse event codes, private consent separate from identity-free aggregates, bounded client/server admission, purge/revoke/restore and isolated storage failure. Analytics browser gate passes; no real-user activation. |
 | Canonical catalog/usage foundation | Durable deduplicated canonical request queue and strict usage/fingerprint contracts. Default admission denies; no app hook, public release renderer, real dispatch or measured cost is claimed. Focused runtime tests plus canonical cross-language gates pass. |
-| Durable task/decision register | [Task dependencies and acceptance](visual-task-tree-20261008.md), [stable behavior/idea register](product-behavior-and-ideas.md) and [delivery matrix](matrix.json) distinguish completed local mechanics from pending inputs and decisions. |
+| Durable task/decision register | [Task dependencies and acceptance](visual-task-tree-20261008.md), [stable behavior/idea register](../../delivery/product-behavior-and-ideas.md) and [delivery matrix](../../delivery/matrix.json) distinguish completed local mechanics from pending inputs and decisions. |
 
 Verification includes **1,360 UI unit tests**, Svelte/TypeScript with zero errors
 and warnings, typed lint, formatting, a fresh production build, Python type/lint/

@@ -47,7 +47,7 @@ Personal-context retrieval was unavailable; persisted source and product/archite
 
 The [integrated query audit](../architecture/integrated-query-audit-20261012.md) records actual SQL plans, small/large seeded data, statement/hydration counts, source hashes and limitations. Added `pip_artifacts(owner_id, job_id, created_at, version)` reduces the same 8,192-job ten-row history probe median from 272.10 to 22.32 ms. Statement counts are unchanged; this is a synthetic warm query improvement, not a production SLO. Standalone lifecycle reads no longer take a writer lock. Concrete rowid ceilings remove deep-page filtering. Exact shared catalog key/release/hash admission and corrupt-workshop isolation close two integration gaps without changing yard, residents, weather or scene layout.
 
-Continue through the [canonical task index](product-behavior-and-ideas.md#architecture-follow-up), which links concrete work, dependencies and acceptance rather than introducing another backlog:
+Continue through the [canonical task index](../../delivery/product-behavior-and-ideas.md#architecture-follow-up), which links concrete work, dependencies and acceptance rather than introducing another backlog:
 
 1. **EN-003-E (P1):** consumable compact/paged responses for all accepted retained yard states; preserve data, old clients and committed-command retry.
 2. **PB-014-A → PB-022-B:** reuse verified retained dependencies per request, then build each lifecycle graph/projection once.

@@ -1,6 +1,6 @@
 # Isolated SI core and shared clock checkpoint
 
-2026-10-17. This implements the fixed-domain numerical slice of the [reviewed design](../../architecture/surface-weather-model.md). It does **not** replace the live `/art-lab` prototype. Model parameters and the 2 m × 1 m domain are explicitly synthetic; no physical yard calibration, momentum/waves, energy-balance snow, sensor integration or production acceptance is claimed.
+2026-10-17. This implements the fixed-domain numerical slice of the [reviewed design](../../../architecture/surface-weather-model.md). It does **not** replace the live `/art-lab` prototype. Model parameters and the 2 m × 1 m domain are explicitly synthetic; no physical yard calibration, momentum/waves, energy-balance snow, sensor integration or production acceptance is claimed.
 
 ## What exists
 

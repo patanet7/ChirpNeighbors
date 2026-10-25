@@ -1,6 +1,6 @@
 # Full-system readiness and bounded local gaps — 2026-10-08
 
-> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](../../delivery/product-behavior-and-ideas.md), including its architecture follow-up.
 
 Baseline: UI `3205490aac50347614355820445d584cad2de1e4`, companion
 `3cce90d4b586f8b7f40a944f89f43b32dfe3b557`. The prior lifecycle checkpoint has

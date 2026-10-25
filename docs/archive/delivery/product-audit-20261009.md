@@ -1,6 +1,6 @@
 # Product, architecture and connection audit — 2026-10-09
 
-> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](../../delivery/product-behavior-and-ideas.md), including its architecture follow-up.
 
 This retained checkpoint is followed by the [bounded transport and static-check slice](external-transport-20261009.md). Its transport timeout/cache gaps are baseline findings, with current fixes and remaining scope tracked in the [consolidated findings register](audit-findings-20261009.json). The original evidence and unsuccessful attempts below remain unchanged.
 
@@ -8,7 +8,7 @@ Four bounded defects are corrected in local commits: supported-origin normalizat
 
 Both repositories use `codex/external-contract-audit-local`, preserving the preceding environment and ESP32 branches. Bases: main `b5d69c61b1dcf7228ae33f1fb916a09b276fcf3a`, UI `a205bf0413b14f743a7f767ad0ea3a3723691717`. Published foundation commits remain ancestors. No push, PR, remote merge, deployment, flash, credentials, paid services, private uploads, provider writes or new artwork occurred. All test owners/media are disposable fixtures.
 
-The [36-entry authoritative index](product-behavior-and-ideas.md) remains the requirements authority. This document supplies a current audit and executable follow-up breakdown, not a new product-readiness percentage.
+The [36-entry authoritative index](../../delivery/product-behavior-and-ideas.md) remains the requirements authority. This document supplies a current audit and executable follow-up breakdown, not a new product-readiness percentage.
 
 ## Completed code and focused evidence
 

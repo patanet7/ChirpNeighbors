@@ -1,12 +1,12 @@
 # Bounded SI renderer and actual-slot interaction acceptance
 
-**Authority:** The [single current task index](../product-behavior-and-ideas.md#current-work-and-evidence--2026-10-17) owns task status under PB-023-B. This document is its supporting scenario/evidence protocol, not a separate task list.
+**Authority:** The [single current task index](../../../delivery/product-behavior-and-ideas.md#current-work-and-evidence--2026-10-17) owns task status under PB-023-B. This document is its supporting scenario/evidence protocol, not a separate task list.
 
 **Status:** Pending current-source independent review and browser acceptance. Focused checks are reported in the current checkpoint; scenario results below remain pending until their own evidence exists. This is
 the checklist for the newly authorized opt-in local extension, not evidence that
 these scenarios already pass. Preserve the separately reviewed [isolated core
 checkpoint](si-core-checkpoint.md), [prior code review](core-review.md) and
-[design](../../architecture/surface-weather-model.md). Their hashes/counts do not
+[design](../../../architecture/surface-weather-model.md). Their hashes/counts do not
 automatically cover new withdrawals, controller, simulation seams or renderer code.
 
 | Scenario | Required outcome / evidence | Current status |

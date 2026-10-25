@@ -1,6 +1,6 @@
 # Architecture review evidence — 2026-10-12
 
-This dated record summarizes four independent reviews: contracts/storage/authentication, jobs/assets/providers, renderer/game behavior, and runtime/developer experience/CI. The review sections record behavior before the resulting fixes; the local implementation follow-up below records their separate evidence. This is not another current backlog. The [task index](../delivery/product-behavior-and-ideas.md#architecture-follow-up) links the canonical PB/EN subtasks that own status, dependencies and acceptance.
+This dated record summarizes four independent reviews: contracts/storage/authentication, jobs/assets/providers, renderer/game behavior, and runtime/developer experience/CI. The review sections record behavior before the resulting fixes; the local implementation follow-up below records their separate evidence. This is not another current backlog. The [task index](../../delivery/product-behavior-and-ideas.md#architecture-follow-up) links the canonical PB/EN subtasks that own status, dependencies and acceptance.
 
 **Current engineering specification:** [Shared engine, behavior and generation specification](https://github.com/patanet7/birdsong-yard-sprites/blob/main/docs/engine/specification.md) maintains present execution boundaries and proposed follow-up, with dated source evidence in its appendix. This architecture review remains historical evidence; existing native tasks and canonical product requirements retain status/acceptance authority.
 
@@ -14,21 +14,21 @@ Review IDs identify the original finding, not an additional task authority. Over
 
 | Review finding | Priority at review | Canonical task |
 | --- | --- | --- |
-| CSA-01: private storage inside static asset roots | High | [EN-003-A](../engineering/roadmap.md#en-003-a--reject-served-private-data-roots) |
-| CSA-02 / RDX-001: wildcard fixture login | High / P1 | [EN-003-B](../engineering/roadmap.md#en-003-b--repeatable-loopback-development-lifecycle) |
-| CSA-03: premature release of streaming read budgets | Medium | [EN-003-C](../engineering/roadmap.md#en-003-c--hold-read-admission-through-stream-completion) |
-| JA-01: discovery work after cancellation | P2 | [PB-021-A](../product/artwork-and-assets.md#pb-021-a--stop-discovery-at-cancelled-request-boundaries) |
-| JA-02: older archived packages disappear from controls | P2 | [PB-022-A](../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable) |
-| RG-001: owned Pixi contexts survive renderer teardown | P2 | [PB-011-A](../product/yard-and-behavior.md#pb-011-a--dispose-every-owned-renderer-context) |
-| RG-002: production/device frame pacing unmeasured | P2 release acceptance | [PB-011-B](../product/yard-and-behavior.md#pb-011-b--measure-production-and-device-performance) |
-| RG-003: authored species-correct clips unavailable | P2 product acceptance | [PB-021-B](../product/artwork-and-assets.md#pb-021-b--review-actual-species-art-and-action-clips) |
-| RG-004: static reconstruction after WebGL loss | P3 decision, not a new defect | [PB-023-A](../product/yard-and-behavior.md#pb-023-a--decide-whether-live-context-recovery-is-required) |
-| RDX-002 / RDX-005: port collision and process ownership | P2 | [EN-003-B](../engineering/roadmap.md#en-003-b--repeatable-loopback-development-lifecycle) |
-| RDX-003: incomplete aggregate bootstrap | P2 | [EN-003-D](../engineering/roadmap.md#en-003-d--reproduce-verification-from-explicit-environments) |
-| RDX-004: hosted browser inventory drift | P2 | [EN-010-B](../engineering/roadmap.md#en-010-b--reconcile-hosted-and-local-suite-coverage) |
-| RDX-006: contradictory active-looking historical TODOs | P2 | [EN-010-C](../engineering/roadmap.md#en-010-c--maintain-one-current-task-authority) |
+| CSA-01: private storage inside static asset roots | High | [EN-003-A](../engineering-roadmap.md#en-003-a--reject-served-private-data-roots) |
+| CSA-02 / RDX-001: wildcard fixture login | High / P1 | [EN-003-B](../engineering-roadmap.md#en-003-b--repeatable-loopback-development-lifecycle) |
+| CSA-03: premature release of streaming read budgets | Medium | [EN-003-C](../engineering-roadmap.md#en-003-c--hold-read-admission-through-stream-completion) |
+| JA-01: discovery work after cancellation | P2 | [PB-021-A](../../product/artwork-and-assets.md#pb-021-a--stop-discovery-at-cancelled-request-boundaries) |
+| JA-02: older archived packages disappear from controls | P2 | [PB-022-A](../../product/artwork-and-assets.md#pb-022-a--keep-archived-history-reachable) |
+| RG-001: owned Pixi contexts survive renderer teardown | P2 | [PB-011-A](../../product/yard-and-behavior.md#pb-011-a--dispose-every-owned-renderer-context) |
+| RG-002: production/device frame pacing unmeasured | P2 release acceptance | [PB-011-B](../../product/yard-and-behavior.md#pb-011-b--measure-production-and-device-performance) |
+| RG-003: authored species-correct clips unavailable | P2 product acceptance | [PB-021-B](../../product/artwork-and-assets.md#pb-021-b--review-actual-species-art-and-action-clips) |
+| RG-004: static reconstruction after WebGL loss | P3 decision, not a new defect | [PB-023-A](../../product/yard-and-behavior.md#pb-023-a--decide-whether-live-context-recovery-is-required) |
+| RDX-002 / RDX-005: port collision and process ownership | P2 | [EN-003-B](../engineering-roadmap.md#en-003-b--repeatable-loopback-development-lifecycle) |
+| RDX-003: incomplete aggregate bootstrap | P2 | [EN-003-D](../engineering-roadmap.md#en-003-d--reproduce-verification-from-explicit-environments) |
+| RDX-004: hosted browser inventory drift | P2 | [EN-010-B](../engineering-roadmap.md#en-010-b--reconcile-hosted-and-local-suite-coverage) |
+| RDX-006: contradictory active-looking historical TODOs | P2 | [EN-010-C](../engineering-roadmap.md#en-010-c--maintain-one-current-task-authority) |
 
-The separately unresolved hosted startup failure belongs to [EN-010-A](../engineering/roadmap.md#en-010-a--establish-the-hosted-ui-job-outcome). Workflow omissions below do not explain a failure before a runner executes steps.
+The separately unresolved hosted startup failure belongs to [EN-010-A](../engineering-roadmap.md#en-010-a--establish-the-hosted-ui-job-outcome). Workflow omissions below do not explain a failure before a runner executes steps.
 
 ## Contracts, storage, authentication and privacy
 
@@ -72,7 +72,7 @@ Focused existing verification: **123 tests / 10 files passed** (simulation, rout
 
 **RDX-001/002/005.** Fixture wildcard binding duplicates CSA-02. The UI and separate unauthenticated headless receiver both default to port 8080 (`package.json:10`; main `backend-inference/app/main.py:49`/`:96`). The app needs one Node process and private SQLite/media storage; ordinary startup must not silently start the receiver, model service or missing worker. There were no supported ownership/status/stop commands. Existing browser helpers demonstrate owned child cleanup; liveness is separate from storage/auth readiness. Never terminate an unrelated port occupant or trust a stale PID file as identity. Actual origins must follow the bound port, and a remote localhost URL is not a user-accessible preview.
 
-**RDX-003.** The former aggregate instructions installed Playwright alone, omitting Pillow, and passed the core interpreter for intake by default even though its lock excludes NumPy/websockets/coverage. The [corrected command](../delivery/quality.md) selects core, browser, ONNX and intake environments explicitly. Document repair does not establish a new clean-platform installation pass.
+**RDX-003.** The former aggregate instructions installed Playwright alone, omitting Pillow, and passed the core interpreter for intake by default even though its lock excludes NumPy/websockets/coverage. The [corrected command](../../delivery/quality.md) selects core, browser, ONNX and intake environments explicitly. Document repair does not establish a new clean-platform installation pass.
 
 **RDX-004.** The reviewed hosted workflow omitted npm `test:ontology`, `test:asset-retention`, `test:shared-catalog` and `test:environment`; standalone animation-planning/reference-admission/reference-recovery/audio-lifecycle scripts were also absent from its list. Some require paired/service dependencies and cannot simply be labeled UI-only. Local aggregate execution and per-repository hosted checks are different evidence. At review, the UI job failed twice before recorded steps; permitted logs did not establish the cause. Neither the omissions nor lack of a required-check rule turn that into a hosted pass or a diagnosed account/billing failure.
 
@@ -107,13 +107,13 @@ The integration owner also reports passing integrated production-storage **12**,
 
 ## Visual acceptance and next authorized work
 
-**Latest correction:** The user explicitly rejected the compact app-shell redesign and requested the previous side menu/layout. That instruction supersedes any earlier interpretation of “restrained interface” as permission to rearrange the app. Local UI correction `faab63bd1b6573ec4de398b6068e35b328eebbf8` restores the previsual shell while retaining source density and functional/security/devex fixes. The dated compact-layout evidence below is historical technical evidence, not accepted design. [Current acceptance](../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui).
+**Latest correction:** The user explicitly rejected the compact app-shell redesign and requested the previous side menu/layout. That instruction supersedes any earlier interpretation of “restrained interface” as permission to rearrange the app. Local UI correction `faab63bd1b6573ec4de398b6068e35b328eebbf8` restores the previsual shell while retaining source density and functional/security/devex fixes. The dated compact-layout evidence below is historical technical evidence, not accepted design. [Current acceptance](../../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui).
 
 **Visual acceptance failed.** After seeing the actual application screenshot, the user rejected the fixture artwork. The successful Pixi capture above proves that the app rendered; it is not a visual approval or species-fidelity result. This rejection is also retained in the committed UI runtime-safety receipt. Keep it alongside the passing technical evidence.
 
 The user had an approved concept in Library, but its download/materialization was blocked. The actual approved pixels have not been inspected in this workspace. No claim of matching that concept, selecting a substitute style, or earning visual acceptance follows from metadata or remembered descriptions. **No 32px artwork canvas or world-footprint constraint was approved.**
 
-The earlier interpretation for the separate visual implementation was: distinguish source artwork detail from world size and use a restrained interface around visually simple regional yards. [PB-011-C](../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui) owns that implementation and acceptance; [PB-021-B](../product/artwork-and-assets.md#pb-021-b--review-actual-species-art-and-action-clips) retains actual artwork/reference fidelity acceptance. That runtime documentation checkpoint implemented neither the new visual code nor replacement art. Subsequent browser captures and explicit visual review must establish their own outcome; the runtime safety receipt does not pre-approve it.
+The earlier interpretation for the separate visual implementation was: distinguish source artwork detail from world size and use a restrained interface around visually simple regional yards. [PB-011-C](../../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui) owns that implementation and acceptance; [PB-021-B](../../product/artwork-and-assets.md#pb-021-b--review-actual-species-art-and-action-clips) retains actual artwork/reference fidelity acceptance. That runtime documentation checkpoint implemented neither the new visual code nor replacement art. Subsequent browser captures and explicit visual review must establish their own outcome; the runtime safety receipt does not pre-approve it.
 
 ## Local visual foundation follow-up
 
@@ -137,4 +137,4 @@ Validation checked **911 repository links/anchors** across 97 Markdown files, in
 
 Corrective UI source `faab63bd1b6573ec4de398b6068e35b328eebbf8` restored the exact previsual sidebar/styles/scene controls and retained V4 dispatch and the sizing worksheet. Its own full quality passed 2,121 tests / 125 files, 23 tooling tests, 38 contract-tool tests, zero type errors/warnings, lint, analysis, format, contract/client drift and build. Strict Python passed 54 files. Sequential browsers passed 270 checks (67 core, 17 manifest, 18 resource, 22 V4 presentation, 24 behavior, 38 ontology, 37 arrangement, 47 weather), plus 37 separate navigation/capture checks; no runtime errors or external requests occurred. All test-owned ports closed. Earlier evidence above retains its original revisions and does not establish acceptance of the rejected layout.
 
-The correction and documentation are local only. Original workspace checkouts and owner data remain unchanged. Library saving could not connect; actual restored desktop/mobile captures and logs remain under `/workspace/chirp-sidebar-restoration-20261012`. No approved concept pixels were retrieved, replacement art created, resource ceiling raised or hardware/visual qualification claimed. [Current task and remaining dependencies](../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui).
+The correction and documentation are local only. Original workspace checkouts and owner data remain unchanged. Library saving could not connect; actual restored desktop/mobile captures and logs remain under `/workspace/chirp-sidebar-restoration-20261012`. No approved concept pixels were retrieved, replacement art created, resource ceiling raised or hardware/visual qualification claimed. [Current task and remaining dependencies](../../product/yard-and-behavior.md#pb-011-c--separate-artwork-detail-from-world-size-and-restrain-the-ui).

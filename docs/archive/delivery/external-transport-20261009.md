@@ -1,6 +1,6 @@
 # Bounded external transports — 2026-10-09
 
-This local slice implements NET-01 from the [product audit](product-audit-20261009.md), under EN-001/EN-002/EN-003 and PB-012/PB-013 in the [authoritative 36-entry index](product-behavior-and-ideas.md). It preserves main `8880aa2814c1ed4d99683ac1ee7a6af36354bdc5` and UI `c2a0284f2f86c6ef9f847089ce97bf3b9f57b9ff` on `codex/external-contract-audit-local`; implementation uses `codex/external-transport-local` in both repositories. No publication, deployment, credential change, provider activation or artwork is part of this slice.
+This local slice implements NET-01 from the [product audit](product-audit-20261009.md), under EN-001/EN-002/EN-003 and PB-012/PB-013 in the [authoritative 36-entry index](../../delivery/product-behavior-and-ideas.md). It preserves main `8880aa2814c1ed4d99683ac1ee7a6af36354bdc5` and UI `c2a0284f2f86c6ef9f847089ce97bf3b9f57b9ff` on `codex/external-contract-audit-local`; implementation uses `codex/external-transport-local` in both repositories. No publication, deployment, credential change, provider activation or artwork is part of this slice.
 
 ## Verified local result
 

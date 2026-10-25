@@ -14,7 +14,7 @@ The prior board success used a separate cache despite the same registry 403. Cur
 
 ## Deliverables and metrics
 
-[Current checkpoint and task breakdown](../delivery/product-audit-20261009.md), [36-entry authoritative index](../delivery/product-behavior-and-ideas.md), detailed connection/product/engine matrices and independent review are the complete file/evidence inventory. Focused passes: 24 API, 99 auth units, 39 auth integration, 15 recording client, 34 recording browser, 36 exploratory views and 132 engine tests. These overlapping focused scopes are not a full-suite count.
+[Current checkpoint and task breakdown](../delivery/product-audit-20261009.md), [36-entry authoritative index](../../delivery/product-behavior-and-ideas.md), detailed connection/product/engine matrices and independent review are the complete file/evidence inventory. Focused passes: 24 API, 99 auth units, 39 auth integration, 15 recording client, 34 recording browser, 36 exploratory views and 132 engine tests. These overlapping focused scopes are not a full-suite count.
 
 ## Next steps
 

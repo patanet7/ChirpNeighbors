@@ -130,9 +130,9 @@ all three triage reports, source/provenance, style audit, independent review,
 negative probes and failed attempts. The [consolidated register](audit-findings-20261009.json) now contains 55 findings, including all eight independent autofixer findings and all three style-audit findings with their resolutions. UI scripts and CI now include isolated tool
 installation, autofixer/CSS checks and tooling tests. The aggregate runner retains
 all 76 previous gates and adds these three; CI configuration is local and has not
-run remotely. [Reproduction](quality.md) includes the required install command.
+run remotely. [Reproduction](../../delivery/quality.md) includes the required install command.
 
-The authoritative [36-entry product task index](product-behavior-and-ideas.md)
+The authoritative [36-entry product task index](../../delivery/product-behavior-and-ideas.md)
 continues to govern product work. Real reviewed species artwork/generation,
 provider adapters, live credentials/hosting, physical-device proof and existing
 documented static coverage gaps remain separate tasks. No replacement art,

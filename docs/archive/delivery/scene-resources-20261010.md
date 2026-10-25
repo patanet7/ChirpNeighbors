@@ -1,6 +1,6 @@
 # Whole-scene resources and PNG recovery — verified local checkpoint
 
-> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](../../delivery/product-behavior-and-ideas.md), including its architecture follow-up.
 
 **80/80 frozen gates pass**, finished `2026-10-10T02:54:09.715007+00:00`, with clean unchanged source revisions:
 
@@ -15,7 +15,7 @@ Branches remain local `codex/scene-resource-local`, preserving the previous main
 
 | Task | Code and observable acceptance | Evidence |
 | --- | --- | --- |
-| Shared scene admission | Pixi and SVG use the same stable membership. At most 96 candidates are resolved/simulated; selected and active-arrival birds have priority. All saved birds and controls remain. | [UI checklist](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/docs/scene-resource-budget.md), policy/renderer tests, [18 resource assertions](LOCAL-EVIDENCE.md). A 100-resident yard keeps all 100 controls: 96 actors, 36 views, 60 waiting, 4 deferred. |
+| Shared scene admission | Pixi and SVG use the same stable membership. At most 96 candidates are resolved/simulated; selected and active-arrival birds have priority. All saved birds and controls remain. | [UI checklist](https://github.com/patanet7/birdsong-yard-sprites/blob/main/docs/scene-resource-budget.md), policy/renderer tests, [18 resource assertions](LOCAL-EVIDENCE.md). A 100-resident yard keeps all 100 controls: 96 actors, 36 views, 60 waiting, 4 deferred. |
 | Geometry and lifecycle limits | Reserve every manifest's largest frame and complete decoded-frame count; registry fallback/version replacement remains. Waiting actors own no bird Graphics/Text/container; eviction/destruction releases owned state. | Exact primitive and retained-frame boundaries; 7 dense assets admitted/23 deferred; three actual Pixi teardown cycles balance views and clear graph/cache/canvas. |
 | Bounded canvas and existing behavior | Backing edge ≤4096, pixels ≤4194304, DPR ≤2. Host CSS and opaque-pixel hit mapping remain correct after large resize. Existing visible held arrivals are not replayed. | Actual oversized resize/pointer/visibility tests; existing 84-resident ontology, weather, arrangement, arrival and fallback suites all pass. |
 | PNG list recovery, GAP-01 | Separate accessible loading/empty/error/retry states; cancellable generation-fenced reads. Retry preserves draft, preview, independent review errors and mutation IDs. Stale owner responses and disposed continuations cannot restore private UI. | [45 PNG assertions](LOCAL-EVIDENCE.md), including 10 added checks. |

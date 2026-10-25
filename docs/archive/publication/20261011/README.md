@@ -11,8 +11,8 @@
 The following record describes preparation on 2026-10-11. Its local/unpublished statements are historical. Exact reports, tested source revisions and source mappings remain unchanged.
 
 Prepared review branch: `codex/engine-reviewed-20261011` in public
-[patanet7/ChirpNeighbors](https://github.com/patanet7/ChirpNeighbors/tree/codex/engine-reviewed-20261011)
-and private [patanet7/birdsong-yard-sprites](https://github.com/patanet7/birdsong-yard-sprites/tree/codex/engine-reviewed-20261011).
+[patanet7/ChirpNeighbors](https://github.com/patanet7/ChirpNeighbors/tree/main)
+and private [patanet7/birdsong-yard-sprites](https://github.com/patanet7/birdsong-yard-sprites/tree/main).
 The push result and exact remote-head verification are reported separately; this
 preparation record does not claim a successful push, PR, merge or deployment.
 
@@ -26,7 +26,7 @@ routines and layered environment rendering; strict cross-language contracts and
 tooling; reviewed reference admission/diagnostic generation/cold recovery; and
 bounded owner workbench pagination with resilient selections and retries.
 
-The [authoritative task index](../../delivery/product-behavior-and-ideas.md) and
+The [authoritative task index](../../../delivery/product-behavior-and-ideas.md) and
 [pagination acceptance checklist](../../delivery/workbench-pagination-20261011.md)
 retain concrete acceptance, dependencies and remaining gaps. Earlier unpublished
 milestones and authorship remain in filtered public-main history with an explicit

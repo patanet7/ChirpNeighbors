@@ -1,0 +1,183 @@
+{
+  "$ref": "#/definitions/AssetPackageObservationV1",
+  "definitions": {
+    "AssetPackageObservationV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "purgeEnabled": {
+          "type": "boolean",
+          "const": false
+        },
+        "referenceScan": {
+          "type": "string",
+          "const": "not-run"
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "object",
+                "properties": {
+                  "target": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": [
+                          "private-file",
+                          "private-package"
+                        ]
+                      },
+                      "id": {
+                        "type": "string",
+                        "format": "uuid"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 1000000
+                  },
+                  "archived": {
+                    "type": "boolean"
+                  },
+                  "changedAt": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "maxLength": 40,
+                        "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "target",
+                  "revision",
+                  "archived",
+                  "changedAt"
+                ],
+                "additionalProperties": false
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              },
+              "retainedBytes": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 9007199254740991
+              },
+              "selectable": {
+                "type": "boolean"
+              },
+              "selectionBlock": {
+                "type": "string",
+                "enum": [
+                  "none",
+                  "archived",
+                  "archived-dependency",
+                  "unavailable"
+                ]
+              },
+              "cleanupEligible": {
+                "type": "boolean"
+              },
+              "retainedBecause": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "active",
+                    "pinned-bird",
+                    "retained-artwork",
+                    "referenced-by-package",
+                    "file-review-evidence",
+                    "pipeline-history",
+                    "incomplete-reference-scan"
+                  ]
+                },
+                "maxItems": 7
+              }
+            },
+            "required": [
+              "state",
+              "label",
+              "retainedBytes",
+              "selectable",
+              "selectionBlock",
+              "cleanupEligible",
+              "retainedBecause"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "pins": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "birdId": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160,
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:-]*$",
+                "not": {
+                  "enum": [
+                    "__proto__",
+                    "prototype",
+                    "constructor"
+                  ]
+                }
+              },
+              "artworkId": {
+                "$ref": "#/definitions/AssetPackageObservationV1/properties/pins/items/properties/birdId"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 200
+              }
+            },
+            "required": [
+              "birdId",
+              "artworkId",
+              "label"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 2048
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "purgeEnabled",
+        "referenceScan",
+        "entries",
+        "pins"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/asset-package-observation-v1.schema.json",
+  "description": "Owner-private reversible archive and pin lifecycle structural boundary. Shared catalog assets are read-only and cannot be private lifecycle targets. Authoritative server checks enforce ownership, session binding, revision and pin compare-and-swap, immutable idempotent receipts, archive dependencies, reference completeness and retention eligibility. Archive never erases original bytes, provenance, reviews or existing pins. Eligibility is diagnostic; purge remains disabled. A schema does not authorize deletion, public release or a shared catalog change."
+}

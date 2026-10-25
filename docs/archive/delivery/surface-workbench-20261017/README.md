@@ -13,7 +13,7 @@ privately outside Git. Test outcomes remain retained, but these public copies ar
 not byte-for-byte raw originals. No local database, credential or backup payload
 is included. The dated isolated-core receipt retains its original source hashes.
 
-2026-10-17. This checkpoint measures and characterizes the existing local `/art-lab` prototype. It does **not** accept a physically calibrated water/snow model. The [canonical architecture proposal](../../architecture/surface-weather-model.md) owns the proposed SI-unit replacement and its acceptance gates.
+2026-10-17. This checkpoint measures and characterizes the existing local `/art-lab` prototype. It does **not** accept a physically calibrated water/snow model. The [canonical architecture proposal](../../../architecture/surface-weather-model.md) owns the proposed SI-unit replacement and its acceptance gates.
 
 ## Reproduce
 
@@ -77,7 +77,7 @@ The live page explicitly labels dimensionless water, pixel snow, normalized visu
 ### Independent design review and isolated-core experiment
 
 An independent skeptical engineering review accepted the
-[surface-weather specification](../../architecture/surface-weather-model.md)
+[surface-weather specification](../../../architecture/surface-weather-model.md)
 for a bounded pure-core experiment after resolving dimensional/numerical and
 bounded-lifecycle questions. The fixed-conductance law has consistent units;
 snapshot equal-and-opposite transfers, its fixed-G step bound and the analytical

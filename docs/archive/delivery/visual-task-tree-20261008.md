@@ -1,7 +1,7 @@
 # Moving-bird visual work queue — 2026-10-08
 
 Product decisions and tentative ideas are maintained in the
-[stable behavior-and-ideas register](product-behavior-and-ideas.md). This tree owns
+[stable behavior-and-ideas register](../../delivery/product-behavior-and-ideas.md). This tree owns
 execution order; the register owns intent/status and unresolved decisions.
 
 This queue follows the frozen contract/pose checkpoint. It records requested next
@@ -146,7 +146,7 @@ formatting and three browser gates: two exposed the missing raw-frame inspection
 control; the core journey exposed an implicit live status on animation progress.
 UI `b225474` restores inspection and fixes those issues. The complete rerun
 passed 65/65 on frozen commits, including 1,053 UI unit tests. See
-[visual verification](verification-ledger.md#65-gate-visual-checkpoint) for exact revisions and retained
+[visual verification](../../delivery/verification-ledger.md#65-gate-visual-checkpoint) for exact revisions and retained
 logs. The interactive wave requires its own complete 70-gate checkpoint; focused
 passes are not substituted for an aggregate.
 

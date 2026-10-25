@@ -146,7 +146,7 @@ the video gate was not omitted.
    work. This slice adds stable versioned fictional defaults, not a migration or
    reward/economy system. Separate ESP32 work was not duplicated.
 
-The authoritative [task index](product-behavior-and-ideas.md) retains **34 stable
+The authoritative [task index](../../delivery/product-behavior-and-ideas.md) retains **34 stable
 entries: 22 product requirements/ideas and 12 architecture/dependency entries**.
 Independent review sampled actual implementation, named assertions and evidence,
 including the pure-helper limits of usage accounting. Its subordinate coverage
@@ -154,7 +154,7 @@ audit maps 113 documents and 143 test-like files by requirement family; that
 discovery coverage is not proof that every case or requirement is implemented.
 PB-005 verifies bounded illustrative mechanics; PB-006 and PB-021 keep
 companionship and real-art goals open. The
-[delivery matrix](matrix.json) separately preserves the prior 73-gate checkpoint.
+[delivery matrix](../../delivery/matrix.json) separately preserves the prior 73-gate checkpoint.
 Final evidence/documentation commits after tested revisions change no runtime code.
 No push, PR, merge, deployment, credential change, paid service, external product
 provider or blocked publication retry occurred.

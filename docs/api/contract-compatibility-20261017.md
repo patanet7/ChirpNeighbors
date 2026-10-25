@@ -20,7 +20,7 @@ version or explicit migration format before extending its strict contract.
 
 Upgrade both schema mirrors and generated Python declarations together. The dated
 compatibility floor is the reviewed schema hashes in the paired publication
-[receipt](../delivery/workbench-contract-sync-20261017.json). Old V2 backups without plant stock remain admitted: actual Zod backup
+[receipt](../archive/delivery/workbench-contract-sync-20261017.json). Old V2 backups without plant stock remain admitted: actual Zod backup
 admission supplies three starter plants while preserving supplied zero stock.
 JSON Schema's `default` annotation and Python TypedDict declarations do not apply
 that migration; a Python structural validator validates original wire data.

@@ -1,0 +1,992 @@
+{
+  "$ref": "#/definitions/SpeciesManifestV9",
+  "definitions": {
+    "SpeciesManifestV9": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 9
+        },
+        "speciesId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "representation": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "fixture": {
+          "type": "boolean",
+          "const": false
+        },
+        "taxonFidelityReviewed": {
+          "type": "boolean",
+          "const": false
+        },
+        "format": {
+          "type": "string",
+          "const": "pixel-rgba8-rects"
+        },
+        "canvas": {
+          "type": "object",
+          "properties": {
+            "width": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            },
+            "height": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 256
+            }
+          },
+          "required": [
+            "width",
+            "height"
+          ],
+          "additionalProperties": false
+        },
+        "frames": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "y": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "width": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                },
+                "height": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 256
+                },
+                "color": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 16777215
+                },
+                "alpha": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 255
+                }
+              },
+              "required": [
+                "x",
+                "y",
+                "width",
+                "height",
+                "color",
+                "alpha"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4096
+          },
+          "minItems": 1,
+          "maxItems": 64
+        },
+        "clips": {
+          "type": "object",
+          "properties": {
+            "idle": {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "idle",
+                    "moving",
+                    "perching",
+                    "singing",
+                    "feeding",
+                    "bathing",
+                    "sleeping",
+                    "playing",
+                    "nesting"
+                  ]
+                },
+                "direction": {
+                  "type": "string",
+                  "const": "right-facing-mirrorable"
+                },
+                "loop": {
+                  "type": "boolean"
+                },
+                "poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "durationTicks": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "maximum": 300
+                      },
+                      "pivot": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 256
+                          },
+                          "y": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 256
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "y"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "contacts": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/x"
+                            },
+                            "y": {
+                              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/y"
+                            },
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "left-foot",
+                                "right-foot",
+                                "perch",
+                                "ground"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "x",
+                            "y",
+                            "kind"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 4
+                      },
+                      "poseId": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160,
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                      },
+                      "rotation": {
+                        "type": "number",
+                        "minimum": -0.5,
+                        "maximum": 0.5
+                      }
+                    },
+                    "required": [
+                      "frame",
+                      "durationTicks",
+                      "pivot",
+                      "contacts",
+                      "poseId",
+                      "rotation"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 256
+                }
+              },
+              "required": [
+                "action",
+                "direction",
+                "loop",
+                "poses"
+              ],
+              "additionalProperties": false
+            },
+            "moving": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle"
+            },
+            "perching": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle"
+            },
+            "singing": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle"
+            },
+            "feeding": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle"
+            },
+            "bathing": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle"
+            },
+            "sleeping": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle"
+            },
+            "playing": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle"
+            },
+            "nesting": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle"
+            }
+          },
+          "required": [
+            "idle"
+          ],
+          "additionalProperties": false
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "provider",
+                "user_upload"
+              ]
+            },
+            "creator": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/speciesId"
+            },
+            "sourceVersion": {
+              "$ref": "#/definitions/SpeciesManifestV9/properties/speciesId"
+            },
+            "references": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SpeciesManifestV9/properties/speciesId"
+              },
+              "maxItems": 32
+            },
+            "license": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "usage": {
+              "type": "string",
+              "const": "development-candidate"
+            },
+            "attribution": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            }
+          },
+          "required": [
+            "source",
+            "creator",
+            "sourceVersion",
+            "references",
+            "license",
+            "usage",
+            "attribution"
+          ],
+          "additionalProperties": false
+        },
+        "conditioning": {
+          "type": "object",
+          "properties": {
+            "taxonomy": {
+              "type": "object",
+              "properties": {
+                "catalog": {
+                  "type": "string",
+                  "const": "chirp-display-catalog"
+                },
+                "version": {
+                  "type": "number",
+                  "const": 1
+                },
+                "speciesId": {
+                  "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                }
+              },
+              "required": [
+                "catalog",
+                "version",
+                "speciesId"
+              ],
+              "additionalProperties": false
+            },
+            "references": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                  },
+                  "roles": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "species",
+                        "style",
+                        "pose"
+                      ]
+                    },
+                    "minItems": 1,
+                    "maxItems": 3
+                  },
+                  "pin": {
+                    "type": "object",
+                    "properties": {
+                      "jobId": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/speciesId"
+                      },
+                      "artifactId": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/speciesId"
+                      },
+                      "version": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "contentDigest": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      }
+                    },
+                    "required": [
+                      "jobId",
+                      "artifactId",
+                      "version",
+                      "contentDigest"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "required": [
+                  "id",
+                  "roles",
+                  "pin"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "poseGraph": {
+              "type": "object",
+              "properties": {
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                      },
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "action": {
+                        "type": "string",
+                        "enum": [
+                          "idle",
+                          "moving",
+                          "perching",
+                          "singing",
+                          "feeding",
+                          "bathing",
+                          "sleeping",
+                          "playing",
+                          "nesting"
+                        ]
+                      },
+                      "referenceId": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "frame",
+                      "action",
+                      "referenceId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 576
+                },
+                "edges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "from": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                      },
+                      "to": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 2304
+                }
+              },
+              "required": [
+                "nodes",
+                "edges"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "taxonomy",
+            "references",
+            "poseGraph"
+          ],
+          "additionalProperties": false
+        },
+        "sourceArtifact": {
+          "$ref": "#/definitions/SpeciesManifestV9/properties/conditioning/properties/references/items/properties/pin"
+        },
+        "normalization": {
+          "type": "object",
+          "properties": {
+            "algorithm": {
+              "type": "string",
+              "const": "lossless-straight-rgba8-rects-v1"
+            },
+            "alpha": {
+              "type": "string",
+              "const": "straight-rgba8"
+            },
+            "logicalPixelSize": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 16
+            },
+            "palette": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4294967295
+              },
+              "minItems": 1,
+              "maxItems": 1024
+            },
+            "loopEdges": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "action": {
+                    "type": "string",
+                    "enum": [
+                      "idle",
+                      "moving",
+                      "perching",
+                      "singing",
+                      "feeding",
+                      "bathing",
+                      "sleeping",
+                      "playing",
+                      "nesting"
+                    ]
+                  },
+                  "comparedPixels": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 65536
+                  },
+                  "changedPixels": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65536
+                  },
+                  "pivotDistance": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 512
+                  },
+                  "contactLayoutChanged": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "action",
+                  "comparedPixels",
+                  "changedPixels",
+                  "pivotDistance",
+                  "contactLayoutChanged"
+                ],
+                "additionalProperties": false
+              },
+              "maxItems": 9
+            },
+            "transparentRgb": {
+              "type": "string",
+              "const": "already-zero"
+            }
+          },
+          "required": [
+            "algorithm",
+            "alpha",
+            "logicalPixelSize",
+            "palette",
+            "loopEdges",
+            "transparentRgb"
+          ],
+          "additionalProperties": false
+        },
+        "shape": {
+          "not": {}
+        },
+        "reviewScope": {
+          "type": "string",
+          "const": "development-candidate"
+        },
+        "presentation": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "sourcePixelsPerWorldUnit": {
+              "type": "number",
+              "enum": [
+                1,
+                2,
+                4
+              ]
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "sourcePixelsPerWorldUnit"
+          ],
+          "additionalProperties": false
+        },
+        "commonMotion": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "geometryScope": {
+              "type": "string",
+              "const": "image-registration-only"
+            },
+            "physicalSupportReviewed": {
+              "type": "boolean",
+              "const": false
+            },
+            "idleSequence": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "idle",
+                  "blink",
+                  "look"
+                ]
+              },
+              "minItems": 3,
+              "maxItems": 8
+            },
+            "clips": {
+              "type": "object",
+              "properties": {
+                "blink": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "enum": [
+                        "blink",
+                        "look"
+                      ]
+                    },
+                    "loop": {
+                      "type": "boolean"
+                    },
+                    "poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "frame": {
+                            "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/frame"
+                          },
+                          "durationTicks": {
+                            "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/durationTicks"
+                          },
+                          "pivot": {
+                            "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/pivot"
+                          },
+                          "contacts": {
+                            "type": "array",
+                            "items": {
+                              "not": {}
+                            },
+                            "minItems": 0,
+                            "maxItems": 0
+                          },
+                          "poseId": {
+                            "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                          },
+                          "rotation": {
+                            "type": "number",
+                            "const": 0
+                          }
+                        },
+                        "required": [
+                          "frame",
+                          "durationTicks",
+                          "pivot",
+                          "contacts",
+                          "poseId",
+                          "rotation"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1,
+                      "maxItems": 32
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "loop",
+                    "poses"
+                  ],
+                  "additionalProperties": false
+                },
+                "look": {
+                  "$ref": "#/definitions/SpeciesManifestV9/properties/commonMotion/properties/clips/properties/blink"
+                }
+              },
+              "required": [
+                "blink",
+                "look"
+              ],
+              "additionalProperties": false
+            },
+            "poseGraph": {
+              "type": "object",
+              "properties": {
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160,
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                      },
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "clip": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/commonMotion/properties/clips/properties/blink/properties/name"
+                      },
+                      "referenceId": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/commonMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "frame",
+                      "clip",
+                      "referenceId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 2,
+                  "maxItems": 64
+                },
+                "edges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "from": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/commonMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                      },
+                      "to": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/commonMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 128
+                }
+              },
+              "required": [
+                "nodes",
+                "edges"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "geometryScope",
+            "physicalSupportReviewed",
+            "idleSequence",
+            "clips",
+            "poseGraph"
+          ],
+          "additionalProperties": false
+        },
+        "flightMotion": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "tickRate": {
+              "type": "number",
+              "const": 30
+            },
+            "geometryScope": {
+              "type": "string",
+              "const": "image-registration-only"
+            },
+            "physicalSupportReviewed": {
+              "type": "boolean",
+              "const": false
+            },
+            "liftOffTick": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 19199
+            },
+            "touchdownTick": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 19199
+            },
+            "clips": {
+              "type": "object",
+              "properties": {
+                "takeoff": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "enum": [
+                        "takeoff",
+                        "flight",
+                        "landing"
+                      ]
+                    },
+                    "loop": {
+                      "type": "boolean"
+                    },
+                    "poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "frame": {
+                            "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/frame"
+                          },
+                          "durationTicks": {
+                            "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/durationTicks"
+                          },
+                          "pivot": {
+                            "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/pivot"
+                          },
+                          "contacts": {
+                            "type": "array",
+                            "items": {
+                              "not": {}
+                            },
+                            "minItems": 0,
+                            "maxItems": 0
+                          },
+                          "poseId": {
+                            "$ref": "#/definitions/SpeciesManifestV9/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                          },
+                          "rotation": {
+                            "type": "number",
+                            "const": 0
+                          }
+                        },
+                        "required": [
+                          "frame",
+                          "durationTicks",
+                          "pivot",
+                          "contacts",
+                          "poseId",
+                          "rotation"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 2,
+                      "maxItems": 64
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "loop",
+                    "poses"
+                  ],
+                  "additionalProperties": false
+                },
+                "flight": {
+                  "$ref": "#/definitions/SpeciesManifestV9/properties/flightMotion/properties/clips/properties/takeoff"
+                },
+                "landing": {
+                  "$ref": "#/definitions/SpeciesManifestV9/properties/flightMotion/properties/clips/properties/takeoff"
+                }
+              },
+              "required": [
+                "takeoff",
+                "flight",
+                "landing"
+              ],
+              "additionalProperties": false
+            },
+            "poseGraph": {
+              "type": "object",
+              "properties": {
+                "nodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 160,
+                        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                      },
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "clip": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/flightMotion/properties/clips/properties/takeoff/properties/name"
+                      },
+                      "referenceId": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/flightMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "frame",
+                      "clip",
+                      "referenceId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 6,
+                  "maxItems": 192
+                },
+                "edges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "from": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/flightMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                      },
+                      "to": {
+                        "$ref": "#/definitions/SpeciesManifestV9/properties/flightMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                      }
+                    },
+                    "required": [
+                      "from",
+                      "to"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 4,
+                  "maxItems": 384
+                }
+              },
+              "required": [
+                "nodes",
+                "edges"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "tickRate",
+            "geometryScope",
+            "physicalSupportReviewed",
+            "liftOffTick",
+            "touchdownTick",
+            "clips",
+            "poseGraph"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "speciesId",
+        "representation",
+        "fixture",
+        "taxonFidelityReviewed",
+        "format",
+        "canvas",
+        "frames",
+        "clips",
+        "provenance",
+        "conditioning",
+        "sourceArtifact",
+        "normalization",
+        "reviewScope",
+        "presentation"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/species-manifest-v9.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

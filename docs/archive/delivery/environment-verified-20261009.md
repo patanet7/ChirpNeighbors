@@ -18,9 +18,9 @@ The complete **75/75 strict gates passed** on clean, unchanged sources at
 | Bird behavior and explanation | Existing traits, capability, occupancy and routine queues; actual blended effect strengths drive hysteresis, night rest, quieter dusk/fog and adverse-weather activity restrictions. Compatible fitting roofed feeder seats are preferred with safe, explained fallback. Arrival cancellation/settlement, capacity, FIFO recovery and legacy phase-only callers remain covered. The workbench exposes applied rules and illustrative/unvalidated provenance. |
 | Actual browser and strict regression proof | 47/47 environment assertions in both the dedicated completed run and full suite, actual changed pixels, desktop/320px screenshots, video samples, phase/seed replay, public/account isolation, fallback and every prior gate. [Independent source/evidence review](LOCAL-EVIDENCE.md) preceded the final checkpoint. |
 
-The [implementation checklist](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/docs/environment-animation-checklist.md)
-records dependencies and concrete acceptance; the [authoritative task index](product-behavior-and-ideas.md)
-retains 36 stable entries, including PB-023/PB-024. The [visual audit](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/docs/environment-visual-audit-20261009.md)
+The [implementation checklist](https://github.com/patanet7/birdsong-yard-sprites/blob/main/docs/archive/environment-animation-checklist.md)
+records dependencies and concrete acceptance; the [authoritative task index](../../delivery/product-behavior-and-ideas.md)
+retains 36 stable entries, including PB-023/PB-024. The [visual audit](https://github.com/patanet7/birdsong-yard-sprites/blob/main/docs/archive/environment-visual-audit-20261009.md)
 identifies inspected images, numeric comparisons and limits.
 
 ## Verification and preserved attempts

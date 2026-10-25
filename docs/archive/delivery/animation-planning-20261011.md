@@ -1,6 +1,6 @@
 # Animation planning and tooling cleanup — local work
 
-> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](product-behavior-and-ideas.md), including its architecture follow-up.
+> Historical checkpoint: task/checklist statuses and local-only instructions below describe the recorded source revision. Preserve this evidence; current remaining work, dependencies and acceptance live in the [PB/EN task index](../../delivery/product-behavior-and-ideas.md), including its architecture follow-up.
 
 Starting source checkpoints (historical): main `ba627f13dc3d92f1427708ad6f15f69c4a943a3c` and UI `0d96e09a12b2c5c6315db7e28910eda28c21ec84`. Work continues on `codex/animation-planning-local`; the preceding TypeScript checkpoint remains unchanged. No publication or deployment is authorized.
 

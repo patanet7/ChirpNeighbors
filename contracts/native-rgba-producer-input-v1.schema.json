@@ -1,0 +1,1079 @@
+{
+  "$ref": "#/definitions/NativeRgbaProducerInputV1",
+  "definitions": {
+    "NativeRgbaProducerInputV1": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 1
+        },
+        "kind": {
+          "type": "string",
+          "const": "native-rgba-part-derivation"
+        },
+        "speciesId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "sourcePixelsPerWorldUnit": {
+          "type": "number",
+          "enum": [
+            1,
+            2,
+            4
+          ]
+        },
+        "usagePolicySource": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "speciesId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+            },
+            "representation": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
+            "source": {
+              "type": "string",
+              "enum": [
+                "deterministic_fixture",
+                "user_upload",
+                "provider"
+              ]
+            },
+            "reviewScope": {
+              "type": "string",
+              "const": "development-candidate"
+            },
+            "creator": {
+              "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/speciesId"
+            },
+            "sourceVersion": {
+              "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/speciesId"
+            },
+            "license": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/representation"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "development-only",
+                    "cleared",
+                    "pending",
+                    "denied"
+                  ]
+                },
+                "derivativesAllowed": {
+                  "type": "boolean"
+                },
+                "redistributionAllowed": {
+                  "type": "boolean"
+                },
+                "evidenceId": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/speciesId"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "attribution": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 300
+                }
+              },
+              "required": [
+                "id",
+                "status",
+                "derivativesAllowed",
+                "redistributionAllowed",
+                "evidenceId",
+                "attribution"
+              ],
+              "additionalProperties": false
+            },
+            "references": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/speciesId"
+                  },
+                  "speciesId": {
+                    "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/speciesId"
+                  },
+                  "contentDigest": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  },
+                  "role": {
+                    "type": "string",
+                    "enum": [
+                      "technical-fixture",
+                      "species-reference"
+                    ]
+                  }
+                },
+                "required": [
+                  "id",
+                  "speciesId",
+                  "contentDigest",
+                  "role"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1,
+              "maxItems": 16
+            },
+            "fidelityReview": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "reviewerId": {
+                      "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/speciesId"
+                    },
+                    "reviewedAt": {
+                      "type": "string",
+                      "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                    },
+                    "evidenceId": {
+                      "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/speciesId"
+                    }
+                  },
+                  "required": [
+                    "reviewerId",
+                    "reviewedAt",
+                    "evidenceId"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "speciesId",
+            "representation",
+            "source",
+            "creator",
+            "sourceVersion",
+            "license",
+            "references",
+            "fidelityReview"
+          ],
+          "additionalProperties": false
+        },
+        "usagePolicySourceId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        },
+        "outputIdentity": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "enum": [
+                "provider",
+                "user_upload"
+              ]
+            },
+            "sourceVersion": {
+              "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/speciesId"
+            },
+            "representation": {
+              "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySource/properties/representation"
+            }
+          },
+          "required": [
+            "source",
+            "sourceVersion",
+            "representation"
+          ],
+          "additionalProperties": false
+        },
+        "conditioningReferences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 160,
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "species",
+                    "style",
+                    "pose"
+                  ]
+                },
+                "minItems": 1,
+                "maxItems": 3
+              },
+              "pin": {
+                "type": "object",
+                "properties": {
+                  "jobId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 160
+                  },
+                  "artifactId": {
+                    "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/conditioningReferences/items/properties/pin/properties/jobId"
+                  },
+                  "version": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "contentDigest": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                },
+                "required": [
+                  "jobId",
+                  "artifactId",
+                  "version",
+                  "contentDigest"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "roles",
+              "pin"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 16
+        },
+        "controls": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 2
+                },
+                "kind": {
+                  "type": "string",
+                  "const": "multi-source-part-bake-controls"
+                },
+                "scope": {
+                  "type": "string",
+                  "const": "provisional-source-correspondence-only"
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "source": {
+                      "type": "object",
+                      "properties": {
+                        "sourceId": {
+                          "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                        },
+                        "rgbaSha256": {
+                          "type": "string",
+                          "pattern": "^[a-f0-9]{64}$"
+                        },
+                        "canvas": {
+                          "type": "object",
+                          "properties": {
+                            "width": {
+                              "type": "integer",
+                              "minimum": 1,
+                              "maximum": 256
+                            },
+                            "height": {
+                              "type": "integer",
+                              "minimum": 1,
+                              "maximum": 256
+                            }
+                          },
+                          "required": [
+                            "width",
+                            "height"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "rgba": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 255
+                          },
+                          "minItems": 4,
+                          "maxItems": 262144
+                        }
+                      },
+                      "required": [
+                        "sourceId",
+                        "rgbaSha256",
+                        "canvas",
+                        "rgba"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "anchor": {
+                      "type": "object",
+                      "properties": {
+                        "x": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 256
+                        },
+                        "y": {
+                          "type": "number",
+                          "minimum": 0,
+                          "maximum": 256
+                        }
+                      },
+                      "required": [
+                        "x",
+                        "y"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "protectedBody": {
+                      "type": "object",
+                      "properties": {
+                        "sourceId": {
+                          "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                        },
+                        "sha256": {
+                          "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/source/properties/rgbaSha256"
+                        },
+                        "values": {
+                          "type": "array",
+                          "items": {
+                            "type": "number",
+                            "enum": [
+                              0,
+                              1
+                            ]
+                          },
+                          "minItems": 1,
+                          "maxItems": 65536
+                        }
+                      },
+                      "required": [
+                        "sourceId",
+                        "sha256",
+                        "values"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "drawOrder": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 8
+                    }
+                  },
+                  "required": [
+                    "source",
+                    "anchor",
+                    "protectedBody",
+                    "drawOrder"
+                  ],
+                  "additionalProperties": false
+                },
+                "donors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                      },
+                      "source": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/source"
+                      },
+                      "mask": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/protectedBody"
+                      },
+                      "registration": {
+                        "type": "object",
+                        "properties": {
+                          "sourceAnchor": {
+                            "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/anchor"
+                          },
+                          "targetAnchor": {
+                            "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/anchor"
+                          },
+                          "sourcePixelsPerWorldUnit": {
+                            "type": "number",
+                            "minimum": 0.25,
+                            "maximum": 16
+                          },
+                          "outputPixelsPerWorldUnit": {
+                            "type": "number",
+                            "minimum": 0.25,
+                            "maximum": 16
+                          },
+                          "rotationDegrees": {
+                            "type": "number",
+                            "minimum": -180,
+                            "maximum": 180
+                          }
+                        },
+                        "required": [
+                          "sourceAnchor",
+                          "targetAnchor",
+                          "sourcePixelsPerWorldUnit",
+                          "outputPixelsPerWorldUnit",
+                          "rotationDegrees"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "drawOrder": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 8
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "source",
+                      "mask",
+                      "registration",
+                      "drawOrder"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 8
+                },
+                "frames": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                      },
+                      "image": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/source"
+                      },
+                      "anchor": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/anchor"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "image",
+                      "anchor"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 16
+                },
+                "poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                      },
+                      "frameId": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                      },
+                      "donorIds": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                        },
+                        "maxItems": 8
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "frameId",
+                      "donorIds"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 16
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "kind",
+                "scope",
+                "body",
+                "donors",
+                "frames",
+                "poses"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 3
+                },
+                "kind": {
+                  "type": "string",
+                  "const": "articulated-part-bake-controls"
+                },
+                "scope": {
+                  "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/scope"
+                },
+                "body": {
+                  "type": "object",
+                  "properties": {
+                    "source": {
+                      "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/source"
+                    },
+                    "anchor": {
+                      "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/anchor"
+                    },
+                    "protectedBody": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/protectedBody"
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "encoding": {
+                              "type": "string",
+                              "const": "binary-runs-v1"
+                            },
+                            "sourceId": {
+                              "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                            },
+                            "sha256": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{64}$"
+                            },
+                            "runs": {
+                              "type": "array",
+                              "items": {
+                                "type": "array",
+                                "minItems": 2,
+                                "maxItems": 2,
+                                "items": [
+                                  {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 65535
+                                  },
+                                  {
+                                    "type": "integer",
+                                    "minimum": 1,
+                                    "maximum": 65536
+                                  }
+                                ]
+                              },
+                              "maxItems": 32768
+                            }
+                          },
+                          "required": [
+                            "encoding",
+                            "sourceId",
+                            "sha256",
+                            "runs"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "drawOrder": {
+                      "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/drawOrder"
+                    }
+                  },
+                  "required": [
+                    "source",
+                    "anchor",
+                    "protectedBody",
+                    "drawOrder"
+                  ],
+                  "additionalProperties": false
+                },
+                "donors": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                      },
+                      "source": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/body/properties/source"
+                      },
+                      "mask": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/1/properties/body/properties/protectedBody"
+                      },
+                      "registration": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/donors/items/properties/registration"
+                      },
+                      "drawOrder": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/donors/items/properties/drawOrder"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "source",
+                      "mask",
+                      "registration",
+                      "drawOrder"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 8
+                },
+                "frames": {
+                  "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/frames"
+                },
+                "poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                      },
+                      "frameId": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                      },
+                      "donorIds": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/0/properties/poses/items/properties/donorIds"
+                      },
+                      "appendage": {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "mode": {
+                                "type": "string",
+                                "const": "rest"
+                              }
+                            },
+                            "required": [
+                              "mode"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "mode": {
+                                "type": "string",
+                                "const": "omit"
+                              }
+                            },
+                            "required": [
+                              "mode"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "mode": {
+                                "type": "string",
+                                "const": "translate"
+                              },
+                              "x": {
+                                "type": "integer",
+                                "minimum": -16,
+                                "maximum": 16
+                              },
+                              "y": {
+                                "type": "integer",
+                                "minimum": -16,
+                                "maximum": 16
+                              }
+                            },
+                            "required": [
+                              "mode",
+                              "x",
+                              "y"
+                            ],
+                            "additionalProperties": false
+                          }
+                        ]
+                      },
+                      "replacementDonorId": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "frameId",
+                      "donorIds",
+                      "appendage",
+                      "replacementDonorId"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 16
+                },
+                "neutralPoseId": {
+                  "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+                },
+                "ownership": {
+                  "type": "object",
+                  "properties": {
+                    "replacementRegion": {
+                      "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/1/properties/body/properties/protectedBody"
+                    },
+                    "appendageRegion": {
+                      "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/controls/anyOf/1/properties/body/properties/protectedBody"
+                    }
+                  },
+                  "required": [
+                    "replacementRegion",
+                    "appendageRegion"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "kind",
+                "scope",
+                "body",
+                "donors",
+                "frames",
+                "poses",
+                "neutralPoseId",
+                "ownership"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "passthroughFrames": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "type": "string",
+                    "const": "reviewed-source"
+                  },
+                  "pin": {
+                    "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/conditioningReferences/items/properties/pin"
+                  },
+                  "frameIndex": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 63
+                  }
+                },
+                "required": [
+                  "kind",
+                  "pin",
+                  "frameIndex"
+                ],
+                "additionalProperties": false
+              },
+              "anchor": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 256
+                  },
+                  "y": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 256
+                  }
+                },
+                "required": [
+                  "x",
+                  "y"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "origin",
+              "anchor"
+            ],
+            "additionalProperties": false
+          },
+          "maxItems": 8,
+          "default": []
+        },
+        "bindingSources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "sourceId": {
+                "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/usagePolicySourceId"
+              },
+              "origin": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "reviewed-png"
+                      },
+                      "file": {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "id": {
+                            "type": "string",
+                            "format": "uuid"
+                          },
+                          "original": {
+                            "type": "object",
+                            "properties": {
+                              "sha256": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              },
+                              "bytes": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 524288
+                              }
+                            },
+                            "required": [
+                              "sha256",
+                              "bytes"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "canonical": {
+                            "type": "object",
+                            "properties": {
+                              "sha256": {
+                                "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/bindingSources/items/properties/origin/anyOf/0/properties/file/properties/original/properties/sha256"
+                              },
+                              "bytes": {
+                                "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/bindingSources/items/properties/origin/anyOf/0/properties/file/properties/original/properties/bytes"
+                              },
+                              "rgbaSha256": {
+                                "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/bindingSources/items/properties/origin/anyOf/0/properties/file/properties/original/properties/sha256"
+                              },
+                              "width": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 1024
+                              },
+                              "height": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 1024
+                              }
+                            },
+                            "required": [
+                              "sha256",
+                              "bytes",
+                              "rgbaSha256",
+                              "width",
+                              "height"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "decoder": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "const": "sharp"
+                              },
+                              "version": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 40
+                              },
+                              "libvips": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 40
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "version",
+                              "libvips"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "normalization": {
+                            "type": "string",
+                            "const": "chirp-png-straight-srgb8-hidden-rgb-zero-v1"
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "id",
+                          "original",
+                          "canonical",
+                          "decoder",
+                          "normalization"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "reviewDigest": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "layout": {
+                        "type": "object",
+                        "properties": {
+                          "width": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 256
+                          },
+                          "height": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 256
+                          },
+                          "columns": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 64
+                          },
+                          "rows": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 64
+                          }
+                        },
+                        "required": [
+                          "width",
+                          "height",
+                          "columns",
+                          "rows"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "frameIndex": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "file",
+                      "reviewDigest",
+                      "layout",
+                      "frameIndex"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "const": "reviewed-source"
+                      },
+                      "pin": {
+                        "$ref": "#/definitions/NativeRgbaProducerInputV1/properties/conditioningReferences/items/properties/pin"
+                      },
+                      "frameIndex": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "pin",
+                      "frameIndex"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "required": [
+              "sourceId",
+              "origin"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 9
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "kind",
+        "speciesId",
+        "sourcePixelsPerWorldUnit",
+        "usagePolicySource",
+        "usagePolicySourceId",
+        "outputIdentity",
+        "conditioningReferences",
+        "controls",
+        "bindingSources"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/native-rgba-producer-input-v1.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

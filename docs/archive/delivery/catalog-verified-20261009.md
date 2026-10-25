@@ -105,10 +105,10 @@ inspected. No replacement artwork or species-correctness claim is made.
    server retry receipts remain durable. ESP32 work remains separate and was not
    duplicated or assumed integrated.
 
-The [product register](product-behavior-and-ideas.md) contains 22 stable entries:
+The [product register](../../delivery/product-behavior-and-ideas.md) contains 22 stable entries:
 **16 verified, 4 agreed, 1 implemented, 1 proposed**. PB-003 verifies these bounded
 fixture mechanics; PB-021 retains the longer-term real-art goal. The
-[delivery matrix](matrix.json) preserves the prior 72-gate checkpoint separately.
+[delivery matrix](../../delivery/matrix.json) preserves the prior 72-gate checkpoint separately.
 Final evidence/documentation commits after the tested revisions change no runtime
 code. No push, PR, merge, deploy, credential change, paid service, external provider,
 Library retry or blocked publication/transfer retry occurred.
