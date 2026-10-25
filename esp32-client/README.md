@@ -53,7 +53,7 @@ control test exposed as a stack-canary panic. The isolated `sim-control/`
 profile checks minimum free stack of at least 1024 bytes after maximum-payload,
 reconnect and shutdown paths. It replaces unsupported peripherals explicitly;
 real microphone/driver stack depth still requires hardware measurement. See the
-[control-profile verification log](../docs/agents/20261009_014700_simulator-control-profile.md).
+[control-profile verification log](../docs/archive/agents/20261009_014700_simulator-control-profile.md).
 
 Only the v1 format and unity gain are accepted. Unsupported rate/24-bit settings,
 nonfinite or out-of-range values, simulation fields, and unknown control fields
