@@ -27,7 +27,7 @@ assets/approved/
   objects/<object>/
     object.json                         per-variant geometry (crop, pivot, ground polygon, size in metres, mount, supports)
     v1.png v2.png …                     every approved variant
-  scenes/<yard>/<season>/<layer>.png    owned by the scenes track; scene.json in scenes/<yard>/
+  scenes/<yard>/<season>/<layer>.png    painted yards (geometry in the app: REGIONAL_YARD_SCENES)
   plants/<plant>/…                      reserved
 ```
 
@@ -74,8 +74,10 @@ several objects; new object art should be one object per file (then `crop` is th
 
 ### Scene
 
-`scenes/<yard>/<season>/<layer>.png` + `scenes/<yard>/scene.json` (ground polygon, horizon, perch lines).
-Owned by the scenes track.
+`scenes/<yard>/<season>/<layer>.png` (layer: composite, background, ground, foreground, …), manifest kind
+`scene` with `yard`, `season`, `layer` and an optional `displayCrop`. Owned by the scenes track. Yard geometry
+(ground polygon, horizon, perch lines) is defined in the app (`REGIONAL_YARD_SCENES`), so no `scene.json` is
+stored; add one here only for geometry the app does not hold.
 
 ## Manifest: `approved.json`
 
@@ -85,8 +87,8 @@ clip variant and object variant:
 | field | meaning |
 |---|---|
 | `id` | the folder (clips) or file stem: `birds/house_finch/clips/idle/v1`, `birds/house_finch/canon`, `objects/perch/v2` |
-| `kind` | `bird-canon`, `bird-clip`, `object` (scenes: the scenes track) |
-| `species`, `action` / `object`, `variant` | what it is |
+| `kind` | `bird-canon`, `bird-clip`, `object`, `scene` |
+| `species`, `action` / `object`, `variant` / `yard`, `season`, `layer` | what it is |
 | `default` | the variant the app uses when it has no reason to pick another |
 | `files[]` | `path`, `sha256`, `width`, `height` |
 | `fps` / `frameMs`, `loop` | clips |

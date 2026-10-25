@@ -5,7 +5,7 @@ Layout, file rules and the manifest are specified in [`docs/ASSETS.md`](../../do
 
 - `birds/<species>/` — `bird.json`, `canon.png`, `clips/<action>/<variant>/NN.png` + `clip.json`
 - `objects/<object>/` — `object.json`, `<variant>.png`
-- `scenes/<yard>/<season>/` — owned by the scenes track
+- `scenes/<yard>/<season>/<layer>.png` — painted yards (kind `scene`), owned by the scenes track; geometry lives in the app (`REGIONAL_YARD_SCENES`)
 - `approved.json` — every approved file (sha256, source, dates, review slot)
 - `regen-queue.json` — slots the owner sent back, and approvals that could not become clean frames
 

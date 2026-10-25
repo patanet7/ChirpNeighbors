@@ -3,7 +3,7 @@
 // every listed file exists with its sha256, sits at its canonical path, is a decodable PNG at its
 // native pixel grid (not block-upscaled); every bird has bird.json, every clip clip.json with a
 // matching frame count, every object object.json and one default variant; no unlisted art files.
-// scenes/ belongs to the scenes track and is only checked when its files are listed.
+// Scenes (kind scene, scenes/<yard>/<season>/<layer>.png) are owned by the scenes track.
 import fs from 'node:fs';
 import path from 'node:path';
 import {
@@ -37,8 +37,10 @@ for (const e of manifest.entries ?? []) {
         ? e.files.map((_, i) => framePath(e.species, e.action, e.variant, i))
         : e.kind === 'object'
           ? [objectPath(e.object, e.variant)]
-          : null;
-  for (const word of [e.species, e.action, e.object].filter(Boolean))
+          : e.kind === 'scene'
+            ? [`scenes/${e.yard}/${e.season}/${e.layer}.png`]
+            : null;
+  for (const word of [e.species, e.action, e.object, e.yard, e.season, e.layer].filter(Boolean))
     if (!ID.test(word)) errors.push(`${e.id}: "${word}" is not a lowercase snake_case id`);
   if (e.kind === 'bird-clip' || e.kind === 'object')
     if (!/^v\d+$/.test(e.variant ?? '')) errors.push(`${e.id}: variant must be v1, v2, …`);
@@ -91,7 +93,6 @@ const walk = (dir) =>
 for (const abs of walk(root)) {
   const rel = path.relative(root, abs).split(path.sep).join('/');
   if (['approved.json', 'README.md', path.basename(REGEN_QUEUE)].includes(rel)) continue;
-  if (rel.startsWith('scenes/') && !listed.has(rel)) continue;
   if (META.has(path.basename(rel))) continue;
   if (!listed.has(rel)) errors.push(`not in manifest: ${rel}`);
 }
