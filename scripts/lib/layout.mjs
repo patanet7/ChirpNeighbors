@@ -195,37 +195,47 @@ const EVIDENCE_EXT = {
   svg: 'vector diagram, not raster art',
   webp: 'WebP preview',
 };
-const EVIDENCE_NAME = /(^|[-_.])(contact|contactsheet|montage|compare|comparison|screenshot|screen|collage|lineup|overview|thumb|thumbnail|grid|board|storyboard|before|after|diff|overlay|debug|qa|guide|mask|matte|silhouette|onion|heatmap|chart)([-_.]|\d|$)/;
-const EVIDENCE_DIR = /(^|\/)(screenshots?|contact[-_]?sheets?|qa|debug|masks?|overlays?|diffs?|compare|comparisons?|guides?)(\/|$)/;
-const SCENE_PATH = /(background|backgrounds|scene|scenes|sky|ground|composite|season|seasons|yard|panorama|backdrop|plate|terrain|landscape)/;
+/** Words that mark a preview/QA image, matched as whole words of the file name or a folder name. */
+const EVIDENCE_NAME_WORDS = new Set(['contact', 'contactsheet', 'montage', 'compare', 'comparison', 'screenshot', 'collage', 'lineup', 'overview', 'thumb', 'thumbnail', 'grid', 'board', 'storyboard', 'before', 'after', 'diff', 'debug', 'qa', 'guide', 'mask', 'matte', 'silhouette', 'onion', 'heatmap', 'chart']);
+const EVIDENCE_DIR_WORDS = new Set(['screenshots', 'screenshot', 'contact', 'contacts', 'contact-sheets', 'contact_sheets', 'thumbs', 'index-thumbs', 'qa', 'debug', 'masks', 'mask', 'overlays', 'diffs', 'compare', 'comparison', 'comparisons', 'guides', 'embedded', 'zoom', 'inspection']);
+/** Folders whose opaque images are renders of something, not the art itself. */
+const PREVIEW_DIR_WORDS = new Set(['previews', 'preview', 'review', 'reviews', 'inspect', 'inspection', 'cohort', 'preflight', 'decoded']);
+/** Opaque display variants of a yard (greyscale, mobile crop, light/dark checks). */
+const DISPLAY_WORDS = new Set(['gray', 'grey', 'greyscale', 'grayscale', 'mobile', '16x9', 'light', 'dark', 'normal', 'caption']);
+/** Folder or file words that say an opaque image is a background/scene (scenes are opaque). */
+const SCENE_WORDS = new Set(['backgrounds', 'background', 'scenes', 'scene', 'sky', 'seasons', 'yards', 'yard', 'terrain', 'backdrop', 'foreground', 'ground', 'coastal', 'oak', 'courtyard', 'inland', 'patio', 'mediterranean', 'canyon']);
+const words = (s) => s.split(/[-_.\s]+/).filter(Boolean);
 
 /**
- * Art or evidence, and why. `info` is what png.mjs could read: { decodable, hasAlphaChannel,
- * transparentFraction } (transparentFraction = share of pixels with alpha < 250). Decided by
- * file type, alpha and the file/folder name; never by the subject.
+ * Art or evidence, and why. `info` is what png.mjs could read: { decodable, animated,
+ * hasAlphaChannel, transparentFraction } (transparentFraction = share of pixels with alpha < 250).
+ * Decided by file type, alpha and the file/folder name; never by the subject.
  */
 export function classifyImage(file, info = {}) {
   const p = String(file).toLowerCase();
   const ext = p.split('.').pop();
   const base = path.posix.basename(p).replace(/\.[a-z0-9]+$/, '');
-  const dir = path.posix.dirname(p);
+  const dirs = path.posix.dirname(p).split('/');
+  const dirWords = dirs.filter((seg) => seg !== 'regional-yard-packs').flatMap(words);
+  const baseWords = words(base);
   if (EVIDENCE_EXT[ext]) return { class: 'evidence', why: EVIDENCE_EXT[ext] };
   if (ext !== 'png') return { class: 'evidence', why: `.${ext} is not an art format` };
-  if (info.animated) return { class: 'evidence', why: 'animated PNG preview' };
+  if (info.animated) return { class: 'evidence', why: 'animated PNG preview (the frames are the art)' };
   if (info.decodable === false) return { class: 'evidence', why: 'not a decodable PNG' };
-  const m = base.match(EVIDENCE_NAME);
-  if (m) return { class: 'evidence', why: `file name says "${m[2]}" (preview/QA image, not art)` };
-  const d = dir.match(EVIDENCE_DIR);
-  if (d) return { class: 'evidence', why: `in a "${d[2]}" folder (QA image, not art)` };
+  if (/review[-_]only/.test(base)) return { class: 'evidence', why: 'file name says REVIEW-ONLY (a review crop, not art)' };
+  const n = baseWords.find((w) => EVIDENCE_NAME_WORDS.has(w));
+  if (n) return { class: 'evidence', why: `file name says "${n}" (preview/QA image, not art)` };
+  const d = dirs.find((seg) => EVIDENCE_DIR_WORDS.has(seg) || /[-_]masks?$/.test(seg));
+  if (d) return { class: 'evidence', why: `in a "${d}" folder (QA image, not art)` };
   const opaque = info.hasAlphaChannel === false || (info.transparentFraction ?? 1) < 0.01;
-  if (opaque) {
-    if (SCENE_PATH.test(p)) return { class: 'art', why: 'opaque, and its path names a background/scene' };
-    return {
-      class: 'evidence',
-      why: info.hasAlphaChannel === false ? 'opaque render (no alpha channel)' : 'opaque render (alpha channel all solid)',
-    };
-  }
-  return { class: 'art', why: 'transparent PNG (RGBA cut-out)' };
+  if (!opaque) return { class: 'art', why: 'transparent PNG (RGBA cut-out)' };
+  const pd = dirs.find((seg) => PREVIEW_DIR_WORDS.has(seg));
+  if (pd) return { class: 'evidence', why: `opaque render in a "${pd}" folder` };
+  const dw = baseWords.find((w) => DISPLAY_WORDS.has(w));
+  if (dw) return { class: 'evidence', why: `opaque display variant ("${dw}")` };
+  const sw = [...dirWords.filter((w) => w !== 'ground'), ...baseWords].find((w) => SCENE_WORDS.has(w));
+  if (sw) return { class: 'art', why: `opaque background/scene ("${sw}" in its path)` };
+  return { class: 'evidence', why: info.hasAlphaChannel === false ? 'opaque render (no alpha channel)' : 'opaque render (alpha channel all solid)' };
 }
 
 // ---------------------------------------------------------------- legacy review slot ids

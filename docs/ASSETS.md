@@ -124,7 +124,17 @@ node scripts/assets.mjs find --wanted --kind plants
 node scripts/assets.mjs index                     # rebuild (keeps subjects/slots already in the index)
 node scripts/assets.mjs check                     # approved/ + the index; warns on images outside approved/candidates/inbox/references
 node --test scripts/assets.test.mjs
+# the old pile (assets/generated, docs/delivery at origin/main) into the index; inputs are not vendored
+node scripts/assets.mjs import --tsv <D-assets.tsv> --catalog <slots.json> --plants <plants/candidates.json> --review <review-data.json>
+# review page data from the index (never overwrites the live file; previews go to <out dir>/img)
+node scripts/assets.mjs queue-review --live <review-data.json> --out <review-data.next.json> --decisions <decisions export>
 ```
+
+`import` gives every distinct image one row. Art (RGBA cut-outs, and opaque images whose path says
+background/scene) is `candidate` when a curated source knows its slot (the plant batch, approved.json sources,
+the app catalog, the review catalog) and `new` otherwise, placed under its subject when the audit or the path
+names one (`guess` records the slot it seems to fill) or in `inbox/`. Previews, contact sheets, GIFs, APNGs,
+JPEGs, QA folders and opaque renders are `evidence` rows with `why`. `__dry_spent`-style suffixes become states.
 
 Plants carry `nativeRange` (ecoregion ids from `assets/regions/regions.json`: EPA Level III > II > I for
 North America, WWF as the global fallback; empty plus `needs: ["nativeRange"]` until researched) and
