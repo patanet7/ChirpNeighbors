@@ -5,6 +5,8 @@ This folder is the only approved art. Nothing else in the repo counts as approve
 - Layout: `<species>/<action>/` with `<action>-NN.png` frames, or `canon.png` for canons.
 - Objects: `objects/<slot>/<rank>-<candidate>.png`, the exact picked image for every variant the
   owner kept (kind `"object"`, `variants` = file count). The app crops and scales them at intake.
+- Scenes: `scenes/<yard>/<season>.png`, the painted yard background for each yard type and season
+  (kind `"scene"`, one entry per yard, `variants` = 4 seasons). The app shows the `displayCrop` (16:9).
 - `approved.json` lists every approved slot (files + sha256, size, frames, fps, source pack/path,
   decision time, review URL) and a `pending` list of slots the owner sent back for regeneration.
 - How entries get added: the owner decides on the review page; the pick is copied here and
