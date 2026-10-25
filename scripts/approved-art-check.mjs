@@ -17,7 +17,8 @@ for (const e of manifest.approved) {
     const sha = crypto.createHash('sha256').update(fs.readFileSync(abs)).digest('hex');
     if (sha !== f.sha256) errors.push(`sha256 mismatch: ${f.path}`);
   }
-  if (e.frames !== e.files.length) errors.push(`${e.slot}: frames=${e.frames} but ${e.files.length} files`);
+  const expected = e.frames * (e.variants ?? 1);
+  if (expected !== e.files.length) errors.push(`${e.slot}: frames × variants = ${expected} but ${e.files.length} files`);
 }
 const walk = (dir) => fs.readdirSync(dir, { withFileTypes: true }).flatMap((d) =>
   d.isDirectory() ? walk(path.join(dir, d.name)) : [path.join(dir, d.name)]);
