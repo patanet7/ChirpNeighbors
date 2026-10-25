@@ -81,6 +81,9 @@ test('art vs evidence: decided by type, alpha and name, with a reason', () => {
   assert.equal(classifyImage('packs/x/toyon-contact-sheet.png', imageInfo(cutout)).class, 'evidence');
   assert.equal(classifyImage('packs/x/qa/toyon.png', imageInfo(cutout)).class, 'evidence');
   assert.equal(classifyImage('packs/x/toyon_compare.png', imageInfo(cutout)).class, 'evidence');
+  assert.equal(classifyImage('botany/crops/plant.bladderpod.visible-alpha8-REVIEW-ONLY.png', imageInfo(cutout)).class, 'evidence');
+  // opaque renders in a previews folder are evidence even under backgrounds/
+  assert.equal(classifyImage('backgrounds/coastal/previews/autumn-r1.png', imageInfo(solid)).class, 'evidence');
   // non-PNG formats
   assert.equal(classifyImage('packs/x/hop.gif').class, 'evidence');
   assert.equal(classifyImage('packs/x/hop.apng').class, 'evidence');
@@ -104,4 +107,15 @@ test('legacy review slot ids map to the new grammar', () => {
   assert.equal(reviewToSlot('weather.snow'), 'scenes/weather/all.snow/overlay');
   assert.equal(reviewToSlot('season.winter'), 'scenes/seasonal/winter/composite');
   assert.equal(reviewToSlot('nonsense'), null);
+});
+
+test('import helpers: numbered frames group by folder and stem; packs come from the path', async () => {
+  const { frameKey, packOf } = await import('./lib/import.mjs');
+  assert.deepEqual(frameKey('p/frames/hopping-00-stand.png'), { key: 'p/frames/hopping', n: 0 });
+  assert.deepEqual(frameKey('p/frames/hopping-05-settle.png'), { key: 'p/frames/hopping', n: 5 });
+  assert.deepEqual(frameKey('p/clip/03.png'), { key: 'p/clip/', n: 3 });
+  assert.equal(frameKey('p/sprites/toyon.png'), null);
+  assert.equal(packOf('assets/generated/2026-10-17/packs/chirp-corvid-candidates-v2/a/crow-hop.png'), 'chirp-corvid-candidates-v2');
+  assert.equal(packOf('assets/generated/2026-10-17/regional-yard-packs/seasons-01/files/x.png'), 'regional-yard-packs/seasons-01');
+  assert.equal(packOf('docs/delivery/g/cloud-producer/motion/sd20-x/f.png'), 'cloud-producer/motion/sd20-x');
 });
