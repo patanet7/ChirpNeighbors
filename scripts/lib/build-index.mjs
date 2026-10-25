@@ -77,9 +77,10 @@ const CULTIVATION = { native: 'wild', nursery: 'nursery', houseplant: 'houseplan
 export function plantVariantSlot(v) {
   const s = String(v.state ?? '').toLowerCase();
   if (v.kind === 'component' || /canopy|wind-module/.test(s)) return { season: 'all', state: null, part: s === 'wind-module' ? 'wind-module' : 'canopy' };
+  if (s === 'wind') return { season: 'all', state: null, part: 'wind-frames' }; // wind is a tag (frames), not a state
   if (['spring', 'summer', 'autumn', 'winter'].includes(s)) return { season: s, state: s === 'winter' ? 'bare' : null };
   const p = parseStateSuffix(`x__${s}`);
-  return { season: 'all', state: p.state && p.state !== 'base' ? p.state : null, part: s === 'wind' ? 'wind-frames' : undefined };
+  return { season: 'all', state: p.state && p.state !== 'base' ? p.state : null };
 }
 
 export function plantSeed(doc) {
