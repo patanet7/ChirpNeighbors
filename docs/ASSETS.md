@@ -109,13 +109,39 @@ approved art (frames + `clip.json`, or `<variant>.png` + `object.json`), so prom
 manifest entry, not a reformat. Existing generated packs stay where they are (`assets/generated/<date>/…`,
 `docs/delivery/…`) as archive until they are migrated; `approved.json` records their original paths.
 
+## The index: `assets/index.jsonl`
+
+One JSON row per subject (what the art is, with its tags), slot (one place art can fill) and art file
+set, sorted by id; the first row documents the grammar and every tag. The id is the path:
+`subject ["/" slot] ["/" version]`, e.g. `birds/house_finch/clips/hop/v1`,
+`plants/coast_live_oak/mature.winter.bare`, `scenes/inland/winter.snow/composite`. `vN` is approved,
+`c<sha8>` a candidate. Wanted slots (every bird × the 15 acts, every object and plant the app uses, each
+yard's seasons plus weather states: snow, wet, dry, autumn leaves) show what is missing.
+
+```sh
+node scripts/assets.mjs find                      # coverage per kind: approved · candidates · unsorted · wanted
+node scripts/assets.mjs find --wanted --kind plants
+node scripts/assets.mjs index                     # rebuild (keeps subjects/slots already in the index)
+node scripts/assets.mjs check                     # approved/ + the index; warns on images outside approved/candidates/inbox/references
+node --test scripts/assets.test.mjs
+```
+
+Plants carry `nativeRange` (ecoregion ids from `assets/regions/regions.json`: EPA Level III > II > I for
+North America, WWF as the global fallback; empty plus `needs: ["nativeRange"]` until researched) and
+`cultivation` (wild, nursery, houseplant). No "native" label is stored: the game computes nativeness from the
+yard's location at runtime. Native NEVER restricts placement; it is a likelihood weight for the birds that use
+the plant and a classification for the shelf and field guide. Scenes carry `landscape` (coastal, valley,
+mountain, desert, forest, prairie, urban), `ecoregions` when they depict a real place, `fence` and per-layer
+`depth`.
+
 ## Commands
 
 After the owner decides on the review page (lead exports the decisions to JSON):
 ```sh
 # 1. ChirpNeighbors: copy approved picks in, queue regenerations
 node scripts/art-sync.mjs --decisions <owner-decisions-export.json>
-node scripts/approved-art-check.mjs
+node scripts/assets.mjs index   # refresh assets/index.jsonl from approved.json
+node scripts/assets.mjs check   # was approved-art-check.mjs (kept as a shim)
 # commit assets/approved, PR, merge
 # 2. App (birdsong-yard-sprites): admit approved birds into the yard
 git -C <ChirpNeighbors> archive origin/main assets/approved | tar -x -C <tmp>

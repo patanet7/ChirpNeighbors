@@ -10,4 +10,4 @@ Layout, file rules and the manifest are specified in [`docs/ASSETS.md`](../../do
 - `regen-queue.json` — slots the owner sent back, and approvals that could not become clean frames
 
 Nothing is copied here without an owner decision: `node scripts/art-sync.mjs --decisions <export.json>`
-copies approved picks in; `node scripts/approved-art-check.mjs` verifies the folder.
+copies approved picks in; `node scripts/assets.mjs check` verifies the folder and the index (`assets/index.jsonl`).
