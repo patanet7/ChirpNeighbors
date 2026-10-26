@@ -1,0 +1,16 @@
+{
+  "schema": "chirp-regions/1",
+  "about": "Nested ecoregions used by plant nativeRange and scene ecoregions in assets/index.jsonl. North America uses the CEC/EPA ecoregion hierarchy (Level I > II > III); WWF terrestrial ecoregions are the global fallback where no EPA level applies. Only the regions the index uses are listed; add more as plants and scenes need them. Nativeness is computed at runtime from the yard's location against these ids and is never stored. It never restricts placement: it is a likelihood weight for visiting birds and a classification.",
+  "sources": {
+    "epa": "US EPA / CEC, Ecological Regions of North America (Level I, II) and Level III Ecoregions of the Continental United States (2013 revision). https://www.epa.gov/eco-research/ecoregions",
+    "wwf": "Olson et al. 2001, Terrestrial Ecoregions of the World (WWF). https://www.worldwildlife.org/publications/terrestrial-ecoregions-of-the-world"
+  },
+  "regions": [
+    { "id": "epa1:11", "level": "epa1", "name": "Mediterranean California", "parent": null },
+    { "id": "epa2:11.1", "level": "epa2", "name": "Mediterranean California", "parent": "epa1:11" },
+    { "id": "epa3:85", "level": "epa3", "name": "Southern California/Northern Baja Coast", "parent": "epa2:11.1", "wwf": "wwf:NA1201" },
+    { "id": "epa3:8", "level": "epa3", "name": "Southern California Mountains", "parent": "epa2:11.1", "wwf": "wwf:NA1201" },
+    { "id": "wwf:biome12", "level": "wwf-biome", "name": "Mediterranean Forests, Woodlands and Scrub", "parent": null },
+    { "id": "wwf:NA1201", "level": "wwf", "name": "California coastal sage and chaparral", "parent": "wwf:biome12" }
+  ]
+}
