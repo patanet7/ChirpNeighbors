@@ -44,7 +44,7 @@ const catalogFile = opt('--catalog', path.join(WORK, 'chirp-work/catalog/slots.j
 const indexFile = opt('--index', path.join(WORK, 'chirp-audit/D-assets.tsv'));
 const rigDir = opt('--rig', path.join(WORK, 'chirp-work/rig'));
 const codexRoot = opt('--codex-root', path.join(os.homedir(), 'Documents/Codex/2026-10-16/task'));
-const REVIEW_URL = opt('--review-url', 'https://claude.ai/artifact/MeKrKt4tdpFEjniGgpBsU6');
+const REVIEW_URL = opt('--review-url', 'https://claude.ai/artifact/SXVCd186piHtj6o2GkMSr1');
 
 const readJson = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));
 const rawDecisions = readJson(decisionsFile);
