@@ -1,0 +1,1087 @@
+{
+  "$ref": "#/definitions/RgbaSourceArtifactV9",
+  "definitions": {
+    "RgbaSourceArtifactV9": {
+      "type": "object",
+      "properties": {
+        "schemaVersion": {
+          "type": "number",
+          "const": 9
+        },
+        "format": {
+          "type": "string",
+          "const": "private-rgba-source"
+        },
+        "lifecycle": {
+          "type": "string",
+          "const": "retained-until-owner-deletion"
+        },
+        "inputDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 10
+            },
+            "source": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "speciesId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                },
+                "representation": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 200
+                },
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "deterministic_fixture",
+                    "user_upload",
+                    "provider"
+                  ]
+                },
+                "reviewScope": {
+                  "type": "string",
+                  "const": "development-candidate"
+                },
+                "creator": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/source/properties/speciesId"
+                },
+                "sourceVersion": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/source/properties/speciesId"
+                },
+                "license": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/source/properties/representation"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "development-only",
+                        "cleared",
+                        "pending",
+                        "denied"
+                      ]
+                    },
+                    "derivativesAllowed": {
+                      "type": "boolean"
+                    },
+                    "redistributionAllowed": {
+                      "type": "boolean"
+                    },
+                    "evidenceId": {
+                      "anyOf": [
+                        {
+                          "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/source/properties/speciesId"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "attribution": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 300
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "status",
+                    "derivativesAllowed",
+                    "redistributionAllowed",
+                    "evidenceId",
+                    "attribution"
+                  ],
+                  "additionalProperties": false
+                },
+                "references": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/source/properties/speciesId"
+                      },
+                      "speciesId": {
+                        "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/source/properties/speciesId"
+                      },
+                      "contentDigest": {
+                        "type": "string",
+                        "pattern": "^[a-f0-9]{64}$"
+                      },
+                      "role": {
+                        "type": "string",
+                        "enum": [
+                          "technical-fixture",
+                          "species-reference"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "speciesId",
+                      "contentDigest",
+                      "role"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 16
+                },
+                "fidelityReview": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "reviewerId": {
+                          "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/source/properties/speciesId"
+                        },
+                        "reviewedAt": {
+                          "type": "string",
+                          "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                        },
+                        "evidenceId": {
+                          "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/source/properties/speciesId"
+                        }
+                      },
+                      "required": [
+                        "reviewerId",
+                        "reviewedAt",
+                        "evidenceId"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "speciesId",
+                "representation",
+                "source",
+                "creator",
+                "sourceVersion",
+                "license",
+                "references",
+                "fidelityReview"
+              ],
+              "additionalProperties": false
+            },
+            "pixels": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 3
+                },
+                "format": {
+                  "type": "string",
+                  "const": "rgba8-frames"
+                },
+                "canvas": {
+                  "type": "object",
+                  "properties": {
+                    "width": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 256
+                    },
+                    "height": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 256
+                    }
+                  },
+                  "required": [
+                    "width",
+                    "height"
+                  ],
+                  "additionalProperties": false
+                },
+                "logicalPixelSize": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 16
+                },
+                "paletteLimit": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1024
+                },
+                "frames": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rgba": {
+                        "type": "array",
+                        "items": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 255
+                        },
+                        "minItems": 4,
+                        "maxItems": 262144
+                      }
+                    },
+                    "required": [
+                      "rgba"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 64
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "format",
+                "canvas",
+                "logicalPixelSize",
+                "paletteLimit",
+                "frames"
+              ],
+              "additionalProperties": false
+            },
+            "clips": {
+              "type": "object",
+              "properties": {
+                "idle": {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "type": "string",
+                      "enum": [
+                        "idle",
+                        "moving",
+                        "perching",
+                        "singing",
+                        "feeding",
+                        "bathing",
+                        "sleeping",
+                        "playing",
+                        "nesting"
+                      ]
+                    },
+                    "direction": {
+                      "type": "string",
+                      "const": "right-facing-mirrorable"
+                    },
+                    "loop": {
+                      "type": "boolean"
+                    },
+                    "poses": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "frame": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 63
+                          },
+                          "durationTicks": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 300
+                          },
+                          "pivot": {
+                            "type": "object",
+                            "properties": {
+                              "x": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 256
+                              },
+                              "y": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 256
+                              }
+                            },
+                            "required": [
+                              "x",
+                              "y"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "contacts": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "x": {
+                                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/x"
+                                },
+                                "y": {
+                                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/y"
+                                },
+                                "kind": {
+                                  "type": "string",
+                                  "enum": [
+                                    "left-foot",
+                                    "right-foot",
+                                    "perch",
+                                    "ground"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "x",
+                                "y",
+                                "kind"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "maxItems": 4
+                          },
+                          "poseId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160,
+                            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                          },
+                          "rotation": {
+                            "type": "number",
+                            "minimum": -0.5,
+                            "maximum": 0.5
+                          }
+                        },
+                        "required": [
+                          "frame",
+                          "durationTicks",
+                          "pivot",
+                          "contacts",
+                          "poseId",
+                          "rotation"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1,
+                      "maxItems": 256
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "direction",
+                    "loop",
+                    "poses"
+                  ],
+                  "additionalProperties": false
+                },
+                "moving": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle"
+                },
+                "perching": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle"
+                },
+                "singing": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle"
+                },
+                "feeding": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle"
+                },
+                "bathing": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle"
+                },
+                "sleeping": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle"
+                },
+                "playing": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle"
+                },
+                "nesting": {
+                  "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle"
+                }
+              },
+              "required": [
+                "idle"
+              ],
+              "additionalProperties": false
+            },
+            "conditioning": {
+              "type": "object",
+              "properties": {
+                "taxonomy": {
+                  "type": "object",
+                  "properties": {
+                    "catalog": {
+                      "type": "string",
+                      "const": "chirp-display-catalog"
+                    },
+                    "version": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "speciesId": {
+                      "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                    }
+                  },
+                  "required": [
+                    "catalog",
+                    "version",
+                    "speciesId"
+                  ],
+                  "additionalProperties": false
+                },
+                "references": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                      },
+                      "roles": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "species",
+                            "style",
+                            "pose"
+                          ]
+                        },
+                        "minItems": 1,
+                        "maxItems": 3
+                      },
+                      "pin": {
+                        "type": "object",
+                        "properties": {
+                          "jobId": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160
+                          },
+                          "artifactId": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/conditioning/properties/references/items/properties/pin/properties/jobId"
+                          },
+                          "version": {
+                            "type": "integer",
+                            "exclusiveMinimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "contentDigest": {
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{64}$"
+                          }
+                        },
+                        "required": [
+                          "jobId",
+                          "artifactId",
+                          "version",
+                          "contentDigest"
+                        ],
+                        "additionalProperties": false
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "roles",
+                      "pin"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 16
+                },
+                "poseGraph": {
+                  "type": "object",
+                  "properties": {
+                    "nodes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                          },
+                          "frame": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 63
+                          },
+                          "action": {
+                            "type": "string",
+                            "enum": [
+                              "idle",
+                              "moving",
+                              "perching",
+                              "singing",
+                              "feeding",
+                              "bathing",
+                              "sleeping",
+                              "playing",
+                              "nesting"
+                            ]
+                          },
+                          "referenceId": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "frame",
+                          "action",
+                          "referenceId"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1,
+                      "maxItems": 576
+                    },
+                    "edges": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                          },
+                          "to": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                          }
+                        },
+                        "required": [
+                          "from",
+                          "to"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "maxItems": 2304
+                    }
+                  },
+                  "required": [
+                    "nodes",
+                    "edges"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "taxonomy",
+                "references",
+                "poseGraph"
+              ],
+              "additionalProperties": false
+            },
+            "strategy": {
+              "type": "object",
+              "properties": {
+                "kind": {
+                  "type": "string",
+                  "const": "decoded-rgba"
+                },
+                "version": {
+                  "type": "number",
+                  "const": 2
+                },
+                "alphaOrigin": {
+                  "type": "string",
+                  "enum": [
+                    "native",
+                    "upstream-cleanup",
+                    "unknown"
+                  ]
+                },
+                "output": {
+                  "type": "string",
+                  "const": "rgba8-straight"
+                },
+                "transparentRgb": {
+                  "type": "string",
+                  "const": "already-zero"
+                }
+              },
+              "required": [
+                "kind",
+                "version",
+                "alphaOrigin",
+                "output",
+                "transparentRgb"
+              ],
+              "additionalProperties": false
+            },
+            "shape": {
+              "not": {}
+            },
+            "fileOrigin": {
+              "not": {}
+            },
+            "presentation": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "sourcePixelsPerWorldUnit": {
+                  "type": "number",
+                  "enum": [
+                    1,
+                    2,
+                    4
+                  ]
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "sourcePixelsPerWorldUnit"
+              ],
+              "additionalProperties": false
+            },
+            "nativeRgbaDerivation": {
+              "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/conditioning/properties/references/items/properties/pin"
+            },
+            "commonMotion": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "geometryScope": {
+                  "type": "string",
+                  "const": "image-registration-only"
+                },
+                "physicalSupportReviewed": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "idleSequence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "idle",
+                      "blink",
+                      "look"
+                    ]
+                  },
+                  "minItems": 3,
+                  "maxItems": 8
+                },
+                "clips": {
+                  "type": "object",
+                  "properties": {
+                    "blink": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "enum": [
+                            "blink",
+                            "look"
+                          ]
+                        },
+                        "loop": {
+                          "type": "boolean"
+                        },
+                        "poses": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "frame": {
+                                "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/frame"
+                              },
+                              "durationTicks": {
+                                "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/durationTicks"
+                              },
+                              "pivot": {
+                                "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/pivot"
+                              },
+                              "contacts": {
+                                "type": "array",
+                                "items": {
+                                  "not": {}
+                                },
+                                "minItems": 0,
+                                "maxItems": 0
+                              },
+                              "poseId": {
+                                "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                              },
+                              "rotation": {
+                                "type": "number",
+                                "const": 0
+                              }
+                            },
+                            "required": [
+                              "frame",
+                              "durationTicks",
+                              "pivot",
+                              "contacts",
+                              "poseId",
+                              "rotation"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "minItems": 1,
+                          "maxItems": 32
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "loop",
+                        "poses"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "look": {
+                      "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/commonMotion/properties/clips/properties/blink"
+                    }
+                  },
+                  "required": [
+                    "blink",
+                    "look"
+                  ],
+                  "additionalProperties": false
+                },
+                "poseGraph": {
+                  "type": "object",
+                  "properties": {
+                    "nodes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160,
+                            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                          },
+                          "frame": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 63
+                          },
+                          "clip": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/commonMotion/properties/clips/properties/blink/properties/name"
+                          },
+                          "referenceId": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/commonMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "frame",
+                          "clip",
+                          "referenceId"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 2,
+                      "maxItems": 64
+                    },
+                    "edges": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/commonMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                          },
+                          "to": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/commonMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                          }
+                        },
+                        "required": [
+                          "from",
+                          "to"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1,
+                      "maxItems": 128
+                    }
+                  },
+                  "required": [
+                    "nodes",
+                    "edges"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "geometryScope",
+                "physicalSupportReviewed",
+                "idleSequence",
+                "clips",
+                "poseGraph"
+              ],
+              "additionalProperties": false
+            },
+            "flightMotion": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "tickRate": {
+                  "type": "number",
+                  "const": 30
+                },
+                "geometryScope": {
+                  "type": "string",
+                  "const": "image-registration-only"
+                },
+                "physicalSupportReviewed": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "liftOffTick": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 19199
+                },
+                "touchdownTick": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 19199
+                },
+                "clips": {
+                  "type": "object",
+                  "properties": {
+                    "takeoff": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "enum": [
+                            "takeoff",
+                            "flight",
+                            "landing"
+                          ]
+                        },
+                        "loop": {
+                          "type": "boolean"
+                        },
+                        "poses": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "frame": {
+                                "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/frame"
+                              },
+                              "durationTicks": {
+                                "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/durationTicks"
+                              },
+                              "pivot": {
+                                "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/pivot"
+                              },
+                              "contacts": {
+                                "type": "array",
+                                "items": {
+                                  "not": {}
+                                },
+                                "minItems": 0,
+                                "maxItems": 0
+                              },
+                              "poseId": {
+                                "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                              },
+                              "rotation": {
+                                "type": "number",
+                                "const": 0
+                              }
+                            },
+                            "required": [
+                              "frame",
+                              "durationTicks",
+                              "pivot",
+                              "contacts",
+                              "poseId",
+                              "rotation"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "minItems": 2,
+                          "maxItems": 64
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "loop",
+                        "poses"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "flight": {
+                      "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/flightMotion/properties/clips/properties/takeoff"
+                    },
+                    "landing": {
+                      "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/flightMotion/properties/clips/properties/takeoff"
+                    }
+                  },
+                  "required": [
+                    "takeoff",
+                    "flight",
+                    "landing"
+                  ],
+                  "additionalProperties": false
+                },
+                "poseGraph": {
+                  "type": "object",
+                  "properties": {
+                    "nodes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160,
+                            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                          },
+                          "frame": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 63
+                          },
+                          "clip": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/flightMotion/properties/clips/properties/takeoff/properties/name"
+                          },
+                          "referenceId": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/flightMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "frame",
+                          "clip",
+                          "referenceId"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 6,
+                      "maxItems": 192
+                    },
+                    "edges": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "from": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/flightMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                          },
+                          "to": {
+                            "$ref": "#/definitions/RgbaSourceArtifactV9/properties/input/properties/flightMotion/properties/poseGraph/properties/nodes/items/properties/id"
+                          }
+                        },
+                        "required": [
+                          "from",
+                          "to"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 4,
+                      "maxItems": 384
+                    }
+                  },
+                  "required": [
+                    "nodes",
+                    "edges"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "tickRate",
+                "geometryScope",
+                "physicalSupportReviewed",
+                "liftOffTick",
+                "touchdownTick",
+                "clips",
+                "poseGraph"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "source",
+            "pixels",
+            "clips",
+            "conditioning",
+            "strategy",
+            "presentation",
+            "nativeRgbaDerivation"
+          ],
+          "additionalProperties": false
+        },
+        "blobs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "frame": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 63
+              },
+              "encoding": {
+                "type": "string",
+                "const": "rgba8"
+              },
+              "bytes": {
+                "type": "integer",
+                "minimum": 4,
+                "maximum": 262144
+              },
+              "sha256": {
+                "$ref": "#/definitions/RgbaSourceArtifactV9/properties/inputDigest"
+              }
+            },
+            "required": [
+              "frame",
+              "encoding",
+              "bytes",
+              "sha256"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 64
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "format",
+        "lifecycle",
+        "inputDigest",
+        "input",
+        "blobs"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/rgba-source-artifact-v9.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

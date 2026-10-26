@@ -1,0 +1,2378 @@
+{
+  "$ref": "#/definitions/JobCommandV8",
+  "definitions": {
+    "JobCommandV8": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "package-asset"
+            },
+            "key": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "\\S"
+            },
+            "input": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 8
+                },
+                "source": {
+                  "type": "object",
+                  "properties": {
+                    "schemaVersion": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "speciesId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160,
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                    },
+                    "representation": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 200
+                    },
+                    "source": {
+                      "type": "string",
+                      "enum": [
+                        "deterministic_fixture",
+                        "user_upload",
+                        "provider"
+                      ]
+                    },
+                    "reviewScope": {
+                      "type": "string",
+                      "const": "development-candidate"
+                    },
+                    "creator": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/source/properties/speciesId"
+                    },
+                    "sourceVersion": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/source/properties/speciesId"
+                    },
+                    "license": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/source/properties/representation"
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "development-only",
+                            "cleared",
+                            "pending",
+                            "denied"
+                          ]
+                        },
+                        "derivativesAllowed": {
+                          "type": "boolean"
+                        },
+                        "redistributionAllowed": {
+                          "type": "boolean"
+                        },
+                        "evidenceId": {
+                          "anyOf": [
+                            {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/source/properties/speciesId"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "attribution": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 300
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "status",
+                        "derivativesAllowed",
+                        "redistributionAllowed",
+                        "evidenceId",
+                        "attribution"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "references": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/source/properties/speciesId"
+                          },
+                          "speciesId": {
+                            "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/source/properties/speciesId"
+                          },
+                          "contentDigest": {
+                            "type": "string",
+                            "pattern": "^[a-f0-9]{64}$"
+                          },
+                          "role": {
+                            "type": "string",
+                            "enum": [
+                              "technical-fixture",
+                              "species-reference"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "speciesId",
+                          "contentDigest",
+                          "role"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1,
+                      "maxItems": 16
+                    },
+                    "fidelityReview": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "reviewerId": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/source/properties/speciesId"
+                            },
+                            "reviewedAt": {
+                              "type": "string",
+                              "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                            },
+                            "evidenceId": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/source/properties/speciesId"
+                            }
+                          },
+                          "required": [
+                            "reviewerId",
+                            "reviewedAt",
+                            "evidenceId"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schemaVersion",
+                    "speciesId",
+                    "representation",
+                    "source",
+                    "creator",
+                    "sourceVersion",
+                    "license",
+                    "references",
+                    "fidelityReview"
+                  ],
+                  "additionalProperties": false
+                },
+                "pixels": {
+                  "type": "object",
+                  "properties": {
+                    "schemaVersion": {
+                      "type": "number",
+                      "const": 2
+                    },
+                    "format": {
+                      "type": "string",
+                      "const": "rgba8-frames"
+                    },
+                    "canvas": {
+                      "type": "object",
+                      "properties": {
+                        "width": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 256
+                        },
+                        "height": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 256
+                        }
+                      },
+                      "required": [
+                        "width",
+                        "height"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "logicalPixelSize": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 16
+                    },
+                    "paletteLimit": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 64
+                    },
+                    "frames": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "rgba": {
+                            "type": "array",
+                            "items": {
+                              "type": "integer",
+                              "minimum": 0,
+                              "maximum": 255
+                            },
+                            "minItems": 4,
+                            "maxItems": 262144
+                          }
+                        },
+                        "required": [
+                          "rgba"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1,
+                      "maxItems": 64
+                    }
+                  },
+                  "required": [
+                    "schemaVersion",
+                    "format",
+                    "canvas",
+                    "logicalPixelSize",
+                    "paletteLimit",
+                    "frames"
+                  ],
+                  "additionalProperties": false
+                },
+                "clips": {
+                  "type": "object",
+                  "properties": {
+                    "idle": {
+                      "type": "object",
+                      "properties": {
+                        "action": {
+                          "type": "string",
+                          "enum": [
+                            "idle",
+                            "moving",
+                            "perching",
+                            "singing",
+                            "feeding",
+                            "bathing",
+                            "sleeping",
+                            "playing",
+                            "nesting"
+                          ]
+                        },
+                        "direction": {
+                          "type": "string",
+                          "const": "right-facing-mirrorable"
+                        },
+                        "loop": {
+                          "type": "boolean"
+                        },
+                        "poses": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "frame": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 63
+                              },
+                              "durationTicks": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 300
+                              },
+                              "pivot": {
+                                "type": "object",
+                                "properties": {
+                                  "x": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 256
+                                  },
+                                  "y": {
+                                    "type": "integer",
+                                    "minimum": 0,
+                                    "maximum": 256
+                                  }
+                                },
+                                "required": [
+                                  "x",
+                                  "y"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "contacts": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/x"
+                                    },
+                                    "y": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/pivot/properties/y"
+                                    },
+                                    "kind": {
+                                      "type": "string",
+                                      "enum": [
+                                        "left-foot",
+                                        "right-foot",
+                                        "perch",
+                                        "ground"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "x",
+                                    "y",
+                                    "kind"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "maxItems": 4
+                              },
+                              "poseId": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 160,
+                                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                              },
+                              "rotation": {
+                                "type": "number",
+                                "minimum": -0.5,
+                                "maximum": 0.5
+                              }
+                            },
+                            "required": [
+                              "frame",
+                              "durationTicks",
+                              "pivot",
+                              "contacts",
+                              "poseId",
+                              "rotation"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "minItems": 1,
+                          "maxItems": 256
+                        }
+                      },
+                      "required": [
+                        "action",
+                        "direction",
+                        "loop",
+                        "poses"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "moving": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle"
+                    },
+                    "perching": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle"
+                    },
+                    "singing": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle"
+                    },
+                    "feeding": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle"
+                    },
+                    "bathing": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle"
+                    },
+                    "sleeping": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle"
+                    },
+                    "playing": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle"
+                    },
+                    "nesting": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle"
+                    }
+                  },
+                  "required": [
+                    "idle"
+                  ],
+                  "additionalProperties": false
+                },
+                "conditioning": {
+                  "type": "object",
+                  "properties": {
+                    "taxonomy": {
+                      "type": "object",
+                      "properties": {
+                        "catalog": {
+                          "type": "string",
+                          "const": "chirp-display-catalog"
+                        },
+                        "version": {
+                          "type": "number",
+                          "const": 1
+                        },
+                        "speciesId": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                        }
+                      },
+                      "required": [
+                        "catalog",
+                        "version",
+                        "speciesId"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "references": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                          },
+                          "roles": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "species",
+                                "style",
+                                "pose"
+                              ]
+                            },
+                            "minItems": 1,
+                            "maxItems": 3
+                          },
+                          "pin": {
+                            "type": "object",
+                            "properties": {
+                              "jobId": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 160
+                              },
+                              "artifactId": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/conditioning/properties/references/items/properties/pin/properties/jobId"
+                              },
+                              "version": {
+                                "type": "integer",
+                                "exclusiveMinimum": 0,
+                                "maximum": 9007199254740991
+                              },
+                              "contentDigest": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              }
+                            },
+                            "required": [
+                              "jobId",
+                              "artifactId",
+                              "version",
+                              "contentDigest"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "roles",
+                          "pin"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1,
+                      "maxItems": 16
+                    },
+                    "poseGraph": {
+                      "type": "object",
+                      "properties": {
+                        "nodes": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                              },
+                              "frame": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 63
+                              },
+                              "action": {
+                                "type": "string",
+                                "enum": [
+                                  "idle",
+                                  "moving",
+                                  "perching",
+                                  "singing",
+                                  "feeding",
+                                  "bathing",
+                                  "sleeping",
+                                  "playing",
+                                  "nesting"
+                                ]
+                              },
+                              "referenceId": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "frame",
+                              "action",
+                              "referenceId"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "minItems": 1,
+                          "maxItems": 576
+                        },
+                        "edges": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "from": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                              },
+                              "to": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/poseId"
+                              }
+                            },
+                            "required": [
+                              "from",
+                              "to"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "maxItems": 2304
+                        }
+                      },
+                      "required": [
+                        "nodes",
+                        "edges"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "taxonomy",
+                    "references",
+                    "poseGraph"
+                  ],
+                  "additionalProperties": false
+                },
+                "strategy": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "const": "decoded-rgba"
+                        },
+                        "version": {
+                          "type": "number",
+                          "const": 1
+                        },
+                        "alphaOrigin": {
+                          "type": "string",
+                          "enum": [
+                            "technical-fixture",
+                            "native",
+                            "upstream-cleanup",
+                            "unknown"
+                          ]
+                        },
+                        "output": {
+                          "type": "string",
+                          "const": "rgba8-binary"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "version",
+                        "alphaOrigin",
+                        "output"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "version": {
+                          "type": "number",
+                          "const": 1
+                        },
+                        "execution": {
+                          "type": "string",
+                          "const": "unconfigured-local"
+                        },
+                        "model": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 160,
+                              "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                            },
+                            "revision": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model/properties/id"
+                            },
+                            "weightsSha256": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{64}$"
+                            },
+                            "license": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model/properties/id"
+                                },
+                                "contentSha256": {
+                                  "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model/properties/weightsSha256"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "contentSha256"
+                              ],
+                              "additionalProperties": false
+                            },
+                            "adapters": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model/properties/id"
+                                  },
+                                  "revision": {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model/properties/id"
+                                  },
+                                  "weightsSha256": {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model/properties/weightsSha256"
+                                  },
+                                  "parentWeightsSha256": {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model/properties/weightsSha256"
+                                  },
+                                  "license": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model/properties/id"
+                                      },
+                                      "contentSha256": {
+                                        "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model/properties/weightsSha256"
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "contentSha256"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "revision",
+                                  "weightsSha256",
+                                  "parentWeightsSha256",
+                                  "license"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "maxItems": 8
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "revision",
+                            "weightsSha256",
+                            "license",
+                            "adapters"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "alphaPlan": {
+                          "type": "string",
+                          "enum": [
+                            "native-binary",
+                            "native-continuous",
+                            "layered",
+                            "matting-required"
+                          ]
+                        },
+                        "kind": {
+                          "type": "string",
+                          "const": "direct-spritesheet"
+                        }
+                      },
+                      "required": [
+                        "version",
+                        "execution",
+                        "model",
+                        "alphaPlan",
+                        "kind"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "version": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/version"
+                        },
+                        "execution": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/execution"
+                        },
+                        "model": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model"
+                        },
+                        "alphaPlan": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/alphaPlan"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "const": "conditioned-frame-edit"
+                        }
+                      },
+                      "required": [
+                        "version",
+                        "execution",
+                        "model",
+                        "alphaPlan",
+                        "kind"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "version": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/version"
+                        },
+                        "execution": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/execution"
+                        },
+                        "model": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model"
+                        },
+                        "alphaPlan": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/alphaPlan"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "const": "video-extract"
+                        }
+                      },
+                      "required": [
+                        "version",
+                        "execution",
+                        "model",
+                        "alphaPlan",
+                        "kind"
+                      ],
+                      "additionalProperties": false
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "version": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/version"
+                        },
+                        "execution": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/execution"
+                        },
+                        "model": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/model"
+                        },
+                        "alphaPlan": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/strategy/anyOf/1/properties/alphaPlan"
+                        },
+                        "kind": {
+                          "type": "string",
+                          "const": "rigged-deterministic"
+                        }
+                      },
+                      "required": [
+                        "version",
+                        "execution",
+                        "model",
+                        "alphaPlan",
+                        "kind"
+                      ],
+                      "additionalProperties": false
+                    }
+                  ]
+                },
+                "shape": {
+                  "not": {}
+                },
+                "fileOrigin": {
+                  "type": "object",
+                  "properties": {
+                    "file": {
+                      "type": "object",
+                      "properties": {
+                        "schemaVersion": {
+                          "type": "number",
+                          "const": 1
+                        },
+                        "id": {
+                          "type": "string",
+                          "format": "uuid"
+                        },
+                        "original": {
+                          "type": "object",
+                          "properties": {
+                            "sha256": {
+                              "type": "string",
+                              "pattern": "^[a-f0-9]{64}$"
+                            },
+                            "bytes": {
+                              "type": "integer",
+                              "minimum": 1,
+                              "maximum": 524288
+                            }
+                          },
+                          "required": [
+                            "sha256",
+                            "bytes"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "canonical": {
+                          "type": "object",
+                          "properties": {
+                            "sha256": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/fileOrigin/properties/file/properties/original/properties/sha256"
+                            },
+                            "bytes": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/fileOrigin/properties/file/properties/original/properties/bytes"
+                            },
+                            "rgbaSha256": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/fileOrigin/properties/file/properties/original/properties/sha256"
+                            },
+                            "width": {
+                              "type": "integer",
+                              "minimum": 1,
+                              "maximum": 1024
+                            },
+                            "height": {
+                              "type": "integer",
+                              "minimum": 1,
+                              "maximum": 1024
+                            }
+                          },
+                          "required": [
+                            "sha256",
+                            "bytes",
+                            "rgbaSha256",
+                            "width",
+                            "height"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "decoder": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string",
+                              "const": "sharp"
+                            },
+                            "version": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 40
+                            },
+                            "libvips": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 40
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "version",
+                            "libvips"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "normalization": {
+                          "type": "string",
+                          "const": "chirp-png-straight-srgb8-hidden-rgb-zero-v1"
+                        }
+                      },
+                      "required": [
+                        "schemaVersion",
+                        "id",
+                        "original",
+                        "canonical",
+                        "decoder",
+                        "normalization"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "reviewDigest": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/fileOrigin/properties/file/properties/original/properties/sha256"
+                    },
+                    "layout": {
+                      "type": "object",
+                      "properties": {
+                        "width": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 256
+                        },
+                        "height": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 256
+                        },
+                        "columns": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 64
+                        },
+                        "rows": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 64
+                        }
+                      },
+                      "required": [
+                        "width",
+                        "height",
+                        "columns",
+                        "rows"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "file",
+                    "reviewDigest",
+                    "layout"
+                  ],
+                  "additionalProperties": false
+                },
+                "presentation": {
+                  "type": "object",
+                  "properties": {
+                    "schemaVersion": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "sourcePixelsPerWorldUnit": {
+                      "type": "number",
+                      "enum": [
+                        1,
+                        2,
+                        4
+                      ]
+                    }
+                  },
+                  "required": [
+                    "schemaVersion",
+                    "sourcePixelsPerWorldUnit"
+                  ],
+                  "additionalProperties": false
+                },
+                "projectGeneratedEvidence": {
+                  "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/conditioning/properties/references/items/properties/pin"
+                },
+                "activityStudy": {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/action"
+                    },
+                    "sourceClipId": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 160
+                    },
+                    "originalDurationMs": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 10000
+                      },
+                      "minItems": 2,
+                      "maxItems": 32
+                    },
+                    "authoredTickRate": {
+                      "type": "number",
+                      "const": 30
+                    },
+                    "geometryScope": {
+                      "type": "string",
+                      "const": "image-registration-only"
+                    },
+                    "physicalSupportReviewed": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "commonAttentionPresent": {
+                      "type": "boolean",
+                      "const": false
+                    }
+                  },
+                  "required": [
+                    "action",
+                    "sourceClipId",
+                    "originalDurationMs",
+                    "authoredTickRate",
+                    "geometryScope",
+                    "physicalSupportReviewed",
+                    "commonAttentionPresent"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "source",
+                "pixels",
+                "clips",
+                "conditioning",
+                "strategy",
+                "presentation",
+                "projectGeneratedEvidence",
+                "activityStudy"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "action",
+            "key",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "retain-project-generated-evidence"
+            },
+            "key": {
+              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/key"
+            },
+            "input": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "kind": {
+                  "type": "string",
+                  "const": "project-generated-source-evidence"
+                },
+                "speciesId": {
+                  "type": "string",
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]{0,159}$"
+                },
+                "sourceSetSha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                },
+                "usagePolicySource": {
+                  "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/conditioning/properties/references/items/properties/pin"
+                },
+                "privateUse": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "const": "owner-directed-private-project-work"
+                    },
+                    "requestSha256": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/sourceSetSha256"
+                    },
+                    "publicRelease": {
+                      "type": "boolean",
+                      "const": false
+                    },
+                    "copyrightClearance": {
+                      "type": "string",
+                      "const": "not-certified"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "requestSha256",
+                    "publicRelease",
+                    "copyrightClearance"
+                  ],
+                  "additionalProperties": false
+                },
+                "records": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/speciesId"
+                      },
+                      "tool": {
+                        "type": "string",
+                        "const": "image_gen.imagegen"
+                      },
+                      "model": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "seed": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 0
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "original": {
+                        "type": "object",
+                        "properties": {
+                          "sha256": {
+                            "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/sourceSetSha256"
+                          },
+                          "bytes": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 67108864
+                          }
+                        },
+                        "required": [
+                          "sha256",
+                          "bytes"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "prompt": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/records/items/properties/original"
+                      },
+                      "generationRecord": {
+                        "type": "object",
+                        "properties": {
+                          "kind": {
+                            "type": "string",
+                            "enum": [
+                              "native-return",
+                              "generation-receipt",
+                              "retained-generation-manifest"
+                            ]
+                          },
+                          "sha256": {
+                            "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/sourceSetSha256"
+                          }
+                        },
+                        "required": [
+                          "kind",
+                          "sha256"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "inputEvidenceSha256s": {
+                        "type": "array",
+                        "items": {
+                          "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/sourceSetSha256"
+                        },
+                        "minItems": 1,
+                        "maxItems": 16
+                      },
+                      "inputs": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "recordId": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/speciesId"
+                            },
+                            "pngSha256": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/sourceSetSha256"
+                            }
+                          },
+                          "required": [
+                            "recordId",
+                            "pngSha256"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 8
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "tool",
+                      "model",
+                      "seed",
+                      "original",
+                      "prompt",
+                      "generationRecord",
+                      "inputEvidenceSha256s",
+                      "inputs"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 64
+                },
+                "selectedFrames": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "recordId": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/speciesId"
+                      },
+                      "sourceFrameId": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/speciesId"
+                      },
+                      "registeredPngSha256": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/sourceSetSha256"
+                      },
+                      "pngSha256": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/sourceSetSha256"
+                      },
+                      "rgbaSha256": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/sourceSetSha256"
+                      }
+                    },
+                    "required": [
+                      "frame",
+                      "recordId",
+                      "sourceFrameId",
+                      "registeredPngSha256",
+                      "pngSha256",
+                      "rgbaSha256"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 64
+                },
+                "factualCitations": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "evidenceSha256": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/1/properties/input/properties/sourceSetSha256"
+                      },
+                      "use": {
+                        "type": "string",
+                        "const": "text-only-no-image-pixels"
+                      }
+                    },
+                    "required": [
+                      "evidenceSha256",
+                      "use"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "maxItems": 16
+                },
+                "anatomyReviewed": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "physicalSupportReviewed": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "speciesFidelityReviewed": {
+                  "type": "boolean",
+                  "const": false
+                },
+                "browserReviewed": {
+                  "type": "boolean",
+                  "const": false
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "kind",
+                "speciesId",
+                "sourceSetSha256",
+                "usagePolicySource",
+                "privateUse",
+                "records",
+                "selectedFrames",
+                "factualCitations",
+                "anatomyReviewed",
+                "physicalSupportReviewed",
+                "speciesFidelityReviewed",
+                "browserReviewed"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "action",
+            "key",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "plan-animation"
+            },
+            "key": {
+              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/key"
+            },
+            "input": {
+              "anyOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "schemaVersion": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "taxonomy": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/conditioning/properties/taxonomy"
+                    },
+                    "scientificName": {
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 160,
+                      "allOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))"
+                        }
+                      ]
+                    },
+                    "references": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160,
+                            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                          },
+                          "fixture": {
+                            "type": "boolean"
+                          },
+                          "source": {
+                            "type": "object",
+                            "properties": {
+                              "kind": {
+                                "type": "string",
+                                "enum": [
+                                  "local-file",
+                                  "archive-file",
+                                  "technical-fixture"
+                                ]
+                              },
+                              "fileIdentity": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 2000
+                              },
+                              "originalUrl": {
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "maxLength": 2048,
+                                    "pattern": "^https:\\/\\/[!-~]+(?![\\s\\S])"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "descriptionPageUrl": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/originalUrl/anyOf/0"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "author": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/fileIdentity"
+                              },
+                              "uploader": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/fileIdentity"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "attribution": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/fileIdentity"
+                              },
+                              "description": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/fileIdentity"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "sourceTimestamp": {
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "pattern": "^(([0-9][0-9][2468][048]|[0-9][0-9][13579][26]|[0-9][0-9]0[48]|[02468][048]00|[13579][26]00)-02-29|[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|1[0-9]|2[0-8])))T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?(Z)(?![\\s\\S])"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "remoteHash": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "algorithm": {
+                                        "type": "string",
+                                        "enum": [
+                                          "sha1",
+                                          "sha256"
+                                        ]
+                                      },
+                                      "value": {
+                                        "type": "string",
+                                        "pattern": "^[a-f0-9]{40}([a-f0-9]{24})?$"
+                                      }
+                                    },
+                                    "required": [
+                                      "algorithm",
+                                      "value"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "kind",
+                              "fileIdentity",
+                              "originalUrl",
+                              "descriptionPageUrl",
+                              "author",
+                              "uploader",
+                              "attribution",
+                              "description",
+                              "sourceTimestamp",
+                              "remoteHash"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "original": {
+                            "type": "object",
+                            "properties": {
+                              "bytes": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 16777216
+                              },
+                              "sha256": {
+                                "type": "string",
+                                "pattern": "^[a-f0-9]{64}$"
+                              },
+                              "mime": {
+                                "type": "string",
+                                "enum": [
+                                  "image/png",
+                                  "image/jpeg",
+                                  "application/x-chirp-rgba8"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "bytes",
+                              "sha256",
+                              "mime"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "decoded": {
+                            "type": "object",
+                            "properties": {
+                              "format": {
+                                "type": "string",
+                                "const": "rgba8-straight"
+                              },
+                              "width": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 256
+                              },
+                              "height": {
+                                "type": "integer",
+                                "minimum": 1,
+                                "maximum": 256
+                              },
+                              "sha256": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/original/properties/sha256"
+                              },
+                              "decoder": {
+                                "type": "object",
+                                "properties": {
+                                  "id": {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                  },
+                                  "version": {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                  }
+                                },
+                                "required": [
+                                  "id",
+                                  "version"
+                                ],
+                                "additionalProperties": false
+                              },
+                              "derivation": {
+                                "type": "string",
+                                "enum": [
+                                  "raw-identity",
+                                  "declared-unverified"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "format",
+                              "width",
+                              "height",
+                              "sha256",
+                              "decoder",
+                              "derivation"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "rights": {
+                            "type": "object",
+                            "properties": {
+                              "licenseId": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                              },
+                              "licenseVersion": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                              },
+                              "licenseUrl": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/originalUrl/anyOf/0"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "pending",
+                                  "approved",
+                                  "denied",
+                                  "conflicting"
+                                ]
+                              },
+                              "restrictions": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/fileIdentity"
+                                },
+                                "maxItems": 16
+                              },
+                              "referenceUseAllowed": {
+                                "type": "boolean"
+                              },
+                              "derivativesAllowed": {
+                                "type": "boolean"
+                              },
+                              "redistributionAllowed": {
+                                "type": "boolean"
+                              },
+                              "generationPermission": {
+                                "type": "string",
+                                "enum": [
+                                  "not-reviewed",
+                                  "allowed",
+                                  "denied"
+                                ]
+                              },
+                              "review": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "reviewerId": {
+                                        "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                      },
+                                      "evidenceId": {
+                                        "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                      },
+                                      "reviewedAt": {
+                                        "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/sourceTimestamp/anyOf/0"
+                                      }
+                                    },
+                                    "required": [
+                                      "reviewerId",
+                                      "evidenceId",
+                                      "reviewedAt"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "licenseId",
+                              "licenseVersion",
+                              "licenseUrl",
+                              "status",
+                              "restrictions",
+                              "referenceUseAllowed",
+                              "derivativesAllowed",
+                              "redistributionAllowed",
+                              "generationPermission",
+                              "review"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "taxonomy": {
+                            "type": "object",
+                            "properties": {
+                              "application": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/conditioning/properties/taxonomy"
+                              },
+                              "declaredScientificName": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/fileIdentity"
+                              },
+                              "aliases": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "authority": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                    },
+                                    "version": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                    },
+                                    "taxonId": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                    },
+                                    "scientificName": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/fileIdentity"
+                                    }
+                                  },
+                                  "required": [
+                                    "authority",
+                                    "version",
+                                    "taxonId",
+                                    "scientificName"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "maxItems": 16
+                              },
+                              "externalEvidence": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "authority": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                    },
+                                    "version": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                    },
+                                    "entityId": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/id"
+                                    },
+                                    "statement": {
+                                      "type": "string",
+                                      "enum": [
+                                        "scientific-name",
+                                        "rank",
+                                        "parent-taxon",
+                                        "image",
+                                        "depicts"
+                                      ]
+                                    },
+                                    "value": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/fileIdentity"
+                                    },
+                                    "status": {
+                                      "type": "string",
+                                      "const": "candidate-evidence"
+                                    }
+                                  },
+                                  "required": [
+                                    "authority",
+                                    "version",
+                                    "entityId",
+                                    "statement",
+                                    "value",
+                                    "status"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "maxItems": 32
+                              },
+                              "review": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/rights/properties/review/anyOf/0"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              }
+                            },
+                            "required": [
+                              "application",
+                              "declaredScientificName",
+                              "aliases",
+                              "externalEvidence",
+                              "review"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "annotations": {
+                            "type": "object",
+                            "properties": {
+                              "sex": {
+                                "type": "string",
+                                "enum": [
+                                  "female",
+                                  "male",
+                                  "unknown"
+                                ]
+                              },
+                              "age": {
+                                "type": "string",
+                                "enum": [
+                                  "juvenile",
+                                  "adult",
+                                  "unknown"
+                                ]
+                              },
+                              "plumage": {
+                                "anyOf": [
+                                  {
+                                    "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items/properties/source/properties/fileIdentity"
+                                  },
+                                  {
+                                    "type": "null"
+                                  }
+                                ]
+                              },
+                              "viewpoint": {
+                                "type": "string",
+                                "enum": [
+                                  "left",
+                                  "right",
+                                  "front",
+                                  "back",
+                                  "above",
+                                  "below",
+                                  "oblique",
+                                  "unknown"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "sex",
+                              "age",
+                              "plumage",
+                              "viewpoint"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "id",
+                          "fixture",
+                          "source",
+                          "original",
+                          "decoded",
+                          "rights",
+                          "taxonomy",
+                          "annotations"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "maxItems": 16
+                    }
+                  },
+                  "required": [
+                    "schemaVersion",
+                    "taxonomy",
+                    "scientificName",
+                    "references"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "schemaVersion": {
+                      "type": "number",
+                      "const": 2
+                    },
+                    "taxonomy": {
+                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/conditioning/properties/taxonomy"
+                    },
+                    "scientificName": {
+                      "type": "string",
+                      "minLength": 2,
+                      "maxLength": 160,
+                      "allOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^(?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF])|[^\\u0000-\\uFFFF](?:[\\u0000-\\uFFFF]|[^\\u0000-\\uFFFF]))"
+                        }
+                      ]
+                    },
+                    "references": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/2/properties/input/anyOf/0/properties/references/items"
+                      },
+                      "maxItems": 16
+                    },
+                    "recipe": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]{0,159}$"
+                        },
+                        "version": {
+                          "type": "integer",
+                          "minimum": 1,
+                          "maximum": 1000000
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "version"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "overrides": {
+                      "type": "object",
+                      "properties": {
+                        "clips": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "action": {
+                                "type": "string",
+                                "enum": [
+                                  "idle",
+                                  "moving",
+                                  "perching",
+                                  "singing",
+                                  "feeding",
+                                  "bathing",
+                                  "sleeping",
+                                  "playing",
+                                  "nesting"
+                                ]
+                              },
+                              "durationTicks": {
+                                "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/durationTicks"
+                              },
+                              "loop": {
+                                "type": "boolean"
+                              },
+                              "frames": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "index": {
+                                      "type": "integer",
+                                      "minimum": 0,
+                                      "maximum": 63
+                                    },
+                                    "phase": {
+                                      "type": "string",
+                                      "pattern": "^[a-z][a-z0-9-]{0,159}$"
+                                    },
+                                    "durationTicks": {
+                                      "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/durationTicks"
+                                    },
+                                    "proposedPivot": {
+                                      "type": "object",
+                                      "properties": {
+                                        "x": {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 32
+                                        },
+                                        "y": {
+                                          "type": "integer",
+                                          "minimum": 0,
+                                          "maximum": 32
+                                        }
+                                      },
+                                      "required": [
+                                        "x",
+                                        "y"
+                                      ],
+                                      "additionalProperties": false
+                                    },
+                                    "contactRequirements": {
+                                      "type": "array",
+                                      "items": {
+                                        "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/clips/properties/idle/properties/poses/items/properties/contacts/items/properties/kind"
+                                      },
+                                      "maxItems": 4
+                                    }
+                                  },
+                                  "required": [
+                                    "index"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "minItems": 1,
+                                "maxItems": 64
+                              }
+                            },
+                            "required": [
+                              "action"
+                            ],
+                            "additionalProperties": false
+                          },
+                          "maxItems": 9
+                        }
+                      },
+                      "required": [
+                        "clips"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": [
+                    "schemaVersion",
+                    "taxonomy",
+                    "scientificName",
+                    "references",
+                    "recipe",
+                    "overrides"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "action",
+            "key",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "revise-shape"
+            },
+            "requestId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "basePin": {
+              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/conditioning/properties/references/items/properties/pin"
+            },
+            "shape": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "basedOn": {
+                  "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/conditioning/properties/references/items/properties/pin"
+                },
+                "speciesId": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 160,
+                  "pattern": "^[a-zA-Z0-9][a-zA-Z0-9._:@-]*$"
+                },
+                "masterPoseId": {
+                  "$ref": "#/definitions/JobCommandV8/anyOf/3/properties/shape/properties/speciesId"
+                },
+                "poses": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "poseId": {
+                        "$ref": "#/definitions/JobCommandV8/anyOf/3/properties/shape/properties/speciesId"
+                      },
+                      "frame": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 63
+                      },
+                      "visualBounds": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 256
+                          },
+                          "y": {
+                            "$ref": "#/definitions/JobCommandV8/anyOf/3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                          },
+                          "width": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 256
+                          },
+                          "height": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 256
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "y",
+                          "width",
+                          "height"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "support": {
+                        "type": "object",
+                        "properties": {
+                          "x": {
+                            "$ref": "#/definitions/JobCommandV8/anyOf/3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                          },
+                          "y": {
+                            "$ref": "#/definitions/JobCommandV8/anyOf/3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                          }
+                        },
+                        "required": [
+                          "x",
+                          "y"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "footprint": {
+                        "type": "object",
+                        "properties": {
+                          "left": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 128
+                          },
+                          "right": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 128
+                          },
+                          "back": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 64
+                          },
+                          "front": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 64
+                          }
+                        },
+                        "required": [
+                          "left",
+                          "right",
+                          "back",
+                          "front"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "landmarks": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "x": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                            },
+                            "y": {
+                              "$ref": "#/definitions/JobCommandV8/anyOf/3/properties/shape/properties/poses/items/properties/visualBounds/properties/x"
+                            },
+                            "kind": {
+                              "type": "string",
+                              "enum": [
+                                "head",
+                                "body",
+                                "beak",
+                                "tail",
+                                "left-foot",
+                                "right-foot"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "x",
+                            "y",
+                            "kind"
+                          ],
+                          "additionalProperties": false
+                        },
+                        "maxItems": 6
+                      }
+                    },
+                    "required": [
+                      "poseId",
+                      "frame",
+                      "visualBounds",
+                      "support",
+                      "footprint",
+                      "landmarks"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 576
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "basedOn",
+                "speciesId",
+                "masterPoseId",
+                "poses"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "action",
+            "requestId",
+            "basePin",
+            "shape"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "generate-asset"
+            },
+            "key": {
+              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/key"
+            },
+            "input": {
+              "type": "object",
+              "properties": {
+                "schemaVersion": {
+                  "type": "number",
+                  "const": 1
+                },
+                "source": {
+                  "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/input/properties/source"
+                },
+                "requestedStates": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "idle",
+                      "moving",
+                      "perching",
+                      "singing",
+                      "feeding",
+                      "bathing",
+                      "sleeping",
+                      "playing",
+                      "nesting"
+                    ]
+                  },
+                  "minItems": 1,
+                  "maxItems": 9
+                }
+              },
+              "required": [
+                "schemaVersion",
+                "source",
+                "requestedStates"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "action",
+            "key",
+            "input"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "queue"
+            },
+            "definition": {
+              "type": "string",
+              "enum": [
+                "fixture-artwork",
+                "photo-to-animation",
+                "asset-packaging"
+              ]
+            },
+            "key": {
+              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/key"
+            }
+          },
+          "required": [
+            "action",
+            "definition",
+            "key"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "advance"
+            },
+            "jobId": {
+              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/key"
+            }
+          },
+          "required": [
+            "action",
+            "jobId"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "cancel"
+            },
+            "jobId": {
+              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/key"
+            }
+          },
+          "required": [
+            "action",
+            "jobId"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "type": "string",
+              "const": "review"
+            },
+            "artifactId": {
+              "$ref": "#/definitions/JobCommandV8/anyOf/0/properties/key"
+            },
+            "decision": {
+              "type": "string",
+              "enum": [
+                "approved",
+                "rejected"
+              ]
+            }
+          },
+          "required": [
+            "action",
+            "artifactId",
+            "decision"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://chirpneighbors.local/contracts/job-command-v8.schema.json",
+  "description": "Versioned private image-pipeline structural boundary: legacy render v2, pose render v3 with optional reviewed shape v1, packaging input v2, retained RGBA source v1, and local reference/image stages v1. Actual byte hashes, palette/grid/alpha rules, graph/reference/catalog consistency, supported strategy and review/ownership require runtime admission. Source artifacts can contain private pixel bytes and are not public projections. Structural validation grants no provider execution, species fidelity or review authorization."
+}

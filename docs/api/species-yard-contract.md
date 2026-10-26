@@ -133,7 +133,7 @@ See UI `docs/recordings.md` and `docs/recordings-checkpoint.md` for limits and r
 
 ## Jobs and generation
 
-Pipeline definitions and hierarchical stage paths have pinned versions. Owner-scoped idempotency keys, durable leases, bounded retries/backoff and cancellation fences protect local execution. Artifact payloads/provenance and review records are immutable; publishing another result creates another version. The workbench advances one stage on request, not through a continuously running hosted worker. See [pipeline contracts and limitations](https://github.com/patanet7/birdsong-yard-sprites/blob/codex/engine-reviewed-20261011/src/lib/server/pipeline/README.md).
+Pipeline definitions and hierarchical stage paths have pinned versions. Owner-scoped idempotency keys, durable leases, bounded retries/backoff and cancellation fences protect local execution. Artifact payloads/provenance and review records are immutable; publishing another result creates another version. The workbench advances one stage on request, not through a continuously running hosted worker. See [pipeline contracts and limitations](https://github.com/patanet7/birdsong-yard-sprites/blob/main/src/lib/server/pipeline/README.md).
 
 The fixture pipeline prepares a labeled renderable manifest from existing authored pixels for technical review; this is not generated artwork. `photo-to-animation` stops at an unconfigured provider. Actual source-photo acquisition, taxon review, AI engine choice, costs, external execution and final animation attachment remain unfinished; fixture success must never be relabeled as generation success.
 

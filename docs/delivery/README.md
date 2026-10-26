@@ -7,22 +7,7 @@ competing product roadmap or production-readiness percentage. Matrix implementat
 labels must be read with the named checkpoint and active-wave state; implemented
 code or an older passing aggregate does not verify a changed candidate.
 
-The historical [environment checkpoint](environment-verified-20261009.md) records
-its complete 75-gate passing run, exact source commits and retained failed attempts.
-The prior [74-gate ontology checkpoint](ontology-verified-20261009.md) remains preserved.
-The [subsequent ESP32 integration](esp32-integrated-20261009.md) records the actual fetched head, local merge, 52 host tests, eight native tests and 25/25 selected regression gates. Board/simulator setup remains blocked; this selected run does not replace the complete environment proof. The index limits completion to named behavior and fixture scope.
-
-The historical [animation/content/reference-discovery checkpoint](animation-planning-20261011.md)
-records 94/94 frozen gates and its exact tested source revisions.
-Versioned recipe composition and bounded Commons metadata discovery remain separate
-from image-generation providers and approved species artwork. The 33- and 61-gate
-interrupted attempts remain partial; later documentation/evidence commits are
-reported separately from tested source commits.
-
-The [release record](../publication/20261011/README.md) identifies the later exact
-97/97-gate checkpoint and hosted outcomes. The [architecture follow-up](product-behavior-and-ideas.md#architecture-follow-up)
-owns the subsequent confirmed defects and remaining acceptance; an earlier
-passing checkpoint is not proof that those findings are repaired.
+Verification results are recorded only in the [verification ledger](verification-ledger.md). The [architecture follow-up](product-behavior-and-ideas.md#architecture-follow-up) owns confirmed defects and remaining acceptance.
 
 The historical checklist below records earlier bounded waves and their original
 counts. Later checkpoint links and the authoritative index supersede stale current-
@@ -49,7 +34,7 @@ TypeScript counterparts. Do not hand-maintain equivalent wire models in both
 languages. The UI's `docs/contract-platform.md` records ownership; executable
 cross-language tests enforce the exported boundary behavior.
 
-Worker `c08624d3` remains outside this workspace after the approved supported transfer failed before bytes. The original ESP32 branch was fetched at `99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c` and locally merged at `4ce5fb535c38f67a3f31caf3a2c7ebfb988a9ceb` after the environment checkpoint. See EN-006/EN-007 in the [current index](product-behavior-and-ideas.md) and the [integration evidence](esp32-integrated-20261009.md); the [original handoff blocker](approved-handoff-blocker-20261008.md) is historical for ESP32. Neither implementation was duplicated.
+Worker `c08624d3` remains outside this workspace after the approved supported transfer failed before bytes. The original ESP32 branch was fetched at `99c01c6b41de67e2f5e11b46e8e7488a1a33aa4c` and locally merged at `4ce5fb535c38f67a3f31caf3a2c7ebfb988a9ceb` after the environment checkpoint. See EN-006/EN-007 in the [current index](product-behavior-and-ideas.md) and the [integration evidence](../archive/delivery/esp32-integrated-20261009.md); the [original handoff blocker](../archive/delivery/approved-handoff-blocker-20261008.md) is historical for ESP32. Neither implementation was duplicated.
 Approved species artwork, real-source samples, production identity/mail credentials,
 model licenses and external provider/hosting configuration remain explicit external
 gates. Local coding, synthetic fixtures and ordinary package dependencies proceed.
@@ -99,7 +84,7 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
 - [x] Complete bounded durable recording/derived-output deletion, generation fences,
   explicit cleanup, truthful owner lifecycle UI and retained-ledger reconciliation
   into new restore copies. Accept failure/restart/late-result tests, 23 lifecycle
-  browser checks and 14 recovery HTTP assertions. See [lifecycle wave](lifecycle-wave.md).
+  browser checks and 14 recovery HTTP assertions. See [lifecycle wave](../archive/delivery/lifecycle-wave.md).
 - [x] Persist reviewed request outcomes and atomically confirm owner-selected
   candidates into independent human Findings. Accept actual Svelte/FastAPI/CPU ONNX
   mechanics journey including offline restart replay, model-digest invalidation
@@ -132,6 +117,6 @@ in the checkpoint report. Dependencies are also encoded in `matrix.json`.
 - [ ] Resolve Docker build-network access and verify built images/composition.
   Publication, hosting and deployment remain outside this local task.
 
-The later lifecycle wave is recorded in [its checkpoint](verification-ledger.md#lifecycle-checkpoint-complete-run-and-separate-repair), [55-gate evidence](lifecycle-verification-20261008.json) and [commit ledger](lifecycle-commits-20261008.md). The earlier checkpoint remains intact.
+The later lifecycle wave is recorded in [its checkpoint](verification-ledger.md#lifecycle-checkpoint-complete-run-and-separate-repair), [evidence](../archive/delivery/lifecycle-verification-20261008.json) and [commit ledger](../archive/delivery/lifecycle-commits-20261008.md). The earlier checkpoint remains intact.
 
-The [local Svelte CLI and CSS audit](svelte-autofixer-20261010.md) corrects the earlier setup assessment and adds three repeatable bounded gates. Full verification status is recorded in that checkpoint.
+The [local Svelte CLI and CSS audit](../archive/delivery/svelte-autofixer-20261010.md) corrects the earlier setup assessment.

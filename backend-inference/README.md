@@ -93,7 +93,7 @@ automatic format verification needs a future firmware protocol change.
 
 Packet parsing (`audio_packet.py`), capture assembly (`audio_capture.py`) and
 transport (`stream_handler.py`) have separate responsibilities. The old
-`server.py`, `audio_player.py` and `audio_visualizer.py` remain **legacy GUI
+`audio_player.py` and `audio_visualizer.py` remain **legacy GUI
 prototypes**; they are not imported or used by this entrypoint. Their playback,
 plotting and old handler APIs are not repaired or supported by this fix. The
 former outbound `uri`/`connect` interface is replaced by accepted-socket intake.

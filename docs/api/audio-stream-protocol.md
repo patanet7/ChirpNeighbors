@@ -86,5 +86,5 @@ I2S is uninstalled only after the capture task has stopped using it.
 - No native test or emulator result proves physical microphone alignment,
   radio reliability, audio quality, power consumption, or model accuracy.
 
-See the [verification log](../agents/20261009_012600_esp32-s3-verification.md)
+See the [verification log](../archive/agents/20261009_012600_esp32-s3-verification.md)
 for exact commands, versions, results, and unrun hardware checks.
